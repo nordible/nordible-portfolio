@@ -4,6 +4,7 @@ export const knowledgeBase = {
     title: "Software Development Agency",
     email: "nordiblesolutions@gmail.com",
     phone: "+91-9773207706",
+    address: "002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037",
     summary: "Nordible Solutions is a software development agency with 8+ years of experience building scalable web applications for healthcare, fintech, and technology sectors."
   },
   

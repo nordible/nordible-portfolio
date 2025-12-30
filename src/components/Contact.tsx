@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Send, Phone, Mail, MessageSquare, MapPin } from 'lucide-react';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export default function Contact() {
@@ -74,6 +74,10 @@ export default function Contact() {
                   <div className="flex items-center space-x-3">
                     <MessageSquare className="h-5 w-5 text-blue-400" />
                     <span>WhatsApp Available</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <MapPin className="h-5 w-5 text-blue-400 mt-1" />
+                    <span>002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037</span>
                   </div>
                 </div>
               </div>

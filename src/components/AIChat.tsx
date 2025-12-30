@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Mail, Phone, Calendar } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Send, Bot, User, Mail, Phone, Calendar, MapPin } from 'lucide-react';
 import { askAI } from '../services/aiService';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
@@ -69,7 +69,7 @@ export default function AIChat() {
           setShowContactForm(true);
         }, 1000);
       }
-    } catch (error) {
+    } catch {
       const errorMessage: Message = {
         role: 'assistant',
         content: "I'm having trouble right now. Please use the contact form below to reach Nordible directly.",
@@ -259,6 +259,10 @@ export default function AIChat() {
                   <Calendar className="h-4 w-4" />
                   <span>Book Call</span>
                 </a>
+              </div>
+              <div className="bg-white/20 rounded-lg p-3 text-sm flex items-start space-x-2">
+                <MapPin className="h-4 w-4 text-blue-400 mt-1 flex-shrink-0" />
+                <span className="text-blue-50 text-left">002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037</span>
               </div>
             </div>
           </div>

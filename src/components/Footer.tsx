@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Mail, Phone, MessageSquare, Github, Linkedin } from 'lucide-react';
+import { Code, Mail, Phone, MessageSquare, Github, MapPin } from 'lucide-react';
 
 interface FooterProps {
   onPrivacyClick: () => void;
@@ -32,6 +32,10 @@ export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
               <div className="flex items-center space-x-2">
                 <MessageSquare className="h-4 w-4 text-purple-400" />
                 <span className="text-sm">WhatsApp Available</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <MapPin className="h-4 w-4 text-purple-400 mt-1" />
+                <span className="text-sm">002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037</span>
               </div>
             </div>
             <div className="flex space-x-4 mt-6">

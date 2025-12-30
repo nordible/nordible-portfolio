@@ -139,7 +139,8 @@ export default function TermsOfService({ onBack }: TermsOfServiceProps) {
                 <p className="text-gray-600 dark:text-gray-300">
                   <strong>Email:</strong> nordiblesolutions@gmail.com<br />
                   <strong>Phone:</strong> +91-9773207706<br />
-                  <strong>WhatsApp:</strong> Available
+                  <strong>WhatsApp:</strong> Available<br />
+                  <strong>Address:</strong> 002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037
                 </p>
               </div>
             </section>
