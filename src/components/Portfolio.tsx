@@ -11,6 +11,23 @@ export default function Portfolio() {
 
   const projects = [
     {
+      id: 'habitualist',
+      title: 'Habitualist',
+      client: 'Direct-to-Consumer Product',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzQzMzhjYSIvPjxwYXRoIGQ9Ik0zNSA1MGwxMCAxMCAyMC0yMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiLz48L3N2Zz4=',
+      link: 'https://habitualist.app',
+      description: 'A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.',
+      technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      outcome: 'Successfully launched cross-platform (Web & Android) with a privacy-first, science-backed approach to habit formation.',
+      image: 'https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      metrics: {
+        platform: 'Web & Android',
+        method: 'Elastic Habits',
+        privacy: '100% Private'
+      },
+      gradient: 'from-indigo-600 to-purple-600'
+    },
+    {
       id: 'instarem',
       title: 'Instarem.com',
       client: 'NIUM',
@@ -266,10 +283,10 @@ export default function Portfolio() {
             <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Portfolio Showcase</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Our Projects
+            Our Software Products
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Here are some of the applications Nordible Solutions has had the pleasure of working on - from healthcare platforms to fintech solutions
+            We build and scale high-impact software products across diverse industries—from cross-platform consumer apps to enterprise healthcare solutions.
           </p>
         </div>
 

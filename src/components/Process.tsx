@@ -1,35 +1,35 @@
 import React from 'react';
-import { Search, Palette, Code, Rocket, Clock, CheckCircle } from 'lucide-react';
+import { Search, Palette, Code, Rocket, TrendingUp, Clock, CheckCircle } from 'lucide-react';
 
 export default function Process() {
   const steps = [
     {
       icon: Search,
-      title: 'Discovery',
-      duration: '1-2 days',
-      description: 'We discuss your goals, requirements, and vision for the project.',
-      details: ['Requirements gathering', 'Technical consultation', 'Project scope definition']
+      title: 'Strategy & Discovery',
+      duration: '1-3 days',
+      description: 'We define the product vision, market fit, and technical roadmap.',
+      details: ['Market analysis', 'Product roadmap', 'Technical architecture']
     },
     {
       icon: Palette,
-      title: 'Design',
-      duration: '3-5 days',
-      description: 'Creating wireframes and designs that align with your brand.',
-      details: ['Wireframe creation', 'UI/UX design', 'Design approval']
+      title: 'Design & UX',
+      duration: '1-2 weeks',
+      description: 'Crafting science-backed interfaces focused on user behavior and psychology.',
+      details: ['User psychology UX', 'Interactive prototypes', 'Visual design system']
     },
     {
       icon: Code,
-      title: 'Development',
-      duration: '1-8 weeks',
-      description: 'Building your application with clean, scalable code.',
-      details: ['Frontend development', 'Backend integration', 'Testing & QA']
+      title: 'Engineering',
+      duration: '2-12 weeks',
+      description: 'Building robust, scalable applications for Web, Mobile, and Cloud.',
+      details: ['Cross-platform dev', 'Scalable backend', 'Automated testing']
     },
     {
-      icon: Rocket,
-      title: 'Launch',
-      duration: '1-2 days',
-      description: 'Deploying your project and ensuring everything works perfectly.',
-      details: ['Deployment setup', 'Final testing', 'Go-live support']
+      icon: TrendingUp,
+      title: 'Growth & Marketing',
+      duration: 'Ongoing',
+      description: 'Deploying and scaling your product with data-driven growth strategies.',
+      details: ['Cloud deployment', 'Growth analytics', 'Market optimization']
     }
   ];
 

@@ -1,27 +1,27 @@
 import React from 'react';
-import { Globe, ShoppingCart, Settings, ArrowRight } from 'lucide-react';
+import { Palette, Terminal, TrendingUp, ArrowRight } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
-      icon: Globe,
-      title: 'Modern Websites',
-      description: 'Beautiful, responsive websites built with React and modern web technologies.',
-      features: ['Responsive Design', 'SEO Optimization', 'CMS Integration', 'Performance Optimization'],
+      icon: Palette,
+      title: 'Product Design & Strategy',
+      description: 'We design high-impact software products with a focus on science-backed UX and strategic growth.',
+      features: ['UI/UX Design', 'User Research', 'Product Strategy', 'Brand Identity'],
       color: 'bg-purple-500'
     },
     {
-      icon: ShoppingCart,
-      title: 'E-Commerce Apps',
-      description: 'Full-featured online stores with custom functionality and seamless user experiences.',
-      features: ['Shopify Development', 'Payment Integration', 'Inventory Management', 'Mobile Commerce'],
+      icon: Terminal,
+      title: 'Software Engineering',
+      description: 'Building scalable, high-performance applications for Web, Mobile, and Cloud environments.',
+      features: ['Web & Mobile Apps', 'Scalable Backend', 'Cloud Infrastructure', 'API Systems'],
       color: 'bg-orange-500'
     },
     {
-      icon: Settings,
-      title: 'Web Applications',
-      description: 'Complex web apps with real-time features, APIs, and database integration.',
-      features: ['Dashboard Development', 'API Integration', 'Database Design', 'Cloud Deployment'],
+      icon: TrendingUp,
+      title: 'Growth & Marketing',
+      description: 'Driving product adoption and user retention through data-driven growth strategies.',
+      features: ['SEO & SEM', 'Conversion Optimization', 'Product Analytics', 'Market Strategy'],
       color: 'bg-pink-500'
     }
   ];
@@ -31,10 +31,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Our Services
+            Our Capabilities
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            From simple websites to complex web applications - here's what Nordible Solutions enjoys creating
+            From design to deployment and global growth—we build software that drives real impact.
           </p>
         </div>
 

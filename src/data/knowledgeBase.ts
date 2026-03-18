@@ -1,11 +1,11 @@
 export const knowledgeBase = {
   personal: {
     name: "Nordible Solutions",
-    title: "Software Development Agency",
+    title: "Software Product Engineering & Technology Powerhouse",
     email: "nordiblesolutions@gmail.com",
     phone: "+91-9773207706",
     address: "002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037",
-    summary: "Nordible Solutions is a software development agency with 8+ years of experience building scalable web applications for healthcare, fintech, and technology sectors."
+    summary: "Nordible Solutions is a technology powerhouse with 8+ years of experience engineering world-class software products from design to deployment and marketing."
   },
   
   experience: [
@@ -41,6 +41,13 @@ export const knowledgeBase = {
   },
 
   projects: [
+    {
+      name: "Habitualist",
+      client: "Direct-to-Consumer Product",
+      description: "A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.",
+      outcome: "Successfully launched cross-platform (Web & Android) with a privacy-first, science-backed approach to habit formation.",
+      technologies: ["React Native", "React.js", "TypeScript", "Node.js", "PostgreSQL"]
+    },
     {
       name: "Instarem.com",
       client: "NIUM",
@@ -114,10 +121,10 @@ export const knowledgeBase = {
   ],
 
   services: [
-    "Modern Website Development with React and modern web technologies",
-    "E-Commerce Applications with custom functionality and seamless UX", 
-    "Custom Web Applications with real-time features, APIs, and database integration",
-    "Full-Stack Development from frontend to backend and deployment",
-    "Healthcare and Fintech domain expertise"
+    "Full-Lifecycle Product Engineering from Strategy to Deployment",
+    "Science-Backed UI/UX Design focusing on User Psychology",
+    "Cross-Platform Mobile & Web Development (React Native, React.js)",
+    "Scalable Cloud Architecture and DevOps (AWS, Azure)",
+    "Growth Marketing and Product Analytics Strategy"
   ]
 };

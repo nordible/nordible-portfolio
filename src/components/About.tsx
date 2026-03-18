@@ -5,23 +5,23 @@ export default function About() {
   const qualities = [
     {
       icon: Target,
-      title: 'Full-Stack Skills',
-      description: 'From React frontends to Node.js backends, we excel at working across the entire stack.'
+      title: 'Full-Lifecycle Engineering',
+      description: 'From design and development to cloud deployment and marketing strategy.'
     },
     {
       icon: Zap,
-      title: 'Clean Code Advocate',
-      description: 'We write tests first and believe in code that tells a story - readable, maintainable, and reliable.'
+      title: 'High-Scale Performance',
+      description: 'We build systems designed to handle millions of users with 99.9% uptime.'
     },
     {
       icon: Users,
-      title: 'Real-World Impact',
-      description: 'Built applications used by millions - from healthcare platforms to fintech solutions.'
+      title: 'User-Centric Design',
+      description: 'Science-backed UX focusing on behavioral psychology and user engagement.'
     },
     {
       icon: Lightbulb,
-      title: 'Problem Solver',
-      description: 'We love tackling complex challenges and finding creative solutions that actually work.'
+      title: 'Strategic Growth',
+      description: 'We don\'t just build products; we help them grow and dominate their markets.'
     }
   ];
 
@@ -31,18 +31,19 @@ export default function About() {
         <div className="grid lg:grid-cols-1 gap-12 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              About Us
+              A Technology Powerhouse
             </h2>
             
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Nordible Solutions is a team of passionate full-stack developers who love turning complex problems into 
-              elegant solutions. We've had the opportunity to work on some amazing projects 
-              including healthcare platforms at General Electric and fintech applications at Nium.
+              Nordible Solutions is a technology powerhouse dedicated to engineering world-class software products. 
+              We don't just develop; we design, deploy, and market high-impact solutions that solve real-world problems 
+              at scale.
             </p>
 
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              At Nordible Solutions, we are constantly exploring new technologies to deliver cutting-edge solutions. We believe in writing clean, maintainable code and 
-              creating applications that users actually enjoy using.
+              From building cross-platform consumer apps like Habitualist to architecting complex enterprise systems 
+              for global giants like General Electric and Nium, our expertise spans the entire technology landscape. 
+              We believe in science-backed UX, clean engineering, and strategic product growth.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">

@@ -2,8 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  overflow-x: hidden;
+@layer base {
+  :root {
+    --grid-color: rgba(99, 102, 241, 0.05);
+  }
+
+  .dark {
+    --grid-color: rgba(99, 102, 241, 0.1);
+  }
+
+  html, body {
+    overflow-x: hidden;
+    @apply bg-white dark:bg-gray-900;
+  }
+}
+
+@layer components {
+  .tech-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  }
+
+  .tech-card {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-100 dark:border-gray-700;
+  }
+
+  .tech-glow {
+    box-shadow: 0 0 20px -5px theme('colors.purple.500/30');
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Ubuntu Mono', monospace;
+  }
 }
 
 /* Touch-friendly interactions */
@@ -12,4 +44,15 @@ html, body {
     min-height: 44px;
     min-width: 44px;
   }
+}
+
+/* Custom animations */
+@keyframes tech-pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.animate-tech-pulse {
+  animation: tech-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

@@ -15,26 +15,26 @@ export default function Hero() {
           <div className="grid lg:grid-cols-1 gap-12 items-center">
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-              Welcome to Nordible Solutions
-              <br />Your Partner in Web Development
+              Engineering World-Class
+              <br />Software Products
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed">
-              We specialize in building web applications that solve real problems. From fintech platforms 
-              to healthcare solutions, we turn your ideas into scalable, user-friendly applications.
+              We are a technology powerhouse dedicated to building scalable, high-impact software products. 
+              From initial design and engineering to deployment and global marketing, we handle the entire product lifecycle.
             </p>
             
             <div className="mt-8 space-y-4">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-orange-600" />
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">Full-Stack Development (React, Node.js, Python)</span>
+                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">End-to-End Product Engineering (Web & Mobile)</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-orange-600" />
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">Experience with Healthcare & Fintech Projects</span>
+                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">Strategic Design & Science-Backed UX</span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-orange-600" />
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">Clean Code & Test-Driven Development</span>
+                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">Scalable Infrastructure & Growth Marketing</span>
               </div>
             </div>
 
