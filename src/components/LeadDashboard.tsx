@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, XCircle, Calendar, User, Mail, Phone, DollarSign, FileText, Clock } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
 
 interface Lead {
   id: string;
@@ -21,7 +20,6 @@ interface LeadDashboardProps {
 export default function LeadDashboard({ onBack }: LeadDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
-  const { isDark } = useTheme();
   
   // Mock data for demonstration
   const [leads, setLeads] = useState<Lead[]>([

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Palette, Code, Rocket, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import { Search, Palette, Code, TrendingUp, Clock } from 'lucide-react';
 
 export default function Process() {
   const steps = [
@@ -34,43 +34,51 @@ export default function Process() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            How We Work Together
+          <div className="inline-block px-4 py-1 mb-6 text-xs font-mono font-medium tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase bg-blue-100 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-800">
+            Development Pipeline
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+            How We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Excellence</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A proven process that ensures your project is delivered on time and exceeds expectations
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
+            A robust, engineering-led process that ensures your product is built for scale and success.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16 relative">
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent -translate-y-12"></div>
+          
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transform translate-x-4"></div>
-              )}
-              
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 relative z-10">
-                <div className="bg-gradient-to-r from-purple-600 to-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                  <step.icon className="h-6 w-6 text-white" />
+            <div key={index} className="relative group">
+              <div className="tech-card h-full rounded-xl p-8 transition-all duration-300 hover:border-blue-500/50 relative z-10 flex flex-col notch-tl">
+                <div className="absolute -top-4 -right-4 font-mono text-5xl font-bold opacity-5 group-hover:opacity-10 transition-opacity">
+                  0{index + 1}
+                </div>
+                
+                <div className="bg-gradient-to-br from-purple-600 to-blue-600 w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform notch-tl">
+                  <step.icon className="h-7 w-7 text-white" />
                 </div>
                 
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
                 
-                <div className="flex items-center space-x-2 mb-3">
-                  <Clock className="h-4 w-4 text-purple-600" />
-                  <span className="text-sm text-purple-600 font-medium">{step.duration}</span>
+                <div className="flex items-center space-x-2 mb-4">
+                  <Clock className="h-4 w-4 text-blue-500" />
+                  <span className="text-xs font-mono text-blue-500 font-bold uppercase tracking-widest">{step.duration}</span>
                 </div>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{step.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm font-medium leading-relaxed">{step.description}</p>
                 
-                <ul className="space-y-2">
+                <ul className="space-y-3 mt-auto">
                   {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-center space-x-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 dark:text-gray-300">{detail}</span>
+                    <li key={detailIndex} className="flex items-center space-x-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-tight">
+                      <div className="h-1 w-1 rounded-full bg-blue-500"></div>
+                      <span>{detail}</span>
                     </li>
                   ))}
                 </ul>
@@ -79,20 +87,22 @@ export default function Process() {
           ))}
         </div>
 
-        <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">24h</div>
-              <div className="text-gray-600 dark:text-gray-300">Response Time</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
-              <div className="text-gray-600 dark:text-gray-300">On-Time Delivery</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">30+</div>
-              <div className="text-gray-600 dark:text-gray-300">Days Support</div>
-            </div>
+        <div className="tech-card rounded-2xl p-10 relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 font-mono text-[80px] font-bold opacity-[0.02] pointer-events-none uppercase">
+            SLA_METRICS
+          </div>
+          <div className="grid md:grid-cols-3 gap-12 relative z-10">
+            {[
+              { label: 'Response Time', value: '24h', sub: 'Internal Protocol' },
+              { label: 'Delivery Rate', value: '100%', sub: 'Project Success' },
+              { label: 'Support Phase', value: '30d+', sub: 'Post-Launch' }
+            ].map((stat, i) => (
+              <div key={i} className="text-center md:text-left">
+                <div className="text-xs font-mono text-blue-500 uppercase tracking-[0.2em] mb-2 font-bold">{stat.label}</div>
+                <div className="text-5xl font-bold text-gray-900 dark:text-white mb-1 font-mono tracking-tighter">{stat.value}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{stat.sub}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

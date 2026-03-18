@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Code, TrendingUp } from 'lucide-react';
+import { Award, Users, TrendingUp } from 'lucide-react';
 
 export default function TrustSignals() {
   const stats = [
@@ -39,41 +39,48 @@ export default function TrustSignals() {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-24">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-white" />
+            <div key={index} className="tech-card group p-8 rounded-2xl text-center transition-all duration-300 hover:border-purple-500/50 relative overflow-hidden notch-tl">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="bg-slate-50 dark:bg-gray-900/50 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-inner notch-tl">
+                <stat.icon className="h-10 w-10 text-purple-600 dark:text-purple-400" />
               </div>
-              <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">{stat.number}</div>
-              <div className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-1">{stat.label}</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">{stat.description}</div>
+              <div className="text-5xl font-bold text-gray-900 dark:text-white mb-2 font-mono tracking-tighter">{stat.number}</div>
+              <div className="text-xs font-mono text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] mb-3">{stat.label}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed">{stat.description}</div>
             </div>
           ))}
         </div>
 
         {/* Companies */}
-        <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-            Worked with Leading Companies
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center opacity-60 hover:opacity-100 transition-opacity">
+        <div className="relative px-8 py-12 bg-slate-50 dark:bg-gray-900/50 rounded-3xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+          <div className="absolute inset-0 tech-grid opacity-10"></div>
+          <div className="relative z-10 text-center mb-12">
+            <div className="inline-block px-4 py-1 mb-4 text-[10px] font-mono font-bold tracking-[0.3em] text-gray-500 uppercase">
+              Trusted By Industry Leaders
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Global Partnerships & Collaborations
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-12 items-center opacity-70 hover:opacity-100 transition-opacity relative z-10">
             {companies.map((company, index) => (
-              <div key={index} className="flex items-center justify-center h-16">
+              <div key={index} className="flex items-center justify-center h-16 group/logo">
                 <img
                   src={company.logo}
                   alt={company.name}
-                  className="max-h-12 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all"
+                  className="max-h-12 max-w-full object-contain filter grayscale dark:invert dark:opacity-60 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 dark:group-hover/logo:opacity-100 transition-all duration-500 transform group-hover/logo:scale-110"
                 />
               </div>
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );

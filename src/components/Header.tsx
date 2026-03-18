@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Terminal, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-interface HeaderProps {
-  onDashboard: () => void;
-}
-
-export default function Header({ onDashboard }: HeaderProps) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
@@ -20,21 +16,7 @@ export default function Header({ onDashboard }: HeaderProps) {
 
   return (
     <>
-      {/* Free Consultation Banner
-      <div className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-2 text-center">
-        <div className="flex items-center justify-center space-x-2 text-sm font-semibold">
-          <span className="animate-bounce">📞</span>
-          <span>FREE 30-Minute Consultation Call Available!</span>
-          <button 
-            onClick={() => scrollToSection('consultation')}
-            className="ml-2 bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full text-xs transition-colors"
-          >
-            Book Now
-          </button>
-        </div>
-      </div>
-       */}
-      <header className="w-full bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+      <header className="sticky top-0 z-[100] w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
@@ -55,24 +37,12 @@ export default function Header({ onDashboard }: HeaderProps) {
             <button onClick={() => scrollToSection('consultation')} className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
               Contact
             </button>
-            {/* <button
-              onClick={() => scrollToSection('consultation')}
-              className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg animate-pulse"
-            >
-              📞 FREE 30-min Call
-            </button> */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            {/* <button 
-              onClick={onDashboard}
-              className="text-xs bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full transition-colors"
-            >
-              Dashboard
-            </button> */}
           </nav>
 
           <button
@@ -97,9 +67,6 @@ export default function Header({ onDashboard }: HeaderProps) {
               </button>
               <button onClick={() => scrollToSection('consultation')} className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                 Contact
-              </button>
-              <button onClick={() => scrollToSection('consultation')} className="block mx-3 my-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 text-center">
-                📞 FREE 30-min Call
               </button>
               <button
                 onClick={toggleTheme}

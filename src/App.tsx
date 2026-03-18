@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -21,6 +21,15 @@ import TermsOfService from './components/TermsOfService';
 
 function App() {
   const [currentView, setCurrentView] = useState('website');
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   if (currentView === 'dashboard') {
     return (
@@ -48,8 +57,9 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Header onDashboard={() => setCurrentView('dashboard')} />
+      <div className="relative min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
+        <div className="scanline pointer-events-none"></div>
+        <Header />
         <Hero />
         {/* freelancing features are already added to the site, just uncomment the freelancing secions instead of developing new ones */}
         <TrustSignals />

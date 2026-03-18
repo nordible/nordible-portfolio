@@ -4,7 +4,6 @@ export const knowledgeBase = {
     title: "Software Product Engineering & Technology Powerhouse",
     email: "nordiblesolutions@gmail.com",
     phone: "+91-9773207706",
-    address: "002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037",
     summary: "Nordible Solutions is a technology powerhouse with 8+ years of experience engineering world-class software products from design to deployment and marketing."
   },
   

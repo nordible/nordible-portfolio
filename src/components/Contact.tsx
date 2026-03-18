@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MessageSquare, MapPin } from 'lucide-react';
+import { Send, Phone, Mail, MessageSquare } from 'lucide-react';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export default function Contact() {
@@ -45,14 +45,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-teal-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="consultation" className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Let's Build Something Amazing Together
+          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-orange-600 dark:text-orange-400 uppercase bg-orange-100 dark:bg-orange-900/30 rounded-full border border-orange-200 dark:border-orange-800">
+            Initialize Project_Request
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+            Let's Engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-orange-600">Something Amazing</span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Ready to transform your vision into reality? Get in touch for a free consultation.
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+            Ready to transform your vision into a high-performance system? Start the protocol.
           </p>
         </div>
 
@@ -60,33 +65,36 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="lg:col-span-1">
             <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Mail className="h-5 w-5 text-blue-400" />
-                    <span>nordiblesolutions@gmail.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Phone className="h-5 w-5 text-blue-400" />
-                    <span>+91-9773207706</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <MessageSquare className="h-5 w-5 text-blue-400" />
-                    <span>WhatsApp Available</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-blue-400 mt-1" />
-                    <span>002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037</span>
-                  </div>
+              <div className="tech-card p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
+                <h3 className="font-mono text-xs font-bold text-gray-400 mb-8 uppercase tracking-widest flex items-center">
+                  <span className="h-px w-8 bg-gray-300 dark:bg-gray-700 mr-3"></span>
+                  System.Access_Points
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    { icon: Mail, label: 'Email_Root', value: 'nordiblesolutions@gmail.com' },
+                    { icon: Phone, label: 'Comms_Link', value: '+91-9773207706' },
+                    { icon: MessageSquare, label: 'Status_Instant', value: 'WhatsApp Active' }
+                  ].map((item, i) => (
+                    <div key={i} className="group">
+                      <div className="text-[10px] font-mono text-gray-400 uppercase tracking-widest mb-1">{item.label}</div>
+                      <div className="flex items-center space-x-3 text-gray-900 dark:text-white font-bold group-hover:text-purple-600 transition-colors">
+                        <item.icon className="h-4 w-4 text-purple-500" />
+                        <span>{item.value}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <h4 className="text-lg font-semibold mb-3">Response Time</h4>
-                <p className="text-blue-100 text-sm">
-                  We typically respond to all inquiries within 2-4 hours during business hours. 
-                  For urgent projects, WhatsApp is the fastest way to reach us.
+              <div className="bg-gray-900 text-white rounded-2xl p-8 tech-glow relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 font-mono text-[40px] font-bold opacity-10 pointer-events-none">
+                  SLA
+                </div>
+                <h4 className="font-mono text-xs font-bold text-purple-400 mb-4 uppercase tracking-widest">Protocol.Response</h4>
+                <p className="text-gray-300 text-sm leading-relaxed font-medium">
+                  Average response latency: 2-4 hours. 
+                  Protocol Priority: High for complex systems and innovative products.
                 </p>
               </div>
             </div>
@@ -94,11 +102,11 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">
-                    Full Name *
+            <form onSubmit={handleSubmit} className="tech-card rounded-2xl p-8 md:p-10 space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label htmlFor="fullName" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                    Full_Name.Input
                   </label>
                   <input
                     type="text"
@@ -107,13 +115,13 @@ export default function Contact() {
                     value={formData.fullName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                    placeholder="Your full name"
+                    className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium"
+                    placeholder="IDENTIFY YOURSELF"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email Address *
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                    Email_Address.Input
                   </label>
                   <input
                     type="email"
@@ -122,15 +130,15 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                    placeholder="your.email@company.com"
+                    className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium"
+                    placeholder="PROTOCOL@ENDPOINT.COM"
                   />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                  Phone Number (WhatsApp preferred)
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                  Comms_Number.Input
                 </label>
                 <input
                   type="tel"
@@ -138,15 +146,15 @@ export default function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                  placeholder="+1 (555) 123-4567"
+                  className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium"
+                  placeholder="+X (XXX) XXX-XXXX"
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium mb-2">
-                    Project Type *
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label htmlFor="projectType" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                    System_Type.Select
                   </label>
                   <select
                     id="projectType"
@@ -154,27 +162,27 @@ export default function Contact() {
                     value={formData.projectType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent [&>option]:text-gray-900 [&>option]:bg-white"
+                    className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium appearance-none"
                   >
-                    <option value="">Select project type</option>
-                    <option value="e-commerce">E-commerce</option>
-                    <option value="business-website">Business Website</option>
-                    <option value="custom-application">Custom Application</option>
-                    <option value="other">Other</option>
+                    <option value="">-- SELECT SYSTEM --</option>
+                    <option value="e-commerce">E-COMMERCE CORE</option>
+                    <option value="business-website">CORPORATE SYSTEM</option>
+                    <option value="custom-application">CUSTOM PROTOCOL</option>
+                    <option value="other">OTHER ARCHITECTURE</option>
                   </select>
                 </div>
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                    Project Budget
+                <div className="space-y-2">
+                  <label htmlFor="budget" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                    Resource_Allocation.Select
                   </label>
                   <select
                     id="budget"
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent [&>option]:text-gray-900 [&>option]:bg-white"
+                    className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium appearance-none"
                   >
-                    <option value="">Select budget range</option>
+                    <option value="">-- SELECT SCALE --</option>
                     <option value="1k-5k">$1k - $5k</option>
                     <option value="5k-10k">$5k - $10k</option>
                     <option value="10k-25k">$10k - $25k</option>
@@ -183,9 +191,9 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="description" className="block text-sm font-medium mb-2">
-                  Brief Project Description *
+              <div className="space-y-2">
+                <label htmlFor="description" className="block text-[10px] font-mono font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                  Project_Manifest.Detailed
                 </label>
                 <textarea
                   id="description"
@@ -194,22 +202,22 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none"
-                  placeholder="Tell me about your project, goals, and any specific requirements..."
+                  className="w-full px-4 py-4 rounded-sm bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-all font-medium resize-none"
+                  placeholder="DESCRIBE THE SYSTEM ARCHITECTURE, GOALS, AND CONSTRAINTS..."
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
+                className="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold py-5 px-8 rounded-sm transition-all duration-200 hover:bg-purple-600 dark:hover:bg-purple-400 hover:text-white dark:hover:text-white flex items-center justify-center space-x-3 shadow-xl tech-glow disabled:cursor-not-allowed uppercase tracking-widest text-sm"
               >
-                <Send className="h-5 w-5" />
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <Send className="h-4 w-4" />
+                <span>{isSubmitting ? 'EXECUTING...' : 'TRANSMIT REQUEST'}</span>
               </button>
 
-              <p className="text-xs text-blue-100 text-center">
-                By submitting this form, you agree to receive follow-up communications about your project inquiry.
+              <p className="text-[10px] font-mono text-gray-400 text-center uppercase tracking-tighter">
+                By transmitting, you authorize encrypted follow-up communications regarding this manifest.
               </p>
             </form>
           </div>
