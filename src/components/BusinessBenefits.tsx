@@ -48,16 +48,16 @@ export default function BusinessBenefits() {
   ];
 
   return (
-    <section id="benefits" className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section id="benefits" className="relative py-24 bg-white dark:bg-black overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-green-600 dark:text-green-400 uppercase bg-green-100 dark:bg-green-900/30 rounded-full border border-green-200 dark:border-green-800">
+          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-green-600 dark:text-green-400 uppercase bg-green-100 dark:bg-green-900/30 rounded-full border border-green-200 dark:border-green-500/30">
             Performance Metrics
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-            Real Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">Impact</span>
+            Real Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Impact</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
             We deliver measurable results through superior engineering and strategic product design.
@@ -91,7 +91,7 @@ export default function BusinessBenefits() {
           ))}
         </div>
 
-        <div className="mt-16 tech-card rounded-2xl p-10 bg-gradient-to-r from-purple-600/5 to-blue-600/5 dark:from-purple-600/10 dark:to-blue-600/10 border border-purple-500/20 text-center relative overflow-hidden">
+        <div className="mt-16 tech-card rounded-2xl p-10 bg-gradient-to-r from-green-600/5 to-emerald-600/5 dark:from-green-600/10 dark:to-emerald-600/10 border border-green-500/20 text-center relative overflow-hidden">
           <div className="relative z-10">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Ready to Optimize Your Business?</h3>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
@@ -104,7 +104,7 @@ export default function BusinessBenefits() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-purple-600 dark:hover:bg-purple-400 hover:text-white dark:hover:text-white tech-glow uppercase tracking-widest text-sm"
+              className="bg-gray-900 dark:bg-green-600 text-white dark:text-white px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-green-600 dark:hover:bg-green-500 hover:text-white dark:hover:text-white tech-glow uppercase tracking-widest text-sm"
             >
               Get Started Today
             </button>

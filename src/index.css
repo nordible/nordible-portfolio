@@ -10,12 +10,12 @@
   }
 
   .dark {
-    --grid-color: rgba(99, 102, 241, 0.1);
+    --grid-color: rgba(34, 197, 94, 0.1);
   }
 
   html, body {
     overflow-x: hidden;
-    @apply bg-white dark:bg-gray-900;
+    @apply bg-white dark:bg-black;
     cursor: crosshair;
     font-family: 'Space Grotesk', sans-serif;
   }
@@ -36,7 +36,7 @@
   }
 
   .tech-card {
-    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-100 dark:border-gray-700 relative;
+    @apply bg-white/80 dark:bg-black/80 backdrop-blur-md border border-gray-100 dark:border-green-500/30 relative;
   }
 
   .tech-card::before, .tech-card::after {
@@ -44,7 +44,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    @apply border-purple-500/50;
+    @apply border-purple-500/50 dark:border-green-500/50;
   }
 
   .tech-card::before {
@@ -69,11 +69,15 @@
     box-shadow: 0 0 20px -5px theme('colors.purple.500/30');
   }
 
+  .dark .tech-glow {
+    box-shadow: 0 0 20px -5px theme('colors.green.500/40');
+  }
+
   .scanline {
     width: 100%;
     height: 100px;
     z-index: 50;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(99, 102, 241, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(34, 197, 94, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
     opacity: 0.1;
     position: fixed;
     top: -100px;

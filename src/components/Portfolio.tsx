@@ -146,7 +146,7 @@ const projects = [
     id: 'zerodha-sandbox',
     title: 'Zerodha Sandbox',
     logo: '/images/logos/zerodha-logo.png',
-    link: 'https://skbr1234.github.io/zerodha-sandbox/',
+    link: 'https://nordible.github.io/zerodha-sandbox/',
     description: 'Interactive trading API sandbox demonstrating Zerodha Kite Connect integration with comprehensive endpoints for orders, portfolio, quotes, and market data.',
 
     technologies: ['TypeScript', 'HTML5', 'CSS3', 'REST API', 'Trading APIs'],
@@ -262,12 +262,12 @@ export default function Portfolio() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section id="portfolio" className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section id="portfolio" className="relative py-24 bg-white dark:bg-black overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-mono font-medium tracking-[0.2em] text-orange-600 dark:text-orange-400 uppercase bg-orange-100 dark:bg-orange-900/30 rounded-full border border-orange-200 dark:border-orange-800">
+          <div className="inline-block px-4 py-1 mb-6 text-xs font-mono font-medium tracking-[0.2em] text-orange-600 dark:text-green-400 uppercase bg-orange-100 dark:bg-green-900/30 rounded-full border border-orange-200 dark:border-green-800">
             Selected Works
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
@@ -281,9 +281,9 @@ export default function Portfolio() {
         <div className="relative flex items-center mb-12">
           <button
             onClick={prevSlide}
-            className="absolute left-0 z-20 p-4 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-gray-700 group -translate-x-4 md:-translate-x-10"
+            className="absolute left-0 z-20 p-4 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-green-500/30 group -translate-x-4 md:-translate-x-10"
           >
-            <ChevronLeft className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600" />
+            <ChevronLeft className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-green-400" />
           </button>
 
           <div className="tech-card rounded-2xl shadow-2xl overflow-hidden flex-1 mx-4 md:mx-10 relative group/card notch-tl">
@@ -292,7 +292,7 @@ export default function Portfolio() {
             </div>
 
             <div className="relative p-8 text-white overflow-hidden min-h-[300px] flex items-end notch-tl" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent dark:from-black"></div>
               <div className="relative z-10 w-full">
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                   <div className="flex items-center space-x-6">
@@ -314,7 +314,7 @@ export default function Portfolio() {
                       )}
                     </div>
                     <div>
-                      <div className="font-mono text-xs text-purple-400 uppercase tracking-widest mb-2 font-bold">{currentProject.client}</div>
+                      <div className="font-mono text-xs text-purple-400 dark:text-green-400 uppercase tracking-widest mb-2 font-bold">{currentProject.client}</div>
                       <h3 className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">{currentProject.title}</h3>
                     </div>
                   </div>
@@ -322,7 +322,7 @@ export default function Portfolio() {
                     href={currentProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-3 bg-white text-gray-900 px-6 py-3 rounded-sm font-bold transition-all duration-300 hover:bg-purple-600 hover:text-white group shadow-xl uppercase text-xs tracking-widest"
+                    className="flex items-center space-x-3 bg-white text-gray-900 px-6 py-3 rounded-sm font-bold transition-all duration-300 hover:bg-purple-600 dark:hover:bg-green-600 hover:text-white dark:hover:text-white group shadow-xl uppercase text-xs tracking-widest"
                   >
                     <span>View System</span>
                     <ExternalLink className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -335,7 +335,7 @@ export default function Portfolio() {
               <div className="space-y-8">
                 <div>
                   <h4 className="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center">
-                    <span className="h-px w-8 bg-gray-300 dark:bg-gray-700 mr-3"></span>
+                    <span className="h-px w-8 bg-gray-300 dark:bg-green-900/30 mr-3"></span>
                     Description
                   </h4>
                   <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-medium">{currentProject.description}</p>
@@ -343,7 +343,7 @@ export default function Portfolio() {
 
                 <div className="grid lg:grid-cols-3 gap-10">
                   <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-slate-50 dark:bg-gray-900/50 rounded-lg p-6 border-l-4 border-purple-500">
+                    <div className="bg-slate-50 dark:bg-green-900/20 rounded-lg p-6 border-l-4 border-purple-500 dark:border-green-500">
                       <h5 className="font-mono text-xs font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-widest">
                         Objective Outcome
                       </h5>
@@ -356,7 +356,7 @@ export default function Portfolio() {
                         {currentProject.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 px-3 py-1 font-mono text-xs font-bold rounded"
+                            className="bg-white dark:bg-green-900/30 border border-gray-200 dark:border-green-900/50 text-gray-600 dark:text-green-400 px-3 py-1 font-mono text-xs font-bold rounded"
                           >
                             {tech}
                           </span>
@@ -366,8 +366,8 @@ export default function Portfolio() {
                   </div>
 
                   <div className="lg:col-span-1">
-                    <div className="bg-gray-900 text-white rounded-lg p-6 tech-glow">
-                      <h5 className="font-mono text-xs font-bold text-purple-400 mb-6 uppercase tracking-widest flex items-center">
+                    <div className="bg-gray-900 dark:bg-black text-white rounded-lg p-6 tech-glow">
+                      <h5 className="font-mono text-xs font-bold text-purple-400 dark:text-green-400 mb-6 uppercase tracking-widest flex items-center">
                         <TrendingUp className="h-4 w-4 mr-2" />
                         Metrics
                       </h5>
@@ -390,32 +390,32 @@ export default function Portfolio() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 z-20 p-4 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-gray-700 group translate-x-4 md:translate-x-10"
+            className="absolute right-0 z-20 p-4 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-green-500/30 group translate-x-4 md:translate-x-10"
           >
-            <ChevronRight className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600" />
+            <ChevronRight className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-green-400" />
           </button>
         </div>
 
         <div className="flex flex-col items-center space-y-8">
           <button
             onClick={togglePause}
-            className="flex items-center space-x-3 bg-white dark:bg-gray-800 px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group font-mono text-xs font-bold uppercase tracking-widest"
+            className="flex items-center space-x-3 bg-white dark:bg-black px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-green-900/30 group font-mono text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-green-400"
           >
             {isPaused ? (
               <>
-                <Play className="h-4 w-4 text-purple-600" />
+                <Play className="h-4 w-4 text-purple-600 dark:text-green-500" />
                 <span>System.Resume()</span>
               </>
             ) : (
               <>
-                <Pause className="h-4 w-4 text-purple-600" />
+                <Pause className="h-4 w-4 text-purple-600 dark:text-green-500" />
                 <span>System.Pause()</span>
               </>
             )}
           </button>
 
           <div className="text-center w-full">
-            <div className="tech-card rounded-2xl p-10 bg-gradient-to-r from-orange-600/5 to-purple-600/5 border border-orange-500/20 relative overflow-hidden">
+            <div className="tech-card rounded-2xl p-10 bg-gradient-to-r from-orange-600/5 to-purple-600/5 dark:from-green-600/5 dark:to-emerald-600/5 border border-orange-500/20 dark:border-green-500/20 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Partner with Nordible Solutions</h3>
                 <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
@@ -428,7 +428,7 @@ export default function Portfolio() {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-orange-600 dark:hover:bg-orange-400 hover:text-white dark:hover:text-white tech-glow uppercase tracking-widest text-sm"
+                  className="bg-gray-900 dark:bg-white text-white dark:text-black px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-orange-600 dark:hover:bg-green-500 hover:text-white dark:hover:text-black tech-glow uppercase tracking-widest text-sm"
                 >
                   Initialize Consultation
                 </button>

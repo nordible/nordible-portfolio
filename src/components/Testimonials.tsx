@@ -9,47 +9,47 @@ export default function Testimonials() {
       company: 'Healthcare Tech',
       rating: 5,
       text: 'Nordible delivered an exceptional healthcare platform that exceeded our expectations. His attention to detail and technical expertise made the project a huge success.',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face'
     },
     {
-      name: 'Michael Chen',
-      role: 'CTO',
-      company: 'Fintech Startup',
+      name: 'Vrishank Shete',
+      role: 'Tech Lead',
+      company: 'Baxter Healthcare',
       rating: 5,
-      text: 'Working with Nordible was fantastic. He built our payment processing system with incredible precision and delivered on time. Highly recommended!',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
+      text: "The architectural depth Nordible brings to software engineering is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Business Owner',
-      company: 'E-commerce Store',
+      name: 'Faisal Al-Otaibi',
+      role: 'Operations Director',
+      company: 'Global Trade Hub',
       rating: 5,
-      text: 'Our online store has been performing amazingly since Nordible built it. Sales increased by 150% in the first month. Professional and reliable!',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+      text: 'Nordible transformed our complex legacy workflows into a streamlined digital system. Their professional approach and engineering rigor are truly world-class.',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face'
     }
   ];
 
   return (
-    <section id="testimonials" className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden">
+    <section id="testimonials" className="relative py-24 bg-white dark:bg-black overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-purple-600 dark:text-purple-400 uppercase bg-purple-100 dark:bg-purple-900/30 rounded-full border border-purple-200 dark:border-purple-800">
+          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-purple-600 dark:text-green-400 uppercase bg-purple-100 dark:bg-green-900/30 rounded-full border border-purple-200 dark:border-green-800">
             Client_Feedback
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-            System <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Verification</span>
+            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 dark:from-green-400 dark:to-emerald-600">Stories</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
-            Read objective performance reviews from our global partners.
+            Objective performance reviews from our global engineering partners.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="tech-card rounded-xl p-8 transition-all duration-300 hover:shadow-2xl relative notch-tl">
-              <Quote className="h-8 w-8 text-purple-500/20 absolute top-6 right-6" />
+              <Quote className="h-8 w-8 text-purple-500/20 dark:text-green-500/20 absolute top-6 right-6" />
               
               <div className="flex mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -77,7 +77,7 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="tech-card rounded-2xl p-10 bg-gradient-to-r from-purple-600/5 to-blue-600/5 border border-purple-500/20 relative overflow-hidden notch-tl">
+          <div className="tech-card rounded-2xl p-10 bg-gradient-to-r from-purple-600/5 to-blue-600/5 dark:from-green-600/5 dark:to-emerald-600/5 border border-purple-500/20 dark:border-green-500/20 relative overflow-hidden notch-tl">
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Start Your Product Journey</h3>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
@@ -90,7 +90,7 @@ export default function Testimonials() {
                     element.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-purple-600 dark:hover:bg-purple-400 hover:text-white dark:hover:text-white tech-glow uppercase tracking-widest text-xs"
+                className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-purple-600 dark:hover:bg-green-600 dark:hover:bg-green-500 hover:text-white dark:hover:text-black tech-glow uppercase tracking-widest text-xs"
               >
                 Initialize Discovery
               </button>

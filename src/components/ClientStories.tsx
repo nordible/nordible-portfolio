@@ -27,16 +27,16 @@ export default function ClientStories() {
   ];
 
   return (
-    <section id="stories" className="relative py-24 bg-slate-50 dark:bg-gray-900/50 overflow-hidden">
+    <section id="stories" className="relative py-24 bg-slate-50 dark:bg-black overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-blue-600 dark:text-blue-400 uppercase bg-blue-100 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-800">
+          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-green-600 dark:text-green-400 uppercase bg-green-100 dark:bg-green-900/30 rounded-full border border-green-200 dark:border-green-500/30">
             Success_Manifests
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Stories</span>
+            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Stories</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
             Proven delivery for industry leaders across the global technology landscape.
@@ -46,7 +46,7 @@ export default function ClientStories() {
         <div className="grid lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="tech-card rounded-xl p-8 transition-all duration-300 hover:shadow-2xl relative notch-tl">
-              <ShieldCheck className="h-8 w-8 text-blue-500/20 absolute top-6 right-6" />
+              <ShieldCheck className="h-8 w-8 text-green-500/20 absolute top-6 right-6" />
               
               <div className="flex items-center mb-6">
                 {[...Array(testimonial.rating)].map((_, starIndex) => (
@@ -58,11 +58,11 @@ export default function ClientStories() {
                 "{testimonial.quote}"
               </p>
               
-              <div className="border-t border-gray-100 dark:border-gray-800 pt-6">
+              <div className="border-t border-gray-100 dark:border-green-900/30 pt-6">
                 <p className="font-bold text-gray-900 dark:text-white uppercase tracking-wider text-sm">{testimonial.author}</p>
                 <div className="flex items-center space-x-2 mt-1">
-                  <span className="h-px w-4 bg-blue-500"></span>
-                  <p className="text-[10px] font-mono text-blue-600 dark:text-blue-400 uppercase tracking-widest">{testimonial.company}</p>
+                  <span className="h-px w-4 bg-green-500"></span>
+                  <p className="text-[10px] font-mono text-green-600 dark:text-green-400 uppercase tracking-widest">{testimonial.company}</p>
                 </div>
                 <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">{testimonial.role}</p>
               </div>

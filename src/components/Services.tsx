@@ -4,35 +4,35 @@ import { Palette, Terminal, TrendingUp } from 'lucide-react';
 export default function Services() {
   const services = [
     {
-      icon: Palette,
-      title: 'Product Design & Strategy',
-      description: 'We design high-impact software products with a focus on science-backed UX and strategic growth.',
-      features: ['UI/UX Design', 'User Research', 'Product Strategy', 'Brand Identity'],
-      color: 'bg-purple-500'
-    },
-    {
       icon: Terminal,
       title: 'Software Engineering',
       description: 'Building scalable, high-performance applications for Web, Mobile, and Cloud environments.',
-      features: ['Web & Mobile Apps', 'Scalable Backend', 'Cloud Infrastructure', 'API Systems'],
+      features: ['Web & Mobile Apps', 'Scalable Backend', 'API Systems', 'Legacy Refactoring'],
+      color: 'bg-purple-500'
+    },
+    {
+      icon: Palette,
+      title: 'Enterprise Solutions',
+      description: 'Developing robust digital platforms that streamline operations and drive business efficiency.',
+      features: ['Custom ERP/CRM', 'Workflow Automation', 'Data Architecture', 'System Integration'],
       color: 'bg-orange-500'
     },
     {
       icon: TrendingUp,
-      title: 'Growth & Marketing',
-      description: 'Driving product adoption and user retention through data-driven growth strategies.',
-      features: ['SEO & SEM', 'Conversion Optimization', 'Product Analytics', 'Market Strategy'],
+      title: 'Cloud Infrastructure',
+      description: 'Architecting secure and resilient cloud environments to support global scale and high availability.',
+      features: ['AWS/Azure/GCP', 'DevOps Automation', 'Security Audits', 'Performance Tuning'],
       color: 'bg-pink-500'
     }
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-slate-50 dark:bg-gray-900/50 overflow-hidden">
+    <section id="services" className="relative py-24 bg-slate-50 dark:bg-black overflow-hidden">
       <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1 mb-4 text-xs font-mono font-medium tracking-[0.2em] text-purple-600 dark:text-purple-400 uppercase bg-purple-100 dark:bg-purple-900/30 rounded-full border border-purple-200 dark:border-purple-800">
+          <div className="inline-block px-4 py-1 mb-4 text-xs font-mono font-medium tracking-[0.2em] text-purple-600 dark:text-green-400 uppercase bg-purple-100 dark:bg-green-900/30 rounded-full border border-purple-200 dark:border-green-800">
             Core Competencies
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
@@ -54,7 +54,7 @@ export default function Services() {
                 <service.icon className="h-7 w-7 text-white" />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-green-400 transition-colors">
                 {service.title}
               </h3>
               
@@ -65,7 +65,7 @@ export default function Services() {
               <ul className="space-y-4">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center space-x-3 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-purple-500"></span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-purple-500 dark:bg-green-500"></span>
                     <span>{feature}</span>
                   </li>
                 ))}
