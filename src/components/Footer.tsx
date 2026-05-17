@@ -25,7 +25,7 @@ export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
             <div className="space-y-4 font-mono text-xs">
               <div className="flex items-center space-x-3 group cursor-pointer">
                 <Mail className="h-4 w-4 text-purple-400 dark:text-green-400 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-300 group-hover:text-purple-400 dark:group-hover:text-green-400 transition-colors">nordiblesolutions@gmail.com</span>
+                <span className="text-gray-300 group-hover:text-purple-400 dark:group-hover:text-green-400 transition-colors">mail@nordible.co</span>
               </div>
               <div className="flex items-center space-x-3 group cursor-pointer">
                 <Phone className="h-4 w-4 text-purple-400 dark:text-green-400 group-hover:scale-110 transition-transform" />

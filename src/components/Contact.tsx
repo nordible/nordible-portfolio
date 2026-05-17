@@ -38,7 +38,7 @@ export default function Contact() {
         description: ''
       });
     } else {
-      alert('Failed to send message. Please try again or contact me directly at nordiblesolutions@gmail.com');
+      alert('Failed to send message. Please try again or contact me directly at mail@nordible.co');
     }
     
     setIsSubmitting(false);
@@ -72,7 +72,7 @@ export default function Contact() {
                 </h3>
                 <div className="space-y-6">
                   {[
-                    { icon: Mail, label: 'Email_Root', value: 'nordiblesolutions@gmail.com' },
+                    { icon: Mail, label: 'Email_Root', value: 'mail@nordible.co' },
                     { icon: Phone, label: 'Comms_Link', value: '+91-9773207706' },
                     { icon: MessageSquare, label: 'Status_Instant', value: 'WhatsApp Active' }
                   ].map((item, i) => (

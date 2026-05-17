@@ -2,7 +2,7 @@ export const knowledgeBase = {
   personal: {
     name: "Nordible Solutions",
     title: "Software Product Engineering & Technology Powerhouse",
-    email: "nordiblesolutions@gmail.com",
+    email: "mail@nordible.co",
     phone: "+91-9773207706",
     summary: "Nordible Solutions is a technology powerhouse with 8+ years of experience engineering world-class software products from design to deployment and marketing."
   },

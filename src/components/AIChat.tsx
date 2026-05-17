@@ -264,7 +264,7 @@ export default function AIChat() {
             <div className="mt-8 text-center border-t border-white/5 pt-8">
               <p className="text-gray-500 text-[10px] font-mono mb-6 uppercase tracking-[0.2em]">Redundant_Comms_Available</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a href="mailto:nordiblesolutions@gmail.com" className="flex items-center justify-center space-x-2 bg-green-900/20 hover:bg-green-800/40 text-green-300 px-4 py-3 rounded-sm border border-green-800 transition-colors font-mono text-[10px] uppercase tracking-tighter">
+                <a href="mailto:mail@nordible.co" className="flex items-center justify-center space-x-2 bg-green-900/20 hover:bg-green-800/40 text-green-300 px-4 py-3 rounded-sm border border-green-800 transition-colors font-mono text-[10px] uppercase tracking-tighter">
                   <Mail className="h-3 w-3" />
                   <span>Email_Root</span>
                 </a>

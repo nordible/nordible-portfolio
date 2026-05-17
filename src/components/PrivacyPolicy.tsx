@@ -100,7 +100,7 @@ export default function PrivacyPolicy({ onBack }: PrivacyPolicyProps) {
               </p>
               <div className="bg-gray-50 dark:bg-green-900/10 rounded-lg p-4 border dark:border-green-900/30">
                 <p className="text-gray-600 dark:text-gray-300 font-mono text-xs">
-                  <strong>Email:</strong> nordiblesolutions@gmail.com<br />
+                  <strong>Email:</strong> mail@nordible.co<br />
                   <strong>Phone:</strong> +91-9773207706<br />
                   <strong>WhatsApp:</strong> Available<br />
                   <strong>Address:</strong> 002, Simply Move In, 17 Maruthi Layout, AECS Layout, Marathalli, Bangalore 560037
