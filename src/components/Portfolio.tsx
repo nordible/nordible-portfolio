@@ -9,7 +9,7 @@ const projects = [
     logo: '/images/logo-email.webp',
     link: 'https://email.nordible.co/',
     description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'SMTP/IMAP'],
+    technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
     outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
     image: 'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
@@ -23,7 +23,7 @@ const projects = [
     id: 'linkedin-catchup',
     title: 'LinkedIn Catch-up Assistant',
     client: 'Nordible Product',
-    logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzE0NUIyNyIvPjxwYXRoIGQ9Ik0zMCA0MGg0MHY0MEgzMHoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzUgNDVoMzB2MzBIMzV6IiBmaWxsPSIjMTQ1QjI3Ii8+PHRleHQgeD0iNTAiIHk9IjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIj5saTwvdGV4dD48L3N2Zz4=',
+    logo: '/images/logos/Linkedin-Catchup-assistant-icon.png',
     link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
     description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
     technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
@@ -342,8 +342,8 @@ export default function Portfolio() {
                       )}
                     </div>
                     <div>
-                      <div className="text-xs text-blue-200 font-bold uppercase tracking-widest mb-2">{currentProject.client}</div>
-                      <h3 className="text-3xl md:text-4xl font-extrabold mb-1 tracking-tight font-heading text-white">{currentProject.title}</h3>
+                      <div className="text-xs text-blue-200 font-bold uppercase tracking-widest mb-2 drop-shadow-md">{currentProject.client}</div>
+                      <h3 className="text-3xl md:text-4xl font-extrabold mb-1 tracking-tight font-heading text-white drop-shadow-lg">{currentProject.title}</h3>
                     </div>
                   </div>
                   <a
