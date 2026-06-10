@@ -34,16 +34,14 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="relative py-24 bg-white dark:bg-black overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
-      
+    <section id="process" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-mono font-medium tracking-[0.2em] text-blue-600 dark:text-green-400 uppercase bg-blue-100 dark:bg-green-900/30 rounded-full border border-blue-200 dark:border-green-800">
+          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
             Development Pipeline
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-            How We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 dark:from-green-400 dark:to-emerald-600">Excellence</span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight font-heading">
+            How We Build Excellence
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
             A robust, engineering-led process that ensures your product is built for scale and success.
@@ -52,55 +50,57 @@ export default function Process() {
 
         <div className="grid md:grid-cols-4 gap-8 mb-16 relative">
           {/* Connecting Line (Desktop) */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-green-900/30 to-transparent -translate-y-12"></div>
+          <div className="hidden lg:block absolute top-[40%] left-0 w-full h-0.5 bg-nordible-border dark:bg-gray-700 -z-0"></div>
           
           {steps.map((step, index) => (
-            <div key={index} className="relative group">
-              <div className="tech-card h-full rounded-xl p-8 transition-all duration-300 hover:border-blue-500/50 dark:hover:border-green-500/50 relative z-10 flex flex-col notch-tl">
-                <div className="absolute -top-4 -right-4 font-mono text-5xl font-bold opacity-5 group-hover:opacity-10 transition-opacity">
+            <div key={index} className="relative group z-10">
+              <div className="card-premium h-full flex flex-col hover:border-nordible-blue/30 transition-all duration-500">
+                <div className="absolute -top-4 -right-4 font-heading text-5xl font-extrabold opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
                   0{index + 1}
                 </div>
                 
-                <div className="bg-gradient-to-br from-purple-600 to-blue-600 dark:from-green-600 dark:to-emerald-600 w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform notch-tl">
-                  <step.icon className="h-7 w-7 text-white" />
+                <div className="relative">
+                  <div className="w-20 h-20 flex items-center justify-center mb-8 transition-transform group-hover:scale-110">
+                    <img src={index === 0 ? "/images/mascot/mail-sorting.webp" : index === 1 ? "/images/mascot/working-laptop.webp" : index === 2 ? "/images/mascot/working-laptop.webp" : "/images/mascot/mail-send.webp"} alt="" className="w-full h-full object-contain" />
+                  </div>
+                
+                  <h3 className="text-xl font-extrabold text-nordible-dark dark:text-white mb-3 font-heading">{step.title}</h3>
+                  
+                  <div className="flex items-center space-x-2 mb-6 bg-blue-50 dark:bg-gray-700/50 w-fit px-3 py-1 rounded-full">
+                    <Clock className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                    <span className="text-[10px] text-nordible-blue dark:text-blue-400 font-extrabold uppercase tracking-widest">{step.duration}</span>
+                  </div>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 mb-8 text-sm font-medium leading-relaxed">{step.description}</p>
+                  
+                  <ul className="space-y-3 mt-auto">
+                    {step.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-center space-x-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-tight">
+                        <div className="h-1.5 w-1.5 rounded-full bg-nordible-blue dark:bg-blue-500"></div>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
-                
-                <div className="flex items-center space-x-2 mb-4">
-                  <Clock className="h-4 w-4 text-blue-500 dark:text-green-500" />
-                  <span className="text-xs font-mono text-blue-500 dark:text-green-500 font-bold uppercase tracking-widest">{step.duration}</span>
-                </div>
-                
-                <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm font-medium leading-relaxed">{step.description}</p>
-                
-                <ul className="space-y-3 mt-auto">
-                  {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-center space-x-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-tight">
-                      <div className="h-1 w-1 rounded-full bg-blue-500 dark:bg-green-500"></div>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="tech-card rounded-2xl p-10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 font-mono text-[80px] font-bold opacity-[0.02] pointer-events-none uppercase">
-            SLA_METRICS
+        <div className="card-premium p-10 relative overflow-hidden bg-nordible-dark text-white border-0">
+          <div className="absolute top-0 right-0 p-8 font-heading text-[100px] font-extrabold opacity-[0.03] pointer-events-none uppercase">
+            SUCCESS
           </div>
           <div className="grid md:grid-cols-3 gap-12 relative z-10">
             {[
-              { label: 'Response Time', value: '24h', sub: 'Internal Protocol' },
-              { label: 'Delivery Rate', value: '100%', sub: 'Project Success' },
+              { label: 'Response Time', value: '24h', sub: 'Rapid Sync' },
+              { label: 'Delivery Rate', value: '100%', sub: 'Excellence' },
               { label: 'Support Phase', value: '30d+', sub: 'Post-Launch' }
             ].map((stat, i) => (
-              <div key={i} className="text-center md:text-left">
-                <div className="text-xs font-mono text-blue-500 dark:text-green-500 uppercase tracking-[0.2em] mb-2 font-bold">{stat.label}</div>
-                <div className="text-5xl font-bold text-gray-900 dark:text-white mb-1 font-mono tracking-tighter">{stat.value}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{stat.sub}</div>
+              <div key={i} className="text-center md:text-left border-l border-white/10 md:pl-10 first:border-0 first:pl-0">
+                <div className="text-[10px] text-blue-300 uppercase tracking-[0.2em] mb-3 font-bold">{stat.label}</div>
+                <div className="text-5xl font-extrabold mb-1 tracking-tighter font-heading">{stat.value}</div>
+                <div className="text-xs text-blue-100/50 font-bold uppercase tracking-widest">{stat.sub}</div>
               </div>
             ))}
           </div>

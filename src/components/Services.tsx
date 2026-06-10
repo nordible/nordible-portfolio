@@ -1,42 +1,41 @@
 import React from 'react';
-import { Palette, Terminal, TrendingUp } from 'lucide-react';
+import { Palette, Terminal, Mail, ArrowRight } from 'lucide-react';
 
 export default function Services() {
   const services = [
     {
+      icon: Mail,
+      title: 'Business Email',
+      description: 'Professional business email hosting with custom domains, top-tier security, and effortless migration.',
+      features: ['Custom Domains', 'Spam Protection', 'Zero-Downtime Migration', '24/7 Expert Support'],
+      color: 'bg-nordible-blue',
+      link: 'https://email.nordible.co/'
+    },
+    {
       icon: Terminal,
       title: 'Software Engineering',
       description: 'Building scalable, high-performance applications for Web, Mobile, and Cloud environments.',
-      features: ['Web & Mobile Apps', 'Scalable Backend', 'API Systems', 'Legacy Refactoring'],
-      color: 'bg-purple-500'
+      features: ['Web & Mobile Apps', 'Scalable Backend', 'API Systems', 'Cloud-Native Architecture'],
+      color: 'bg-indigo-600'
     },
     {
       icon: Palette,
       title: 'Enterprise Solutions',
       description: 'Developing robust digital platforms that streamline operations and drive business efficiency.',
-      features: ['Custom ERP/CRM', 'Workflow Automation', 'Data Architecture', 'System Integration'],
-      color: 'bg-orange-500'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Cloud Infrastructure',
-      description: 'Architecting secure and resilient cloud environments to support global scale and high availability.',
-      features: ['AWS/Azure/GCP', 'DevOps Automation', 'Security Audits', 'Performance Tuning'],
-      color: 'bg-pink-500'
+      features: ['Workflow Automation', 'Data Architecture', 'System Integration', 'Custom ERP/CRM'],
+      color: 'bg-nordible-dark'
     }
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-slate-50 dark:bg-black overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
-      
+    <section id="services" className="relative py-24 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-1 mb-4 text-xs font-mono font-medium tracking-[0.2em] text-purple-600 dark:text-green-400 uppercase bg-purple-100 dark:bg-green-900/30 rounded-full border border-purple-200 dark:border-green-800">
+          <div className="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
             Core Competencies
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-            Our Capabilities
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight font-heading">
+            Our Expertise
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
             From design to deployment and global growth—we build software that drives real impact.
@@ -45,16 +44,16 @@ export default function Services() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="group tech-card rounded-xl p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden notch-tl">
-              <div className="absolute top-0 right-0 p-4 font-mono text-4xl font-bold opacity-5 group-hover:opacity-10 transition-opacity">
+            <div key={index} className="card-premium group relative flex flex-col h-full hover:border-nordible-blue/30 transition-all duration-500">
+              <div className="absolute top-0 right-0 p-6 font-heading text-4xl font-extrabold opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
                 0{index + 1}
               </div>
               
-              <div className={`${service.color} w-14 h-14 rounded-lg flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500 notch-tl`}>
+              <div className={`${service.color} w-14 h-14 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                 <service.icon className="h-7 w-7 text-white" />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-green-400 transition-colors">
+              <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-4 group-hover:text-nordible-blue transition-colors font-heading">
                 {service.title}
               </h3>
               
@@ -62,14 +61,25 @@ export default function Services() {
                 {service.description}
               </p>
               
-              <ul className="space-y-4">
+              <ul className="space-y-4 mb-8 flex-1">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center space-x-3 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-purple-500 dark:bg-green-500"></span>
+                  <li key={featureIndex} className="flex items-center space-x-3 text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-tight">
+                    <span className="h-1.5 w-1.5 rounded-full bg-nordible-blue dark:bg-blue-500"></span>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
+
+              {service.link && (
+                <a 
+                  href={service.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-nordible-blue font-bold text-sm uppercase tracking-widest flex items-center hover:translate-x-2 transition-all"
+                >
+                  Visit Product <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              )}
             </div>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle, XCircle, Calendar, User, Mail, Phone, DollarSign, FileText, Clock } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, User, Mail, Phone, DollarSign, FileText, Clock, Shield } from 'lucide-react';
 
 interface Lead {
   id: string;
@@ -63,7 +63,6 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple password check for demo - in production, this would be secure authentication
     if (password === 'demo123') {
       setIsAuthenticated(true);
     } else {
@@ -77,7 +76,6 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
         ? { ...lead, status: 'declined' as const }
         : lead
     ));
-    // In real implementation, this would trigger an email to the client
     alert('Lead declined. Polite rejection email would be sent to the client.');
   };
 
@@ -95,21 +93,20 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
       ));
       setShowAppointmentModal(false);
       setSelectedLead(null);
-      // In real implementation, this would integrate with calendar APIs and send notifications
-      alert('Appointment booked! Confirmation emails, SMS, and WhatsApp messages would be sent to the client with calendar invites and reminders.');
+      alert('Appointment booked! Confirmation emails and notifications would be sent to the client.');
     }
   };
 
   const getStatusColor = (status: Lead['status']) => {
     switch (status) {
       case 'new':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-blue-50 text-nordible-blue border-blue-100';
       case 'pursued':
-        return 'bg-green-100 text-green-800';
+        return 'bg-green-50 text-green-700 border-green-100';
       case 'declined':
-        return 'bg-red-100 text-red-800';
+        return 'bg-red-50 text-red-700 border-red-100';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-gray-50 text-gray-700 border-gray-100';
     }
   };
 
@@ -128,25 +125,28 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-black flex items-center justify-center px-4">
-        <div className="max-w-md w-full space-y-8">
-          <div>
+      <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 flex items-center justify-center px-4">
+        <div className="max-w-md w-full space-y-10">
+          <div className="text-center">
             <button
               onClick={onBack}
-              className="flex items-center space-x-2 text-gray-600 dark:text-green-400 hover:text-gray-900 dark:hover:text-green-300 mb-8"
+              className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-10 font-bold text-sm uppercase tracking-widest transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Website</span>
             </button>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center">Lead Dashboard</h2>
-            <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
-              Enter password to access lead management system
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 shadow-lg shadow-blue-500/10 border border-nordible-border mx-auto mb-6">
+              <img src="/images/logo-email.webp" alt="Nordible Logo" className="w-full h-full object-contain" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Admin Gateway</h2>
+            <p className="mt-3 text-gray-500 dark:text-gray-400 font-medium">
+              Secure access to lead management system
             </p>
           </div>
-          <form onSubmit={handleLogin} className="mt-8 space-y-6">
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Password
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div className="card-premium p-8">
+              <label htmlFor="password" className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">
+                Access Key
               </label>
               <input
                 id="password"
@@ -155,19 +155,19 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-green-900/30 rounded-md placeholder-gray-500 dark:placeholder-gray-600 text-gray-900 dark:text-green-100 bg-white dark:bg-green-900/10 focus:outline-none focus:ring-purple-500 dark:focus:ring-green-500 focus:border-purple-500 dark:focus:border-green-500"
-                placeholder="Enter password"
+                className="w-full px-5 py-4 rounded-xl bg-nordible-bg dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-nordible-dark dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-nordible-blue/50 transition-all font-semibold"
+                placeholder="••••••••"
               />
+              <button
+                type="submit"
+                className="w-full mt-6 btn-primary py-4"
+              >
+                Unlock Access
+              </button>
             </div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 dark:bg-green-600 hover:bg-purple-700 dark:hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-green-500"
-            >
-              Sign in
-            </button>
           </form>
           <div className="text-center">
-            <p className="text-xs text-gray-500 dark:text-gray-400">Demo password: demo123</p>
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Demo Key: demo123</p>
           </div>
         </div>
       </div>
@@ -175,78 +175,99 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <button
-            onClick={onBack}
-            className="flex items-center space-x-2 text-gray-600 dark:text-green-400 hover:text-gray-900 dark:hover:text-green-300 mb-4"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span>Back to Website</span>
-          </button>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Lead Management Dashboard</h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">Manage and track all incoming project inquiries</p>
+    <div className="min-h-screen bg-nordible-bg dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+          <div>
+            <button
+              onClick={onBack}
+              className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-4 font-bold text-xs uppercase tracking-widest transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back to Website</span>
+            </button>
+            <h1 className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Leads Dashboard</h1>
+            <p className="mt-2 text-gray-600 dark:text-gray-400 font-medium text-lg">Manage and track all incoming project inquiries</p>
+          </div>
+          <div className="flex items-center space-x-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-nordible-border dark:border-gray-700">
+             <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-gray-700 flex items-center justify-center">
+                <Shield className="h-6 w-6 text-nordible-blue" />
+             </div>
+             <div>
+                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Admin Status</div>
+                <div className="text-sm font-extrabold text-nordible-dark dark:text-white uppercase tracking-tight">Encrypted Session</div>
+             </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 gap-8">
           {leads.map((lead) => (
-            <div key={lead.id} className="bg-white dark:bg-green-900/5 shadow-lg rounded-lg overflow-hidden border border-gray-100 dark:border-green-900/30">
-              <div className="px-6 py-4 border-b border-gray-200 dark:border-green-900/30">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <User className="h-6 w-6 text-gray-400 dark:text-green-600" />
+            <div key={lead.id} className="card-premium overflow-hidden !p-0">
+              <div className="px-8 py-6 border-b border-nordible-border dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-xl flex items-center justify-center shadow-sm">
+                       <User className="h-6 w-6 text-nordible-blue" />
+                    </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{lead.fullName}</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <h3 className="text-xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">{lead.fullName}</h3>
+                      <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                         Submitted {new Date(lead.submittedAt).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(lead.status)}`}>
-                    {lead.status.charAt(0).toUpperCase() + lead.status.slice(1)}
+                  <span className={`px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest border ${getStatusColor(lead.status)}`}>
+                    {lead.status}
                   </span>
                 </div>
               </div>
 
-              <div className="px-6 py-4">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                  <div className="flex items-center space-x-2">
-                    <Mail className="h-4 w-4 text-gray-400 dark:text-green-600" />
-                    <span className="text-sm text-gray-600 dark:text-gray-300">{lead.email}</span>
+              <div className="p-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                  <div className="flex items-center space-x-3 group">
+                    <div className="p-2 bg-nordible-bg dark:bg-gray-800 rounded-lg group-hover:bg-blue-50 transition-colors">
+                      <Mail className="h-4 w-4 text-nordible-blue" />
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{lead.email}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Phone className="h-4 w-4 text-gray-400 dark:text-green-600" />
-                    <span className="text-sm text-gray-600 dark:text-gray-300">{lead.phone}</span>
+                  <div className="flex items-center space-x-3 group">
+                    <div className="p-2 bg-nordible-bg dark:bg-gray-800 rounded-lg group-hover:bg-blue-50 transition-colors">
+                      <Phone className="h-4 w-4 text-nordible-blue" />
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{lead.phone}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <FileText className="h-4 w-4 text-gray-400 dark:text-green-600" />
-                    <span className="text-sm text-gray-600 dark:text-gray-300">{getProjectTypeLabel(lead.projectType)}</span>
+                  <div className="flex items-center space-x-3 group">
+                    <div className="p-2 bg-nordible-bg dark:bg-gray-800 rounded-lg group-hover:bg-blue-50 transition-colors">
+                      <FileText className="h-4 w-4 text-nordible-blue" />
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{getProjectTypeLabel(lead.projectType)}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <DollarSign className="h-4 w-4 text-gray-400 dark:text-green-600" />
-                    <span className="text-sm text-gray-600 dark:text-gray-300">${lead.budget}</span>
+                  <div className="flex items-center space-x-3 group">
+                    <div className="p-2 bg-nordible-bg dark:bg-gray-800 rounded-lg group-hover:bg-blue-50 transition-colors">
+                      <DollarSign className="h-4 w-4 text-nordible-blue" />
+                    </div>
+                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">${lead.budget}</span>
                   </div>
                 </div>
 
-                <div className="mb-4">
-                  <p className="text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-green-900/10 p-3 rounded-lg border dark:border-green-900/20">
+                <div className="mb-8">
+                  <p className="text-gray-700 dark:text-gray-300 bg-nordible-bg dark:bg-gray-800 p-6 rounded-2xl border border-nordible-border dark:border-gray-700 font-medium leading-relaxed">
                     {lead.description}
                   </p>
                 </div>
 
                 {lead.status === 'new' && (
-                  <div className="flex space-x-3">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <button
                       onClick={() => handleDeclineLead(lead.id)}
-                      className="flex items-center space-x-2 px-4 py-2 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/30 transition-colors border dark:border-red-900/30"
+                      className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 bg-red-50 text-red-700 font-extrabold uppercase tracking-widest text-xs rounded-xl hover:bg-red-100 transition-colors border border-red-100"
                     >
                       <XCircle className="h-4 w-4" />
                       <span>Decline Lead</span>
                     </button>
                     <button
                       onClick={() => handlePursueLead(lead)}
-                      className="flex items-center space-x-2 px-4 py-2 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/30 transition-colors border dark:border-green-900/30"
+                      className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 bg-nordible-blue text-white font-extrabold uppercase tracking-widest text-xs rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95"
                     >
                       <CheckCircle className="h-4 w-4" />
                       <span>Pursue Lead</span>
@@ -260,72 +281,75 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
 
         {/* Appointment Booking Modal */}
         {showAppointmentModal && selectedLead && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
-            <div className="bg-white dark:bg-black rounded-lg max-w-md w-full p-6 border dark:border-green-500/30 shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Book Appointment</h3>
+          <div className="fixed inset-0 bg-nordible-dark/80 flex items-center justify-center p-4 z-50 backdrop-blur-md animate-in fade-in duration-300">
+            <div className="bg-white dark:bg-gray-800 rounded-[32px] max-w-md w-full p-10 border border-nordible-border dark:border-gray-700 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+                 <img src="/images/mascot/primary-mascot.webp" alt="" className="w-full h-full object-contain" />
+              </div>
+              
+              <div className="flex items-center justify-between mb-8 relative z-10">
+                <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Book Meet</h3>
                 <button
                   onClick={() => setShowAppointmentModal(false)}
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-green-400"
+                  className="p-2 hover:bg-nordible-bg dark:hover:bg-gray-700 rounded-xl transition-colors"
                 >
-                  <XCircle className="h-6 w-6" />
+                  <XCircle className="h-6 w-6 text-gray-400" />
                 </button>
               </div>
 
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-mono uppercase tracking-tighter">Client: {selectedLead.fullName}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 font-mono uppercase tracking-tighter">Project: {getProjectTypeLabel(selectedLead.projectType)}</p>
+              <div className="mb-8 p-4 bg-nordible-bg dark:bg-gray-900 rounded-2xl relative z-10">
+                <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Project</div>
+                <div className="text-sm font-extrabold text-nordible-dark dark:text-white uppercase tracking-tight">{getProjectTypeLabel(selectedLead.projectType)} for {selectedLead.fullName}</div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-6 relative z-10">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Appointment Date & Time
+                  <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">
+                    Schedule Protocol
                   </label>
                   <input
                     type="datetime-local"
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-green-900/30 rounded-md focus:outline-none focus:ring-purple-500 dark:focus:ring-green-500 focus:border-purple-500 dark:focus:border-green-500 bg-white dark:bg-green-900/10 text-gray-900 dark:text-green-100"
+                    className="w-full px-5 py-4 rounded-xl bg-nordible-bg dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-nordible-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-nordible-blue/50 font-semibold"
                     min={new Date().toISOString().slice(0, 16)}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Meeting Type
+                  <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">
+                    Meeting Mode
                   </label>
-                  <select className="w-full px-3 py-2 border border-gray-300 dark:border-green-900/30 rounded-md focus:outline-none focus:ring-purple-500 dark:focus:ring-green-500 focus:border-purple-500 dark:focus:border-green-500 bg-white dark:bg-green-900/10 text-gray-900 dark:text-green-100">
-                    <option value="video">Video Call</option>
-                    <option value="phone">Phone Call</option>
-                    <option value="in-person">In Person</option>
+                  <select className="w-full px-5 py-4 rounded-xl bg-nordible-bg dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-nordible-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-nordible-blue/50 font-semibold appearance-none">
+                    <option value="video">Video Call (Google Meet)</option>
+                    <option value="phone">Voice Call</option>
+                    <option value="in-person">On-site Protocol</option>
                   </select>
                 </div>
 
-                <div className="flex space-x-3 pt-4">
+                <div className="flex gap-4 pt-4">
                   <button
                     onClick={() => setShowAppointmentModal(false)}
-                    className="flex-1 px-4 py-2 border border-gray-300 dark:border-green-900/30 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-green-900/20 transition-colors"
+                    className="flex-1 px-6 py-4 bg-gray-50 dark:bg-gray-700 text-gray-500 dark:text-gray-300 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors"
                   >
-                    Cancel
+                    Abort
                   </button>
                   <button
                     onClick={handleBookAppointment}
-                    className="flex-1 px-4 py-2 bg-purple-600 dark:bg-green-600 text-white rounded-lg hover:bg-purple-700 dark:hover:bg-green-500 transition-colors flex items-center justify-center space-x-2 shadow-lg tech-glow"
+                    className="flex-1 btn-primary py-4 text-xs tracking-widest"
                   >
-                    <Calendar className="h-4 w-4" />
-                    <span>Book Appointment</span>
+                    Confirm Meet
                   </button>
                 </div>
               </div>
 
-              <div className="mt-4 p-3 bg-purple-50 dark:bg-green-900/20 rounded-lg border dark:border-green-900/30">
-                <div className="flex items-start space-x-2">
-                  <Clock className="h-4 w-4 text-purple-500 dark:text-green-400 mt-0.5" />
-                  <div className="text-xs text-purple-700 dark:text-green-300">
-                    <p className="font-medium">Automated notifications will be sent:</p>
-                    <ul className="mt-1 space-y-1">
-                      <li>• Immediate confirmation (Email, SMS, WhatsApp)</li>
-                      <li>• 24-hour reminder</li>
-                      <li>• 1-hour reminder</li>
+              <div className="mt-8 p-5 bg-blue-50 dark:bg-gray-900/50 rounded-2xl border border-blue-100 dark:border-gray-700 relative z-10">
+                <div className="flex items-start space-x-3">
+                  <Clock className="h-5 w-5 text-nordible-blue mt-0.5" />
+                  <div className="text-xs text-nordible-dark dark:text-gray-300 leading-relaxed">
+                    <p className="font-extrabold uppercase tracking-widest mb-2 text-[10px] text-blue-600">Automated Dispatch</p>
+                    <ul className="space-y-1 font-medium">
+                      <li>• Confirmation (Email, WhatsApp)</li>
+                      <li>• 24-hour reminder protocol</li>
+                      <li>• 1-hour final sync notification</li>
                     </ul>
                   </div>
                 </div>

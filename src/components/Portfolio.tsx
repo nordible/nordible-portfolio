@@ -3,6 +3,40 @@ import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play } from
 
 const projects = [
   {
+    id: 'nordible-email',
+    title: 'Nordible Professional Email',
+    client: 'Nordible Product',
+    logo: '/images/logo-email.webp',
+    link: 'https://email.nordible.co/',
+    description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'SMTP/IMAP'],
+    outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
+    image: 'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    metrics: {
+      uptime: '99.9%',
+      security: 'SSL/TLS',
+      support: '24/7'
+    },
+    gradient: 'from-nordible-blue to-blue-800'
+  },
+  {
+    id: 'linkedin-catchup',
+    title: 'LinkedIn Catch-up Assistant',
+    client: 'Nordible Product',
+    logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzE0NUIyNyIvPjxwYXRoIGQ9Ik0zMCA0MGg0MHY0MEgzMHoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzUgNDVoMzB2MzBIMzV6IiBmaWxsPSIjMTQ1QjI3Ii8+PHRleHQgeD0iNTAiIHk9IjY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIj5saTwvdGV4dD48L3N2Zz4=',
+    link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
+    description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
+    technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
+    outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
+    image: 'https://images.pexels.com/photos/60504/pexels-photo-60504.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    metrics: {
+      reach: '50 Iterations',
+      safety: 'Human-Emulation',
+      privacy: 'Local Storage'
+    },
+    gradient: 'from-blue-600 to-nordible-blue'
+  },
+  {
     id: 'instarem',
     title: 'Instarem.com',
     client: 'NIUM',
@@ -262,15 +296,13 @@ export default function Portfolio() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section id="portfolio" className="relative py-24 bg-white dark:bg-black overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20 dark:opacity-30"></div>
-
+    <section id="portfolio" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-mono font-medium tracking-[0.2em] text-orange-600 dark:text-green-400 uppercase bg-orange-100 dark:bg-green-900/30 rounded-full border border-orange-200 dark:border-green-800">
+          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
             Selected Works
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight">
             Our Software Products
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
@@ -281,24 +313,20 @@ export default function Portfolio() {
         <div className="relative flex items-center mb-12">
           <button
             onClick={prevSlide}
-            className="absolute left-0 z-20 p-4 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-green-500/30 group -translate-x-4 md:-translate-x-10"
+            className="absolute left-0 z-20 p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group -translate-x-4 md:-translate-x-10"
           >
-            <ChevronLeft className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-green-400" />
+            <ChevronLeft className="h-6 w-6 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
           </button>
 
-          <div className="tech-card rounded-2xl shadow-2xl overflow-hidden flex-1 mx-4 md:mx-10 relative group/card notch-tl">
-            <div className="absolute top-0 right-0 p-8 font-mono text-[10px] text-gray-400 opacity-20 hidden md:block uppercase tracking-widest pointer-events-none">
-              Project_Manifest_{currentProject.id.toUpperCase()}
-            </div>
-
-            <div className="relative p-8 text-white overflow-hidden min-h-[300px] flex items-end notch-tl" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent dark:from-black"></div>
+          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden flex-1 mx-4 md:mx-10 relative group/card border border-nordible-border dark:border-gray-700">
+            <div className="relative p-8 text-white overflow-hidden min-h-[350px] flex items-end" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
               <div className="relative z-10 w-full">
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                   <div className="flex items-center space-x-6">
-                    <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-xl flex items-center justify-center p-4 border border-white/20 shadow-2xl">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center p-4 border border-white/30 shadow-2xl">
                       {imageErrors.has(currentProject.id) ? (
-                        <div className="w-full h-full flex items-center justify-center text-white font-mono font-bold text-2xl">
+                        <div className="w-full h-full flex items-center justify-center text-white font-bold text-2xl font-heading">
                           {currentProject.client.charAt(0)}
                         </div>
                       ) : (
@@ -314,49 +342,49 @@ export default function Portfolio() {
                       )}
                     </div>
                     <div>
-                      <div className="font-mono text-xs text-purple-400 dark:text-green-400 uppercase tracking-widest mb-2 font-bold">{currentProject.client}</div>
-                      <h3 className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">{currentProject.title}</h3>
+                      <div className="text-xs text-blue-200 font-bold uppercase tracking-widest mb-2">{currentProject.client}</div>
+                      <h3 className="text-3xl md:text-4xl font-extrabold mb-1 tracking-tight font-heading text-white">{currentProject.title}</h3>
                     </div>
                   </div>
                   <a
                     href={currentProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-3 bg-white text-gray-900 px-6 py-3 rounded-sm font-bold transition-all duration-300 hover:bg-purple-600 dark:hover:bg-green-600 hover:text-white dark:hover:text-white group shadow-xl uppercase text-xs tracking-widest"
+                    className="btn-primary py-3 px-6 text-sm"
                   >
-                    <span>View System</span>
-                    <ExternalLink className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    <span>View Project</span>
+                    <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-8">
-              <div className="space-y-8">
+            <div className="p-10">
+              <div className="space-y-10">
                 <div>
-                  <h4 className="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center">
-                    <span className="h-px w-8 bg-gray-300 dark:bg-green-900/30 mr-3"></span>
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center">
+                    <span className="h-px w-8 bg-nordible-border dark:bg-gray-700 mr-3"></span>
                     Description
                   </h4>
                   <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-medium">{currentProject.description}</p>
                 </div>
 
-                <div className="grid lg:grid-cols-3 gap-10">
-                  <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-slate-50 dark:bg-green-900/20 rounded-lg p-6 border-l-4 border-purple-500 dark:border-green-500">
-                      <h5 className="font-mono text-xs font-bold text-gray-900 dark:text-white mb-4 uppercase tracking-widest">
+                <div className="grid lg:grid-cols-3 gap-12">
+                  <div className="lg:col-span-2 space-y-10">
+                    <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl p-8 border-l-4 border-nordible-blue">
+                      <h5 className="text-xs font-bold text-nordible-dark dark:text-white mb-4 uppercase tracking-widest">
                         Objective Outcome
                       </h5>
-                      <p className="text-gray-700 dark:text-gray-300 font-bold text-lg">{currentProject.outcome}</p>
+                      <p className="text-nordible-dark dark:text-gray-200 font-bold text-xl leading-snug">{currentProject.outcome}</p>
                     </div>
 
                     <div>
-                      <h5 className="font-mono text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Stack Trace</h5>
-                      <div className="flex flex-wrap gap-2">
+                      <h5 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Technology Stack</h5>
+                      <div className="flex flex-wrap gap-3">
                         {currentProject.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-white dark:bg-green-900/30 border border-gray-200 dark:border-green-900/50 text-gray-600 dark:text-green-400 px-3 py-1 font-mono text-xs font-bold rounded"
+                            className="bg-white dark:bg-gray-700 border border-nordible-border dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 text-sm font-semibold rounded-xl"
                           >
                             {tech}
                           </span>
@@ -366,18 +394,18 @@ export default function Portfolio() {
                   </div>
 
                   <div className="lg:col-span-1">
-                    <div className="bg-gray-900 dark:bg-black text-white rounded-lg p-6 tech-glow">
-                      <h5 className="font-mono text-xs font-bold text-purple-400 dark:text-green-400 mb-6 uppercase tracking-widest flex items-center">
+                    <div className="bg-nordible-dark text-white rounded-3xl p-8 shadow-2xl shadow-blue-900/20">
+                      <h5 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-widest flex items-center">
                         <TrendingUp className="h-4 w-4 mr-2" />
-                        Metrics
+                        Key Metrics
                       </h5>
-                      <div className="space-y-6">
+                      <div className="space-y-8">
                         {Object.entries(currentProject.metrics).map(([key, value], index) => (
                           <div key={index} className="flex flex-col">
-                            <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] mb-1">
+                            <span className="text-[10px] text-blue-200/60 uppercase tracking-[0.2em] mb-2 font-bold">
                               {key.replace('_', ' ')}
                             </span>
-                            <span className="text-2xl font-bold font-mono tracking-tight">{value}</span>
+                            <span className="text-3xl font-extrabold tracking-tight font-heading">{value}</span>
                           </div>
                         ))}
                       </div>
@@ -390,35 +418,35 @@ export default function Portfolio() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 z-20 p-4 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 border border-gray-100 dark:border-green-500/30 group translate-x-4 md:translate-x-10"
+            className="absolute right-0 z-20 p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group translate-x-4 md:translate-x-10"
           >
-            <ChevronRight className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-green-400" />
+            <ChevronRight className="h-6 w-6 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
           </button>
         </div>
 
-        <div className="flex flex-col items-center space-y-8">
+        <div className="flex flex-col items-center space-y-12">
           <button
             onClick={togglePause}
-            className="flex items-center space-x-3 bg-white dark:bg-black px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-green-900/30 group font-mono text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-green-400"
+            className="flex items-center space-x-3 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-nordible-border dark:border-gray-700 group text-xs font-bold uppercase tracking-widest text-nordible-dark dark:text-gray-200"
           >
             {isPaused ? (
               <>
-                <Play className="h-4 w-4 text-purple-600 dark:text-green-500" />
-                <span>System.Resume()</span>
+                <Play className="h-4 w-4 text-nordible-blue" />
+                <span>Resume Slideshow</span>
               </>
             ) : (
               <>
-                <Pause className="h-4 w-4 text-purple-600 dark:text-green-500" />
-                <span>System.Pause()</span>
+                <Pause className="h-4 w-4 text-nordible-blue" />
+                <span>Pause Slideshow</span>
               </>
             )}
           </button>
 
           <div className="text-center w-full">
-            <div className="tech-card rounded-2xl p-10 bg-gradient-to-r from-orange-600/5 to-purple-600/5 dark:from-green-600/5 dark:to-emerald-600/5 border border-orange-500/20 dark:border-green-500/20 relative overflow-hidden">
+            <div className="rounded-3xl p-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border border-blue-100 dark:border-gray-700 relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Partner with Nordible Solutions</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
+                <h3 className="text-3xl font-extrabold text-nordible-dark dark:text-white mb-4 font-heading">Partner with Nordible Solutions</h3>
+                <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto font-medium">
                   We love engineering complex products and solving high-impact problems. Let's build your next system.
                 </p>
                 <button
@@ -428,9 +456,9 @@ export default function Portfolio() {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="bg-gray-900 dark:bg-white text-white dark:text-black px-10 py-4 rounded-sm font-bold transition-all duration-200 hover:bg-orange-600 dark:hover:bg-green-500 hover:text-white dark:hover:text-black tech-glow uppercase tracking-widest text-sm"
+                  className="btn-primary shadow-xl shadow-blue-500/20"
                 >
-                  Initialize Consultation
+                  Start a Conversation
                 </button>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Mail, Phone, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Instagram } from 'lucide-react';
 
 interface FooterProps {
   onPrivacyClick: () => void;
@@ -8,81 +8,87 @@ interface FooterProps {
 
 export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
   return (
-    <footer className="relative bg-gray-900 dark:bg-black text-white py-16 overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-10"></div>
+    <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent pointer-events-none"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <Terminal className="h-8 w-8 text-purple-400 dark:text-green-400" />
-              <span className="text-2xl font-bold tracking-tight uppercase">Nordible Solutions</span>
-            </div>
-            <p className="text-gray-400 mb-8 leading-relaxed font-medium">
-              A specialized software engineering partner dedicated to architecting high-performance digital systems. 
-              From core design to global scaling.
-            </p>
-            <div className="space-y-4 font-mono text-xs">
-              <div className="flex items-center space-x-3 group cursor-pointer">
-                <Mail className="h-4 w-4 text-purple-400 dark:text-green-400 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-300 group-hover:text-purple-400 dark:group-hover:text-green-400 transition-colors">mail@nordible.co</span>
+        <div className="grid md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/10 border border-white/10">
+                <img src="/images/logo-email.webp" alt="Nordible Logo" className="w-full h-full object-contain" />
               </div>
-              <div className="flex items-center space-x-3 group cursor-pointer">
-                <Phone className="h-4 w-4 text-purple-400 dark:text-green-400 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-300 group-hover:text-purple-400 dark:group-hover:text-green-400 transition-colors">+91-9773207706</span>
+              <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Solutions</span>
+            </div>
+            <p className="text-blue-100/60 mb-10 leading-relaxed font-medium max-w-md">
+              A specialized software engineering partner dedicated to architecting high-performance digital systems. 
+              We build high-impact products for businesses globally.
+            </p>
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4 group cursor-pointer">
+                <div className="p-2 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
+                  <Mail className="h-5 w-5 text-blue-300 group-hover:text-white" />
+                </div>
+                <span className="text-blue-100/80 font-bold text-sm tracking-widest uppercase">mail@nordible.co</span>
+              </div>
+              <div className="flex items-center space-x-4 group cursor-pointer">
+                <div className="p-2 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
+                  <Phone className="h-5 w-5 text-blue-300 group-hover:text-white" />
+                </div>
+                <span className="text-blue-100/80 font-bold text-sm tracking-widest uppercase">+91-9773207706</span>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="font-mono text-xs font-bold text-gray-500 mb-8 uppercase tracking-[0.3em]">System.Capabilities</h3>
-            <ul className="space-y-4 text-sm font-semibold uppercase tracking-widest">
-              <li><a href="#services" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Software Engineering</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Enterprise Solutions</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Cloud Infrastructure</a></li>
-              <li><a href="#portfolio" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Portfolios</a></li>
+            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Expertise</h3>
+            <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Software Engineering</a></li>
+              <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Cloud Infrastructure</a></li>
+              <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-mono text-xs font-bold text-gray-500 mb-8 uppercase tracking-[0.3em]">Node.Access</h3>
-            <ul className="space-y-4 text-sm font-semibold uppercase tracking-widest">
-              <li><a href="#about" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> About_Us</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors flex items-center"><span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Contact_Root</a></li>
+            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Company</h3>
+            <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
+              <li><a href="#about" className="text-blue-100/60 hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">Contact Us</a></li>
               <li>
                 <button 
                   onClick={onPrivacyClick}
-                  className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors text-left flex items-center"
+                  className="text-blue-100/60 hover:text-white transition-colors text-left"
                 >
-                  <span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Privacy_Policy
+                  Privacy Policy
                 </button>
               </li>
               <li>
                 <button 
                   onClick={onTermsClick}
-                  className="text-gray-400 hover:text-purple-400 dark:hover:text-green-400 transition-colors text-left flex items-center"
+                  className="text-blue-100/60 hover:text-white transition-colors text-left"
                 >
-                  <span className="text-purple-500 dark:text-green-500 mr-2">{' > '}</span> Terms_Service
+                  Terms of Service
                 </button>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 dark:border-green-900/30 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Nordible Solutions // Internal_Access_Only
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-[10px] font-bold text-blue-100/40 uppercase tracking-widest">
+            &copy; {new Date().getFullYear()} Nordible Solutions. Built with Excellence.
           </p>
           <div className="flex space-x-6">
-            <a href="https://github.com/nordible" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-purple-400 dark:hover:text-green-400 transition-colors transform hover:scale-110">
-              <Github className="h-5 w-5" />
-            </a>
-            <a href="https://www.linkedin.com/company/nordible-co/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-purple-400 dark:hover:text-green-400 transition-colors transform hover:scale-110">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="https://www.instagram.com/nordible/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-purple-400 dark:hover:text-green-400 transition-colors transform hover:scale-110">
-              <Instagram className="h-5 w-5" />
-            </a>
+            {[
+              { icon: Github, url: 'https://github.com/nordible' },
+              { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/' },
+              { icon: Instagram, url: 'https://www.instagram.com/nordible/' }
+            ].map((social, i) => (
+              <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="text-blue-100/40 hover:text-nordible-blue transition-all transform hover:scale-110">
+                <social.icon className="h-6 w-6" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

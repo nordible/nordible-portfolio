@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Mail, Phone, Calendar } from 'lucide-react';
+import { Send, User, Mail, Phone, Calendar } from 'lucide-react';
 import { askAI } from '../services/aiService';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
@@ -13,7 +13,7 @@ export default function AIChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hi! I'm Nordible's AI assistant. Ask me anything about his experience, projects, or skills!",
+      content: "Hi! I'm your Nordible guide. Ask me anything about our software engineering expertise, digital products, or how we can help your business grow!",
       timestamp: new Date()
     }
   ]);
@@ -73,7 +73,7 @@ export default function AIChat() {
     } catch {
       const errorMessage: Message = {
         role: 'assistant',
-        content: "I'm having trouble right now. Please use the contact form below to reach Nordible directly.",
+        content: "I'm having a brief connection issue. Please use the contact form below or email us at mail@nordible.co",
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -88,7 +88,7 @@ export default function AIChat() {
     const success = await sendContactEmail(contactForm as ContactFormData);
     
     if (success) {
-      alert('Message sent! Nordible will get back to you within 24 hours.');
+      alert('Message received! We will get back to you within 24 hours.');
       setContactForm({
         fullName: '',
         email: '',
@@ -99,59 +99,58 @@ export default function AIChat() {
       });
       setShowContactForm(false);
     } else {
-      alert('Failed to send message. Please try again.');
+      alert('Failed to send message. Please try again or email mail@nordible.co');
     }
   };
 
   const suggestedQuestions = [
-    "What projects has Nordible worked on?",
-    "What technologies does Nordible know?",
-    "Tell me about Nordible's experience",
-    "What services does Nordible offer?"
+    "What core products has Nordible built?",
+    "Tell me about Nordible Professional Email",
+    "What is your software engineering process?",
+    "How do you handle enterprise scaling?"
   ];
 
   return (
-    <section id="consultation" className="relative py-24 bg-black overflow-hidden">
-      <div className="absolute inset-0 tech-grid opacity-20"></div>
-      
+    <section id="ai-assistant" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-[10px] font-mono font-bold tracking-[0.3em] text-green-400 uppercase bg-green-900/30 rounded-full border border-green-500/30">
-            Secure_Channel_V3
+          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
+            Intelligent Guide
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">
-            Consultation <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Interface</span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight font-heading">
+            AI Assistant
           </h2>
-          <p className="text-xl text-gray-400 font-medium">
-            Initialize an encrypted session with our product AI or book a direct protocol.
+          <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">
+            Get instant answers about our services, products, and engineering expertise.
           </p>
         </div>
 
         {/* Chat Interface */}
-        <div className="tech-card rounded-2xl p-6 mb-8 border-green-500/20 bg-black/40 notch-tl">
-          <div className="flex items-center space-x-2 mb-6 border-b border-white/5 pb-4">
-            <div className="flex space-x-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
-            </div>
-            <div className="flex-1 text-center font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em]">
-              AI_ASSISTANT_SESSION_LOG
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-700 overflow-hidden flex flex-col h-[600px]">
+          <div className="px-8 py-6 bg-nordible-dark text-white flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img src="/images/mascot/primary-mascot.webp" alt="AI Mascot" className="w-full h-full object-contain" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-lg font-heading leading-tight text-white">Nordible AI</h3>
+                <div className="flex items-center text-[10px] text-blue-300 font-bold uppercase tracking-widest">
+                  <span className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
+                  Active Now
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="h-96 overflow-y-auto mb-6 space-y-6 scrollbar-thin scrollbar-thumb-green-500/20">
+          <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-nordible-bg/30 dark:bg-gray-900/30 scrollbar-thin">
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`flex items-start space-x-3 max-w-xs lg:max-w-md ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className={`p-2.5 rounded-sm ${message.role === 'user' ? 'bg-green-600' : 'bg-green-600'} notch-tl shadow-lg`}>
-                    {message.role === 'user' ? <User className="h-4 w-4 text-white" /> : <Bot className="h-4 w-4 text-white" />}
+                <div className={`flex items-start space-x-3 max-w-[85%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                  <div className={`w-8 h-8 flex items-center justify-center flex-shrink-0 ${message.role === 'user' ? 'bg-nordible-blue text-white rounded-xl shadow-sm' : ''}`}>
+                    {message.role === 'user' ? <User className="h-4 w-4" /> : <img src="/images/mascot/primary-mascot.webp" className="w-8 h-8 object-contain" alt="" />}
                   </div>
-                  <div className={`p-4 rounded-sm font-mono text-sm ${message.role === 'user' ? 'bg-green-900/40 text-green-100 border border-green-500/30' : 'bg-green-900/40 text-green-100 border border-green-500/30'} backdrop-blur-md`}>
-                    <div className="text-[10px] opacity-40 mb-1 uppercase tracking-tighter">
-                      {message.role === 'user' ? 'Local_User' : 'Remote_AI'} // {message.timestamp.toLocaleTimeString()}
-                    </div>
-                    <p className="leading-relaxed">{message.content}</p>
+                  <div className={`p-4 rounded-2xl text-sm font-medium shadow-sm leading-relaxed ${message.role === 'user' ? 'bg-nordible-blue text-white' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200'}`}>
+                    <p>{message.content}</p>
                   </div>
                 </div>
               </div>
@@ -159,14 +158,11 @@ export default function AIChat() {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2.5 rounded-sm bg-green-600 notch-tl">
-                    <Bot className="h-4 w-4 text-white" />
-                  </div>
-                  <div className="p-4 rounded-sm bg-green-900/20 border border-green-500/20">
-                    <div className="flex space-x-2">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse [animation-delay:0.2s]"></div>
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse [animation-delay:0.4s]"></div>
+                  <div className="w-8 h-8 rounded-xl bg-white dark:bg-gray-700 flex items-center justify-center">
+                    <div className="flex space-x-1">
+                      <div className="w-1 h-1 bg-nordible-blue rounded-full animate-bounce"></div>
+                      <div className="w-1 h-1 bg-nordible-blue rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                      <div className="w-1 h-1 bg-nordible-blue rounded-full animate-bounce [animation-delay:0.4s]"></div>
                     </div>
                   </div>
                 </div>
@@ -175,106 +171,105 @@ export default function AIChat() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="flex space-x-3">
-            <div className="flex-1 relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-green-500 font-mono text-sm font-bold">{' > '}</span>
+          <div className="p-6 bg-white dark:bg-gray-800 border-t border-nordible-border dark:border-gray-700">
+            <div className="flex space-x-3">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="TRANSMIT_COMMAND..."
-                className="w-full pl-10 pr-4 py-4 rounded-sm bg-black/40 border border-green-500/30 text-green-100 placeholder-green-900 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-green-500 transition-all"
+                placeholder="Ask Nordible AI..."
+                className="flex-1 px-6 py-4 rounded-xl bg-nordible-bg dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-nordible-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-nordible-blue/50 font-semibold transition-all"
                 disabled={isLoading}
               />
+              <button
+                onClick={handleSend}
+                disabled={isLoading || !input.trim()}
+                className="w-14 h-14 bg-nordible-blue hover:bg-blue-700 disabled:bg-gray-300 text-white rounded-xl shadow-lg shadow-blue-500/20 flex items-center justify-center transition-all active:scale-95"
+              >
+                <Send className="h-6 w-6" />
+              </button>
             </div>
-            <button
-              onClick={handleSend}
-              disabled={isLoading || !input.trim()}
-              className="px-6 bg-green-600 hover:bg-green-500 disabled:bg-green-900 text-white rounded-sm transition-all shadow-lg tech-glow notch-tl flex items-center justify-center"
-            >
-              <Send className="h-4 w-4" />
-            </button>
           </div>
         </div>
 
         {/* Suggested Questions */}
         {messages.length === 1 && (
-          <div className="mt-4 mb-8">
-            <p className="text-sm text-green-400 mb-2 font-mono uppercase tracking-widest text-[10px]">Try asking:</p>
-            <div className="flex flex-wrap gap-2">
-              {suggestedQuestions.map((question, index) => (
-                <button
-                  key={index}
-                  onClick={() => setInput(question)}
-                  className="text-[10px] font-mono bg-green-900/30 hover:bg-green-800/50 text-green-300 px-3 py-1 rounded-sm border border-green-800 transition-colors uppercase tracking-tighter"
-                >
-                  {question}
-                </button>
-              ))}
-            </div>
+          <div className="mt-8 flex flex-wrap gap-3 justify-center">
+            {suggestedQuestions.map((question, index) => (
+              <button
+                key={index}
+                onClick={() => setInput(question)}
+                className="text-xs font-bold bg-white dark:bg-gray-800 hover:bg-nordible-bg dark:hover:bg-gray-700 text-nordible-dark dark:text-gray-300 px-5 py-3 rounded-full border border-nordible-border dark:border-gray-700 shadow-sm transition-all active:scale-95"
+              >
+                {question}
+              </button>
+            ))}
           </div>
         )}
 
-        {/* Contact Form */}
+        {/* Contact Form Overlay */}
         {showContactForm && (
-          <div className="tech-card rounded-2xl p-8 bg-black/40 border-green-500/20 notch-tl">
-            <div className="text-center mb-8">
-              <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wider">Initialize Direct_Protocol</h3>
-              <p className="text-gray-400 text-sm font-mono uppercase tracking-widest text-[10px]">Manual override required for detailed manifest</p>
+          <div className="mt-12 card-premium p-10 bg-nordible-dark text-white border-0 shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="absolute top-0 right-0 w-48 h-48 opacity-10 pointer-events-none -mr-10 -mt-10">
+              <img src="/images/mascot/celebrate.webp" alt="" className="w-full h-full object-contain rotate-12" />
+            </div>
+            
+            <div className="text-center mb-10 relative z-10">
+              <h3 className="text-2xl font-extrabold mb-2 font-heading">Start a Human Conversation</h3>
+              <p className="text-blue-200 text-sm font-bold uppercase tracking-widest">Your inquiry requires specialized engineering expertise</p>
             </div>
 
-            <form onSubmit={handleContactSubmit} className="space-y-6">
+            <form onSubmit={handleContactSubmit} className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-6">
                 <input
                   type="text"
-                  placeholder="USER_NAME"
+                  placeholder="Full Name"
                   value={contactForm.fullName}
                   onChange={(e) => setContactForm({...contactForm, fullName: e.target.value})}
                   required
-                  className="px-4 py-3 rounded-sm bg-black/40 border border-green-500/30 text-green-100 placeholder-green-900 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-green-500 transition-all"
+                  className="px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 font-semibold"
                 />
                 <input
                   type="email"
-                  placeholder="USER_ENDPOINT@EMAIL.COM"
+                  placeholder="Email Address"
                   value={contactForm.email}
                   onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
                   required
-                  className="px-4 py-3 rounded-sm bg-black/40 border border-green-500/30 text-green-100 placeholder-green-900 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-green-500 transition-all"
+                  className="px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 font-semibold"
                 />
               </div>
               <textarea
-                placeholder="ENTER_PROJECT_MANIFEST..."
+                placeholder="How can we help you?"
                 value={contactForm.description}
                 onChange={(e) => setContactForm({...contactForm, description: e.target.value})}
                 required
                 rows={4}
-                className="w-full px-4 py-3 rounded-sm bg-black/40 border border-green-500/30 text-green-100 placeholder-green-900 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-green-500 transition-all resize-none"
+                className="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 font-semibold resize-none"
               />
               <button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-6 rounded-sm transition-all tech-glow notch-tl flex items-center justify-center space-x-3 uppercase tracking-[0.2em] text-xs"
+                className="w-full bg-white text-nordible-dark font-extrabold py-5 px-8 rounded-xl shadow-xl transition-all hover:bg-blue-50 active:scale-95 flex items-center justify-center space-x-3 uppercase tracking-widest text-sm"
               >
-                <Mail className="h-4 w-4" />
-                <span>Transmit_Manifest</span>
+                <Mail className="h-5 w-5" />
+                <span>Submit Inquiry</span>
               </button>
             </form>
 
             <div className="mt-8 text-center border-t border-white/5 pt-8">
-              <p className="text-gray-500 text-[10px] font-mono mb-6 uppercase tracking-[0.2em]">Redundant_Comms_Available</p>
+              <p className="text-gray-400 text-[10px] font-bold mb-6 uppercase tracking-widest">Direct Channels</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a href="mailto:mail@nordible.co" className="flex items-center justify-center space-x-2 bg-green-900/20 hover:bg-green-800/40 text-green-300 px-4 py-3 rounded-sm border border-green-800 transition-colors font-mono text-[10px] uppercase tracking-tighter">
-                  <Mail className="h-3 w-3" />
-                  <span>Email_Root</span>
+                <a href="mailto:mail@nordible.co" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
+                  <Mail className="h-4 w-4" />
+                  <span>Email</span>
                 </a>
-                <a href="tel:+919773207706" className="flex items-center justify-center space-x-2 bg-green-900/20 hover:bg-green-800/40 text-green-300 px-4 py-3 rounded-sm border border-green-800 transition-colors font-mono text-[10px] uppercase tracking-tighter">
-                  <Phone className="h-3 w-3" />
-                  <span>Voice_Link</span>
+                <a href="tel:+919773207706" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
+                  <Phone className="h-4 w-4" />
+                  <span>Call</span>
                 </a>
-                <a href="https://calendar.app.google/cindJUtEMZNPKBYeA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-500 text-white px-4 py-3 rounded-sm transition-all shadow-lg notch-tl font-mono text-[10px] uppercase tracking-tighter">
-                  <Calendar className="h-3 w-3" />
-                  <span>Schedule_Sync</span>
+                <a href="https://calendar.app.google/cindJUtEMZNPKBYeA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 bg-white text-nordible-dark px-4 py-3 rounded-xl transition-all shadow-lg font-bold text-xs uppercase tracking-widest">
+                  <Calendar className="h-4 w-4" />
+                  <span>Book Meet</span>
                 </a>
               </div>
             </div>
