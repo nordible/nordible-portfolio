@@ -1,21 +1,18 @@
 import React from 'react';
 import { ArrowLeft, Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface TermsOfServiceProps {
-  onBack: () => void;
-}
-
-export default function TermsOfService({ onBack }: TermsOfServiceProps) {
+export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-nordible-bg dark:bg-gray-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <button
-          onClick={onBack}
+        <Link
+          to="/"
           className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-10 font-bold text-sm uppercase tracking-widest transition-all active:scale-95"
         >
           <ArrowLeft className="h-5 w-5" />
           <span>Back to Website</span>
-        </button>
+        </Link>
 
         <div className="card-premium p-10 md:p-16">
           <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">

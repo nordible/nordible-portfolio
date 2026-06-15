@@ -8,10 +8,15 @@ import handler from 'serve-handler';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const routes = ['/', '/privacy', '/terms'];
+
 async function prerender() {
   const server = createServer((request, response) => {
     return handler(request, response, {
-      public: 'dist'
+      public: 'dist',
+      rewrites: [
+        { source: '**', destination: '/index.html' }
+      ]
     });
   });
 
@@ -24,14 +29,22 @@ async function prerender() {
     });
     const page = await browser.newPage();
     
-    console.log('Navigating to http://localhost:3000...');
-    await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
-    
-    const html = await page.content();
-    const outputPath = path.join(__dirname, 'dist', 'index.html');
-    
-    fs.writeFileSync(outputPath, html);
-    console.log(`Successfully pre-rendered to ${outputPath}`);
+    for (const route of routes) {
+      console.log(`Navigating to http://localhost:3000${route}...`);
+      await page.goto(`http://localhost:3000${route}`, { waitUntil: 'networkidle0' });
+      
+      const html = await page.content();
+      
+      let outputPath = path.join(__dirname, 'dist', route === '/' ? 'index.html' : `${route}/index.html`);
+      const outputDir = path.dirname(outputPath);
+      
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+      
+      fs.writeFileSync(outputPath, html);
+      console.log(`Successfully pre-rendered to ${outputPath}`);
+    }
 
     await browser.close();
     server.close();

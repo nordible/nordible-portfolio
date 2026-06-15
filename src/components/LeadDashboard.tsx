@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, XCircle, User, Mail, Phone, DollarSign, FileText, Clock, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Lead {
   id: string;
@@ -13,11 +14,7 @@ interface Lead {
   submittedAt: string;
 }
 
-interface LeadDashboardProps {
-  onBack: () => void;
-}
-
-export default function LeadDashboard({ onBack }: LeadDashboardProps) {
+export default function LeadDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   
@@ -128,13 +125,13 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
       <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 flex items-center justify-center px-4">
         <div className="max-w-md w-full space-y-10">
           <div className="text-center">
-            <button
-              onClick={onBack}
+            <Link
+              to="/"
               className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-10 font-bold text-sm uppercase tracking-widest transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Website</span>
-            </button>
+            </Link>
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 shadow-lg shadow-blue-500/10 border border-nordible-border mx-auto mb-6">
               <img src="/images/logo-email.webp" alt="Nordible Logo" className="w-full h-full object-contain" />
             </div>
@@ -179,13 +176,13 @@ export default function LeadDashboard({ onBack }: LeadDashboardProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
           <div>
-            <button
-              onClick={onBack}
+            <Link
+              to="/"
               className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-4 font-bold text-xs uppercase tracking-widest transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Website</span>
-            </button>
+            </Link>
             <h1 className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Leads Dashboard</h1>
             <p className="mt-2 text-gray-600 dark:text-gray-400 font-medium text-lg">Manage and track all incoming project inquiries</p>
           </div>

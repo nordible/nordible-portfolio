@@ -1,12 +1,8 @@
 import React from 'react';
-import { Mail, Phone, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-  onPrivacyClick: () => void;
-  onTermsClick: () => void;
-}
-
-export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent pointer-events-none"></div>
@@ -56,20 +52,20 @@ export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
               <li><a href="#about" className="text-blue-100/60 hover:text-white transition-colors">Our Story</a></li>
               <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">Contact Us</a></li>
               <li>
-                <button 
-                  onClick={onPrivacyClick}
-                  className="text-blue-100/60 hover:text-white transition-colors text-left"
+                <Link 
+                  to="/privacy"
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
                   Privacy Policy
-                </button>
+                </Link>
               </li>
               <li>
-                <button 
-                  onClick={onTermsClick}
-                  className="text-blue-100/60 hover:text-white transition-colors text-left"
+                <Link 
+                  to="/terms"
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
                   Terms of Service
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,7 +79,8 @@ export default function Footer({ onPrivacyClick, onTermsClick }: FooterProps) {
             {[
               { icon: Github, url: 'https://github.com/nordible' },
               { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/' },
-              { icon: Instagram, url: 'https://www.instagram.com/nordible/' }
+              { icon: Instagram, url: 'https://www.instagram.com/nordible/' },
+              { icon: Youtube, url: 'https://www.youtube.com/@nordible' }
             ].map((social, i) => (
               <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="text-blue-100/40 hover:text-nordible-blue transition-all transform hover:scale-110">
                 <social.icon className="h-6 w-6" />
