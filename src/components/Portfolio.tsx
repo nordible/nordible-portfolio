@@ -296,37 +296,37 @@ export default function Portfolio() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section id="portfolio" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
+    <section id="portfolio" className="relative py-20 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
+        <div className="text-center mb-12">
+          <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
             Selected Works
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight">
             Our Software Products
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             We build and scale high-impact software products across diverse industries—from cross-platform consumer apps to enterprise healthcare solutions.
           </p>
         </div>
 
-        <div className="relative flex items-center mb-12">
+        <div className="relative flex items-center mb-10">
           <button
             onClick={prevSlide}
-            className="absolute left-0 z-20 p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group -translate-x-4 md:-translate-x-10"
+            className="absolute left-0 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group -translate-x-4 md:-translate-x-10"
           >
-            <ChevronLeft className="h-6 w-6 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
+            <ChevronLeft className="h-5 w-5 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
           </button>
 
           <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden flex-1 mx-4 md:mx-10 relative group/card border border-nordible-border dark:border-gray-700">
-            <div className="relative p-8 text-white overflow-hidden min-h-[350px] flex items-end" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="relative p-6 text-white overflow-hidden min-h-[300px] flex items-end" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
               <div className="relative z-10 w-full">
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                  <div className="flex items-center space-x-6">
-                    <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center p-4 border border-white/30 shadow-2xl">
+                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-xl rounded-xl flex items-center justify-center p-3 border border-white/30 shadow-2xl">
                       {imageErrors.has(currentProject.id) ? (
-                        <div className="w-full h-full flex items-center justify-center text-white font-bold text-2xl font-heading">
+                        <div className="w-full h-full flex items-center justify-center text-white font-bold text-xl font-heading">
                           {currentProject.client.charAt(0)}
                         </div>
                       ) : (
@@ -342,49 +342,49 @@ export default function Portfolio() {
                       )}
                     </div>
                     <div>
-                      <div className="text-xs text-blue-200 font-bold uppercase tracking-widest mb-2 drop-shadow-md">{currentProject.client}</div>
-                      <h3 className="text-3xl md:text-4xl font-extrabold mb-1 tracking-tight font-heading text-white drop-shadow-lg">{currentProject.title}</h3>
+                      <div className="text-[10px] text-blue-200 font-bold uppercase tracking-widest mb-1.5 drop-shadow-md">{currentProject.client}</div>
+                      <h3 className="text-2xl md:text-3xl font-extrabold mb-1 tracking-tight font-heading text-white drop-shadow-lg">{currentProject.title}</h3>
                     </div>
                   </div>
                   <a
                     href={currentProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary py-3 px-6 text-sm"
+                    className="btn-primary py-2.5 px-6 text-[11px] uppercase tracking-widest"
                   >
                     <span>View Project</span>
-                    <ExternalLink className="ml-2 h-4 w-4" />
+                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-10">
-              <div className="space-y-10">
+            <div className="p-8">
+              <div className="space-y-8">
                 <div>
-                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center">
-                    <span className="h-px w-8 bg-nordible-border dark:bg-gray-700 mr-3"></span>
+                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
+                    <span className="h-px w-6 bg-nordible-border dark:bg-gray-700 mr-2"></span>
                     Description
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed font-medium">{currentProject.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-medium">{currentProject.description}</p>
                 </div>
 
-                <div className="grid lg:grid-cols-3 gap-12">
-                  <div className="lg:col-span-2 space-y-10">
-                    <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl p-8 border-l-4 border-nordible-blue">
-                      <h5 className="text-xs font-bold text-nordible-dark dark:text-white mb-4 uppercase tracking-widest">
+                <div className="grid lg:grid-cols-3 gap-10">
+                  <div className="lg:col-span-2 space-y-8">
+                    <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl p-6 border-l-4 border-nordible-blue">
+                      <h5 className="text-[10px] font-bold text-nordible-dark dark:text-white mb-3 uppercase tracking-widest">
                         Objective Outcome
                       </h5>
-                      <p className="text-nordible-dark dark:text-gray-200 font-bold text-xl leading-snug">{currentProject.outcome}</p>
+                      <p className="text-nordible-dark dark:text-gray-200 font-bold text-lg leading-snug">{currentProject.outcome}</p>
                     </div>
 
                     <div>
-                      <h5 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Technology Stack</h5>
-                      <div className="flex flex-wrap gap-3">
+                      <h5 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Technology Stack</h5>
+                      <div className="flex flex-wrap gap-2">
                         {currentProject.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="bg-white dark:bg-gray-700 border border-nordible-border dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 text-sm font-semibold rounded-xl"
+                            className="bg-white dark:bg-gray-700 border border-nordible-border dark:border-gray-600 text-gray-700 dark:text-gray-200 px-3 py-1.5 text-[11px] font-bold uppercase tracking-tight rounded-lg"
                           >
                             {tech}
                           </span>
@@ -394,18 +394,18 @@ export default function Portfolio() {
                   </div>
 
                   <div className="lg:col-span-1">
-                    <div className="bg-nordible-dark text-white rounded-3xl p-8 shadow-2xl shadow-blue-900/20">
-                      <h5 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-widest flex items-center">
-                        <TrendingUp className="h-4 w-4 mr-2" />
+                    <div className="bg-nordible-dark text-white rounded-2xl p-6 shadow-2xl shadow-blue-900/20">
+                      <h5 className="text-[10px] font-bold text-blue-300 mb-6 uppercase tracking-widest flex items-center">
+                        <TrendingUp className="h-3.5 w-3.5 mr-2" />
                         Key Metrics
                       </h5>
-                      <div className="space-y-8">
+                      <div className="space-y-6">
                         {Object.entries(currentProject.metrics).map(([key, value], index) => (
                           <div key={index} className="flex flex-col">
-                            <span className="text-[10px] text-blue-200/60 uppercase tracking-[0.2em] mb-2 font-bold">
+                            <span className="text-[9px] text-blue-200/60 uppercase tracking-[0.2em] mb-1.5 font-bold">
                               {key.replace('_', ' ')}
                             </span>
-                            <span className="text-3xl font-extrabold tracking-tight font-heading">{value}</span>
+                            <span className="text-2xl font-extrabold tracking-tight font-heading">{value}</span>
                           </div>
                         ))}
                       </div>
@@ -418,35 +418,35 @@ export default function Portfolio() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 z-20 p-4 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group translate-x-4 md:translate-x-10"
+            className="absolute right-0 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group translate-x-4 md:translate-x-10"
           >
-            <ChevronRight className="h-6 w-6 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
+            <ChevronRight className="h-5 w-5 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
           </button>
         </div>
 
-        <div className="flex flex-col items-center space-y-12">
+        <div className="flex flex-col items-center space-y-10">
           <button
             onClick={togglePause}
-            className="flex items-center space-x-3 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-nordible-border dark:border-gray-700 group text-xs font-bold uppercase tracking-widest text-nordible-dark dark:text-gray-200"
+            className="flex items-center space-x-3 bg-white dark:bg-gray-800 px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-nordible-border dark:border-gray-700 group text-[10px] font-bold uppercase tracking-widest text-nordible-dark dark:text-gray-200"
           >
             {isPaused ? (
               <>
-                <Play className="h-4 w-4 text-nordible-blue" />
+                <Play className="h-3.5 w-3.5 text-nordible-blue" />
                 <span>Resume Slideshow</span>
               </>
             ) : (
               <>
-                <Pause className="h-4 w-4 text-nordible-blue" />
+                <Pause className="h-3.5 w-3.5 text-nordible-blue" />
                 <span>Pause Slideshow</span>
               </>
             )}
           </button>
 
           <div className="text-center w-full">
-            <div className="rounded-3xl p-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border border-blue-100 dark:border-gray-700 relative overflow-hidden">
+            <div className="rounded-3xl p-10 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border border-blue-100 dark:border-gray-700 relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-3xl font-extrabold text-nordible-dark dark:text-white mb-4 font-heading">Partner with Nordible Solutions</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto font-medium">
+                <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-3 font-heading">Partner with Nordible Solutions</h3>
+                <p className="text-base text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
                   We love engineering complex products and solving high-impact problems. Let's build your next system.
                 </p>
                 <button
@@ -456,7 +456,7 @@ export default function Portfolio() {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="btn-primary shadow-xl shadow-blue-500/20"
+                  className="btn-primary py-3.5 px-8 text-[11px] uppercase tracking-widest shadow-xl shadow-blue-500/20"
                 >
                   Start a Conversation
                 </button>

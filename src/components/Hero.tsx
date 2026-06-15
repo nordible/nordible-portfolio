@@ -10,21 +10,21 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-20 pb-24 overflow-hidden bg-nordible-bg dark:bg-gray-900">
+    <section className="relative pt-16 pb-20 overflow-hidden bg-nordible-bg dark:bg-gray-900">
       {/* Background soft glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="z-10 text-left">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-nordible-dark dark:text-white leading-[1.1] tracking-tight mb-8 font-heading">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-nordible-dark dark:text-white leading-[1.1] tracking-tight mb-6 font-heading">
               Engineering <br />
               <span className="text-nordible-blue">Exceptional</span> <br />
               Digital Systems
             </h1>
 
-            <div className="max-w-xl mb-12">
-              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
+            <div className="max-w-xl mb-10">
+              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
                 We are a software engineering partner dedicated to architecting high-performance digital systems. 
                 From core design to global scaling, we build products that move the needle.
               </p>
@@ -33,19 +33,19 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center">
               <button
                 onClick={scrollToConsultation}
-                className="btn-primary w-full sm:w-auto text-base px-10"
+                className="btn-primary w-full sm:w-auto text-sm px-8 py-3.5"
               >
                 <span>Get Started Now</span>
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               
-              <div className="flex items-center text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+              <div className="flex items-center text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                 <span className="w-8 h-px bg-gray-300 dark:bg-gray-700 mr-3"></span>
                 Response under 24h
               </div>
             </div>
 
-            <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-8 border-t border-nordible-border dark:border-gray-800 pt-10">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-nordible-border dark:border-gray-800 pt-8">
               {[
                 { label: 'System Architecture', val: 'End-to-End' },
                 { label: 'Science-Backed', val: 'Cognitive UX' },
