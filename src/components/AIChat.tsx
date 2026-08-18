@@ -263,7 +263,7 @@ export default function AIChat() {
                   <Mail className="h-4 w-4" />
                   <span>Email</span>
                 </a>
-                <a href="tel:+919773207706" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
+                <a href="tel:+4915235850031" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
                   <Phone className="h-4 w-4" />
                   <span>Call</span>
                 </a>

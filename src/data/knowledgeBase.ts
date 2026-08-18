@@ -1,42 +1,83 @@
 export const knowledgeBase = {
   personal: {
-    name: "Nordible Solutions",
-    title: "Software Product Engineering & Technology Powerhouse",
-    email: "mail@nordible.co",
-    phone: "+91-9773207706",
-    summary: "Nordible Solutions is a technology powerhouse with 8+ years of experience engineering world-class software products from design to deployment and marketing."
+    name: "Nordible Technologies",
+    founder: "Kabeer Shah",
+    title: "Engineering Leader | Cloud Strategist | Architect",
+    email: "kabeer@nordible.co",
+    generalEmail: "mail@nordible.co",
+    phone: "+4915235850031",
+    address: "Nordible Technologies, Dieburger Str.70, 63322 Rödermark, Germany",
+    pitchDeckUrl: "/nordible-pitch-deck.pdf",
+    summary: "Nordible Technologies is an elite software engineering and cloud architecture partner founded by Kabeer Shah. With over 15 years of experience architecting high-performance digital systems for global fintech unicorns and Fortune 500 healthcare leaders, we engineer resilient software products from strategy to deployment."
   },
   
+  founder: {
+    name: "Kabeer Shah",
+    role: "Founder & Principal Architect",
+    experienceYears: "15+",
+    bio: "Results-oriented Engineering Leader with 15+ years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing engineering operations.",
+    linkedin: "https://www.linkedin.com/in/meetkabeershah/",
+    github: "https://github.com/skbr1234",
+    certifications: ["AWS Certified Cloud Practitioner (Valid through 2027)", "B.Sc. IT – Mumbai University (Grade A)"],
+    thoughtLeadership: [
+      "Top Stack Overflow contributor with ~32k reputation, impacting millions of developers worldwide",
+      "Published author on Medium, Chatbots Magazine, and HackerNoon",
+      "Active technical content creator on YouTube and GitHub contributor since 2014",
+      "TechGig Finalist & Best Performer Award"
+    ]
+  },
+
   experience: [
     {
-      company: "Vantive Healthcare (formerly Baxter)",
-      role: "Senior Software Engineer",
-      duration: "2023 - Present",
-      description: "Developed RST (Remote Service Tool) for medical device diagnostics and troubleshooting.",
-      technologies: ["Node.js", "PostgreSQL", "AWS IoT", "Jest", "TDD"]
+      company: "Quest Global",
+      role: "Technical Lead / Engineering Manager",
+      duration: "May 2023 – June 2026",
+      description: "Led engineering delivery for enterprise leaders including GE Healthcare, Vantive (Baxter Healthcare), and Nipro. Architected OncoCare oncology decision-support platform for GE Healthcare; engineered AWS IoT and Lambda backend for Baxter's Remote Service Tool (RST).",
+      technologies: ["Node.js", "PostgreSQL", "AWS IoT", "AWS Lambda", "TDD", "HIPAA Compliance"]
     },
     {
-      company: "NIUM (formerly InstaReM)",
-      role: "Senior Software Engineer", 
-      duration: "2021 - 2023",
-      description: "Contributed to the technical development of Instarem.com fintech platform handling millions in cross-border transactions.",
-      technologies: ["Node.js", "React.js", "PostgreSQL", "Mocha", "AWS"]
+      company: "The Parent Inc. (TickledMedia)",
+      role: "Lead Senior Software Engineer (SDE-3)",
+      duration: "August 2020 – March 2023",
+      description: "Led architectural transformation to Microservices and Micro-frontends for flagship Parents.VIP platform. Governed database migrations with Sqitch and established automated CI/CD workflows.",
+      technologies: ["Node.js", "Microservices", "Micro-frontends", "Python", "Redis", "AWS", "Sqitch"]
     },
     {
-      company: "General Electric Healthcare",
+      company: "Nium Inc. (Instarem)",
+      role: "Engineering Lead / Interim Head of Engineering",
+      duration: "September 2018 – March 2020",
+      description: "Fintech unicorn: Built and led cross-functional engineering department of 18+ engineers. Directed PCI-DSS compliance roadmap and high-value API integrations including PhonePe. Awarded Best Team.",
+      technologies: ["Node.js", "React.js", "PostgreSQL", "AWS", "PCI-DSS", "Agile Transformation"]
+    },
+    {
+      company: "SmarTek21",
+      role: "Senior Full Stack Engineer",
+      duration: "March 2017 – August 2018",
+      description: "Developed SmartbotHub conversational NLP chatbot platform for enterprise clients. Won Best Performer Award.",
+      technologies: ["Node.js", "AngularJS", "NLP / AI", "MySQL", "AWS"]
+    },
+    {
+      company: "NerdsPal.com",
+      role: "Co-Founder & CTO",
+      duration: "June 2015 – March 2017",
+      description: "Bootstrapped Q&A EdTech cloud platform from zero to launch, connecting students with academic mentors.",
+      technologies: ["React.js", "Node.js", "Google Cloud", "WebSockets"]
+    },
+    {
+      company: "Next Service HSS Pvt. Ltd.",
       role: "Software Engineer",
-      duration: "2019 - 2021", 
-      description: "Contributed to the development of OncoCare platform for oncology care management serving healthcare providers worldwide.",
-      technologies: ["Node.js", "PostgreSQL", "React.js", "AWS", "Leadership"]
+      duration: "April 2012 – March 2016",
+      description: "Developed NextAuto internal automation suite (C#, .NET, Node.js) eliminating manual operational tasks.",
+      technologies: ["C#", ".NET", "Node.js", "Automation"]
     }
   ],
 
   skills: {
+    leadership: ["Engineering Management (18+)", "Agile/Scrum Transformation", "Roadmap Planning", "Vendor Management", "Technical Recruiting"],
+    cloudAndArchitecture: ["Microservices", "Event-Driven Architecture", "Serverless", "AWS (Lambda, EC2, IoT)", "Docker", "Kubernetes", "Cost Optimization"],
+    complianceAndSecurity: ["PCI-DSS (Fintech)", "GRC", "HIPAA standards (Healthtech)", "Code Quality (TDD)", "CI/CD Pipelines"],
     frontend: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS"],
-    backend: ["Node.js", "Python", "C#", ".NET", "ASP.NET MVC"],
-    databases: ["PostgreSQL", "MySQL", "MongoDB", "SQL Server", "Redis"],
-    cloud: ["AWS", "Azure", "Docker", "Kubernetes"],
-    testing: ["Jest", "Mocha", "TDD", "Unit Testing", "Integration Testing"]
+    backend: ["Node.js", "Python", "C#", ".NET", "PostgreSQL", "MySQL", "Redis", "Docker"]
   },
 
   projects: [

@@ -68,13 +68,13 @@ export default function TermsOfService() {
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
                          <Phone className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">+91-9773207706</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">+4915235850031</span>
                    </div>
                    <div className="sm:col-span-2 flex items-start space-x-4">
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm mt-1">
                          <MapPin className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">India Operations: Bangalore Hub</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">Nordible Technologies, Dieburger Str.70, 63322 Rödermark</span>
                    </div>
                 </div>
               </section>

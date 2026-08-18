@@ -33,8 +33,13 @@ function searchKnowledgeBase(query: string): string {
     context += `Services: ${JSON.stringify(knowledgeBase.services, null, 2)}\n\n`;
   }
   
-  // Always include personal info
-  context += `Personal Info: ${JSON.stringify(knowledgeBase.personal, null, 2)}\n\n`;
+  // Search in founder
+  if (lowerQuery.includes('founder') || lowerQuery.includes('kabeer') || lowerQuery.includes('leader') || lowerQuery.includes('story') || lowerQuery.includes('who') || lowerQuery.includes('experience')) {
+    context += `Founder Info: ${JSON.stringify(knowledgeBase.founder, null, 2)}\n\n`;
+  }
+
+  // Always include personal & company info
+  context += `Company Info: ${JSON.stringify(knowledgeBase.personal, null, 2)}\n\n`;
   
   return context || JSON.stringify(knowledgeBase, null, 2);
 }

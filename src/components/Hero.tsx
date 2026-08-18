@@ -30,19 +30,22 @@ export default function Hero() {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-stretch sm:items-center">
               <button
                 onClick={scrollToConsultation}
-                className="btn-primary w-full sm:w-auto text-sm px-8 py-3.5"
+                className="btn-primary text-sm px-8 py-3.5 text-center"
               >
                 <span>Get Started Now</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
               </button>
-              
-              <div className="flex items-center text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
-                <span className="w-8 h-px bg-gray-300 dark:bg-gray-700 mr-3"></span>
-                Response under 24h
-              </div>
+
+              <a
+                href="/nordible-pitch-deck.pdf"
+                download="nordible-pitch-deck.pdf"
+                className="inline-flex items-center justify-center text-sm font-bold px-6 py-3.5 rounded-xl border-2 border-nordible-blue text-nordible-blue dark:text-blue-400 hover:bg-nordible-blue hover:text-white dark:hover:bg-nordible-blue dark:hover:text-white transition-all active:scale-95 shadow-sm"
+              >
+                <span>Download Pitch Deck</span>
+              </a>
             </div>
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-nordible-border dark:border-gray-800 pt-8">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Github, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -14,24 +14,32 @@ export default function Footer() {
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/10 border border-white/10">
                 <img src="/images/logo-email.webp" alt="Nordible Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Solutions</span>
+              <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Technologies</span>
             </div>
-            <p className="text-blue-100/60 mb-10 leading-relaxed font-medium max-w-md">
+            <p className="text-blue-100/60 mb-8 leading-relaxed font-medium max-w-md">
               A specialized software engineering partner dedicated to architecting high-performance digital systems. 
               We build high-impact products for businesses globally.
             </p>
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 group cursor-pointer">
+            <div className="space-y-4">
+              <a href="mailto:mail@nordible.co" className="flex items-center space-x-4 group cursor-pointer">
                 <div className="p-2 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
                   <Mail className="h-5 w-5 text-blue-300 group-hover:text-white" />
                 </div>
                 <span className="text-blue-100/80 font-bold text-sm tracking-widest uppercase">mail@nordible.co</span>
-              </div>
-              <div className="flex items-center space-x-4 group cursor-pointer">
+              </a>
+              <a href="tel:+4915235850031" className="flex items-center space-x-4 group cursor-pointer">
                 <div className="p-2 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
                   <Phone className="h-5 w-5 text-blue-300 group-hover:text-white" />
                 </div>
-                <span className="text-blue-100/80 font-bold text-sm tracking-widest uppercase">+91-9773207706</span>
+                <span className="text-blue-100/80 font-bold text-sm tracking-widest uppercase">+4915235850031</span>
+              </a>
+              <div className="flex items-start space-x-4">
+                <div className="p-2 bg-white/5 rounded-lg">
+                  <MapPin className="h-5 w-5 text-blue-300" />
+                </div>
+                <span className="text-blue-100/80 font-medium text-sm leading-relaxed">
+                  Nordible Technologies<br />Dieburger Str.70, 63322 Rödermark, Germany
+                </span>
               </div>
             </div>
           </div>
@@ -49,8 +57,18 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Company</h3>
             <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
-              <li><a href="#about" className="text-blue-100/60 hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#about" className="text-blue-100/60 hover:text-white transition-colors">Founder Story</a></li>
               <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">Contact Us</a></li>
+              <li>
+                <a 
+                  href="/nordible-pitch-deck.pdf" 
+                  download="nordible-pitch-deck.pdf"
+                  className="text-nordible-blue hover:text-blue-400 transition-colors flex items-center space-x-2"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Pitch Deck (PDF)</span>
+                </a>
+              </li>
               <li>
                 <Link 
                   to="/privacy"
@@ -73,7 +91,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-[10px] font-bold text-blue-100/40 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Nordible Solutions. Built with Excellence.
+            &copy; {new Date().getFullYear()} Nordible Technologies. Built with Excellence.
           </p>
           <div className="flex space-x-6">
             {[

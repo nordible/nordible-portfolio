@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Download } from 'lucide-react';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export default function Contact() {
@@ -68,22 +68,49 @@ export default function Contact() {
                   <span className="h-px w-8 bg-nordible-border dark:bg-gray-700 mr-3"></span>
                   Contact Methods
                 </h3>
-                <div className="space-y-8">
-                  {[
-                    { icon: Mail, label: 'Email Address', value: 'mail@nordible.co' },
-                    { icon: Phone, label: 'Phone Number', value: '+91-9773207706' },
-                    { icon: MessageSquare, label: 'Instant Comms', value: 'WhatsApp Available' }
-                  ].map((item, i) => (
-                    <div key={i} className="group">
-                      <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">{item.label}</div>
-                      <div className="flex items-center space-x-4 text-nordible-dark dark:text-white font-extrabold group-hover:text-nordible-blue transition-colors">
-                        <div className="p-2 bg-blue-50 dark:bg-gray-700 rounded-lg">
-                          <item.icon className="h-5 w-5 text-nordible-blue dark:text-blue-400" />
-                        </div>
-                        <span className="text-lg">{item.value}</span>
+                <div className="space-y-6">
+                  <a href="mailto:mail@nordible.co" className="block group">
+                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</div>
+                    <div className="flex items-center space-x-3 text-nordible-dark dark:text-white font-extrabold group-hover:text-nordible-blue transition-colors">
+                      <div className="p-2 bg-blue-50 dark:bg-gray-700 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-gray-600">
+                        <Mail className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
                       </div>
+                      <span className="text-base">mail@nordible.co</span>
                     </div>
-                  ))}
+                  </a>
+
+                  <a href="tel:+4915235850031" className="block group">
+                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Phone &amp; WhatsApp</div>
+                    <div className="flex items-center space-x-3 text-nordible-dark dark:text-white font-extrabold group-hover:text-nordible-blue transition-colors">
+                      <div className="p-2 bg-blue-50 dark:bg-gray-700 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-gray-600">
+                        <Phone className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
+                      </div>
+                      <span className="text-base">+4915235850031</span>
+                    </div>
+                  </a>
+
+                  <div className="block group">
+                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Headquarters</div>
+                    <div className="flex items-start space-x-3 text-nordible-dark dark:text-white font-bold">
+                      <div className="p-2 bg-blue-50 dark:bg-gray-700 rounded-lg mt-0.5">
+                        <MapPin className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
+                      </div>
+                      <span className="text-sm font-semibold leading-relaxed">
+                        Nordible Technologies<br />Dieburger Str.70, 63322 Rödermark
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-nordible-border dark:border-gray-700">
+                  <a
+                    href="/nordible-pitch-deck.pdf"
+                    download="nordible-pitch-deck.pdf"
+                    className="w-full inline-flex items-center justify-center space-x-2 bg-blue-50 dark:bg-blue-900/30 hover:bg-nordible-blue hover:text-white dark:hover:bg-nordible-blue text-nordible-blue dark:text-blue-300 font-bold text-xs uppercase tracking-widest py-3 px-4 rounded-xl border border-blue-200 dark:border-blue-800 transition-all active:scale-95"
+                  >
+                    <Download className="h-4 w-4" />
+                    <span>Download Pitch Deck</span>
+                  </a>
                 </div>
               </div>
 

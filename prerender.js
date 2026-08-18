@@ -20,8 +20,9 @@ async function prerender() {
     });
   });
 
-  server.listen(3000, async () => {
-    console.log('Temporary server running at http://localhost:3000');
+  server.listen(0, async () => {
+    const port = server.address().port;
+    console.log(`Temporary server running at http://localhost:${port}`);
 
     const browser = await puppeteer.launch({
       headless: "new",
@@ -30,8 +31,8 @@ async function prerender() {
     const page = await browser.newPage();
     
     for (const route of routes) {
-      console.log(`Navigating to http://localhost:3000${route}...`);
-      await page.goto(`http://localhost:3000${route}`, { waitUntil: 'networkidle0' });
+      console.log(`Navigating to http://localhost:${port}${route}...`);
+      await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle0' });
       
       const html = await page.content();
       
