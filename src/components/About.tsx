@@ -3,13 +3,11 @@ import {
   Shield, 
   Zap, 
   Target, 
-  Download, 
   Award, 
   CheckCircle2, 
   Linkedin, 
   Github, 
-  Layers, 
-  ExternalLink 
+  Layers 
 } from 'lucide-react';
 
 const About = () => {
@@ -94,26 +92,6 @@ const About = () => {
                 <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">50+</div>
                 <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Systems Shipped</div>
               </div>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href="/nordible-pitch-deck.pdf"
-                download="nordible-pitch-deck.pdf"
-                className="btn-primary inline-flex items-center space-x-3 text-sm px-7 py-3.5 shadow-lg shadow-blue-500/20 active:scale-95 transition-all"
-              >
-                <Download className="h-4 w-4" />
-                <span>Download Pitch Deck (PDF)</span>
-              </a>
-              <a
-                href="/nordible-pitch-deck.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-nordible-blue hover:underline py-3 px-2"
-              >
-                <span>View Deck Online</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
             </div>
           </div>
 

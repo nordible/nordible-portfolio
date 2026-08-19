@@ -38,14 +38,6 @@ export default function Hero() {
                 <span>Get Started Now</span>
                 <ArrowRight className="ml-2 h-4 w-4 inline-block" />
               </button>
-
-              <a
-                href="/nordible-pitch-deck.pdf"
-                download="nordible-pitch-deck.pdf"
-                className="inline-flex items-center justify-center text-sm font-bold px-6 py-3.5 rounded-xl border-2 border-nordible-blue text-nordible-blue dark:text-blue-400 hover:bg-nordible-blue hover:text-white dark:hover:bg-nordible-blue dark:hover:text-white transition-all active:scale-95 shadow-sm"
-              >
-                <span>Download Pitch Deck</span>
-              </a>
             </div>
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-nordible-border dark:border-gray-800 pt-8">

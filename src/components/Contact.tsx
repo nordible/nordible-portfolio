@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MapPin, Download } from 'lucide-react';
+import { Send, Phone, Mail, MapPin } from 'lucide-react';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export default function Contact() {
@@ -100,17 +100,6 @@ export default function Contact() {
                       </span>
                     </div>
                   </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-nordible-border dark:border-gray-700">
-                  <a
-                    href="/nordible-pitch-deck.pdf"
-                    download="nordible-pitch-deck.pdf"
-                    className="w-full inline-flex items-center justify-center space-x-2 bg-blue-50 dark:bg-blue-900/30 hover:bg-nordible-blue hover:text-white dark:hover:bg-nordible-blue text-nordible-blue dark:text-blue-300 font-bold text-xs uppercase tracking-widest py-3 px-4 rounded-xl border border-blue-200 dark:border-blue-800 transition-all active:scale-95"
-                  >
-                    <Download className="h-4 w-4" />
-                    <span>Download Pitch Deck</span>
-                  </a>
                 </div>
               </div>
 

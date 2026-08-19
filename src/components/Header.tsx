@@ -36,13 +36,6 @@ export default function Header() {
                 {item}
               </button>
             ))}
-            <a
-              href="/nordible-pitch-deck.pdf"
-              download="nordible-pitch-deck.pdf"
-              className="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
-            >
-              Pitch Deck
-            </a>
             <button
               onClick={toggleTheme}
               className="p-3 rounded-xl bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-95"
@@ -77,13 +70,6 @@ export default function Header() {
                   {item}
                 </button>
               ))}
-              <a
-                href="/nordible-pitch-deck.pdf"
-                download="nordible-pitch-deck.pdf"
-                className="block w-full text-left px-4 py-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:bg-nordible-bg dark:hover:bg-gray-800 rounded-xl transition-colors"
-              >
-                Pitch Deck (PDF)
-              </a>
               <div className="flex items-center justify-between px-4 py-3">
                  <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">Theme</span>
                  <button
