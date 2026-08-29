@@ -97,7 +97,7 @@ export default function Footer() {
             {[
               { icon: Github, url: 'https://github.com/nordible' },
               { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/' },
-              { icon: Instagram, url: 'https://www.instagram.com/nordible/' },
+              { icon: Instagram, url: 'https://www.instagram.com/nordible.co/' },
               { icon: Youtube, url: 'https://www.youtube.com/@nordible' }
             ].map((social, i) => (
               <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="text-blue-100/40 hover:text-nordible-blue transition-all transform hover:scale-110">
