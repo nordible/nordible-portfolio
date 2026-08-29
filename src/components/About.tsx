@@ -66,18 +66,18 @@ const About = () => {
               Company Profile
             </div>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-8 tracking-tight font-heading">
-              Software Engineering <span className="text-nordible-blue">Partner</span>
+              Technology Solutions <span className="text-nordible-blue">Partner</span>
             </h2>
             
             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
               <p>
-                Nordible Technologies is a specialized software engineering partner dedicated to architecting high-performance digital systems. 
-                We don't just develop; we design and deploy high-impact solutions that solve real-world problems 
+                Nordible Technologies is a specialized technology solutions partner dedicated to architecting high-performance systems. 
+                We don't just develop; we design and deploy high-impact technology solutions that solve real-world problems 
                 at scale.
               </p>
 
               <p>
-                From building cross-platform consumer apps to architecting complex enterprise systems 
+                From building cross-platform consumer apps to architecting complex enterprise technology solutions 
                 for global organizations, our expertise spans the entire technology landscape. 
                 We believe in science-backed UX, clean engineering, and resilient architectures.
               </p>
@@ -90,7 +90,7 @@ const About = () => {
               </div>
               <div>
                 <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">50+</div>
-                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Systems Shipped</div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Solutions Shipped</div>
               </div>
             </div>
           </div>
@@ -132,8 +132,13 @@ const About = () => {
             {/* Founder Profile Card */}
             <div className="lg:col-span-5 card-premium p-8 lg:p-10 relative overflow-hidden">
               <div className="flex items-center space-x-5 mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-nordible-blue to-blue-400 flex items-center justify-center text-white font-heading font-extrabold text-2xl shadow-xl shadow-blue-500/20 flex-shrink-0">
-                  KS
+                <div className="relative flex-shrink-0">
+                  <img
+                    src="/images/founder.png"
+                    alt="Kabeer Shah - Founder & Principal Architect"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top shadow-xl shadow-blue-500/20 border-2 border-white dark:border-gray-700"
+                    loading="lazy"
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading">
@@ -149,7 +154,7 @@ const About = () => {
               </div>
 
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm font-medium mb-6">
-                Results-oriented Engineering Leader with over 15 years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for global Fintech unicorns and Fortune 500 Healthcare enterprises.
+                Results-oriented Engineering Leader with over 15 years of experience building and scaling high-performance engineering teams. Proven track record in orchestrating end-to-end technology solutions for global Fintech unicorns and Fortune 500 Healthcare enterprises.
               </p>
 
               <div className="space-y-3 mb-8">

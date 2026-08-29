@@ -182,7 +182,7 @@ export default function Contact() {
                     <option value="">-- Select Type --</option>
                     <option value="e-commerce">E-Commerce</option>
                     <option value="business-website">Business Platform</option>
-                    <option value="custom-application">Custom Software</option>
+                    <option value="custom-application">Custom Technology Solution</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

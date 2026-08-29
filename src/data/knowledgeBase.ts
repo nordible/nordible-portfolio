@@ -8,14 +8,14 @@ export const knowledgeBase = {
     phone: "+4915235850031",
     address: "Nordible Technologies, Dieburger Str.70, 63322 Rödermark, Germany",
     pitchDeckUrl: "/nordible-pitch-deck.pdf",
-    summary: "Nordible Technologies is an elite software engineering and cloud architecture partner founded by Kabeer Shah. With over 15 years of experience architecting high-performance digital systems for global fintech unicorns and Fortune 500 healthcare leaders, we engineer resilient software products from strategy to deployment."
+    summary: "Nordible Technologies is an elite technology solutions and cloud architecture partner founded by Kabeer Shah. With over 15 years of experience architecting high-performance systems for global fintech unicorns and Fortune 500 healthcare leaders, we engineer resilient technology solutions from strategy to deployment."
   },
   
   founder: {
     name: "Kabeer Shah",
     role: "Founder & Principal Architect",
     experienceYears: "15+",
-    bio: "Results-oriented Engineering Leader with 15+ years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing engineering operations.",
+    bio: "Results-oriented Engineering Leader with 15+ years of experience building and scaling high-performance engineering teams. Proven track record in orchestrating end-to-end technology solutions for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing engineering operations.",
     linkedin: "https://www.linkedin.com/in/meetkabeershah/",
     github: "https://github.com/skbr1234",
     certifications: ["AWS Certified Cloud Practitioner (Valid through 2027)", "B.Sc. IT – Mumbai University (Grade A)"],

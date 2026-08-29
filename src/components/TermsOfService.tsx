@@ -36,7 +36,7 @@ export default function TermsOfService() {
               <section>
                 <h2 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-4 font-heading tracking-tight">2. Services Provided</h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed font-medium mb-6">
-                  We provide specialized software engineering and digital product development services including:
+                  We provide specialized technology solutions and enterprise platform development services including:
                 </p>
                 <ul className="grid md:grid-cols-2 gap-4 list-none p-0">
                   {['Web & Mobile Systems', 'Product Engineering', 'Enterprise Platforms', 'Architectural Consulting'].map((item, i) => (

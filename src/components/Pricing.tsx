@@ -21,7 +21,7 @@ export default function Pricing() {
     {
       name: 'Scalable System',
       duration: '6-10 weeks',
-      description: 'Full-lifecycle software product with global scaling capabilities. Built within your specified resource parameters.',
+      description: 'Full-lifecycle technology solution with global scaling capabilities. Built within your specified resource parameters.',
       features: [
         'End-to-End Product Strategy',
         'Advanced System Integration',
@@ -36,7 +36,7 @@ export default function Pricing() {
     {
       name: 'Enterprise Protocol',
       duration: '12-24 weeks',
-      description: 'Complex software ecosystems for global industry leaders. Scaled to meet your enterprise budget and security standards.',
+      description: 'Complex technology ecosystems for global industry leaders. Scaled to meet your enterprise budget and security standards.',
       features: [
         'Multi-Region Deployment',
         'Custom Microservices',

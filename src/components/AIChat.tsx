@@ -13,7 +13,7 @@ export default function AIChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hi! I'm your Nordible guide. Ask me anything about our software engineering expertise, digital products, or how we can help your business grow!",
+      content: "Hi! I'm your Nordible guide. Ask me anything about our technology solutions, enterprise platforms, or how we can help your business grow!",
       timestamp: new Date()
     }
   ]);
@@ -106,7 +106,7 @@ export default function AIChat() {
   const suggestedQuestions = [
     "What core products has Nordible built?",
     "Tell me about Nordible Professional Email",
-    "What is your software engineering process?",
+    "What is your technology solutions process?",
     "How do you handle enterprise scaling?"
   ];
 

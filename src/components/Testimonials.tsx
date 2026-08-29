@@ -16,7 +16,7 @@ export default function Testimonials() {
       role: 'Tech Lead',
       company: 'Baxter Healthcare',
       rating: 5,
-      text: "The architectural depth Nordible brings to software engineering is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
+      text: "The architectural depth Nordible brings to technology solutions is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     {
@@ -24,7 +24,7 @@ export default function Testimonials() {
       role: 'Operations Director',
       company: 'Global Trade Hub',
       rating: 5,
-      text: 'Nordible transformed our complex legacy workflows into a streamlined digital system. Their professional approach and engineering rigor are truly world-class.',
+      text: 'Nordible transformed our complex legacy workflows into a streamlined technology solution. Their professional approach and engineering rigor are truly world-class.',
       avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face'
     }
   ];

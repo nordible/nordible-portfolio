@@ -13,7 +13,7 @@ export default function Services() {
     },
     {
       icon: Terminal,
-      title: 'Software Engineering',
+      title: 'Technology Solutions',
       description: 'Building scalable, high-performance applications for Web, Mobile, and Cloud environments.',
       features: ['Web & Mobile Apps', 'Scalable Backend', 'API Systems', 'Cloud-Native Architecture'],
       color: 'bg-indigo-600'
@@ -38,7 +38,7 @@ export default function Services() {
             Our Expertise
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
-            From design to deployment and global growth—we build software that drives real impact.
+            From design to deployment and global growth—we engineer technology solutions that drive real impact.
           </p>
         </div>
 

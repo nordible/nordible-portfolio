@@ -17,8 +17,8 @@ export default function Footer() {
               <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Technologies</span>
             </div>
             <p className="text-blue-100/60 mb-8 leading-relaxed font-medium max-w-md">
-              A specialized software engineering partner dedicated to architecting high-performance digital systems. 
-              We build high-impact products for businesses globally.
+              A specialized technology solutions partner dedicated to architecting high-performance systems. 
+              We build high-impact technology solutions for businesses globally.
             </p>
             <div className="space-y-4">
               <a href="mailto:mail@nordible.co" className="flex items-center space-x-4 group cursor-pointer">
@@ -47,7 +47,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Expertise</h3>
             <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Software Engineering</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Technology Solutions</a></li>
               <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Cloud Infrastructure</a></li>
               <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>

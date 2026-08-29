@@ -6,7 +6,7 @@ export default function BusinessBenefits() {
     {
       icon: DollarSign,
       title: 'Increase Revenue',
-      description: 'Modern software products convert 3x better than legacy systems',
+      description: 'Modern technology solutions convert 3x better than legacy systems',
       metric: '+150% ROI',
       color: 'from-green-500 to-emerald-600',
       mascot: '/images/mascot/celebrate.webp'

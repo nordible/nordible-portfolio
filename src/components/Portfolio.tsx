@@ -129,7 +129,7 @@ const projects = [
     client: 'NextServices HSS Pvt Ltd',
     logo: '/images/logos/nextservices_logo.png',
     link: 'https://nextservices.com/',
-    description: 'Internal process automation software for automating web scraping, data processing, reporting, and email workflows.',
+    description: 'Internal process automation technology solution for automating web scraping, data processing, reporting, and email workflows.',
 
     technologies: ['C#', 'JavaScript', 'SQL Server', '.NET Framework', 'ASP.NET MVC'],
     outcome: 'Automated 80% of manual processes, saving 40+ hours per week and reducing errors by 90%',
@@ -303,10 +303,10 @@ export default function Portfolio() {
             Selected Works
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight">
-            Our Software Products
+            Our Technology Solutions
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-            We build and scale high-impact software products across diverse industries—from cross-platform consumer apps to enterprise healthcare solutions.
+            We build and scale high-impact technology solutions across diverse industries—from cross-platform consumer apps to enterprise healthcare platforms.
           </p>
         </div>
 
