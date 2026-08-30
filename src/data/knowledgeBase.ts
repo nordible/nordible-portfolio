@@ -3,11 +3,15 @@ export const knowledgeBase = {
     name: "Nordible Technologies",
     founder: "Kabeer Shah",
     title: "Engineering Leader | Cloud Strategist | Architect",
-    email: "kabeer@nordible.co",
-    generalEmail: "mail@nordible.co",
-    phone: "+4915235850031",
-    address: "Nordible Technologies, Dieburger Str.70, 63322 Rödermark, Germany",
-    pitchDeckUrl: "/nordible-pitch-deck.pdf",
+    company: {
+      name: "Nordible Technologies",
+      tagline: "Your complete technology partner for every stage of business growth",
+      address: "Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt, Germany",
+      phone: "+49 152 35850031",
+      email: "kabeer@nordible.co",
+      generalEmail: "mail@nordible.co",
+      pitchDeckUrl: "/nordible-pitch-deck.pdf"
+    },
     summary: "Nordible Technologies is an elite technology solutions and cloud architecture partner founded by Kabeer Shah. With over 15 years of experience architecting high-performance systems for global fintech unicorns and Fortune 500 healthcare leaders, we engineer resilient technology solutions from strategy to deployment."
   },
   

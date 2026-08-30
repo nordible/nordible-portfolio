@@ -129,8 +129,8 @@ export default function AIChat() {
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-700 overflow-hidden flex flex-col h-[600px]">
           <div className="px-8 py-6 bg-nordible-dark text-white flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 flex items-center justify-center">
-                <img src="/images/mascot/primary-mascot.webp" alt="AI Mascot" className="w-full h-full object-contain" />
+              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center p-1.5 border border-white/15 shadow-sm">
+                <img src="/images/logos/nordible-icon.png" alt="Nordible AI" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h3 className="font-extrabold text-lg font-heading leading-tight text-white">Nordible AI</h3>
@@ -146,8 +146,8 @@ export default function AIChat() {
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`flex items-start space-x-3 max-w-[85%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                  <div className={`w-8 h-8 flex items-center justify-center flex-shrink-0 ${message.role === 'user' ? 'bg-nordible-blue text-white rounded-xl shadow-sm' : ''}`}>
-                    {message.role === 'user' ? <User className="h-4 w-4" /> : <img src="/images/mascot/primary-mascot.webp" className="w-8 h-8 object-contain" alt="" />}
+                  <div className={`w-8 h-8 flex items-center justify-center flex-shrink-0 ${message.role === 'user' ? 'bg-nordible-blue text-white rounded-xl shadow-sm' : 'bg-blue-50 dark:bg-gray-700 rounded-xl p-1 shadow-sm'}`}>
+                    {message.role === 'user' ? <User className="h-4 w-4" /> : <img src="/images/logos/nordible-icon.png" className="w-full h-full object-contain" alt="Nordible AI" />}
                   </div>
                   <div className={`p-4 rounded-2xl text-sm font-medium shadow-sm leading-relaxed ${message.role === 'user' ? 'bg-nordible-blue text-white' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200'}`}>
                     <p>{message.content}</p>
@@ -211,9 +211,7 @@ export default function AIChat() {
         {/* Contact Form Overlay */}
         {showContactForm && (
           <div className="mt-12 card-premium p-10 bg-nordible-dark text-white border-0 shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="absolute top-0 right-0 w-48 h-48 opacity-10 pointer-events-none -mr-10 -mt-10">
-              <img src="/images/mascot/celebrate.webp" alt="" className="w-full h-full object-contain rotate-12" />
-            </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -mr-10 -mt-10"></div>
             
             <div className="text-center mb-10 relative z-10">
               <h3 className="text-2xl font-extrabold mb-2 font-heading">Start a Human Conversation</h3>

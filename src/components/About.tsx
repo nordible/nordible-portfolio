@@ -3,238 +3,127 @@ import {
   Shield, 
   Zap, 
   Target, 
-  Award, 
-  CheckCircle2, 
   Linkedin, 
   Github, 
-  Layers 
+  ArrowRight
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
-  const qualities = [
-    {
-      icon: Shield,
-      title: "Clean Engineering",
-      description: "We write robust, maintainable code that stands the test of time and scale."
-    },
-    {
-      icon: Zap,
-      title: "Rapid Execution",
-      description: "Speed is our second name. We ship features and systems with unmatched velocity."
-    },
-    {
-      icon: Target,
-      title: "Business Focused",
-      description: "We don't just build tech; we build tools that solve real business challenges."
-    }
-  ];
+  const { t } = useLanguage();
+  const a = t.about;
+  const navigate = useNavigate();
 
-  const milestones = [
-    {
-      role: "Tech Lead / Engineering Manager",
-      company: "Quest Global",
-      highlight: "Delivered mission-critical systems for GE Healthcare (OncoCare platform) & Baxter/Vantive (RST AWS IoT diagnostics).",
-      tags: ["GE Healthcare", "Vantive (Baxter)", "AWS IoT"]
-    },
-    {
-      role: "Engineering Lead / Interim Head of Engineering",
-      company: "Nium Inc. (Instarem)",
-      highlight: "Fintech Unicorn: Built & led 18+ engineers, PCI-DSS compliance audits, and high-value API integrations (PhonePe).",
-      tags: ["Fintech Unicorn", "PCI-DSS", "18+ Team"]
-    },
-    {
-      role: "Lead Senior Software Engineer (SDE-3)",
-      company: "The Parent Inc. (TickledMedia)",
-      highlight: "Architected microservices and micro-frontends transition for flagship Parents.VIP marketing platform.",
-      tags: ["Microservices", "Micro-frontends", "Sqitch"]
-    },
-    {
-      role: "Senior AI / Full-Stack Engineer & Co-Founder",
-      company: "SmarTek21 & NerdsPal",
-      highlight: "Engineered SmartbotHub NLP chatbot AI platform (Best Performer Award) and bootstrapped EdTech platform.",
-      tags: ["NLP Chatbots", "Cloud Architecture"]
-    }
-  ];
+  const qualityIcons = [Shield, Zap, Target];
 
   return (
     <section id="about" className="relative py-24 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Company Profile Overview */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-          <div className="relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="relative z-10 text-left">
             <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-              Company Profile
+              {a.badge}
             </div>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-8 tracking-tight font-heading">
-              Technology Solutions <span className="text-nordible-blue">Partner</span>
+              {a.title} <span className="text-nordible-blue">{a.titleHighlight}</span>
             </h2>
             
             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
-              <p>
-                Nordible Technologies is a specialized technology solutions partner dedicated to architecting high-performance systems. 
-                We don't just develop; we design and deploy high-impact technology solutions that solve real-world problems 
-                at scale.
-              </p>
-
-              <p>
-                From building cross-platform consumer apps to architecting complex enterprise technology solutions 
-                for global organizations, our expertise spans the entire technology landscape. 
-                We believe in science-backed UX, clean engineering, and resilient architectures.
-              </p>
+              <p>{a.desc1}</p>
+              <p>{a.desc2}</p>
             </div>
 
             <div className="mt-10 grid grid-cols-2 gap-8 py-8 border-y border-nordible-border dark:border-gray-700">
               <div>
-                <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">15+</div>
-                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Years Experience</div>
+                <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">{a.stat1Number}</div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">{a.stat1Label}</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">50+</div>
-                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">Solutions Shipped</div>
+                <div className="text-4xl font-extrabold text-nordible-dark dark:text-white font-heading">{a.stat2Number}</div>
+                <div className="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2">{a.stat2Label}</div>
               </div>
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-1 gap-6 relative z-10">
-            {qualities.map((quality, index) => (
-              <div key={index} className="card-premium group hover:border-nordible-blue/30 cursor-default">
-                <div className="flex items-start space-x-5">
-                  <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <quality.icon className="h-6 w-6 text-nordible-blue dark:text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-extrabold text-xl text-nordible-dark dark:text-white mb-2 font-heading">
-                      {quality.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed font-medium">{quality.description}</p>
+          <div className="grid sm:grid-cols-1 gap-6 relative z-10 text-left">
+            {a.qualities.map((quality, index) => {
+              const Icon = qualityIcons[index % qualityIcons.length];
+              return (
+                <div key={index} className="card-premium group hover:border-nordible-blue/30 cursor-default">
+                  <div className="flex items-start space-x-5">
+                    <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Icon className="h-6 w-6 text-nordible-blue dark:text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-xl text-nordible-dark dark:text-white mb-2 font-heading">
+                        {quality.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed font-medium">{quality.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Founder Story Section */}
-        <div className="relative border-t border-nordible-border dark:border-gray-700 pt-20">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-              Leadership &amp; Vision
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading mb-4">
-              Founder Story &amp; <span className="text-nordible-blue">Architectural Legacy</span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
-              15 years of battle-tested engineering leadership driving product velocity, regulatory compliance, and cloud scalability.
-            </p>
-          </div>
+        {/* Dedicated Founder Story Entry Banner */}
+        <div className="relative rounded-3xl bg-gradient-to-r from-nordible-dark via-blue-950 to-nordible-dark text-white p-8 sm:p-12 shadow-2xl overflow-hidden text-left">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            {/* Founder Profile Card */}
-            <div className="lg:col-span-5 card-premium p-8 lg:p-10 relative overflow-hidden">
-              <div className="flex items-center space-x-5 mb-6">
-                <div className="relative flex-shrink-0">
-                  <img
-                    src="/images/founder.png"
-                    alt="Kabeer Shah - Founder & Principal Architect"
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-top shadow-xl shadow-blue-500/20 border-2 border-white dark:border-gray-700"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading">
-                    Kabeer Shah
-                  </h3>
-                  <p className="text-xs font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 mt-1">
-                    Founder &amp; Principal Architect
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-0.5">
-                    15+ Years Engineering Leadership
-                  </p>
-                </div>
+          <div className="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-4">
+              <div className="inline-block px-3 py-1 text-[11px] font-bold tracking-[0.2em] text-blue-300 uppercase bg-blue-900/50 rounded-full border border-blue-700/50">
+                {a.founderStoryLinkBadge}
               </div>
-
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm font-medium mb-6">
-                Results-oriented Engineering Leader with over 15 years of experience building and scaling high-performance engineering teams. Proven track record in orchestrating end-to-end technology solutions for global Fintech unicorns and Fortune 500 Healthcare enterprises.
+              <h3 className="text-2xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
+                {a.founderStoryLinkTitle}
+              </h3>
+              <p className="text-base sm:text-lg text-blue-100/90 leading-relaxed font-medium max-w-2xl">
+                {a.founderStoryLinkDesc}
               </p>
-
-              <div className="space-y-3 mb-8">
-                <div className="flex items-start space-x-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
-                  <CheckCircle2 className="h-4 w-4 text-nordible-blue flex-shrink-0 mt-0.5" />
-                  <span><strong>Architectural Strategy:</strong> Microservices, Event-Driven, Serverless &amp; AWS IoT</span>
-                </div>
-                <div className="flex items-start space-x-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
-                  <CheckCircle2 className="h-4 w-4 text-nordible-blue flex-shrink-0 mt-0.5" />
-                  <span><strong>Strict Compliance:</strong> PCI-DSS (Fintech), HIPAA (Healthtech), GRC &amp; TDD</span>
-                </div>
-                <div className="flex items-start space-x-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
-                  <CheckCircle2 className="h-4 w-4 text-nordible-blue flex-shrink-0 mt-0.5" />
-                  <span><strong>Thought Leadership:</strong> Top ~32k Reputation on Stack Overflow</span>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-nordible-border dark:border-gray-700 flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Award className="h-5 w-5 text-nordible-blue" />
-                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300">AWS Certified Practitioner</span>
-                </div>
-                <div className="flex space-x-3">
-                  <a 
-                    href="https://www.linkedin.com/in/meetkabeershah/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="p-2.5 rounded-xl bg-blue-50 dark:bg-gray-700 hover:bg-nordible-blue hover:text-white text-nordible-blue dark:text-blue-400 transition-colors"
-                    title="LinkedIn Profile"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a 
-                    href="https://github.com/skbr1234" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="p-2.5 rounded-xl bg-blue-50 dark:bg-gray-700 hover:bg-nordible-blue hover:text-white text-nordible-blue dark:text-blue-400 transition-colors"
-                    title="GitHub Profile"
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
             </div>
 
-            {/* Career Milestones & Impact */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 flex items-center">
-                  <Layers className="h-4 w-4 mr-2 text-nordible-blue" />
-                  Executive Experience &amp; Delivered Platforms
-                </h4>
-                <span className="text-xs font-bold text-nordible-blue">15+ Yrs Track Record</span>
-              </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col justify-center items-start lg:items-end gap-4">
+              <button
+                onClick={() => {
+                  navigate('/founder');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-7 py-4 shadow-xl flex items-center gap-2 cursor-pointer"
+              >
+                <span>{a.founderStoryLinkButton}</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
 
-              {milestones.map((m, idx) => (
-                <div key={idx} className="card-premium p-6 hover:border-nordible-blue/40 transition-all">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <h5 className="font-extrabold text-base text-nordible-dark dark:text-white font-heading">
-                      {m.company}
-                    </h5>
-                    <span className="text-xs font-bold text-nordible-blue bg-blue-50 dark:bg-blue-900/40 px-3 py-1 rounded-md w-fit">
-                      {m.role}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed mb-4">
-                    {m.highlight}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {m.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="text-[11px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/60 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-md">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              <div className="flex items-center space-x-3 pt-2 text-xs text-blue-200">
+                <a 
+                  href="https://www.linkedin.com/in/meetkabeershah/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+                  title="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://github.com/skbr1234" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+                  title="GitHub"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+                <span>Kabeer Shah · Founder &amp; Solutions Lead</span>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

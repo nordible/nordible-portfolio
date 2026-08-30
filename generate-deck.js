@@ -499,7 +499,7 @@ const htmlContent = `<!DOCTYPE html>
     </div>
 
     <div class="slide-footer">
-      <div>Nordible Technologies &bull; Dieburger Str.70, 63322 Rödermark</div>
+      <div>Nordible Technologies &bull; Breitlacherstraße 101, 60489 Frankfurt, Germany</div>
       <div class="contact-bits">
         <div>Tel: +4915235850031</div>
         <div>Email: mail@nordible.co</div>
@@ -829,7 +829,7 @@ const htmlContent = `<!DOCTYPE html>
             <div class="contact-icon-box">&#128205;</div>
             <div class="contact-info">
               <h5>European Headquarters</h5>
-              <p>Nordible Technologies<br>Dieburger Str.70, 63322 Rödermark, Germany</p>
+              <p>Nordible Technologies<br>Breitlacherstraße 101, 60489 Frankfurt, Germany</p>
             </div>
           </div>
 

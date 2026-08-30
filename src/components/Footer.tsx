@@ -1,24 +1,34 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const f = t.footer;
+  const navigate = useNavigate();
+
   return (
-    <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden">
+    <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden text-left">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent pointer-events-none"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/10 border border-white/10">
-                <img src="/images/logo-email.webp" alt="Nordible Logo" className="w-full h-full object-contain" />
+            <div 
+              className="flex items-center space-x-3 mb-8 cursor-pointer"
+              onClick={() => {
+                navigate('/');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/10 border border-white/10">
+                <img src="/images/logos/nordible-icon.png" alt="Nordible Technologies Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Technologies</span>
             </div>
             <p className="text-blue-100/60 mb-8 leading-relaxed font-medium max-w-md">
-              A specialized technology solutions partner dedicated to architecting high-performance systems. 
-              We build high-impact technology solutions for businesses globally.
+              {f.tagline}
             </p>
             <div className="space-y-4">
               <a href="mailto:mail@nordible.co" className="flex items-center space-x-4 group cursor-pointer">
@@ -37,36 +47,46 @@ export default function Footer() {
                 <div className="p-2 bg-white/5 rounded-lg">
                   <MapPin className="h-5 w-5 text-blue-300" />
                 </div>
-                <span className="text-blue-100/80 font-medium text-sm leading-relaxed">
-                  Nordible Technologies<br />Dieburger Str.70, 63322 Rödermark, Germany
+                <span className="text-blue-100/80 font-medium text-sm leading-relaxed whitespace-pre-line">
+                  Nordible Technologies<br />Breitlacherstraße 101, 60489 Frankfurt, Germany
                 </span>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Expertise</h3>
+            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">{f.expertiseTitle}</h3>
             <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Technology Solutions</a></li>
               <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Cloud Infrastructure</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Enterprise Platforms</a></li>
               <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">Company</h3>
+            <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">{f.companyTitle}</h3>
             <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
-              <li><a href="#about" className="text-blue-100/60 hover:text-white transition-colors">Founder Story</a></li>
-              <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">Contact Us</a></li>
+              <li>
+                <button 
+                  onClick={() => {
+                    navigate('/founder');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }} 
+                  className="text-blue-100/60 hover:text-white transition-colors uppercase tracking-widest text-left"
+                >
+                  {f.founderStory}
+                </button>
+              </li>
+              <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</a></li>
               <li>
                 <a 
                   href="/nordible-pitch-deck.pdf" 
                   download="nordible-pitch-deck.pdf"
-                  className="text-nordible-blue hover:text-blue-400 transition-colors flex items-center space-x-2"
+                  className="text-blue-300 hover:text-white transition-colors flex items-center space-x-2"
                 >
                   <Download className="h-4 w-4" />
-                  <span>Pitch Deck (PDF)</span>
+                  <span>{f.pitchDeck}</span>
                 </a>
               </li>
               <li>
@@ -74,7 +94,7 @@ export default function Footer() {
                   to="/privacy"
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
-                  Privacy Policy
+                  {f.privacy}
                 </Link>
               </li>
               <li>
@@ -82,7 +102,7 @@ export default function Footer() {
                   to="/terms"
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
-                  Terms of Service
+                  {f.terms}
                 </Link>
               </li>
             </ul>
@@ -91,7 +111,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-[10px] font-bold text-blue-100/40 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Nordible Technologies. Built with Excellence.
+            &copy; {new Date().getFullYear()} Nordible Technologies. {f.rights}
           </p>
           <div className="flex space-x-6">
             {[

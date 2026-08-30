@@ -1,6 +1,7 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustSignals from './components/TrustSignals';
@@ -16,6 +17,7 @@ import TechStack from './components/TechStack';
 import AIChat from './components/AIChat';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FounderPage from './components/FounderPage';
 import LeadDashboard from './components/LeadDashboard';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
@@ -44,17 +46,39 @@ function HomePage() {
   );
 }
 
+function FounderRoute() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <Header />
+      <FounderPage 
+        onBack={() => navigate('/')} 
+        onBookConsultation={() => {
+          navigate('/');
+          setTimeout(() => {
+            document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }} 
+      />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<LeadDashboard />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-        </Routes>
-      </div>
+      <LanguageProvider>
+        <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/founder" element={<FounderRoute />} />
+            <Route path="/dashboard" element={<LeadDashboard />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+          </Routes>
+        </div>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

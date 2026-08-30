@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const projects = [
   {
@@ -257,27 +258,29 @@ const projects = [
 ];
 
 export default function Portfolio() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
+  const currentProject = projects[currentIndex];
+
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   }, []);
 
   const togglePause = () => {
-    setIsPaused(!isPaused);
+    setIsPaused((prev) => !prev);
   };
 
   useEffect(() => {
-    if (!isPaused) {
-      const interval = setInterval(nextSlide, 8000);
-      return () => clearInterval(interval);
-    }
+    if (isPaused) return;
+    const interval = setInterval(nextSlide, 8000);
+    return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
 
   useEffect(() => {
@@ -293,20 +296,18 @@ export default function Portfolio() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
 
-  const currentProject = projects[currentIndex];
-
   return (
     <section id="portfolio" className="relative py-20 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            Selected Works
+            {t.portfolio.badge}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight">
-            Our Technology Solutions
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight font-heading">
+            {t.portfolio.title}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-            We build and scale high-impact technology solutions across diverse industries—from cross-platform consumer apps to enterprise healthcare platforms.
+            {t.portfolio.subtitle}
           </p>
         </div>
 

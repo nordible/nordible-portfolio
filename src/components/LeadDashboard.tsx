@@ -280,10 +280,6 @@ export default function LeadDashboard() {
         {showAppointmentModal && selectedLead && (
           <div className="fixed inset-0 bg-nordible-dark/80 flex items-center justify-center p-4 z-50 backdrop-blur-md animate-in fade-in duration-300">
             <div className="bg-white dark:bg-gray-800 rounded-[32px] max-w-md w-full p-10 border border-nordible-border dark:border-gray-700 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
-                 <img src="/images/mascot/primary-mascot.webp" alt="" className="w-full h-full object-contain" />
-              </div>
-              
               <div className="flex items-center justify-between mb-8 relative z-10">
                 <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Book Meet</h3>
                 <button

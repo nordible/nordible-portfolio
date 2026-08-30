@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Pricing() {
+  const { t } = useLanguage();
+  const p = t.pricing;
+
   const packages = [
     {
       name: 'MVP Core',
@@ -62,16 +66,13 @@ export default function Pricing() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            Resource Allocation
-          </div>
-          <div className="absolute top-10 right-10 w-24 h-24 hidden xl:block">
-            <img src="/images/mascot/pricing-peek.webp" alt="" className="w-full h-full object-contain" />
+            {p.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight font-heading">
-            System <span className="text-nordible-blue">Investment</span>
+            {p.title}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-            Performance-driven engineering protocols tailored to your specific budget and business goals.
+            {p.subtitle}
           </p>
         </div>
 
@@ -82,7 +83,7 @@ export default function Pricing() {
                 <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
                   <div className="bg-nordible-blue text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center space-x-1 shadow-lg">
                     <Zap className="h-3.5 w-3.5" />
-                    <span>Recommended</span>
+                    <span>{p.mostPopular}</span>
                   </div>
                 </div>
               )}
@@ -95,7 +96,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1">
+              <ul className="space-y-3 mb-8 flex-1 text-left">
                 {pkg.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start space-x-2 group">
                     <div className="mt-1">
@@ -110,24 +111,11 @@ export default function Pricing() {
                 onClick={scrollToConsultation}
                 className={`w-full py-3 px-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 text-[11px] uppercase tracking-widest ${pkg.popular ? 'bg-nordible-blue hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20' : 'bg-blue-50 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-gray-700'}`}
               >
-                <span>Initialize</span>
+                <span>{p.ctaButton}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <p className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-6">
-            Custom architectures available upon request.
-          </p>
-          
-          <button
-            onClick={scrollToConsultation}
-            className="btn-secondary py-3 px-8 text-[11px] uppercase tracking-widest"
-          >
-            Open Discovery Channel
-          </button>
         </div>
       </div>
     </section>
