@@ -52,14 +52,11 @@ export default function TrustSignals() {
         </div>
 
         {/* Dynamic Continuous Moving Logos */}
-        <div className="relative px-6 py-14 bg-nordible-section-bg dark:bg-gray-800 rounded-[36px] border border-nordible-border dark:border-gray-700 overflow-hidden">
-          <div className="relative z-10 text-center mb-10">
-            <div className="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-white dark:bg-gray-900 rounded-full border border-blue-100 dark:border-gray-700">
-              {ts.partnersBadge}
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading">
-              {ts.partnersTitle}
-            </h3>
+        <div className="relative px-6 py-10 bg-nordible-section-bg dark:bg-gray-800 rounded-[36px] border border-nordible-border dark:border-gray-700 overflow-hidden">
+          <div className="relative z-10 text-center mb-6">
+            <span className="inline-block px-3.5 py-1 text-[11px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-white dark:bg-gray-900 rounded-full border border-blue-100 dark:border-gray-700 shadow-sm">
+              {ts.partnersLabel}
+            </span>
           </div>
 
           {/* Marquee Container with Gradient Fade Edges */}

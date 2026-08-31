@@ -28,8 +28,7 @@ export interface Translations {
       label: string;
       description: string;
     }>;
-    partnersBadge: string;
-    partnersTitle: string;
+    partnersLabel: string;
   };
   services: {
     badge: string;
@@ -201,8 +200,7 @@ export const translations: Record<Language, Translations> = {
         { number: "1M+", label: "Users Served", description: "Across global platforms" },
         { number: "100%", label: "Client Satisfaction", description: "On-time delivery commitment" }
       ],
-      partnersBadge: "Global Partnerships",
-      partnersTitle: "Trusted by Industry Leaders Worldwide"
+      partnersLabel: "Partners & Clients"
     },
     services: {
       badge: "Core Competencies",
@@ -410,8 +408,7 @@ export const translations: Record<Language, Translations> = {
         { number: "1M+", label: "Nutzer Erreicht", description: "Auf weltweiten Plattformen" },
         { number: "100%", label: "Kundenzufriedenheit", description: "Termintreue & Qualitätsgarantie" }
       ],
-      partnersBadge: "Internationale Partnerschaften",
-      partnersTitle: "Das Vertrauen führender Unternehmen weltweit"
+      partnersLabel: "Partner & Kunden"
     },
     services: {
       badge: "Kernkompetenzen",
