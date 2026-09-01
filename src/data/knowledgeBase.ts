@@ -6,7 +6,7 @@ export const knowledgeBase = {
     company: {
       name: "Nordible Technologies",
       tagline: "Your complete technology partner for every stage of business growth",
-      address: "Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt, Germany",
+      address: "Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
       phone: "+49 152 35850031",
       email: "kabeer@nordible.co",
       generalEmail: "mail@nordible.co",

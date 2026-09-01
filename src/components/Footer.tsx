@@ -48,7 +48,7 @@ export default function Footer() {
                   <MapPin className="h-5 w-5 text-blue-300" />
                 </div>
                 <span className="text-blue-100/80 font-medium text-sm leading-relaxed whitespace-pre-line">
-                  Nordible Technologies<br />Breitlacherstraße 101, 60489 Frankfurt, Germany
+                  Nordible Technologies<br />Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany
                 </span>
               </div>
             </div>

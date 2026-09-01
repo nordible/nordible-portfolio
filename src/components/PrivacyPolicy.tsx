@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm mt-1">
                          <MapPin className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt, Germany</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany</span>
                    </div>
                 </div>
               </section>
