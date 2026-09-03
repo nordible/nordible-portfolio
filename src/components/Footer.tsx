@@ -61,6 +61,14 @@ export default function Footer() {
               <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Enterprise Platforms</a></li>
               <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
+              <li>
+                <Link 
+                  to="/blog/frankfurt-local-seo-ai-discoverability" 
+                  className="text-blue-300 hover:text-white transition-colors text-left inline-block"
+                >
+                  AI & Local SEO Case Study
+                </Link>
+              </li>
             </ul>
           </div>
 

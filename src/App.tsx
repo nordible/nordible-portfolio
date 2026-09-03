@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
@@ -21,6 +21,7 @@ import FounderPage from './components/FounderPage';
 import LeadDashboard from './components/LeadDashboard';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import BlogPostFrankfurt from './components/BlogPostFrankfurt';
 
 function HomePage() {
   return (
@@ -65,6 +66,24 @@ function FounderRoute() {
   );
 }
 
+function BlogPostRoute() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <Header />
+      <BlogPostFrankfurt 
+        onBookConsultation={() => {
+          navigate('/');
+          setTimeout(() => {
+            document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }} 
+      />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
@@ -73,6 +92,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/founder" element={<FounderRoute />} />
+            <Route path="/blog/frankfurt-local-seo-ai-discoverability" element={<BlogPostRoute />} />
+            <Route path="/blog" element={<Navigate to="/blog/frankfurt-local-seo-ai-discoverability" replace />} />
             <Route path="/dashboard" element={<LeadDashboard />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
