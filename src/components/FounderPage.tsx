@@ -207,8 +207,8 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="flex items-center justify-between pt-8 border-t border-nordible-border dark:border-gray-800">
+        {/* Bottom Back Navigation & CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-nordible-border dark:border-gray-800">
           <button
             type="button"
             onClick={onBack}
@@ -216,6 +216,15 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           >
             <ArrowLeft className="h-4 w-4" />
             <span>{f.backToHome}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={onBookConsultation}
+            className="btn-primary w-full sm:w-auto text-xs px-7 py-3"
+          >
+            <span>{t.nav.getStarted}</span>
+            <ArrowRight className="h-4 w-4 ml-1" />
           </button>
         </div>
 

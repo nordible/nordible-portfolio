@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight, Shield, Zap, Target } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface CompanyProfilePageProps {
@@ -11,7 +10,6 @@ interface CompanyProfilePageProps {
 export default function CompanyProfilePage({ onBack, onBookConsultation }: CompanyProfilePageProps) {
   const { t, language } = useLanguage();
   const a = t.about;
-  const navigate = useNavigate();
 
   const qualityIcons = [Shield, Zap, Target];
 

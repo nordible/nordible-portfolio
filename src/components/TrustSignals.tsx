@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Users, TrendingUp, Clock, Play, Pause, ExternalLink, Zap, ShieldCheck, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Users, TrendingUp, Play, Pause, ExternalLink, Zap, ShieldCheck, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TrustSignals() {

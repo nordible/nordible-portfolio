@@ -165,10 +165,16 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="pt-4 border-t border-white/5 w-full flex items-center justify-center space-x-2 text-xs sm:text-sm font-medium text-blue-100/60">
-            <span>{language === 'de' ? 'Mit' : 'Made with'}</span>
-            <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500 animate-pulse" />
-            <span>{language === 'de' ? 'in Deutschland gemacht' : 'in Germany'}</span>
+          <div className="pt-4 border-t border-white/5 w-full flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs sm:text-sm font-medium text-blue-100/60">
+            <div className="flex items-center space-x-1.5">
+              <span>{language === 'de' ? 'Mit' : 'Made with'}</span>
+              <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500 animate-pulse" />
+              <span>{language === 'de' ? 'in Deutschland gemacht' : 'in Germany'}</span>
+            </div>
+            <span className="text-white/20 hidden sm:inline">·</span>
+            <span className="font-mono text-[11px] sm:text-xs text-blue-100/40 tracking-wider">
+              v{__APP_VERSION__}
+            </span>
           </div>
         </div>
       </div>

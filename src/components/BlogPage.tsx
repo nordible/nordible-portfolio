@@ -115,7 +115,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
               ].map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id as any)}
+                  onClick={() => setSelectedCategory(cat.id as 'all' | 'geo' | 'ai')}
                   className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                     selectedCategory === cat.id
                       ? 'bg-nordible-blue text-white shadow-md shadow-blue-500/20'

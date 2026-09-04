@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight, TrendingUp, Clock, DollarSign, ShieldCheck, Zap, Layers, CheckCircle2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, TrendingUp, Clock, DollarSign, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface WhyChooseUsPageProps {
@@ -11,7 +10,6 @@ interface WhyChooseUsPageProps {
 export default function WhyChooseUsPage({ onBack, onBookConsultation }: WhyChooseUsPageProps) {
   const { t, language } = useLanguage();
   const bb = t.businessBenefits;
-  const navigate = useNavigate();
 
   const benefitIcons = [DollarSign, Clock, TrendingUp];
 
