@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const f = t.footer;
   const navigate = useNavigate();
 
@@ -63,10 +63,18 @@ export default function Footer() {
               <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
               <li>
                 <Link 
-                  to="/blog/frankfurt-local-seo-ai-discoverability" 
+                  to="/blog" 
                   className="text-blue-300 hover:text-white transition-colors text-left inline-block"
                 >
-                  AI & Local SEO Case Study
+                  Insights & Blog
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/blog/frankfurt-local-seo-ai-discoverability" 
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
+                >
+                  {language === 'de' ? 'Fallstudie: Frankfurt GEO & KI' : 'Frankfurt GEO Case Study'}
                 </Link>
               </li>
             </ul>

@@ -11,19 +11,32 @@ import {
   Calendar, 
   Clock, 
   CheckCircle2, 
-  ArrowUp,
-  ShieldCheck,
-  Building2,
-  Compass,
-  ArrowRight
+  ArrowUp, 
+  ShieldCheck, 
+  Building2, 
+  Compass, 
+  ArrowRight,
+  AlertCircle
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
+import { 
+  articlesBySlug, 
+  defaultArticleSlug, 
+  articleNotFoundTranslations 
+} from '../data/blogContent';
 
-interface BlogPostFrankfurtProps {
+interface BlogPostProps {
   onBookConsultation?: () => void;
+  slug?: string;
 }
 
-export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankfurtProps) {
+export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPostProps) {
+  const { language } = useLanguage();
+  const params = useParams<{ slug?: string }>();
+  const activeSlug = propSlug || params.slug || defaultArticleSlug;
+  const articleTranslations = articlesBySlug[activeSlug];
+  
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -37,12 +50,43 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSlug]);
+
+  if (!articleTranslations) {
+    const notFound = articleNotFoundTranslations[language];
+    return (
+      <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-32 pb-24 flex items-center justify-center">
+        <div className="max-w-md mx-auto px-4 text-center space-y-6">
+          <div className="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 flex items-center justify-center mx-auto">
+            <AlertCircle className="h-8 w-8" />
+          </div>
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+            {notFound.badge}
+          </span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading">
+            {notFound.title}
+          </h1>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            {notFound.desc}
+          </p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 btn-primary py-3 px-6 text-xs font-bold uppercase tracking-wider"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>{notFound.backBtn}</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const content = articleTranslations[language];
 
   const handleShare = async () => {
     const shareData = {
-      title: 'Case Study: Local Dominance and AI Discoverability in Frankfurt',
-      text: 'How Nordible engineered local directory dominance and Generative Engine Optimization (GEO) for a German business.',
+      title: content.title,
+      text: content.introP1,
       url: window.location.href,
     };
 
@@ -105,8 +149,8 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "Case Study: How We Engineered Local Dominance and AI Discoverability for a Frankfurt Business",
-    "description": "Technical and strategic blueprint for mastering German business directories and Generative Engine Optimization (GEO) for LLM recommendations.",
+    "headline": content.title,
+    "description": content.introP1.slice(0, 160),
     "author": {
       "@type": "Organization",
       "name": "Nordible Technologies",
@@ -120,9 +164,10 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         "url": "https://nordible.co/images/logos/nordible-icon.png"
       }
     },
+    "image": "https://nordible.co/images/frankfurt-geo-dominate-ai-search.jpg",
     "datePublished": "2026-09-04",
     "dateModified": "2026-09-04",
-    "about": ["Generative Engine Optimization", "Local SEO Germany", "Schema.org", "Frankfurt Business Discovery"]
+    "about": ["Generative Engine Optimization", "Local SEO Germany", "Schema.org", "AI Discoverability"]
   };
 
   return (
@@ -134,28 +179,40 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Navigation Breadcrumb */}
+        {/* Navigation Breadcrumbs */}
         <nav aria-label="Breadcrumb" className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer group"
-          >
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Home</span>
-          </Link>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+            <Link
+              to="/"
+              className="text-gray-500 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors"
+            >
+              {content.navHome}
+            </Link>
+            <span className="text-gray-400 dark:text-gray-600">/</span>
+            <Link
+              to="/blog"
+              className="text-gray-500 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors"
+            >
+              {content.navBlog}
+            </Link>
+            <span className="text-gray-400 dark:text-gray-600">/</span>
+            <span className="text-nordible-blue dark:text-blue-400 truncate max-w-[140px] sm:max-w-xs">
+              {content.navCurrent}
+            </span>
+          </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all"
-              title="Share article"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all cursor-pointer"
+              title={content.share}
             >
               {copiedUrl ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Share2 className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />}
-              <span>{copiedUrl ? 'Copied Link' : 'Share'}</span>
+              <span>{copiedUrl ? content.copied : content.share}</span>
             </button>
 
             <span className="hidden sm:inline-block text-xs font-mono text-gray-400 dark:text-gray-500">
-              Nordible · Case Study
+              Nordible · {content.navCurrent}
             </span>
           </div>
         </nav>
@@ -165,22 +222,22 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
           <div className="flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-100 dark:border-blue-800">
               <Sparkles className="h-3.5 w-3.5" />
-              GEO & Local SEO Case Study
+              {content.badge}
             </span>
             <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1">
-              <Calendar className="h-3.5 w-3.5" /> September 2026
+              <Calendar className="h-3.5 w-3.5" /> {content.date}
             </span>
             <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" /> 5 min read
+              <Clock className="h-3.5 w-3.5" /> {content.readTime}
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
-            How We Engineered Local Dominance and AI Discoverability for a Frankfurt Business
+            {content.title}
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed">
-            When businesses expand or modernize their digital presence in Germany, traditional SEO is no longer the entire playing field. Search has evolved: potential clients, partners, and decision-makers are no longer just typing queries into search bars—they are asking conversational AI engines like <strong className="text-nordible-dark dark:text-white font-semibold">ChatGPT, Google Gemini, and Perplexity</strong> for direct recommendations.
+            {content.introP1}
           </p>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 flex items-start gap-4">
@@ -188,78 +245,89 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
               <Compass className="h-5 w-5" />
             </div>
             <div className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-              Recently at <strong className="text-nordible-dark dark:text-white font-bold">Nordible</strong>, we took on the challenge of establishing a complete local and generative presence for our client based in <strong className="text-nordible-dark dark:text-white font-bold">Frankfurt am Main</strong> with two core objectives:
+              {content.objectiveBoxTitle}
               <ul className="mt-2 space-y-1.5 font-medium list-none">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-nordible-blue shrink-0" />
-                  <span><strong>Dominate local discovery</strong> across the core German directory and mapping ecosystems.</span>
+                  <span>{content.objective1}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-nordible-blue shrink-0" />
-                  <span><strong>Engineer AI discoverability (GEO)</strong> so that when an AI model is asked for top regional specialists, our client is directly cited.</span>
+                  <span>{content.objective2}</span>
                 </li>
               </ul>
             </div>
           </div>
         </header>
 
+        {/* Featured Hero Visual */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group">
+          <img
+            src="/images/frankfurt-geo-dominate-ai-search.jpg"
+            alt={content.heroAlt}
+            className="w-full h-auto object-cover max-h-[520px] transition-transform duration-500 group-hover:scale-[1.01]"
+            loading="eager"
+          />
+          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
+        </div>
+
         {/* Section 1: NAP Consistency */}
         <section className="space-y-6 text-left">
           <div className="flex items-center gap-3">
             <span className="w-8 h-8 rounded-xl bg-nordible-blue/10 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 flex items-center justify-center font-bold text-sm font-mono">
-              01
+              {content.sec1Number}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              Establishing NAP Consistency Across the German Directory Ecosystem
+              {content.sec1Title}
             </h2>
           </div>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            In Germany, directory data integrity is heavily weighted by both search algorithms and legal standards. Discrepancies in company naming, address formatting, or contact details dilute domain trust and confuse algorithmic indexers.
+            {content.sec1P1}
           </p>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            We unified our client’s <strong className="text-nordible-dark dark:text-white font-semibold">NAP (Name, Address, Phone Number)</strong> footprint across premier German business directories and citation networks:
+            {content.sec1P2}
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 pt-2">
             <div className="card-premium p-6 space-y-3">
               <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                 <Building2 className="h-4 w-4" />
-                <span>Authoritative German Pillars</span>
+                <span>{content.sec1Cards.pillarsTitle}</span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Claimed, verified, and synchronized listings on <strong>Gelbe Seiten</strong>, <strong>Das Örtliche</strong>, <strong>Das Telefonbuch</strong>, and <strong>11880.com</strong>.
+                {content.sec1Cards.pillarsDesc}
               </p>
             </div>
 
             <div className="card-premium p-6 space-y-3">
               <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                 <MapPin className="h-4 w-4" />
-                <span>Regional & Industry Hubs</span>
+                <span>{content.sec1Cards.regionalTitle}</span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Indexed on <strong>Meinestadt.de</strong>, <strong>Cylex Deutschland</strong>, and Frankfurt-specific regional citation networks.
+                {content.sec1Cards.regionalDesc}
               </p>
             </div>
 
             <div className="card-premium p-6 space-y-3">
               <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                 <Search className="h-4 w-4" />
-                <span>B2B Platforms</span>
+                <span>{content.sec1Cards.b2bTitle}</span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Standardized company entity records across <strong>LinkedIn</strong>, <strong>Xing</strong>, and <strong>Wer liefert was (wlw)</strong>.
+                {content.sec1Cards.b2bDesc}
               </p>
             </div>
 
             <div className="card-premium p-6 space-y-3">
               <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                 <ShieldCheck className="h-4 w-4" />
-                <span>Legal Alignment</span>
+                <span>{content.sec1Cards.legalTitle}</span>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Ensured all directory descriptions and business parameters precisely mirrored statutory <em>Impressum</em> and commercial registration standards.
+                {content.sec1Cards.legalDesc}
               </p>
             </div>
           </div>
@@ -269,15 +337,15 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         <section className="space-y-6 text-left">
           <div className="flex items-center gap-3">
             <span className="w-8 h-8 rounded-xl bg-nordible-blue/10 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 flex items-center justify-center font-bold text-sm font-mono">
-              02
+              {content.sec2Number}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              Unifying the Primary Map Data Feeders
+              {content.sec2Title}
             </h2>
           </div>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Generative models rely extensively on grounding data pulled from major map ecosystems. We secured and optimized verified listings across the three primary providers:
+            {content.sec2P1}
           </p>
 
           <div className="space-y-4">
@@ -285,14 +353,14 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
               <div>
                 <h3 className="text-base font-bold text-nordible-dark dark:text-white flex items-center gap-2 font-heading">
                   <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-                  Google Business Profile (GBP)
+                  {content.sec2Cards.gbpTitle}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
-                  Configured with precise Frankfurt geo-coordinates, verified service categories, primary business attributes, and regular status updates—feeding both Google Search and Gemini’s real-time local search graphs.
+                  {content.sec2Cards.gbpDesc}
                 </p>
               </div>
               <span className="text-xs font-mono font-semibold px-2.5 py-1 bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 rounded self-start sm:self-center shrink-0">
-                Search & Gemini
+                {content.sec2Cards.gbpBadge}
               </span>
             </div>
 
@@ -300,14 +368,14 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
               <div>
                 <h3 className="text-base font-bold text-nordible-dark dark:text-white flex items-center gap-2 font-heading">
                   <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-                  Apple Business Connect
+                  {content.sec2Cards.appleTitle}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
-                  Fully integrated to ensure seamless surfacing inside Apple Maps, Siri, and Apple Intelligence.
+                  {content.sec2Cards.appleDesc}
                 </p>
               </div>
               <span className="text-xs font-mono font-semibold px-2.5 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded self-start sm:self-center shrink-0">
-                Maps & Siri
+                {content.sec2Cards.appleBadge}
               </span>
             </div>
 
@@ -315,14 +383,14 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
               <div>
                 <h3 className="text-base font-bold text-nordible-dark dark:text-white flex items-center gap-2 font-heading">
                   <span className="w-2.5 h-2.5 rounded-full bg-cyan-500" />
-                  Bing Places for Business
+                  {content.sec2Cards.bingTitle}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
-                  Configured to anchor the entity data directly within Microsoft Copilot and Bing’s enterprise discovery index.
+                  {content.sec2Cards.bingDesc}
                 </p>
               </div>
               <span className="text-xs font-mono font-semibold px-2.5 py-1 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-300 rounded self-start sm:self-center shrink-0">
-                Copilot & Bing
+                {content.sec2Cards.bingBadge}
               </span>
             </div>
           </div>
@@ -332,31 +400,31 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         <section className="space-y-6 text-left">
           <div className="flex items-center gap-3">
             <span className="w-8 h-8 rounded-xl bg-nordible-blue/10 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 flex items-center justify-center font-bold text-sm font-mono">
-              03
+              {content.sec3Number}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              Generative Engine Optimization (GEO) & Machine-Readable Architecture
+              {content.sec3Title}
             </h2>
           </div>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Being listed on directory websites is only half the battle. To be recommended by LLMs, a brand's website must be structured so automated reasoning systems can parse services, credibility, and location without ambiguity.
+            {content.sec3P1}
           </p>
 
           {/* Schema.org Entity Graph */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-nordible-dark dark:text-white font-heading">
-              Rich Schema.org Entity Graph
+              {content.schemaTitle}
             </h3>
 
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-              Instead of relying on basic metadata, we deployed nested <strong className="text-nordible-dark dark:text-white font-semibold">JSON-LD Schema</strong> directly into the client’s web architecture:
+              {content.schemaP1}
             </p>
 
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-              <li>Implemented <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 font-mono text-xs">LocalBusiness</code> / <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 font-mono text-xs">ProfessionalService</code> structured data.</li>
-              <li>Mapped exact geographic coordinates (<code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 font-mono text-xs">geo</code>), service radii, opening hours, and structured <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 font-mono text-xs">hasOfferCatalog</code> definitions.</li>
-              <li>Linked verified third-party entities (<code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue dark:text-blue-400 font-mono text-xs">sameAs</code>) pointing to official registry pages and certified directories to validate domain authority.</li>
+              {content.schemaPoints.map((point, idx) => (
+                <li key={idx}>{point}</li>
+              ))}
             </ul>
 
             {/* Code Block Container with Copy Action */}
@@ -366,7 +434,7 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
                   <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
                   <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
                   <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                  <span className="font-mono text-gray-400 ml-2">schema-entity.jsonld</span>
+                  <span className="font-mono text-gray-400 ml-2">{content.schemaFilename}</span>
                 </div>
                 <button
                   onClick={handleCopyCode}
@@ -386,27 +454,27 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
           {/* AI Crawler Access & llms.txt */}
           <div className="space-y-4 pt-4">
             <h3 className="text-xl font-bold text-nordible-dark dark:text-white font-heading">
-              AI Crawler Access & Structured Context (<code className="font-mono text-sm">llms.txt</code>)
+              {content.crawlerTitle}
             </h3>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="card-premium p-6 space-y-3">
                 <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                   <Bot className="h-4 w-4" />
-                  <span>Robots Policy</span>
+                  <span>{content.crawlerRobotsTitle}</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Configured modern crawler rules to openly permit semantic parsing agents (including <strong>GPTBot</strong>, <strong>PerplexityBot</strong>, and <strong>Google-Extended</strong>) while protecting sensitive internal assets.
+                  {content.crawlerRobotsDesc}
                 </p>
               </div>
 
               <div className="card-premium p-6 space-y-3">
                 <div className="flex items-center gap-2 text-nordible-blue dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                   <Sparkles className="h-4 w-4" />
-                  <span><code>llms.txt</code> Standard</span>
+                  <span>{content.crawlerLlmsTitle}</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Deployed a standardized lightweight markdown file at <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-xs font-mono">/llms.txt</code> summarizing core capabilities, Frankfurt market focus, and contact interfaces for instant ingestion by LLM scrapers.
+                  {content.crawlerLlmsDesc}
                 </p>
               </div>
             </div>
@@ -417,21 +485,21 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         <section className="space-y-6 text-left">
           <div className="flex items-center gap-3">
             <span className="w-8 h-8 rounded-xl bg-nordible-blue/10 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 flex items-center justify-center font-bold text-sm font-mono">
-              04
+              {content.sec4Number}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              The Result: Built for the Next Era of Discovery
+              {content.sec4Title}
             </h2>
           </div>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            By bridging traditional German business directories with modern Generative Engine Optimization, our client moved from a fragmented web footprint to an authoritative, verifiable local entity.
+            {content.sec4P1}
           </p>
 
           <div className="bg-nordible-dark text-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden space-y-4">
             <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
             <p className="text-lg sm:text-xl text-blue-50 font-medium leading-relaxed italic relative z-10">
-              "Today, whether a potential customer searches via Google Maps in downtown Frankfurt or queries an AI model for a trusted local partner, our client’s business is positioned at the top of the conversation."
+              {content.sec4Quote}
             </p>
           </div>
         </section>
@@ -440,27 +508,27 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         <section className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
           <div className="max-w-2xl mx-auto space-y-3 relative z-10">
             <span className="inline-block px-4 py-1 text-xs font-bold tracking-[0.2em] text-blue-300 uppercase bg-blue-900/50 rounded-full border border-blue-800">
-              Transform Your Growth
+              {content.ctaBadge}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading">
-              Ready to Dominate Local Search & AI Discovery?
+              {content.ctaTitle}
             </h2>
             <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-              Need to modernize your digital presence, deploy custom web applications, or optimize your business for AI discovery? Let's build digital systems engineered for long-term growth.
+              {content.ctaDesc}
             </p>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={handleConsultation}
                 className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-8 py-4 shadow-xl cursor-pointer w-full sm:w-auto"
               >
-                <span>Book a Consultation</span>
+                <span>{content.ctaButton}</span>
                 <ArrowRight className="ml-2 h-4 w-4 inline-block" />
               </button>
               <Link
                 to="/"
                 className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto"
               >
-                <span>Explore Full Portfolio</span>
+                <span>{content.ctaSecondary}</span>
               </Link>
             </div>
           </div>
@@ -473,7 +541,7 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
         <button
           onClick={handleShare}
           className="p-3 rounded-xl border border-nordible-border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 active:scale-95 transition-transform"
-          aria-label="Share article"
+          aria-label={content.share}
         >
           {copiedUrl ? <Check className="h-5 w-5 text-emerald-500" /> : <Share2 className="h-5 w-5 text-nordible-blue" />}
         </button>
@@ -482,7 +550,7 @@ export default function BlogPostFrankfurt({ onBookConsultation }: BlogPostFrankf
           onClick={handleConsultation}
           className="btn-primary flex-1 py-3 text-xs tracking-wider shadow-lg shadow-blue-500/20 active:scale-95"
         >
-          <span>Book Consultation</span>
+          <span>{content.mobileBookBtn}</span>
           <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
         </button>
 

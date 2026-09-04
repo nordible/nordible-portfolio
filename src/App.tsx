@@ -21,7 +21,8 @@ import FounderPage from './components/FounderPage';
 import LeadDashboard from './components/LeadDashboard';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
-import BlogPostFrankfurt from './components/BlogPostFrankfurt';
+import BlogPost from './components/BlogPost';
+import BlogPage from './components/BlogPage';
 
 function HomePage() {
   return (
@@ -66,12 +67,30 @@ function FounderRoute() {
   );
 }
 
+function BlogRoute() {
+  const navigate = useNavigate();
+  return (
+    <>
+      <Header />
+      <BlogPage 
+        onBookConsultation={() => {
+          navigate('/');
+          setTimeout(() => {
+            document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }} 
+      />
+      <Footer />
+    </>
+  );
+}
+
 function BlogPostRoute() {
   const navigate = useNavigate();
   return (
     <>
       <Header />
-      <BlogPostFrankfurt 
+      <BlogPost 
         onBookConsultation={() => {
           navigate('/');
           setTimeout(() => {
@@ -92,8 +111,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/founder" element={<FounderRoute />} />
-            <Route path="/blog/frankfurt-local-seo-ai-discoverability" element={<BlogPostRoute />} />
-            <Route path="/blog" element={<Navigate to="/blog/frankfurt-local-seo-ai-discoverability" replace />} />
+            <Route path="/blog" element={<BlogRoute />} />
+            <Route path="/blog/:slug" element={<BlogPostRoute />} />
             <Route path="/dashboard" element={<LeadDashboard />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
