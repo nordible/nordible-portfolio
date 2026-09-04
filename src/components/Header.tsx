@@ -11,10 +11,10 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavClick = (target: string) => {
+  const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);
-    if (target === 'founder') {
-      navigate('/founder');
+    if (path) {
+      navigate(path);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
@@ -42,7 +42,7 @@ export default function Header() {
   const navItems = [
     { key: 'services', label: t.nav.services },
     { key: 'portfolio', label: t.nav.portfolio },
-    { key: 'about', label: t.nav.about },
+    { key: 'about', label: t.nav.about, path: '/company-profile' },
     { key: 'consultation', label: t.nav.consultation },
   ];
 
@@ -71,7 +71,7 @@ export default function Header() {
             {navItems.map((item) => (
               <button
                 key={item.key}
-                onClick={() => handleNavClick(item.key)}
+                onClick={() => handleNavClick(item.key, item.path)}
                 className="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
               >
                 {item.label}
@@ -132,7 +132,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <button
                   key={item.key}
-                  onClick={() => handleNavClick(item.key)}
+                  onClick={() => handleNavClick(item.key, item.path)}
                   className="block w-full text-left px-4 py-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:bg-nordible-bg dark:hover:bg-gray-800 rounded-xl transition-colors"
                 >
                   {item.label}

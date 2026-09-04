@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube, Heart } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -15,21 +15,6 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div 
-              className="flex items-center space-x-3 mb-8 cursor-pointer"
-              onClick={() => {
-                navigate('/');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/10 border border-white/10">
-                <img src="/images/logos/nordible-icon.png" alt="Nordible Technologies Logo" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-2xl font-extrabold tracking-tight font-heading">Nordible Technologies</span>
-            </div>
-            <p className="text-blue-100/60 mb-8 leading-relaxed font-medium max-w-md">
-              {f.tagline}
-            </p>
             <div className="space-y-4">
               <a href="mailto:mail@nordible.co" className="flex items-center space-x-4 group cursor-pointer">
                 <div className="p-2 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
@@ -64,17 +49,9 @@ export default function Footer() {
               <li>
                 <Link 
                   to="/blog" 
-                  className="text-blue-300 hover:text-white transition-colors text-left inline-block"
-                >
-                  Insights & Blog
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/blog/frankfurt-local-seo-ai-discoverability" 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
-                  {language === 'de' ? 'Fallstudie: Frankfurt GEO & KI' : 'Frankfurt GEO Case Study'}
+                  Insights & Blog
                 </Link>
               </li>
             </ul>
@@ -83,6 +60,22 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-bold text-blue-300 mb-8 uppercase tracking-[0.2em]">{f.companyTitle}</h3>
             <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
+              <li>
+                <Link 
+                  to="/company-profile" 
+                  className="text-blue-100/60 hover:text-white transition-colors uppercase tracking-widest text-left inline-block"
+                >
+                  {language === 'de' ? 'Unternehmensprofil' : 'Company Profile'}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/why-choose-us" 
+                  className="text-blue-100/60 hover:text-white transition-colors uppercase tracking-widest text-left inline-block"
+                >
+                  {language === 'de' ? 'Warum Nordible' : 'Why Choose Us'}
+                </Link>
+              </li>
               <li>
                 <button 
                   onClick={() => {
@@ -93,6 +86,14 @@ export default function Footer() {
                 >
                   {f.founderStory}
                 </button>
+              </li>
+              <li>
+                <Link 
+                  to="/investment-models" 
+                  className="text-blue-100/60 hover:text-white transition-colors uppercase tracking-widest text-left inline-block"
+                >
+                  {language === 'de' ? 'Investitionsmodelle' : 'Investment Models'}
+                </Link>
               </li>
               <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</a></li>
               <li>
@@ -140,6 +141,34 @@ export default function Footer() {
                 <social.icon className="h-6 w-6" />
               </a>
             ))}
+          </div>
+        </div>
+
+        {/* Very Bottom: Big Company Ribbon */}
+        <div className="mt-16 pt-12 border-t border-white/10 flex flex-col items-center justify-center text-center">
+          <div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 cursor-pointer select-none group pb-6"
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white/5 group-hover:bg-white/10 border border-white/10 rounded-2xl sm:rounded-3xl p-2.5 sm:p-3.5 transition-all duration-300 group-hover:scale-105 flex items-center justify-center shrink-0 shadow-2xl">
+              <img 
+                src="/images/logos/nordible-icon.png" 
+                alt="Nordible Technologies Logo" 
+                className="w-full h-full object-contain" 
+              />
+            </div>
+            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-heading text-white group-hover:text-nordible-blue transition-colors duration-300">
+              Nordible Technologies
+            </span>
+          </div>
+
+          <div className="pt-4 border-t border-white/5 w-full flex items-center justify-center space-x-2 text-xs sm:text-sm font-medium text-blue-100/60">
+            <span>{language === 'de' ? 'Mit' : 'Made with'}</span>
+            <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500 animate-pulse" />
+            <span>{language === 'de' ? 'in Deutschland gemacht' : 'in Germany'}</span>
           </div>
         </div>
       </div>

@@ -207,25 +207,16 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           </div>
         </div>
 
-        {/* Bottom CTA Block */}
-        <div className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
-          <div className="max-w-2xl mx-auto space-y-3 relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading">
-              {f.ctaHeading}
-            </h2>
-            <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-              {f.ctaSubtitle}
-            </p>
-            <div className="pt-4 flex justify-center">
-              <button
-                onClick={onBookConsultation}
-                className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-8 py-4 shadow-xl"
-              >
-                <span>{f.ctaButton}</span>
-                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
-              </button>
-            </div>
-          </div>
+        {/* Bottom Back Navigation */}
+        <div className="flex items-center justify-between pt-8 border-t border-nordible-border dark:border-gray-800">
+          <button
+            type="button"
+            onClick={onBack}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>{f.backToHome}</span>
+          </button>
         </div>
 
       </div>

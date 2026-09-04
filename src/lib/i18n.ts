@@ -9,6 +9,7 @@ export interface Translations {
     founderStory: string;
     consultation: string;
     getStarted: string;
+    investmentModels: string;
   };
   hero: {
     titlePart1: string;
@@ -66,6 +67,9 @@ export interface Translations {
     subtitle: string;
     mostPopular: string;
     ctaButton: string;
+    teaserText: string;
+    exploreModels: string;
+    backToHome: string;
   };
   testimonials: {
     badge: string;
@@ -179,7 +183,8 @@ export const translations: Record<Language, Translations> = {
       about: "About",
       founderStory: "Founder Story",
       consultation: "Consultation",
-      getStarted: "Get Started"
+      getStarted: "Get Started",
+      investmentModels: "Investment Models"
     },
     hero: {
       titlePart1: "We don’t just build technology solutions for businesses—",
@@ -198,14 +203,16 @@ export const translations: Record<Language, Translations> = {
         { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
         { number: "50+", label: "Solutions Delivered", description: "Across web, mobile & cloud" },
         { number: "1M+", label: "Users Served", description: "Across global platforms" },
-        { number: "100%", label: "Client Satisfaction", description: "On-time delivery commitment" }
+        { number: "24h", label: "Response Time", description: "Rapid Direct Sync" },
+        { number: "100%", label: "Delivery Rate", description: "On-Time Excellence" },
+        { number: "Direct", label: "Founder Lead", description: "No Middlemen" }
       ],
       partnersLabel: "Partners & Clients"
     },
     services: {
-      badge: "Core Competencies",
+      badge: "",
       title: "Our Expertise",
-      subtitle: "From design to deployment and global growth—we engineer technology solutions that drive real impact.",
+      subtitle: "",
       visitProduct: "Visit Product",
       items: [
         {
@@ -223,13 +230,18 @@ export const translations: Record<Language, Translations> = {
           title: "Enterprise Solutions",
           description: "Developing robust digital platforms that streamline operations and drive business efficiency.",
           features: ["Workflow Automation", "Data Architecture", "System Integration", "Custom ERP/CRM"]
+        },
+        {
+          title: "Digital Marketing & GEO",
+          description: "Dominating AI-driven search and conversational discovery with Generative Engine Optimization and data-driven performance marketing.",
+          features: ["AI Search Visibility (GEO)", "Technical SEO & Schema", "Conversion Optimization (CRO)", "Authority & Knowledge Graph"]
         }
       ]
     },
     businessBenefits: {
-      badge: "Commercial Value",
+      badge: "",
       title: "Engineered for Measurable Impact",
-      subtitle: "We align technology architectures directly with your revenue and operational efficiency.",
+      subtitle: "",
       items: [
         { title: "Increase Revenue", description: "Modern technology solutions convert 3x better than legacy systems", metric: "+150% ROI" },
         { title: "Save Time", description: "Automated processes reduce manual work by hours daily", metric: "40h/week Saved" },
@@ -237,9 +249,9 @@ export const translations: Record<Language, Translations> = {
       ]
     },
     portfolio: {
-      badge: "Selected Works",
-      title: "Our Technology Solutions",
-      subtitle: "We build and scale high-impact technology solutions across diverse industries—from cross-platform consumer apps to enterprise healthcare platforms.",
+      badge: "",
+      title: "",
+      subtitle: "",
       viewLive: "View Live Project",
       technologies: "Technologies",
       outcome: "Measurable Outcome"
@@ -249,17 +261,20 @@ export const translations: Record<Language, Translations> = {
       title: "Investment Models",
       subtitle: "Predictable engineering engagements tailored to your roadmap and technical complexity.",
       mostPopular: "Most Popular",
-      ctaButton: "Select Plan"
+      ctaButton: "Select Plan",
+      teaserText: "Predictable engineering engagements tailored to your roadmap and technical complexity.",
+      exploreModels: "Explore Investment Models",
+      backToHome: "Back to Overview"
     },
     testimonials: {
-      badge: "Client Testimonials",
-      title: "Built on Trust & Proven Delivery",
+      badge: "",
+      title: "",
       subtitle: "What engineering managers, directors, and founders say about collaborating with Nordible."
     },
     process: {
-      badge: "Execution Rigor",
+      badge: "",
       title: "How We Deliver Technology Solutions",
-      subtitle: "A structured, transparent engineering process designed to eliminate risk and maximize velocity.",
+      subtitle: "",
       steps: [
         { number: "01", title: "Discovery & Strategy", description: "Deep dive into your business logic, technical constraints, and strategic goals." },
         { number: "02", title: "Architecture & Design", description: "Designing scalable system topologies, data flows, and cognitive UX interfaces." },
@@ -387,7 +402,8 @@ export const translations: Record<Language, Translations> = {
       about: "Über uns",
       founderStory: "Gründer-Story",
       consultation: "Erstgespräch",
-      getStarted: "Projekt anfragen"
+      getStarted: "Projekt anfragen",
+      investmentModels: "Investitionsmodelle"
     },
     hero: {
       titlePart1: "Wir entwickeln nicht nur Technologielösungen für Unternehmen – ",
@@ -406,14 +422,16 @@ export const translations: Record<Language, Translations> = {
         { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
         { number: "50+", label: "Realisierte Lösungen", description: "Web, Mobile & Cloud-Systeme" },
         { number: "1M+", label: "Nutzer Erreicht", description: "Auf weltweiten Plattformen" },
-        { number: "100%", label: "Kundenzufriedenheit", description: "Termintreue & Qualitätsgarantie" }
+        { number: "24h", label: "Reaktionszeit", description: "Schnelle direkte Abstimmung" },
+        { number: "100%", label: "Lieferquote", description: "Pünktliche Spitzenqualität" },
+        { number: "Direkt", label: "Gründergeführt", description: "Ohne Zwischenhändler" }
       ],
       partnersLabel: "Partner & Kunden"
     },
     services: {
-      badge: "Kernkompetenzen",
+      badge: "",
       title: "Unsere Expertise",
-      subtitle: "Von der Konzeption über die Bereitstellung bis zum weltweiten Rollout – wir entwickeln Technologielösungen mit spürbarer Wirkung.",
+      subtitle: "",
       visitProduct: "Produkt ansehen",
       items: [
         {
@@ -431,13 +449,18 @@ export const translations: Record<Language, Translations> = {
           title: "Unternehmenslösungen",
           description: "Entwicklung robuster digitaler Plattformen, die betriebliche Abläufe optimieren und Effizienz steigern.",
           features: ["Prozessautomatisierung", "Datenarchitektur", "Systemintegration", "Individuelle ERP/CRM-Systeme"]
+        },
+        {
+          title: "Digitales Marketing & GEO",
+          description: "Führende Sichtbarkeit in KI-Suchmaschinen durch Generative Engine Optimization und datengestütztes Performance-Marketing.",
+          features: ["KI-Sichtbarkeit (GEO)", "Technisches SEO & Schema", "Conversion-Optimierung (CRO)", "Knowledge Graph & Autorität"]
         }
       ]
     },
     businessBenefits: {
-      badge: "Wirtschaftlicher Mehrwert",
+      badge: "",
       title: "Entwickelt für messbaren Unternehmenserfolg",
-      subtitle: "Wir richten technologische Architekturen direkt an Ihrem Umsatz und Ihrer betrieblichen Effizienz aus.",
+      subtitle: "",
       items: [
         { title: "Umsatz Steigern", description: "Moderne Technologielösungen konvertieren 3x besser als Altsysteme", metric: "+150% ROI" },
         { title: "Zeit Sparen", description: "Automatisierte Prozesse reduzieren manuelle Arbeit um viele Stunden pro Woche", metric: "40h/Woche gespart" },
@@ -445,9 +468,9 @@ export const translations: Record<Language, Translations> = {
       ]
     },
     portfolio: {
-      badge: "Ausgewählte Arbeiten",
-      title: "Unsere Technologielösungen",
-      subtitle: "Wir entwickeln und skalieren hochwirksame Technologielösungen für unterschiedlichste Branchen – von B2C-Apps bis zu komplexen Healthcare-Plattformen.",
+      badge: "",
+      title: "",
+      subtitle: "",
       viewLive: "Projekt ansehen",
       technologies: "Technologien",
       outcome: "Messbares Ergebnis"
@@ -457,17 +480,20 @@ export const translations: Record<Language, Translations> = {
       title: "Investitionsmodelle",
       subtitle: "Planbare Entwicklungspakete, exakt abgestimmt auf Ihre Roadmap und technische Komplexität.",
       mostPopular: "Am beliebtesten",
-      ctaButton: "Paket wählen"
+      ctaButton: "Paket wählen",
+      teaserText: "Planbare Entwicklungspakete, exakt abgestimmt auf Ihre Roadmap und technische Komplexität.",
+      exploreModels: "Investitionsmodelle ansehen",
+      backToHome: "Zurück zur Übersicht"
     },
     testimonials: {
-      badge: "Kundenstimmen",
-      title: "Gegründet auf Vertrauen & verlässlicher Umsetzung",
+      badge: "",
+      title: "",
       subtitle: "Was Engineering Manager, Direktoren und Gründer über die Zusammenarbeit mit Nordible sagen."
     },
     process: {
-      badge: "Strukturierte Umsetzung",
+      badge: "",
       title: "Wie wir Technologielösungen umsetzen",
-      subtitle: "Ein transparenter Entwicklungsprozess nach höchsten Engineering-Standards zur Minimierung von Risiken.",
+      subtitle: "",
       steps: [
         { number: "01", title: "Bedarfsanalyse & Strategie", description: "Tiefgehende Analyse Ihrer Geschäftslogik, technischen Rahmenbedingungen und Ziele." },
         { number: "02", title: "Architektur & Konzeption", description: "Entwurf hochskalierbarer Systemtopologien, Datenflüsse und intuitiver UX-Schnittstellen." },

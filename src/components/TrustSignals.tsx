@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Award, Users, TrendingUp, Clock, Play, Pause, ExternalLink } from 'lucide-react';
+import { Award, Users, TrendingUp, Clock, Play, Pause, ExternalLink, Zap, ShieldCheck, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TrustSignals() {
   const { t } = useLanguage();
   const ts = t.trustSignals;
   const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
-  const statIcons = [Clock, Users, TrendingUp, Award];
+  const statIcons = [Award, TrendingUp, Users, Zap, ShieldCheck, UserCheck];
 
   const companies = [
     { name: 'Schams Design Studio', logo: '/images/logos/shams-consult-logo.png', website: 'https://shams-consult.de/' },
@@ -21,6 +22,7 @@ export default function TrustSignals() {
   ];
 
   // Duplicate for seamless infinite loop
+  const marqueeStats = [...ts.stats, ...ts.stats];
   const marqueeCompanies = [...companies, ...companies];
 
   return (
@@ -34,21 +36,39 @@ export default function TrustSignals() {
           </h2>
         </div>
 
-        {/* Stats */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {ts.stats.map((stat, index) => {
-            const Icon = statIcons[index % statIcons.length];
-            return (
-              <div key={index} className="card-premium group p-8 text-center hover:border-nordible-blue/30 transition-all duration-500">
-                <div className="bg-blue-50 dark:bg-gray-800 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-sm">
-                  <Icon className="h-8 w-8 text-nordible-blue dark:text-blue-400" />
+        {/* Stats - Dynamic Continuous Single-Line Moving Track */}
+        <div className="relative overflow-hidden w-full py-4 mb-16">
+          {/* Subtle Left/Right Gradient Mask for Depth & Frictionless Visual Flow */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-20 pointer-events-none"></div>
+
+          <div
+            className={`animate-marquee flex items-stretch space-x-5 sm:space-x-6 py-2 ${isPaused ? 'paused' : ''}`}
+            style={{ animationDuration: '36s', animationDirection: direction }}
+          >
+            {marqueeStats.map((stat, index) => {
+              const Icon = statIcons[index % statIcons.length];
+              return (
+                <div
+                  key={index}
+                  className="card-premium group p-5 sm:p-7 text-center hover:border-nordible-blue/30 transition-all duration-500 w-[240px] sm:w-[280px] shrink-0 flex flex-col justify-center"
+                >
+                  <div className="bg-blue-50 dark:bg-gray-800 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform shadow-sm">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-nordible-blue dark:text-blue-400" />
+                  </div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-nordible-dark dark:text-white mb-1.5 tracking-tight font-heading">
+                    {stat.number}
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[0.15em] mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
+                    {stat.description}
+                  </div>
                 </div>
-                <div className="text-4xl font-extrabold text-nordible-dark dark:text-white mb-2 tracking-tight font-heading">{stat.number}</div>
-                <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-2">{stat.label}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed">{stat.description}</div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Dynamic Continuous Moving Logos */}
@@ -65,7 +85,10 @@ export default function TrustSignals() {
             <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
 
-            <div className={`animate-marquee flex items-center space-x-12 sm:space-x-16 ${isPaused ? 'paused' : ''}`}>
+            <div
+              className={`animate-marquee flex items-center space-x-12 sm:space-x-16 ${isPaused ? 'paused' : ''}`}
+              style={{ animationDuration: '32s', animationDirection: direction }}
+            >
               {marqueeCompanies.map((company, index) => (
                 <a
                   key={index}
@@ -88,25 +111,54 @@ export default function TrustSignals() {
             </div>
           </div>
 
-          {/* Subtle Control */}
+          {/* Accessible UX Motion Controls (Subtle Left, Pause/Play, Right) */}
           <div className="mt-8 flex justify-center items-center">
-            <button
-              onClick={() => setIsPaused((prev) => !prev)}
-              aria-label={isPaused ? "Resume movement" : "Pause movement"}
-              className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 text-[11px] font-bold uppercase tracking-wider shadow-sm transition-colors"
-            >
-              {isPaused ? (
-                <>
-                  <Play className="h-3 w-3 text-nordible-blue dark:text-blue-400" />
-                  <span>Resume Motion</span>
-                </>
-              ) : (
-                <>
-                  <Pause className="h-3 w-3 text-nordible-blue dark:text-blue-400" />
-                  <span>Pause Motion</span>
-                </>
-              )}
-            </button>
+            <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm">
+              <button
+                onClick={() => {
+                  setDirection('reverse');
+                  setIsPaused(false);
+                }}
+                aria-label="Move left"
+                title="Move left"
+                className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                  direction === 'reverse' && !isPaused
+                    ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                    : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                <ChevronLeft className="h-3.5 w-3.5" />
+              </button>
+
+              <button
+                onClick={() => setIsPaused((prev) => !prev)}
+                aria-label={isPaused ? "Resume movement" : "Pause movement"}
+                title={isPaused ? "Resume movement" : "Pause movement"}
+                className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+              >
+                {isPaused ? (
+                  <Play className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                ) : (
+                  <Pause className="h-3.5 w-3.5" />
+                )}
+              </button>
+
+              <button
+                onClick={() => {
+                  setDirection('normal');
+                  setIsPaused(false);
+                }}
+                aria-label="Move right"
+                title="Move right"
+                className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                  direction === 'normal' && !isPaused
+                    ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                    : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                <ChevronRight className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

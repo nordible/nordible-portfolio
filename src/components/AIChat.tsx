@@ -113,14 +113,8 @@ export default function AIChat() {
   return (
     <section id="ai-assistant" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            Intelligent Guide
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight font-heading">
-            AI Assistant
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">
+        <div className="text-center mb-10">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto">
             Get instant answers about our services, products, and engineering expertise.
           </p>
         </div>

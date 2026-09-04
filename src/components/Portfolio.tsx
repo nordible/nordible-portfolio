@@ -297,172 +297,176 @@ export default function Portfolio() {
   }, [nextSlide, prevSlide]);
 
   return (
-    <section id="portfolio" className="relative py-20 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
+    <section id="portfolio" className="relative py-10 sm:py-14 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            {t.portfolio.badge}
+        {(t.portfolio.title || t.portfolio.badge) && (
+          <div className="text-center mb-8">
+            {t.portfolio.badge && (
+              <div className="inline-block px-3 py-1 mb-2.5 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
+                {t.portfolio.badge}
+              </div>
+            )}
+            {t.portfolio.title && (
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white mb-2 tracking-tight font-heading">
+                {t.portfolio.title}
+              </h2>
+            )}
+            {t.portfolio.subtitle && (
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-medium">
+                {t.portfolio.subtitle}
+              </p>
+            )}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight font-heading">
-            {t.portfolio.title}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-            {t.portfolio.subtitle}
-          </p>
-        </div>
+        )}
 
-        <div className="relative flex items-center mb-10">
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group -translate-x-4 md:-translate-x-10"
-          >
-            <ChevronLeft className="h-5 w-5 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
-          </button>
-
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden flex-1 mx-4 md:mx-10 relative group/card border border-nordible-border dark:border-gray-700">
-            <div className="relative p-6 text-white overflow-hidden min-h-[300px] flex items-end" style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-              <div className="relative z-10 w-full">
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-xl rounded-xl flex items-center justify-center p-3 border border-white/30 shadow-2xl">
-                      {imageErrors.has(currentProject.id) ? (
-                        <div className="w-full h-full flex items-center justify-center text-white font-bold text-xl font-heading">
-                          {currentProject.client.charAt(0)}
-                        </div>
-                      ) : (
-                        <img
-                          key={currentProject.id}
-                          src={currentProject.logo}
-                          alt={currentProject.client}
-                          className="max-w-full max-h-full object-contain"
-                          onError={() => {
-                            setImageErrors(prev => new Set(prev).add(currentProject.id));
-                          }}
-                        />
-                      )}
-                    </div>
-                    <div>
-                      <div className="text-[10px] text-blue-200 font-bold uppercase tracking-widest mb-1.5 drop-shadow-md">{currentProject.client}</div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold mb-1 tracking-tight font-heading text-white drop-shadow-lg">{currentProject.title}</h3>
-                    </div>
+        {/* Compact Horizontal Split Card */}
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden border border-nordible-border dark:border-gray-700 transition-all">
+          <div className="grid lg:grid-cols-12 min-h-[360px]">
+            
+            {/* Left Column (Showcase Image & Identity): 5 cols on lg */}
+            <div 
+              className="lg:col-span-5 relative p-6 sm:p-8 text-white flex flex-col justify-between overflow-hidden min-h-[240px] lg:min-h-full"
+              style={{ backgroundImage: `url(${currentProject.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/75 to-gray-900/35"></div>
+              
+              {/* Client & Index Tag */}
+              <div className="relative z-10 flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-xl flex items-center justify-center p-2 border border-white/30 shadow-md">
+                    {imageErrors.has(currentProject.id) ? (
+                      <div className="w-full h-full flex items-center justify-center text-white font-bold text-base font-heading">
+                        {currentProject.client.charAt(0)}
+                      </div>
+                    ) : (
+                      <img
+                        key={currentProject.id}
+                        src={currentProject.logo}
+                        alt={currentProject.client}
+                        className="max-w-full max-h-full object-contain"
+                        onError={() => {
+                          setImageErrors(prev => new Set(prev).add(currentProject.id));
+                        }}
+                      />
+                    )}
                   </div>
+                  <div>
+                    <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest block drop-shadow-sm">{currentProject.client}</span>
+                    <span className="text-[11px] font-mono text-white/75">{currentIndex + 1} of {projects.length}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Title & Direct Project Link */}
+              <div className="relative z-10 pt-6 space-y-3">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight font-heading text-white drop-shadow-md">
+                  {currentProject.title}
+                </h3>
+                <div>
                   <a
                     href={currentProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary py-2.5 px-6 text-[11px] uppercase tracking-widest"
+                    className="btn-primary py-2 px-4 text-[10px] uppercase tracking-widest inline-flex items-center shadow-lg shadow-blue-500/25"
                   >
-                    <span>View Project</span>
-                    <ExternalLink className="ml-2 h-3.5 w-3.5" />
+                    <span>{t.portfolio.viewLive || "View Project"}</span>
+                    <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="p-8">
-              <div className="space-y-8">
-                <div>
-                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center">
-                    <span className="h-px w-6 bg-nordible-border dark:bg-gray-700 mr-2"></span>
-                    Description
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-medium">{currentProject.description}</p>
+            {/* Right Column (Description, Metrics, Outcome, Stack): 7 cols on lg */}
+            <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
+                  {currentProject.description}
+                </p>
+
+                {/* Outcome Pill */}
+                <div className="bg-blue-50/70 dark:bg-blue-900/15 rounded-xl p-3 sm:p-3.5 border-l-4 border-nordible-blue">
+                  <div className="text-[9px] font-bold text-nordible-blue dark:text-blue-400 uppercase tracking-widest mb-0.5">
+                    {t.portfolio.outcome || "Measurable Outcome"}
+                  </div>
+                  <p className="text-nordible-dark dark:text-gray-100 font-bold text-xs sm:text-sm leading-snug">
+                    {currentProject.outcome}
+                  </p>
                 </div>
 
-                <div className="grid lg:grid-cols-3 gap-10">
-                  <div className="lg:col-span-2 space-y-8">
-                    <div className="bg-blue-50/50 dark:bg-blue-900/10 rounded-2xl p-6 border-l-4 border-nordible-blue">
-                      <h5 className="text-[10px] font-bold text-nordible-dark dark:text-white mb-3 uppercase tracking-widest">
-                        Objective Outcome
-                      </h5>
-                      <p className="text-nordible-dark dark:text-gray-200 font-bold text-lg leading-snug">{currentProject.outcome}</p>
-                    </div>
-
-                    <div>
-                      <h5 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Technology Stack</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {currentProject.technologies.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="bg-white dark:bg-gray-700 border border-nordible-border dark:border-gray-600 text-gray-700 dark:text-gray-200 px-3 py-1.5 text-[11px] font-bold uppercase tracking-tight rounded-lg"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                {/* Key Metrics - Compact Horizontal Row */}
+                <div>
+                  <div className="flex items-center space-x-1.5 text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                    <TrendingUp className="h-3 w-3 text-nordible-blue" />
+                    <span>Key Metrics</span>
                   </div>
-
-                  <div className="lg:col-span-1">
-                    <div className="bg-nordible-dark text-white rounded-2xl p-6 shadow-2xl shadow-blue-900/20">
-                      <h5 className="text-[10px] font-bold text-blue-300 mb-6 uppercase tracking-widest flex items-center">
-                        <TrendingUp className="h-3.5 w-3.5 mr-2" />
-                        Key Metrics
-                      </h5>
-                      <div className="space-y-6">
-                        {Object.entries(currentProject.metrics).map(([key, value], index) => (
-                          <div key={index} className="flex flex-col">
-                            <span className="text-[9px] text-blue-200/60 uppercase tracking-[0.2em] mb-1.5 font-bold">
-                              {key.replace('_', ' ')}
-                            </span>
-                            <span className="text-2xl font-extrabold tracking-tight font-heading">{value}</span>
-                          </div>
-                        ))}
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    {Object.entries(currentProject.metrics).map(([key, value], index) => (
+                      <div key={index} className="p-2.5 rounded-xl bg-nordible-section-bg dark:bg-gray-700/50 border border-nordible-border/70 dark:border-gray-700 text-left">
+                        <span className="text-[8px] sm:text-[9px] text-gray-400 dark:text-gray-400 uppercase tracking-wider font-bold block truncate">
+                          {key.replace('_', ' ')}
+                        </span>
+                        <span className="text-sm sm:text-base font-extrabold tracking-tight font-heading text-nordible-dark dark:text-white block truncate">
+                          {value}
+                        </span>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-nordible-border dark:border-gray-700 group translate-x-4 md:translate-x-10"
-          >
-            <ChevronRight className="h-5 w-5 text-nordible-dark dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400" />
-          </button>
+              {/* Technologies Tags */}
+              <div className="pt-2 border-t border-nordible-border dark:border-gray-700 flex flex-wrap items-center gap-1.5">
+                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mr-1">
+                  {t.portfolio.technologies || "Stack"}:
+                </span>
+                {currentProject.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-white dark:bg-gray-700 border border-nordible-border dark:border-gray-600 text-gray-700 dark:text-gray-200 px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight rounded-md"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div className="flex flex-col items-center space-y-10">
-          <button
-            onClick={togglePause}
-            className="flex items-center space-x-3 bg-white dark:bg-gray-800 px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 border border-nordible-border dark:border-gray-700 group text-[10px] font-bold uppercase tracking-widest text-nordible-dark dark:text-gray-200"
-          >
-            {isPaused ? (
-              <>
-                <Play className="h-3.5 w-3.5 text-nordible-blue" />
-                <span>Resume Slideshow</span>
-              </>
-            ) : (
-              <>
-                <Pause className="h-3.5 w-3.5 text-nordible-blue" />
-                <span>Pause Slideshow</span>
-              </>
-            )}
-          </button>
+        {/* Subtle, Low-Profile Movement Controls */}
+        <div className="mt-5 flex items-center justify-center">
+          <div className="inline-flex items-center rounded-full bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 p-1 shadow-sm">
+            <button
+              onClick={prevSlide}
+              aria-label="Previous project"
+              className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
 
-          <div className="text-center w-full">
-            <div className="rounded-3xl p-10 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border border-blue-100 dark:border-gray-700 relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-3 font-heading">Partner with Nordible Solutions</h3>
-                <p className="text-base text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto font-medium">
-                  We love engineering complex products and solving high-impact problems. Let's build your next system.
-                </p>
-                <button
-                  onClick={() => {
-                    const element = document.getElementById('consultation');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className="btn-primary py-3.5 px-8 text-[11px] uppercase tracking-widest shadow-xl shadow-blue-500/20"
-                >
-                  Start a Conversation
-                </button>
-              </div>
-            </div>
+            <span className="px-3 text-xs font-mono font-bold text-gray-600 dark:text-gray-300 select-none">
+              0{currentIndex + 1} / 0{projects.length}
+            </span>
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next project"
+              className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
+            <div className="h-4 w-px bg-nordible-border dark:bg-gray-700 mx-1"></div>
+
+            <button
+              onClick={togglePause}
+              aria-label={isPaused ? "Resume slideshow" : "Pause slideshow"}
+              className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+              title={isPaused ? "Resume slideshow" : "Pause slideshow"}
+            >
+              {isPaused ? <Play className="h-3.5 w-3.5 text-nordible-blue" /> : <Pause className="h-3.5 w-3.5" />}
+            </button>
           </div>
         </div>
       </div>

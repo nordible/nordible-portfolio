@@ -1,141 +1,115 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
+import { Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const technologies = [
-  { 
-    name: 'React', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    proficiency: 95
-  },
-  { 
-    name: 'Node.js', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    proficiency: 90
-  },
-  { 
-    name: 'TypeScript', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    proficiency: 85
-  },
-  { 
-    name: 'Python', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-    proficiency: 80
-  },
-  { 
-    name: 'C#', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
-    proficiency: 75
-  },
-  { 
-    name: 'PostgreSQL', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-    proficiency: 85
-  },
-  { 
-    name: 'MongoDB', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-    proficiency: 80
-  },
-  { 
-    name: 'AWS', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-    proficiency: 85
-  },
-  { 
-    name: 'Docker', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-    proficiency: 75
-  },
-  { 
-    name: 'Next.js', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-    proficiency: 90
-  },
-  { 
-    name: 'React Native', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    proficiency: 70
-  },
-  { 
-    name: 'Redis', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
-    proficiency: 75
-  }
+  { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'C#', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+  { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+  { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+  { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+  { name: 'React Native', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' }
 ];
 
 export default function TechStack() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useLanguage();
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % technologies.length);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 2000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
-
-  const getVisibleTechnologies = () => {
-    const visible = [];
-    for (let i = 0; i < 8; i++) {
-      const index = (currentIndex + i) % technologies.length;
-      visible.push({ ...technologies[index], position: i });
-    }
-    return visible;
-  };
+  // Duplicate for seamless infinite loop
+  const marqueeTech = [...technologies, ...technologies];
 
   return (
-    <section className="relative py-24 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
+    <section className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
       <div className="relative w-full">
-        <div className="text-center mb-16 px-4 sm:px-6 lg:px-8">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-white dark:bg-gray-900 rounded-full border border-blue-100 dark:border-gray-700">
-            Engineering Arsenal
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white mb-6 tracking-tight font-heading">
-            Our Technology Stack
+        {/* Section Title */}
+        <div className="text-center mb-12 px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            {language === 'de' ? 'Technologie-Stack' : 'Our Technology Stack'}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
-            Versatile expertise across modern frameworks and scalable infrastructure.
-          </p>
         </div>
 
-        {/* Technology Carousel */}
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between space-x-4 sm:space-x-8 overflow-hidden py-10">
-            {getVisibleTechnologies().map((tech, index) => (
-              <div 
+        {/* Dynamic Continuous Moving Tech Track */}
+        <div className="relative overflow-hidden w-full py-2">
+          {/* Subtle Left/Right Fade Edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
+
+          <div
+            className={`animate-marquee flex items-center space-x-4 sm:space-x-5 py-2 ${isPaused ? 'paused' : ''}`}
+            style={{ animationDuration: '28s', animationDirection: direction }}
+          >
+            {marqueeTech.map((tech, index) => (
+              <div
                 key={`${tech.name}-${index}`}
-                className="card-premium flex-shrink-0 w-32 h-32 sm:w-44 sm:h-44 flex flex-col items-center justify-center relative overflow-hidden group hover:scale-105 transition-transform duration-500"
+                className="flex items-center space-x-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm shrink-0 group hover:border-nordible-blue/40 transition-all hover:scale-105"
               >
-                <img 
-                  src={tech.logo} 
+                <img
+                  src={tech.logo}
                   alt={tech.name}
-                  className="h-12 w-12 sm:h-20 sm:w-20 group-hover:scale-110 transition-transform duration-300 mb-4 z-10 grayscale group-hover:grayscale-0"
+                  className="h-5 w-5 sm:h-6 sm:w-6 object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
-                <span className="text-[10px] sm:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest z-10 group-hover:text-nordible-blue transition-colors font-heading">{tech.name}</span>
-                
-                {/* Proficiency Bar */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-100 dark:bg-gray-700 overflow-hidden">
-                  <div 
-                    className="h-full bg-nordible-blue transition-all duration-1000"
-                    style={{ width: `${tech.proficiency}%` }}
-                  ></div>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors font-heading">
+                  {tech.name}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
-          <div className="card-premium p-10 border-l-8 border-nordible-blue relative overflow-hidden bg-white dark:bg-gray-800">
-            <h3 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-4 font-heading tracking-tight">
-              Full-Stack Versatility
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed text-lg">
-              Our engineering team maintains robust expertise across frontend frameworks, 
-              high-performance backends, and cloud-native infrastructure. We architect 
-              systems designed for maximum scalability and optimal resource allocation.
-            </p>
+        {/* Accessible UX Motion Controls (Subtle Left, Pause/Play, Right) */}
+        <div className="mt-8 flex justify-center items-center">
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm">
+            <button
+              onClick={() => {
+                setDirection('reverse');
+                setIsPaused(false);
+              }}
+              aria-label="Move left"
+              title="Move left"
+              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                direction === 'reverse' && !isPaused
+                  ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                  : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+              }`}
+            >
+              <ChevronLeft className="h-3.5 w-3.5" />
+            </button>
+
+            <button
+              onClick={() => setIsPaused((prev) => !prev)}
+              aria-label={isPaused ? "Resume movement" : "Pause movement"}
+              title={isPaused ? "Resume movement" : "Pause movement"}
+              className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+            >
+              {isPaused ? (
+                <Play className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+              ) : (
+                <Pause className="h-3.5 w-3.5" />
+              )}
+            </button>
+
+            <button
+              onClick={() => {
+                setDirection('normal');
+                setIsPaused(false);
+              }}
+              aria-label="Move right"
+              title="Move right"
+              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                direction === 'normal' && !isPaused
+                  ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                  : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+              }`}
+            >
+              <ChevronRight className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
       </div>

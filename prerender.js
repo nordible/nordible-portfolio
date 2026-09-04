@@ -8,7 +8,7 @@ import handler from 'serve-handler';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const routes = ['/', '/blog', '/founder', '/privacy', '/terms', '/blog/frankfurt-local-seo-ai-discoverability'];
+const routes = ['/', '/blog', '/founder', '/privacy', '/terms', '/blog/frankfurt-local-seo-ai-discoverability', '/investment-models', '/company-profile', '/why-choose-us'];
 
 async function prerender() {
   const server = createServer((request, response) => {
