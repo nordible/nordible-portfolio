@@ -13,13 +13,13 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
 
   const packages = [
     {
-      name: 'MVP Core',
+      name: 'Rapid MVP',
       duration: '2-4 weeks',
       description: language === 'de' 
         ? 'Schnelle Entwicklung von Prototypen und marktreifen Kernprodukten. Exakt auf Ihr Budget und Ihre funktionalen Anforderungen zugeschnitten.'
         : 'Rapid engineering for high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
       features: language === 'de' ? [
-        'Sichere Anforderungs- und Protokollanalyse',
+        'Detaillierte Anforderungs- & Architekturanalyse',
         'Wissenschaftsbasiertes UX-Design',
         'Cloud-Native Architektur',
         'Performance- und Conversion-Analytics',
@@ -27,7 +27,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
         'Automatisierte Deployment-Pipelines',
         '30 Tage Support nach Launch'
       ] : [
-        'Secure Protocol Discovery',
+        'Requirements & Architecture Discovery',
         'Science-Backed UX Core',
         'Cloud-Native Architecture',
         'Performance Analytics',
@@ -38,7 +38,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
       popular: false
     },
     {
-      name: 'Scalable System',
+      name: language === 'de' ? 'Produktions-Plattform' : 'Production Platform',
       duration: '6-10 weeks',
       description: language === 'de'
         ? 'Ganzheitliche Technologielösung mit weltweiter Skalierbarkeit. Entwickelt im Rahmen Ihrer festgelegten Ressourcen.'
@@ -63,7 +63,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
       popular: true
     },
     {
-      name: 'Enterprise Protocol',
+      name: language === 'de' ? 'Enterprise Architektur' : 'Enterprise Architecture',
       duration: '12-24 weeks',
       description: language === 'de'
         ? 'Komplexe Technologie-Ökosysteme für führende Industrieunternehmen. Höchste Enterprise-Sicherheitsstandards und maximale Performance.'
@@ -123,15 +123,12 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
           </button>
 
           <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
-            Nordible Technologies · {p.badge}
+            Nordible Technologies · {p.title}
           </span>
         </div>
 
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            {p.badge}
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
             {p.title}
           </h1>

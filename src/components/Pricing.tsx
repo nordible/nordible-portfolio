@@ -8,11 +8,11 @@ export default function Pricing() {
 
   const packages = [
     {
-      name: 'MVP Core',
+      name: 'Rapid MVP',
       duration: '2-4 weeks',
       description: 'Rapid engineering for high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
       features: [
-        'Secure Protocol Discovery',
+        'Requirements & Architecture Discovery',
         'Science-Backed UX Core',
         'Cloud-Native Architecture',
         'Performance Analytics',
@@ -23,7 +23,7 @@ export default function Pricing() {
       popular: false
     },
     {
-      name: 'Scalable System',
+      name: 'Production Platform',
       duration: '6-10 weeks',
       description: 'Full-lifecycle technology solution with global scaling capabilities. Built within your specified resource parameters.',
       features: [
@@ -38,7 +38,7 @@ export default function Pricing() {
       popular: true
     },
     {
-      name: 'Enterprise Protocol',
+      name: 'Enterprise Architecture',
       duration: '12-24 weeks',
       description: 'Complex technology ecosystems for global industry leaders. Scaled to meet your enterprise budget and security standards.',
       features: [
@@ -65,15 +65,9 @@ export default function Pricing() {
     <section id="pricing" className="relative py-20 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            {p.badge}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
             {p.title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
-            {p.subtitle}
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 items-center">

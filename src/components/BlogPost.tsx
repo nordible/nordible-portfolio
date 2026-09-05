@@ -7,7 +7,6 @@ import {
   MapPin, 
   Search, 
   Bot, 
-  Sparkles, 
   Calendar, 
   Clock, 
   CheckCircle2, 
@@ -220,10 +219,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         {/* Header Block */}
         <header className="space-y-6 text-left">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-100 dark:border-blue-800">
-              <Sparkles className="h-3.5 w-3.5" />
-              {content.badge}
-            </span>
             <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <Calendar className="h-3.5 w-3.5" /> {content.date}
             </span>
@@ -507,9 +502,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         {/* Call to Action Card */}
         <section className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
           <div className="max-w-2xl mx-auto space-y-3 relative z-10">
-            <span className="inline-block px-4 py-1 text-xs font-bold tracking-[0.2em] text-blue-300 uppercase bg-blue-900/50 rounded-full border border-blue-800">
-              {content.ctaBadge}
-            </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading">
               {content.ctaTitle}
             </h2>

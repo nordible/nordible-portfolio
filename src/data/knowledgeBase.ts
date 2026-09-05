@@ -128,32 +128,11 @@ export const knowledgeBase = {
       technologies: ["AngularJS", "Node.js", "MySQL", "AWS", "NLP"]
     },
     {
-      name: "Daily Planner",
-      client: "Internal Project",
-      description: "A clean, intuitive daily task management application with date navigation and local storage persistence.",
-      outcome: "Created a fully functional daily planner with offline capabilities and cross-date task management",
-      technologies: ["HTML5", "JavaScript", "Tailwind CSS", "Local Storage"]
-    },
-    {
       name: "Zerodha Sandbox",
       client: "Internal Project",
       description: "Interactive trading API sandbox demonstrating Zerodha Kite Connect integration with comprehensive endpoints for orders, portfolio, quotes, and market data.",
       outcome: "Built comprehensive trading API demonstration with real-time dummy data simulation and interactive documentation",
       technologies: ["TypeScript", "HTML5", "CSS3", "REST API", "Trading APIs"]
-    },
-    {
-      name: "AI Markdown Editor",
-      client: "Internal Project",
-      description: "AI-powered markdown editor with writing assistance tools powered by Google Gemini API for tone changes, grammar fixes, and content refinement.",
-      outcome: "Created a comprehensive writing assistant that improves content quality with AI-powered editing tools",
-      technologies: ["React.js", "Google Gemini API", "Marked.js", "Tailwind CSS", "AI/ML"]
-    },
-    {
-      name: "FeedbackBox",
-      client: "Developer Tool",
-      description: "Embeddable feedback widget that connects to Google Forms for easy user feedback collection on any website.",
-      outcome: "Created a lightweight, mobile-ready widget that simplifies feedback collection with zero backend requirements",
-      technologies: ["JavaScript", "HTML5", "CSS3", "Google Forms API", "Responsive Design"]
     },
     {
       name: "NerdsPal.com",

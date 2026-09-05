@@ -160,24 +160,6 @@ const projects = [
     gradient: 'from-indigo-600 to-purple-600'
   },
   {
-    id: 'daily-planner',
-    title: 'Daily Planner',
-    logo: '/images/logos/daily-planner-logo.svg',
-    link: 'https://planmydaily.com/',
-    description: 'A clean, intuitive daily task management application with date navigation and local storage persistence.',
-
-    technologies: ['HTML5', 'JavaScript', 'Tailwind CSS', 'Local Storage'],
-    outcome: 'Created a fully functional daily planner with offline capabilities and cross-date task management',
-    image: 'https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    metrics: {
-      features: '5+',
-      storage: 'Offline',
-      responsive: '100%'
-    },
-
-    gradient: 'from-indigo-600 to-purple-600'
-  },
-  {
     id: 'zerodha-sandbox',
     title: 'Zerodha Sandbox',
     logo: '/images/logos/zerodha-logo.png',
@@ -194,49 +176,6 @@ const projects = [
     },
 
     gradient: 'from-blue-600 to-indigo-600'
-  },
-  {
-    id: 'ai-markdown-editor',
-    title: 'AI Markdown Editor',
-    logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZ0dyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOGI1Y2Y2O3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2E4NTVmNztzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0idGV4dEdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmM2U4ZmY7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDUiIGZpbGw9InVybCgjYmdHcmFkaWVudCkiIHN0cm9rZT0iIzdjM2FlZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGcgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC4zIj48Y2lyY2xlIGN4PSIzNSIgY3k9IjMwIiByPSIzIi8+PGNpcmNsZSBjeD0iNjUiIGN5PSIzMCIgcj0iMyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDUiIHI9IjMiLz48bGluZSB4MT0iMzUiIHkxPSIzMCIgeDI9IjUwIiB5Mj0iNDUiLz48bGluZSB4MT0iNjUiIHkxPSIzMCIgeDI9IjUwIiB5Mj0iNDUiLz48bGluZSB4MT0iMzUiIHkxPSIzMCIgeDI9IjY1IiB5Mj0iMzAiLz48L2c+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzIiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ1cmwoI3RleHRHcmFkaWVudCkiPk08L3RleHQ+PGcgZmlsbD0iI2ZiYmYyNCIgb3BhY2l0eT0iMC44Ij48cG9seWdvbiBwb2ludHM9Ijc1LDI1IDc3LDMwIDgyLDMwIDc4LDMzIDgwLDM4IDc1LDM1IDcwLDM4IDcyLDMzIDY4LDMwIDczLDMwIi8+PC9nPjwvc3ZnPg==',
-    link: 'https://ai-markdown-editor.planmydaily.com/',
-    description: 'AI-powered markdown editor with writing assistance tools powered by Google Gemini API for tone changes, grammar fixes, and content refinement.',
-    problem: 'Writers and developers need intelligent assistance for creating and refining markdown content with proper grammar, tone, and flow.',
-    solution: 'Built a React-based markdown editor with integrated AI tools for real-time writing assistance, tone adjustment, and content optimization.',
-    technologies: ['React.js', 'Google Gemini API', 'Marked.js', 'Tailwind CSS', 'AI/ML'],
-    outcome: 'Created a comprehensive writing assistant that improves content quality with AI-powered editing tools',
-    image: 'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    metrics: {
-      features: '6+',
-      ai_tools: '5',
-      realtime: 'Yes'
-    },
-    features: [
-      'Live markdown preview',
-      'AI tone adjustment (5 styles)',
-      'Grammar and flow correction',
-      'Content summarization',
-      'Text refinement tools',
-      'Real-time rendering'
-    ],
-    gradient: 'from-violet-600 to-purple-600'
-  },
-  {
-    id: 'feedbackbox',
-    title: 'FeedbackBox',
-    client: 'Developer Tool',
-    logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiZ0dyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6Izc2NGJhMjtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIgc3Ryb2tlPSIjNTU2Y2Q2IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMzAgMzVoNDBhNSA1IDAgMCAxIDUgNXYyMGE1IDUgMCAwIDEtNSA1SDQwbC04IDhWNjVIMzBhNSA1IDAgMCAxLTUtNVY0MGE1IDUgMCAwIDEgNS01eiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45Ii8+PGNpcmNsZSBjeD0iNDAiIGN5PSI0OCIgcj0iMiIgZmlsbD0iIzY2N2VlYSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNDgiIHI9IjIiIGZpbGw9IiM2NjdlZWEiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjQ4IiByPSIyIiBmaWxsPSIjNjY3ZWVhIi8+PC9zdmc+',
-    link: 'https://feedback-box.planmydaily.com/',
-    description: 'Embeddable feedback widget that connects to Google Forms for easy user feedback collection on any website.',
-    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Google Forms API', 'Responsive Design'],
-    outcome: 'Created a lightweight, mobile-ready widget that simplifies feedback collection with zero backend requirements',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    metrics: {
-      setup: '1 Script',
-      backend: 'Zero',
-      mobile: '100%'
-    },
-    gradient: 'from-blue-600 to-purple-600'
   },
   {
     id: 'nerdspal',
@@ -257,13 +196,144 @@ const projects = [
   }
 ];
 
+const metricLabelTranslationsDe: Record<string, string> = {
+  uptime: 'Verfügbarkeit',
+  security: 'Sicherheit',
+  support: 'Support',
+  reach: 'Reichweite',
+  safety: 'Sicherheit',
+  privacy: 'Datenschutz',
+  users: 'Nutzer',
+  transactions: 'Transaktionen',
+  improvement: 'Optimierung',
+  campaigns: 'Kampagnen',
+  efficiency: 'Effizienz',
+  devices: 'Geräte',
+  downtime: 'Ausfallzeit',
+  accuracy: 'Genauigkeit',
+  bots: 'Bots',
+  cost_reduction: 'Kostenersparnis',
+  automation: 'Automatisierung',
+  time_saved: 'Zeitersparnis',
+  error_reduction: 'Fehlerreduktion',
+  platform: 'Plattform',
+  method: 'Methode',
+  features: 'Funktionen',
+  storage: 'Speicherung',
+  responsive: 'Responsiv',
+  endpoints: 'Endpunkte',
+  coverage: 'Abdeckung',
+  interactive: 'Interaktiv',
+  ai_tools: 'KI-Tools',
+  realtime: 'Echtzeit',
+  setup: 'Setup',
+  backend: 'Backend',
+  mobile: 'Mobil',
+  connections: 'Verbindungen',
+  engagement: 'Status'
+};
+
+const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
+  'nordible-email': {
+    client: 'Nordible-Produkt',
+    description: 'Premium SaaS-E-Mail-Hosting-Plattform für Unternehmen mit höchsten Sicherheitsansprüchen, individuellen Domains und zuverlässiger Infrastruktur ohne unnötige Komplexität.',
+    outcome: 'Erfolgreicher Launch eines hochperformanten E-Mail-Hosting-Dienstes mit 99,9% Verfügbarkeitsgarantie und Enterprise-Sicherheitsstandards.'
+  },
+  'linkedin-catchup': {
+    client: 'Nordible-Produkt',
+    description: 'Sicherheitsorientierte Automatisierungssuite für LinkedIn zur Pflege authentischer Geschäftsbeziehungen durch automatisiertes Tracking von Geburtstagen, Jubiläen und Jobwechseln.',
+    outcome: 'Automatisiertes Beziehungsmanagement mit menschenähnlicher Interaktionsverzögerung und datenschutzkonformer lokaler Speicherung.',
+    metricValues: {
+      reach: '50 Iterationen',
+      safety: 'Mensch-Emulation',
+      privacy: 'Lokaler Speicher'
+    }
+  },
+  'instarem': {
+    client: 'NIUM',
+    description: 'Flaggschiff-Fintech-Plattform für kostengünstige internationale Überweisungen für Millionen weltweiter Nutzer.',
+    outcome: 'Erfolgreiche Bereitstellung einer Plattform zur Abwicklung von Millionenbeträgen im Zahlungsverkehr bei 99,9% Verfügbarkeit.'
+  },
+  'oncocare': {
+    client: 'General Electric',
+    description: 'Ganzheitliche klinische Onkologie-Assistenzplattform zur Verwaltung von Patientendaten und für fundierte Entscheidungen in der Krebsbehandlung.',
+    outcome: 'Verbesserung der klinischen Versorgungskoordination um 40% und Reduzierung der Datenverarbeitungszeit um 60%.'
+  },
+  'parents-vip': {
+    client: 'The Parent Inc / TickleMedia',
+    description: 'Ganzheitliche Plattform für Influencer-Marketing, Marktumfragen und die durchgängige Verwaltung von Content-Erstellungsprozessen.',
+    outcome: 'Optimierte Influencer-Kampagnen mit einer Steigerung der Kampagneneffizienz um 200%.'
+  },
+  'rst-baxter': {
+    client: 'Vantive Healthcare',
+    description: 'Medizintechnik-Supportplattform zur sicheren Ferndiagnose und Fehlerbehebung von medizinischen Geräten in Gesundheitseinrichtungen.',
+    outcome: 'Reduzierung von Geräteausfallzeiten um 50% und Steigerung der Ferndiagnosegenauigkeit um 75%.'
+  },
+  'smartbothub': {
+    client: 'Smartek21',
+    description: 'Chatbot-Entwicklungsplattform mit Natural Language Processing (NLP) zur Erstellung intelligenter Konversations-KIs.',
+    outcome: 'Ermöglichte über 500 Unternehmen den Einsatz intelligenter Chatbots und senkte Kundenservicekosten um 60%.'
+  },
+  'nextauto': {
+    client: 'NextServices HSS Pvt Ltd',
+    description: 'Interne Prozessautomatisierungslösung für Web-Scraping, automatisierte Datenverarbeitung, Reporting und E-Mail-Workflows.',
+    outcome: 'Automatisierung von 80% manueller Prozesse mit einer Ersparnis von über 40 Stunden pro Woche und 90% weniger Fehlern.',
+    metricValues: {
+      time_saved: '40h/Woche'
+    }
+  },
+  'habitualist': {
+    client: 'Eigenprodukt',
+    description: 'Wissenschaftlich fundierter Gewohnheitstracker nach der Elastic-Habits-Methode für nachhaltige Kontinuität ohne Streak-Druck als moderne plattformübergreifende Lösung.',
+    outcome: 'Erfolgreicher plattformübergreifender Launch (Web & Android) mit einem datenschutzorientierten, wissenschaftlichen Ansatz.',
+    metricValues: {
+      privacy: '100% Privat'
+    }
+  },
+  'zerodha-sandbox': {
+    client: 'Fintech Developer Tool',
+    description: 'Interaktive Trading-API-Sandbox zur Demonstration der Zerodha Kite Connect-Integration mit umfassenden Endpunkten für Orders, Portfolios und Marktdaten.',
+    outcome: 'Umfassende Handels-API-Demonstration mit Echtzeit-Simulation und interaktiver technischer Dokumentation.',
+    metricValues: {
+      interactive: 'Ja'
+    }
+  },
+  'nerdspal': {
+    client: 'Community-Plattform',
+    description: 'Community-Plattform zur Vernetzung von Tech-Enthusiasten und Entwicklern für fachlichen Austausch und Kooperationen.',
+    outcome: 'Aufbau einer spezialisierten Community-Plattform zur Förderung tiefgehender technischer Vernetzung.',
+    metricValues: {
+      engagement: 'Inaktiv'
+    }
+  }
+};
+
 export default function Portfolio() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const currentProject = projects[currentIndex];
+  const isDe = language === 'de';
+  const deProject = isDe ? portfolioTranslationsDe[currentProject.id] : undefined;
+  const displayClient = deProject?.client || currentProject.client;
+  const displayDescription = deProject?.description || currentProject.description;
+  const displayOutcome = deProject?.outcome || currentProject.outcome;
+
+  const getMetricLabel = (key: string) => {
+    if (isDe && metricLabelTranslationsDe[key]) {
+      return metricLabelTranslationsDe[key];
+    }
+    return key.replace('_', ' ');
+  };
+
+  const getMetricValue = (key: string, value: string) => {
+    if (isDe && deProject?.metricValues?.[key]) {
+      return deProject.metricValues[key];
+    }
+    return value;
+  };
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -299,23 +369,11 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative py-10 sm:py-14 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {(t.portfolio.title || t.portfolio.badge) && (
-          <div className="text-center mb-8">
-            {t.portfolio.badge && (
-              <div className="inline-block px-3 py-1 mb-2.5 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-                {t.portfolio.badge}
-              </div>
-            )}
-            {t.portfolio.title && (
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white mb-2 tracking-tight font-heading">
-                {t.portfolio.title}
-              </h2>
-            )}
-            {t.portfolio.subtitle && (
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-medium">
-                {t.portfolio.subtitle}
-              </p>
-            )}
+        {t.portfolio.title && (
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+              {t.portfolio.title}
+            </h2>
           </div>
         )}
 
@@ -351,8 +409,8 @@ export default function Portfolio() {
                     )}
                   </div>
                   <div>
-                    <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest block drop-shadow-sm">{currentProject.client}</span>
-                    <span className="text-[11px] font-mono text-white/75">{currentIndex + 1} of {projects.length}</span>
+                    <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest block drop-shadow-sm">{displayClient}</span>
+                    <span className="text-[11px] font-mono text-white/75">{currentIndex + 1} {t.portfolio.of || (isDe ? 'von' : 'of')} {projects.length}</span>
                   </div>
                 </div>
               </div>
@@ -381,7 +439,7 @@ export default function Portfolio() {
               <div className="space-y-4">
                 {/* Description */}
                 <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
-                  {currentProject.description}
+                  {displayDescription}
                 </p>
 
                 {/* Outcome Pill */}
@@ -390,7 +448,7 @@ export default function Portfolio() {
                     {t.portfolio.outcome || "Measurable Outcome"}
                   </div>
                   <p className="text-nordible-dark dark:text-gray-100 font-bold text-xs sm:text-sm leading-snug">
-                    {currentProject.outcome}
+                    {displayOutcome}
                   </p>
                 </div>
 
@@ -398,16 +456,16 @@ export default function Portfolio() {
                 <div>
                   <div className="flex items-center space-x-1.5 text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
                     <TrendingUp className="h-3 w-3 text-nordible-blue" />
-                    <span>Key Metrics</span>
+                    <span>{t.portfolio.keyMetrics || (isDe ? 'Kernmetriken' : 'Key Metrics')}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     {Object.entries(currentProject.metrics).map(([key, value], index) => (
                       <div key={index} className="p-2.5 rounded-xl bg-nordible-section-bg dark:bg-gray-700/50 border border-nordible-border/70 dark:border-gray-700 text-left">
                         <span className="text-[8px] sm:text-[9px] text-gray-400 dark:text-gray-400 uppercase tracking-wider font-bold block truncate">
-                          {key.replace('_', ' ')}
+                          {getMetricLabel(key)}
                         </span>
                         <span className="text-sm sm:text-base font-extrabold tracking-tight font-heading text-nordible-dark dark:text-white block truncate">
-                          {value}
+                          {getMetricValue(key, value)}
                         </span>
                       </div>
                     ))}
@@ -418,7 +476,7 @@ export default function Portfolio() {
               {/* Technologies Tags */}
               <div className="pt-2 border-t border-nordible-border dark:border-gray-700 flex flex-wrap items-center gap-1.5">
                 <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mr-1">
-                  {t.portfolio.technologies || "Stack"}:
+                  {t.portfolio.technologies || (isDe ? 'Technologien' : 'Stack')}:
                 </span>
                 {currentProject.technologies.map((tech, index) => (
                   <span
@@ -468,6 +526,31 @@ export default function Portfolio() {
               {isPaused ? <Play className="h-3.5 w-3.5 text-nordible-blue" /> : <Pause className="h-3.5 w-3.5" />}
             </button>
           </div>
+        </div>
+
+        {/* Mid-Funnel Conversion Hook (Peak Intent Capture) */}
+        <div className="mt-14 max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-blue-50/80 dark:from-gray-800/80 dark:via-gray-800/40 dark:to-gray-800/80 border border-nordible-border/80 dark:border-gray-700 shadow-md flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 mb-1">
+              {isDe ? 'Planen Sie ein ähnliches Vorhaben?' : 'Have a Similar Project in Mind?'}
+            </div>
+            <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading">
+              {isDe ? 'Kostenfreie Architektur- & Machbarkeitsanalyse' : 'Free Architecture & Feasibility Breakdown'}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+              {isDe 
+                ? 'Besprechen Sie Systemanforderungen, Tech-Stack und Budget direkt mit Gründer Kabeer Shah.'
+                : 'Discuss scope, tech stack, and fixed-cost execution directly with founder Kabeer Shah.'}
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="btn-primary text-xs sm:text-sm px-6 py-3 whitespace-nowrap shadow-md shadow-blue-500/20 shrink-0 cursor-pointer"
+          >
+            <span>{isDe ? 'Projekt besprechen →' : 'Discuss Your Scope →'}</span>
+          </button>
         </div>
       </div>
     </section>

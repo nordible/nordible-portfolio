@@ -29,19 +29,12 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           </button>
 
           <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
-            Nordible Technologies · {a.badge}
+            Nordible Technologies · {language === 'de' ? 'Über uns' : 'About Us'}
           </span>
         </div>
 
         {/* Header Block */}
         <div className="space-y-4 text-left">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-nordible-blue animate-pulse" />
-            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-nordible-blue dark:text-blue-400">
-              {a.badge}
-            </span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
             {a.title} <span className="text-nordible-blue">{a.titleHighlight}</span>
           </h1>
@@ -102,9 +95,6 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
         <div className="relative rounded-3xl bg-gradient-to-r from-nordible-dark via-blue-950 to-nordible-dark text-white p-8 sm:p-10 shadow-xl overflow-hidden text-left">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
             <div className="space-y-2 max-w-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-300">
-                {a.founderStoryLinkBadge}
-              </span>
               <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-white">
                 {a.founderStoryLinkTitle}
               </h3>

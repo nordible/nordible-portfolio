@@ -1,44 +1,71 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function InvestmentModelsTeaser() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const p = t.pricing;
+  const isDe = language === 'de';
+
+  const tiers = [
+    {
+      name: isDe ? 'Rapid MVP' : 'Rapid MVP',
+      duration: isDe ? '2–4 Wochen' : '2–4 Weeks',
+      focus: isDe ? 'Schnelle Prototypen & Marktvalidierung' : 'Rapid prototyping & real-user validation'
+    },
+    {
+      name: isDe ? 'Produktions-Plattform' : 'Production Platform',
+      duration: isDe ? '6–10 Wochen' : '6–10 Weeks',
+      focus: isDe ? 'Skalierbare Web-, Mobile- oder Cloud-Lösung' : 'Scalable, feature-complete web or mobile product'
+    },
+    {
+      name: isDe ? 'Enterprise Architektur' : 'Enterprise Architecture',
+      duration: isDe ? '12+ Wochen' : '12+ Weeks',
+      focus: isDe ? 'Missionskritische Multi-Region-Systeme & Sicherheit' : 'Mission-critical multi-region architecture & security'
+    }
+  ];
 
   return (
-    <section className="py-12 bg-nordible-bg dark:bg-gray-900 border-y border-nordible-border dark:border-gray-800">
+    <section className="py-14 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-50/80 via-white to-blue-50/50 dark:from-gray-800 dark:via-gray-800/80 dark:to-blue-900/20 border border-blue-100 dark:border-gray-700 shadow-sm">
-          
-          <div className="flex items-start sm:items-center space-x-4 text-left">
-            <div className="w-12 h-12 rounded-2xl bg-nordible-blue/10 dark:bg-blue-900/40 flex items-center justify-center shrink-0">
-              <Sparkles className="h-6 w-6 text-nordible-blue dark:text-blue-400" />
-            </div>
-            <div>
-              <div className="inline-block px-2.5 py-0.5 mb-1.5 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-100/60 dark:bg-blue-900/50 rounded-full">
-                {p.badge}
+        {/* Section Heading - Clean & Centered */}
+        <div className="text-center mb-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            {p.title}
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-5 text-left">
+          {tiers.map((tier, idx) => (
+            <div
+              key={idx}
+              className="card-premium p-6 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 hover:border-nordible-blue/40 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="text-xs font-mono font-bold text-nordible-blue dark:text-blue-400 mb-1">
+                  {tier.duration}
+                </div>
+                <h3 className="text-lg font-extrabold text-nordible-dark dark:text-white font-heading mb-2">
+                  {tier.name}
+                </h3>
               </div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading">
-                {p.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium max-w-xl">
-                {p.teaserText}
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium">
+                {tier.focus}
               </p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="w-full md:w-auto shrink-0 text-left md:text-right">
-            <Link
-              to="/investment-models"
-              className="btn-primary w-full md:w-auto shadow-md shadow-blue-500/10 hover:shadow-blue-500/20 group text-xs"
-            >
-              <span>{p.exploreModels}</span>
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
+        {/* Bottom CTA Button */}
+        <div className="mt-10 text-center">
+          <Link
+            to="/investment-models"
+            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
+          >
+            <span>{p.exploreModels || (isDe ? 'Investitionsmodelle ansehen' : 'Explore Investment Models')}</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

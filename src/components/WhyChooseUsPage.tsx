@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight, TrendingUp, Clock, DollarSign, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Zap, Award, ShieldCheck, Target, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface WhyChooseUsPageProps {
@@ -11,7 +11,7 @@ export default function WhyChooseUsPage({ onBack, onBookConsultation }: WhyChoos
   const { t, language } = useLanguage();
   const bb = t.businessBenefits;
 
-  const benefitIcons = [DollarSign, Clock, TrendingUp];
+  const benefitIcons = [Zap, Award, ShieldCheck, Target, CheckCircle2];
 
   const differentiators = language === 'de' ? [
     {
@@ -63,26 +63,19 @@ export default function WhyChooseUsPage({ onBack, onBookConsultation }: WhyChoos
 
         {/* Header Block */}
         <div className="space-y-4 text-left">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-nordible-blue animate-pulse" />
-            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-nordible-blue dark:text-blue-400">
-              {language === 'de' ? 'Messbarer Mehrwert' : 'Measurable Commercial Value'}
-            </span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
             {bb.title}
           </h1>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium leading-relaxed max-w-3xl">
             {language === 'de'
-              ? 'Wir richten jede Software- und Cloud-Architektur direkt an Ihren Geschäftszielen aus: Umsatzsteigerung, Zeitersparnis und globale Skalierbarkeit.'
-              : 'Every architecture we build is engineered directly around business ROI, operational velocity, and long-term technical resilience.'}
+              ? 'Jedes System entwickeln wir mit höchster Umsetzungsgeschwindigkeit, voller Eigenverantwortung und kompromisslosem Vertrauen.'
+              : 'Every architecture we build is engineered around delivery velocity, complete ownership, and uncompromised trust.'}
           </p>
         </div>
 
-        {/* 3 Core Impact Cards */}
-        <div className="grid md:grid-cols-3 gap-6 text-left">
+        {/* 5 Core Pillars */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
           {bb.items.map((benefit, index) => {
             const Icon = benefitIcons[index % benefitIcons.length];
             return (

@@ -15,9 +15,6 @@ export default function TermsOfService() {
         </Link>
 
         <div className="card-premium p-10 md:p-16">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-            Legal Document
-          </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-nordible-dark dark:text-white mb-10 font-heading tracking-tight">Terms of Service</h1>
           
           <div className="prose prose-blue dark:prose-invert max-w-none">

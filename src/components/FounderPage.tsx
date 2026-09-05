@@ -27,19 +27,12 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           </button>
 
           <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
-            Nordible Technologies · {f.badge}
+            Nordible Technologies · {language === 'de' ? 'Gründer-Story' : "Founder's Story"}
           </span>
         </div>
 
         {/* Header Block */}
         <div className="space-y-4 text-left">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-nordible-blue animate-pulse" />
-            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-nordible-blue dark:text-blue-400">
-              {f.badge}
-            </span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
             {f.title}
           </h1>
@@ -173,9 +166,6 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
         {/* Milestones & Leadership Journey */}
         <div className="pt-8 space-y-8 text-left">
           <div>
-            <div className="inline-block px-4 py-1 mb-3 text-xs font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-              Track Record
-            </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading">
               {f.milestonesTitle}
             </h2>

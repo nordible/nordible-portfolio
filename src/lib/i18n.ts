@@ -30,12 +30,14 @@ export interface Translations {
       description: string;
     }>;
     partnersLabel: string;
+    clientsHeading: string;
   };
   services: {
     badge: string;
     title: string;
     subtitle: string;
     visitProduct: string;
+    inquireService: string;
     items: Array<{
       title: string;
       description: string;
@@ -60,6 +62,8 @@ export interface Translations {
     viewLive: string;
     technologies: string;
     outcome: string;
+    keyMetrics: string;
+    of: string;
   };
   pricing: {
     badge: string;
@@ -75,6 +79,14 @@ export interface Translations {
     badge: string;
     title: string;
     subtitle: string;
+    items: Array<{
+      name: string;
+      role: string;
+      company: string;
+      rating: number;
+      text: string;
+      avatar: string;
+    }>;
   };
   process: {
     badge: string;
@@ -196,9 +208,9 @@ export const translations: Record<Language, Translations> = {
       readFounderStory: "Read founder's story →"
     },
     trustSignals: {
-      badge: "Full-Spectrum Technology Partner",
-      title: "Your complete technology partner for every stage of business growth.",
-      subtitle: "Whether you need to launch a new product, modernize legacy systems, or optimize operations—we deliver scalable solutions tailored to your vision.",
+      badge: "",
+      title: "Battle-Tested Engineering Across Industries",
+      subtitle: "",
       stats: [
         { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
         { number: "50+", label: "Solutions Delivered", description: "Across web, mobile & cloud" },
@@ -207,13 +219,15 @@ export const translations: Record<Language, Translations> = {
         { number: "100%", label: "Delivery Rate", description: "On-Time Excellence" },
         { number: "Direct", label: "Founder Lead", description: "No Middlemen" }
       ],
-      partnersLabel: "Partners & Clients"
+      partnersLabel: "",
+      clientsHeading: "Trusted by Industry Leaders & Innovators"
     },
     services: {
       badge: "",
-      title: "Our Expertise",
+      title: "Core Engineering Capabilities",
       subtitle: "",
       visitProduct: "Visit Product",
+      inquireService: "Discuss Solution",
       items: [
         {
           title: "Business Email",
@@ -240,36 +254,94 @@ export const translations: Record<Language, Translations> = {
     },
     businessBenefits: {
       badge: "",
-      title: "Engineered for Measurable Impact",
+      title: "Why High-Growth Companies Choose Nordible",
       subtitle: "",
       items: [
-        { title: "Increase Revenue", description: "Modern technology solutions convert 3x better than legacy systems", metric: "+150% ROI" },
-        { title: "Save Time", description: "Automated processes reduce manual work by hours daily", metric: "40h/week Saved" },
-        { title: "Scale Faster", description: "Cloud-native solutions that grow seamlessly with your business", metric: "10x Capacity" }
+        {
+          title: "Speedy Results",
+          description: "Agile, rapid sprint cycles delivering functional prototypes and production systems in weeks, not months.",
+          metric: "2–4 Wks MVP"
+        },
+        {
+          title: "Industry Experience-Backed",
+          description: "15+ years architecting mission-critical platforms across healthcare, fintech, and global enterprise.",
+          metric: "15+ Yrs Depth"
+        },
+        {
+          title: "We Take Complete Ownership",
+          description: "Direct founder accountability. No junior handoffs, no middle management—we own the code and outcomes.",
+          metric: "100% Ownership"
+        },
+        {
+          title: "Results-Driven Execution",
+          description: "Every architectural choice is engineered to drive commercial viability, performance, and real business ROI.",
+          metric: "Commercial Impact"
+        },
+        {
+          title: "Trust & Precision",
+          description: "German engineering standards, rock-solid security, and an uncompromised 100% on-time delivery record.",
+          metric: "100% On-Time"
+        }
       ]
     },
     portfolio: {
       badge: "",
-      title: "",
+      title: "Featured Systems & Products Built",
       subtitle: "",
       viewLive: "View Live Project",
       technologies: "Technologies",
-      outcome: "Measurable Outcome"
+      outcome: "Measurable Outcome",
+      keyMetrics: "Key Metrics",
+      of: "of"
     },
     pricing: {
-      badge: "Transparent Engagement",
-      title: "Investment Models",
-      subtitle: "Predictable engineering engagements tailored to your roadmap and technical complexity.",
+      badge: "",
+      title: "How We Work Together",
+      subtitle: "",
       mostPopular: "Most Popular",
-      ctaButton: "Select Plan",
-      teaserText: "Predictable engineering engagements tailored to your roadmap and technical complexity.",
-      exploreModels: "Explore Investment Models",
+      ctaButton: "Select Scope",
+      teaserText: "",
+      exploreModels: "Explore How We Work Together",
       backToHome: "Back to Overview"
     },
     testimonials: {
       badge: "",
-      title: "",
-      subtitle: "What engineering managers, directors, and founders say about collaborating with Nordible."
+      title: "What Engineering Leaders Say",
+      subtitle: "",
+      items: [
+        {
+          name: "Majeed Shams",
+          role: "Founder",
+          company: "Shams Consult",
+          rating: 5,
+          text: "Nordible transformed our digital platforms and marketing infrastructure. Their combined mastery of modern web architecture and AI-driven discoverability (GEO) has generated tangible commercial growth.",
+          avatar: "/images/logos/shams-consult-logo.png"
+        },
+        {
+          name: "Sarah Johnson",
+          role: "Product Manager",
+          company: "Healthcare Tech",
+          rating: 5,
+          text: "Nordible delivered an exceptional healthcare platform that exceeded our expectations. Their attention to detail and technical expertise made the project a huge success.",
+          avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
+        },
+        {
+          name: "Vrishank Shete",
+          role: "Tech Lead",
+          company: "Baxter Healthcare",
+          rating: 5,
+          text: "The architectural depth Nordible brings to technology solutions is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
+          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+        },
+        {
+          name: "Faisal Al-Otaibi",
+          role: "Operations Director",
+          company: "Global Trade Hub",
+          rating: 5,
+          text: "Nordible transformed our complex legacy workflows into a streamlined technology solution. Their professional approach and engineering rigor are truly world-class.",
+          avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+        }
+      ]
     },
     process: {
       badge: "",
@@ -415,9 +487,9 @@ export const translations: Record<Language, Translations> = {
       readFounderStory: "Gründergeschichte lesen →"
     },
     trustSignals: {
-      badge: "Ganzheitlicher Technologiepartner",
-      title: "Ihr verlässlicher Partner für jede Phase des Unternehmenswachstums.",
-      subtitle: "Ob Sie ein neues Produkt lancieren, Altsysteme modernisieren oder Prozesse optimieren möchten – wir liefern skalierbare Lösungen, die exakt zu Ihrer Vision passen.",
+      badge: "",
+      title: "Erprobte Ingenieurskunst für globale Unternehmen",
+      subtitle: "",
       stats: [
         { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
         { number: "50+", label: "Realisierte Lösungen", description: "Web, Mobile & Cloud-Systeme" },
@@ -426,13 +498,15 @@ export const translations: Record<Language, Translations> = {
         { number: "100%", label: "Lieferquote", description: "Pünktliche Spitzenqualität" },
         { number: "Direkt", label: "Gründergeführt", description: "Ohne Zwischenhändler" }
       ],
-      partnersLabel: "Partner & Kunden"
+      partnersLabel: "",
+      clientsHeading: "Vertraut von Branchenführern & Innovatoren"
     },
     services: {
       badge: "",
-      title: "Unsere Expertise",
+      title: "Kernkompetenzen & Ingenieursleistungen",
       subtitle: "",
       visitProduct: "Produkt ansehen",
+      inquireService: "Lösung anfragen",
       items: [
         {
           title: "Business Email",
@@ -459,36 +533,94 @@ export const translations: Record<Language, Translations> = {
     },
     businessBenefits: {
       badge: "",
-      title: "Entwickelt für messbaren Unternehmenserfolg",
+      title: "Warum führende Unternehmen Nordible wählen",
       subtitle: "",
       items: [
-        { title: "Umsatz Steigern", description: "Moderne Technologielösungen konvertieren 3x besser als Altsysteme", metric: "+150% ROI" },
-        { title: "Zeit Sparen", description: "Automatisierte Prozesse reduzieren manuelle Arbeit um viele Stunden pro Woche", metric: "40h/Woche gespart" },
-        { title: "Schneller Skalieren", description: "Cloud-native Lösungen, die flexibel und sicher mit Ihrem Geschäft wachsen", metric: "10x Kapazität" }
+        {
+          title: "Schnelle Ergebnisse",
+          description: "Agile, zügige Sprints mit funktionsfähigen Prototypen und Produktivsystemen in Wochen statt Monaten.",
+          metric: "2–4 Woc. MVP"
+        },
+        {
+          title: "Branchenerprobte Expertise",
+          description: "Über 15 Jahre Erfahrung im Aufbau geschäftskritischer Plattformen für Healthcare, Fintech und Enterprise.",
+          metric: "15+ Jahre Tiefe"
+        },
+        {
+          title: "Volle Verantwortung",
+          description: "Direkte Gründerverantwortung ohne Zwischenebenen oder Junior-Übergaben – wir stehen für das Ergebnis ein.",
+          metric: "100% Verbindlich"
+        },
+        {
+          title: "Ergebnisorientierte Umsetzung",
+          description: "Jede architektonische Entscheidung ist direkt auf wirtschaftliche Effizienz und messbaren Nutzen ausgerichtet.",
+          metric: "Messbarer Nutzen"
+        },
+        {
+          title: "Vertrauen & Präzision",
+          description: "Deutsche Ingenieursstandards, kompromisslose Sicherheit und eine makellose 100%-Lieferquote.",
+          metric: "100% Termintreue"
+        }
       ]
     },
     portfolio: {
       badge: "",
-      title: "",
+      title: "Ausgewählte Systeme & Produkte",
       subtitle: "",
       viewLive: "Projekt ansehen",
       technologies: "Technologien",
-      outcome: "Messbares Ergebnis"
+      outcome: "Messbares Ergebnis",
+      keyMetrics: "Kernmetriken",
+      of: "von"
     },
     pricing: {
-      badge: "Transparente Zusammenarbeit",
-      title: "Investitionsmodelle",
-      subtitle: "Planbare Entwicklungspakete, exakt abgestimmt auf Ihre Roadmap und technische Komplexität.",
+      badge: "",
+      title: "Wie wir zusammenarbeiten",
+      subtitle: "",
       mostPopular: "Am beliebtesten",
-      ctaButton: "Paket wählen",
-      teaserText: "Planbare Entwicklungspakete, exakt abgestimmt auf Ihre Roadmap und technische Komplexität.",
-      exploreModels: "Investitionsmodelle ansehen",
+      ctaButton: "Umfang anfragen",
+      teaserText: "",
+      exploreModels: "Zusammenarbeitsmodelle ansehen",
       backToHome: "Zurück zur Übersicht"
     },
     testimonials: {
       badge: "",
-      title: "",
-      subtitle: "Was Engineering Manager, Direktoren und Gründer über die Zusammenarbeit mit Nordible sagen."
+      title: "Was Führungskräfte sagen",
+      subtitle: "",
+      items: [
+        {
+          name: "Majeed Shams",
+          role: "Gründer",
+          company: "Shams Consult",
+          rating: 5,
+          text: "Nordible hat unsere digitalen Plattformen und unsere Marketing-Infrastruktur grundlegend transformiert. Die Kombination aus moderner Web-Architektur und KI-Suchmaschinenoptimierung (GEO) sorgt für spürbares geschäftliches Wachstum.",
+          avatar: "/images/logos/shams-consult-logo.png"
+        },
+        {
+          name: "Sarah Johnson",
+          role: "Produktmanagerin",
+          company: "Healthcare Tech",
+          rating: 5,
+          text: "Nordible lieferte eine herausragende Healthcare-Plattform, die unsere Erwartungen übertroffen hat. Ihre Liebe zum Detail und ihre technische Expertise machten das Projekt zu einem vollen Erfolg.",
+          avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
+        },
+        {
+          name: "Vrishank Shete",
+          role: "Technischer Leiter",
+          company: "Baxter Healthcare",
+          rating: 5,
+          text: "Die architektonische Tiefe, die Nordible in Technologielösungen einbringt, ist außergewöhnlich. Sie haben nicht nur Code geschrieben, sondern eine widerstandsfähige Infrastruktur aufgebaut, die unsere Skalierung mühelos bewältigt.",
+          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+        },
+        {
+          name: "Faisal Al-Otaibi",
+          role: "Operations Director",
+          company: "Global Trade Hub",
+          rating: 5,
+          text: "Nordible hat unsere komplexen Arbeitsabläufe in eine hochgradig optimierte Technologielösung überführt. Ihre Professionalität und technische Präzision sind absolute Spitzenklasse.",
+          avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
+        }
+      ]
     },
     process: {
       badge: "",

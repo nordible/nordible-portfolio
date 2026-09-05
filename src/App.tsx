@@ -13,7 +13,6 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Process from './components/Process';
 import About from './components/About';
-import TechStack from './components/TechStack';
 import BlogTeaser from './components/BlogTeaser';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -41,7 +40,6 @@ function HomePage() {
         <Testimonials />
         <Process />
         <About />
-        <TechStack />
         <BlogTeaser />
         <Contact />
       </main>

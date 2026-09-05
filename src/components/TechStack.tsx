@@ -31,7 +31,7 @@ export default function TechStack() {
         {/* Section Title */}
         <div className="text-center mb-12 px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {language === 'de' ? 'Technologie-Stack' : 'Our Technology Stack'}
+            {language === 'de' ? 'Technologien hinter unseren Lösungen' : 'Technologies Powering Our Solutions'}
           </h2>
         </div>
 

@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ArrowRight, 
-  Sparkles, 
   Calendar, 
   Clock, 
-  Search, 
-  Bot
+  Search
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -91,11 +89,6 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
 
         {/* Hero Section */}
         <header className="space-y-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-100 dark:border-blue-800">
-            <Sparkles className="h-3.5 w-3.5" />
-            {content.heroBadge}
-          </div>
-
           <h1 className="text-3xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight leading-[1.15] font-heading">
             {content.heroTitle}
           </h1>
@@ -298,11 +291,6 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-white/10 text-blue-300 border border-white/15">
-              <Bot className="h-3.5 w-3.5" />
-              {content.ctaBadge}
-            </span>
-
             <h2 className="text-2xl sm:text-4xl font-extrabold font-heading leading-tight tracking-tight">
               {content.ctaTitle}
             </h2>

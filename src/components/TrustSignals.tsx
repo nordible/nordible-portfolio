@@ -73,11 +73,13 @@ export default function TrustSignals() {
 
         {/* Dynamic Continuous Moving Logos */}
         <div className="relative px-6 py-10 bg-nordible-section-bg dark:bg-gray-800 rounded-[36px] border border-nordible-border dark:border-gray-700 overflow-hidden">
-          <div className="relative z-10 text-center mb-6">
-            <span className="inline-block px-3.5 py-1 text-[11px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-white dark:bg-gray-900 rounded-full border border-blue-100 dark:border-gray-700 shadow-sm">
-              {ts.partnersLabel}
-            </span>
-          </div>
+          {ts.clientsHeading && (
+            <div className="text-center mb-6">
+              <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+                {ts.clientsHeading}
+              </h3>
+            </div>
+          )}
 
           {/* Marquee Container with Gradient Fade Edges */}
           <div className="relative overflow-hidden w-full py-4">

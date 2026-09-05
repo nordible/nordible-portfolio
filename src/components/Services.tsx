@@ -18,19 +18,9 @@ export default function Services() {
     <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          {s.badge && (
-            <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-nordible-blue dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800">
-              {s.badge}
-            </div>
-          )}
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white mb-4 tracking-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
             {s.title}
           </h2>
-          {s.subtitle && (
-            <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
-              {s.subtitle}
-            </p>
-          )}
         </div>
 
         {/* Dynamic Moving Cards Track */}
@@ -100,13 +90,19 @@ export default function Services() {
                         </Link>
                       )
                     ) : (
-                      <a
-                        href="#consultation"
-                        className="inline-flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 hover:text-nordible-blue/80 dark:hover:text-blue-300 transition-colors uppercase tracking-wider group/link"
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const element = document.getElementById('consultation');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                        className="inline-flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 hover:text-nordible-blue/80 dark:hover:text-blue-300 transition-colors uppercase tracking-wider group/link cursor-pointer"
                       >
-                        <span>{s.visitProduct || 'Learn More'}</span>
+                        <span>{s.inquireService || 'Discuss Solution'}</span>
                         <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform" />
-                      </a>
+                      </button>
                     )}
                   </div>
                 </div>

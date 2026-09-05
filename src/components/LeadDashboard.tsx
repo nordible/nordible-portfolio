@@ -19,41 +19,56 @@ export default function LeadDashboard() {
   const [password, setPassword] = useState('');
   
   // Mock data for demonstration
-  const [leads, setLeads] = useState<Lead[]>([
-    {
-      id: '1',
-      fullName: 'John Smith',
-      email: 'john.smith@techcorp.com',
-      phone: '+1 (555) 123-4567',
-      projectType: 'e-commerce',
-      budget: '10k-25k',
-      description: 'Looking to build a custom e-commerce platform for our B2B business. We need advanced inventory management and integration with our existing ERP system.',
-      status: 'new',
-      submittedAt: '2024-01-15T10:30:00Z'
-    },
-    {
-      id: '2',
-      fullName: 'Sarah Johnson',
-      email: 'sarah@startupxyz.com',
-      phone: '+1 (555) 987-6543',
-      projectType: 'custom-application',
-      budget: '5k-10k',
-      description: 'Need a dashboard application for our internal team to manage customer data and generate reports.',
-      status: 'pursued',
-      submittedAt: '2024-01-14T14:15:00Z'
-    },
-    {
-      id: '3',
-      fullName: 'Michael Brown',
-      email: 'mike.brown@email.com',
-      phone: '+1 (555) 456-7890',
-      projectType: 'business-website',
-      budget: '1k-5k',
-      description: 'Simple business website for my consulting firm. Need it to be professional and mobile-friendly.',
-      status: 'declined',
-      submittedAt: '2024-01-13T09:45:00Z'
+  const [leads, setLeads] = useState<Lead[]>(() => {
+    const mockData: Lead[] = [
+      {
+        id: '1',
+        fullName: 'John Smith',
+        email: 'john.smith@techcorp.com',
+        phone: '+1 (555) 123-4567',
+        projectType: 'custom-application',
+        budget: '10k-25k',
+        description: 'Looking to build a custom e-commerce platform for our B2B business. We need advanced inventory management and integration with our existing ERP system.',
+        status: 'new',
+        submittedAt: '2024-01-15T10:30:00Z'
+      },
+      {
+        id: '2',
+        fullName: 'Sarah Johnson',
+        email: 'sarah@startupxyz.com',
+        phone: '+1 (555) 987-6543',
+        projectType: 'custom-application',
+        budget: '5k-10k',
+        description: 'Need a dashboard application for our internal team to manage customer data and generate reports.',
+        status: 'pursued',
+        submittedAt: '2024-01-14T14:15:00Z'
+      },
+      {
+        id: '3',
+        fullName: 'Michael Brown',
+        email: 'mike.brown@email.com',
+        phone: '+1 (555) 456-7890',
+        projectType: 'custom-application',
+        budget: '1k-5k',
+        description: 'Simple business website for my consulting firm. Need it to be professional and mobile-friendly.',
+        status: 'declined',
+        submittedAt: '2024-01-13T09:45:00Z'
+      }
+    ];
+
+    try {
+      const stored = localStorage.getItem('nordible_leads');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return [...parsed, ...mockData];
+        }
+      }
+    } catch {
+      // ignore
     }
-  ]);
+    return mockData;
+  });
 
   const [showAppointmentModal, setShowAppointmentModal] = useState(false);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
