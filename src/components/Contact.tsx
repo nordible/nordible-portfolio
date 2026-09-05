@@ -12,7 +12,7 @@ export default function Contact() {
     fullName: '',
     email: '',
     phone: '',
-    projectType: 'mvp-development',
+    projectType: 'general-inquiry',
     budget: 'flexible',
     description: ''
   });
@@ -50,20 +50,6 @@ export default function Contact() {
       setFormStatus('error');
     }
   };
-
-  const projectOptions = isDe ? [
-    { value: 'mvp-development', label: 'Rapid MVP Entwicklung' },
-    { value: 'platform-scale', label: 'Cloud- & Plattform-Skalierung' },
-    { value: 'mobile-app', label: 'Mobile App (iOS & Android)' },
-    { value: 'ai-integration', label: 'KI-Systeme & Automatisierung' },
-    { value: 'architecture-audit', label: 'Architektur- & Code-Audit' }
-  ] : [
-    { value: 'mvp-development', label: 'Rapid MVP Development' },
-    { value: 'platform-scale', label: 'Cloud & Platform Scaling' },
-    { value: 'mobile-app', label: 'Mobile App (iOS & Android)' },
-    { value: 'ai-integration', label: 'AI Integration & Automation' },
-    { value: 'architecture-audit', label: 'Architecture & Code Audit' }
-  ];
 
   return (
     <section id="consultation" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
@@ -279,7 +265,7 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} data-agent-action="submit-inquiry" className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
@@ -288,6 +274,7 @@ export default function Contact() {
                       <input
                         type="text"
                         required
+                        data-agent-field="name"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder={isDe ? 'z.B. Alex Müller' : 'e.g. Alex Miller'}
@@ -302,6 +289,7 @@ export default function Contact() {
                       <input
                         type="email"
                         required
+                        data-agent-field="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="name@company.com"
@@ -310,36 +298,18 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        {isDe ? 'Telefon / WhatsApp (Optional)' : 'Phone / WhatsApp (Optional)'}
-                      </label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+49 ..."
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        {isDe ? 'Projektschwerpunkt' : 'Project Focus'}
-                      </label>
-                      <select
-                        value={formData.projectType}
-                        onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                      >
-                        {projectOptions.map((opt) => (
-                          <option key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      {isDe ? 'Telefon / WhatsApp (Optional)' : 'Phone / WhatsApp (Optional)'}
+                    </label>
+                    <input
+                      type="tel"
+                      data-agent-field="phone"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+49 ..."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
+                    />
                   </div>
 
                   <div>
@@ -349,6 +319,7 @@ export default function Contact() {
                     <textarea
                       required
                       rows={3}
+                      data-agent-field="description"
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       placeholder={isDe ? 'Beschreiben Sie Ihr Vorhaben, Ziele und gewünschte Zeitpläne...' : 'Describe your project scope, target timeline, or technical requirements...'}
@@ -363,6 +334,7 @@ export default function Contact() {
 
                     <button
                       type="submit"
+                      data-agent-action="send-inquiry"
                       disabled={formStatus === 'submitting'}
                       className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs flex items-center justify-center space-x-2 shadow-md shadow-blue-500/20 shrink-0 cursor-pointer disabled:opacity-60"
                     >

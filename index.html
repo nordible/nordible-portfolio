@@ -27,16 +27,32 @@
   <meta property="twitter:description" content="Specialized technology solutions partner. We architect and build high-performance enterprise systems." />
   <meta property="twitter:image" content="https://nordible.co/images/og-image.png" />
 
-  <!-- Structured Data (JSON-LD) for AI Models & Search Engines -->
+  <!-- Agentic & LLM Ingestion Standards (llmstxt.org) -->
+  <link rel="alternate" type="text/markdown" title="LLMs.txt" href="/llms.txt" />
+  <link rel="alternate" type="text/markdown" title="LLMs Full Knowledge Base" href="/llms-full.txt" />
+  <link rel="service-desc" type="application/json" href="/.well-known/agent.json" />
+
+  <!-- Structured Data (JSON-LD) for AI Models, Agents & Search Engines -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Nordible Solutions",
+      "name": "Nordible Technologies",
+      "alternateName": "Nordible Solutions",
       "image": "https://nordible.co/images/og-image.png",
       "@id": "https://nordible.co",
       "url": "https://nordible.co",
       "telephone": "+4915235850031",
+      "email": "mail@nordible.co",
+      "founder": {
+        "@type": "Person",
+        "name": "Kabeer Shah",
+        "jobTitle": "Founder & Principal Systems Architect",
+        "sameAs": [
+          "https://www.linkedin.com/in/meetkabeershah/",
+          "https://github.com/skbr1234"
+        ]
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Breitlacherstraße 101",
@@ -44,29 +60,51 @@
         "postalCode": "60489",
         "addressCountry": "DE"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 0,
-        "longitude": 0
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
       "sameAs": [
         "https://www.linkedin.com/company/nordible-co/",
         "https://github.com/nordible",
-        "https://www.instagram.com/nordible/"
+        "https://www.instagram.com/nordible.co/",
+        "https://www.youtube.com/@nordible"
       ],
-      "description": "Nordible Solutions provides specialized technology solutions and enterprise platform development services globally."
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engineering & Technology Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rapid MVP Development",
+              "description": "Production-ready cross-platform software shipped in 4-8 weeks directly by senior engineering leadership."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Enterprise Platform Architecture",
+              "description": "Scalable microservices, distributed cloud backends, and zero-downtime database architectures."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cross-Platform Mobile Apps",
+              "description": "High-performance React Native and React.js applications for iOS, Android, and Web."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Marketing & Social Media Management",
+              "description": "Full-funnel digital marketing, social media channel management, performance advertising, and generative engine optimization (GEO)."
+            }
+          }
+        ]
+      },
+      "description": "Nordible Technologies is a specialized founder-led systems engineering and cloud architecture partner based in Frankfurt, Germany."
     }
   </script>
 

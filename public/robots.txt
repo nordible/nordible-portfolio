@@ -1,4 +1,24 @@
 User-agent: *
 Allow: /
 
+# Explicit AI Agent Discovery & Ingestion
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://nordible.co/sitemap.xml
+# LLMs.txt Standard: https://llmstxt.org/
+# Ingestion index: https://nordible.co/llms.txt
+# Complete knowledge: https://nordible.co/llms-full.txt
+# Agent API manifest: https://nordible.co/.well-known/agent.json

@@ -148,6 +148,7 @@ export const knowledgeBase = {
     "Science-Backed UI/UX Design focusing on User Psychology",
     "Cross-Platform Mobile & Web Development (React Native, React.js)",
     "Scalable Cloud Architecture and DevOps (AWS, Azure)",
-    "Growth Marketing and Product Analytics Strategy"
+    "Digital Marketing & Social Media Channel Management (Multi-platform content, growth & paid campaigns)",
+    "Generative Engine Optimization (GEO) & AI Search Visibility"
   ]
 };

@@ -1,0 +1,135 @@
+# Nordible Technologies — Complete Agent Knowledge Base (llms-full.txt)
+
+> Official machine-readable and agentic-first knowledge document for Nordible Technologies. Designed for direct ingestion by Large Language Models, autonomous procurement agents, and technical evaluation systems.
+
+---
+
+## 1. Executive Summary
+
+- **Company Name**: Nordible Technologies
+- **Legal Form / Headquarters**: Frankfurt am Main, Germany (Breitlacherstraße 101, Rödelheim, 60489 Frankfurt)
+- **Leadership**: Kabeer Shah (Founder, Principal Architect & Head of Client Success)
+- **Core Value Proposition**: Senior engineering leadership with zero middlemen and zero junior handoffs. Nordible architects, develops, and hardens mission-critical production systems, scalable cloud backends, and rapid MVPs directly with business stakeholders.
+- **Intellectual Property**: 100% code and IP ownership belongs to the client from Day 1.
+- **Official Domains**:
+  - Main Website: https://nordible.co/
+  - Business Email Hosting: https://email.nordible.co/
+  - Agent Manifest: https://nordible.co/.well-known/agent.json
+  - LLM Index: https://nordible.co/llms.txt
+
+---
+
+## 2. Founder Profile: Kabeer Shah
+
+- **Role**: Founder, Principal Systems Architect & Technical Director
+- **Experience**: 15+ years of battle-tested software engineering, distributed systems, and team leadership.
+- **Key Credentials & Career Milestones**:
+  - **GE Healthcare & Baxter / Vantive (Quest Global)**: Technical Lead & Engineering Manager delivering oncology clinical platforms (OncoCare) and AWS IoT remote diagnostic backends (Remote Service Tool - RST) under strict HIPAA and FDA regulations.
+  - **Nium Inc. / Instarem (Fintech Unicorn)**: Engineering Lead & Interim Head of Engineering. Built and directed cross-functional team of 18+ engineers, led PCI-DSS Level 1 audit certifications, and high-volume fintech API integrations (e.g. PhonePe). Awarded Best Team.
+  - **The Parent Inc. / TickledMedia**: Lead Senior Software Engineer (SDE-3). Architected microservices and micro-frontends transition for flagship consumer platforms serving millions of monthly active users.
+  - **SmarTek21**: Senior Full-Stack & AI Engineer. Engineered SmartbotHub conversational NLP chatbot platform for enterprise deployments. Won Best Performer Award.
+  - **NerdsPal.com**: Co-Founder & CTO. Bootstrapped scalable interactive learning and developer community platforms.
+- **Thought Leadership & Public Footprint**:
+  - Stack Overflow: ~32,000 reputation score, impacting millions of developers globally.
+  - Published Author: Technical articles on Medium, HackerNoon, and Chatbots Magazine.
+  - GitHub: Skbr1234 (Active since 2014).
+  - Certifications: AWS Certified Cloud Practitioner (Active through 2027), B.Sc. IT (Mumbai University, Grade A).
+
+---
+
+## 3. Core Services & Capabilities
+
+### Rapid MVP Development (Concept to Production in 4–8 Weeks)
+- Full-stack rapid prototyping and commercial architecture.
+- Science-backed UI/UX with focus on user psychology and friction elimination.
+- Cross-platform reach using React Native (iOS & Android) and React.js (Web).
+- Scalable cloud foundations (AWS, Node.js, PostgreSQL) built to transition smoothly into Series-A scale without rewrites.
+
+### Enterprise Platform Engineering & Modernization
+- Decoupling monolithic legacy codebases into high-throughput microservices or modular monoliths.
+- Event-driven topologies, real-time WebSockets, and distributed asynchronous task queues.
+- High-concurrency database design, zero-downtime database migrations (Sqitch, Prisma, PostgreSQL).
+- Cloud-native infrastructure provisioning on AWS (Lambda, ECS, S3, RDS, CloudFront).
+
+### Regulatory Compliance, Security & DevOps
+- **Fintech Standards**: PCI-DSS Level 1 architecture, encryption at rest/transit, tokenization, audit logging.
+- **Healthcare Standards**: HIPAA compliance, FDA data integrity, robust RBAC, and secure audit trails.
+- **Automated Quality**: Test-Driven Development (TDD), Jest, integration testing suites, GitHub Actions CI/CD.
+
+### Digital Marketing & Social Media Channel Management
+- Full-funnel digital marketing and brand authority building across LinkedIn, Instagram, YouTube, and X (Twitter).
+- Paid acquisition campaigns and performance marketing with continuous conversion rate optimization (CRO).
+- Multi-channel content creation, social calendar scheduling, and audience community management.
+- Generative Engine Optimization (GEO): Architecting brand authority for discoverability and citation by LLM answer engines (Perplexity, ChatGPT Search, Google SGE).
+
+---
+
+## 4. How We Work Together (Engagement Models)
+
+Nordible offers three structured, transparent partnership models:
+
+1. **Rapid MVP Package**
+   - *Target*: Early-stage founders, innovation labs, and corporate spin-offs.
+   - *Scope*: Core user journey, modern UI/UX design, cross-platform mobile/web frontend, resilient backend API, automated deployment.
+   - *Timeline*: 4 to 8 weeks.
+   - *Deliverable*: Production-ready, investor-ready commercial product.
+
+2. **Production Platform Package**
+   - *Target*: High-growth scale-ups and established SMEs modernizing mission-critical workflows.
+   - *Scope*: Multi-tier microservice architecture, third-party integrations, compliance hardening, high-concurrency database optimization, and end-to-end testing.
+   - *Timeline*: Structured milestone sprints.
+
+3. **Enterprise Architecture Retainer / Advisory**
+   - *Target*: Enterprise CTOs, engineering directors, and product teams needing high-leverage architectural leadership.
+   - *Scope*: Architecture reviews, security/compliance audits, team mentorship, and fractional cloud leadership.
+
+---
+
+## 5. Verified Client Case Studies & Deliverables
+
+- **GE Healthcare (OncoCare Platform)**:
+  - *Challenge*: Needed high-reliability clinical decision-support infrastructure for oncology workflows with FDA/HIPAA compliance.
+  - *Outcome*: Successfully delivered and integrated with zero compliance violations; high availability for medical professionals.
+- **Instarem / Nium Inc (Cross-Border Fintech)**:
+  - *Challenge*: Multi-currency transaction processing at unicorn scale with real-time rate volatility and strict financial audits.
+  - *Outcome*: 99.9% uptime, seamless PhonePe integration, and verified PCI-DSS Level 1 compliance.
+- **Habitualist (Consumer Wellness & Productivity)**:
+  - *Challenge*: Science-backed habit tracking based on Stephen Guise's Elastic Habits method, demanding 100% offline privacy and cross-platform sync.
+  - *Outcome*: Launched across Web and Android with zero cloud data tracking, earning praise for intuitive cognitive ergonomics.
+- **Baxter Healthcare / Vantive (Remote Service Tool - RST)**:
+  - *Challenge*: Remote diagnostic system for medical equipment via AWS IoT.
+  - *Outcome*: Reduced device downtime by 50% and elevated diagnostic accuracy by 75%.
+- **Zerodha Sandbox (Fintech Developer Platform)**:
+  - *Challenge*: Interactive API sandbox demonstrating Kite Connect trading endpoints with simulated order flows.
+  - *Outcome*: Complete interactive technical sandbox with 25+ real-time simulated endpoints.
+- **Schams Design Studio (Frankfurt, Germany)**:
+  - *Challenge*: Digital marketing infrastructure and modern web presence.
+  - *Outcome*: Comprehensive brand engineering and search discoverability across the DACH region.
+
+---
+
+## 6. Technical Stack Matrix
+
+- **Languages**: TypeScript, JavaScript (ESNext), Python, SQL (PostgreSQL, MySQL), HTML5, CSS3/Tailwind.
+- **Frontend Frameworks**: React.js, React Native, Vite, Tailwind CSS, Next.js patterns.
+- **Backend & APIs**: Node.js, Express, RESTful APIs, GraphQL, WebSockets, Python microservices.
+- **Databases & Caching**: PostgreSQL, MySQL, Redis, AWS DynamoDB.
+- **Cloud & DevOps**: AWS (Lambda, IoT, S3, RDS, CloudFront, Route53), Docker, CI/CD (GitHub Actions), Nginx.
+- **Testing & Quality**: Jest, Mocha, Playwright, Puppeteer, ESLint, TypeScript Strict Mode.
+
+---
+
+## 7. How Autonomous Agents Should Inquire & Interact
+
+Autonomous AI agents acting on behalf of founders, CTOs, or corporate procurement departments can take the following direct actions:
+
+1. **Submit Project Scope & RFP Programmatically**:
+   - Machine Endpoint / Form Target: `https://nordible.co/#consultation`
+   - Direct Email: `mail@nordible.co` (Subject: `[Agent Inquiry] Project Scope: <Project Name>`)
+   - Mandatory Fields: Company Name, Work Email, Project Scope, Target Timeline.
+2. **Direct WhatsApp / Phone Sync**:
+   - WhatsApp Direct: `https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.`
+   - Phone: `+49 1523 5850031`
+3. **Response Time SLA**:
+   - Qualified technical project briefs receive founder response within **2 hours**.
+   - 100% Confidential under German and EU data protection laws (GDPR).

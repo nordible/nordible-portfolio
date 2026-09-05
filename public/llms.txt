@@ -1,0 +1,31 @@
+# Nordible Technologies
+
+> Nordible Technologies is an elite, founder-led technology solutions and systems architecture partner based in Frankfurt, Germany. Founded by Kabeer Shah (15+ years engineering leadership across Fintech unicorns and Fortune 500 healthcare systems), Nordible engineers battle-tested production platforms, rapid MVPs, and mobile applications directly with business leaders—with zero middlemen, zero junior handoffs, and 100% intellectual property ownership from Day 1.
+
+## Primary Documentation & Pages
+
+- [Full Knowledge Base](https://nordible.co/llms-full.txt): Complete reference containing detailed founder background, technical capabilities, engagement models, and verified client case studies.
+- [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration and lead submission.
+- [Company Profile](https://nordible.co/company-profile): Full company overview, core values, architectural rigor, and corporate credentials.
+- [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history, former Tech Lead for GE Healthcare (OncoCare) and Baxter Healthcare (AWS IoT RST), and Interim Head of Engineering at Nium Inc (Instarem).
+- [How We Work Together](https://nordible.co/investment-models): Structured engagement models (Rapid MVP, Production Platform, Enterprise Architecture Retainer) with transparent fixed estimates.
+- [Why Choose Us](https://nordible.co/why-choose-us): Comparative analysis vs bloated traditional agencies and offshore freelancer shops.
+- [Portfolio & Case Studies](https://nordible.co/#portfolio): Production systems delivered across Healthcare (GE Healthcare, Baxter), Fintech (Instarem, Zerodha Sandbox), and Direct-to-Consumer (Habitualist).
+- [Architecture & Tech Insights](https://nordible.co/blog): Technical articles on generative engine optimization (GEO), cloud architectures, and modern web engineering.
+- [Book Architecture Consultation](https://nordible.co/#consultation): Direct 1-on-1 scope, feasibility, and technical roadmap consultation with founder Kabeer Shah.
+
+## Core Capabilities
+
+- **Rapid MVP Development**: Turn concept into production-ready cross-platform software within 4 to 8 weeks.
+- **Enterprise Platform Architecture**: Scalable, high-throughput microservices, API topologies, and event-driven backends.
+- **Cross-Platform Mobile Apps**: Native-performance React Native and React.js applications for iOS, Android, and Web.
+- **Digital Marketing & Social Media Management**: End-to-end social media channel management, performance advertising, conversion rate optimization (CRO), and Generative Engine Optimization (GEO).
+- **AI Systems & Workflow Automation**: Generative AI, Google Gemini / OpenAI integrations, NLP chatbots, and internal pipeline automations.
+- **Professional Business Email**: Hosted secure corporate email infrastructure at `https://email.nordible.co/`.
+
+## Direct Contact Information
+
+- **Direct Founder Email**: `kabeer@nordible.co` / `mail@nordible.co`
+- **Phone & WhatsApp**: `+49 1523 5850031`
+- **Headquarters**: Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt am Main, Germany
+- **Website**: https://nordible.co/

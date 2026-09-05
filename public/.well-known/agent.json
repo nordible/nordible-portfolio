@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Nordible Technologies Agent API",
+  "version": "1.0.0",
+  "description": "Agentic discovery and interaction manifest for Nordible Technologies, an elite founder-led systems engineering and cloud architecture consultancy based in Frankfurt, Germany.",
+  "provider": {
+    "name": "Nordible Technologies",
+    "url": "https://nordible.co",
+    "founder": "Kabeer Shah",
+    "email": "mail@nordible.co",
+    "phone": "+4915235850031",
+    "address": "Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany"
+  },
+  "documentation": {
+    "llms_txt": "https://nordible.co/llms.txt",
+    "llms_full_txt": "https://nordible.co/llms-full.txt",
+    "sitemap": "https://nordible.co/sitemap.xml",
+    "privacy_policy": "https://nordible.co/privacy",
+    "terms": "https://nordible.co/terms"
+  },
+  "capabilities": [
+    "rapid_mvp_development",
+    "enterprise_platform_architecture",
+    "cross_platform_mobile_development",
+    "cloud_infrastructure_aws",
+    "regulatory_compliance_pci_dss_hipaa",
+    "ai_systems_and_automation",
+    "digital_marketing_and_social_media_management",
+    "technical_architecture_audit"
+  ],
+  "actions": [
+    {
+      "id": "book_consultation",
+      "name": "Book Free Architecture Consultation",
+      "description": "Request a direct, confidential 20-minute architecture review and feasibility consultation with founder Kabeer Shah.",
+      "url": "https://nordible.co/#consultation",
+      "method": "POST",
+      "parameters": {
+        "fullName": {
+          "type": "string",
+          "description": "Name of the decision-maker or agent sponsor.",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Corporate or direct work email for response.",
+          "required": true
+        },
+        "phone": {
+          "type": "string",
+          "description": "Direct phone or WhatsApp number for expedited sync.",
+          "required": false
+        },
+        "projectType": {
+          "type": "string",
+          "description": "Optional project category classification.",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed project brief, scope requirements, timeline, or technical stack constraints.",
+          "required": true
+        }
+      }
+    },
+    {
+      "id": "direct_whatsapp_sync",
+      "name": "Direct WhatsApp Channel",
+      "description": "Open direct WhatsApp exchange with the founder.",
+      "url": "https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project."
+    },
+    {
+      "id": "direct_email_inquiry",
+      "name": "Direct Email Channel",
+      "description": "Submit RFP or technical specification document directly to founder.",
+      "email": "mail@nordible.co"
+    }
+  ]
+}

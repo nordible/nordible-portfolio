@@ -246,9 +246,9 @@ export const translations: Record<Language, Translations> = {
           features: ["Workflow Automation", "Data Architecture", "System Integration", "Custom ERP/CRM"]
         },
         {
-          title: "Digital Marketing & GEO",
-          description: "Dominating AI-driven search and conversational discovery with Generative Engine Optimization and data-driven performance marketing.",
-          features: ["AI Search Visibility (GEO)", "Technical SEO & Schema", "Conversion Optimization (CRO)", "Authority & Knowledge Graph"]
+          title: "Digital Marketing & Social Media Management",
+          description: "Full-funnel digital marketing, social media channel management, and generative engine optimization (GEO) to build brand authority and generate consistent inbound leads.",
+          features: ["Social Media Channel Management", "Performance Marketing & Paid Ads", "AI Search Visibility (GEO)", "Conversion Rate Optimization (CRO)"]
         }
       ]
     },
@@ -517,9 +517,9 @@ export const translations: Record<Language, Translations> = {
           features: ["Prozessautomatisierung", "Datenarchitektur", "Systemintegration", "Individuelle ERP/CRM-Systeme"]
         },
         {
-          title: "Digitales Marketing & GEO",
-          description: "Führende Sichtbarkeit in KI-Suchmaschinen durch Generative Engine Optimization und datengestütztes Performance-Marketing.",
-          features: ["KI-Sichtbarkeit (GEO)", "Technisches SEO & Schema", "Conversion-Optimierung (CRO)", "Knowledge Graph & Autorität"]
+          title: "Digitales Marketing & Social Media Management",
+          description: "Ganzheitliches digitales Marketing, professionelles Social-Media-Kanalmanagement und generative Engine-Optimierung (GEO) für nachhaltige Markenbekanntheit und kontinuierliche Neukundengewinnung.",
+          features: ["Social Media Management", "Performance-Marketing & Paid Ads", "KI-Sichtbarkeit & GEO", "Conversion-Optimierung (CRO)"]
         }
       ]
     },

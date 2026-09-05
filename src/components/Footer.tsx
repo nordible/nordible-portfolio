@@ -66,6 +66,7 @@ export default function Footer() {
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Technology Solutions</a></li>
               <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Enterprise Platforms</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</a></li>
               <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
               <li>
                 <Link 
