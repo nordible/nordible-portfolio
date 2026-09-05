@@ -332,14 +332,6 @@ export const translations: Record<Language, Translations> = {
           rating: 5,
           text: "The architectural depth Nordible brings to technology solutions is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
           avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-        },
-        {
-          name: "Faisal Al-Otaibi",
-          role: "Operations Director",
-          company: "Global Trade Hub",
-          rating: 5,
-          text: "Nordible transformed our complex legacy workflows into a streamlined technology solution. Their professional approach and engineering rigor are truly world-class.",
-          avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
         }
       ]
     },
@@ -611,14 +603,6 @@ export const translations: Record<Language, Translations> = {
           rating: 5,
           text: "Die architektonische Tiefe, die Nordible in Technologielösungen einbringt, ist außergewöhnlich. Sie haben nicht nur Code geschrieben, sondern eine widerstandsfähige Infrastruktur aufgebaut, die unsere Skalierung mühelos bewältigt.",
           avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-        },
-        {
-          name: "Faisal Al-Otaibi",
-          role: "Operations Director",
-          company: "Global Trade Hub",
-          rating: 5,
-          text: "Nordible hat unsere komplexen Arbeitsabläufe in eine hochgradig optimierte Technologielösung überführt. Ihre Professionalität und technische Präzision sind absolute Spitzenklasse.",
-          avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face"
         }
       ]
     },
