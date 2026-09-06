@@ -394,13 +394,13 @@ export default function Portfolio() {
                   <div className="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-xl flex items-center justify-center p-2 border border-white/30 shadow-md">
                     {imageErrors.has(currentProject.id) ? (
                       <div className="w-full h-full flex items-center justify-center text-white font-bold text-base font-heading">
-                        {currentProject.client.charAt(0)}
+                        {(displayClient || currentProject.title).charAt(0)}
                       </div>
                     ) : (
                       <img
                         key={currentProject.id}
                         src={currentProject.logo}
-                        alt={currentProject.client}
+                        alt={displayClient || currentProject.title}
                         className="max-w-full max-h-full object-contain"
                         onError={() => {
                           setImageErrors(prev => new Set(prev).add(currentProject.id));

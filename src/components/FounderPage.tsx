@@ -8,7 +8,7 @@ interface FounderPageProps {
 }
 
 export default function FounderPage({ onBack, onBookConsultation }: FounderPageProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const f = t.founderPage;
 
   return (

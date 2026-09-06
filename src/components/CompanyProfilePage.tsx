@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Shield, Zap, Target } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -8,6 +9,7 @@ interface CompanyProfilePageProps {
 }
 
 export default function CompanyProfilePage({ onBack, onBookConsultation }: CompanyProfilePageProps) {
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
   const a = t.about;
 
