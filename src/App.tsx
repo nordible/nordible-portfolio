@@ -33,13 +33,13 @@ function HomePage() {
       <main>
         <Hero />
         <TrustSignals />
+        <About />
         <Services />
         <BusinessBenefits />
         <InvestmentModelsTeaser />
         <Portfolio />
         <Testimonials />
         <Process />
-        <About />
         <BlogTeaser />
         <Contact />
       </main>

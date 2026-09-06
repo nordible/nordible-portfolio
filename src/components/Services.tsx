@@ -9,8 +9,8 @@ export default function Services() {
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
-  const serviceIcons = [Mail, Terminal, Palette, TrendingUp];
-  const serviceColors = ['bg-nordible-blue', 'bg-indigo-600', 'bg-nordible-dark', 'bg-blue-600'];
+  const serviceIcons = [TrendingUp, Terminal, Palette, Mail];
+  const serviceColors = ['bg-blue-600', 'bg-indigo-600', 'bg-nordible-dark', 'bg-nordible-blue'];
 
   const marqueeServices = [...s.items, ...s.items];
 

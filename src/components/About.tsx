@@ -22,8 +22,8 @@ export default function About() {
         <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left">
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed mb-6">
             {isDe
-              ? 'Nordible Technologies ist ein inhabergeführter Technologiepartner für skalierbare digitale Produkte, Cloud-Backends und Unternehmensarchitekturen mit Sitz in Frankfurt am Main. Wir verbinden deutsche Ingenieurspräzision, kognitive UX-Architektur und über 15 Jahre Praxiserfahrung, um komplexe technische Herausforderungen in messbaren Geschäftserfolg zu verwandeln.'
-              : 'Nordible Technologies is an engineering-first technology partner for scalable digital products, cloud backends, and enterprise systems based in Frankfurt am Main. We combine German engineering rigor, science-backed UX, and 15+ years of hands-on production experience to turn technical complexity into measurable commercial advantage.'}
+              ? 'Nordible Technologies ist ein KI-nativer Business-Technologiepartner mit Sitz in Frankfurt am Main. Wir stärken Unternehmen durch Technologie – von skalierbaren Technologielösungen und Cloud-Architekturen bis hin zu zielgerichtetem Social-Media-Kanalmanagement. Mit über 15 Jahren Praxiserfahrung verbinden wir deutsche Ingenieurspräzision mit KI-gestützter Umsetzungsgeschwindigkeit, um komplexe Herausforderungen in messbaren Geschäftserfolg zu verwandeln.'
+              : 'Nordible Technologies is an AI-native business technology partner based in Frankfurt am Main. We empower businesses with tech—delivering scalable technology solutions, resilient cloud platforms, and data-driven social media channel management. Led by a 15-year veteran principal architect, we pair engineering rigor with autonomous AI workflows to turn technical complexity into measurable commercial advantage.'}
           </p>
 
           {/* Highlights */}
@@ -33,7 +33,7 @@ export default function About() {
                 <ShieldCheck className="h-4 w-4" />
               </div>
               <span className="text-xs sm:text-sm font-semibold text-nordible-dark dark:text-gray-200">
-                {isDe ? '15+ Jahre Erfahrung' : '15+ Years Technical Depth'}
+                {isDe ? 'KI-nativer Technologiepartner' : 'AI-Native Business Partner'}
               </span>
             </div>
 
@@ -51,7 +51,7 @@ export default function About() {
                 <Building2 className="h-4 w-4" />
               </div>
               <span className="text-xs sm:text-sm font-semibold text-nordible-dark dark:text-gray-200">
-                {isDe ? 'Erfahren & gründergeführt' : 'Experienced Founder-Led'}
+                {isDe ? 'Technologielösungen & Social Media' : 'Tech Solutions & Social Media'}
               </span>
             </div>
           </div>

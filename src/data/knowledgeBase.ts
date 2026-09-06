@@ -5,14 +5,14 @@ export const knowledgeBase = {
     title: "Engineering Leader | Cloud Strategist | Architect",
     company: {
       name: "Nordible Technologies",
-      tagline: "Your complete technology partner for every stage of business growth",
+      tagline: "The AI-Native Engineering Agency",
       address: "Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
       phone: "+49 152 35850031",
       email: "kabeer@nordible.co",
       generalEmail: "mail@nordible.co",
       pitchDeckUrl: "/nordible-pitch-deck.pdf"
     },
-    summary: "Nordible Technologies is an elite technology solutions and cloud architecture partner founded by Kabeer Shah. With over 15 years of experience architecting high-performance systems for global fintech unicorns and Fortune 500 healthcare leaders, we engineer resilient technology solutions from strategy to deployment."
+    summary: "Nordible Technologies is an AI-native engineering and growth agency founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise systems architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },
   
   founder: {
@@ -144,11 +144,11 @@ export const knowledgeBase = {
   ],
 
   services: [
-    "Full-Lifecycle Product Engineering from Strategy to Deployment",
-    "Science-Backed UI/UX Design focusing on User Psychology",
-    "Cross-Platform Mobile & Web Development (React Native, React.js)",
-    "Scalable Cloud Architecture and DevOps (AWS, Azure)",
-    "Digital Marketing & Social Media Channel Management (Multi-platform content, growth & paid campaigns)",
+    "AI-Native Product Engineering from Strategy to Deployment",
+    "AI-Accelerated MVP Development (Web & Mobile Apps in 3–4 weeks)",
+    "Agentic Cloud & Systems Architecture (Microservices, AWS, Compliance)",
+    "AI-Native Business Email & Secure Communications",
+    "AI Digital Marketing & Social Media Channel Management",
     "Generative Engine Optimization (GEO) & AI Search Visibility"
   ]
 };

@@ -36,6 +36,8 @@ export interface Translations {
     badge: string;
     title: string;
     subtitle: string;
+    tagGrowth?: string;
+    tagTech?: string;
     visitProduct: string;
     inquireService: string;
     items: Array<{
@@ -202,14 +204,14 @@ export const translations: Record<Language, Translations> = {
       titlePart1: "We don’t just build technology solutions for businesses—",
       titleHighlight: "we build partnerships with people.",
       subtitle: "Your complete technology partner for every stage of business growth—whether you need to launch a new product, modernize legacy systems, or optimize operations.",
-      ctaButton: "Schedule Architecture Consultation",
+      ctaButton: "Schedule Free Consultation",
       founderName: "Kabeer Shah",
       founderRole: "Founder & Head of Client Success",
       readFounderStory: "Read founder's story →"
     },
     trustSignals: {
       badge: "",
-      title: "Battle-Tested Engineering Across Industries",
+      title: "Proven Results Across Industries",
       subtitle: "",
       stats: [
         { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
@@ -224,31 +226,33 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       badge: "",
-      title: "Core Engineering Capabilities",
+      title: "How We Empower Your Business",
       subtitle: "",
+      tagGrowth: "🚀 Grow Your Business: Marketing & Social Media",
+      tagTech: "💻 Build Your Product: Tech Solutions & Systems",
       visitProduct: "Visit Product",
       inquireService: "Discuss Solution",
       items: [
         {
-          title: "Business Email",
-          description: "Professional business email hosting with custom domains, top-tier security, and effortless migration.",
-          features: ["Custom Domains", "Spam Protection", "Zero-Downtime Migration", "24/7 Expert Support"],
-          link: "https://email.nordible.co/"
+          title: "Digital Marketing & Social Media Management",
+          description: "We manage your social media channels, create engaging content, and optimize your presence so your business gets discovered by high-intent clients on Google, AI engines, and social platforms.",
+          features: ["Social Media Channel Management", "AI Search & Google Visibility (GEO)", "Paid Campaigns & Lead Generation", "Brand Engagement & Growth"]
         },
         {
           title: "Technology Solutions",
-          description: "Building scalable, high-performance applications for Web, Mobile, and Cloud environments.",
-          features: ["Web & Mobile Apps", "Scalable Backend", "API Systems", "Cloud-Native Architecture"]
+          description: "We design and build custom websites, web tools, and mobile apps tailored to your business needs—fast, reliable, and user-friendly on every device.",
+          features: ["Custom Web & Mobile Apps", "Modern Websites & Portals", "Reliable & Scalable Software", "100% Code Ownership"]
         },
         {
-          title: "Enterprise Solutions",
-          description: "Developing robust digital platforms that streamline operations and drive business efficiency.",
-          features: ["Workflow Automation", "Data Architecture", "System Integration", "Custom ERP/CRM"]
+          title: "Business Systems & Automation",
+          description: "We connect your everyday software tools and automate repetitive tasks, saving your team countless hours and letting your business run smoothly on autopilot.",
+          features: ["Workflow & Process Automation", "Tool & System Integrations", "Custom Dashboards & Portals", "Operational Time Savings"]
         },
         {
-          title: "Digital Marketing & Social Media Management",
-          description: "Full-funnel digital marketing, social media channel management, and generative engine optimization (GEO) to build brand authority and generate consistent inbound leads.",
-          features: ["Social Media Channel Management", "Performance Marketing & Paid Ads", "AI Search Visibility (GEO)", "Conversion Rate Optimization (CRO)"]
+          title: "Business Email & Setup",
+          description: "Get secure, branded company email (you@yourcompany.com) with custom domains, spam protection, and hassle-free setup.",
+          features: ["Custom Branded Domains", "Advanced Spam & Security Defense", "Hassle-Free Migration", "24/7 Reliable Support"],
+          link: "https://email.nordible.co/"
         }
       ]
     },
@@ -259,34 +263,34 @@ export const translations: Record<Language, Translations> = {
       items: [
         {
           title: "Speedy Results",
-          description: "Agile, rapid sprint cycles delivering functional prototypes and production systems in weeks, not months.",
+          description: "Agile, rapid sprint cycles delivering functional prototypes and working systems in weeks, not months.",
           metric: "2–4 Wks MVP"
         },
         {
-          title: "Industry Experience-Backed",
-          description: "15+ years architecting mission-critical platforms across healthcare, fintech, and global enterprise.",
+          title: "Proven Track Record",
+          description: "15+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
           metric: "15+ Yrs Depth"
         },
         {
-          title: "We Take Complete Ownership",
-          description: "Direct founder accountability. No junior handoffs, no middle management—we own the code and outcomes.",
+          title: "Complete Accountability",
+          description: "Direct founder responsibility. No junior handoffs, no middle management—we take full ownership of your deliverables and success.",
           metric: "100% Ownership"
         },
         {
-          title: "Results-Driven Execution",
-          description: "Every architectural choice is engineered to drive commercial viability, performance, and real business ROI.",
+          title: "Results-Driven Focus",
+          description: "Every decision is focused on driving customer acquisition, team productivity, and commercial return on investment.",
           metric: "Commercial Impact"
         },
         {
-          title: "Trust & Precision",
-          description: "German engineering standards, rock-solid security, and an uncompromised 100% on-time delivery record.",
+          title: "Reliability & Quality",
+          description: "Highest German quality standards, clear communication, and an uncompromised 100% on-time delivery record.",
           metric: "100% On-Time"
         }
       ]
     },
     portfolio: {
       badge: "",
-      title: "Featured Systems & Products Built",
+      title: "Featured Client Results & Solutions",
       subtitle: "",
       viewLive: "View Live Project",
       technologies: "Technologies",
@@ -306,7 +310,7 @@ export const translations: Record<Language, Translations> = {
     },
     testimonials: {
       badge: "",
-      title: "What Engineering Leaders Say",
+      title: "What Business & Tech Leaders Say",
       subtitle: "",
       items: [
         {
@@ -337,29 +341,29 @@ export const translations: Record<Language, Translations> = {
     },
     process: {
       badge: "",
-      title: "How We Deliver Technology Solutions",
+      title: "How We Work With You",
       subtitle: "",
       steps: [
-        { number: "01", title: "Discovery & Strategy", description: "Deep dive into your business logic, technical constraints, and strategic goals." },
-        { number: "02", title: "Architecture & Design", description: "Designing scalable system topologies, data flows, and cognitive UX interfaces." },
-        { number: "03", title: "Agile Engineering", description: "Iterative sprints with clean code, automated tests, and continuous delivery." },
-        { number: "04", title: "Deployment & Scaling", description: "Production hardening, monitoring, and proactive architectural scaling." }
+        { number: "01", title: "Discovery & Goals", description: "Understanding your business goals, target audience, and key operational needs." },
+        { number: "02", title: "Strategy & Planning", description: "Mapping out a clear roadmap, intuitive user experience, and practical solutions before building." },
+        { number: "03", title: "Rapid Execution", description: "Fast, focused sprints with frequent progress updates and working deliverables." },
+        { number: "04", title: "Launch & Growth", description: "Smooth deployment, ongoing support, and proactive optimization to ensure sustained business growth." }
       ]
     },
     about: {
       badge: "Company Profile",
-      title: "Technology Solutions",
+      title: "AI-Native Business Technology",
       titleHighlight: "Partner",
-      desc1: "Nordible Technologies is a specialized technology solutions partner dedicated to architecting high-performance systems. We don't just develop; we design and deploy high-impact technology solutions that solve real-world problems at scale.",
-      desc2: "From building cross-platform consumer apps to architecting complex enterprise technology solutions for global organizations, our expertise spans the entire technology landscape. We believe in science-backed UX, clean engineering, and resilient architectures.",
+      desc1: "Nordible Technologies empowers businesses with tech. Operating as an AI-native business technology partner, we deliver production-grade technology solutions, resilient cloud architectures, and high-impact social media channel management that drive measurable revenue.",
+      desc2: "From rapid MVP engineering to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 15+ years of senior systems architecture with autonomous AI workflows.",
       stat1Number: "15+",
       stat1Label: "Years Experience",
       stat2Number: "50+",
       stat2Label: "Solutions Shipped",
       qualities: [
-        { title: "Clean Engineering", description: "We write robust, maintainable code that stands the test of time and scale." },
-        { title: "Rapid Execution", description: "We ship features and systems with unmatched velocity and technical rigor." },
-        { title: "Business Focused", description: "We don't just build tech; we build tools that solve real business challenges." }
+        { title: "Empowering Businesses With Tech", description: "We engineer pragmatic, high-impact technology solutions and automated workflows built for commercial ROI." },
+        { title: "AI-Native Velocity & Rigor", description: "Leveraging autonomous AI pipelines to build scalable technology solutions and manage social media channels at 10x speed." },
+        { title: "Principal-Led Accountability", description: "Direct collaboration with founder Kabeer Shah—ensuring enterprise-grade architecture, zero junior handoffs, and 100% IP ownership." }
       ],
       founderStoryLinkBadge: "MEET THE FOUNDER",
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
@@ -473,14 +477,14 @@ export const translations: Record<Language, Translations> = {
       titlePart1: "Wir entwickeln nicht nur Technologielösungen für Unternehmen – ",
       titleHighlight: "wir bauen Partnerschaften mit Menschen auf.",
       subtitle: "Ihr verlässlicher Technologiepartner für jede Phase Ihres Unternehmenswachstums – von der Neuproduktentwicklung bis zur Modernisierung von Altsystemen und Skalierung von Betriebsabläufen.",
-      ctaButton: "Architektur-Erstgespräch anfragen",
+      ctaButton: "Kostenfreies Erstgespräch anfragen",
       founderName: "Kabeer Shah",
       founderRole: "Gründer & Head of Client Success",
       readFounderStory: "Gründergeschichte lesen →"
     },
     trustSignals: {
       badge: "",
-      title: "Erprobte Ingenieurskunst für globale Unternehmen",
+      title: "Erprobte Ergebnisse für wachsende Unternehmen",
       subtitle: "",
       stats: [
         { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
@@ -495,31 +499,33 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       badge: "",
-      title: "Kernkompetenzen & Ingenieursleistungen",
+      title: "Wie wir Ihr Unternehmen voranbringen",
       subtitle: "",
+      tagGrowth: "🚀 Wachstum & Bekanntheit: Marketing & Social Media",
+      tagTech: "💻 Entwicklung & Effizienz: Technologielösungen & Systeme",
       visitProduct: "Produkt ansehen",
       inquireService: "Lösung anfragen",
       items: [
         {
-          title: "Business Email",
-          description: "Professionelles E-Mail-Hosting für Unternehmen mit eigener Domain, höchster Sicherheit und unterbrechungsfreier Migration.",
-          features: ["Eigene Domains", "Spamschutz", "Zero-Downtime Migration", "24/7 Support"],
-          link: "https://email.nordible.co/"
+          title: "Digitales Marketing & Social-Media-Management",
+          description: "Wir übernehmen Ihr Social-Media-Kanalmanagement, erstellen überzeugende Inhalte und optimieren Ihre Auffindbarkeit in Google und KI-Suchsystemen, um kontinuierlich Neukunden zu gewinnen.",
+          features: ["Social-Media-Kanalmanagement", "Sichtbarkeit in Google & KI-Suche (GEO)", "Zielgerichtete Werbekampagnen", "Nachhaltiger Markenaufbau"]
         },
         {
           title: "Technologielösungen",
-          description: "Entwicklung hochperformanter, skalierbarer Anwendungen für Web-, Mobile- und Cloud-Umgebungen.",
-          features: ["Web & Mobile Apps", "Skalierbare Backends", "API-Systeme", "Cloud-Native Architektur"]
+          description: "Wir konzipieren und entwickeln maßgeschneiderte Websites, mobile Apps und digitale Plattformen für Ihr Unternehmen – schnell, zuverlässig und intuitiv bedienbar.",
+          features: ["Individuelle Web- & Mobile-Apps", "Moderne Websites & Portale", "Ausfallsichere Software", "100 % Eigentum am Code"]
         },
         {
-          title: "Unternehmenslösungen",
-          description: "Entwicklung robuster digitaler Plattformen, die betriebliche Abläufe optimieren und Effizienz steigern.",
-          features: ["Prozessautomatisierung", "Datenarchitektur", "Systemintegration", "Individuelle ERP/CRM-Systeme"]
+          title: "Geschäftsprozess-Automatisierung & Systeme",
+          description: "Wir vernetzen Ihre bestehenden Software-Tools und automatisieren zeitraubende manuelle Routineaufgaben, damit Ihr Geschäftsbetrieb effizient und fehlerfrei läuft.",
+          features: ["Workflow- & Prozessautomatisierung", "System- & Tool-Integrationen", "Individuelle Dashboards & Portale", "Messbare Zeitersparnis"]
         },
         {
-          title: "Digitales Marketing & Social Media Management",
-          description: "Ganzheitliches digitales Marketing, professionelles Social-Media-Kanalmanagement und generative Engine-Optimierung (GEO) für nachhaltige Markenbekanntheit und kontinuierliche Neukundengewinnung.",
-          features: ["Social Media Management", "Performance-Marketing & Paid Ads", "KI-Sichtbarkeit & GEO", "Conversion-Optimierung (CRO)"]
+          title: "Business Email & Setup",
+          description: "Professionelle geschäftliche E-Mail-Adressen (ihrname@ihrunternehmen.de) mit eigener Domain, wirksamem Spamschutz und reibungsloser Einrichtung.",
+          features: ["Eigene Firmen-Domains", "Zuverlässiger Spam- & Virenschutz", "Unterbrechungsfreie Migration", "24/7 Persönlicher Support"],
+          link: "https://email.nordible.co/"
         }
       ]
     },
@@ -534,30 +540,30 @@ export const translations: Record<Language, Translations> = {
           metric: "2–4 Woc. MVP"
         },
         {
-          title: "Branchenerprobte Expertise",
-          description: "Über 15 Jahre Erfahrung im Aufbau geschäftskritischer Plattformen für Healthcare, Fintech und Enterprise.",
+          title: "Langjährige Praxiserfahrung",
+          description: "Über 15 Jahre Erfahrung im Aufbau erfolgreicher digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
           metric: "15+ Jahre Tiefe"
         },
         {
           title: "Volle Verantwortung",
-          description: "Direkte Gründerverantwortung ohne Zwischenebenen oder Junior-Übergaben – wir stehen für das Ergebnis ein.",
+          description: "Direkte Gründerverantwortung ohne Zwischenebenen oder Junior-Übergaben – wir stehen für Ihre Ergebnisse und termintreue Lieferung ein.",
           metric: "100% Verbindlich"
         },
         {
-          title: "Ergebnisorientierte Umsetzung",
-          description: "Jede architektonische Entscheidung ist direkt auf wirtschaftliche Effizienz und messbaren Nutzen ausgerichtet.",
+          title: "Ergebnisorientierter Fokus",
+          description: "Jede Maßnahme zielt direkt auf Kundengewinnung, gesteigerte Produktivität und messbaren geschäftlichen Return on Investment ab.",
           metric: "Messbarer Nutzen"
         },
         {
-          title: "Vertrauen & Präzision",
-          description: "Deutsche Ingenieursstandards, kompromisslose Sicherheit und eine makellose 100%-Lieferquote.",
+          title: "Verlässlichkeit & Qualität",
+          description: "Verlässliche deutsche Qualitätsstandards, transparente Kommunikation und eine makellose 100%-Lieferquote.",
           metric: "100% Termintreue"
         }
       ]
     },
     portfolio: {
       badge: "",
-      title: "Ausgewählte Systeme & Produkte",
+      title: "Erfolgreiche Kundenprojekte & Ergebnisse",
       subtitle: "",
       viewLive: "Projekt ansehen",
       technologies: "Technologien",
@@ -577,7 +583,7 @@ export const translations: Record<Language, Translations> = {
     },
     testimonials: {
       badge: "",
-      title: "Was Führungskräfte sagen",
+      title: "Was Kunden & Unternehmenslenker sagen",
       subtitle: "",
       items: [
         {
@@ -608,29 +614,29 @@ export const translations: Record<Language, Translations> = {
     },
     process: {
       badge: "",
-      title: "Wie wir Technologielösungen umsetzen",
+      title: "Wie wir mit Ihnen zusammenarbeiten",
       subtitle: "",
       steps: [
-        { number: "01", title: "Bedarfsanalyse & Strategie", description: "Tiefgehende Analyse Ihrer Geschäftslogik, technischen Rahmenbedingungen und Ziele." },
-        { number: "02", title: "Architektur & Konzeption", description: "Entwurf hochskalierbarer Systemtopologien, Datenflüsse und intuitiver UX-Schnittstellen." },
-        { number: "03", title: "Agile Entwicklung", description: "Iterative Sprints mit sauberem Code, automatisierten Tests und kontinuierlicher Auslieferung." },
-        { number: "04", title: "Bereitstellung & Skalierung", description: "Produktionsabsicherung, 24/7 Monitoring und proaktive architektonische Skalierung." }
+        { number: "01", title: "Bedarf & Ziele", description: "Verständnis Ihrer geschäftlichen Ziele, Zielgruppen und zentralen Herausforderungen." },
+        { number: "02", title: "Strategie & Planung", description: "Ausarbeitung eines klaren Fahrplans, intuitiver Nutzerführung und praxistauglicher Lösungen vor der Umsetzung." },
+        { number: "03", title: "Zügige Umsetzung", description: "Schnelle, fokussierte Sprints mit regelmäßigen Zwischenständen und direkt funktionierenden Ergebnissen." },
+        { number: "04", title: "Launch & Wachstum", description: "Reibungsloser Start, verlässliche Begleitung und proaktive Optimierung für kontinuierliches Wachstum." }
       ]
     },
     about: {
       badge: "Unternehmensprofil",
-      title: "Technologielösungen",
+      title: "KI-nativer Business-Technologie",
       titleHighlight: "Partner",
-      desc1: "Nordible Technologies ist ein spezialisierter Technologiepartner für hochperformante digitale Systeme. Wir entwickeln nicht nur – wir konzipieren und implementieren Technologielösungen, die reale geschäftliche Herausforderungen skalierbar lösen.",
-      desc2: "Von plattformübergreifenden Consumer-Apps bis hin zu komplexen Enterprise-Architekturen für globale Organisationen decken wir das gesamte Technologiespektrum ab. Wir stehen für wissenschaftlich fundiertes UX-Design, sauberes Engineering und ausfallsichere Architekturen.",
+      desc1: "Nordible Technologies stärkt Unternehmen durch Technologie. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, ausfallsichere Cloud-Architekturen und zielgerichtetes Social-Media-Kanalmanagement für nachhaltiges Geschäftswachstum.",
+      desc2: "Von schneller MVP-Entwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 15+ Jahren Senior-Architektur mit autonomen KI-Workflows.",
       stat1Number: "15+",
       stat1Label: "Jahre Erfahrung",
       stat2Number: "50+",
       stat2Label: "Lösungen Realisiert",
       qualities: [
-        { title: "Sauberes Engineering", description: "Wir schreiben robusten, wartbaren Code, der langfristig skaliert." },
-        { title: "Schnelle Umsetzung", description: "Wir liefern Funktionen und Systeme mit höchster Geschwindigkeit und technischer Präzision." },
-        { title: "Geschäftsorientiert", description: "Wir bauen keine Technologie um der Technologie willen, sondern Werkzeuge, die echten geschäftlichen Mehrwert schaffen." }
+        { title: "Unternehmen durch Technologie stärken", description: "Wir entwickeln pragmatische, hochwirksame Technologielösungen und automatisierte Prozesse für echten geschäftlichen Return on Investment." },
+        { title: "KI-native Geschwindigkeit & Präzision", description: "Einsatz autonomer KI-Pipelines zur Entwicklung von Technologielösungen und zum Management von Social-Media-Kanälen in 10-facher Geschwindigkeit." },
+        { title: "Direkte Gründerverantwortung", description: "Direkte Zusammenarbeit mit Gründer Kabeer Shah – für Enterprise-Architektur auf höchstem Niveau, ohne Zwischenhändler und mit 100 % Eigentum am Code." }
       ],
       founderStoryLinkBadge: "LERNEN SIE DEN GRÜNDER KENNEN",
       founderStoryLinkTitle: "Der persönliche Werdegang von Kabeer Shah",

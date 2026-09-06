@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Hero() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const scrollToConsultation = () => {
@@ -36,29 +36,6 @@ export default function Hero() {
                 <span>{t.hero.ctaButton}</span>
                 <ArrowRight className="ml-2 h-4 w-4 inline-block" />
               </button>
-            </div>
-
-            {/* Risk-Reversal Guarantees */}
-            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-gray-500 dark:text-gray-400 font-medium">
-              <span className="inline-flex items-center text-emerald-600 dark:text-emerald-400 font-semibold">
-                ✓ {language === 'de' ? '100% Kostenfreie Erstberatung' : '100% Free Consultation'}
-              </span>
-              <span className="inline-flex items-center">
-                ✓ {language === 'de' ? 'Direkt mit dem Gründer' : 'Direct with Founder'}
-              </span>
-              <span className="inline-flex items-center">
-                ✓ {language === 'de' ? 'Antwort < 2h' : 'Response < 2h'}
-              </span>
-            </div>
-
-            {/* Social Proof Strip */}
-            <div className="mt-4 pt-4 border-t border-nordible-border/60 dark:border-gray-800 text-xs text-gray-600 dark:text-gray-300 font-medium flex items-center gap-2">
-              <span className="text-amber-500 font-bold">★★★★★</span>
-              <span>
-                {language === 'de' 
-                  ? 'Erprobt von Teams bei GE Healthcare, NIUM & Tech-Startups'
-                  : 'Battle-tested for teams at GE Healthcare, NIUM & high-growth startups'}
-              </span>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 # Nordible Technologies
 
-> Nordible Technologies is an elite, founder-led technology solutions and systems architecture partner based in Frankfurt, Germany. Founded by Kabeer Shah (15+ years engineering leadership across Fintech unicorns and Fortune 500 healthcare systems), Nordible engineers battle-tested production platforms, rapid MVPs, and mobile applications directly with business leaders—with zero middlemen, zero junior handoffs, and 100% intellectual property ownership from Day 1.
+> Nordible Technologies is an AI-native engineering and growth agency headquartered in Frankfurt, Germany. Operating under the high-margin "Services as Software" model, Nordible pairs a 15-year veteran systems architect (Kabeer Shah) with autonomous AI agent workflows. We engineer battle-tested production platforms, rapid MVPs, cloud systems, and digital growth at 10x velocity—with zero middlemen, zero junior bloat, and 100% intellectual property ownership from Day 1.
 
 ## Primary Documentation & Pages
 
