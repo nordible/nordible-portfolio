@@ -33,6 +33,10 @@ export default function FloatingCTA() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (location.pathname.startsWith('/portal')) {
+    return null;
+  }
+
   return (
     <>
       {/* Mobile Ergonomic Bottom Conversion Dock (Fitts's Law / Thumb-Zone) */}

@@ -25,6 +25,7 @@ import BlogPage from './components/BlogPage';
 import CompanyProfilePage from './components/CompanyProfilePage';
 import WhyChooseUsPage from './components/WhyChooseUsPage';
 import FloatingCTA from './components/FloatingCTA';
+import DocsReaderPage from './components/DocsReaderPage';
 
 function HomePage() {
   return (
@@ -180,6 +181,7 @@ function App() {
             <Route path="/dashboard" element={<LeadDashboard />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/portal" element={<DocsReaderPage />} />
           </Routes>
           <FloatingCTA />
         </div>

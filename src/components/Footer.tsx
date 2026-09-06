@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube, Heart, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -138,10 +138,20 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/terms"
+                  to="/terms" 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
                   {f.terms}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/portal" 
+                  rel="nofollow"
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-flex items-center gap-1.5 w-full"
+                >
+                  <Lock className="h-3 w-3 text-blue-300/70" />
+                  <span>{f.founderPortal}</span>
                 </Link>
               </li>
             </ul>

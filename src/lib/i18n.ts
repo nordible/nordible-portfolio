@@ -179,6 +179,7 @@ export interface Translations {
     expertiseTitle: string;
     companyTitle: string;
     founderStory: string;
+    founderPortal: string;
     contactUs: string;
     pitchDeck: string;
     legalTitle: string;
@@ -454,6 +455,7 @@ export const translations: Record<Language, Translations> = {
       expertiseTitle: "Expertise",
       companyTitle: "Company",
       founderStory: "Founder's Journey",
+      founderPortal: "Founder Portal",
       contactUs: "Contact Us",
       pitchDeck: "Download Pitch Deck",
       legalTitle: "Legal",
@@ -727,6 +729,7 @@ export const translations: Record<Language, Translations> = {
       expertiseTitle: "Leistungen",
       companyTitle: "Unternehmen",
       founderStory: "Werdegang des Gründers",
+      founderPortal: "Gründer-Portal",
       contactUs: "Kontakt",
       pitchDeck: "Pitch Deck herunterladen",
       legalTitle: "Rechtliches",

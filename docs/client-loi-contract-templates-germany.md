@@ -1,13 +1,13 @@
 # Client Letter of Intent (LoI) & Contract Templates
-## German Immigration Context (§ 21 AufenthG – Self-Employment / Freelance)
+## German Immigration Context (§ 21 Abs. 1 AufenthG – Commercial Business Establishment / Gewerbliche Unternehmensgründung)
 
-These templates are designed to provide proof of economic interest and secure future revenue (*gesicherte Auftragslage*) to the Foreigners' Authority (*Ausländerbehörde*) and Chamber of Commerce (*IHK*).
+These templates are designed to provide proof of economic interest (*wirtschaftliches Interesse*) and secure future revenue (*gesicherte Auftragslage*) to the Foreigners' Authority (*Ausländerbehörde*) and Chamber of Commerce (*IHK*).
 
 ---
 
 ## 1. Letter of Intent (*Absichtserklärung*)
 
-> **Best for:** Prospective clients or partners willing to declare formal intent to engage your services once your residence permit is issued.
+> **Best for:** Prospective clients or partners willing to declare formal intent to engage your services once your commercial residence permit (§ 21 Abs. 1 AufenthG) is issued.
 
 ```text
 [Briefkopf des Auftraggebers / Client Letterhead]
@@ -20,20 +20,20 @@ An die zuständige Ausländerbehörde / IHK
 
 Datum: [TT.MM.JJJJ]
 
-Betreff: Absichtserklärung über eine zukünftige freiberufliche / unternehmerische 
-         Zusammenarbeit (Letter of Intent) mit Herrn Kabeer Shah (Nordible Technologies)
+Betreff: Absichtserklärung über eine zukünftige geschäftliche / unternehmerische 
+         Zusammenarbeit und Auftragserteilung (Letter of Intent) an Nordible Technologies 
+         (Inh. Kabeer Shah) im Rahmen der gewerblichen Unternehmensgründung (§ 21 Abs. 1 AufenthG)
 
 Sehr geehrte Damen und Herren,
 
-hiermit bestätigen wir, die [Firmenname des Kunden], unser verbindliches Interesse 
-an einer freiberuflichen bzw. auftragsbasierten Zusammenarbeit mit:
+hiermit bestätigen wir, die [Firmenname des Kunden], unser verbindliches geschäftliches Interesse 
+an einer unternehmerischen Zusammenarbeit und Auftragserteilung mit dem gewerblichen Unternehmen:
 
-  Herrn Kabeer Shah
-  Nordible Technologies
+  Nordible Technologies (Inh. Kabeer Shah)
   Breitlacherstraße 101, 60489 Frankfurt am Main
 
 1. Gegenstand des Auftrags / Projektumfang:
-   Herr Shah soll für unser Unternehmen hochqualifizierte Beratungs- und Entwicklungs-
+   Nordible Technologies soll für unser Unternehmen hochqualifizierte Beratungs- und Entwicklungs-
    dienstleistungen erbringen, insbesondere:
    - [z. B. Konzeption und Entwicklung eines KI-gestützten MVPs]
    - [z. B. Cloud-Infrastruktur-Architektur & Systemmodernisierung]
@@ -42,16 +42,16 @@ an einer freiberuflichen bzw. auftragsbasierten Zusammenarbeit mit:
    - Geplanter Projektbeginn: [Monat/Jahr, z. B. Q4 2026]
    - Voraussichtliche Laufzeit: [z. B. 3 bis 6 Monate / unbefristeter Retainer]
    - Voraussichtliches Vergütungsvolumen: 
-     [z. B. 6.500 EUR netto monatlich / Festpreis von 14.500 EUR netto]
+     [z. B. 6.500 EUR netto monatlich / Festpreis von 14.500 EUR netto zzgl. gesetzlicher USt.]
 
 3. Vorbehaltsklausel (Aufenthaltsrecht):
-   Diese Absichtserklärung und der daraus resultierende Vertragsschluss stehen 
+   Diese Absichtserklärung und die daraus resultierende Beauftragung stehen 
    unter dem Vorbehalt, dass Herr Kabeer Shah den erforderlichen Aufenthaltstitel zur 
-   Ausübung einer selbstständigen Erwerbstätigkeit in Deutschland erhält.
+   Ausübung einer selbstständigen gewerblichen Tätigkeit in Deutschland (§ 21 Abs. 1 AufenthG) erhält.
 
-4. Selbstständigkeit:
-   Die Zusammenarbeit erfolgt rein im Rahmen eines freien Dienstverhältnisses 
-   als unabhängiger Auftragnehmer (kein Angestelltenverhältnis).
+4. Gewerbliche Selbstständigkeit (B2B-Verhältnis):
+   Die Zusammenarbeit erfolgt rein im Rahmen eines unternehmerischen B2B-Dienstleistungs- 
+   bzw. Werkvertragsverhältnisses auf Rechnung zwischen zwei unabhängigen Unternehmen.
 
 Mit freundlichen Grüßen,
 
@@ -63,40 +63,40 @@ _________________________________________
 
 ---
 
-## 2. Draft Service Agreement (*Dienstleistungsvertrag Entwurf*)
+## 2. Draft Commercial B2B Agreement (*B2B-Dienstleistungsvertrag Entwurf*)
 
 > **Best for:** Clients ready to agree on concrete contract terms before visa issuance.
 
 ```text
-DIENSTLEISTUNGSVERTRAG (ENTWURF)
+B2B-DIENSTLEISTUNGSVERTRAG / WERKVERTRAG (ENTWURF)
 
 Zwischen:
 [Firmenname des Kunden], [Adresse], vertreten durch [Geschäftsführer]
 – nachfolgend „Auftraggeber“ –
 
 und:
-Herrn Kabeer Shah, handelnd unter „Nordible Technologies“, Breitlacherstraße 101, 
-60489 Frankfurt am Main
+Nordible Technologies (gewerbliches Einzelunternehmen, Inh. Kabeer Shah), 
+Breitlacherstraße 101, 60489 Frankfurt am Main
 – nachfolgend „Auftragnehmer“ –
 
 § 1 Vertragsgegenstand & Leistungsumfang
-Der Auftragnehmer erbringt für den Auftraggeber selbstständige Leistungen im Bereich 
-der Software- und Systemarchitektur sowie KI-gestützter Produktentwicklung:
+Der Auftragnehmer erbringt für den Auftraggeber selbstständige gewerbliche Dienstleistungen im Bereich 
+der Software- und Systemarchitektur, Cloud-Infrastruktur sowie KI-gestützter Produktentwicklung:
 - [Leistungsbeschreibung / Meilensteine einfügen]
 
 § 2 Vergütung
 Das Honorar beträgt [z. B. 6.500,00 EUR monatlich zzgl. gesetzlicher USt.] / 
-[ein Pauschalhonorar von 14.500,00 EUR zzgl. USt.]. Zahlbar innerhalb von 14 Tagen 
-nach Rechnungsstellung.
+[ein Pauschalhonorar von 14.500,00 EUR zzgl. gesetzlicher USt.]. Zahlbar innerhalb von 14 Tagen 
+nach ordnungsgemäßer Rechnungsstellung mit Ausweis der Umsatzsteuer.
 
-§ 3 Unabhängigkeit
-Der Auftragnehmer ist in der Einteilung seiner Arbeitszeit und der Bestimmung des 
-Arbeitsortes frei. Es wird kein sozialversicherungspflichtiges Beschäftigungsverhältnis 
-begründet.
+§ 3 B2B-Unabhängigkeit
+Die Parteien vereinbaren eine unternehmerische Zusammenarbeit auf Augenhöhe zwischen zwei 
+selbstständigen Wirtschaftsunternehmen. Der Auftragnehmer bestimmt Arbeitszeit, Arbeitsort 
+und Methodik eigenverantwortlich.
 
 § 4 Aufschiebende Bedingung
-Dieser Vertrag tritt erst mit der rechtskräftigen Erteilung des Aufenthaltstitels zur 
-Ausübung einer selbstständigen Tätigkeit (§ 21 AufenthG) für Herrn Kabeer Shah in Kraft.
+Dieser Vertrag tritt mit der behördlichen Erteilung des Aufenthaltstitels zur 
+Ausübung einer selbstständigen gewerblichen Tätigkeit (§ 21 Abs. 1 AufenthG) für Herrn Kabeer Shah in Kraft.
 
 Ort, Datum: _____________________
 

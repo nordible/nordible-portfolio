@@ -5,7 +5,8 @@
 **Company:** Nordible Technologies  
 **Location:** Breitlacherstraße 101, Rödelheim, 60489 Frankfurt am Main, Germany  
 **Core Activity:** AI-Accelerated Systems Architecture, MVP Engineering & Cloud Infrastructure  
-**Legal Framework:** German Residence Act (§ 21 AufenthG – Self-Employment / Freelance)  
+**Legal Framework:** German Residence Act (§ 21 Abs. 1 AufenthG – Commercial Business Establishment / Gewerbliche Unternehmensgründung)  
+**Legal Form (*Rechtsform*):** Commercial Sole Proprietorship (*Gewerbliches Einzelunternehmen*)  
 **Date:** September 2026  
 
 ---
@@ -92,10 +93,12 @@ The startup capital of €10,000 is covered 100% through verified equity in liqu
 | Less: Telecommunications & Office Expenses | -1,800 | -2,200 | -2,800 |
 | **Total Operating Expenses (*Betriebsausgaben*)** | **-11,100** | **-18,500** | **-28,000** |
 | **Operating Profit (*Gewinn vor Steuern*)** | **€78,400** | **€146,500** | **€227,000** |
-| Estimated Income Tax (*Einkommensteuer*) & SolZ | ~17,200 | ~42,500 | ~76,000 |
+| Commercial Trade Tax (*Gewerbesteuer Frankfurt*) & Income Tax (*Einkommensteuer*)* | ~17,200 | ~42,500 | ~76,000 |
 | Statutory / Private Health & Care Insurance | ~6,500 | ~8,800 | ~10,200 |
 | **Net Personal Disposable Income (*Netto-Gewinn*)** | **~€54,700** | **~€95,200** | **~€140,800** |
 | **Monthly Disposable Income** | **~€4,558 / mo** | **~€7,933 / mo** | **~€11,733 / mo** |
+
+*\*Note on Commercial Taxation:* As a registered commercial enterprise (*Gewerbebetrieb*) in Frankfurt am Main, profits are subject to local trade tax (*Gewerbesteuer*) beyond the statutory €24,500 allowance. Under § 35 EStG, trade tax is credited against personal income tax, resulting in direct fiscal contributions to the City of Frankfurt without overburdening net cash flow.
 
 ---
 
