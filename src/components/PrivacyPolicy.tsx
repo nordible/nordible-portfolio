@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
               <section>
                 <h2 className="text-2xl font-extrabold text-nordible-dark dark:text-white mb-4 font-heading tracking-tight">2. Use of Information</h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed font-medium">
-                  We use the information we collect to respond to inquiries, schedule consultations, send project updates, and improve our engineering services. All data is processed with maximum security and confidentiality.
+                  We use the information we collect to respond to inquiries, schedule consultations, send project updates, and improve our tech solutions. All data is processed with maximum security and confidentiality.
                 </p>
               </section>
 

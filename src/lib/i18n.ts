@@ -139,6 +139,7 @@ export interface Translations {
       company: string;
       description: string;
       tags: string[];
+      highlights?: string[];
     }>;
     valuesTitle: string;
     values: Array<{
@@ -187,6 +188,21 @@ export interface Translations {
     terms: string;
     rights: string;
   };
+  notFound: {
+    badge: string;
+    title: string;
+    description: string;
+    backHome: string;
+    exploreServices: string;
+    quickLinksTitle: string;
+    links: {
+      services: string;
+      founderStory: string;
+      investmentModels: string;
+      blog: string;
+      contact: string;
+    };
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -215,7 +231,7 @@ export const translations: Record<Language, Translations> = {
       title: "Proven Results Across Industries",
       subtitle: "",
       stats: [
-        { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
+        { number: "13+", label: "Years Experience", description: "Battle-tested leadership" },
         { number: "50+", label: "Solutions Delivered", description: "Across web, mobile & cloud" },
         { number: "1M+", label: "Users Served", description: "Across global platforms" },
         { number: "24h", label: "Response Time", description: "Rapid Direct Sync" },
@@ -269,8 +285,8 @@ export const translations: Record<Language, Translations> = {
         },
         {
           title: "Proven Track Record",
-          description: "15+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
-          metric: "15+ Yrs Depth"
+          description: "13+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
+          metric: "13+ Yrs Depth"
         },
         {
           title: "Complete Accountability",
@@ -356,63 +372,108 @@ export const translations: Record<Language, Translations> = {
       title: "AI-Native Business Technology",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies empowers businesses with tech. Operating as an AI-native business technology partner, we deliver production-grade technology solutions, resilient cloud architectures, and high-impact social media channel management that drive measurable revenue.",
-      desc2: "From rapid MVP engineering to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 15+ years of senior systems architecture with autonomous AI workflows.",
-      stat1Number: "15+",
+      desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 13+ years of senior tech architecture with autonomous AI workflows.",
+      stat1Number: "13+",
       stat1Label: "Years Experience",
       stat2Number: "50+",
       stat2Label: "Solutions Shipped",
       qualities: [
-        { title: "Empowering Businesses With Tech", description: "We engineer pragmatic, high-impact technology solutions and automated workflows built for commercial ROI." },
+        { title: "Empowering Businesses With Tech", description: "We build pragmatic, high-impact tech solutions and automated workflows tailored for commercial ROI." },
         { title: "AI-Native Velocity & Rigor", description: "Leveraging autonomous AI pipelines to build scalable technology solutions and manage social media channels at 10x speed." },
         { title: "Principal-Led Accountability", description: "Direct collaboration with founder Kabeer Shah—ensuring enterprise-grade architecture, zero junior handoffs, and 100% IP ownership." }
       ],
       founderStoryLinkBadge: "MEET THE FOUNDER",
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
-      founderStoryLinkDesc: "From 15+ years leading engineering for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
+      founderStoryLinkDesc: "From 13+ years leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
       founderStoryLinkButton: "Read Founder's Journey →"
     },
     founderPage: {
       backToHome: "Back to Home",
       badge: "THE FOUNDER'S JOURNEY",
       title: "Direct Leadership, Architectural Rigor & Strategic Partnership",
-      subtitle: "15+ years of engineering leadership, hands-on business discovery, and mission-critical cloud scaling.",
-      quote: "“The best technology solutions aren’t built in isolation—they are born from listening deeply to business challenges and engineering with heart and rigor.”",
+      subtitle: "13+ years of tech leadership, hands-on business discovery, and mission-critical cloud scaling.",
+      quote: "“The best technology solutions aren’t built in isolation—they are born from listening deeply to business challenges and building with care and precision.”",
       quoteAuthor: "Kabeer Shah",
-      quoteRole: "Founder & Solutions Lead",
-      introTitle: "From Hands-on Engineering to Strategic Leadership",
-      introP1: "With over 15 years of battle-tested software and systems engineering experience, Kabeer Shah founded Nordible Technologies with a fundamental principle: technology must directly serve business outcomes through authentic human partnerships.",
-      introP2: "Having architected mission-critical platforms for Fortune 500 healthcare enterprises like GE Healthcare & Baxter/Vantive, and led engineering teams for Fintech unicorns like Nium Inc. (Instarem), Kabeer brings rare full-spectrum mastery—from low-level cloud architecture and PCI-DSS/HIPAA compliance to executive technical strategy.",
+      quoteRole: "Tech Leader & Founder",
+      introTitle: "From Hands-on Building to Strategic Tech Leadership",
+      introP1: "With over 13 years of battle-tested software and tech solutions experience, Kabeer Shah founded Nordible Technologies with a fundamental principle: technology must directly serve business outcomes through authentic human partnerships.",
+      introP2: "Having architected mission-critical platforms for Fortune 500 and MedTech leaders like GE Healthcare, Baxter/Vantive, and Nipro, and led tech teams for Fintech unicorns like Nium Inc. (Instarem), Kabeer brings rare full-spectrum mastery—from low-level cloud architecture and PCI-DSS/HIPAA compliance to executive technical strategy.",
       introP3: "Unlike traditional agencies with layers of account managers, Kabeer personally leads client discovery, technical strategy, and architectural direction—ensuring zero communication breakdown and 100% accountability.",
       milestonesTitle: "Career Milestones & Technical Leadership",
       milestonesSubtitle: "A proven track record delivering scalable systems across global industries.",
       milestones: [
         {
-          period: "Enterprise Healthcare",
-          role: "Tech Lead / Engineering Manager",
-          company: "Quest Global (GE Healthcare & Baxter/Vantive)",
-          description: "Delivered mission-critical systems for GE Healthcare (OncoCare platform) and Baxter/Vantive (RST AWS IoT diagnostics), adhering to strict FDA and HIPAA healthcare compliance.",
-          tags: ["GE Healthcare", "Baxter / Vantive", "AWS IoT", "HIPAA Compliance"]
+          period: "May 2023 – June 2026",
+          role: "Technical Lead / Engineering Manager",
+          company: "Quest Global (GE Healthcare, Baxter/Vantive & Nipro)",
+          description: "Directing software delivery and architectural strategy for global healthcare and medical device leaders.",
+          highlights: [
+            "Architected GE Healthcare's 'OncoCare' decision-support platform aggregating complex patient data for cancer care.",
+            "Led backend strategy for Baxter/Vantive's Remote Service Tool (RST) using AWS IoT & Lambda for remote device diagnostics.",
+            "Directed the SDLC for critical medical device support systems for Nipro under strict FDA & HIPAA compliance.",
+            "Enforced standardized checklist-driven development to minimize deployment errors."
+          ],
+          tags: ["GE Healthcare", "Baxter / Vantive", "Nipro", "AWS IoT & Lambda", "HIPAA Compliance", "Medical Devices"]
         },
         {
-          period: "Fintech Unicorn",
-          role: "Engineering Lead / Interim Head of Engineering",
-          company: "Nium Inc. (Instarem)",
-          description: "Built & led 18+ engineers, orchestrating high-value API integrations (PhonePe), PCI-DSS Level 1 compliance audits, and multi-currency transaction scaling.",
-          tags: ["Fintech Unicorn", "PCI-DSS Level 1", "18+ Engineers Led", "High-Volume APIs"]
-        },
-        {
-          period: "Digital Media & Scale",
+          period: "August 2020 – March 2023",
           role: "Lead Senior Software Engineer (SDE-3)",
           company: "The Parent Inc. (TickledMedia)",
-          description: "Architected microservices and micro-frontends transition for flagship Parents.VIP marketing platform serving millions of active users.",
-          tags: ["Microservices", "Micro-frontends", "Database Migrations", "High Concurrency"]
+          description: "Led core architecture, microservices transitions, and data governance for high-concurrency media and influencer platforms.",
+          highlights: [
+            "Architected microservices and micro-frontends transition for flagship 'Parents.VIP' platform, improving developer velocity.",
+            "Implemented Sqitch for robust database change management, resolving deployment bottlenecks.",
+            "Owned end-to-end stack (Node.js, AWS, Python, Redis) for content and influencer marketing engines.",
+            "Established engineering quality culture with TDD, automated CI/CD pipelines, and rigorous code reviews."
+          ],
+          tags: ["Microservices", "Micro-frontends", "Sqitch", "Redis", "Python", "Node.js", "CI/CD"]
         },
         {
-          period: "AI & Innovation",
-          role: "Senior AI / Full-Stack Engineer & Co-Founder",
-          company: "SmarTek21 & NerdsPal",
-          description: "Engineered SmartbotHub NLP chatbot AI platform (Best Performer Award) and bootstrapped interactive EdTech systems.",
-          tags: ["NLP Chatbots", "AI Systems", "Cloud Architecture"]
+          period: "September 2018 – March 2020",
+          role: "Engineering Lead / Interim Head of Engineering",
+          company: "Nium Inc. (Instarem) — Global Fintech Unicorn",
+          description: "Headed cross-functional engineering and technical compliance for one of Asia's fastest-growing fintech remittance unicorns.",
+          highlights: [
+            "Built and scaled an engineering department of 18+ engineers across Mobile, Frontend, Backend, and QA.",
+            "Spearheaded technical roadmap for PCI-DSS compliance audits, securing top-tier financial grade security.",
+            "Architected high-volume API integrations with major financial institutions (including PhonePe).",
+            "Transformed company culture with Agile Scrum methodology from scratch; awarded 'Best Team'."
+          ],
+          tags: ["Fintech Unicorn", "PCI-DSS Level 1", "18+ Team Leadership", "PhonePe API", "Agile Transformation"]
+        },
+        {
+          period: "March 2017 – August 2018",
+          role: "Senior Full Stack Engineer",
+          company: "SmarTek21",
+          description: "Built scalable enterprise conversational AI and natural language processing (NLP) chatbot solutions.",
+          highlights: [
+            "Engineered backend and frontend architectures for 'SmartbotHub', an enterprise NLP conversational chatbot platform.",
+            "Awarded 'Best Performer Award' for outstanding software delivery velocity using Node.js and Angular.js."
+          ],
+          tags: ["Enterprise AI", "NLP Chatbots", "SmartbotHub", "Node.js", "Angular.js"]
+        },
+        {
+          period: "June 2015 – March 2017",
+          role: "Co-Founder & CTO",
+          company: "NerdsPal.com",
+          description: "Bootstrapped an interactive Q&A educational technology platform from inception to global reach.",
+          highlights: [
+            "Architected and deployed cloud infrastructure on Google Cloud Platform to support rapid user growth.",
+            "Executed monetization, SEO, and user acquisition strategies through targeted Google Ads."
+          ],
+          tags: ["Co-Founder & CTO", "EdTech", "Google Cloud", "Bootstrapping", "Product Strategy"]
+        },
+        {
+          period: "April 2012 – March 2016",
+          role: "Software Engineer",
+          company: "Next Service HSS Pvt. Ltd.",
+          description: "Designed core operational automation suites and served as a technical trainer and R&D mentor.",
+          highlights: [
+            "Engineered 'NextAuto', an internal process automation suite in C#, .NET, and Node.js that eliminated manual tasks.",
+            "Mentored junior engineers and collaborated with C-suite executives on operational efficiency.",
+            "Honored with 'Best Performer Award' for automation excellence."
+          ],
+          tags: ["Internal Automation", "C# / .NET", "Node.js", "System Optimization"]
         }
       ],
       valuesTitle: "Core Operating Principles",
@@ -462,6 +523,21 @@ export const translations: Record<Language, Translations> = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rights: "All rights reserved."
+    },
+    notFound: {
+      badge: "404 Error",
+      title: "Page Not Found",
+      description: "The page you are looking for might have been moved, renamed, or is temporarily unavailable. Let's get you back on track.",
+      backHome: "Back to Home",
+      exploreServices: "Explore Services",
+      quickLinksTitle: "Quick Destinations",
+      links: {
+        services: "Solutions & Architecture",
+        founderStory: "Founder's Journey",
+        investmentModels: "Investment Models",
+        blog: "Tech Insights",
+        contact: "Get in Touch"
+      }
     }
   },
   de: {
@@ -489,7 +565,7 @@ export const translations: Record<Language, Translations> = {
       title: "Erprobte Ergebnisse für wachsende Unternehmen",
       subtitle: "",
       stats: [
-        { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
+        { number: "13+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
         { number: "50+", label: "Realisierte Lösungen", description: "Web, Mobile & Cloud-Systeme" },
         { number: "1M+", label: "Nutzer Erreicht", description: "Auf weltweiten Plattformen" },
         { number: "24h", label: "Reaktionszeit", description: "Schnelle direkte Abstimmung" },
@@ -543,8 +619,8 @@ export const translations: Record<Language, Translations> = {
         },
         {
           title: "Langjährige Praxiserfahrung",
-          description: "Über 15 Jahre Erfahrung im Aufbau erfolgreicher digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
-          metric: "15+ Jahre Tiefe"
+          description: "Über 13 Jahre Erfahrung im Aufbau erfolgreicher digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
+          metric: "13+ Jahre Tiefe"
         },
         {
           title: "Volle Verantwortung",
@@ -630,8 +706,8 @@ export const translations: Record<Language, Translations> = {
       title: "KI-nativer Business-Technologie",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies stärkt Unternehmen durch Technologie. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, ausfallsichere Cloud-Architekturen und zielgerichtetes Social-Media-Kanalmanagement für nachhaltiges Geschäftswachstum.",
-      desc2: "Von schneller MVP-Entwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 15+ Jahren Senior-Architektur mit autonomen KI-Workflows.",
-      stat1Number: "15+",
+      desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 13+ Jahren Senior-Tech-Architektur mit autonomen KI-Workflows.",
+      stat1Number: "13+",
       stat1Label: "Jahre Erfahrung",
       stat2Number: "50+",
       stat2Label: "Lösungen Realisiert",
@@ -642,51 +718,96 @@ export const translations: Record<Language, Translations> = {
       ],
       founderStoryLinkBadge: "LERNEN SIE DEN GRÜNDER KENNEN",
       founderStoryLinkTitle: "Der persönliche Werdegang von Kabeer Shah",
-      founderStoryLinkDesc: "Von über 15 Jahren technischer Leitung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
+      founderStoryLinkDesc: "Von über 13 Jahren technischer Leitung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
       founderStoryLinkButton: "Werdegang des Gründers lesen →"
     },
     founderPage: {
       backToHome: "Zurück zur Startseite",
       badge: "DER WERDEGANG DES GRÜNDERS",
       title: "Direkte Führung, technische Exzellenz & echte Partnerschaft",
-      subtitle: "Über 15 Jahre Erfahrung in Software-Architektur, unternehmerischer Beratung und geschäftskritischer Cloud-Skalierung.",
-      quote: "„Die besten Technologielösungen entstehen nicht isoliert – sie wachsen aus dem aufmerksamen Zuhören bei geschäftlichen Herausforderungen und der Leidenschaft für präzises Engineering.“",
+      subtitle: "Über 13 Jahre Erfahrung in Tech-Architektur, unternehmerischer Beratung und geschäftskritischer Cloud-Skalierung.",
+      quote: "„Die besten Technologielösungen entstehen nicht isoliert – sie wachsen aus dem aufmerksamen Zuhören bei geschäftlichen Herausforderungen und der Leidenschaft für verlässliche Technologie.“",
       quoteAuthor: "Kabeer Shah",
-      quoteRole: "Gründer & Solutions Lead",
-      introTitle: "Vom passionierten Ingenieur zum strategischen Technologiepartner",
-      introP1: "Mit über 15 Jahren praxiserprobter Erfahrung im Bereich Software- und Systemarchitektur gründete Kabeer Shah Nordible Technologies mit einem klaren Leitsatz: Technologie muss stets messbare geschäftliche Resultate durch verlässliche menschliche Partnerschaften schaffen.",
-      introP2: "Nachdem er geschäftskritische Systeme für Fortune-500-Gesundheitsunternehmen wie GE Healthcare und Baxter/Vantive entworfen und Teams bei Fintech-Unicorns wie Nium Inc. (Instarem) geleitet hat, vereint Kabeer tiefes Fachwissen – von regulatorischer Compliance (PCI-DSS, HIPAA) bis hin zu strategischer Führung.",
+      quoteRole: "Tech Leader & Gründer",
+      introTitle: "Vom passionierten Entwickler zum strategischen Technologiepartner",
+      introP1: "Mit über 13 Jahren praxiserprobter Erfahrung im Bereich Software- und Technologielösungen gründete Kabeer Shah Nordible Technologies mit einem klaren Leitsatz: Technologie muss stets messbare geschäftliche Resultate durch verlässliche menschliche Partnerschaften schaffen.",
+      introP2: "Nachdem er geschäftskritische Systeme für globale Gesundheitsunternehmen wie GE Healthcare, Baxter/Vantive und Nipro entworfen und Tech-Teams bei Fintech-Unicorns wie Nium Inc. (Instarem) geleitet hat, vereint Kabeer tiefes Fachwissen – von regulatorischer Compliance (PCI-DSS, HIPAA) bis hin zu strategischer Führung.",
       introP3: "Anders als bei anonymen Agenturen mit vielen Zwischenebenen führt Kabeer die strategische Beratung, Konzeption und architektonische Umsetzung persönlich – für eine direkte Kommunikation ohne Reibungsverluste und 100% Verbindlichkeit.",
       milestonesTitle: "Berufliche Meilensteine & Technische Führung",
       milestonesSubtitle: "Eine nachweisbare Erfolgsbilanz bei der Entwicklung skalierbarer Systeme in internationalen Branchen.",
       milestones: [
         {
-          period: "Enterprise Healthcare",
-          role: "Tech Lead / Engineering Manager",
-          company: "Quest Global (GE Healthcare & Baxter/Vantive)",
-          description: "Entwicklung geschäftskritischer Systeme für GE Healthcare (OncoCare-Plattform) und Baxter/Vantive (RST AWS IoT-Diagnostik) unter strenger Einhaltung von FDA- und HIPAA-Standards.",
-          tags: ["GE Healthcare", "Baxter / Vantive", "AWS IoT", "HIPAA Compliance"]
+          period: "Mai 2023 – Juni 2026",
+          role: "Technical Lead / Engineering Manager",
+          company: "Quest Global (GE Healthcare, Baxter/Vantive & Nipro)",
+          description: "Leitung der Softwareentwicklung und Architekturstrategie für weltweit führende MedTech- und Gesundheitsunternehmen.",
+          highlights: [
+            "Architektur der OncoCare-Entscheidungsunterstützungsplattform für GE Healthcare zur Aggregation komplexer onkologischer Patientendaten.",
+            "Leitung der Backend-Strategie für das Remote Service Tool (RST) von Baxter/Vantive mit AWS IoT und Lambda zur Fernwartung von Medizingeräten.",
+            "Steuerung des SDLC für geschäftskritische Medizinprodukte-Supportsysteme für Nipro unter strengen FDA- und HIPAA-Vorgaben.",
+            "Einführung standardisierter Checklisten-Prozesse zur Minimierung von Deployment-Fehlern."
+          ],
+          tags: ["GE Healthcare", "Baxter / Vantive", "Nipro", "AWS IoT & Lambda", "HIPAA-Compliance", "Medizingeräte"]
         },
         {
-          period: "Fintech Unicorn",
-          role: "Engineering Lead / Interim Head of Engineering",
-          company: "Nium Inc. (Instarem)",
-          description: "Aufbau und Leitung von 18+ Ingenieuren, API-Großintegrationen (PhonePe), PCI-DSS Level 1 Sicherheitsaudits und internationale Transaktionsabwicklung.",
-          tags: ["Fintech Unicorn", "PCI-DSS Level 1", "18+ Teamleitung", "Hochvolumen-APIs"]
-        },
-        {
-          period: "Digitale Medien & Skalierung",
+          period: "August 2020 – März 2023",
           role: "Lead Senior Software Engineer (SDE-3)",
           company: "The Parent Inc. (TickledMedia)",
-          description: "Architektur von Microservices und Micro-Frontends für die Parents.VIP-Plattform mit Millionen aktiven Nutzern.",
-          tags: ["Microservices", "Micro-Frontends", "Datenbank-Migrationen", "High Concurrency"]
+          description: "Verantwortung für Plattformarchitektur, Microservices-Migration und Daten-Governance für hochfrequentierte Medien- und Influencer-Plattformen.",
+          highlights: [
+            "Leitung der Umstellung auf Microservices und Micro-Frontends für die Flaggschiff-Plattform 'Parents.VIP'.",
+            "Einführung von Sqitch für strukturiertes Datenbank-Change-Management zur Beseitigung von Deployment-Engpässen.",
+            "End-to-End-Stack-Verantwortung (Node.js, AWS, Python, Redis) für Marketing- und Content-Management-Systeme.",
+            "Etablierung einer Qualitätskultur mit TDD, automatisierten CI/CD-Pipelines und Code-Reviews."
+          ],
+          tags: ["Microservices", "Micro-Frontends", "Sqitch", "Redis", "Python", "Node.js", "CI/CD"]
         },
         {
-          period: "KI & Innovation",
-          role: "Senior AI / Full-Stack Engineer & Co-Founder",
-          company: "SmarTek21 & NerdsPal",
-          description: "Entwicklung der SmartbotHub NLP-Chatbot-Plattform (Best Performer Award) und Aufbau interaktiver EdTech-Systeme.",
-          tags: ["NLP Chatbots", "KI-Systeme", "Cloud-Architektur"]
+          period: "September 2018 – März 2020",
+          role: "Engineering Lead / Interim Head of Engineering",
+          company: "Nium Inc. (Instarem) — Globales Fintech-Unicorn",
+          description: "Führung der crossfunktionalen Entwicklungsabteilung und Compliance für ein weltweit führendes Fintech-Unicorn im Remittance-Sektor.",
+          highlights: [
+            "Aufbau und Leitung eines 18-köpfigen Entwicklerteams (Mobile, Frontend, Backend, QA).",
+            "Technische Leitung der PCI-DSS-Audits zur Sicherstellung höchster globaler Finanzsicherheitsstandards.",
+            "Architektur strategischer API-Großintegrationen mit Finanzpartnern wie PhonePe; Auszeichnung mit dem 'Best Team Award'.",
+            "Vollständige Implementierung der Agile-Scrum-Methodik von Grund auf."
+          ],
+          tags: ["Fintech Unicorn", "PCI-DSS Level 1", "18+ Teamleitung", "PhonePe API", "Agile Scrum"]
+        },
+        {
+          period: "März 2017 – August 2018",
+          role: "Senior Full Stack Engineer",
+          company: "SmarTek21",
+          description: "Entwicklung von Enterprise-Conversational-AI und Chatbot-Lösungen auf Basis natürlicher Sprachverarbeitung (NLP).",
+          highlights: [
+            "Full-Stack-Entwicklung für 'SmartbotHub', eine NLP-gestützte KI-Chatbot-Plattform für Großkunden.",
+            "Auszeichnung mit dem 'Best Performer Award' für herausragende Lieferqualität mit Node.js und Angular.js."
+          ],
+          tags: ["Enterprise KI", "NLP Chatbots", "SmartbotHub", "Node.js", "Angular.js"]
+        },
+        {
+          period: "Juni 2015 – März 2017",
+          role: "Co-Founder & CTO",
+          company: "NerdsPal.com",
+          description: "Bootstrapping einer interaktiven Q&A-EdTech-Plattform von Null bis zur internationalen Nutzung.",
+          highlights: [
+            "Entwicklung und Skalierung der Cloud-Infrastruktur auf der Google Cloud Platform.",
+            "Umsetzung von Monetarisierungs- und Wachstumsstrategien über zielgerichtete Google Ads Kampagnen."
+          ],
+          tags: ["Co-Founder & CTO", "EdTech Startup", "Google Cloud", "Bootstrapping", "Produktvision"]
+        },
+        {
+          period: "April 2012 – März 2016",
+          role: "Software Engineer",
+          company: "Next Service HSS Pvt. Ltd.",
+          description: "Entwicklung interner Prozessautomatisierungen sowie technische Schulung und Mentoring von Entwicklerteams.",
+          highlights: [
+            "Entwicklung von 'NextAuto', einer internen Prozessautomatisierungssuite in C#, .NET und Node.js zur Eliminierung manueller Schritte.",
+            "Technischer Mentor und Schnittstelle zur Geschäftsführung für operative Prozessoptimierung.",
+            "Ausgezeichnet mit dem 'Best Performer Award' für Automatisierungserfolge."
+          ],
+          tags: ["Prozessautomatisierung", "NextAuto", "C# / .NET", "Node.js", "Technisches Mentoring"]
         }
       ],
       valuesTitle: "Unsere Handlungsprinzipien",
@@ -736,6 +857,21 @@ export const translations: Record<Language, Translations> = {
       privacy: "Datenschutzerklärung",
       terms: "Impressum & AGB",
       rights: "Alle Rechte vorbehalten."
+    },
+    notFound: {
+      badge: "Fehler 404",
+      title: "Seite nicht gefunden",
+      description: "Die gesuchte Seite wurde möglicherweise verschoben, umbenannt oder ist vorübergehend nicht verfügbar. Wir bringen Sie wieder auf Kurs.",
+      backHome: "Zur Startseite",
+      exploreServices: "Leistungen ansehen",
+      quickLinksTitle: "Schnelleinstiege",
+      links: {
+        services: "Lösungen & Architektur",
+        founderStory: "Gründer-Story",
+        investmentModels: "Investitionsmodelle",
+        blog: "Tech-Einblicke",
+        contact: "Kontakt aufnehmen"
+      }
     }
   }
 };

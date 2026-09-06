@@ -2,27 +2,28 @@ export const knowledgeBase = {
   personal: {
     name: "Nordible Technologies",
     founder: "Kabeer Shah",
-    title: "Engineering Leader | Cloud Strategist | Architect",
+    title: "Tech Leader & Solutions Architect",
     company: {
       name: "Nordible Technologies",
-      tagline: "The AI-Native Engineering Agency",
+      tagline: "The AI-Native Tech Solutions Partner",
       address: "Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
       phone: "+49 152 35850031",
       email: "kabeer@nordible.co",
       generalEmail: "mail@nordible.co",
       pitchDeckUrl: "/nordible-pitch-deck.pdf"
     },
-    summary: "Nordible Technologies is an AI-native engineering and growth agency founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise systems architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
+    summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 13+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },
   
   founder: {
     name: "Kabeer Shah",
-    role: "Founder & Principal Architect",
-    experienceYears: "15+",
-    bio: "Results-oriented Engineering Leader with 15+ years of experience building and scaling high-performance engineering teams. Proven track record in orchestrating end-to-end technology solutions for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing engineering operations.",
+    role: "Tech Leader & Solutions Architect",
+    experienceYears: "13+",
+    bio: "Results-oriented Tech Leader with over 13 years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing tech operations for cost and speed.",
     linkedin: "https://www.linkedin.com/in/meetkabeershah/",
     github: "https://github.com/skbr1234",
-    certifications: ["AWS Certified Cloud Practitioner (Valid through 2027)", "B.Sc. IT – Mumbai University (Grade A)"],
+    email: "meetkabeershah@gmail.com",
+    certifications: ["AWS Certified Cloud Practitioner (Valid through April 2027)", "B.Sc. (Information Technology) – Mumbai University (Grade A)"],
     thoughtLeadership: [
       "Top Stack Overflow contributor with ~32k reputation, impacting millions of developers worldwide",
       "Published author on Medium, Chatbots Magazine, and HackerNoon",
@@ -144,7 +145,7 @@ export const knowledgeBase = {
   ],
 
   services: [
-    "AI-Native Product Engineering from Strategy to Deployment",
+    "AI-Native Product Tech & Solutions from Strategy to Deployment",
     "AI-Accelerated MVP Development (Web & Mobile Apps in 3–4 weeks)",
     "Agentic Cloud & Systems Architecture (Microservices, AWS, Compliance)",
     "AI-Native Business Email & Secure Communications",

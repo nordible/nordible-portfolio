@@ -26,6 +26,7 @@ import CompanyProfilePage from './components/CompanyProfilePage';
 import WhyChooseUsPage from './components/WhyChooseUsPage';
 import FloatingCTA from './components/FloatingCTA';
 import DocsReaderPage from './components/DocsReaderPage';
+import NotFoundPage from './components/NotFoundPage';
 
 function HomePage() {
   return (
@@ -161,6 +162,16 @@ function WhyChooseUsRoute() {
   );
 }
 
+function NotFoundRoute() {
+  return (
+    <>
+      <Header />
+      <NotFoundPage />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
@@ -182,6 +193,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/portal" element={<DocsReaderPage />} />
+            <Route path="*" element={<NotFoundRoute />} />
           </Routes>
           <FloatingCTA />
         </div>

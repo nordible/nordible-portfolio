@@ -17,7 +17,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
       duration: '2-4 weeks',
       description: language === 'de' 
         ? 'Schnelle Entwicklung von Prototypen und marktreifen Kernprodukten. Exakt auf Ihr Budget und Ihre funktionalen Anforderungen zugeschnitten.'
-        : 'Rapid engineering for high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
+        : 'Rapid development of high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
       features: language === 'de' ? [
         'Detaillierte Anforderungs- & Architekturanalyse',
         'Wissenschaftsbasiertes UX-Design',

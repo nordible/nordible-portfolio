@@ -115,7 +115,7 @@ export default function AIChat() {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium max-w-xl mx-auto">
-            Get instant answers about our services, products, and engineering expertise.
+            Get instant answers about our services, products, and tech solutions.
           </p>
         </div>
 
@@ -209,7 +209,7 @@ export default function AIChat() {
             
             <div className="text-center mb-10 relative z-10">
               <h3 className="text-2xl font-extrabold mb-2 font-heading">Start a Human Conversation</h3>
-              <p className="text-blue-200 text-sm font-bold uppercase tracking-widest">Your inquiry requires specialized engineering expertise</p>
+              <p className="text-blue-200 text-sm font-bold uppercase tracking-widest">Your inquiry requires specialized tech expertise</p>
             </div>
 
             <form onSubmit={handleContactSubmit} className="space-y-6 relative z-10">

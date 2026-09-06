@@ -36,7 +36,7 @@ export default function TermsOfService() {
                   We provide specialized technology solutions and enterprise platform development services including:
                 </p>
                 <ul className="grid md:grid-cols-2 gap-4 list-none p-0">
-                  {['Web & Mobile Systems', 'Product Engineering', 'Enterprise Platforms', 'Architectural Consulting'].map((item, i) => (
+                  {['Web & Mobile Systems', 'Product Development', 'Enterprise Platforms', 'Architectural Consulting'].map((item, i) => (
                     <li key={i} className="bg-nordible-bg dark:bg-gray-800 p-4 rounded-xl border border-nordible-border dark:border-gray-700 text-sm font-bold text-gray-600 dark:text-gray-300 flex items-center">
                        <span className="w-2 h-2 rounded-full bg-nordible-blue mr-3"></span>
                        {item}

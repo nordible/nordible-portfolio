@@ -10,7 +10,7 @@ export default function Pricing() {
     {
       name: 'Rapid MVP',
       duration: '2-4 weeks',
-      description: 'Rapid engineering for high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
+      description: 'Rapid development of high-impact prototypes and core products. Tailored to your specific budget and functional requirements.',
       features: [
         'Requirements & Architecture Discovery',
         'Science-Backed UX Core',
