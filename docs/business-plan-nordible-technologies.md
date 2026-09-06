@@ -82,7 +82,11 @@ Traditional software consultancies in Germany charge €180–€280/hour while 
 
 ---
 
-## 5. Capital Requirements Plan (*Kapitalbedarfsplan*)
+## 5. Financial Plan & Revenue Forecast (*Finanzplan & Ertragsvorschau*)
+
+*A multi-year projection detailing startup costs, operating expenses, and expected income.*
+
+### 5.1 Capital Requirements Plan & Startup Costs (*Kapitalbedarfsplan*)
 
 The business model is designed with extreme capital efficiency ("asset-light"), requiring low startup capital while achieving immediate cash-flow generation.
 
@@ -99,7 +103,7 @@ The business model is designed with extreme capital efficiency ("asset-light"), 
 
 ---
 
-## 6. Financing Plan (*Finanzierungsplan*)
+### 5.2 Financing Plan (*Finanzierungsplan*)
 
 The entire capital requirement is covered 100% through verified equity and active client cash flow. No external debt or bank credit is required.
 
@@ -114,7 +118,7 @@ The entire capital requirement is covered 100% through verified equity and activ
 
 ---
 
-## 7. 12-Month Liquidity Forecast - Year 1 (*Liquiditätsplan*)
+### 5.3 12-Month Liquidity Forecast - Year 1 (*Liquiditätsplan*)
 
 *All values in Euro (€). Demonstrates continuous positive cash flow and positive bank balances across all 12 months of Year 1.*
 
@@ -138,7 +142,7 @@ The entire capital requirement is covered 100% through verified equity and activ
 
 ---
 
-## 8. 3-Year Profit & Loss Projections (*Ertragsvorschau*)
+### 5.4 3-Year Profit & Loss Projections (*Ertragsvorschau*)
 
 | Metric | Year 1 (€) | Year 2 (€) | Year 3 (€) |
 | :--- | :--- | :--- | :--- |
@@ -159,7 +163,7 @@ Year 1 monthly net income of **~€4,558** more than triples the minimum subsist
 
 ---
 
-## 9. Statutory Assessment under § 21 AufenthG
+## 6. Statutory Assessment under § 21 AufenthG
 
 1. **Economic Interest (*Wirtschaftliches Interesse*):** High regional demand for elite software systems and digital automation in the Frankfurt financial and technology hub.
 2. **Positive Economic Impact (*Positive wirtschaftliche Auswirkungen*):** Introduction of AI-native software delivery methods, local corporate tax contributions, and collaboration with regional businesses.
