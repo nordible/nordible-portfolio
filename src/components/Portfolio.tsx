@@ -56,10 +56,10 @@ const projects = [
   },
   {
     id: 'oncocare',
-    title: 'OncoCare Platform',
+    title: 'CareIntellect Platform',
     client: 'General Electric',
     logo: '/images/logos/GeneralElectric_logo.svg',
-    link: 'https://www.gehealthcare.com/specialties/oncology-solutions/oncocare',
+    link: 'https://www.gehealthcare.com/en/products/software/careintellect',
     description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
     technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
     outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',

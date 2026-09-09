@@ -101,7 +101,7 @@ export const knowledgeBase = {
       technologies: ["Node.js", "React.js", "PostgreSQL", "Mocha", "AWS"]
     },
     {
-      name: "OncoCare Platform", 
+      name: "CareIntellect Platform (GE Healthcare)", 
       client: "General Electric",
       description: "Comprehensive oncology care assistant platform for clinicians to manage patient data.",
       outcome: "Improved patient care coordination by 40% and reduced data processing time by 60%",
