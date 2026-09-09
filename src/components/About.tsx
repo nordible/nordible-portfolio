@@ -23,7 +23,7 @@ export default function About() {
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed mb-6">
             {isDe
               ? 'Nordible Technologies ist ein KI-nativer Business-Technologiepartner mit Sitz in Frankfurt am Main. Wir stärken Unternehmen durch Technologie – von skalierbaren Technologielösungen und Cloud-Architekturen bis hin zu zielgerichtetem Social-Media-Kanalmanagement. Mit über 13 Jahren Praxiserfahrung verbinden wir deutsche Ingenieurspräzision mit KI-gestützter Umsetzungsgeschwindigkeit, um komplexe Herausforderungen in messbaren Geschäftserfolg zu verwandeln.'
-              : 'Nordible Technologies is an AI-native business technology partner based in Frankfurt am Main. We empower businesses with tech—delivering scalable technology solutions, resilient cloud platforms, and data-driven social media channel management. Led by a 13-year veteran tech leader and cloud architect, we pair technical precision with autonomous AI workflows to turn technical complexity into measurable commercial advantage.'}
+              : 'Nordible Technologies is an AI-native business technology partner based in Frankfurt am Main. We empower businesses with tech—delivering scalable technology solutions, resilient cloud platforms, and data-driven social media channel management. Led by a 15+ year veteran tech leader and cloud architect, we pair technical precision with autonomous AI workflows to turn technical complexity into measurable commercial advantage.'}
           </p>
 
           {/* Highlights */}
