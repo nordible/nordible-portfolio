@@ -174,6 +174,7 @@ export interface Translations {
     submitButton: string;
     submittingButton: string;
     privacyNotice: string;
+    languageNotice: string;
   };
   footer: {
     tagline: string;
@@ -231,7 +232,7 @@ export const translations: Record<Language, Translations> = {
       title: "Proven Results Across Industries",
       subtitle: "",
       stats: [
-        { number: "13+", label: "Years Experience", description: "Battle-tested leadership" },
+        { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
         { number: "50+", label: "Solutions Delivered", description: "Across web, mobile & cloud" },
         { number: "1M+", label: "Users Served", description: "Across global platforms" },
         { number: "24h", label: "Response Time", description: "Rapid Direct Sync" },
@@ -285,8 +286,8 @@ export const translations: Record<Language, Translations> = {
         },
         {
           title: "Proven Track Record",
-          description: "13+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
-          metric: "13+ Yrs Depth"
+          description: "15+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
+          metric: "15+ Yrs Depth"
         },
         {
           title: "Complete Accountability",
@@ -372,8 +373,8 @@ export const translations: Record<Language, Translations> = {
       title: "AI-Native Business Technology",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies empowers businesses with tech. Operating as an AI-native business technology partner, we deliver production-grade technology solutions, resilient cloud architectures, and high-impact social media channel management that drive measurable revenue.",
-      desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 13+ years of senior tech architecture with autonomous AI workflows.",
-      stat1Number: "13+",
+      desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 15+ years of senior tech architecture with autonomous AI workflows.",
+      stat1Number: "15+",
       stat1Label: "Years Experience",
       stat2Number: "50+",
       stat2Label: "Solutions Shipped",
@@ -384,14 +385,14 @@ export const translations: Record<Language, Translations> = {
       ],
       founderStoryLinkBadge: "MEET THE FOUNDER",
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
-      founderStoryLinkDesc: "From 13+ years leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
+      founderStoryLinkDesc: "From 15+ years leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
       founderStoryLinkButton: "Read Founder's Journey →"
     },
     founderPage: {
       backToHome: "Back to Home",
       badge: "THE FOUNDER'S JOURNEY",
       title: "Direct Leadership, Architectural Rigor & Strategic Partnership",
-      subtitle: "13+ years of tech leadership, hands-on business discovery, and mission-critical cloud scaling.",
+      subtitle: "15+ years of tech leadership, hands-on business discovery, and mission-critical cloud scaling.",
       quote: "“The best technology solutions aren’t built in isolation—they are born from listening deeply to business challenges and building with care and precision.”",
       quoteAuthor: "Kabeer Shah",
       quoteRole: "Tech Leader & Founder",
@@ -509,7 +510,8 @@ export const translations: Record<Language, Translations> = {
       briefPlaceholder: "Tell us about your goals, timelines, and technical requirements...",
       submitButton: "Send Message",
       submittingButton: "Sending Request...",
-      privacyNotice: "We value your privacy. Your data is never shared with third parties."
+      privacyNotice: "We value your privacy. Your data is never shared with third parties.",
+      languageNotice: "We currently consult primarily in English while actively learning German — inquiries in German or English are warmly welcome!"
     },
     footer: {
       tagline: "A specialized technology solutions partner dedicated to architecting high-performance systems. We build high-impact technology solutions for businesses globally.",
@@ -565,7 +567,7 @@ export const translations: Record<Language, Translations> = {
       title: "Erprobte Ergebnisse für wachsende Unternehmen",
       subtitle: "",
       stats: [
-        { number: "13+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
+        { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
         { number: "50+", label: "Realisierte Lösungen", description: "Web, Mobile & Cloud-Systeme" },
         { number: "1M+", label: "Nutzer Erreicht", description: "Auf weltweiten Plattformen" },
         { number: "24h", label: "Reaktionszeit", description: "Schnelle direkte Abstimmung" },
@@ -620,7 +622,7 @@ export const translations: Record<Language, Translations> = {
         {
           title: "Langjährige Praxiserfahrung",
           description: "Über 13 Jahre Erfahrung im Aufbau erfolgreicher digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
-          metric: "13+ Jahre Tiefe"
+          metric: "15+ Jahre Tiefe"
         },
         {
           title: "Volle Verantwortung",
@@ -706,8 +708,8 @@ export const translations: Record<Language, Translations> = {
       title: "KI-nativer Business-Technologie",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies stärkt Unternehmen durch Technologie. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, ausfallsichere Cloud-Architekturen und zielgerichtetes Social-Media-Kanalmanagement für nachhaltiges Geschäftswachstum.",
-      desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 13+ Jahren Senior-Tech-Architektur mit autonomen KI-Workflows.",
-      stat1Number: "13+",
+      desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 15+ Jahren Senior-Tech-Architektur mit autonomen KI-Workflows.",
+      stat1Number: "15+",
       stat1Label: "Jahre Erfahrung",
       stat2Number: "50+",
       stat2Label: "Lösungen Realisiert",
@@ -843,7 +845,8 @@ export const translations: Record<Language, Translations> = {
       briefPlaceholder: "Erzählen Sie uns von Ihren Zielen, Zeitplänen und technischen Anforderungen...",
       submitButton: "Nachricht senden",
       submittingButton: "Wird gesendet...",
-      privacyNotice: "Wir schätzen Ihre Privatsphäre. Ihre Daten werden niemals an Dritte weitergegeben."
+      privacyNotice: "Wir schätzen Ihre Privatsphäre. Ihre Daten werden niemals an Dritte weitergegeben.",
+      languageNotice: "Wir beraten derzeit vorrangig auf Englisch und lernen aktiv Deutsch – Anfragen auf Deutsch oder Englisch sind herzlich willkommen!"
     },
     footer: {
       tagline: "Ein spezialisierter Technologiepartner für hochperformante Systeme. Wir entwickeln wirkungsvolle Technologielösungen für Unternehmen weltweit.",

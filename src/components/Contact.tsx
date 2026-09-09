@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, CheckCircle2, Send, Sparkles } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, CheckCircle2, Send, Sparkles, Languages } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
@@ -135,6 +135,12 @@ export default function Contact() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Language Transparency Trust Note */}
+        <div className="mb-10 max-w-3xl mx-auto px-4 py-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-800/40 flex items-center justify-center gap-2.5 text-center text-xs text-blue-900 dark:text-blue-200 font-medium shadow-sm">
+          <Languages className="h-4 w-4 text-nordible-blue dark:text-blue-400 shrink-0" />
+          <span>{c.languageNotice}</span>
         </div>
 
         {/* Dual Conversion Tracks: Direct Channels (Left) & In-Page Brief Form (Right) */}

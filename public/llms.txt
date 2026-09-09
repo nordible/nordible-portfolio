@@ -15,13 +15,11 @@
 - [Book Architecture Consultation](https://nordible.co/#consultation): Direct 1-on-1 scope, feasibility, and technical roadmap consultation with founder Kabeer Shah.
 
 ## Core Capabilities
-
-- **Rapid MVP Development**: Turn concept into production-ready cross-platform software within 4 to 8 weeks.
-- **Enterprise Platform Architecture**: Scalable, high-throughput microservices, API topologies, and event-driven backends.
-- **Cross-Platform Mobile Apps**: Native-performance React Native and React.js applications for iOS, Android, and Web.
-- **Digital Marketing & Social Media Management**: End-to-end social media channel management, performance advertising, conversion rate optimization (CRO), and Generative Engine Optimization (GEO).
-- **AI Systems & Workflow Automation**: Generative AI, Google Gemini / OpenAI integrations, NLP chatbots, and internal pipeline automations.
-- **Professional Business Email**: Hosted secure corporate email infrastructure at `https://email.nordible.co/`.
+ 
+- **Digital Marketing & Social Media Management**: Multi-channel management, performance advertising, AI Search & Google visibility (GEO), and brand engagement.
+- **Technology Solutions**: Custom web and mobile apps, scalable software architectures, and modern digital portals with 100% code ownership.
+- **Business Systems & Automation**: Workflow and process automation, tool integrations, custom dashboards, and operational time savings.
+- **Business Email & Setup**: Hosted secure corporate email infrastructure (`you@yourcompany.com`), custom domains, and spam defense at `https://email.nordible.co/`.
 
 ## Direct Contact Information
 

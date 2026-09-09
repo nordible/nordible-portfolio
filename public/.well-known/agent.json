@@ -19,14 +19,12 @@
     "terms": "https://nordible.co/terms"
   },
   "capabilities": [
-    "rapid_mvp_development",
-    "enterprise_platform_architecture",
-    "cross_platform_mobile_development",
-    "cloud_infrastructure_aws",
-    "regulatory_compliance_pci_dss_hipaa",
-    "ai_systems_and_automation",
     "digital_marketing_and_social_media_management",
-    "technical_architecture_audit"
+    "technology_solutions_web_and_mobile",
+    "business_systems_and_automation",
+    "business_email_and_setup",
+    "generative_engine_optimization_geo",
+    "enterprise_software_architecture"
   ],
   "actions": [
     {

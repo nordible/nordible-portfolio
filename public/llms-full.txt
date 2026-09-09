@@ -39,28 +39,27 @@
 
 ## 3. Core Services & Capabilities
 
-### Rapid MVP Development (Concept to Production in 4–8 Weeks)
-- Full-stack rapid prototyping and commercial architecture.
-- Science-backed UI/UX with focus on user psychology and friction elimination.
-- Cross-platform reach using React Native (iOS & Android) and React.js (Web).
-- Scalable cloud foundations (AWS, Node.js, PostgreSQL) built to transition smoothly into Series-A scale without rewrites.
+### 1. Digital Marketing & Social Media Management
+- End-to-end social media channel management and authority building across LinkedIn, Instagram, YouTube, and X.
+- Paid advertising campaigns and conversion rate optimization (CRO) to drive qualified inbound leads.
+- Generative Engine Optimization (GEO): Engineering brand authority for discoverability and direct citations by AI search engines (ChatGPT Search, Google Gemini, Perplexity).
+- Content production, community management, and consistent digital brand growth.
 
-### Enterprise Platform Engineering & Modernization
-- Decoupling monolithic legacy codebases into high-throughput microservices or modular monoliths.
-- Event-driven topologies, real-time WebSockets, and distributed asynchronous task queues.
-- High-concurrency database design, zero-downtime database migrations (Sqitch, Prisma, PostgreSQL).
-- Cloud-native infrastructure provisioning on AWS (Lambda, ECS, S3, RDS, CloudFront).
+### 2. Technology Solutions
+- Bespoke web and mobile application development (iOS, Android, React Native, React.js).
+- Modern, fast web portals, dashboards, and enterprise-grade software architectures.
+- Resilient cloud foundations (AWS, Node.js, PostgreSQL) built for high throughput and security.
+- 100% intellectual property ownership from Day 1 with zero agency lock-in.
 
-### Regulatory Compliance, Security & DevOps
-- **Fintech Standards**: PCI-DSS Level 1 architecture, encryption at rest/transit, tokenization, audit logging.
-- **Healthcare Standards**: HIPAA compliance, FDA data integrity, robust RBAC, and secure audit trails.
-- **Automated Quality**: Test-Driven Development (TDD), Jest, integration testing suites, GitHub Actions CI/CD.
+### 3. Business Systems & Automation
+- Workflow automation and tool integrations (CRM, payment gateways, ERP, email pipelines) to eliminate manual tasks.
+- Custom operational dashboards and internal business portals.
+- AI workflow automations and intelligent process optimization saving substantial operating hours.
 
-### Digital Marketing & Social Media Channel Management
-- Full-funnel digital marketing and brand authority building across LinkedIn, Instagram, YouTube, and X (Twitter).
-- Paid acquisition campaigns and performance marketing with continuous conversion rate optimization (CRO).
-- Multi-channel content creation, social calendar scheduling, and audience community management.
-- Generative Engine Optimization (GEO): Architecting brand authority for discoverability and citation by LLM answer engines (Perplexity, ChatGPT Search, Google SGE).
+### 4. Business Email & Setup
+- Secure corporate email infrastructure (`you@yourcompany.com`) at `https://email.nordible.co/`.
+- Custom branded domains, advanced anti-spam, DKIM/SPF/DMARC configuration, and seamless migration.
+- 24/7 reliable setup and enterprise data security.
 
 ---
 

@@ -12,13 +12,13 @@ export const knowledgeBase = {
       generalEmail: "mail@nordible.co",
       pitchDeckUrl: "/nordible-pitch-deck.pdf"
     },
-    summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 13+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
+    summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },
   
   founder: {
     name: "Kabeer Shah",
     role: "Tech Leader & Solutions Architect",
-    experienceYears: "13+",
+    experienceYears: "15+",
     bio: "Results-oriented Tech Leader with over 13 years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing tech operations for cost and speed.",
     linkedin: "https://www.linkedin.com/in/meetkabeershah/",
     github: "https://github.com/skbr1234",
@@ -145,11 +145,9 @@ export const knowledgeBase = {
   ],
 
   services: [
-    "AI-Native Product Tech & Solutions from Strategy to Deployment",
-    "AI-Accelerated MVP Development (Web & Mobile Apps in 3–4 weeks)",
-    "Agentic Cloud & Systems Architecture (Microservices, AWS, Compliance)",
-    "AI-Native Business Email & Secure Communications",
-    "AI Digital Marketing & Social Media Channel Management",
-    "Generative Engine Optimization (GEO) & AI Search Visibility"
+    "Digital Marketing & Social Media Management (Channel Management, GEO, Paid Ads & Brand Growth)",
+    "Technology Solutions (Custom Web & Mobile Apps, Modern Portals, 100% Code Ownership)",
+    "Business Systems & Automation (Workflow Automation, Tool Integrations & Operational Efficiency)",
+    "Business Email & Setup (Custom Branded Domains, Spam Defense & Secure Corporate Email)"
   ]
 };
