@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function About() {
-  const { language } = useLanguage();
+  const { language, getPath } = useLanguage();
   const isDe = language === 'de';
 
   return (
@@ -51,7 +51,7 @@ export default function About() {
                 <Building2 className="h-4 w-4" />
               </div>
               <span className="text-xs sm:text-sm font-semibold text-nordible-dark dark:text-gray-200">
-                {isDe ? 'Technologielösungen & Social Media' : 'Tech Solutions & Social Media'}
+                {isDe ? 'Technologie, KI, Social Media & Video' : 'Technology, AI, Social Media & Video'}
               </span>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function About() {
           {/* CTA Link Button */}
           <div className="pt-4 flex justify-center">
             <Link
-              to="/company-profile"
+              to={getPath('/company-profile')}
               className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
             >
               <span>{isDe ? 'Vollständiges Unternehmensprofil ansehen' : 'Explore Full Company Profile'}</span>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, CheckCircle2, Send, Sparkles, Languages } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, CheckCircle2, Send, Sparkles, Languages, Calendar } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 
@@ -20,6 +20,7 @@ export default function Contact() {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const whatsappUrl = "https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.";
+  const bookingUrl = "https://calendar.app.google/N4XakE4t9zZVmHqYA";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -152,7 +153,34 @@ export default function Contact() {
               {isDe ? 'Direkter Sofortkontakt' : 'Direct Instant Channels'}
             </h3>
 
-            {/* Channel 1: WhatsApp Direct */}
+            {/* Channel 1: Google Calendar Online Booking */}
+            <div className="card-premium p-5 flex flex-col justify-between border-2 border-blue-600/30 dark:border-blue-500/40 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent dark:from-blue-950/30 shadow-md hover:border-nordible-blue transition-all rounded-2xl">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/20 shrink-0">
+                  <Calendar className="h-4 w-4" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-nordible-dark dark:text-white font-heading">
+                    {isDe ? 'Online-Termin buchen' : 'Book 1-on-1 Call'}
+                  </h4>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-medium">
+                    {isDe ? 'Google Meet • 20 Min. Erstgespräch' : 'Google Meet • 20-Min Consultation'}
+                  </div>
+                </div>
+              </div>
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full py-2 text-xs bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/20 flex items-center justify-center space-x-2 rounded-xl font-bold cursor-pointer"
+              >
+                <Calendar className="h-3.5 w-3.5" />
+                <span>{isDe ? 'Termin im Kalender wählen' : 'Pick Time on Calendar'}</span>
+                <ArrowRight className="h-3 w-3 ml-1" />
+              </a>
+            </div>
+
+            {/* Channel 2: WhatsApp Direct */}
             <div className="card-premium p-5 flex flex-col justify-between border-2 border-emerald-500/20 dark:border-emerald-500/30 bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent dark:from-emerald-950/20 shadow-md hover:border-emerald-500/40 transition-all rounded-2xl">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 shrink-0">
@@ -179,7 +207,7 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Channel 2: Phone Call */}
+            {/* Channel 3: Phone Call */}
             <div className="card-premium p-5 flex flex-col justify-between border-2 border-blue-500/20 dark:border-blue-500/30 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent dark:from-blue-950/20 shadow-md hover:border-nordible-blue/40 transition-all rounded-2xl">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-9 h-9 rounded-xl bg-nordible-blue text-white flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
@@ -204,7 +232,7 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Channel 3: Email Direct */}
+            {/* Channel 4: Email Direct */}
             <div className="card-premium p-5 flex flex-col justify-between border-2 border-indigo-500/20 dark:border-indigo-500/30 bg-gradient-to-b from-indigo-500/5 via-transparent to-transparent dark:from-indigo-950/20 shadow-md hover:border-indigo-500/40 transition-all rounded-2xl">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-500/20 shrink-0">

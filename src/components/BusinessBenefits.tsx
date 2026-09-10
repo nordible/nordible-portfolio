@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const benefitIcons = [Zap, Award, ShieldCheck, Target, CheckCircle2];
 
 export default function BusinessBenefits() {
-  const { t, language } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const bb = t.businessBenefits;
   const isDe = language === 'de';
   const [isPaused, setIsPaused] = useState(false);
@@ -115,7 +115,7 @@ export default function BusinessBenefits() {
         {/* Bottom CTA Button */}
         <div className="mt-10 text-center">
           <Link
-            to="/why-choose-us"
+            to={getPath('/why-choose-us')}
             className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
           >
             <span>{isDe ? 'Warum Nordible wählen' : 'Explore Why Choose Us'}</span>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Palette, Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, Video, Bot, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Services() {
@@ -9,8 +9,8 @@ export default function Services() {
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
-  const serviceIcons = [TrendingUp, Terminal, Palette, Mail];
-  const serviceColors = ['bg-blue-600', 'bg-indigo-600', 'bg-nordible-dark', 'bg-nordible-blue'];
+  const serviceIcons = [TrendingUp, Video, Bot, Terminal, Cpu, Mail];
+  const serviceColors = ['bg-blue-600', 'bg-purple-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-nordible-dark', 'bg-nordible-blue'];
 
   const marqueeServices = [...s.items, ...s.items];
 

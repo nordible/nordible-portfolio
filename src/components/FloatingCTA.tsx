@@ -18,9 +18,11 @@ export default function FloatingCTA() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const homePath = language === 'de' ? '/' : '/en';
+
   const handleConsultation = () => {
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== homePath) {
+      navigate(homePath);
       setTimeout(() => {
         document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);

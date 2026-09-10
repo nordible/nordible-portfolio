@@ -37,29 +37,31 @@
 
 ---
 
-## 3. Core Services & Capabilities
+## 3. Core Services & Capabilities (Leistungsübersicht)
 
-### 1. Digital Marketing & Social Media Management
-- End-to-end social media channel management and authority building across LinkedIn, Instagram, YouTube, and X.
-- Paid advertising campaigns and conversion rate optimization (CRO) to drive qualified inbound leads.
-- Generative Engine Optimization (GEO): Engineering brand authority for discoverability and direct citations by AI search engines (ChatGPT Search, Google Gemini, Perplexity).
-- Content production, community management, and consistent digital brand growth.
+### 1. Digital Marketing & Social Media Management (Digitales Marketing & Social-Media-Kanalmanagement)
+- **DE**: Ganzheitliches Social-Media-Kanalmanagement auf LinkedIn, Instagram, YouTube; Generative Engine Optimization (GEO) für direkte Empfehlungen in ChatGPT, Google & Perplexity; zielgerichtete Werbekampagnen und kontinuierlicher Markenaufbau in Frankfurt und der DACH-Region.
+- **EN**: End-to-end social media channel management and authority building across LinkedIn, Instagram, YouTube, and X; Generative Engine Optimization (GEO); paid advertising campaigns and conversion rate optimization (CRO).
 
-### 2. Technology Solutions
-- Bespoke web and mobile application development (iOS, Android, React Native, React.js).
-- Modern, fast web portals, dashboards, and enterprise-grade software architectures.
-- Resilient cloud foundations (AWS, Node.js, PostgreSQL) built for high throughput and security.
-- 100% intellectual property ownership from Day 1 with zero agency lock-in.
+### 2. Video Editing & Content Production (Videobearbeitung & Content-Produktion)
+- **DE**: Professioneller Videoschnitt für Social Media (Reels, TikToks, Shorts), Werbe- und Imagevideos, Kundenstimmen, Pitch-Präsentationen, dynamische Untertitel, Audio-Optimierung und Motion Graphics zur Steigerung der Zuschauerbindung.
+- **EN**: Professional editing for short-form social media videos, reels, TikToks, YouTube shorts, promotional videos, customer testimonials, product walkthroughs, dynamic subtitles, visual pacing, audio enhancement, and motion graphics.
 
-### 3. Business Systems & Automation
-- Workflow automation and tool integrations (CRM, payment gateways, ERP, email pipelines) to eliminate manual tasks.
-- Custom operational dashboards and internal business portals.
-- AI workflow automations and intelligent process optimization saving substantial operating hours.
+### 3. AI Agent Implementation (Implementierung von KI-Agenten)
+- **DE**: Entwicklung und Bereitstellung praxisnaher autonomer KI-Agenten für Geschäftsprozess-Automatisierung, CRM-, Datenbank- und API-Integrationen (OpenAI, Anthropic Claude, Google Gemini) sowie intelligente Support- und Vertriebs-Workflows mit Human-in-the-Loop-Kontrolle.
+- **EN**: Custom autonomous AI agents designed to execute multi-step operational workflows, intelligent tool/CRM/API integrations with LLMs (OpenAI, Anthropic Claude, Google Gemini), automated customer assistance, and internal team task automation.
 
-### 4. Business Email & Setup
-- Secure corporate email infrastructure (`you@yourcompany.com`) at `https://email.nordible.co/`.
-- Custom branded domains, advanced anti-spam, DKIM/SPF/DMARC configuration, and seamless migration.
-- 24/7 reliable setup and enterprise data security.
+### 4. Technology Solutions & Software Engineering (Technologielösungen & Softwareentwicklung)
+- **DE**: Maßgeschneiderte Web- und Mobile-App-Entwicklung (iOS, Android, React Native, React.js), moderne Kundenportale, Dashboards und skalierbare Cloud-Architekturen mit 100 % Eigentum am Code ab Tag 1 ohne Agentur-Lock-in.
+- **EN**: Bespoke web and mobile application development (iOS, Android, React Native, React.js), modern web portals, dashboards, enterprise-grade software architectures, resilient cloud foundations (AWS, Node.js, PostgreSQL), and 100% IP ownership.
+
+### 5. Business Systems & Automation (Geschäftsprozess-Automatisierung & Systeme)
+- **DE**: Vernetzung bestehender Softwarelösungen (CRM, ERP, Zahlungssysteme, E-Mail-Pipelines), Automatisierung manueller Routineaufgaben, interne Dashboards und messbare Zeiteinsparungen für Kernteams.
+- **EN**: Workflow automation and tool integrations (CRM, payment gateways, ERP, email pipelines) to eliminate manual tasks, operational dashboards, automated data pipelines, and substantial operating hour savings.
+
+### 6. Business Email & Setup (Geschäftliche E-Mail-Infrastruktur)
+- **DE**: Sichere Unternehmens-E-Mail (`ihrname@ihrunternehmen.de`) über `https://email.nordible.co/`, eigene Domains, zuverlässiger Spamschutz, DKIM/SPF/DMARC-Einrichtung und reibungslose Migration.
+- **EN**: Secure corporate email infrastructure (`you@yourcompany.com`) at `https://email.nordible.co/`, custom branded domains, advanced anti-spam, DKIM/SPF/DMARC configuration, and seamless migration.
 
 ---
 

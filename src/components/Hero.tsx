@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { t, getPath } = useLanguage();
   const navigate = useNavigate();
 
   const scrollToConsultation = () => {
@@ -44,7 +44,7 @@ export default function Hero() {
             <div 
               className="relative w-full max-w-sm flex flex-col items-center cursor-pointer group"
               onClick={() => {
-                navigate('/founder');
+                navigate(getPath('/founder'));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               title="Read Kabeer Shah's Journey"

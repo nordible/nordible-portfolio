@@ -1,4 +1,13 @@
-export type Language = 'en' | 'de';
+export const SUPPORTED_LANGUAGES = [
+  { code: 'de', label: 'Deutsch', shortLabel: 'DE' },
+  { code: 'en', label: 'English', shortLabel: 'EN' }
+] as const;
+
+export type Language = typeof SUPPORTED_LANGUAGES[number]['code'];
+export const DEFAULT_LANGUAGE: Language = 'de';
+export const NON_DEFAULT_LANGUAGES: Language[] = SUPPORTED_LANGUAGES
+  .map(l => l.code)
+  .filter((code): code is Language => code !== DEFAULT_LANGUAGE);
 
 export interface Translations {
   nav: {
@@ -257,6 +266,16 @@ export const translations: Record<Language, Translations> = {
           features: ["Social Media Channel Management", "AI Search & Google Visibility (GEO)", "Paid Campaigns & Lead Generation", "Brand Engagement & Growth"]
         },
         {
+          title: "Video Editing & Content Production",
+          description: "We edit professional videos for social media, marketing campaigns, presentations, and brand communication—clear, engaging, and tailored to your audience.",
+          features: ["Short-form Social Videos", "Reels & Promotional Videos", "Subtitles, Captions & Motion Graphics", "Brand-focused Editing"]
+        },
+        {
+          title: "AI Agent Implementation",
+          description: "We implement practical AI agents that automate workflows, support teams, connect business tools, and help companies work faster and more efficiently.",
+          features: ["Custom AI Agent Workflows", "Business Process Automation", "Tool & API Integrations", "AI Strategy and Deployment"]
+        },
+        {
           title: "Technology Solutions",
           description: "We design and build custom websites, web tools, and mobile apps tailored to your business needs—fast, reliable, and user-friendly on every device.",
           features: ["Custom Web & Mobile Apps", "Modern Websites & Portals", "Reliable & Scalable Software", "100% Code Ownership"]
@@ -372,7 +391,7 @@ export const translations: Record<Language, Translations> = {
       badge: "Company Profile",
       title: "AI-Native Business Technology",
       titleHighlight: "Partner",
-      desc1: "Nordible Technologies empowers businesses with tech. Operating as an AI-native business technology partner, we deliver production-grade technology solutions, resilient cloud architectures, and high-impact social media channel management that drive measurable revenue.",
+      desc1: "Nordible Technologies empowers businesses with technology and creative content. As an AI-native business technology partner, we deliver production-grade technology solutions, AI agent implementation, resilient cloud architectures, digital marketing, social media management, and professional video editing that drive measurable revenue.",
       desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 15+ years of senior tech architecture with autonomous AI workflows.",
       stat1Number: "15+",
       stat1Label: "Years Experience",
@@ -592,6 +611,16 @@ export const translations: Record<Language, Translations> = {
           features: ["Social-Media-Kanalmanagement", "Sichtbarkeit in Google & KI-Suche (GEO)", "Zielgerichtete Werbekampagnen", "Nachhaltiger Markenaufbau"]
         },
         {
+          title: "Videobearbeitung & Content-Produktion",
+          description: "Wir schneiden professionelle Videos für Social Media, Marketingkampagnen, Präsentationen und Ihre Markenkommunikation – klar, ansprechend und passend zu Ihrer Zielgruppe.",
+          features: ["Kurzvideos für Social Media", "Reels & Werbevideos", "Untertitel, Captions & Motion Graphics", "Markengerechter Videoschnitt"]
+        },
+        {
+          title: "Implementierung von KI-Agenten",
+          description: "Wir implementieren praxisnahe KI-Agenten, die Arbeitsabläufe automatisieren, Teams unterstützen, Geschäftstools verbinden und Ihr Unternehmen effizienter machen.",
+          features: ["Individuelle KI-Agenten-Workflows", "Automatisierung von Geschäftsprozessen", "Tool- & API-Integrationen", "KI-Strategie und Einführung"]
+        },
+        {
           title: "Technologielösungen",
           description: "Wir konzipieren und entwickeln maßgeschneiderte Websites, mobile Apps und digitale Plattformen für Ihr Unternehmen – schnell, zuverlässig und intuitiv bedienbar.",
           features: ["Individuelle Web- & Mobile-Apps", "Moderne Websites & Portale", "Ausfallsichere Software", "100 % Eigentum am Code"]
@@ -707,7 +736,7 @@ export const translations: Record<Language, Translations> = {
       badge: "Unternehmensprofil",
       title: "KI-nativer Business-Technologie",
       titleHighlight: "Partner",
-      desc1: "Nordible Technologies stärkt Unternehmen durch Technologie. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, ausfallsichere Cloud-Architekturen und zielgerichtetes Social-Media-Kanalmanagement für nachhaltiges Geschäftswachstum.",
+      desc1: "Nordible Technologies stärkt Unternehmen durch Technologie und kreative Inhalte. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, die Implementierung von KI-Agenten, ausfallsichere Cloud-Architekturen, digitales Marketing, Social-Media-Management und professionelle Videobearbeitung für nachhaltiges Geschäftswachstum.",
       desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 15+ Jahren Senior-Tech-Architektur mit autonomen KI-Workflows.",
       stat1Number: "15+",
       stat1Label: "Jahre Erfahrung",

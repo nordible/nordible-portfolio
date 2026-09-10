@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
-  const { t, language } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const f = t.footer;
   const navigate = useNavigate();
 
@@ -63,14 +63,16 @@ export default function Footer() {
           <div>
             <h3 className="text-[11px] font-bold text-blue-300 mb-4 uppercase tracking-widest">{f.expertiseTitle}</h3>
             <ul className="space-y-2.5 text-xs font-medium">
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Technology Solutions</a></li>
-              <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">Enterprise Platforms</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Technologielösungen & Apps' : 'Technology Solutions & Apps'}</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Videobearbeitung & Produktion' : 'Video Editing & Production'}</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'KI-Agenten-Implementierung' : 'AI Agent Implementation'}</a></li>
               <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</a></li>
-              <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">Product Portfolio</a></li>
+              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Geschäftsprozess-Automatisierung' : 'Business Systems & Automation'}</a></li>
+              <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email & Setup</a></li>
+              <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Projekt-Portfolio' : 'Product Portfolio'}</a></li>
               <li>
                 <Link 
-                  to="/blog" 
+                  to={getPath('/blog')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   Insights & Blog
@@ -84,7 +86,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs font-medium">
               <li>
                 <Link 
-                  to="/company-profile" 
+                  to={getPath('/company-profile')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   {language === 'de' ? 'Unternehmensprofil' : 'Company Profile'}
@@ -92,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/why-choose-us" 
+                  to={getPath('/why-choose-us')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   {language === 'de' ? 'Warum Nordible' : 'Why Choose Us'}
@@ -101,7 +103,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => {
-                    navigate('/founder');
+                    navigate(getPath('/founder'));
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left cursor-pointer"
@@ -111,7 +113,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/investment-models" 
+                  to={getPath('/investment-models')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   {language === 'de' ? 'Wie wir zusammenarbeiten' : 'How We Work Together'}
@@ -130,7 +132,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/privacy"
+                  to={getPath('/privacy')}
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
                   {f.privacy}
@@ -138,7 +140,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/terms" 
+                  to={getPath('/terms')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block w-full"
                 >
                   {f.terms}
@@ -146,7 +148,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  to="/portal" 
+                  to={getPath('/portal')} 
                   rel="nofollow"
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-flex items-center gap-1.5 w-full"
                 >
@@ -163,7 +165,7 @@ export default function Footer() {
           <div 
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 cursor-pointer select-none group pb-6"
             onClick={() => {
-              navigate('/');
+              navigate(getPath('/'));
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >

@@ -7,20 +7,22 @@ import { useLanguage } from '../contexts/LanguageContext';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, getPath, supportedLanguages } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const homePath = language === 'de' ? '/de' : '/';
 
   const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);
     if (path) {
-      navigate(path);
+      navigate(getPath(path));
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== homePath) {
+      navigate(homePath);
       setTimeout(() => {
         const element = document.getElementById(target);
         if (element) {
@@ -36,7 +38,10 @@ export default function Header() {
   };
 
   const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'de' : 'en');
+    if (supportedLanguages.length === 2) {
+      const other = supportedLanguages.find(l => l.code !== language);
+      if (other) setLanguage(other.code);
+    }
   };
 
   const navItems = [
@@ -54,8 +59,8 @@ export default function Header() {
           <div 
             className="flex items-center space-x-3 cursor-pointer" 
             onClick={() => {
-              if (location.pathname !== '/') {
-                navigate('/');
+              if (location.pathname !== homePath) {
+                navigate(homePath);
               }
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
@@ -78,15 +83,33 @@ export default function Header() {
               </button>
             ))}
 
-            {/* Language Switcher */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200 hover:border-nordible-blue transition-all"
-              title="Switch Language / Sprache wechseln"
-            >
-              <Globe className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
-              <span>{language === 'en' ? 'DE' : 'EN'}</span>
-            </button>
+            {/* Adaptive Language Switcher */}
+            {supportedLanguages.length <= 2 ? (
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200 hover:border-nordible-blue transition-all"
+                title="Switch Language / Sprache wechseln"
+              >
+                <Globe className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                <span>{language === 'en' ? 'DE' : 'EN'}</span>
+              </button>
+            ) : (
+              <div className="relative inline-flex items-center">
+                <Globe className="absolute left-2.5 h-3.5 w-3.5 text-nordible-blue dark:text-blue-400 pointer-events-none" />
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value as Language)}
+                  className="pl-7 pr-2.5 py-1.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200 hover:border-nordible-blue focus:outline-none transition-all cursor-pointer"
+                  aria-label="Select Language"
+                >
+                  {supportedLanguages.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.shortLabel}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             {/* Theme Toggle */}
             <button
@@ -107,13 +130,31 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center space-x-2">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200"
-            >
-              <Globe className="h-3 w-3 text-nordible-blue" />
-              <span>{language === 'en' ? 'DE' : 'EN'}</span>
-            </button>
+            {supportedLanguages.length <= 2 ? (
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200"
+              >
+                <Globe className="h-3 w-3 text-nordible-blue" />
+                <span>{language === 'en' ? 'DE' : 'EN'}</span>
+              </button>
+            ) : (
+              <div className="relative inline-flex items-center">
+                <Globe className="absolute left-2 h-3 w-3 text-nordible-blue pointer-events-none" />
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value as Language)}
+                  className="pl-6 pr-2 py-1 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-200"
+                  aria-label="Select Language"
+                >
+                  {supportedLanguages.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.shortLabel}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <button
               className="p-2 rounded-xl bg-nordible-bg dark:bg-gray-800"

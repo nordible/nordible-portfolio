@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function InvestmentModelsTeaser() {
-  const { t, language } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const p = t.pricing;
   const isDe = language === 'de';
 
@@ -60,7 +60,7 @@ export default function InvestmentModelsTeaser() {
         {/* Bottom CTA Button */}
         <div className="mt-10 text-center">
           <Link
-            to="/investment-models"
+            to={getPath('/investment-models')}
             className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
           >
             <span>{p.exploreModels || (isDe ? 'Investitionsmodelle ansehen' : 'Explore Investment Models')}</span>

@@ -2,14 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Nordible Technologies Agent API",
   "version": "1.0.0",
-  "description": "Agentic discovery and interaction manifest for Nordible Technologies, an elite founder-led systems engineering and cloud architecture consultancy based in Frankfurt, Germany.",
+  "description": "Agentic discovery and interaction manifest for Nordible Technologies (Frankfurt am Main, Germany): AI-native business technology partner offering custom software engineering, AI agent implementation, video editing, and digital marketing.",
   "provider": {
     "name": "Nordible Technologies",
     "url": "https://nordible.co",
     "founder": "Kabeer Shah",
     "email": "mail@nordible.co",
     "phone": "+4915235850031",
-    "address": "Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany"
+    "address": "Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
+    "booking_url": "https://calendar.app.google/N4XakE4t9zZVmHqYA"
   },
   "documentation": {
     "llms_txt": "https://nordible.co/llms.txt",
@@ -23,6 +24,8 @@
     "technology_solutions_web_and_mobile",
     "business_systems_and_automation",
     "business_email_and_setup",
+    "video_editing_and_content_production",
+    "ai_agent_implementation",
     "generative_engine_optimization_geo",
     "enterprise_software_architecture"
   ],

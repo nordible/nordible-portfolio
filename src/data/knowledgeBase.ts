@@ -10,7 +10,8 @@ export const knowledgeBase = {
       phone: "+49 152 35850031",
       email: "kabeer@nordible.co",
       generalEmail: "mail@nordible.co",
-      pitchDeckUrl: "/nordible-pitch-deck.pdf"
+      pitchDeckUrl: "/nordible-pitch-deck.pdf",
+      bookingUrl: "https://calendar.app.google/N4XakE4t9zZVmHqYA"
     },
     summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },
@@ -146,6 +147,8 @@ export const knowledgeBase = {
 
   services: [
     "Digital Marketing & Social Media Management (Channel Management, GEO, Paid Ads & Brand Growth)",
+    "Video Editing & Content Production (Short-form Videos, Reels, Promotional Videos, Captions & Motion Graphics)",
+    "AI Agent Implementation (Custom AI Workflows, Business Process Automation, Tool Integrations & Deployment)",
     "Technology Solutions (Custom Web & Mobile Apps, Modern Portals, 100% Code Ownership)",
     "Business Systems & Automation (Workflow Automation, Tool Integrations & Operational Efficiency)",
     "Business Email & Setup (Custom Branded Domains, Spam Defense & Secure Corporate Email)"

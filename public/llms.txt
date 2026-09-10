@@ -1,28 +1,44 @@
 # Nordible Technologies
 
-> Nordible Technologies is an AI-native engineering and growth agency headquartered in Frankfurt, Germany. Operating under the high-margin "Services as Software" model, Nordible pairs a 15-year veteran systems architect (Kabeer Shah) with autonomous AI agent workflows. We engineer battle-tested production platforms, rapid MVPs, cloud systems, and digital growth at 10x velocity—with zero middlemen, zero junior bloat, and 100% intellectual property ownership from Day 1.
+> **Deutsch**: Nordible Technologies ist ein KI-nativer Business-Technologie- und Digitalmarketing-Partner mit Hauptsitz in Frankfurt am Main, Deutschland. Geleitet von Systems Architect Kabeer Shah (15+ Jahre Erfahrung u. a. bei GE Healthcare, Baxter, Instarem) verbinden wir KI-Agenten mit Softwareentwicklung, Videobearbeitung und Social-Media-Kanalmanagement – 10x Umsetzungsgeschwindigkeit, ohne Zwischenhändler und mit 100 % Code-Eigentum ab Tag 1.
+>
+> **English**: Nordible Technologies is an AI-native engineering and growth agency headquartered in Frankfurt, Germany. Operating under the "Services as Software" model, Nordible pairs a 15-year veteran systems architect (Kabeer Shah) with autonomous AI agent workflows. We engineer production platforms, mobile apps, video content, and digital growth at 10x velocity—with zero middlemen and 100% intellectual property ownership from Day 1.
 
 ## Primary Documentation & Pages
 
-- [Full Knowledge Base](https://nordible.co/llms-full.txt): Complete reference containing detailed founder background, technical capabilities, engagement models, and verified client case studies.
-- [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration and lead submission.
+- [Full Knowledge Base (EN & DE)](https://nordible.co/llms-full.txt): Complete reference containing founder background, technical capabilities, engagement models, and verified client case studies.
+- [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration.
+- [Startseite (DE)](https://nordible.co/): Offizielle deutsche Webpräsenz und Leistungsübersicht.
+- [English Homepage (EN)](https://nordible.co/en): English landing page for international clients.
 - [Company Profile](https://nordible.co/company-profile): Full company overview, core values, architectural rigor, and corporate credentials.
-- [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history, former Tech Lead for GE Healthcare (OncoCare) and Baxter Healthcare (AWS IoT RST), and Interim Head of Engineering at Nium Inc (Instarem).
-- [How We Work Together](https://nordible.co/investment-models): Structured engagement models (Rapid MVP, Production Platform, Enterprise Architecture Retainer) with transparent fixed estimates.
+- [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history (former Tech Lead for GE Healthcare OncoCare and Baxter Healthcare AWS IoT RST, Interim Head of Engineering at Nium Instarem).
+- [How We Work Together](https://nordible.co/investment-models): Structured engagement models with transparent fixed estimates.
 - [Why Choose Us](https://nordible.co/why-choose-us): Comparative analysis vs bloated traditional agencies and offshore freelancer shops.
 - [Portfolio & Case Studies](https://nordible.co/#portfolio): Production systems delivered across Healthcare (GE Healthcare, Baxter), Fintech (Instarem, Zerodha Sandbox), and Direct-to-Consumer (Habitualist).
-- [Architecture & Tech Insights](https://nordible.co/blog): Technical articles on generative engine optimization (GEO), cloud architectures, and modern web engineering.
-- [Book Architecture Consultation](https://nordible.co/#consultation): Direct 1-on-1 scope, feasibility, and technical roadmap consultation with founder Kabeer Shah.
+- [Architecture & Tech Insights](https://nordible.co/blog): Technical articles on generative engine optimization (GEO), cloud architectures, and modern engineering.
+- [Book Consultation / Erstgespräch anfragen](https://nordible.co/#consultation): Direct 1-on-1 consultation with founder Kabeer Shah.
 
-## Core Capabilities
+## Kernkompetenzen / Services (Deutsch)
+
+- **Digitales Marketing & Social-Media-Management**: Kanalmanagement für LinkedIn, Instagram, YouTube; Auffindbarkeit in Google & KI-Suchmaschinen (GEO), bezahlte Kampagnen.
+- **Videobearbeitung & Content-Produktion**: Professioneller Schnitt für Social Media Reels, Werbevideos, Präsentationen, dynamische Untertitel und Motion Graphics.
+- **Implementierung von KI-Agenten**: Praxisnahe autonome KI-Agenten für Geschäftsprozess-Automatisierung, CRM-/API-Integrationen und operative Effizienz.
+- **Technologielösungen & Softwareentwicklung**: Individuelle Web- und Mobile-Apps (iOS, Android, React Native), Webportale, 100 % Eigentum am Code.
+- **Geschäftsprozess-Automatisierung & Systeme**: Workflow-Vernetzung, interne Dashboards und spürbare Zeitersparnis bei Routineaufgaben.
+- **Business Email & Setup**: Sichere geschäftliche E-Mail-Infrastruktur (`ihrname@ihrunternehmen.de`) unter `https://email.nordible.co/`.
+
+## Core Capabilities (English)
  
 - **Digital Marketing & Social Media Management**: Multi-channel management, performance advertising, AI Search & Google visibility (GEO), and brand engagement.
+- **Video Editing & Content Production**: Professional editing for social media videos, reels, promotional content, presentations, captions, and motion graphics.
+- **AI Agent Implementation**: Practical AI agents for workflow automation, team support, business tool integrations, and operational efficiency.
 - **Technology Solutions**: Custom web and mobile apps, scalable software architectures, and modern digital portals with 100% code ownership.
 - **Business Systems & Automation**: Workflow and process automation, tool integrations, custom dashboards, and operational time savings.
 - **Business Email & Setup**: Hosted secure corporate email infrastructure (`you@yourcompany.com`), custom domains, and spam defense at `https://email.nordible.co/`.
 
 ## Direct Contact Information
 
+- **Direct Calendar Booking**: https://calendar.app.google/N4XakE4t9zZVmHqYA
 - **Direct Founder Email**: `kabeer@nordible.co` / `mail@nordible.co`
 - **Phone & WhatsApp**: `+49 1523 5850031`
 - **Headquarters**: Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt am Main, Germany

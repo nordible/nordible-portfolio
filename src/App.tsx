@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { NON_DEFAULT_LANGUAGES } from './lib/i18n';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustSignals from './components/TrustSignals';
@@ -52,13 +53,14 @@ function HomePage() {
 
 function FounderRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <FounderPage 
-        onBack={() => navigate('/')} 
+        onBack={() => navigate(getPath('/'))} 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -71,12 +73,13 @@ function FounderRoute() {
 
 function BlogRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <BlogPage 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -89,12 +92,13 @@ function BlogRoute() {
 
 function BlogPostRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <BlogPost 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -107,13 +111,14 @@ function BlogPostRoute() {
 
 function InvestmentModelsRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <InvestmentModelsPage 
-        onBack={() => navigate('/')} 
+        onBack={() => navigate(getPath('/'))} 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -126,13 +131,14 @@ function InvestmentModelsRoute() {
 
 function CompanyProfileRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <CompanyProfilePage 
-        onBack={() => navigate('/')} 
+        onBack={() => navigate(getPath('/'))} 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -145,13 +151,14 @@ function CompanyProfileRoute() {
 
 function WhyChooseUsRoute() {
   const navigate = useNavigate();
+  const { getPath } = useLanguage();
   return (
     <>
       <Header />
       <WhyChooseUsPage 
-        onBack={() => navigate('/')} 
+        onBack={() => navigate(getPath('/'))} 
         onBookConsultation={() => {
-          navigate('/');
+          navigate(getPath('/'));
           setTimeout(() => {
             document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
           }, 100);
@@ -173,26 +180,60 @@ function NotFoundRoute() {
 }
 
 function App() {
+  const baseRoutes = [
+    { path: '/', element: <HomePage /> },
+    { path: '/founder', element: <FounderRoute /> },
+    { path: '/investment-models', element: <InvestmentModelsRoute /> },
+    { path: '/company-profile', element: <CompanyProfileRoute /> },
+    { path: '/why-choose-us', element: <WhyChooseUsRoute /> },
+    { path: '/blog', element: <BlogRoute /> },
+    { path: '/blog/:slug', element: <BlogPostRoute /> },
+    { path: '/dashboard', element: <LeadDashboard /> },
+    { path: '/privacy', element: <PrivacyPolicy /> },
+    { path: '/terms', element: <TermsOfService /> },
+    { path: '/portal', element: <DocsReaderPage /> },
+  ];
+
+  const redirects = [
+    { path: '/pricing', to: '/investment-models' },
+    { path: '/about', to: '/company-profile' },
+    { path: '/why-us', to: '/why-choose-us' },
+    { path: '/benefits', to: '/why-choose-us' },
+  ];
+
   return (
     <ThemeProvider>
       <LanguageProvider>
         <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/founder" element={<FounderRoute />} />
-            <Route path="/investment-models" element={<InvestmentModelsRoute />} />
-            <Route path="/pricing" element={<Navigate to="/investment-models" replace />} />
-            <Route path="/company-profile" element={<CompanyProfileRoute />} />
-            <Route path="/about" element={<Navigate to="/company-profile" replace />} />
-            <Route path="/why-choose-us" element={<WhyChooseUsRoute />} />
-            <Route path="/why-us" element={<Navigate to="/why-choose-us" replace />} />
-            <Route path="/benefits" element={<Navigate to="/why-choose-us" replace />} />
-            <Route path="/blog" element={<BlogRoute />} />
-            <Route path="/blog/:slug" element={<BlogPostRoute />} />
-            <Route path="/dashboard" element={<LeadDashboard />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/portal" element={<DocsReaderPage />} />
+            {/* Default / English Routes */}
+            {baseRoutes.map((route) => (
+              <Route key={route.path} path={route.path} element={route.element} />
+            ))}
+            {redirects.map((r) => (
+              <Route key={r.path} path={r.path} element={<Navigate to={r.to} replace />} />
+            ))}
+
+            {/* Dynamic Localized Routes for all languages in NON_DEFAULT_LANGUAGES */}
+            {NON_DEFAULT_LANGUAGES.map((lang) => (
+              <React.Fragment key={lang}>
+                {baseRoutes.map((route) => (
+                  <Route
+                    key={`${lang}-${route.path}`}
+                    path={route.path === '/' ? `/${lang}` : `/${lang}${route.path}`}
+                    element={route.element}
+                  />
+                ))}
+                {redirects.map((r) => (
+                  <Route
+                    key={`${lang}-${r.path}`}
+                    path={`/${lang}${r.path}`}
+                    element={<Navigate to={`/${lang}${r.to}`} replace />}
+                  />
+                ))}
+              </React.Fragment>
+            ))}
+
             <Route path="*" element={<NotFoundRoute />} />
           </Routes>
           <FloatingCTA />
