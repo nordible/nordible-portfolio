@@ -71,6 +71,27 @@ async function prerender() {
       console.log(`Successfully pre-rendered to ${outputPath}`);
     }
 
+    // Generate static redirect for legacy /de
+    const deDir = path.join(__dirname, 'dist', 'de');
+    if (!fs.existsSync(deDir)) {
+      fs.mkdirSync(deDir, { recursive: true });
+    }
+    const deHtml = `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=/" />
+  <link rel="canonical" href="https://nordible.co/" />
+  <script>window.location.replace('/');</script>
+  <title>Nordible Technologies</title>
+</head>
+<body>
+  <p>Weiterleitung zur Startseite... <a href="/">Klicken Sie hier</a>.</p>
+</body>
+</html>`;
+    fs.writeFileSync(path.join(deDir, 'index.html'), deHtml);
+    console.log(`Successfully generated static redirect to ${path.join(deDir, 'index.html')}`);
+
     await browser.close();
     server.close();
     process.exit(0);

@@ -1,60 +1,18 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, CheckCircle2, Send, Sparkles, Languages, Calendar } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { sendContactEmail, ContactFormData } from '../services/emailService';
 
 export default function Contact() {
   const { t, language } = useLanguage();
   const c = t.contact;
   const isDe = language === 'de';
 
-  const [formData, setFormData] = useState<ContactFormData>({
-    fullName: '',
-    email: '',
-    phone: '',
-    projectType: 'general-inquiry',
-    budget: 'flexible',
-    description: ''
-  });
-
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-
   const whatsappUrl = "https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.";
   const bookingUrl = "https://calendar.app.google/N4XakE4t9zZVmHqYA";
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.fullName.trim() || !formData.email.trim() || !formData.description.trim()) {
-      return;
-    }
-
-    setFormStatus('submitting');
-    try {
-      // Store in localStorage for dashboard persistence
-      const storedLeads = JSON.parse(localStorage.getItem('nordible_leads') || '[]');
-      const newLead = {
-        id: Date.now().toString(),
-        ...formData,
-        status: 'new',
-        submittedAt: new Date().toISOString()
-      };
-      localStorage.setItem('nordible_leads', JSON.stringify([newLead, ...storedLeads]));
-
-      const sent = await sendContactEmail(formData);
-      if (sent) {
-        setFormStatus('success');
-      } else {
-        // Graceful completion with local persistence
-        setFormStatus('success');
-      }
-    } catch {
-      setFormStatus('error');
-    }
-  };
-
   return (
     <section id="consultation" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header & Value Proposition */}
         <div className="text-center mb-10 max-w-3xl mx-auto">
@@ -73,14 +31,14 @@ export default function Contact() {
         </div>
 
         {/* Psychological Risk-Reversal Guarantees */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-10">
           <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
             <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
             <span>{isDe ? '100% Kostenfrei & Vertraulich' : '100% Free & Confidential'}</span>
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
             <Clock className="h-4 w-4 text-nordible-blue shrink-0" />
-            <span>{isDe ? 'Antwort unter 2 Stunden' : 'Response in < 2 Hours'}</span>
+            <span>{isDe ? 'Flexible Online-Termine' : 'Flexible Online Slots'}</span>
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
             <UserCheck className="h-4 w-4 text-indigo-600 shrink-0" />
@@ -88,8 +46,146 @@ export default function Contact() {
           </div>
         </div>
 
+        {/* Primary Booking Hero Card */}
+        <div className="mb-10 rounded-2xl border-2 border-nordible-blue/30 bg-gradient-to-b from-blue-50/60 via-white to-white dark:from-blue-950/40 dark:via-gray-900 dark:to-gray-900 p-6 sm:p-10 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-nordible-blue/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="relative max-w-2xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md shadow-blue-600/20">
+              <Calendar className="h-4 w-4" />
+              <span>{isDe ? 'Empfohlen: Google Calendar' : 'Recommended: Google Calendar'}</span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
+              {isDe ? 'Wählen Sie Ihren Wunschtermin' : 'Choose Your Preferred Time Slot'}
+            </h3>
+
+            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto">
+              {isDe
+                ? 'Buchen Sie direkt ein 20-minütiges Google Meet. Wir besprechen Ihre Ziele, prüfen die technische Machbarkeit und erstellen einen ersten Fahrplan.'
+                : 'Book a 20-minute Google Meet directly on our calendar. We will review your goals, verify technical feasibility, and map out next steps.'}
+            </p>
+
+            {/* Benefit Checkmarks */}
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-medium text-gray-600 dark:text-gray-300 pt-1">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>{isDe ? '20 Minuten via Google Meet' : '20 min via Google Meet'}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>{isDe ? 'Sofortige Terminbestätigung' : 'Instant Calendar Confirmation'}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>{isDe ? '100% unverbindlich' : 'Zero obligation'}</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-2">
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-agent-action="book-consultation"
+                className="btn-primary inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold bg-nordible-blue hover:bg-blue-600 text-white shadow-xl shadow-blue-600/25 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer w-full sm:w-auto"
+              >
+                <Calendar className="h-5 w-5" />
+                <span>{isDe ? 'Kostenfreies Erstgespräch buchen' : 'Book Free Discovery Call'}</span>
+                <ArrowRight className="h-4 w-4 ml-0.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Alternative Direct Channels: 3-column row */}
+        <div className="space-y-4 mb-12">
+          <div className="text-center">
+            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              {isDe ? 'Oder direkt kontaktieren' : 'Or Reach Out Directly'}
+            </span>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4 text-left">
+            {/* WhatsApp Direct */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-premium p-5 rounded-2xl border border-emerald-500/20 dark:border-emerald-500/30 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:border-emerald-500/50 transition-all flex flex-col justify-between group cursor-pointer"
+            >
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 shrink-0 group-hover:scale-105 transition-transform">
+                  <MessageCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-nordible-dark dark:text-white font-heading">
+                    WhatsApp
+                  </h4>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
+                    +49 1523 5850031
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center text-xs font-bold text-emerald-600 dark:text-emerald-400 pt-1">
+                <span>{isDe ? 'Chat starten' : 'Start chat'}</span>
+                <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
+
+            {/* Phone Call */}
+            <a
+              href="tel:+4915235850031"
+              className="card-premium p-5 rounded-2xl border border-blue-500/20 dark:border-blue-500/30 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:border-nordible-blue/50 transition-all flex flex-col justify-between group cursor-pointer"
+            >
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-nordible-blue text-white flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0 group-hover:scale-105 transition-transform">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-nordible-dark dark:text-white font-heading">
+                    {isDe ? 'Telefon' : 'Phone'}
+                  </h4>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
+                    +49 1523 5850031
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 pt-1">
+                <span>{isDe ? 'Direkt anrufen' : 'Call directly'}</span>
+                <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:mail@nordible.co?subject=Project%20Inquiry%20-%20Nordible%20Technologies"
+              className="card-premium p-5 rounded-2xl border border-indigo-500/20 dark:border-indigo-500/30 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:border-indigo-500/50 transition-all flex flex-col justify-between group cursor-pointer"
+            >
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-500/20 shrink-0 group-hover:scale-105 transition-transform">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-nordible-dark dark:text-white font-heading">
+                    E-Mail
+                  </h4>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
+                    mail@nordible.co
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center text-xs font-bold text-indigo-600 dark:text-indigo-400 pt-1">
+                <span>{isDe ? 'E-Mail senden' : 'Send email'}</span>
+                <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
+          </div>
+        </div>
+
         {/* What Happens Next - 3-Step Mental Model Roadmap */}
-        <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left">
+        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-8">
           <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
             {isDe ? 'Was passiert als Nächstes?' : 'What Happens Next'}
           </h3>
@@ -139,252 +235,9 @@ export default function Contact() {
         </div>
 
         {/* Language Transparency Trust Note */}
-        <div className="mb-10 max-w-3xl mx-auto px-4 py-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-800/40 flex items-center justify-center gap-2.5 text-center text-xs text-blue-900 dark:text-blue-200 font-medium shadow-sm">
+        <div className="max-w-3xl mx-auto px-4 py-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-800/40 flex items-center justify-center gap-2.5 text-center text-xs text-blue-900 dark:text-blue-200 font-medium shadow-sm">
           <Languages className="h-4 w-4 text-nordible-blue dark:text-blue-400 shrink-0" />
           <span>{c.languageNotice}</span>
-        </div>
-
-        {/* Dual Conversion Tracks: Direct Channels (Left) & In-Page Brief Form (Right) */}
-        <div className="grid lg:grid-cols-12 gap-8 text-left items-start">
-          
-          {/* Left Column: Direct Instant Channels */}
-          <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-              {isDe ? 'Direkter Sofortkontakt' : 'Direct Instant Channels'}
-            </h3>
-
-            {/* Channel 1: Google Calendar Online Booking */}
-            <div className="card-premium p-5 flex flex-col justify-between border-2 border-blue-600/30 dark:border-blue-500/40 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent dark:from-blue-950/30 shadow-md hover:border-nordible-blue transition-all rounded-2xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/20 shrink-0">
-                  <Calendar className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-nordible-dark dark:text-white font-heading">
-                    {isDe ? 'Online-Termin buchen' : 'Book 1-on-1 Call'}
-                  </h4>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-medium">
-                    {isDe ? 'Google Meet • 20 Min. Erstgespräch' : 'Google Meet • 20-Min Consultation'}
-                  </div>
-                </div>
-              </div>
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full py-2 text-xs bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/20 flex items-center justify-center space-x-2 rounded-xl font-bold cursor-pointer"
-              >
-                <Calendar className="h-3.5 w-3.5" />
-                <span>{isDe ? 'Termin im Kalender wählen' : 'Pick Time on Calendar'}</span>
-                <ArrowRight className="h-3 w-3 ml-1" />
-              </a>
-            </div>
-
-            {/* Channel 2: WhatsApp Direct */}
-            <div className="card-premium p-5 flex flex-col justify-between border-2 border-emerald-500/20 dark:border-emerald-500/30 bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent dark:from-emerald-950/20 shadow-md hover:border-emerald-500/40 transition-all rounded-2xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 shrink-0">
-                  <MessageCircle className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-nordible-dark dark:text-white font-heading">
-                    WhatsApp Direct
-                  </h4>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    +49 1523 5850031
-                  </div>
-                </div>
-              </div>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full py-2 text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/20 flex items-center justify-center space-x-2 rounded-xl font-bold cursor-pointer"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                <span>{isDe ? 'Über WhatsApp chatten' : 'Chat on WhatsApp'}</span>
-                <ArrowRight className="h-3 w-3 ml-1" />
-              </a>
-            </div>
-
-            {/* Channel 3: Phone Call */}
-            <div className="card-premium p-5 flex flex-col justify-between border-2 border-blue-500/20 dark:border-blue-500/30 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent dark:from-blue-950/20 shadow-md hover:border-nordible-blue/40 transition-all rounded-2xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-nordible-blue text-white flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-nordible-dark dark:text-white font-heading">
-                    {isDe ? 'Direkter Telefonkontakt' : 'Direct Phone Call'}
-                  </h4>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    +49 1523 5850031
-                  </div>
-                </div>
-              </div>
-              <a
-                href="tel:+4915235850031"
-                className="btn-primary w-full py-2 text-xs bg-nordible-blue hover:bg-blue-600 text-white shadow-md shadow-blue-600/20 flex items-center justify-center space-x-2 rounded-xl font-bold cursor-pointer"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                <span>{isDe ? 'Jetzt anrufen' : 'Call Directly'}</span>
-                <ArrowRight className="h-3 w-3 ml-1" />
-              </a>
-            </div>
-
-            {/* Channel 4: Email Direct */}
-            <div className="card-premium p-5 flex flex-col justify-between border-2 border-indigo-500/20 dark:border-indigo-500/30 bg-gradient-to-b from-indigo-500/5 via-transparent to-transparent dark:from-indigo-950/20 shadow-md hover:border-indigo-500/40 transition-all rounded-2xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-500/20 shrink-0">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-nordible-dark dark:text-white font-heading">
-                    {isDe ? 'Schriftliche Anfrage' : 'Written Inquiry'}
-                  </h4>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    mail@nordible.co
-                  </div>
-                </div>
-              </div>
-              <a
-                href="mailto:mail@nordible.co?subject=Project%20Inquiry%20-%20Nordible%20Technologies"
-                className="btn-primary w-full py-2 text-xs bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 flex items-center justify-center space-x-2 rounded-xl font-bold cursor-pointer"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                <span>{isDe ? 'E-Mail senden' : 'Send Direct Email'}</span>
-                <ArrowRight className="h-3 w-3 ml-1" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: In-Page Rapid Project Intake Form */}
-          <div className="lg:col-span-7">
-            <div className="card-premium p-6 sm:p-8 rounded-2xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg">
-              <h3 className="text-lg sm:text-xl font-bold text-nordible-dark dark:text-white font-heading mb-1">
-                {isDe ? 'Projekt per Kurznachricht anfragen' : 'Send an In-Page Project Brief'}
-              </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-6">
-                {isDe 
-                  ? 'Erhalten Sie innerhalb von 2 Stunden eine fundierte technische Rückmeldung.' 
-                  : 'Receive qualified architectural feedback within 2 hours.'}
-              </p>
-
-              {formStatus === 'success' ? (
-                <div className="p-6 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/30 text-center space-y-3">
-                  <CheckCircle2 className="h-10 w-10 text-emerald-500 mx-auto" />
-                  <h4 className="text-base font-bold text-emerald-900 dark:text-emerald-200 font-heading">
-                    {isDe ? 'Anfrage erfolgreich übermittelt!' : 'Inquiry Successfully Sent!'}
-                  </h4>
-                  <p className="text-xs text-emerald-700 dark:text-emerald-300 max-w-md mx-auto">
-                    {isDe 
-                      ? 'Vielen Dank! Kabeer Shah prüft Ihre Angaben persönlich und meldet sich innerhalb von 2 Stunden bei Ihnen.'
-                      : 'Thank you! Founder Kabeer Shah will personally review your brief and respond within 2 hours.'}
-                  </p>
-                  <button
-                    onClick={() => {
-                      setFormStatus('idle');
-                      setFormData({
-                        fullName: '',
-                        email: '',
-                        phone: '',
-                        projectType: 'mvp-development',
-                        budget: 'flexible',
-                        description: ''
-                      });
-                    }}
-                    className="mt-2 text-xs font-bold text-emerald-700 dark:text-emerald-300 underline cursor-pointer"
-                  >
-                    {isDe ? 'Weitere Nachricht senden' : 'Send another inquiry'}
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} data-agent-action="submit-inquiry" className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        {isDe ? 'Vollständiger Name *' : 'Full Name *'}
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        data-agent-field="name"
-                        value={formData.fullName}
-                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        placeholder={isDe ? 'z.B. Alex Müller' : 'e.g. Alex Miller'}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        {isDe ? 'Geschäftliche E-Mail *' : 'Work Email *'}
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        data-agent-field="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="name@company.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                      {isDe ? 'Telefon / WhatsApp (Optional)' : 'Phone / WhatsApp (Optional)'}
-                    </label>
-                    <input
-                      type="tel"
-                      data-agent-field="phone"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+49 ..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                      {isDe ? 'Projektbeschreibung & Anforderungen *' : 'Project Brief & Goals *'}
-                    </label>
-                    <textarea
-                      required
-                      rows={3}
-                      data-agent-field="description"
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      placeholder={isDe ? 'Beschreiben Sie Ihr Vorhaben, Ziele und gewünschte Zeitpläne...' : 'Describe your project scope, target timeline, or technical requirements...'}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-white text-xs focus:ring-2 focus:ring-nordible-blue focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-                    <div className="text-[11px] text-gray-500 dark:text-gray-400">
-                      🔒 {isDe ? 'Streng vertraulich. Keine Weitergabe an Dritte.' : 'Strictly confidential. No spam, ever.'}
-                    </div>
-
-                    <button
-                      type="submit"
-                      data-agent-action="send-inquiry"
-                      disabled={formStatus === 'submitting'}
-                      className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs flex items-center justify-center space-x-2 shadow-md shadow-blue-500/20 shrink-0 cursor-pointer disabled:opacity-60"
-                    >
-                      <Send className="h-3.5 w-3.5" />
-                      <span>
-                        {formStatus === 'submitting' 
-                          ? (isDe ? 'Wird übermittelt...' : 'Sending Brief...') 
-                          : (isDe ? 'Erstberatung anfragen' : 'Request Consultation')}
-                      </span>
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-
         </div>
 
       </div>

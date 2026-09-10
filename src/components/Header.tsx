@@ -11,7 +11,7 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const homePath = language === 'de' ? '/de' : '/';
+  const homePath = getPath('/');
 
   const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { NON_DEFAULT_LANGUAGES } from './lib/i18n';
@@ -179,6 +179,12 @@ function NotFoundRoute() {
   );
 }
 
+function DeRedirect() {
+  const location = useLocation();
+  const target = location.pathname.replace(/^\/de(\/|$)/, '/') || '/';
+  return <Navigate to={`${target}${location.search}${location.hash}`} replace />;
+}
+
 function App() {
   const baseRoutes = [
     { path: '/', element: <HomePage /> },
@@ -206,7 +212,11 @@ function App() {
       <LanguageProvider>
         <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
           <Routes>
-            {/* Default / English Routes */}
+            {/* Legacy German URL redirects (/de -> /, /de/* -> /*) */}
+            <Route path="/de" element={<Navigate to="/" replace />} />
+            <Route path="/de/*" element={<DeRedirect />} />
+
+            {/* Default / German Routes */}
             {baseRoutes.map((route) => (
               <Route key={route.path} path={route.path} element={route.element} />
             ))}
