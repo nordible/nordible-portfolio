@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 

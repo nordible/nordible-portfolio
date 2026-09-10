@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 

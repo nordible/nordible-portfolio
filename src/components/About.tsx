@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRight, Building2, ShieldCheck, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';

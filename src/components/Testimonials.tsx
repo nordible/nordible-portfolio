@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 

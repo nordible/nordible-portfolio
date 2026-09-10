@@ -1,4 +1,3 @@
-import React from 'react';
 import { Clock, Calendar, MessageCircle, Globe } from 'lucide-react';
 
 export default function Availability() {

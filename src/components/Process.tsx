@@ -1,4 +1,3 @@
-import React from 'react';
 import { Search, Palette, Code, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 

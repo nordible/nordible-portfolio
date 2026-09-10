@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, Video, Bot, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';

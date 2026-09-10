@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowLeft, ArrowRight, Zap, ShieldCheck, Clock, Lock, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
