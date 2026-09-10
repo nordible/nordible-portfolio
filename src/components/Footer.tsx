@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Download, Github, Linkedin, Instagram, Youtube, Heart, Lock } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -120,16 +120,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</a></li>
-              <li>
-                <a 
-                  href="/nordible-pitch-deck.pdf" 
-                  download="nordible-pitch-deck.pdf"
-                  className="text-blue-300 hover:text-white transition-colors flex items-center space-x-1.5"
-                >
-                  <Download className="h-3.5 w-3.5" />
-                  <span>{f.pitchDeck}</span>
-                </a>
-              </li>
               <li>
                 <Link 
                   to={getPath('/privacy')}

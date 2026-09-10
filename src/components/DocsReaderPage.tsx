@@ -15,7 +15,8 @@ import {
   ArrowUp,
   FolderLock,
   PanelLeft,
-  PanelLeftClose
+  PanelLeftClose,
+  Download
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { internalDocs } from '../data/docsContent';
@@ -477,6 +478,17 @@ export default function DocsReaderPage() {
               <span className="hidden sm:inline ml-1.5">Print</span>
             </button>
 
+            {/* Pitch Deck Download */}
+            <a
+              href="/nordible-pitch-deck.pdf"
+              download="nordible-pitch-deck.pdf"
+              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50 text-nordible-blue dark:text-blue-300 text-xs font-bold hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors flex items-center gap-1.5"
+              title="Download Investor Pitch Deck (PDF)"
+            >
+              <Download className="w-4 h-4" />
+              <span className="hidden md:inline">Pitch Deck</span>
+            </a>
+
             {/* Lock Session */}
             <button
               type="button"
@@ -551,6 +563,30 @@ export default function DocsReaderPage() {
                   );
                 })}
               </div>
+
+              {/* Executive Asset Download */}
+              <div className="pt-3 border-t border-nordible-border dark:border-gray-800 space-y-1">
+                <div className="px-2 text-[10px] font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                  Executive Asset
+                </div>
+                <a
+                  href="/nordible-pitch-deck.pdf"
+                  download="nordible-pitch-deck.pdf"
+                  className="w-full p-2.5 rounded-xl text-left transition-all flex items-center gap-2.5 bg-blue-50/50 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-800/40 text-nordible-dark dark:text-white hover:border-nordible-blue group cursor-pointer"
+                >
+                  <div className="p-1.5 rounded-lg shrink-0 bg-nordible-blue text-white group-hover:scale-105 transition-transform">
+                    <Download className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-bold truncate font-heading">
+                      Pitch Deck (PDF)
+                    </div>
+                    <div className="text-[10px] text-gray-400 truncate">
+                      Investor Presentation
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
           </aside>
         )}
@@ -620,6 +656,15 @@ export default function DocsReaderPage() {
         >
           {viewMode === 'formatted' ? <Code className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
         </button>
+
+        <a
+          href="/nordible-pitch-deck.pdf"
+          download="nordible-pitch-deck.pdf"
+          className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800/50 active:scale-95"
+          title="Download Pitch Deck (PDF)"
+        >
+          <Download className="w-4 h-4" />
+        </a>
 
         <button
           type="button"
