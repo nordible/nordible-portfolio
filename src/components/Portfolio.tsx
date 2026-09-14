@@ -4,38 +4,21 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const projects = [
   {
-    id: 'nordible-email',
-    title: 'Nordible Professional Email',
-    client: 'Nordible Product',
-    logo: '/images/logo-email.webp',
-    link: 'https://email.nordible.co/',
-    description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
-    technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
-    outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
-    image: 'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    id: 'oncocare',
+    title: 'CareIntellect Platform',
+    client: 'General Electric',
+    logo: '/images/logos/GeneralElectric_logo.svg',
+    link: 'https://www.gehealthcare.com/en/products/software/careintellect',
+    description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
+    technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
+    outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',
+    image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
-      uptime: '99.9%',
-      security: 'SSL/TLS',
-      support: '24/7'
+      users: '10K+',
+      improvement: '40%',
+      uptime: '99.8%'
     },
-    gradient: 'from-nordible-blue to-blue-800'
-  },
-  {
-    id: 'linkedin-catchup',
-    title: 'LinkedIn Catch-up Assistant',
-    client: 'Nordible Product',
-    logo: '/images/logos/Linkedin-Catchup-assistant-icon.png',
-    link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
-    description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
-    technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
-    outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
-    image: 'https://images.pexels.com/photos/60504/pexels-photo-60504.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    metrics: {
-      reach: '50 Iterations',
-      safety: 'Human-Emulation',
-      privacy: 'Local Storage'
-    },
-    gradient: 'from-blue-600 to-nordible-blue'
+    gradient: 'from-blue-600 to-teal-600'
   },
   {
     id: 'instarem',
@@ -55,21 +38,21 @@ const projects = [
     gradient: 'from-purple-600 to-blue-600'
   },
   {
-    id: 'oncocare',
-    title: 'CareIntellect Platform',
-    client: 'General Electric',
-    logo: '/images/logos/GeneralElectric_logo.svg',
-    link: 'https://www.gehealthcare.com/en/products/software/careintellect',
-    description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
-    technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
-    outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',
-    image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    id: 'rst-baxter',
+    title: 'RST - Remote Service Tool',
+    client: 'Vantive Healthcare',
+    logo: '/images/logos/vantive_logo.jpg',
+    link: 'https://www.vantive.com',
+    description: 'Medical device support platform for remote diagnosis and troubleshooting of medical devices in healthcare facilities.',
+    technologies: ['Node.js', 'PostgreSQL', 'AWS IoT', 'Jest', 'TDD', 'AWS'],
+    outcome: 'Reduced device downtime by 50% and improved remote diagnostic accuracy by 75%',
+    image: 'https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
-      users: '10K+',
-      improvement: '40%',
-      uptime: '99.8%'
+      devices: '15K+',
+      downtime: '-50%',
+      accuracy: '95%'
     },
-    gradient: 'from-blue-600 to-teal-600'
+    gradient: 'from-green-600 to-blue-600'
   },
   {
     id: 'parents-vip',
@@ -87,23 +70,6 @@ const projects = [
       uptime: '99.7%'
     },
     gradient: 'from-pink-600 to-purple-600'
-  },
-  {
-    id: 'rst-baxter',
-    title: 'RST - Remote Service Tool',
-    client: 'Vantive Healthcare',
-    logo: '/images/logos/vantive_logo.jpg',
-    link: 'https://www.vantive.com',
-    description: 'Medical device support platform for remote diagnosis and troubleshooting of medical devices in healthcare facilities.',
-    technologies: ['Node.js', 'PostgreSQL', 'AWS IoT', 'Jest', 'TDD', 'AWS'],
-    outcome: 'Reduced device downtime by 50% and improved remote diagnostic accuracy by 75%',
-    image: 'https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    metrics: {
-      devices: '15K+',
-      downtime: '-50%',
-      accuracy: '95%'
-    },
-    gradient: 'from-green-600 to-blue-600'
   },
   {
     id: 'smartbothub',
@@ -143,6 +109,57 @@ const projects = [
 
     gradient: 'from-emerald-600 to-teal-600'
   },  
+  {
+    id: 'buns069',
+    title: 'BUNS 069',
+    client: 'Buns 069 Homemade Burger',
+    logo: '/images/logos/buns069-logo.webp',
+    link: 'https://www.buns069.de/',
+    description: 'Local food commerce & digital scaling for a premier handcrafted burger brand in the Rhine-Main region. Targeted with increasing overall business volume through high-converting direct ordering funnels, local SEO/GEO visibility, and customer retention.',
+    technologies: ['Local SEO & GEO', 'Conversion Optimization', 'Digital Ordering Funnels', 'Performance Marketing', 'Retention Systems'],
+    outcome: 'Structured a high-impact digital expansion roadmap designed to maximize direct customer orders, boost repeat purchase frequency, and scale overall business volume across the Rhine-Main market.',
+    image: 'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    metrics: {
+      focus: 'Volume Growth',
+      channel: 'Direct Orders',
+      market: 'Rhein-Main (069)'
+    },
+    gradient: 'from-amber-600 to-orange-700'
+  },
+  {
+    id: 'nordible-email',
+    title: 'Nordible Professional Email',
+    client: 'Nordible Product',
+    logo: '/images/logo-email.webp',
+    link: 'https://email.nordible.co/',
+    description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
+    technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
+    outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
+    image: 'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    metrics: {
+      uptime: '99.9%',
+      security: 'SSL/TLS',
+      support: '24/7'
+    },
+    gradient: 'from-nordible-blue to-blue-800'
+  },
+  {
+    id: 'linkedin-catchup',
+    title: 'LinkedIn Catch-up Assistant',
+    client: 'Nordible Product',
+    logo: '/images/logos/Linkedin-Catchup-assistant-icon.png',
+    link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
+    description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
+    technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
+    outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
+    image: 'https://images.pexels.com/photos/60504/pexels-photo-60504.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    metrics: {
+      reach: '50 Iterations',
+      safety: 'Human-Emulation',
+      privacy: 'Local Storage'
+    },
+    gradient: 'from-blue-600 to-nordible-blue'
+  },
   {
     id: 'habitualist',
     title: 'Habitualist',
@@ -230,7 +247,10 @@ const metricLabelTranslationsDe: Record<string, string> = {
   backend: 'Backend',
   mobile: 'Mobil',
   connections: 'Verbindungen',
-  engagement: 'Status'
+  engagement: 'Status',
+  focus: 'Fokus',
+  channel: 'Vertriebskanal',
+  market: 'Zielmarkt'
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
@@ -247,6 +267,16 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
       reach: '50 Iterationen',
       safety: 'Mensch-Emulation',
       privacy: 'Lokaler Speicher'
+    }
+  },
+  'buns069': {
+    client: 'BUNS 069 Homemade Burger',
+    description: 'Lokale Gastronomie-Skalierung und digitale Wachstumsstrategie für eine Premium-Burger-Marke im Rhein-Main-Gebiet (069). Zentrale Herausforderung: Nachhaltige Steigerung des gesamten Geschäftsvolumens durch hochkonvertierende Direktbestell-Kanäle, Local SEO/GEO und gezielte Kundenbindung.',
+    outcome: 'Entwicklung einer datengetriebenen Wachstums-Roadmap zur Steigerung des direkten Bestellvolumens, Erschließung lokaler Marktanteile und Maximierung der Kundenwiederkaufrate.',
+    metricValues: {
+      focus: 'Volumenwachstum',
+      channel: 'Direktbestellungen',
+      market: 'Rhein-Main (069)'
     }
   },
   'instarem': {

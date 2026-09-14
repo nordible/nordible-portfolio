@@ -90,6 +90,13 @@ export const knowledgeBase = {
 
   projects: [
     {
+      name: "BUNS 069 Homemade Burger",
+      client: "BUNS 069 (https://www.buns069.de/)",
+      description: "Local gastronomy commerce & business volume expansion for a premier homemade burger restaurant in the Rhine-Main region (Offenbach/Frankfurt). Key challenge: Scaling overall business volume through high-converting direct ordering channels, Local SEO/GEO visibility, and customer retention.",
+      outcome: "Formulated and executing a digital scaling roadmap focused on driving direct order volume, maximizing local digital presence, and boosting repeat order lifetime value.",
+      technologies: ["Local SEO & GEO", "Conversion Rate Optimization (CRO)", "Direct Ordering Systems", "Digital Marketing", "Local Commerce Scaling"]
+    },
+    {
       name: "Habitualist",
       client: "Direct-to-Consumer Product",
       description: "A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.",

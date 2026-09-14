@@ -11,14 +11,15 @@ export default function TrustSignals() {
   const statIcons = [Award, TrendingUp, Users, Zap, ShieldCheck, UserCheck];
 
   const companies = [
-    { name: 'Schams Design Studio', logo: '/images/logos/shams-consult-logo.png', website: 'https://shams-consult.de/' },
-    { name: 'Bombay Studio', logo: '/images/logos/bombay-studio-logo.png', website: 'https://www.bombaystudio.in/' },
     { name: 'General Electric', logo: '/images/logos/GeneralElectric_logo.svg', website: 'https://www.gehealthcare.com' },
     { name: 'NIUM', logo: '/images/logos/InstaRem_logo.svg', website: 'https://www.nium.com' },
     { name: 'Vantive', logo: '/images/logos/vantive_logo.jpg', website: 'https://www.vantive.com' },
     { name: 'The Parent Inc', logo: '/images/logos/TheParentInc-logo.webp', website: 'https://theparentinc.com' },
     { name: 'Smartek21', logo: '/images/logos/smartek21_logo.png', website: 'https://smartek21.com' },
-    { name: 'NextServices', logo: '/images/logos/nextservices_logo.png', website: 'https://www.nextservices.com' }
+    { name: 'NextServices', logo: '/images/logos/nextservices_logo.png', website: 'https://www.nextservices.com' },
+    { name: 'BUNS 069', logo: '/images/logos/buns069-logo.webp', website: 'https://www.buns069.de/' },
+    { name: 'Schams Design Studio', logo: '/images/logos/shams-consult-logo.png', website: 'https://shams-consult.de/' },
+    { name: 'Bombay Studio', logo: '/images/logos/bombay-studio-logo.png', website: 'https://www.bombaystudio.in/' }
   ];
 
   // Duplicate for seamless infinite loop
