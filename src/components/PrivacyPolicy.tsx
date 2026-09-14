@@ -1,5 +1,6 @@
 import { ArrowLeft, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { contactConfig } from '../config/contact';
 
 export default function PrivacyPolicy() {
   return (
@@ -58,19 +59,19 @@ export default function PrivacyPolicy() {
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
                          <Mail className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">mail@nordible.co</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">{contactConfig.email.general}</span>
                    </div>
                    <div className="flex items-center space-x-4">
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
                          <Phone className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">+4915235850031</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">{contactConfig.phone.display}</span>
                    </div>
                    <div className="sm:col-span-2 flex items-start space-x-4">
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm mt-1">
                          <MapPin className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany</span>
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">{contactConfig.address.full}</span>
                    </div>
                 </div>
               </section>

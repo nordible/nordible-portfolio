@@ -501,7 +501,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="slide-footer">
       <div>Nordible Technologies &bull; Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany</div>
       <div class="contact-bits">
-        <div>Tel: +4915235850031</div>
+        <div>Tel: +49 1521 1065739</div>
         <div>Email: mail@nordible.co</div>
         <div>Web: nordible.co</div>
       </div>
@@ -813,7 +813,7 @@ const htmlContent = `<!DOCTYPE html>
             <div class="contact-icon-box">&#128222;</div>
             <div class="contact-info">
               <h5>Direct Phone &amp; WhatsApp</h5>
-              <p>+4915235850031</p>
+              <p>+49 1521 1065739</p>
             </div>
           </div>
 

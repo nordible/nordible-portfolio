@@ -1,17 +1,19 @@
+import { contactConfig } from '../config/contact';
+
 export const knowledgeBase = {
   personal: {
     name: "Nordible Technologies",
     founder: "Kabeer Shah",
     title: "Tech Leader & Solutions Architect",
     company: {
-      name: "Nordible Technologies",
+      name: contactConfig.address.company,
       tagline: "The AI-Native Tech Solutions Partner",
-      address: "Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
-      phone: "+49 152 35850031",
-      email: "kabeer@nordible.co",
-      generalEmail: "mail@nordible.co",
+      address: contactConfig.address.full,
+      phone: contactConfig.phone.display,
+      email: contactConfig.email.founder,
+      generalEmail: contactConfig.email.general,
       pitchDeckUrl: "/nordible-pitch-deck.pdf",
-      bookingUrl: "https://calendar.app.google/N4XakE4t9zZVmHqYA"
+      bookingUrl: contactConfig.bookingUrl
     },
     summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },

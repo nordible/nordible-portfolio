@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { contactConfig } from '../config/contact';
 
 export default function Footer() {
   const { t, language, getPath } = useLanguage();
@@ -15,24 +16,24 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="space-y-3">
-              <a href="mailto:mail@nordible.co" className="flex items-center space-x-3 group cursor-pointer">
+              <a href={contactConfig.email.mailToGeneral} className="flex items-center space-x-3 group cursor-pointer">
                 <div className="p-1.5 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
                   <Mail className="h-4 w-4 text-blue-300 group-hover:text-white" />
                 </div>
-                <span className="text-blue-100/80 font-mono text-xs tracking-wider">mail@nordible.co</span>
+                <span className="text-blue-100/80 font-mono text-xs tracking-wider">{contactConfig.email.general}</span>
               </a>
-              <a href="tel:+4915235850031" className="flex items-center space-x-3 group cursor-pointer">
+              <a href={contactConfig.phone.telHref} className="flex items-center space-x-3 group cursor-pointer">
                 <div className="p-1.5 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
                   <Phone className="h-4 w-4 text-blue-300 group-hover:text-white" />
                 </div>
-                <span className="text-blue-100/80 font-mono text-xs tracking-wider">+49 1523 5850031</span>
+                <span className="text-blue-100/80 font-mono text-xs tracking-wider">{contactConfig.phone.display}</span>
               </a>
               <div className="flex items-start space-x-3">
                 <div className="p-1.5 bg-white/5 rounded-lg">
                   <MapPin className="h-4 w-4 text-blue-300" />
                 </div>
                 <span className="text-blue-100/70 font-medium text-xs leading-relaxed whitespace-pre-line">
-                  Nordible Technologies<br />Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany
+                  {contactConfig.address.company}<br />{contactConfig.address.street}, {contactConfig.address.district}, {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
                 </span>
               </div>
 

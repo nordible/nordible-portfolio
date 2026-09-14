@@ -1,13 +1,14 @@
 import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { contactConfig } from '../config/contact';
 
 export default function Contact() {
   const { t, language } = useLanguage();
   const c = t.contact;
   const isDe = language === 'de';
 
-  const whatsappUrl = "https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.";
-  const bookingUrl = "https://calendar.app.google/N4XakE4t9zZVmHqYA";
+  const whatsappUrl = contactConfig.whatsapp.chatUrl;
+  const bookingUrl = contactConfig.bookingUrl;
 
   return (
     <section id="consultation" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
@@ -123,7 +124,7 @@ export default function Contact() {
                     WhatsApp
                   </h4>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    +49 1523 5850031
+                    {contactConfig.phone.display}
                   </div>
                 </div>
               </div>
@@ -135,7 +136,7 @@ export default function Contact() {
 
             {/* Phone Call */}
             <a
-              href="tel:+4915235850031"
+              href={contactConfig.phone.telHref}
               className="card-premium p-5 rounded-2xl border border-blue-500/20 dark:border-blue-500/30 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:border-nordible-blue/50 transition-all flex flex-col justify-between group cursor-pointer"
             >
               <div className="flex items-center space-x-3 mb-3">
@@ -147,7 +148,7 @@ export default function Contact() {
                     {isDe ? 'Telefon' : 'Phone'}
                   </h4>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    +49 1523 5850031
+                    {contactConfig.phone.display}
                   </div>
                 </div>
               </div>
@@ -159,7 +160,7 @@ export default function Contact() {
 
             {/* Email */}
             <a
-              href="mailto:mail@nordible.co?subject=Project%20Inquiry%20-%20Nordible%20Technologies"
+              href={`mailto:${contactConfig.email.general}?subject=Project%20Inquiry%20-%20Nordible%20Technologies`}
               className="card-premium p-5 rounded-2xl border border-indigo-500/20 dark:border-indigo-500/30 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:border-indigo-500/50 transition-all flex flex-col justify-between group cursor-pointer"
             >
               <div className="flex items-center space-x-3 mb-3">
@@ -171,7 +172,7 @@ export default function Contact() {
                     E-Mail
                   </h4>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
-                    mail@nordible.co
+                    {contactConfig.email.general}
                   </div>
                 </div>
               </div>

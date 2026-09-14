@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, User, Mail, Phone, Calendar } from 'lucide-react';
 import { askAI } from '../services/aiService';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
+import { contactConfig } from '../config/contact';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -251,15 +252,15 @@ export default function AIChat() {
             <div className="mt-8 text-center border-t border-white/5 pt-8">
               <p className="text-gray-400 text-[10px] font-bold mb-6 uppercase tracking-widest">Direct Channels</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <a href="mailto:mail@nordible.co" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
+                <a href={contactConfig.email.mailToGeneral} className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
                   <Mail className="h-4 w-4" />
                   <span>Email</span>
                 </a>
-                <a href="tel:+4915235850031" className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
+                <a href={contactConfig.phone.telHref} className="flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-3 rounded-xl border border-white/10 transition-all font-bold text-xs uppercase tracking-widest">
                   <Phone className="h-4 w-4" />
                   <span>Call</span>
                 </a>
-                <a href="https://calendar.app.google/cindJUtEMZNPKBYeA" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 bg-white text-nordible-dark px-4 py-3 rounded-xl transition-all shadow-lg font-bold text-xs uppercase tracking-widest">
+                <a href={contactConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2 bg-white text-nordible-dark px-4 py-3 rounded-xl transition-all shadow-lg font-bold text-xs uppercase tracking-widest">
                   <Calendar className="h-4 w-4" />
                   <span>Book Meet</span>
                 </a>

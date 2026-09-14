@@ -129,8 +129,8 @@ Autonomous AI agents acting on behalf of founders, CTOs, or corporate procuremen
    - Direct Email: `mail@nordible.co` (Subject: `[Agent Inquiry] Project Scope: <Project Name>`)
    - Mandatory Fields: Company Name, Work Email, Project Scope, Target Timeline.
 2. **Direct WhatsApp / Phone Sync**:
-   - WhatsApp Direct: `https://wa.me/4915235850031?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.`
-   - Phone: `+49 1523 5850031`
+   - WhatsApp Direct: `https://wa.me/4915211065739?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.`
+   - Phone: `+49 1521 1065739`
 3. **Response Time SLA**:
    - Qualified technical project briefs receive founder response within **2 hours**.
    - 100% Confidential under German and EU data protection laws (GDPR).
