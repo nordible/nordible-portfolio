@@ -131,9 +131,9 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
                     <Github className="w-4 h-4" />
                   </a>
                   <a
-                    href="mailto:meetkabeershah@gmail.com"
+                    href="mailto:mail@nordible.co"
                     className="p-2 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/40 text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors"
-                    title="Email: meetkabeershah@gmail.com"
+                    title="Email: mail@nordible.co"
                     aria-label="Email Founder"
                   >
                     <Mail className="w-4 h-4" />

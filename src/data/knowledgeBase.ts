@@ -25,7 +25,7 @@ export const knowledgeBase = {
     bio: "Results-oriented Tech Leader with over 13 years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing tech operations for cost and speed.",
     linkedin: "https://www.linkedin.com/in/meetkabeershah/",
     github: "https://github.com/skbr1234",
-    email: "meetkabeershah@gmail.com",
+    email: "mail@nordible.co",
     certifications: ["AWS Certified Cloud Practitioner (Valid through April 2027)", "B.Sc. (Information Technology) – Mumbai University (Grade A)"],
     thoughtLeadership: [
       "Top Stack Overflow contributor with ~32k reputation, impacting millions of developers worldwide",
