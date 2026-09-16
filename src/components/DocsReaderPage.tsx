@@ -16,10 +16,11 @@ import {
   FolderLock,
   PanelLeft,
   PanelLeftClose,
-  Download
+  Download,
+  ImageIcon
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { internalDocs } from '../data/docsContent';
+import { internalDocs, executiveAssets } from '../data/docsContent';
 
 export default function DocsReaderPage() {
   const configuredPin = (import.meta.env.VITE_DOCS_PIN || '').trim();
@@ -564,28 +565,40 @@ export default function DocsReaderPage() {
                 })}
               </div>
 
-              {/* Executive Asset Download */}
-              <div className="pt-3 border-t border-nordible-border dark:border-gray-800 space-y-1">
+              {/* Executive Assets Download */}
+              <div className="pt-3 border-t border-nordible-border dark:border-gray-800 space-y-1.5">
                 <div className="px-2 text-[10px] font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
-                  Executive Asset
+                  Executive Assets
                 </div>
-                <a
-                  href="/nordible-pitch-deck.pdf"
-                  download="nordible-pitch-deck.pdf"
-                  className="w-full p-2.5 rounded-xl text-left transition-all flex items-center gap-2.5 bg-blue-50/50 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-800/40 text-nordible-dark dark:text-white hover:border-nordible-blue group cursor-pointer"
-                >
-                  <div className="p-1.5 rounded-lg shrink-0 bg-nordible-blue text-white group-hover:scale-105 transition-transform">
-                    <Download className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs font-bold truncate font-heading">
-                      Pitch Deck (PDF)
+                {executiveAssets.map((asset) => (
+                  <a
+                    key={asset.id}
+                    href={asset.fileUrl}
+                    download={asset.fileName}
+                    className="w-full p-2.5 rounded-xl text-left transition-all flex items-center gap-2.5 bg-blue-50/50 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-800/40 text-nordible-dark dark:text-white hover:border-nordible-blue group cursor-pointer"
+                  >
+                    <div className="p-1.5 rounded-lg shrink-0 bg-nordible-blue text-white group-hover:scale-105 transition-transform">
+                      {asset.fileType === 'image' ? (
+                        <ImageIcon className="w-3.5 h-3.5" />
+                      ) : (
+                        <Download className="w-3.5 h-3.5" />
+                      )}
                     </div>
-                    <div className="text-[10px] text-gray-400 truncate">
-                      Investor Presentation
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold truncate font-heading flex items-center justify-between">
+                        <span className="truncate">{asset.title}</span>
+                        {asset.badge && (
+                          <span className="text-[9px] font-mono font-semibold px-1 py-0.5 rounded bg-blue-100 dark:bg-blue-800/60 text-nordible-blue dark:text-blue-300 ml-1 shrink-0">
+                            {asset.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-[10px] text-gray-400 truncate">
+                        {asset.subtitle}
+                      </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                ))}
               </div>
             </div>
           </aside>
@@ -664,6 +677,15 @@ export default function DocsReaderPage() {
           title="Download Pitch Deck (PDF)"
         >
           <Download className="w-4 h-4" />
+        </a>
+
+        <a
+          href="/images/nordible-linkedin-cover.png"
+          download="nordible-linkedin-cover.png"
+          className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800/50 active:scale-95"
+          title="Download LinkedIn Cover (PNG)"
+        >
+          <ImageIcon className="w-4 h-4" />
         </a>
 
         <button

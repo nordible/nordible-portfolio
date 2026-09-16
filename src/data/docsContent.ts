@@ -37,3 +37,35 @@ export const internalDocs: InternalDoc[] = [
     rawContent: loiTemplatesMd,
   },
 ];
+
+export interface ExecutiveAsset {
+  id: string;
+  title: string;
+  subtitle: string;
+  fileName: string;
+  fileUrl: string;
+  fileType: 'pdf' | 'image';
+  badge?: string;
+}
+
+export const executiveAssets: ExecutiveAsset[] = [
+  {
+    id: 'pitch-deck',
+    title: 'Pitch Deck (PDF)',
+    subtitle: 'Investor Presentation',
+    fileName: 'nordible-pitch-deck.pdf',
+    fileUrl: '/nordible-pitch-deck.pdf',
+    fileType: 'pdf',
+    badge: 'PDF',
+  },
+  {
+    id: 'linkedin-cover',
+    title: 'LinkedIn Cover (PNG)',
+    subtitle: 'Brand Banner Asset',
+    fileName: 'nordible-linkedin-cover.png',
+    fileUrl: '/images/nordible-linkedin-cover.png',
+    fileType: 'image',
+    badge: 'PNG',
+  },
+];
+
