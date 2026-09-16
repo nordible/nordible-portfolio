@@ -41,7 +41,26 @@ export interface BlogHubContent {
   posts: BlogPostItem[];
 }
 
-export interface FrankfurtPostContent {
+export interface ArticleCard {
+  title: string;
+  desc: string;
+  badge?: string;
+  icon?: 'search' | 'zap' | 'users' | 'video' | 'building' | 'map' | 'shield' | 'bot' | 'sparkles' | 'compass';
+}
+
+export interface ArticleSection {
+  number: string;
+  title: string;
+  paragraphs?: string[];
+  cards?: ArticleCard[];
+  codeBlock?: {
+    filename: string;
+    code: string;
+  };
+  quote?: string;
+}
+
+export interface ArticleContent {
   navHome: string;
   navBlog: string;
   navCurrent: string;
@@ -51,61 +70,38 @@ export interface FrankfurtPostContent {
   date: string;
   readTime: string;
   title: string;
-  introP1: string;
-  objectiveBoxTitle: string;
-  objective1: string;
-  objective2: string;
-  heroAlt: string;
-  sec1Number: string;
-  sec1Title: string;
-  sec1P1: string;
-  sec1P2: string;
-  sec1Cards: {
-    pillarsTitle: string;
-    pillarsDesc: string;
-    regionalTitle: string;
-    regionalDesc: string;
-    b2bTitle: string;
-    b2bDesc: string;
-    legalTitle: string;
-    legalDesc: string;
+  client?: {
+    name: string;
+    location?: string;
+    logo?: string;
+    link?: string;
   };
-  sec2Number: string;
-  sec2Title: string;
-  sec2P1: string;
-  sec2Cards: {
-    gbpTitle: string;
-    gbpBadge: string;
-    gbpDesc: string;
-    appleTitle: string;
-    appleBadge: string;
-    appleDesc: string;
-    bingTitle: string;
-    bingBadge: string;
-    bingDesc: string;
+  introParagraphs: string[];
+  objective?: {
+    title: string;
+    text?: string;
+    points?: string[];
   };
-  sec3Number: string;
-  sec3Title: string;
-  sec3P1: string;
-  schemaTitle: string;
-  schemaP1: string;
-  schemaPoints: string[];
-  schemaFilename: string;
-  crawlerTitle: string;
-  crawlerRobotsTitle: string;
-  crawlerRobotsDesc: string;
-  crawlerLlmsTitle: string;
-  crawlerLlmsDesc: string;
-  sec4Number: string;
-  sec4Title: string;
-  sec4P1: string;
-  sec4Quote: string;
-  ctaBadge: string;
-  ctaTitle: string;
-  ctaDesc: string;
-  ctaButton: string;
-  ctaSecondary: string;
-  mobileBookBtn: string;
+  metrics?: Array<{
+    label: string;
+    value: string;
+    icon?: 'trophy' | 'percent' | 'users' | 'trending';
+  }>;
+  heroImage: {
+    src: string;
+    alt: string;
+    caption?: string;
+    badge?: string;
+  };
+  sections: ArticleSection[];
+  cta: {
+    badge?: string;
+    title: string;
+    desc?: string;
+    buttonText: string;
+    secondaryText?: string;
+    mobileButtonText?: string;
+  };
 }
 
 export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
@@ -135,6 +131,21 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaSecondary: 'Explore All Services →',
     posts: [
       {
+        id: 'shams-consult-google-ranking',
+        slug: 'shams-consult-google-ranking',
+        title: 'Case Study: Ranking a German Architecture Consultancy #1 on Google',
+        excerpt: 'How Nordible helped Shams Consult, an architecture and urban planning consultancy based in Frankfurt am Main and Rödermark, secure the #1 organic position on Google for its most critical industry search terms.',
+        category: 'B2B SEO Case Study',
+        categorySlug: 'geo',
+        readTime: '3 min read',
+        date: 'September 2026',
+        image: '/images/shams-consult-architecture-case-study.jpg',
+        imageAlt: 'Case Study: Ranking a German Architecture Consultancy #1 on Google - Shams Consult',
+        tags: ['SEO', 'B2B', 'Architecture', 'Frankfurt', 'Google Ranking', 'Case Study'],
+        featured: true,
+        published: true,
+      },
+      {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'How We Engineered Local Dominance and AI Discoverability for a Frankfurt Business',
@@ -146,7 +157,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-dominate-ai-search.jpg',
         imageAlt: 'Case Study: How to Dominate AI Search and Local Directory Presence in Frankfurt',
         tags: ['GEO', 'Local SEO', 'AI Search', 'Schema.org', 'Frankfurt'],
-        featured: true,
+        featured: false,
         published: true,
       },
       {
@@ -192,6 +203,21 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaSecondary: 'Alle Leistungen ansehen →',
     posts: [
       {
+        id: 'shams-consult-google-ranking',
+        slug: 'shams-consult-google-ranking',
+        title: 'Fallstudie: Platz 1 bei Google für ein deutsches Architekturbüro',
+        excerpt: 'So hat Nordible das Büro Shams Consult (Frankfurt am Main / Rödermark) dabei unterstützt, die organische Spitzenposition (Platz 1) bei Google für zentrale Branchensuchbegriffe zu erreichen.',
+        category: 'B2B-SEO-Fallstudie',
+        categorySlug: 'geo',
+        readTime: '3 Min. Lesezeit',
+        date: 'September 2026',
+        image: '/images/shams-consult-architecture-case-study.jpg',
+        imageAlt: 'Fallstudie: Platz 1 bei Google für ein deutsches Architekturbüro - Shams Consult',
+        tags: ['SEO', 'B2B', 'Architektur', 'Frankfurt', 'Google Platz 1', 'Fallstudie'],
+        featured: true,
+        published: true,
+      },
+      {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'Wie wir lokale Dominanz und KI-Auffindbarkeit für ein Frankfurter Unternehmen realisiert haben',
@@ -203,7 +229,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-dominate-ai-search.jpg',
         imageAlt: 'Fallstudie: Wie man KI-Suche und lokale Verzeichnisse in Frankfurt dominiert',
         tags: ['GEO', 'Lokales SEO', 'KI-Suche', 'Schema.org', 'Frankfurt'],
-        featured: true,
+        featured: false,
         published: true,
       },
       {
@@ -225,7 +251,214 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
   }
 };
 
-export const frankfurtPostTranslations: Record<'en' | 'de', FrankfurtPostContent> = {
+export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
+  en: {
+    navHome: 'Home',
+    navBlog: 'Blog',
+    navCurrent: 'Case Study',
+    share: 'Share',
+    copied: 'Copied Link',
+    badge: 'B2B SEO Case Study',
+    date: 'September 2026',
+    readTime: '3 min read',
+    title: 'Case Study: Ranking a German Architecture Consultancy #1 on Google',
+    client: {
+      name: 'Shams Consult',
+      location: 'Frankfurt am Main & Rödermark',
+      logo: '/images/logos/shams-consult-logo.png',
+      link: 'https://shams-consult.de/'
+    },
+    introParagraphs: [
+      'High-intent local B2B searches require more than superficial keyword stuffing; they demand semantic precision, rock-solid technical performance, and messaging aligned with high-value commercial intent.',
+      'Here is how Nordible helped Shams Consult, an architecture and urban planning consultancy based in Frankfurt am Main and Rödermark, secure the #1 organic position on Google for its most critical industry search terms.'
+    ],
+    metrics: [
+      {
+        label: 'Google Organic Ranking',
+        value: '#1 Position',
+        icon: 'trophy'
+      },
+      {
+        label: 'Paid Ad Dependency',
+        value: '€0 / Month',
+        icon: 'percent'
+      },
+      {
+        label: 'Target Audience',
+        value: 'High-Value B2B',
+        icon: 'users'
+      }
+    ],
+    objective: {
+      title: 'The Objective',
+      text: 'Establish Shams Consult as the definitive authority across Frankfurt and the Rhine-Main region for public institutions, commercial investors, and private builders searching for architectural design, master planning, and project development.'
+    },
+    heroImage: {
+      src: '/images/shams-consult-architecture-case-study.jpg',
+      alt: 'Case Study: Ranking a German Architecture Consultancy #1 on Google - Shams Consult',
+      caption: 'Shams Consult · Frankfurt am Main / Rödermark',
+      badge: '#1 Organic Google Position'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'The Strategy & Execution',
+        cards: [
+          {
+            title: 'Semantic Search Architecture',
+            desc: 'Specialized professional queries in Germany are highly specific. We engineered the site’s hierarchy around precise, long-tail phrases like „Architekturbüro für Architektur, Stadtplanung und Projektentwicklung“ rather than generic vanity terms.',
+            badge: 'Semantic SEO',
+            icon: 'search'
+          },
+          {
+            title: 'Performance-First Engineering',
+            desc: 'Developed a lightweight, modern web architecture optimized for instantaneous load times, zero layout shifts, and search engine crawl efficiency.',
+            badge: 'Web Performance',
+            icon: 'zap'
+          },
+          {
+            title: 'Intent-Driven Information Hierarchy',
+            desc: 'Structured service landing paths around three distinct client segments: public authorities, institutional investors, and private developers.',
+            badge: 'Information Hierarchy',
+            icon: 'users'
+          },
+          {
+            title: 'Authentic Multi-Channel Assets',
+            desc: 'Produced targeted short-form video creative showcasing actual site inspections, boardroom strategy sessions, and client handshakes to bridge technical SEO authority with human brand trust.',
+            badge: 'Brand Trust',
+            icon: 'video'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'The Result',
+        quote: 'Shams Consult now holds the #1 spot on Google for core high-intent searches in its sector, generating continuous inbound organic discovery without dependency on paid advertising channels.'
+      }
+    ],
+    cta: {
+      title: 'Looking to establish sustainable organic search authority for your firm?',
+      buttonText: 'Partner with Nordible',
+      secondaryText: 'Explore All Services',
+      mobileButtonText: 'Partner with Nordible'
+    }
+  },
+  de: {
+    navHome: 'Startseite',
+    navBlog: 'Blog',
+    navCurrent: 'Fallstudie',
+    share: 'Teilen',
+    copied: 'Link kopiert',
+    badge: 'B2B-SEO-Fallstudie',
+    date: 'September 2026',
+    readTime: '3 Min. Lesezeit',
+    title: 'Fallstudie: Platz 1 bei Google für ein deutsches Architekturbüro',
+    client: {
+      name: 'Shams Consult',
+      location: 'Frankfurt am Main & Rödermark',
+      logo: '/images/logos/shams-consult-logo.png',
+      link: 'https://shams-consult.de/'
+    },
+    introParagraphs: [
+      'Qualifizierte lokale B2B-Suchanfragen erfordern mehr als oberflächliches Keyword-Targeting. Sie verlangen semantische Präzision, ein einwandfreies technisches Fundament und eine klare Ansprache der Zielgruppe.',
+      'So hat Nordible das Büro Shams Consult (Frankfurt am Main / Rödermark) dabei unterstützt, die organische Spitzenposition (Platz 1) bei Google für zentrale Branchensuchbegriffe zu erreichen.'
+    ],
+    metrics: [
+      {
+        label: 'Organische Google-Position',
+        value: 'Platz 1',
+        icon: 'trophy'
+      },
+      {
+        label: 'Werbebudget-Abhängigkeit',
+        value: '0 € / Monat',
+        icon: 'percent'
+      },
+      {
+        label: 'Zielgruppenfokus',
+        value: 'B2B-Entscheider',
+        icon: 'users'
+      }
+    ],
+    objective: {
+      title: 'Das Ziel',
+      text: 'Positionierung von Shams Consult als führende Adresse im Rhein-Main-Gebiet für öffentliche Auftraggeber, gewerbliche Investoren und private Bauherren in den Disziplinen Architektur, Stadtplanung und Projektentwicklung.'
+    },
+    heroImage: {
+      src: '/images/shams-consult-architecture-case-study.jpg',
+      alt: 'Fallstudie: Platz 1 bei Google für ein deutsches Architekturbüro - Shams Consult',
+      caption: 'Shams Consult · Frankfurt am Main / Rödermark',
+      badge: 'Platz 1 bei Google'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'Strategie und Umsetzung',
+        cards: [
+          {
+            title: 'Semantische Suchstruktur',
+            desc: 'Qualifizierte B2B-Suchanfragen in Deutschland sind hochpräzise. Statt auf unspezifische Massenbegriffe setzten wir auf die exakte semantische Ausrichtung für Begriffe wie „Architekturbüro für Architektur, Stadtplanung und Projektentwicklung“.',
+            badge: 'Semantische Suche',
+            icon: 'search'
+          },
+          {
+            title: 'Technische Performance',
+            desc: 'Entwicklung einer schnellen, modernen Webpräsenz mit minimalen Ladezeiten, stabiler Seitenarchitektur und optimaler Crawlbarkeit für Suchmaschinen.',
+            badge: 'Web-Performance',
+            icon: 'zap'
+          },
+          {
+            title: 'Zielgruppengerechte Informationsarchitektur',
+            desc: 'Klare Strukturierung der Leistungsseiten nach konkreten Kundengruppen: öffentliche Hand, Investoren und Bauherren.',
+            badge: 'Informationsarchitektur',
+            icon: 'users'
+          },
+          {
+            title: 'Authentischer Content',
+            desc: 'Produktion von praxisnahem Video-Content direkt von der Baustelle, aus Beratungsgesprächen und Verhandlungen, um technische Suchmaschinenautorität mit menschlicher Glaubwürdigkeit zu verbinden.',
+            badge: 'Markenvertrauen',
+            icon: 'video'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'Das Ergebnis',
+        quote: 'Shams Consult belegt heute Platz 1 bei Google für entscheidende Kernsuchbegriffe im Zielmarkt und generiert planbare, organische B2B-Anfragen ganz ohne laufende Werbeausgaben.'
+      }
+    ],
+    cta: {
+      title: 'Möchten auch Sie die organische Sichtbarkeit und digitale Autorität Ihres Unternehmens ausbauen?',
+      buttonText: 'Sprechen Sie mit Nordible',
+      secondaryText: 'Alle Leistungen ansehen',
+      mobileButtonText: 'Mit Nordible sprechen'
+    }
+  }
+};
+
+const frankfurtSchemaSnippet = `{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "[Client Business Name]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Street Name & No.]",
+    "addressLocality": "Frankfurt am Main",
+    "postalCode": "[Postal Code]",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "50.1109",
+    "longitude": "8.6821"
+  },
+  "sameAs": [
+    "https://www.gelbeseiten.de/...",
+    "https://www.linkedin.com/company/..."
+  ]
+}`;
+
+export const frankfurtPostTranslations: Record<'en' | 'de', ArticleContent> = {
   en: {
     navHome: 'Home',
     navBlog: 'Blog',
@@ -236,65 +469,119 @@ export const frankfurtPostTranslations: Record<'en' | 'de', FrankfurtPostContent
     date: 'September 2026',
     readTime: '5 min read',
     title: 'How We Engineered Local Dominance and AI Discoverability for a Frankfurt Business',
-    introP1: 'When businesses expand or modernize their digital presence in Germany, traditional SEO is no longer the entire playing field. Search has evolved: potential clients, partners, and decision-makers are no longer just typing queries into search bars—they are asking conversational AI engines like ChatGPT, Google Gemini, and Perplexity for direct recommendations.',
-    objectiveBoxTitle: 'Recently at Nordible, we took on the challenge of establishing a complete local and generative presence for our client based in Frankfurt am Main with two core objectives:',
-    objective1: 'Dominate local discovery across the core German directory and mapping ecosystems.',
-    objective2: 'Engineer AI discoverability (GEO) so that when an AI model is asked for top regional specialists, our client is directly cited.',
-    heroAlt: 'Case Study: How to Dominate AI Search and Local Directory Presence in Frankfurt',
-    sec1Number: '01',
-    sec1Title: 'Establishing NAP Consistency Across the German Directory Ecosystem',
-    sec1P1: 'In Germany, directory data integrity is heavily weighted by both search algorithms and legal standards. Discrepancies in company naming, address formatting, or contact details dilute domain trust and confuse algorithmic indexers.',
-    sec1P2: 'We unified our client’s NAP (Name, Address, Phone Number) footprint across premier German business directories and citation networks:',
-    sec1Cards: {
-      pillarsTitle: 'Authoritative German Pillars',
-      pillarsDesc: 'Claimed, verified, and synchronized listings on Gelbe Seiten, Das Örtliche, Das Telefonbuch, and 11880.com.',
-      regionalTitle: 'Regional & Industry Hubs',
-      regionalDesc: 'Indexed on Meinestadt.de, Cylex Deutschland, and Frankfurt-specific regional citation networks.',
-      b2bTitle: 'B2B Platforms',
-      b2bDesc: 'Standardized company entity records across LinkedIn, Xing, and Wer liefert was (wlw).',
-      legalTitle: 'Legal Alignment',
-      legalDesc: 'Ensured all directory descriptions and business parameters precisely mirrored statutory Impressum and commercial registration standards.',
-    },
-    sec2Number: '02',
-    sec2Title: 'Unifying the Primary Map Data Feeders',
-    sec2P1: 'Generative models rely extensively on grounding data pulled from major map ecosystems. We secured and optimized verified listings across the three primary providers:',
-    sec2Cards: {
-      gbpTitle: 'Google Business Profile (GBP)',
-      gbpBadge: 'Search & Gemini',
-      gbpDesc: 'Configured with precise Frankfurt geo-coordinates, verified service categories, primary business attributes, and regular status updates—feeding both Google Search and Gemini’s real-time local search graphs.',
-      appleTitle: 'Apple Business Connect',
-      appleBadge: 'Maps & Siri',
-      appleDesc: 'Fully integrated to ensure seamless surfacing inside Apple Maps, Siri, and Apple Intelligence.',
-      bingTitle: 'Bing Places for Business',
-      bingBadge: 'Copilot & Bing',
-      bingDesc: 'Configured to anchor the entity data directly within Microsoft Copilot and Bing’s enterprise discovery index.',
-    },
-    sec3Number: '03',
-    sec3Title: 'Generative Engine Optimization (GEO) & Machine-Readable Architecture',
-    sec3P1: "Being listed on directory websites is only half the battle. To be recommended by LLMs, a brand's website must be structured so automated reasoning systems can parse services, credibility, and location without ambiguity.",
-    schemaTitle: 'Rich Schema.org Entity Graph',
-    schemaP1: "Instead of relying on basic metadata, we deployed nested JSON-LD Schema directly into the client’s web architecture:",
-    schemaPoints: [
-      'Implemented LocalBusiness / ProfessionalService structured data.',
-      'Mapped exact geographic coordinates (geo), service radii, opening hours, and structured hasOfferCatalog definitions.',
-      'Linked verified third-party entities (sameAs) pointing to official registry pages and certified directories to validate domain authority.'
+    introParagraphs: [
+      'When businesses expand or modernize their digital presence in Germany, traditional SEO is no longer the entire playing field. Search has evolved: potential clients, partners, and decision-makers are no longer just typing queries into search bars—they are asking conversational AI engines like ChatGPT, Google Gemini, and Perplexity for direct recommendations.'
     ],
-    schemaFilename: 'schema-entity.jsonld',
-    crawlerTitle: 'AI Crawler Access & Structured Context (llms.txt)',
-    crawlerRobotsTitle: 'Robots Policy',
-    crawlerRobotsDesc: 'Configured modern crawler rules to openly permit semantic parsing agents (including GPTBot, PerplexityBot, and Google-Extended) while protecting sensitive internal assets.',
-    crawlerLlmsTitle: 'llms.txt Standard',
-    crawlerLlmsDesc: 'Deployed a standardized lightweight markdown file at /llms.txt summarizing core capabilities, Frankfurt market focus, and contact interfaces for instant ingestion by LLM scrapers.',
-    sec4Number: '04',
-    sec4Title: 'The Result: Built for the Next Era of Discovery',
-    sec4P1: 'By bridging traditional German business directories with modern Generative Engine Optimization, our client moved from a fragmented web footprint to an authoritative, verifiable local entity.',
-    sec4Quote: '"Today, whether a potential customer searches via Google Maps in downtown Frankfurt or queries an AI model for a trusted local partner, our client’s business is positioned at the top of the conversation."',
-    ctaBadge: 'Transform Your Growth',
-    ctaTitle: 'Ready to Dominate Local Search & AI Discovery?',
-    ctaDesc: "Need to modernize your digital presence, deploy custom web applications, or optimize your business for AI discovery? Let's build digital systems engineered for long-term growth.",
-    ctaButton: 'Book a Consultation',
-    ctaSecondary: 'Explore Full Portfolio',
-    mobileBookBtn: 'Book Consultation',
+    objective: {
+      title: 'Recently at Nordible, we took on the challenge of establishing a complete local and generative presence for our client based in Frankfurt am Main with two core objectives:',
+      points: [
+        'Dominate local discovery across the core German directory and mapping ecosystems.',
+        'Engineer AI discoverability (GEO) so that when an AI model is asked for top regional specialists, our client is directly cited.'
+      ]
+    },
+    heroImage: {
+      src: '/images/frankfurt-geo-dominate-ai-search.jpg',
+      alt: 'Case Study: How to Dominate AI Search and Local Directory Presence in Frankfurt'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'Establishing NAP Consistency Across the German Directory Ecosystem',
+        paragraphs: [
+          'In Germany, directory data integrity is heavily weighted by both search algorithms and legal standards. Discrepancies in company naming, address formatting, or contact details dilute domain trust and confuse algorithmic indexers.',
+          'We unified our client’s NAP (Name, Address, Phone Number) footprint across premier German business directories and citation networks:'
+        ],
+        cards: [
+          {
+            title: 'Authoritative German Pillars',
+            desc: 'Claimed, verified, and synchronized listings on Gelbe Seiten, Das Örtliche, Das Telefonbuch, and 11880.com.',
+            icon: 'building'
+          },
+          {
+            title: 'Regional & Industry Hubs',
+            desc: 'Indexed on Meinestadt.de, Cylex Deutschland, and Frankfurt-specific regional citation networks.',
+            icon: 'map'
+          },
+          {
+            title: 'B2B Platforms',
+            desc: 'Standardized company entity records across LinkedIn, Xing, and Wer liefert was (wlw).',
+            icon: 'search'
+          },
+          {
+            title: 'Legal Alignment',
+            desc: 'Ensured all directory descriptions and business parameters precisely mirrored statutory Impressum and commercial registration standards.',
+            icon: 'shield'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'Unifying the Primary Map Data Feeders',
+        paragraphs: [
+          'Generative models rely extensively on grounding data pulled from major map ecosystems. We secured and optimized verified listings across the three primary providers:'
+        ],
+        cards: [
+          {
+            title: 'Google Business Profile (GBP)',
+            badge: 'Search & Gemini',
+            desc: 'Configured with precise Frankfurt geo-coordinates, verified service categories, primary business attributes, and regular status updates—feeding both Google Search and Gemini’s real-time local search graphs.',
+            icon: 'map'
+          },
+          {
+            title: 'Apple Business Connect',
+            badge: 'Maps & Siri',
+            desc: 'Fully integrated to ensure seamless surfacing inside Apple Maps, Siri, and Apple Intelligence.',
+            icon: 'compass'
+          },
+          {
+            title: 'Bing Places for Business',
+            badge: 'Copilot & Bing',
+            desc: 'Configured to anchor the entity data directly within Microsoft Copilot and Bing’s enterprise discovery index.',
+            icon: 'search'
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Generative Engine Optimization (GEO) & Machine-Readable Architecture',
+        paragraphs: [
+          "Being listed on directory websites is only half the battle. To be recommended by LLMs, a brand's website must be structured so automated reasoning systems can parse services, credibility, and location without ambiguity.",
+          'Instead of relying on basic metadata, we deployed nested JSON-LD Schema directly into the client’s web architecture, mapped exact geographic coordinates, and linked verified third-party entities to validate domain authority.'
+        ],
+        codeBlock: {
+          filename: 'schema-entity.jsonld',
+          code: frankfurtSchemaSnippet
+        },
+        cards: [
+          {
+            title: 'Robots Policy',
+            desc: 'Configured modern crawler rules to openly permit semantic parsing agents (including GPTBot, PerplexityBot, and Google-Extended) while protecting sensitive internal assets.',
+            icon: 'bot'
+          },
+          {
+            title: 'llms.txt Standard',
+            desc: 'Deployed a standardized lightweight markdown file at /llms.txt summarizing core capabilities, Frankfurt market focus, and contact interfaces for instant ingestion by LLM scrapers.',
+            icon: 'sparkles'
+          }
+        ]
+      },
+      {
+        number: '04',
+        title: 'The Result: Built for the Next Era of Discovery',
+        paragraphs: [
+          'By bridging traditional German business directories with modern Generative Engine Optimization, our client moved from a fragmented web footprint to an authoritative, verifiable local entity.'
+        ],
+        quote: '„Today, whether a potential customer searches via Google Maps in downtown Frankfurt or queries an AI model for a trusted local partner, our client’s business is positioned at the top of the conversation.“'
+      }
+    ],
+    cta: {
+      badge: 'Transform Your Growth',
+      title: 'Ready to Dominate Local Search & AI Discovery?',
+      desc: "Need to modernize your digital presence, deploy custom web applications, or optimize your business for AI discovery? Let's build digital systems engineered for long-term growth.",
+      buttonText: 'Book a Consultation',
+      secondaryText: 'Explore Full Portfolio',
+      mobileButtonText: 'Book Consultation'
+    }
   },
   de: {
     navHome: 'Startseite',
@@ -306,75 +593,128 @@ export const frankfurtPostTranslations: Record<'en' | 'de', FrankfurtPostContent
     date: 'September 2026',
     readTime: '5 Min. Lesezeit',
     title: 'Wie wir lokale Dominanz und KI-Auffindbarkeit für ein Frankfurter Unternehmen realisiert haben',
-    introP1: 'Wenn Unternehmen in Deutschland expandieren oder ihre digitale Präsenz modernisieren, reicht traditionelles SEO allein längst nicht mehr aus. Das Suchverhalten hat sich fundamental gewandelt: Interessenten, Geschäftspartner und Entscheider tippen nicht mehr nur isolierte Keywords in Suchmasken – sie befragen dialogbasierte KI-Suchsysteme wie ChatGPT, Google Gemini und Perplexity nach maßgeschneiderten Empfehlungen.',
-    objectiveBoxTitle: 'Vor Kurzem übernahm Nordible die Aufgabe, für unseren Kunden mit Sitz in Frankfurt am Main eine ganzheitliche lokale und generative Webpräsenz aufzubauen – mit zwei Kernzielen:',
-    objective1: 'Lokale Auffindbarkeit in den führenden deutschen Branchenverzeichnissen und Kartensystemen dominieren.',
-    objective2: 'Generative Engine Optimization (GEO) gezielt umsetzen, damit KI-Modelle bei regionalen Anfragen unseren Kunden als erste Wahl empfehlen.',
-    heroAlt: 'Fallstudie: Wie man KI-Suche und lokale Verzeichnisse in Frankfurt dominiert',
-    sec1Number: '01',
-    sec1Title: 'Etablierung lückenloser NAP-Konsistenz im deutschen Verzeichnis-Ökosystem',
-    sec1P1: 'In Deutschland wird die Konsistenz und Richtigkeit von Verzeichnisdaten von Suchmaschinen und rechtlichen Prüfinstanzen extrem hoch bewertet. Abweichungen bei Firmenbezeichnung, Anschrift oder Rufnummer verwässern das Vertrauen und erschweren die algorithmische Indizierung.',
-    sec1P2: 'Wir haben die NAP-Identität (Name, Address, Phone Number) unseres Kunden über alle führenden deutschen Verzeichnisse und Bewertungsnetzwerke synchronisiert:',
-    sec1Cards: {
-      pillarsTitle: 'Führende deutsche Kernportale',
-      pillarsDesc: 'Verifizierte und synchronisierte Profile auf Gelbe Seiten, Das Örtliche, Das Telefonbuch und 11880.com.',
-      regionalTitle: 'Regionale & thematische Portale',
-      regionalDesc: 'Indizierung auf Meinestadt.de, Cylex Deutschland und regionalen Frankfurter Standortnetzwerken.',
-      b2bTitle: 'B2B- & Branchenplattformen',
-      b2bDesc: 'Einheitliche Unternehmensdaten auf LinkedIn, Xing und „Wer liefert was“ (wlw).',
-      legalTitle: 'Rechtssicherheit & Impressum',
-      legalDesc: 'Exakte Abstimmung aller Unternehmensangaben mit dem gesetzlichen Impressum und den Handelsregistereinträgen.',
-    },
-    sec2Number: '02',
-    sec2Title: 'Konsolidierung der primären Kartendaten-Lieferanten',
-    sec2P1: 'Generative KI-Modelle nutzen Kartendienste als primäre Grounding-Datenquelle zur Verifizierung physischer Unternehmen. Wir haben verifizierte Präsenzen bei den drei führenden Plattformen aufgebaut:',
-    sec2Cards: {
-      gbpTitle: 'Google Business Profile (GBP)',
-      gbpBadge: 'Suche & Gemini',
-      gbpDesc: 'Hinterlegt mit exakten Frankfurter Geokoordinaten, validierten Kategorien und laufenden Updates – speist sowohl Google Maps als auch Geminis Echtzeit-Graphen.',
-      appleTitle: 'Apple Business Connect',
-      appleBadge: 'Karten & Siri',
-      appleDesc: 'Vollständig integriert für optimale Sichtbarkeit in Apple Karten, Siri und Apple Intelligence.',
-      bingTitle: 'Bing Places for Business',
-      bingBadge: 'Copilot & Bing',
-      bingDesc: 'Konfiguriert zur direkten Verankerung im Microsoft Copilot- und Bing Enterprise-Index.',
-    },
-    sec3Number: '03',
-    sec3Title: 'Generative Engine Optimization (GEO) & maschinenlesbare Architektur',
-    sec3P1: 'Die Listung in Verzeichnissen ist nur das Fundament. Um von LLMs empfohlen zu werden, muss die Website so strukturiert sein, dass Reasoning-Modelle Leistungen, Reputation und Standort zweifelsfrei interpretieren können.',
-    schemaTitle: 'Tief integrierter Schema.org-Entitätsgraph',
-    schemaP1: 'Statt auf einfache Metatags zu setzen, haben wir mehrdimensionale JSON-LD-Schemas direkt in die Webarchitektur integriert:',
-    schemaPoints: [
-      'Implementierung strukturierter Daten nach LocalBusiness / ProfessionalService Standards.',
-      'Exakte Geokoordinaten (geo), Einzugsgebiete, Öffnungszeiten und strukturierte hasOfferCatalog Leistungsbeschreibungen.',
-      'Verknüpfung verifizierter Drittquellen (sameAs) mit Registerportalen und Branchenbüchern zur Bestätigung der Domänen-Autorität.'
+    introParagraphs: [
+      'Wenn Unternehmen in Deutschland expandieren oder ihre digitale Präsenz modernisieren, reicht traditionelles SEO allein längst nicht mehr aus. Das Suchverhalten hat sich fundamental gewandelt: Interessenten, Geschäftspartner und Entscheider tippen nicht mehr nur isolierte Keywords in Suchmasken – sie befragen dialogbasierte KI-Suchsysteme wie ChatGPT, Google Gemini und Perplexity nach maßgeschneiderten Empfehlungen.'
     ],
-    schemaFilename: 'schema-entity.jsonld',
-    crawlerTitle: 'KI-Crawler-Freigabe & strukturierter Kontext (llms.txt)',
-    crawlerRobotsTitle: 'Robots-Richtlinie',
-    crawlerRobotsDesc: 'Moderne Crawler-Regeln erlauben semantischen Indexern (wie GPTBot, PerplexityBot und Google-Extended) den Vollzugriff, während interne Ressourcen geschützt bleiben.',
-    crawlerLlmsTitle: 'llms.txt Standard',
-    crawlerLlmsDesc: 'Bereitstellung einer standardisierten /llms.txt Datei mit Kernkompetenzen, Frankfurt-Fokus und Kontaktwegen für die direkte LLM-Verarbeitung.',
-    sec4Number: '04',
-    sec4Title: 'Das Ergebnis: Entwickelt für die nächste Ära der Auffindbarkeit',
-    sec4P1: 'Durch die Verbindung klassischer deutscher Verzeichnisse mit innovativer Generative Engine Optimization entstand eine verifizierbare, hochgradig autoritative lokale Markenpräsenz.',
-    sec4Quote: '„Ob ein potenzieller Kunde heute über Google Maps im Frankfurter Bankenviertel sucht oder ein KI-Modell nach einem vertrauenswürdigen lokalen Partner befragt: Unser Kunde wird direkt an erster Stelle empfohlen.“',
-    ctaBadge: 'Wachstum gezielt beschleunigen',
-    ctaTitle: 'Bereit, lokale Suche & KI-Auffindbarkeit zu dominieren?',
-    ctaDesc: 'Möchten Sie Ihre Webpräsenz modernisieren, individuelle Webanwendungen bauen oder Ihr Unternehmen für KI-Suchsysteme rüsten? Lassen Sie uns messbare digitale Ergebnisse erzielen.',
-    ctaButton: 'Beratungsgespräch vereinbaren',
-    ctaSecondary: 'Portfolio entdecken',
-    mobileBookBtn: 'Beratung anfragen',
+    objective: {
+      title: 'Vor Kurzem übernahm Nordible die Aufgabe, für unseren Kunden mit Sitz in Frankfurt am Main eine ganzheitliche lokale und generative Webpräsenz aufzubauen – mit zwei Kernzielen:',
+      points: [
+        'Lokale Auffindbarkeit in den führenden deutschen Branchenverzeichnissen und Kartensystemen dominieren.',
+        'Generative Engine Optimization (GEO) gezielt umsetzen, damit KI-Modelle bei regionalen Anfragen unseren Kunden als erste Wahl empfehlen.'
+      ]
+    },
+    heroImage: {
+      src: '/images/frankfurt-geo-dominate-ai-search.jpg',
+      alt: 'Fallstudie: Wie man KI-Suche und lokale Verzeichnisse in Frankfurt dominiert'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'Etablierung lückenloser NAP-Konsistenz im deutschen Verzeichnis-Ökosystem',
+        paragraphs: [
+          'In Deutschland wird die Konsistenz und Richtigkeit von Verzeichnisdaten von Suchmaschinen und rechtlichen Prüfinstanzen extrem hoch bewertet. Abweichungen bei Firmenbezeichnung, Anschrift oder Rufnummer verwässern das Vertrauen und erschweren die algorithmische Indizierung.',
+          'Wir haben die NAP-Identität (Name, Address, Phone Number) unseres Kunden über alle führenden deutschen Verzeichnisse und Bewertungsnetzwerke synchronisiert:'
+        ],
+        cards: [
+          {
+            title: 'Führende deutsche Kernportale',
+            desc: 'Verifizierte und synchronisierte Profile auf Gelbe Seiten, Das Örtliche, Das Telefonbuch und 11880.com.',
+            icon: 'building'
+          },
+          {
+            title: 'Regionale & thematische Portale',
+            desc: 'Indizierung auf Meinestadt.de, Cylex Deutschland und regionalen Frankfurter Standortnetzwerken.',
+            icon: 'map'
+          },
+          {
+            title: 'B2B- & Branchenplattformen',
+            desc: 'Einheitliche Unternehmensdaten auf LinkedIn, Xing und „Wer liefert was“ (wlw).',
+            icon: 'search'
+          },
+          {
+            title: 'Rechtssicherheit & Impressum',
+            desc: 'Exakte Abstimmung aller Unternehmensangaben mit dem gesetzlichen Impressum und den Handelsregistereinträgen.',
+            icon: 'shield'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'Konsolidierung der primären Kartendaten-Lieferanten',
+        paragraphs: [
+          'Generative KI-Modelle nutzen Kartendienste als primäre Grounding-Datenquelle zur Verifizierung physischer Unternehmen. Wir haben verifizierte Präsenzen bei den drei führenden Plattformen aufgebaut:'
+        ],
+        cards: [
+          {
+            title: 'Google Business Profile (GBP)',
+            badge: 'Suche & Gemini',
+            desc: 'Hinterlegt mit exakten Frankfurter Geokoordinaten, validierten Kategorien und laufenden Updates – speist sowohl Google Maps als auch Geminis Echtzeit-Graphen.',
+            icon: 'map'
+          },
+          {
+            title: 'Apple Business Connect',
+            badge: 'Karten & Siri',
+            desc: 'Vollständig integriert für optimale Sichtbarkeit in Apple Karten, Siri und Apple Intelligence.',
+            icon: 'compass'
+          },
+          {
+            title: 'Bing Places for Business',
+            badge: 'Copilot & Bing',
+            desc: 'Konfiguriert zur direkten Verankerung im Microsoft Copilot- und Bing Enterprise-Index.',
+            icon: 'search'
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Generative Engine Optimization (GEO) & maschinenlesbare Architektur',
+        paragraphs: [
+          'Die Listung in Verzeichnissen ist nur das Fundament. Um von LLMs empfohlen zu werden, muss die Website so strukturiert sein, dass Reasoning-Modelle Leistungen, Reputation und Standort zweifelsfrei interpretieren können.',
+          'Statt auf einfache Metatags zu setzen, haben wir mehrdimensionale JSON-LD-Schemas direkt in die Webarchitektur integriert, Geokoordinaten präzisiert und Drittquellen verknüpft.'
+        ],
+        codeBlock: {
+          filename: 'schema-entity.jsonld',
+          code: frankfurtSchemaSnippet
+        },
+        cards: [
+          {
+            title: 'Robots-Richtlinie',
+            desc: 'Moderne Crawler-Regeln erlauben semantischen Indexern (wie GPTBot, PerplexityBot und Google-Extended) den Vollzugriff, während interne Ressourcen geschützt bleiben.',
+            icon: 'bot'
+          },
+          {
+            title: 'llms.txt Standard',
+            desc: 'Bereitstellung einer standardisierten /llms.txt Datei mit Kernkompetenzen, Frankfurt-Fokus und Kontaktwegen für die direkte LLM-Verarbeitung.',
+            icon: 'sparkles'
+          }
+        ]
+      },
+      {
+        number: '04',
+        title: 'Das Ergebnis: Entwickelt für die nächste Ära der Auffindbarkeit',
+        paragraphs: [
+          'Durch die Verbindung klassischer deutscher Verzeichnisse mit innovativer Generative Engine Optimization entstand eine verifizierbare, hochgradig autoritative lokale Markenpräsenz.'
+        ],
+        quote: '„Ob ein potenzieller Kunde heute über Google Maps im Frankfurter Bankenviertel sucht oder ein KI-Modell nach einem vertrauenswürdigen lokalen Partner befragt: Unser Kunde wird direkt an erster Stelle empfohlen.“'
+      }
+    ],
+    cta: {
+      badge: 'Wachstum gezielt beschleunigen',
+      title: 'Bereit, lokale Suche & KI-Auffindbarkeit zu dominieren?',
+      desc: 'Möchten Sie Ihre Webpräsenz modernisieren, individuelle Webanwendungen bauen oder Ihr Unternehmen für KI-Suchsysteme rüsten? Lassen Sie uns messbare digitale Ergebnisse erzielen.',
+      buttonText: 'Beratungsgespräch vereinbaren',
+      secondaryText: 'Portfolio entdecken',
+      mobileButtonText: 'Beratung anfragen'
+    }
   }
 };
 
-export type DetailedArticleContent = FrankfurtPostContent;
-
-export const articlesBySlug: Record<string, Record<'en' | 'de', DetailedArticleContent>> = {
+export const articlesBySlug: Record<string, Record<'en' | 'de', ArticleContent>> = {
+  'shams-consult-google-ranking': shamsPostTranslations,
   'frankfurt-local-seo-ai-discoverability': frankfurtPostTranslations,
 };
 
-export const defaultArticleSlug = 'frankfurt-local-seo-ai-discoverability';
+export const defaultArticleSlug = 'shams-consult-google-ranking';
 
 export const articleNotFoundTranslations: Record<'en' | 'de', {
   badge: string;
@@ -395,4 +735,3 @@ export const articleNotFoundTranslations: Record<'en' | 'de', {
     backBtn: 'Zurück zur Beitragsübersicht'
   }
 };
-

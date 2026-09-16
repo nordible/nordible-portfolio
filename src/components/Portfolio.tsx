@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const projects = [
@@ -127,6 +128,24 @@ const projects = [
     gradient: 'from-amber-600 to-orange-700'
   },
   {
+    id: 'shams-consult',
+    title: 'Shams Consult',
+    client: 'Shams Consult',
+    logo: '/images/logos/shams-consult-logo.png',
+    link: 'https://shams-consult.de/',
+    caseStudySlug: 'shams-consult-google-ranking',
+    description: 'Architecture and urban planning consultancy based in Frankfurt am Main and Rödermark. Secured #1 organic position on Google for critical industry search terms through semantic search architecture, technical performance, and high-trust assets.',
+    technologies: ['Semantic SEO', 'Technical Performance', 'Information Architecture', 'B2B Creative Strategy', 'Content Engineering'],
+    outcome: 'Secured and maintained the #1 organic position on Google for core high-intent B2B search terms without paid ads.',
+    image: '/images/shams-consult-architecture-case-study.jpg',
+    metrics: {
+      ranking: '#1 Google',
+      channel: 'Organic B2B',
+      market: 'Frankfurt / Rhein-Main'
+    },
+    gradient: 'from-blue-600 to-emerald-600'
+  },
+  {
     id: 'nordible-email',
     title: 'Nordible Professional Email',
     client: 'Nordible Product',
@@ -250,10 +269,21 @@ const metricLabelTranslationsDe: Record<string, string> = {
   engagement: 'Status',
   focus: 'Fokus',
   channel: 'Vertriebskanal',
-  market: 'Zielmarkt'
+  market: 'Zielmarkt',
+  ranking: 'Platzierung'
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
+  'shams-consult': {
+    client: 'Shams Consult',
+    description: 'Architektur- und Stadtplanungsbüro mit Sitz in Frankfurt am Main und Rödermark. Erzielte Platz 1 bei Google für zentrale Branchensuchbegriffe durch semantische Suchstruktur, moderne Web-Performance und zielgruppengerechte Informationsarchitektur.',
+    outcome: 'Sicherte die organische Spitzenposition (Platz 1) bei Google für zentrale B2B-Kernsuchbegriffe ganz ohne laufende Werbeausgaben.',
+    metricValues: {
+      ranking: 'Platz 1 bei Google',
+      channel: 'Organisch B2B',
+      market: 'Frankfurt / Rhein-Main'
+    }
+  },
   'nordible-email': {
     client: 'Nordible-Produkt',
     description: 'Premium SaaS-E-Mail-Hosting-Plattform für Unternehmen mit höchsten Sicherheitsansprüchen, individuellen Domains und zuverlässiger Infrastruktur ohne unnötige Komplexität.',
@@ -339,7 +369,7 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
 };
 
 export default function Portfolio() {
-  const { t, language } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
@@ -450,7 +480,7 @@ export default function Portfolio() {
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight font-heading text-white drop-shadow-md">
                   {currentProject.title}
                 </h3>
-                <div>
+                <div className="flex flex-wrap items-center gap-2.5">
                   <a
                     href={currentProject.link}
                     target="_blank"
@@ -460,6 +490,15 @@ export default function Portfolio() {
                     <span>{t.portfolio.viewLive || "View Project"}</span>
                     <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                   </a>
+                  {currentProject.caseStudySlug && (
+                    <Link
+                      to={getPath(`/blog/${currentProject.caseStudySlug}`)}
+                      className="inline-flex items-center gap-1.5 py-2 px-3 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-white/40 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md transition-all shadow-md"
+                    >
+                      <span>{isDe ? 'Fallstudie' : 'Case Study'}</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

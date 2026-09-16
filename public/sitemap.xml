@@ -43,6 +43,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nordible.co/blog/shams-consult-google-ranking</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nordible.co/privacy</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -94,6 +100,12 @@
   <url>
     <loc>https://nordible.co/en/blog/frankfurt-local-seo-ai-discoverability</loc>
     <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nordible.co/en/blog/shams-consult-google-ranking</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

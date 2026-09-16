@@ -15,6 +15,7 @@ const BASE_ROUTES = [
   '/privacy', 
   '/terms', 
   '/blog/frankfurt-local-seo-ai-discoverability', 
+  '/blog/shams-consult-google-ranking', 
   '/investment-models', 
   '/company-profile', 
   '/why-choose-us'
