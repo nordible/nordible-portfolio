@@ -33,7 +33,7 @@ export default function Footer() {
                   <MapPin className="h-4 w-4 text-blue-300" />
                 </div>
                 <span className="text-blue-100/70 font-medium text-xs leading-relaxed whitespace-pre-line">
-                  {contactConfig.address.company}<br />{contactConfig.address.street}, {contactConfig.address.district}, {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
+                  {contactConfig.address.company}<br />{contactConfig.address.street}, {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
                 </span>
               </div>
 
@@ -98,6 +98,14 @@ export default function Footer() {
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   {language === 'de' ? 'Warum Nordible' : 'Why Choose Us'}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to={getPath('/standorte')} 
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
+                >
+                  {language === 'de' ? 'Einzugsgebiet (Frankfurt & Rhein-Main)' : 'Areas Served (Frankfurt & Rhine-Main)'}
                 </Link>
               </li>
               <li>

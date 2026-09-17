@@ -515,7 +515,7 @@ export const translations: Record<Language, Translations> = {
       emailLabel: "Email Address",
       phoneLabel: "Phone & WhatsApp",
       headquartersLabel: "Headquarters",
-      headquartersValue: "Nordible Technologies\nBreitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany",
+      headquartersValue: "Nordible Technologies\nBreitlacherstraße 101, 60489 Frankfurt am Main, Germany",
       protocolTitle: "Global Protocol",
       protocolText: "Average response time is under 24 hours. We prioritize high-impact innovative products.",
       fullNameLabel: "Full Name",

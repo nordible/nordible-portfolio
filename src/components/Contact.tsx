@@ -53,7 +53,7 @@ export default function Contact() {
           <div className="relative max-w-2xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md shadow-blue-600/20">
               <Calendar className="h-4 w-4" />
-              <span>{isDe ? 'Empfohlen: Google Calendar' : 'Recommended: Google Calendar'}</span>
+              <span>{isDe ? 'Online-Terminbuchung' : 'Online Booking'}</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
@@ -62,15 +62,15 @@ export default function Contact() {
 
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto">
               {isDe
-                ? 'Buchen Sie direkt ein 20-minütiges Google Meet. Wir besprechen Ihre Ziele, prüfen die technische Machbarkeit und erstellen einen ersten Fahrplan.'
-                : 'Book a 20-minute Google Meet directly on our calendar. We will review your goals, verify technical feasibility, and map out next steps.'}
+                ? 'Buchen Sie direkt ein 20-minütiges Video-Erstgespräch. Wir besprechen Ihre Ziele, prüfen die technische Machbarkeit und erstellen einen ersten Fahrplan.'
+                : 'Book a 20-minute video strategy call directly on our calendar. We will review your goals, verify technical feasibility, and map out next steps.'}
             </p>
 
             {/* Benefit Checkmarks */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-medium text-gray-600 dark:text-gray-300 pt-1">
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>{isDe ? '20 Minuten via Google Meet' : '20 min via Google Meet'}</span>
+                <span>{isDe ? '20 Minuten Video-Gespräch' : '20 min Video Call'}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />

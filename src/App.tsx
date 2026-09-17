@@ -28,6 +28,8 @@ import WhyChooseUsPage from './components/WhyChooseUsPage';
 import FloatingCTA from './components/FloatingCTA';
 import DocsReaderPage from './components/DocsReaderPage';
 import NotFoundPage from './components/NotFoundPage';
+import LocationLandingPage from './components/LocationLandingPage';
+import AreasServedPage from './components/AreasServedPage';
 
 function HomePage() {
   return (
@@ -198,6 +200,9 @@ function App() {
     { path: '/privacy', element: <PrivacyPolicy /> },
     { path: '/terms', element: <TermsOfService /> },
     { path: '/portal', element: <DocsReaderPage /> },
+    { path: '/standorte', element: <AreasServedPage /> },
+    { path: '/:city', element: <LocationLandingPage /> },
+    { path: '/:city/:suburb', element: <LocationLandingPage /> },
   ];
 
   const redirects = [
@@ -205,6 +210,8 @@ function App() {
     { path: '/about', to: '/company-profile' },
     { path: '/why-us', to: '/why-choose-us' },
     { path: '/benefits', to: '/why-choose-us' },
+    { path: '/areas-served', to: '/standorte' },
+    { path: '/locations', to: '/standorte' },
   ];
 
   return (

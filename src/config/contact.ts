@@ -18,10 +18,9 @@ export const contactConfig = {
   address: {
     company: 'Nordible Technologies',
     street: 'Breitlacherstraße 101',
-    district: 'Rödelheim',
-    city: 'Frankfurt',
+    city: 'Frankfurt am Main',
     postalCode: '60489',
     country: 'Germany',
-    full: 'Nordible Technologies, Breitlacherstraße 101, Rödelheim, 60489 Frankfurt, Germany',
+    full: 'Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt am Main, Germany',
   },
 };

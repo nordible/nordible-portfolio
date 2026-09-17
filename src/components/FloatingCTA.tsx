@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Calendar, ArrowUp } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { contactConfig } from '../config/contact';
 
 export default function FloatingCTA() {
   const [showTop, setShowTop] = useState(false);
@@ -45,24 +44,15 @@ export default function FloatingCTA() {
       {/* Mobile Ergonomic Bottom Conversion Dock (Fitts's Law / Thumb-Zone) */}
       <nav 
         aria-label="Mobile Quick Conversion"
-        className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-nordible-border dark:border-gray-800 px-4 py-2.5 shadow-2xl flex items-center gap-2.5 safe-area-pb"
+        className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-nordible-border dark:border-gray-800 px-4 py-2.5 shadow-2xl flex items-center safe-area-pb"
       >
-        <a
-          href={contactConfig.whatsapp.chatUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 active:bg-emerald-700 text-white text-xs font-bold font-heading shadow-md shadow-emerald-600/20 cursor-pointer"
-        >
-          <span>WhatsApp Chat</span>
-        </a>
-
         <button
           type="button"
           onClick={handleConsultation}
-          className="flex-1 inline-flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-nordible-blue active:bg-blue-700 text-white text-xs font-bold font-heading shadow-md shadow-blue-500/20 cursor-pointer"
+          className="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-nordible-blue active:bg-blue-700 text-white text-xs font-bold font-heading shadow-md shadow-blue-500/20 cursor-pointer"
         >
-          <Calendar className="h-3.5 w-3.5" />
-          <span>{language === 'de' ? 'Erstgespräch' : 'Free Strategy Call'}</span>
+          <Calendar className="h-4 w-4" />
+          <span>{language === 'de' ? 'Erstgespräch anfragen' : 'Book Free Strategy Call'}</span>
         </button>
       </nav>
 

@@ -18,15 +18,30 @@ const BASE_ROUTES = [
   '/blog/shams-consult-google-ranking', 
   '/investment-models', 
   '/company-profile', 
-  '/why-choose-us'
+  '/why-choose-us',
+  '/standorte'
 ];
 
+// Dynamically include all city & suburb landing pages from locationsData.json
+const locationsDataPath = path.join(__dirname, 'src', 'data', 'locationsData.json');
+let locationRoutes = [];
+if (fs.existsSync(locationsDataPath)) {
+  const cities = JSON.parse(fs.readFileSync(locationsDataPath, 'utf-8'));
+  for (const city of cities) {
+    locationRoutes.push(`/${city.slug}`);
+    for (const suburb of city.suburbs) {
+      locationRoutes.push(`/${city.slug}/${suburb.slug}`);
+    }
+  }
+}
+
+const ALL_BASE_ROUTES = [...BASE_ROUTES, ...locationRoutes];
 const NON_DEFAULT_LOCALES = ['en'];
 
 const routes = [
-  ...BASE_ROUTES,
+  ...ALL_BASE_ROUTES,
   ...NON_DEFAULT_LOCALES.flatMap(locale => 
-    BASE_ROUTES.map(r => r === '/' ? `/${locale}` : `/${locale}${r}`)
+    ALL_BASE_ROUTES.map(r => r === '/' ? `/${locale}` : `/${locale}${r}`)
   )
 ];
 

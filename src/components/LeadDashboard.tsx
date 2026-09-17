@@ -327,7 +327,7 @@ export default function LeadDashboard() {
                     Meeting Mode
                   </label>
                   <select className="w-full px-5 py-4 rounded-xl bg-nordible-bg dark:bg-gray-900 border border-nordible-border dark:border-gray-700 text-nordible-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-nordible-blue/50 font-semibold appearance-none">
-                    <option value="video">Video Call (Google Meet)</option>
+                    <option value="video">Video Call</option>
                     <option value="phone">Voice Call</option>
                     <option value="in-person">On-site Protocol</option>
                   </select>
