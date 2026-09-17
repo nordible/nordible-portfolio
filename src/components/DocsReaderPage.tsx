@@ -479,15 +479,16 @@ export default function DocsReaderPage() {
               <span className="hidden sm:inline ml-1.5">Print</span>
             </button>
 
-            {/* Pitch Deck Download */}
+            {/* Prospect Flyer Generator */}
             <a
-              href="/nordible-pitch-deck.pdf"
-              download="nordible-pitch-deck.pdf"
+              href="/documents/flyer-business-prospects.html"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2 sm:px-3 sm:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50 text-nordible-blue dark:text-blue-300 text-xs font-bold hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors flex items-center gap-1.5"
-              title="Download Investor Pitch Deck (PDF)"
+              title="B2B Prospect Flyer (On-Demand Vector PDF)"
             >
-              <Download className="w-4 h-4" />
-              <span className="hidden md:inline">Pitch Deck</span>
+              <FileText className="w-4 h-4" />
+              <span className="hidden md:inline">B2B Flyer</span>
             </a>
 
             {/* Lock Session */}
@@ -574,12 +575,14 @@ export default function DocsReaderPage() {
                   <a
                     key={asset.id}
                     href={asset.fileUrl}
-                    download={asset.fileName}
+                    {...(asset.targetBlank ? { target: '_blank', rel: 'noopener noreferrer' } : { download: asset.fileName })}
                     className="w-full p-2.5 rounded-xl text-left transition-all flex items-center gap-2.5 bg-blue-50/50 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-800/40 text-nordible-dark dark:text-white hover:border-nordible-blue group cursor-pointer"
                   >
                     <div className="p-1.5 rounded-lg shrink-0 bg-nordible-blue text-white group-hover:scale-105 transition-transform">
                       {asset.fileType === 'image' ? (
                         <ImageIcon className="w-3.5 h-3.5" />
+                      ) : asset.fileType === 'html' ? (
+                        <FileText className="w-3.5 h-3.5" />
                       ) : (
                         <Download className="w-3.5 h-3.5" />
                       )}
@@ -671,12 +674,13 @@ export default function DocsReaderPage() {
         </button>
 
         <a
-          href="/nordible-pitch-deck.pdf"
-          download="nordible-pitch-deck.pdf"
+          href="/documents/flyer-business-prospects.html"
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800/50 active:scale-95"
-          title="Download Pitch Deck (PDF)"
+          title="B2B Prospect Flyer (On-Demand Vector PDF)"
         >
-          <Download className="w-4 h-4" />
+          <FileText className="w-4 h-4" />
         </a>
 
         <a

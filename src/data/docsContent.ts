@@ -44,19 +44,21 @@ export interface ExecutiveAsset {
   subtitle: string;
   fileName: string;
   fileUrl: string;
-  fileType: 'pdf' | 'image';
+  fileType: 'pdf' | 'image' | 'html';
   badge?: string;
+  targetBlank?: boolean;
 }
 
 export const executiveAssets: ExecutiveAsset[] = [
   {
-    id: 'pitch-deck',
-    title: 'Pitch Deck (PDF)',
-    subtitle: 'Investor Presentation',
-    fileName: 'nordible-pitch-deck.pdf',
-    fileUrl: '/nordible-pitch-deck.pdf',
-    fileType: 'pdf',
-    badge: 'PDF',
+    id: 'prospect-flyer',
+    title: 'B2B Prospect Flyer',
+    subtitle: 'On-Demand Vector PDF',
+    fileName: 'flyer-business-prospects.html',
+    fileUrl: '/documents/flyer-business-prospects.html',
+    fileType: 'html',
+    badge: 'ON-DEMAND PDF',
+    targetBlank: true,
   },
   {
     id: 'linkedin-cover',
@@ -68,4 +70,5 @@ export const executiveAssets: ExecutiveAsset[] = [
     badge: 'PNG',
   },
 ];
+
 
