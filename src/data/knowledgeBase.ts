@@ -12,8 +12,8 @@ export const knowledgeBase = {
       phone: contactConfig.phone.display,
       email: contactConfig.email.founder,
       generalEmail: contactConfig.email.general,
-      pitchDeckUrl: "/documents/flyer-business-prospects.html",
-      prospectFlyerUrl: "/documents/flyer-business-prospects.html",
+      pitchDeckUrl: "/prospect-flyer",
+      prospectFlyerUrl: "/prospect-flyer",
       bookingUrl: contactConfig.bookingUrl
     },
     summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."

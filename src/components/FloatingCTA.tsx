@@ -35,7 +35,7 @@ export default function FloatingCTA() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  if (location.pathname.startsWith('/portal')) {
+  if (location.pathname.startsWith('/portal') || location.pathname.includes('flyer')) {
     return null;
   }
 

@@ -19,7 +19,8 @@ const BASE_ROUTES = [
   '/investment-models', 
   '/company-profile', 
   '/why-choose-us',
-  '/standorte'
+  '/standorte',
+  '/prospect-flyer'
 ];
 
 // Dynamically include all city & suburb landing pages from locationsData.json

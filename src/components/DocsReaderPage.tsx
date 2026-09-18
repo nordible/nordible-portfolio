@@ -100,7 +100,11 @@ export default function DocsReaderPage() {
   };
 
   const handlePrint = () => {
-    window.print();
+    if (activeDoc?.isFlyer) {
+      window.open('/prospect-flyer', '_blank');
+    } else {
+      window.print();
+    }
   };
 
   const scrollToTop = () => {
@@ -155,19 +159,21 @@ export default function DocsReaderPage() {
     };
 
     const parseInline = (text: string): React.ReactNode => {
+      if (!text) return null;
       // Bold + Italic, Bold, Code, Links
       const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|`.*?`)/g);
       return parts.map((part, idx) => {
+        if (!part) return null;
         if (part.startsWith('**') && part.endsWith('**')) {
-          return <strong key={idx} className="font-extrabold text-nordible-dark dark:text-white">{part.slice(2, -2)}</strong>;
+          return <strong key={`b-${idx}`} className="font-extrabold text-nordible-dark dark:text-white">{part.slice(2, -2)}</strong>;
         }
         if (part.startsWith('*') && part.endsWith('*')) {
-          return <em key={idx} className="italic text-gray-700 dark:text-gray-300">{part.slice(1, -1)}</em>;
+          return <em key={`i-${idx}`} className="italic text-gray-700 dark:text-gray-300">{part.slice(1, -1)}</em>;
         }
         if (part.startsWith('`') && part.endsWith('`')) {
-          return <code key={idx} className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 font-mono text-xs">{part.slice(1, -1)}</code>;
+          return <code key={`c-${idx}`} className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 font-mono text-xs">{part.slice(1, -1)}</code>;
         }
-        return part;
+        return <span key={`t-${idx}`}>{part}</span>;
       });
     };
 
@@ -479,18 +485,6 @@ export default function DocsReaderPage() {
               <span className="hidden sm:inline ml-1.5">Print</span>
             </button>
 
-            {/* Prospect Flyer Generator */}
-            <a
-              href="/documents/flyer-business-prospects.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50 text-nordible-blue dark:text-blue-300 text-xs font-bold hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors flex items-center gap-1.5"
-              title="B2B Prospect Flyer (On-Demand Vector PDF)"
-            >
-              <FileText className="w-4 h-4" />
-              <span className="hidden md:inline">B2B Flyer</span>
-            </a>
-
             {/* Lock Session */}
             <button
               type="button"
@@ -635,11 +629,11 @@ export default function DocsReaderPage() {
             </div>
 
             {viewMode === 'formatted' ? (
-              <article className="prose dark:prose-invert max-w-none">
+              <article key={`${activeDoc.id}-formatted`} className="prose dark:prose-invert max-w-none">
                 {renderMarkdown(activeDoc.rawContent)}
               </article>
             ) : (
-              <pre className="p-4 sm:p-6 rounded-2xl bg-gray-950 text-blue-200 font-mono text-xs sm:text-sm overflow-x-auto leading-relaxed border border-gray-800">
+              <pre key={`${activeDoc.id}-raw`} className="p-4 sm:p-6 rounded-2xl bg-gray-950 text-blue-200 font-mono text-xs sm:text-sm overflow-x-auto leading-relaxed border border-gray-800">
                 <code>{activeDoc.rawContent}</code>
               </pre>
             )}
@@ -673,15 +667,14 @@ export default function DocsReaderPage() {
           {viewMode === 'formatted' ? <Code className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
         </button>
 
-        <a
-          href="/documents/flyer-business-prospects.html"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={handlePrint}
           className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800/50 active:scale-95"
-          title="B2B Prospect Flyer (On-Demand Vector PDF)"
+          title="Print or Export Document"
         >
-          <FileText className="w-4 h-4" />
-        </a>
+          <Printer className="w-4 h-4" />
+        </button>
 
         <a
           href="/images/nordible-linkedin-cover.png"

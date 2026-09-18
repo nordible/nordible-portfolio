@@ -1,0 +1,938 @@
+/* =========================================================
+   NORDIBLE B2B PROSPECTUS FLYER STYLES
+   Vector-accurate DIN A4 print + ergonomic screen view
+   ========================================================= */
+
+.flyer-view-container {
+  --brand-blue: #145bff;
+  --brand-blue-dark: #0d2b75;
+  --brand-blue-light: #eff4ff;
+  --brand-blue-soft: rgba(20, 91, 255, 0.08);
+  --brand-orange: #ff9f1a;
+  --brand-orange-light: #fff8eb;
+  --brand-dark: #09142e;
+  --brand-slate: #1e293b;
+  --brand-charcoal: #334155;
+  --brand-muted: #64748b;
+  --brand-border: #e2e8f0;
+  --brand-border-soft: #edf2f7;
+  --brand-light: #f8fafc;
+  --brand-white: #ffffff;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  min-height: 100vh;
+  background-color: #1e293b;
+  color: var(--brand-dark);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 16px 100px 16px;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   DESKTOP STICKY TOOLBAR
+   ========================================================= */
+.flyer-toolbar {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  background: rgba(9, 20, 46, 0.94);
+  backdrop-filter: blur(14px);
+  padding: 10px 20px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease;
+}
+
+.flyer-toolbar-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.flyer-toolbar-back:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.flyer-toolbar-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flyer-toolbar-title span.highlight {
+  color: #60a5fa;
+}
+
+.flyer-badge-pill {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.flyer-btn-print {
+  background: var(--brand-blue);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(20, 91, 255, 0.35);
+}
+
+.flyer-btn-print:hover {
+  background: #0046e0;
+  transform: translateY(-1px);
+}
+
+.flyer-btn-print:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   MOBILE BOTTOM ERGONOMIC DOCK (FITTS'S LAW / THUMB ZONE)
+   ========================================================= */
+.flyer-mobile-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(9, 20, 46, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)) 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.flyer-mobile-dock .flyer-btn-print {
+  flex: 1;
+  justify-content: center;
+  padding: 12px 18px;
+  font-size: 13px;
+}
+
+/* =========================================================
+   SHEETS SCROLL WRAPPER
+   ========================================================= */
+.flyer-sheets-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+}
+
+/* =========================================================
+   DIN A4 PORTRAIT SHEET (210mm x 297mm)
+   ========================================================= */
+.flyer-sheet {
+  width: 210mm;
+  height: 297mm;
+  min-width: 210mm;
+  min-height: 297mm;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  padding: 13mm 15mm 11mm 15mm;
+  box-sizing: border-box;
+}
+
+/* Sheet Header */
+.flyer-sheet-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 3.5mm;
+  border-bottom: 1.5px solid var(--brand-border);
+}
+
+.flyer-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.flyer-brand-icon-box {
+  width: 8.5mm;
+  height: 8.5mm;
+  background: #ffffff;
+  border-radius: 2mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--brand-border);
+  box-shadow: 0 2px 5px rgba(20, 91, 255, 0.08);
+  padding: 1mm;
+  box-sizing: border-box;
+}
+
+.flyer-brand-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flyer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.flyer-brand-title {
+  font-family: var(--font-heading);
+  font-size: 11.5pt;
+  font-weight: 800;
+  color: var(--brand-dark);
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+}
+
+.flyer-brand-sub {
+  font-size: 6.2pt;
+  font-weight: 700;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.flyer-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flyer-meta-tag {
+  font-size: 6.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--brand-muted);
+  background: var(--brand-light);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--brand-border);
+}
+
+.flyer-page-pill {
+  background: var(--brand-dark);
+  color: #ffffff;
+  font-size: 6.5pt;
+  font-weight: 800;
+  padding: 2.5px 8px;
+  border-radius: 9999px;
+  letter-spacing: 0.5px;
+}
+
+/* Sheet Footer */
+.flyer-sheet-footer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 3.2mm;
+  border-top: 1.5px solid var(--brand-border);
+  font-size: 6.5pt;
+  color: var(--brand-muted);
+}
+
+.flyer-footer-left strong {
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+.flyer-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.flyer-footer-right .accent-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  display: inline-block;
+}
+
+/* Common Typography */
+.flyer-content-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4mm 0;
+}
+
+.flyer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 6.8pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--brand-blue);
+  margin-bottom: 2mm;
+}
+
+.flyer-eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+}
+
+.flyer-main-title {
+  font-family: var(--font-heading);
+  font-size: 19pt;
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--brand-dark);
+  letter-spacing: -0.4px;
+  margin-bottom: 2.8mm;
+}
+
+.flyer-main-title span.highlight {
+  color: var(--brand-blue);
+}
+
+.flyer-lead-text {
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: var(--brand-charcoal);
+  margin-bottom: 4.5mm;
+}
+
+/* =========================================================
+   PAGE 1 SPECIFIC SECTIONS
+   ========================================================= */
+.flyer-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.8mm;
+  margin-bottom: 4mm;
+}
+
+.flyer-metric-card {
+  background: var(--brand-light);
+  border: 1px solid var(--brand-border);
+  border-radius: 2.5mm;
+  padding: 3mm 3mm 2.5mm 3mm;
+  border-left: 2.5px solid var(--brand-blue);
+}
+
+.flyer-metric-val {
+  font-family: var(--font-heading);
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--brand-blue);
+  line-height: 1;
+  margin-bottom: 1.2mm;
+}
+
+.flyer-metric-label {
+  font-size: 7.2pt;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 0.8mm;
+}
+
+.flyer-metric-desc {
+  font-size: 6.3pt;
+  color: var(--brand-muted);
+  line-height: 1.3;
+}
+
+/* Enterprise Heritage Bar */
+.flyer-heritage-strip {
+  background: #fdfdfd;
+  border: 1px solid var(--brand-border);
+  border-radius: 2.5mm;
+  padding: 2.8mm 3.5mm;
+  margin-bottom: 4.2mm;
+}
+
+.flyer-strip-label {
+  font-size: 6.0pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--brand-muted);
+  margin-bottom: 2mm;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flyer-strip-label .pulse-dot {
+  width: 4px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+.flyer-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.flyer-logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--brand-border);
+  padding: 1.8mm 3.2mm;
+  border-radius: 1.5mm;
+  flex: 1;
+  justify-content: center;
+}
+
+.flyer-logo-badge img {
+  height: 4.8mm;
+  max-width: 22mm;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+}
+
+.flyer-logo-badge span {
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: var(--brand-slate);
+  letter-spacing: 0.2px;
+}
+
+/* Founder Authority Card */
+.flyer-founder-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f9 100%);
+  border: 1.2px solid var(--brand-border);
+  border-radius: 3mm;
+  padding: 4mm 4.5mm;
+  display: flex;
+  gap: 4.5mm;
+  align-items: center;
+  margin-bottom: 4.2mm;
+}
+
+.flyer-founder-photo-box {
+  width: 28mm;
+  height: 28mm;
+  border-radius: 2.5mm;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(9, 20, 46, 0.12);
+  background: #e2e8f0;
+  position: relative;
+}
+
+.flyer-founder-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.flyer-founder-details {
+  flex: 1;
+}
+
+.flyer-founder-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1mm;
+}
+
+.flyer-founder-name {
+  font-family: var(--font-heading);
+  font-size: 11pt;
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.flyer-founder-role-tag {
+  background: var(--brand-blue);
+  color: #ffffff;
+  font-size: 6.0pt;
+  font-weight: 800;
+  padding: 1.5px 6px;
+  border-radius: 9999px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.flyer-founder-title {
+  font-size: 7.2pt;
+  font-weight: 700;
+  color: var(--brand-blue-dark);
+  margin-bottom: 1.8mm;
+}
+
+.flyer-founder-bio {
+  font-size: 6.8pt;
+  line-height: 1.4;
+  color: var(--brand-charcoal);
+  margin-bottom: 2.2mm;
+}
+
+.flyer-founder-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.flyer-f-badge {
+  background: #ffffff;
+  border: 1px solid var(--brand-border);
+  padding: 1.5px 6px;
+  border-radius: 3px;
+  font-size: 6.0pt;
+  font-weight: 700;
+  color: var(--brand-slate);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.flyer-f-badge.highlight {
+  border-color: rgba(20, 91, 255, 0.3);
+  color: var(--brand-blue);
+  background: var(--brand-blue-light);
+}
+
+/* Comparison Advantage Strip */
+.flyer-comparison-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+}
+
+.flyer-comp-col {
+  border-radius: 2.5mm;
+  padding: 3mm 3.5mm;
+  font-size: 6.7pt;
+}
+
+.flyer-comp-agency {
+  background: #fafafa;
+  border: 1px dashed #cbd5e1;
+  color: var(--brand-muted);
+}
+
+.flyer-comp-nordible {
+  background: var(--brand-blue-soft);
+  border: 1px solid rgba(20, 91, 255, 0.3);
+  color: var(--brand-dark);
+}
+
+.flyer-comp-title {
+  font-weight: 800;
+  font-size: 7.2pt;
+  margin-bottom: 1.5mm;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flyer-comp-agency .flyer-comp-title {
+  color: #dc2626;
+}
+
+.flyer-comp-nordible .flyer-comp-title {
+  color: var(--brand-blue);
+}
+
+.flyer-comp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2mm;
+  margin: 0;
+  padding: 0;
+}
+
+.flyer-comp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   PAGE 2 SPECIFIC SECTIONS
+   ========================================================= */
+.flyer-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.8mm;
+  margin-bottom: 3.5mm;
+}
+
+.flyer-service-card {
+  background: #ffffff;
+  border: 1px solid var(--brand-border);
+  border-radius: 2.5mm;
+  padding: 3.2mm 3.5mm;
+  position: relative;
+}
+
+.flyer-service-card.wide {
+  grid-column: span 2;
+  background: linear-gradient(to right, #fbfdff, #f6faff);
+  border-color: rgba(20, 91, 255, 0.25);
+}
+
+.flyer-service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.5mm;
+}
+
+.flyer-service-icon-pill {
+  width: 5.5mm;
+  height: 5.5mm;
+  border-radius: 1.5mm;
+  background: var(--brand-blue-light);
+  color: var(--brand-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8pt;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.flyer-service-title {
+  font-family: var(--font-heading);
+  font-size: 8.0pt;
+  font-weight: 800;
+  color: var(--brand-dark);
+  line-height: 1.2;
+}
+
+.flyer-service-desc {
+  font-size: 6.6pt;
+  line-height: 1.38;
+  color: var(--brand-charcoal);
+  margin-bottom: 2mm;
+}
+
+.flyer-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.flyer-tag-item {
+  font-size: 5.8pt;
+  font-weight: 700;
+  color: var(--brand-slate);
+  background: var(--brand-light);
+  border: 1px solid var(--brand-border);
+  padding: 1px 5px;
+  border-radius: 2.5px;
+}
+
+/* 3 Operating Principles Guarantee Strip */
+.flyer-guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5mm;
+  margin-bottom: 3.8mm;
+}
+
+.flyer-guarantee-box {
+  background: var(--brand-light);
+  border: 1px solid var(--brand-border);
+  border-radius: 2.2mm;
+  padding: 2.8mm;
+  text-align: left;
+}
+
+.flyer-g-num {
+  font-size: 6.2pt;
+  font-weight: 800;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.8mm;
+}
+
+.flyer-g-title {
+  font-family: var(--font-heading);
+  font-size: 7.6pt;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin-bottom: 1mm;
+}
+
+.flyer-g-text {
+  font-size: 6.2pt;
+  color: var(--brand-muted);
+  line-height: 1.32;
+}
+
+/* Executive Call-To-Action Block */
+.flyer-cta-container {
+  background: linear-gradient(135deg, #09142e 0%, #0d2b75 100%);
+  color: #ffffff;
+  border-radius: 3mm;
+  padding: 4.5mm 5.5mm;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8mm;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(9, 20, 46, 0.25);
+}
+
+.flyer-cta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4.5mm;
+}
+
+.flyer-cta-headings {
+  flex: 1;
+}
+
+.flyer-cta-badge {
+  display: inline-block;
+  background: rgba(255, 159, 26, 0.2);
+  border: 1px solid rgba(255, 159, 26, 0.5);
+  color: #ffb84d;
+  font-size: 6.0pt;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2mm;
+}
+
+.flyer-cta-title {
+  font-family: var(--font-heading);
+  font-size: 11pt;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1mm;
+}
+
+.flyer-cta-subtitle {
+  font-size: 6.8pt;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.flyer-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 3.5mm;
+  flex-shrink: 0;
+}
+
+.flyer-cta-button-visual {
+  background: var(--brand-blue);
+  color: #ffffff;
+  padding: 2.8mm 5mm;
+  border-radius: 2mm;
+  font-size: 7.2pt;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.flyer-cta-button-visual:hover {
+  background: #0046e0;
+}
+
+.flyer-qr-card {
+  background: #ffffff;
+  padding: 1.6mm 1.8mm 1.2mm 1.8mm;
+  border-radius: 2.2mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+}
+
+.flyer-qr-img {
+  width: 17mm;
+  height: 17mm;
+  display: block;
+}
+
+.flyer-qr-label {
+  font-size: 4.8pt;
+  font-weight: 800;
+  color: #09142e;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: 1mm;
+  text-align: center;
+}
+
+.flyer-cta-contact-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5mm;
+  padding-top: 2.2mm;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.flyer-matrix-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.flyer-matrix-label {
+  font-size: 5.6pt;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4mm;
+}
+
+.flyer-matrix-value {
+  font-size: 6.8pt;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.1px;
+}
+
+.flyer-cta-language-notice {
+  font-size: 5.6pt;
+  color: #94a3b8;
+  line-height: 1.32;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 1.8mm;
+}
+
+/* =========================================================
+   PRINT MEDIA QUERIES (PERFECT VECTOR PDF EXPORT)
+   ========================================================= */
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+
+  html, body {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Reset outer layout containers during print */
+  #root,
+  #root > div {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    min-height: auto !important;
+  }
+
+  .flyer-view-container {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    min-height: auto !important;
+  }
+
+  .flyer-toolbar,
+  .flyer-mobile-dock,
+  .flyer-screen-only {
+    display: none !important;
+  }
+
+  .flyer-sheets-wrapper {
+    overflow: visible !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: block !important;
+  }
+
+  .flyer-sheet {
+    box-shadow: none !important;
+    margin: 0 !important;
+    page-break-after: always;
+    break-after: page;
+    height: 297mm !important;
+    max-height: 297mm !important;
+  }
+}

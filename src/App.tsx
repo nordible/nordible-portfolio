@@ -27,6 +27,7 @@ import CompanyProfilePage from './components/CompanyProfilePage';
 import WhyChooseUsPage from './components/WhyChooseUsPage';
 import FloatingCTA from './components/FloatingCTA';
 import DocsReaderPage from './components/DocsReaderPage';
+import ProspectFlyerPage from './components/ProspectFlyerPage';
 import NotFoundPage from './components/NotFoundPage';
 import LocationLandingPage from './components/LocationLandingPage';
 import AreasServedPage from './components/AreasServedPage';
@@ -200,6 +201,7 @@ function App() {
     { path: '/privacy', element: <PrivacyPolicy /> },
     { path: '/terms', element: <TermsOfService /> },
     { path: '/portal', element: <DocsReaderPage /> },
+    { path: '/prospect-flyer', element: <ProspectFlyerPage /> },
     { path: '/standorte', element: <AreasServedPage /> },
     { path: '/:city', element: <LocationLandingPage /> },
     { path: '/:city/:suburb', element: <LocationLandingPage /> },
@@ -210,6 +212,7 @@ function App() {
     { path: '/about', to: '/company-profile' },
     { path: '/why-us', to: '/why-choose-us' },
     { path: '/benefits', to: '/why-choose-us' },
+    { path: '/flyer', to: '/prospect-flyer' },
     { path: '/areas-served', to: '/standorte' },
     { path: '/locations', to: '/standorte' },
   ];
