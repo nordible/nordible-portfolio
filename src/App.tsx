@@ -188,6 +188,31 @@ function DeRedirect() {
   return <Navigate to={`${target}${location.search}${location.hash}`} replace />;
 }
 
+function CanonicalTagUpdater() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    const rawPath = location.pathname.replace(/\/$/, '') || '/';
+    const canonicalUrl = rawPath === '/' ? 'https://nordible.co/' : `https://nordible.co${rawPath}`;
+
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+    const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+    if (twitterUrl) twitterUrl.setAttribute('content', canonicalUrl);
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   const baseRoutes = [
     { path: '/', element: <HomePage /> },
@@ -220,6 +245,7 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
+        <CanonicalTagUpdater />
         <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
           <Routes>
             {/* Legacy German URL redirects (/de -> /, /de/* -> /*) */}

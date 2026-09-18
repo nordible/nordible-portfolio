@@ -75,7 +75,24 @@ async function prerender() {
         console.warn(`Warning: React did not mount children for ${route} within timeout`);
       });
       
-      const html = await page.content();
+      let html = await page.content();
+      
+      // Inject self-referencing canonical URL and social metadata
+      const cleanRoute = route.replace(/\/$/, '') || '/';
+      const canonicalUrl = cleanRoute === '/' ? 'https://nordible.co/' : `https://nordible.co${cleanRoute}`;
+      
+      html = html.replace(
+        /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
+        `<link rel="canonical" href="${canonicalUrl}" />`
+      );
+      html = html.replace(
+        /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i,
+        `<meta property="og:url" content="${canonicalUrl}" />`
+      );
+      html = html.replace(
+        /<meta\s+property="twitter:url"\s+content="[^"]*"\s*\/?>/i,
+        `<meta property="twitter:url" content="${canonicalUrl}" />`
+      );
       
       let outputPath = path.join(__dirname, 'dist', route === '/' ? 'index.html' : `${route}/index.html`);
       const outputDir = path.dirname(outputPath);
@@ -85,8 +102,45 @@ async function prerender() {
       }
       
       fs.writeFileSync(outputPath, html);
-      console.log(`Successfully pre-rendered to ${outputPath}`);
+      console.log(`Successfully pre-rendered to ${outputPath} (Canonical: ${canonicalUrl})`);
     }
+
+    // Generate dynamic multi-language sitemap.xml for all active routes
+    const today = new Date().toISOString().split('T')[0];
+    const sitemapRoutes = routes.filter(r => r !== '/portal' && r !== '/dashboard' && !r.includes('*'));
+
+    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${sitemapRoutes.map(r => {
+      const cleanR = r.replace(/\/$/, '') || '/';
+      const loc = cleanR === '/' ? 'https://nordible.co/' : `https://nordible.co${cleanR}`;
+      const isTop = cleanR === '/' || cleanR === '/en';
+      const isKeyPage = cleanR.startsWith('/blog') || cleanR === '/company-profile' || cleanR === '/founder' || cleanR === '/why-choose-us' || cleanR === '/investment-models' || cleanR === '/prospect-flyer';
+      const priority = isTop ? '1.0' : (isKeyPage ? '0.8' : '0.7');
+      const changefreq = cleanR === '/' || cleanR.includes('blog') ? 'weekly' : 'monthly';
+
+      const isEn = cleanR.startsWith('/en');
+      const dePath = isEn ? (cleanR === '/en' ? '/' : cleanR.replace(/^\/en/, '')) : cleanR;
+      const enPath = isEn ? cleanR : (cleanR === '/' ? '/en' : `/en${cleanR}`);
+      const deUrl = dePath === '/' ? 'https://nordible.co/' : `https://nordible.co${dePath}`;
+      const enUrl = `https://nordible.co${enPath}`;
+
+      return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="${deUrl}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${deUrl}" />
+  </url>`;
+    }).join('\n')}
+</urlset>
+`;
+
+    fs.writeFileSync(path.join(__dirname, 'public', 'sitemap.xml'), sitemapXml);
+    fs.writeFileSync(path.join(__dirname, 'dist', 'sitemap.xml'), sitemapXml);
+    console.log(`Successfully generated dynamic sitemap.xml with ${sitemapRoutes.length} URLs`);
 
     // Generate static redirect for legacy /de
     const deDir = path.join(__dirname, 'dist', 'de');
