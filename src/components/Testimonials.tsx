@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 export default function Testimonials() {
   const { t } = useLanguage();
@@ -12,12 +13,13 @@ export default function Testimonials() {
   const marqueeTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="relative py-20 bg-white dark:bg-gray-900 overflow-hidden">
+    <section id="testimonials" className="relative py-20 bg-white dark:bg-gray-900 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {tm.title && (
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-              {tm.title}
+            <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+              <span>{tm.title}</span>
+              <SectionAnchor id="testimonials" />
             </h2>
           </div>
         )}

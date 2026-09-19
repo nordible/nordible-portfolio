@@ -21,13 +21,15 @@ export default function FloatingCTA() {
   const homePath = language === 'de' ? '/' : '/en';
 
   const handleConsultation = () => {
+    const targetUrl = `${homePath}#contact`;
     if (location.pathname !== homePath) {
-      navigate(homePath);
-      setTimeout(() => {
-        document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      navigate(targetUrl);
     } else {
-      document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', targetUrl);
+      const element = document.getElementById('contact') || document.getElementById('consultation');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 

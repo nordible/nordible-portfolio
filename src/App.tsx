@@ -31,6 +31,7 @@ import ProspectFlyerPage from './components/ProspectFlyerPage';
 import NotFoundPage from './components/NotFoundPage';
 import LocationLandingPage from './components/LocationLandingPage';
 import AreasServedPage from './components/AreasServedPage';
+import ScrollToHash from './components/ScrollToHash';
 
 function HomePage() {
   return (
@@ -246,6 +247,7 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <CanonicalTagUpdater />
+        <ScrollToHash />
         <div className="relative min-h-screen bg-nordible-bg dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden font-sans">
           <Routes>
             {/* Legacy German URL redirects (/de -> /, /de/* -> /*) */}

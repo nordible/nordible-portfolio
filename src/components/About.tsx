@@ -1,19 +1,21 @@
 import { ArrowRight, Building2, ShieldCheck, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 export default function About() {
   const { language, getPath } = useLanguage();
   const isDe = language === 'de';
 
   return (
-    <section id="about" className="py-14 sm:py-16 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800">
+    <section id="about" className="py-14 sm:py-16 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {isDe ? 'Über Nordible Technologies' : 'About Nordible Technologies'}
+          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{isDe ? 'Über Nordible Technologies' : 'About Nordible Technologies'}</span>
+            <SectionAnchor id="about" />
           </h2>
         </div>
 

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 const projects = [
   {
@@ -427,12 +428,13 @@ export default function Portfolio() {
   }, [nextSlide, prevSlide]);
 
   return (
-    <section id="portfolio" className="relative py-10 sm:py-14 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
+    <section id="portfolio" className="relative py-10 sm:py-14 bg-nordible-bg dark:bg-gray-900 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {t.portfolio.title && (
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-              {t.portfolio.title}
+            <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+              <span>{t.portfolio.title}</span>
+              <SectionAnchor id="portfolio" />
             </h2>
           </div>
         )}

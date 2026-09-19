@@ -1,6 +1,7 @@
 import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
+import SectionAnchor from './SectionAnchor';
 
 export default function Contact() {
   const { t, language } = useLanguage();
@@ -11,7 +12,8 @@ export default function Contact() {
   const bookingUrl = contactConfig.bookingUrl;
 
   return (
-    <section id="consultation" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
+      <div id="consultation" className="absolute top-0 pointer-events-none scroll-mt-20" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header & Value Proposition */}
@@ -20,8 +22,9 @@ export default function Contact() {
             <Sparkles className="h-3.5 w-3.5" />
             <span>{isDe ? 'Unverbindliche Erstberatung' : 'Zero-Obligation Consultation'}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {c.title} <span className="text-nordible-blue">{c.titleHighlight}</span>
+          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{c.title} <span className="text-nordible-blue">{c.titleHighlight}</span></span>
+            <SectionAnchor id="contact" />
           </h2>
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             {isDe 

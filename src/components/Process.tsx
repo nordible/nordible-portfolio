@@ -1,5 +1,6 @@
 import { Search, Palette, Code, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 export default function Process() {
   const { t } = useLanguage();
@@ -8,11 +9,12 @@ export default function Process() {
   const stepIcons = [Search, Palette, Code, TrendingUp];
 
   return (
-    <section id="process" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden">
+    <section id="process" className="relative py-24 bg-nordible-bg dark:bg-gray-900 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {pr.title}
+          <h2 className="group inline-flex items-center justify-center gap-2 text-4xl sm:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{pr.title}</span>
+            <SectionAnchor id="process" />
           </h2>
         </div>
 

@@ -22,16 +22,14 @@ export default function Header() {
       return;
     }
 
+    const targetHash = target === 'consultation' ? 'contact' : target;
+    const targetUrl = `${homePath}#${targetHash}`;
+
     if (location.pathname !== homePath) {
-      navigate(homePath);
-      setTimeout(() => {
-        const element = document.getElementById(target);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      navigate(targetUrl);
     } else {
-      const element = document.getElementById(target);
+      window.history.pushState(null, '', targetUrl);
+      const element = document.getElementById(targetHash) || document.getElementById(target);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }

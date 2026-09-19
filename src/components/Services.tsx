@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, Video, Bot, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 export default function Services() {
   const { t } = useLanguage();
@@ -15,11 +16,12 @@ export default function Services() {
   const marqueeServices = [...s.items, ...s.items];
 
   return (
-    <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden">
+    <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {s.title}
+          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{s.title}</span>
+            <SectionAnchor id="services" />
           </h2>
         </div>
 

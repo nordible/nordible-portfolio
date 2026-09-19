@@ -7,6 +7,14 @@ export default function Footer() {
   const { t, language, getPath } = useLanguage();
   const f = t.footer;
   const navigate = useNavigate();
+  const homePath = getPath('/');
+
+  const socialLinks = [
+    { icon: Github, url: 'https://github.com/nordible', label: 'GitHub' },
+    { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/', label: 'LinkedIn' },
+    { icon: Instagram, url: 'https://www.instagram.com/nordible.co/', label: 'Instagram' },
+    { icon: Youtube, url: 'https://www.youtube.com/@nordible', label: 'YouTube' }
+  ];
 
   return (
     <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden text-left">
@@ -28,25 +36,24 @@ export default function Footer() {
                 </div>
                 <span className="text-blue-100/80 font-mono text-xs tracking-wider">{contactConfig.phone.display}</span>
               </a>
-              <div className="flex items-start space-x-3">
+              <div className="flex items-center space-x-3">
                 <div className="p-1.5 bg-white/5 rounded-lg">
                   <MapPin className="h-4 w-4 text-blue-300" />
                 </div>
-                <span className="text-blue-100/70 font-medium text-xs leading-relaxed whitespace-pre-line">
-                  {contactConfig.address.company}<br />{contactConfig.address.street}, {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
-                </span>
+                <span className="text-blue-100/80 text-xs font-medium">{contactConfig.address.full}</span>
               </div>
+              <p className="text-blue-100/50 text-[11px] pt-1">
+                {language === 'de' 
+                  ? 'Persönliche Termine vor Ort in Frankfurt, Rhein-Main und deutschlandweit nach Vereinbarung.' 
+                  : 'On-site appointments in Frankfurt, Rhine-Main, and across Germany by arrangement.'}
+              </p>
+            </div>
 
-              {/* Social Channels Directly Under Address */}
-              <div className="pt-3 flex items-center space-x-3">
-                {[
-                  { icon: Github, url: 'https://github.com/nordible', label: 'GitHub' },
-                  { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/', label: 'LinkedIn' },
-                  { icon: Instagram, url: 'https://www.instagram.com/nordible.co/', label: 'Instagram' },
-                  { icon: Youtube, url: 'https://www.youtube.com/@nordible', label: 'YouTube' }
-                ].map((social, i) => (
+            <div className="pt-6">
+              <div className="flex space-x-3">
+                {socialLinks.map((social) => (
                   <a 
-                    key={i} 
+                    key={social.label} 
                     href={social.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
@@ -63,13 +70,13 @@ export default function Footer() {
           <div>
             <h3 className="text-[11px] font-bold text-blue-300 mb-4 uppercase tracking-widest">{f.expertiseTitle}</h3>
             <ul className="space-y-2.5 text-xs font-medium">
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Technologielösungen & Apps' : 'Technology Solutions & Apps'}</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Videobearbeitung & Produktion' : 'Video Editing & Production'}</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'KI-Agenten-Implementierung' : 'AI Agent Implementation'}</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</a></li>
-              <li><a href="#services" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Geschäftsprozess-Automatisierung' : 'Business Systems & Automation'}</a></li>
+              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Technologielösungen & Apps' : 'Technology Solutions & Apps'}</Link></li>
+              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Videobearbeitung & Produktion' : 'Video Editing & Production'}</Link></li>
+              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'KI-Agenten-Implementierung' : 'AI Agent Implementation'}</Link></li>
+              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</Link></li>
+              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Geschäftsprozess-Automatisierung' : 'Business Systems & Automation'}</Link></li>
               <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email & Setup</a></li>
-              <li><a href="#portfolio" className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Projekt-Portfolio' : 'Product Portfolio'}</a></li>
+              <li><Link to={`${homePath}#portfolio`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Projekt-Portfolio' : 'Product Portfolio'}</Link></li>
               <li>
                 <Link 
                   to={getPath('/blog')} 
@@ -127,7 +134,7 @@ export default function Footer() {
                   {language === 'de' ? 'Wie wir zusammenarbeiten' : 'How We Work Together'}
                 </Link>
               </li>
-              <li><a href="#consultation" className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</a></li>
+              <li><Link to={`${homePath}#contact`} className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</Link></li>
               <li>
                 <Link 
                   to={getPath('/privacy')}

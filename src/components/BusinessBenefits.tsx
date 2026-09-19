@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Zap, Award, ShieldCheck, Target, CheckCircle2, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 const benefitIcons = [Zap, Award, ShieldCheck, Target, CheckCircle2];
 
@@ -15,13 +16,14 @@ export default function BusinessBenefits() {
   const marqueeBenefits = [...bb.items, ...bb.items];
 
   return (
-    <section id="benefits" className="relative py-16 sm:py-20 bg-nordible-bg dark:bg-gray-900 border-y border-nordible-border dark:border-gray-800 overflow-hidden">
+    <section id="benefits" className="relative py-16 sm:py-20 bg-nordible-bg dark:bg-gray-900 border-y border-nordible-border dark:border-gray-800 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading - Clean & Centered */}
         <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {bb.title}
+          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{bb.title}</span>
+            <SectionAnchor id="benefits" />
           </h2>
         </div>
 

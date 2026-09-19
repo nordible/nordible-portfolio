@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionAnchor from './SectionAnchor';
 
 export default function InvestmentModelsTeaser() {
   const { t, language, getPath } = useLanguage();
@@ -26,12 +27,14 @@ export default function InvestmentModelsTeaser() {
   ];
 
   return (
-    <section className="py-14 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800">
+    <section id="investment-models" className="relative py-14 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800 scroll-mt-20">
+      <div id="pricing" className="absolute top-0 pointer-events-none scroll-mt-20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading - Clean & Centered */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {p.title}
+          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span>{p.title}</span>
+            <SectionAnchor id="investment-models" />
           </h2>
         </div>
 
