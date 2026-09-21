@@ -13,6 +13,7 @@ import ProspectFlyerPage from '@/components/ProspectFlyerPage';
 import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
 import DocsReaderPage from '@/components/DocsReaderPage';
+import LeadDashboard from '@/components/LeadDashboard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getAllCities, getCity, getSuburb } from '@/data/locations';
@@ -31,6 +32,7 @@ export function generateStaticParams() {
     { slug: ['privacy'] },
     { slug: ['terms'] },
     { slug: ['portal'] },
+    { slug: ['dashboard'] },
   ];
 
   for (const articleSlug of Object.keys(articlesBySlug)) {
@@ -68,6 +70,7 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
   if (path === 'privacy') return <PrivacyPolicy />;
   if (path === 'terms') return <TermsOfService />;
   if (path === 'portal') return <DocsReaderPage />;
+  if (path === 'dashboard') return <LeadDashboard />;
 
   if (slug.length === 2 && slug[0] === 'blog') {
     const articleSlug = slug[1];
