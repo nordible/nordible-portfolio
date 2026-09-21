@@ -1,3 +1,4 @@
+'use client';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Printer, ArrowLeft, ShieldCheck, ArrowUpRight } from 'lucide-react';

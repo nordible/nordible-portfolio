@@ -1,3 +1,4 @@
+'use client';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -12,15 +13,25 @@ import {
   Mail
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigate } from '@/lib/router-compat';
 
 interface FounderPageProps {
-  onBack: () => void;
-  onBookConsultation: () => void;
+  onBack?: () => void;
+  onBookConsultation?: () => void;
 }
 
 export default function FounderPage({ onBack, onBookConsultation }: FounderPageProps) {
-  const { t, language } = useLanguage();
+  const navigate = useNavigate();
+  const { t, language, getPath } = useLanguage();
   const f = t.founderPage;
+
+  const handleBack = onBack || (() => navigate(getPath('/')));
+  const handleConsultation = onBookConsultation || (() => {
+    navigate(getPath('/'));
+    setTimeout(() => {
+      document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
 
   return (
     <article className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-20">
@@ -30,7 +41,7 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
         <div className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
           <button
             type="button"
-            onClick={onBack}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -321,7 +332,7 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-nordible-border dark:border-gray-800">
           <button
             type="button"
-            onClick={onBack}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -330,7 +341,7 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
 
           <button
             type="button"
-            onClick={onBookConsultation}
+            onClick={handleConsultation}
             className="btn-primary w-full sm:w-auto text-xs px-7 py-3"
           >
             <span>{t.nav.getStarted}</span>

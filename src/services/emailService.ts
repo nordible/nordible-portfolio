@@ -1,10 +1,3 @@
-import emailjs from '@emailjs/browser';
-
-// EmailJS configuration
-const SERVICE_ID = 'service_esxb8og';
-const TEMPLATE_ID = 'template_464d5vb';
-const PUBLIC_KEY = 'W5buWLUDBdochr6eS';
-
 export interface ContactFormData {
   fullName: string;
   email: string;
@@ -16,20 +9,31 @@ export interface ContactFormData {
 
 export const sendContactEmail = async (formData: ContactFormData): Promise<boolean> => {
   try {
-    const templateParams = {
-      from_name: formData.fullName,
-      from_email: formData.email,
-      phone: formData.phone,
-      project_type: formData.projectType,
-      budget: formData.budget,
-      message: formData.description,
-      to_email: 'mail@nordible.co'
-    };
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        projectType: formData.projectType,
+        budget: formData.budget,
+        description: formData.description,
+      }),
+    });
 
-    await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-    return true;
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Mail API error response:', errorData);
+      return false;
+    }
+
+    const data = await response.json();
+    return Boolean(data.success);
   } catch (error) {
-    console.error('Email sending failed:', error);
+    console.error('Email sending failed via server API:', error);
     return false;
   }
 };

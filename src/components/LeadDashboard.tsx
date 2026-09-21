@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, XCircle, User, Mail, Phone, DollarSign, FileText, Clock, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';

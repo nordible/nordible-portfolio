@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { Link2, Check } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';

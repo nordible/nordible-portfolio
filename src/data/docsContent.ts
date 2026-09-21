@@ -33,12 +33,7 @@ const DOC_METADATA_REGISTRY: Record<string, Partial<InternalDoc>> = {
   },
 };
 
-// Auto-discover all Markdown files inside /docs dynamically via Vite import.meta.glob
-const rawDocModules = import.meta.glob('../../docs/*.md', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-}) as Record<string, string>;
+import { rawDocModules } from './rawDocs';
 
 // Parse raw markdown string to extract clean Title, Category, and Date
 const parseDocMetadata = (filePath: string, content: string): InternalDoc => {

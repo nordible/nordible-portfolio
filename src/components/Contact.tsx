@@ -1,4 +1,5 @@
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle } from 'lucide-react';
+'use client';
+import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle, MapPin, Navigation, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import SectionAnchor from './SectionAnchor';
@@ -184,6 +185,75 @@ export default function Contact() {
                 <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
+          </div>
+        </div>
+
+        {/* Office Location & Interactive Google Map */}
+        <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-12">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Office Info & CTA */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 text-xs font-bold font-heading">
+                <MapPin className="h-3.5 w-3.5 shrink-0" />
+                <span>{isDe ? 'Standort Frankfurt am Main' : 'Frankfurt am Main Office'}</span>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
+                  {isDe ? 'Besuchen Sie uns vor Ort' : 'Visit Our Office'}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  {isDe 
+                    ? 'Persönliche Strategiegespräche und Beratung in Frankfurt am Main.' 
+                    : 'In-person strategy sessions and consultation in Frankfurt am Main.'}
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-nordible-border/60 dark:border-gray-700/60 space-y-1.5 text-xs">
+                <div className="font-bold text-gray-900 dark:text-gray-100">
+                  {contactConfig.address.company}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300">
+                  {contactConfig.address.street}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300">
+                  {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
+                </div>
+                <div className="pt-2 text-[11px] text-gray-500 dark:text-gray-400 border-t border-gray-200/60 dark:border-gray-700/60">
+                  {isDe 
+                    ? 'Termine vor Ort flexibel nach Vereinbarung.' 
+                    : 'On-site appointments flexibly scheduled by arrangement.'}
+                </div>
+              </div>
+
+              <div className="pt-1">
+                <a
+                  href={contactConfig.address.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold bg-nordible-blue hover:bg-blue-600 text-white rounded-xl shadow-md shadow-blue-500/20 transition-all cursor-pointer w-full sm:w-auto"
+                >
+                  <Navigation className="h-4 w-4" />
+                  <span>{isDe ? 'Route in Google Maps öffnen' : 'Open Directions in Google Maps'}</span>
+                  <ExternalLink className="h-3.5 w-3.5 opacity-80" />
+                </a>
+              </div>
+            </div>
+
+            {/* Embedded Interactive Google Map */}
+            <div className="lg:col-span-7 h-64 sm:h-80 w-full rounded-xl overflow-hidden border border-nordible-border dark:border-gray-800 shadow-inner relative bg-gray-100 dark:bg-gray-800">
+              <iframe
+                title="Nordible Technologies Google Maps Location"
+                src={contactConfig.address.embedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
           </div>
         </div>
 

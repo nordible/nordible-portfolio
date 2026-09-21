@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';

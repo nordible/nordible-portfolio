@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Lock, 
@@ -23,7 +24,7 @@ import { Link } from 'react-router-dom';
 import { internalDocs, executiveAssets } from '../data/docsContent';
 
 export default function DocsReaderPage() {
-  const configuredPin = (import.meta.env.VITE_DOCS_PIN || '').trim();
+  const configuredPin = (process.env.NEXT_PUBLIC_DOCS_PIN || process.env.VITE_DOCS_PIN || '').trim();
   const [pinInput, setPinInput] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');

@@ -1,16 +1,25 @@
+'use client';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Shield, Zap, Target } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface CompanyProfilePageProps {
-  onBack: () => void;
-  onBookConsultation: () => void;
+  onBack?: () => void;
+  onBookConsultation?: () => void;
 }
 
 export default function CompanyProfilePage({ onBack, onBookConsultation }: CompanyProfilePageProps) {
   const navigate = useNavigate();
-  const { t, language } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const a = t.about;
+
+  const handleBack = onBack || (() => navigate(getPath('/')));
+  const handleConsultation = onBookConsultation || (() => {
+    navigate(getPath('/'));
+    setTimeout(() => {
+      document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
 
   const qualityIcons = [Shield, Zap, Target];
 
@@ -22,7 +31,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
         <div className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
           <button
             type="button"
-            onClick={onBack}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -119,7 +128,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-nordible-border dark:border-gray-800">
           <button
             type="button"
-            onClick={onBack}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -128,7 +137,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
 
           <button
             type="button"
-            onClick={onBookConsultation}
+            onClick={handleConsultation}
             className="btn-primary w-full sm:w-auto text-xs px-7 py-3"
           >
             <span>{t.nav.getStarted}</span>

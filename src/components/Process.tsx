@@ -1,3 +1,4 @@
+'use client';
 import { Search, Palette, Code, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionAnchor from './SectionAnchor';

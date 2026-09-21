@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight } from 'lucide-react';

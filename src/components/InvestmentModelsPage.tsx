@@ -1,14 +1,25 @@
+'use client';
 import { ArrowLeft, ArrowRight, Zap, ShieldCheck, Clock, Lock, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigate } from '@/lib/router-compat';
 
 interface InvestmentModelsPageProps {
-  onBack: () => void;
-  onBookConsultation: () => void;
+  onBack?: () => void;
+  onBookConsultation?: () => void;
 }
 
 export default function InvestmentModelsPage({ onBack, onBookConsultation }: InvestmentModelsPageProps) {
-  const { t, language } = useLanguage();
+  const navigate = useNavigate();
+  const { t, language, getPath } = useLanguage();
   const p = t.pricing;
+
+  const handleBack = onBack || (() => navigate(getPath('/')));
+  const handleConsultation = onBookConsultation || (() => {
+    navigate(getPath('/'));
+    setTimeout(() => {
+      document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
 
   const packages = [
     {
@@ -114,7 +125,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
         <div className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
           <button
             type="button"
-            onClick={onBack}
+            onClick={handleBack}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -188,7 +199,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
 
               <button
                 type="button"
-                onClick={onBookConsultation}
+                onClick={handleConsultation}
                 className={`w-full py-3.5 px-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center space-x-2 text-[11px] uppercase tracking-widest cursor-pointer mt-auto ${
                   pkg.popular
                     ? 'bg-nordible-blue hover:bg-blue-700 text-white shadow-lg shadow-blue-500/25 active:scale-95'
@@ -239,7 +250,7 @@ export default function InvestmentModelsPage({ onBack, onBookConsultation }: Inv
             <div className="pt-2">
               <button
                 type="button"
-                onClick={onBookConsultation}
+                onClick={handleConsultation}
                 className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-8 py-4 shadow-xl cursor-pointer"
               >
                 <span>{t.hero.ctaButton}</span>

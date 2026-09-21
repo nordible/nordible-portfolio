@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, User, Mail, Phone, Calendar } from 'lucide-react';
 import { askAI } from '../services/aiService';

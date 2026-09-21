@@ -1,3 +1,4 @@
+'use client';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
