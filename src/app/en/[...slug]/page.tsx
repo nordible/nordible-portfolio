@@ -9,6 +9,10 @@ import BlogPost from '@/components/BlogPost';
 import AreasServedPage from '@/components/AreasServedPage';
 import LocationLandingPage from '@/components/LocationLandingPage';
 import QrCodeGeneratorPage from '@/components/QrCodeGeneratorPage';
+import ProspectFlyerPage from '@/components/ProspectFlyerPage';
+import PrivacyPolicy from '@/components/PrivacyPolicy';
+import TermsOfService from '@/components/TermsOfService';
+import DocsReaderPage from '@/components/DocsReaderPage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getAllCities, getCity, getSuburb } from '@/data/locations';
@@ -23,6 +27,10 @@ export function generateStaticParams() {
     { slug: ['blog'] },
     { slug: ['standorte'] },
     { slug: ['qr-code-generator'] },
+    { slug: ['prospect-flyer'] },
+    { slug: ['privacy'] },
+    { slug: ['terms'] },
+    { slug: ['portal'] },
   ];
 
   for (const articleSlug of Object.keys(articlesBySlug)) {
@@ -56,6 +64,10 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
     </>
   );
   if (path === 'qr-code-generator') return <QrCodeGeneratorPage />;
+  if (path === 'prospect-flyer') return <ProspectFlyerPage />;
+  if (path === 'privacy') return <PrivacyPolicy />;
+  if (path === 'terms') return <TermsOfService />;
+  if (path === 'portal') return <DocsReaderPage />;
 
   if (slug.length === 2 && slug[0] === 'blog') {
     const articleSlug = slug[1];

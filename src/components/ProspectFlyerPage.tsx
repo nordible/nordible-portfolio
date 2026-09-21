@@ -1,7 +1,7 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Printer, ArrowLeft, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Printer, ArrowLeft, ShieldCheck, ArrowUpRight, Lock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import './ProspectFlyerPage.css';
@@ -9,6 +9,27 @@ import './ProspectFlyerPage.css';
 export default function ProspectFlyerPage() {
   const navigate = useNavigate();
   const { getPath } = useLanguage();
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Robots meta tag to prevent search engine indexing
+    let metaTag = document.querySelector('meta[name="robots"]') as HTMLMetaElement;
+    if (!metaTag) {
+      metaTag = document.createElement('meta');
+      metaTag.name = 'robots';
+      document.head.appendChild(metaTag);
+    }
+    metaTag.content = 'noindex, nofollow, noarchive';
+
+    // Verify founder portal session authentication
+    const sessionAuth = typeof window !== 'undefined' ? sessionStorage.getItem('nordible_portal_auth') : null;
+    if (sessionAuth === 'granted') {
+      setIsAuthorized(true);
+    } else {
+      setIsAuthorized(false);
+      navigate(getPath('/portal'), { replace: true });
+    }
+  }, [navigate, getPath]);
 
   useEffect(() => {
     const originalTitle = document.title;
@@ -23,12 +44,21 @@ export default function ProspectFlyerPage() {
   };
 
   const handleBack = () => {
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate(getPath('/portal'));
-    }
+    navigate(getPath('/portal'));
   };
+
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="text-center space-y-3">
+          <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-nordible-blue flex items-center justify-center mx-auto">
+            <Lock className="w-6 h-6 animate-pulse" />
+          </div>
+          <p className="text-xs text-gray-500 font-mono">Zugriff wird überprüft...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flyer-view-container">
