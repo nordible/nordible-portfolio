@@ -39,8 +39,8 @@ const nextConfig: NextConfig = {
       { source: '/qr', destination: '/qr-code-generator', permanent: true },
       { source: '/qr-code', destination: '/qr-code-generator', permanent: true },
       { source: '/qr-generator', destination: '/qr-code-generator', permanent: true },
-      { source: '/de', destination: '/', permanent: true },
-      { source: '/de/:path*', destination: '/:path*', permanent: true },
+      { source: '/en', destination: '/', permanent: true },
+      { source: '/en/:path*', destination: '/:path*', permanent: true },
     ];
   },
 };

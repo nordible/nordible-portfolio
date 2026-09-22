@@ -8,8 +8,8 @@
 
 - [Full Knowledge Base (EN & DE)](https://nordible.co/llms-full.txt): Complete reference containing founder background, technical capabilities, engagement models, and verified client case studies.
 - [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration.
-- [Startseite (DE)](https://nordible.co/): Offizielle deutsche Webpräsenz und Leistungsübersicht.
-- [English Homepage (EN)](https://nordible.co/en): English landing page for international clients.
+- [Homepage (EN)](https://nordible.co/): Official website and capabilities overview.
+- [Startseite (DE)](https://nordible.co/de): Deutsche Webpräsenz und Leistungsübersicht.
 - [Company Profile](https://nordible.co/company-profile): Full company overview, core values, architectural rigor, and corporate credentials.
 - [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history (former Tech Lead for GE Healthcare OncoCare and Baxter Healthcare AWS IoT RST, Interim Head of Engineering at Nium Instarem).
 - [How We Work Together](https://nordible.co/investment-models): Structured engagement models with transparent fixed estimates.

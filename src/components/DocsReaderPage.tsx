@@ -4,7 +4,6 @@ import {
   Lock, 
   Unlock, 
   FileText, 
-  ShieldAlert, 
   LogOut, 
   Check, 
   Copy, 
@@ -18,17 +17,20 @@ import {
   PanelLeft,
   PanelLeftClose,
   Download,
-  ImageIcon
+  ImageIcon,
+  Loader2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { internalDocs, executiveAssets } from '../data/docsContent';
+import type { InternalDoc, ExecutiveAsset } from '../data/docsContent';
 
 export default function DocsReaderPage() {
-  const configuredPin = (process.env.NEXT_PUBLIC_DOCS_PIN || process.env.VITE_DOCS_PIN || '').trim();
-  const [pinInput, setPinInput] = useState('');
+  const [docs, setDocs] = useState<InternalDoc[]>([]);
+  const [assets, setAssets] = useState<ExecutiveAsset[]>([]);
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [pinInput, setPinInput] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [selectedDocId, setSelectedDocId] = useState<string>(internalDocs[0]?.id || '');
+  const [selectedDocId, setSelectedDocId] = useState<string>('');
   const [viewMode, setViewMode] = useState<'formatted' | 'raw'>('formatted');
   const [copiedDoc, setCopiedDoc] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -45,10 +47,20 @@ export default function DocsReaderPage() {
     }
     metaTag.content = 'noindex, nofollow, noarchive';
 
-    // Check existing session
-    const sessionAuth = sessionStorage.getItem('nordible_portal_auth');
-    if (sessionAuth === 'granted' && configuredPin.length > 0) {
-      setIsUnlocked(true);
+    // Check existing session cache
+    try {
+      const cached = sessionStorage.getItem('nordible_portal_data');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed.docs) && parsed.docs.length > 0) {
+          setDocs(parsed.docs);
+          setAssets(parsed.assets || []);
+          setSelectedDocId(parsed.docs[0].id);
+          setIsUnlocked(true);
+        }
+      }
+    } catch {
+      // ignore parse/storage errors
     }
 
     const handleScroll = () => {
@@ -64,34 +76,65 @@ export default function DocsReaderPage() {
         metaTag.parentNode.removeChild(metaTag);
       }
     };
-  }, [configuredPin]);
+  }, []);
 
-  const handleUnlock = (e?: React.FormEvent) => {
+  const handleUnlock = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (!configuredPin) {
-      setErrorMessage('No PIN is configured in VITE_DOCS_PIN environment.');
+    if (!pinInput.trim()) {
+      setErrorMessage('Please enter an access PIN.');
       return;
     }
-    if (pinInput === configuredPin) {
-      setIsUnlocked(true);
-      setErrorMessage('');
-      sessionStorage.setItem('nordible_portal_auth', 'granted');
-    } else {
-      setErrorMessage('Incorrect PIN. Access denied.');
-      setPinInput('');
+    setIsLoading(true);
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/portal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin: pinInput.trim() }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        setDocs(data.docs);
+        setAssets(data.assets || []);
+        setSelectedDocId(data.docs[0]?.id || '');
+        setIsUnlocked(true);
+        try {
+          sessionStorage.setItem(
+            'nordible_portal_data',
+            JSON.stringify({ docs: data.docs, assets: data.assets })
+          );
+          sessionStorage.setItem('nordible_portal_auth', 'granted');
+        } catch {
+          // ignore storage error
+        }
+      } else {
+        setErrorMessage(data.error || 'Incorrect PIN. Access denied.');
+        setPinInput('');
+      }
+    } catch {
+      setErrorMessage('Connection error. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleLock = () => {
-    sessionStorage.removeItem('nordible_portal_auth');
+    try {
+      sessionStorage.removeItem('nordible_portal_data');
+      sessionStorage.removeItem('nordible_portal_auth');
+    } catch {
+      // ignore
+    }
+    setDocs([]);
+    setAssets([]);
     setIsUnlocked(false);
     setPinInput('');
     setErrorMessage('');
   };
 
   const activeDoc = useMemo(() => {
-    return internalDocs.find(d => d.id === selectedDocId) || internalDocs[0];
-  }, [selectedDocId]);
+    return docs.find(d => d.id === selectedDocId) || docs[0];
+  }, [docs, selectedDocId]);
 
   const handleCopyDoc = () => {
     if (!activeDoc) return;
@@ -102,7 +145,7 @@ export default function DocsReaderPage() {
 
   const handlePrint = () => {
     if (activeDoc?.isFlyer) {
-      window.open('/prospect-flyer', '_blank');
+      window.open('/prospect-flyer?print=true', '_blank');
     } else {
       window.print();
     }
@@ -297,42 +340,7 @@ export default function DocsReaderPage() {
     return elements;
   };
 
-  // State 1: No PIN in environment -> Strict refusal
-  if (!configuredPin) {
-    return (
-      <div className="min-h-screen bg-nordible-bg dark:bg-gray-950 flex items-center justify-center px-4 py-20 text-center">
-        <div className="max-w-md w-full p-8 rounded-3xl bg-white dark:bg-gray-900 border border-amber-300 dark:border-amber-700/50 shadow-2xl space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto shadow-inner">
-            <ShieldAlert className="w-8 h-8" />
-          </div>
-
-          <div className="space-y-2">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
-              Environment Lock Active
-            </span>
-            <h1 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading">
-              Portal Access Restricted
-            </h1>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              No access PIN is configured in your local environment. To view these confidential documents, set <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-nordible-blue font-mono font-bold">VITE_DOCS_PIN</code> in your local <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 font-mono">.env</code> file.
-            </p>
-          </div>
-
-          <div className="pt-2">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 btn-secondary py-2.5 px-5 text-xs font-bold uppercase tracking-wider"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // State 2: Locked -> PIN Keypad Entry
+  // State: Locked -> PIN Keypad Entry
   if (!isUnlocked) {
     return (
       <div className="min-h-screen bg-nordible-bg dark:bg-gray-950 flex items-center justify-center px-4 py-16">
@@ -343,10 +351,10 @@ export default function DocsReaderPage() {
 
           <div className="space-y-2">
             <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-widest bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
-              Private Founder Portal
+              Private Admin Portal
             </span>
             <h1 className="text-2xl font-extrabold text-nordible-dark dark:text-white font-heading">
-              Enter Access PIN
+              Enter Admin PIN
             </h1>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               Protected executive documents. Session is discarded upon closing the tab.
@@ -362,19 +370,20 @@ export default function DocsReaderPage() {
                 maxLength={12}
                 placeholder="••••"
                 value={pinInput}
+                disabled={isLoading}
                 onChange={(e) => {
                   setPinInput(e.target.value);
                   setErrorMessage('');
                 }}
-                className="w-full text-center text-2xl tracking-[0.4em] font-mono py-3 px-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-nordible-border dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:border-nordible-blue focus:ring-2 focus:ring-nordible-blue/20 transition-all"
+                className="w-full text-center text-2xl tracking-[0.4em] font-mono py-3 px-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-nordible-border dark:border-gray-700 text-gray-900 dark:text-white focus:outline-none focus:border-nordible-blue focus:ring-2 focus:ring-nordible-blue/20 transition-all disabled:opacity-50"
                 autoFocus
               />
             </div>
 
             {errorMessage && (
-              <p className="text-xs text-red-500 font-semibold animate-shake">
+              <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-xs text-red-600 dark:text-red-400 font-medium">
                 {errorMessage}
-              </p>
+              </div>
             )}
 
             <div className="flex items-center gap-3 pt-2">
@@ -387,10 +396,20 @@ export default function DocsReaderPage() {
               </Link>
               <button
                 type="submit"
-                className="btn-primary flex-1 py-3 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/20 active:scale-95 transition-all"
+                disabled={isLoading}
+                className="btn-primary flex-1 py-3 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/20 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
               >
-                <span>Unlock Portal</span>
-                <Unlock className="w-3.5 h-3.5 ml-2 inline-block" />
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Verifying...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Unlock Admin Portal</span>
+                    <Unlock className="w-3.5 h-3.5" />
+                  </>
+                )}
               </button>
             </div>
           </form>
@@ -400,6 +419,15 @@ export default function DocsReaderPage() {
   }
 
   // State 3: Unlocked -> Executive Reader Interface
+  if (!activeDoc) {
+    return (
+      <div className="min-h-screen bg-nordible-bg dark:bg-gray-950 flex items-center justify-center p-8 text-sm text-gray-500">
+        <Loader2 className="w-5 h-5 animate-spin mr-2 text-nordible-blue" />
+        <span>Loading executive documents...</span>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-nordible-bg dark:bg-gray-950 text-gray-900 dark:text-gray-100 pb-28 selection:bg-nordible-blue selection:text-white">
       {/* Top Navbar */}
@@ -460,33 +488,33 @@ export default function DocsReaderPage() {
                 }`}
               >
                 <Code className="w-3.5 h-3.5" />
-                <span>Raw</span>
+                <span>Raw Markdown</span>
               </button>
             </div>
 
-            {/* Copy Doc */}
+            {/* Copy Button */}
             <button
               type="button"
               onClick={handleCopyDoc}
-              className="p-2 sm:px-3 sm:py-2 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all"
-              title="Copy document content"
+              className="p-2 sm:px-3 sm:py-2 rounded-xl border border-nordible-border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-bold hover:border-nordible-blue transition-colors flex items-center gap-1.5"
+              title="Copy markdown content"
             >
               {copiedDoc ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-              <span className="hidden sm:inline ml-1.5">{copiedDoc ? 'Copied' : 'Copy'}</span>
+              <span className="hidden sm:inline">{copiedDoc ? 'Copied' : 'Copy'}</span>
             </button>
 
-            {/* Print / Export */}
+            {/* Print / Export Button */}
             <button
               type="button"
               onClick={handlePrint}
-              className="p-2 sm:px-3 sm:py-2 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all"
-              title="Print or export as PDF"
+              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/50 text-nordible-blue dark:text-blue-300 text-xs font-bold hover:bg-blue-100 transition-colors flex items-center gap-1.5"
+              title="Print document or open flyer"
             >
               <Printer className="w-4 h-4" />
-              <span className="hidden sm:inline ml-1.5">Print</span>
+              <span className="hidden sm:inline">Print / PDF</span>
             </button>
 
-            {/* Lock Session */}
+            {/* Lock Session Button */}
             <button
               type="button"
               onClick={handleLock}
@@ -508,7 +536,7 @@ export default function DocsReaderPage() {
             <div className="p-3 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 shadow-sm space-y-2">
               <div className="flex items-center justify-between px-2 pt-1">
                 <h2 className="text-[11px] font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
-                  Documents ({internalDocs.length})
+                  Documents ({docs.length})
                 </h2>
                 <button
                   type="button"
@@ -522,7 +550,7 @@ export default function DocsReaderPage() {
               </div>
 
               <div className="space-y-1">
-                {internalDocs.map((doc) => {
+                {docs.map((doc) => {
                   const isSelected = doc.id === selectedDocId;
                   return (
                     <button
@@ -566,7 +594,7 @@ export default function DocsReaderPage() {
                 <div className="px-2 text-[10px] font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
                   Executive Assets
                 </div>
-                {executiveAssets.map((asset) => (
+                {assets.map((asset) => (
                   <a
                     key={asset.id}
                     href={asset.fileUrl}
@@ -652,7 +680,7 @@ export default function DocsReaderPage() {
           }}
           className="flex-1 py-2 px-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-xs font-bold text-nordible-dark dark:text-white border border-nordible-border dark:border-gray-700 focus:outline-none"
         >
-          {internalDocs.map((doc) => (
+          {docs.map((doc) => (
             <option key={doc.id} value={doc.id}>
               {doc.shortTitle}
             </option>

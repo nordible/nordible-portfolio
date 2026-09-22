@@ -5,19 +5,19 @@ import '@/index.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nordible.co'),
-  title: 'Nordible Technologies | Technologielösungen, KI-Agenten & Digitales Marketing | Frankfurt',
-  description: 'Nordible Technologies: KI-nativer Business-Technologiepartner in Frankfurt am Main. Wir stärken Unternehmen mit maßgeschneiderten Softwarelösungen, mobilen Apps, KI-Agenten, professioneller Videobearbeitung und datengestütztem Social-Media-Management.',
+  title: 'Nordible Technologies | Technology Solutions, AI Agents & Digital Marketing | Frankfurt',
+  description: 'Nordible Technologies: AI-native business technology partner in Frankfurt am Main. We empower businesses with custom software solutions, mobile apps, AI agents, professional video editing, and data-driven social media management.',
   keywords: [
-    'Business Technologiepartner Frankfurt',
-    'KI Agenten Frankfurt',
-    'Videobearbeitung Frankfurt',
+    'Business Technology Partner Frankfurt',
+    'AI Agents Frankfurt',
+    'Video Editing Frankfurt',
     'Social Media Management Frankfurt',
-    'Webentwicklung Frankfurt',
+    'Web Development Frankfurt',
     'Mobile Apps Frankfurt',
-    'Technologielösungen',
-    'Softwarearchitektur',
+    'Technology Solutions',
+    'Software Architecture',
     'GEO',
-    'Cloud Infrastruktur',
+    'Cloud Infrastructure',
     'Nordible Technologies',
   ],
   authors: [{ name: 'Nordible Technologies' }],
@@ -33,18 +33,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://nordible.co/',
-    title: 'Nordible Technologies | Technologielösungen, KI-Agenten & Digitales Marketing',
-    description: 'KI-nativer Business-Technologiepartner in Frankfurt am Main. Maßgeschneiderte Technologielösungen, KI-Agenten, Videobearbeitung und Social-Media-Management.',
+    title: 'Nordible Technologies | Technology Solutions, AI Agents & Digital Marketing',
+    description: 'AI-native business technology partner in Frankfurt am Main. Tailored technology solutions, AI agents, video editing, and social media management.',
     images: [{ url: 'https://nordible.co/images/og-image.png' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nordible Technologies | Technologielösungen, KI-Agenten & Digitales Marketing',
-    description: 'KI-nativer Business-Technologiepartner in Frankfurt am Main. Maßgeschneiderte Technologielösungen, KI-Agenten, Videobearbeitung und Social-Media-Management.',
+    title: 'Nordible Technologies | Technology Solutions, AI Agents & Digital Marketing',
+    description: 'AI-native business technology partner in Frankfurt am Main. Tailored technology solutions, AI agents, video editing, and social media management.',
     images: ['https://nordible.co/images/og-image.png'],
-  },
-  alternates: {
-    canonical: 'https://nordible.co/',
   },
 };
 
@@ -125,7 +122,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

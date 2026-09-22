@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import RouteClientWrapper from '@/components/RouteClientWrapper';
 import FounderPage from '@/components/FounderPage';
@@ -49,7 +50,22 @@ export function generateStaticParams() {
   return slugs;
 }
 
-export default async function EnPage({ params }: { params: Promise<{ slug: string[] }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const path = slug.join('/');
+  if (path === 'portal' || path === 'dashboard') {
+    return {
+      robots: { index: false, follow: false },
+    };
+  }
+  return {
+    alternates: {
+      canonical: `/de/${path}`,
+    },
+  };
+}
+
+export default async function DePage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const path = slug.join('/');
 

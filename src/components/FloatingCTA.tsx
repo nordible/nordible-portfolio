@@ -9,7 +9,7 @@ export default function FloatingCTA() {
   const [showTop, setShowTop] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { language } = useLanguage();
+  const { language, getPath } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +20,7 @@ export default function FloatingCTA() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const homePath = language === 'de' ? '/' : '/en';
+  const homePath = getPath('/');
 
   const handleConsultation = () => {
     const targetUrl = `${homePath}#contact`;

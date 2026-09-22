@@ -1,10 +1,10 @@
 export const SUPPORTED_LANGUAGES = [
-  { code: 'de', label: 'Deutsch', shortLabel: 'DE' },
-  { code: 'en', label: 'English', shortLabel: 'EN' }
+  { code: 'en', label: 'English', shortLabel: 'EN' },
+  { code: 'de', label: 'Deutsch', shortLabel: 'DE' }
 ] as const;
 
 export type Language = typeof SUPPORTED_LANGUAGES[number]['code'];
-export const DEFAULT_LANGUAGE: Language = 'de';
+export const DEFAULT_LANGUAGE: Language = 'en';
 export const NON_DEFAULT_LANGUAGES: Language[] = SUPPORTED_LANGUAGES
   .map(l => l.code)
   .filter((code): code is Language => code !== DEFAULT_LANGUAGE);

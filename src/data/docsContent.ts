@@ -104,6 +104,16 @@ export interface ExecutiveAsset {
 
 export const executiveAssets: ExecutiveAsset[] = [
   {
+    id: 'b2b-flyer',
+    title: 'B2B Prospectus Flyer (PDF)',
+    subtitle: 'Vector Print-Ready DIN A4',
+    fileName: 'nordible-b2b-prospectus-flyer.pdf',
+    fileUrl: '/prospect-flyer?print=true',
+    fileType: 'pdf',
+    badge: 'DIN A4',
+    targetBlank: true,
+  },
+  {
     id: 'linkedin-cover',
     title: 'LinkedIn Cover (PNG)',
     subtitle: 'Brand Banner Asset',
