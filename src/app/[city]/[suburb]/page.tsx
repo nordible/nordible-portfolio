@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import LocationLandingPage from '@/components/LocationLandingPage';
 import { getAllCities, getSuburb } from '@/data/locations';
+import { generateSuburbSchema } from '@/lib/locationSchema';
 import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
@@ -29,8 +30,18 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
 
 export default async function Page({ params }: { params: Promise<{ city: string; suburb: string }> }) {
   const { city, suburb } = await params;
-  if (!getSuburb(city, suburb)) {
+  const result = getSuburb(city, suburb);
+  if (!result) {
     notFound();
   }
-  return <LocationLandingPage />;
+  const schema = generateSuburbSchema(result.city, result.suburb);
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <LocationLandingPage />
+    </>
+  );
 }

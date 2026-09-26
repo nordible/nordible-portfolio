@@ -67,10 +67,37 @@ const jsonLd = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Breitlacherstraße 101',
-    addressLocality: 'Frankfurt',
+    addressLocality: 'Frankfurt am Main',
     postalCode: '60489',
+    addressRegion: 'Hessen',
     addressCountry: 'DE',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 50.125,
+    longitude: 8.608,
+  },
+  priceRange: '€€',
+  areaServed: [
+    { '@type': 'City', name: 'Frankfurt am Main' },
+    { '@type': 'AdministrativeArea', name: 'Rhein-Main-Gebiet' },
+    { '@type': 'AdministrativeArea', name: 'Hessen' },
+    { '@type': 'Country', name: 'Deutschland' },
+  ],
+  sameAs: [
+    'https://www.linkedin.com/company/nordible-co/',
+    'https://github.com/nordible',
+    'https://www.instagram.com/nordible.co/',
+    'https://www.youtube.com/@nordible',
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Nordible Kerndienstleistungen',
