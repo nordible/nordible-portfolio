@@ -25,6 +25,14 @@ import Header from './Header';
 import Footer from './Footer';
 import NotFoundPage from './NotFoundPage';
 
+const SERVICE_SLUG_MAP: Record<string, string> = {
+  tech: 'web-app-entwicklung',
+  ai: 'ki-agenten-automation',
+  marketing: 'digital-marketing-seo',
+  video: 'videobearbeitung-content',
+  business: 'business-it-email',
+};
+
 export default function LocationLandingPage() {
   const { city: cityParam, suburb: suburbParam } = useParams<{ city: string; suburb?: string }>();
   const { language, getPath } = useLanguage();
@@ -307,6 +315,11 @@ export default function LocationLandingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {allServices.map((srv) => {
                   const Icon = srv.icon;
+                  const serviceSlug = SERVICE_SLUG_MAP[srv.id] || 'web-app-entwicklung';
+                  const serviceLink = suburbData 
+                    ? getPath(`/${cityData.slug}/${suburbData.slug}/${serviceSlug}`)
+                    : getPath(`/${cityData.slug}/${cityData.suburbs[0]?.slug || 'zentrum'}/${serviceSlug}`);
+
                   return (
                     <div
                       key={srv.id}
@@ -335,6 +348,14 @@ export default function LocationLandingPage() {
                           ))}
                         </ul>
                       </div>
+
+                      <Link
+                        to={serviceLink}
+                        className="mt-4 pt-2.5 border-t border-gray-100 dark:border-gray-800 text-[11px] font-bold text-nordible-blue dark:text-blue-400 hover:text-blue-600 flex items-center justify-between group cursor-pointer"
+                      >
+                        <span>{isDe ? 'Details & Leistungen' : 'Details & Services'}</span>
+                        <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
                     </div>
                   );
                 })}

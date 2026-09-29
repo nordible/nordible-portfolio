@@ -18,7 +18,9 @@ import LeadDashboard from '@/components/LeadDashboard';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getAllCities, getCity, getSuburb } from '@/data/locations';
+import { getAllServices, getService } from '@/data/services';
 import { articlesBySlug } from '@/data/blogContent';
+import ServiceLocationLandingPage from '@/components/ServiceLocationLandingPage';
 
 export function generateStaticParams() {
   const slugs: Array<{ slug: string[] }> = [
@@ -40,10 +42,14 @@ export function generateStaticParams() {
     slugs.push({ slug: ['blog', articleSlug] });
   }
 
+  const services = getAllServices();
   for (const city of getAllCities()) {
     slugs.push({ slug: [city.slug] });
     for (const suburb of city.suburbs) {
       slugs.push({ slug: [city.slug, suburb.slug] });
+      for (const service of services) {
+        slugs.push({ slug: [city.slug, suburb.slug, service.slug] });
+      }
     }
   }
 
@@ -105,6 +111,18 @@ export default async function DePage({ params }: { params: Promise<{ slug: strin
   if (slug.length === 2) {
     const sub = getSuburb(slug[0], slug[1]);
     if (sub) return <LocationLandingPage />;
+  }
+
+  if (slug.length === 3) {
+    const sub = getSuburb(slug[0], slug[1]);
+    const srv = getService(slug[2]);
+    if (sub && srv) {
+      return (
+        <RouteClientWrapper>
+          <ServiceLocationLandingPage />
+        </RouteClientWrapper>
+      );
+    }
   }
 
   notFound();

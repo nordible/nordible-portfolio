@@ -2,6 +2,63 @@ import { City, Suburb } from '@/data/locations';
 
 const BASE_URL = 'https://nordible.co';
 
+const SHARED_AGGREGATE_RATING = {
+  '@type': 'AggregateRating',
+  ratingValue: '5.0',
+  reviewCount: '3',
+  bestRating: '5',
+  worstRating: '1',
+};
+
+const SHARED_REVIEWS = [
+  {
+    '@type': 'Review',
+    inLanguage: 'de',
+    author: {
+      '@type': 'Organization',
+      name: 'Shams Consult Architektur und Stadtplanung',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+    },
+    reviewBody:
+      'Für Shams Consult ist absolute Detailgenauigkeit entscheidend – das gilt auch für unsere digitale Infrastruktur. Die Zusammenarbeit mit Kabeer Shah hebt sich deutlich von klassischen Agenturen ab. Herr Shah hat nicht nur unseren Webauftritt optimiert und unsere regionalen Promotions sowie Videoschnitte koordiniert, sondern auch maßgeschneiderte KI-Agenten implementiert, die unsere täglichen Workflows entlasten. Besonders schätzen wir den direkten Zugang auf Gründerebene: Es gibt keine Reibungsverluste durch Zwischeninstanzen oder Juniormanager. Kabeer Shah agiert als echter, strategischer Partner, der unsere Geschäftsprozesse versteht und technische Lösungen mit Fokus auf eine nachhaltige, langfristige Zusammenarbeit liefert.',
+  },
+  {
+    '@type': 'Review',
+    inLanguage: 'de',
+    author: {
+      '@type': 'Person',
+      name: 'Amruth Jai',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+    },
+    reviewBody:
+      'Die Zusammenarbeit mit Nordible Technologies hat mir sehr viel Spaß gemacht. Kabeer ist ein absolut professioneller und erfahrener Architekt für technische Lösungen. Ich würde Nordible Technologies jedem empfehlen, der in Frankfurt professionelle geschäftliche E-Mail-Lösungen, maßgeschneiderte Software, Social-Media-Management oder Marketing-Dienstleistungen sucht.',
+  },
+  {
+    '@type': 'Review',
+    inLanguage: 'en',
+    author: {
+      '@type': 'Person',
+      name: 'Vrishank Shete',
+      jobTitle: 'Senior Principal Engineer',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+    },
+    reviewBody:
+      'I had the opportunity to work with Kabeer Shah at Vantive (Baxter Healthcare) on strategic initiatives for our Remote Service Tool platform. Kabeer consistently demonstrated exceptional product and engineering leadership, driving architectural direction, aligning cross-functional teams, and making decisions that significantly improved operational efficiency and business outcomes. His ability to combine technical strategy, stakeholder alignment, and execution clarity sets him apart. Kabeer thinks and operates like an executive leader, and any organization would benefit greatly from his vision, ownership, and strategic mindset.',
+  },
+];
+
 export function generateCitySchema(city: City) {
   const cityUrl = `${BASE_URL}/${city.slug}`;
 
@@ -40,6 +97,8 @@ export function generateCitySchema(city: City) {
         email: 'mail@nordible.co',
         image: `${BASE_URL}/images/og-image.png`,
         priceRange: '€€',
+        aggregateRating: SHARED_AGGREGATE_RATING,
+        review: SHARED_REVIEWS,
         parentOrganization: {
           '@type': 'Organization',
           '@id': `${BASE_URL}#organization`,
@@ -161,6 +220,8 @@ export function generateSuburbSchema(city: City, suburb: Suburb) {
         email: 'mail@nordible.co',
         image: `${BASE_URL}/images/og-image.png`,
         priceRange: '€€',
+        aggregateRating: SHARED_AGGREGATE_RATING,
+        review: SHARED_REVIEWS,
         parentOrganization: {
           '@type': 'Organization',
           '@id': `${BASE_URL}#organization`,
@@ -234,6 +295,107 @@ export function generateSuburbSchema(city: City, suburb: Suburb) {
             },
           },
         ],
+      },
+    ],
+  };
+}
+
+export function generateServiceSuburbSchema(city: City, suburb: Suburb, service: import('@/data/services').ServiceItem) {
+  const serviceUrl = `${BASE_URL}/${city.slug}/${suburb.slug}/${service.slug}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Startseite',
+            item: BASE_URL,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Einzugsgebiet',
+            item: `${BASE_URL}/standorte`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: city.name,
+            item: `${BASE_URL}/${city.slug}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: suburb.name,
+            item: `${BASE_URL}/${city.slug}/${suburb.slug}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            name: service.nameDe,
+            item: serviceUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'Service',
+        '@id': `${serviceUrl}#service`,
+        name: `${service.nameDe} in ${suburb.name} (${suburb.postalCode}), ${city.name}`,
+        serviceType: service.nameDe,
+        description: service.descriptionDe,
+        url: serviceUrl,
+        provider: {
+          '@type': 'ProfessionalService',
+          '@id': `${BASE_URL}#organization`,
+          name: 'Nordible Technologies',
+          url: BASE_URL,
+          telephone: '+4915211065739',
+          email: 'mail@nordible.co',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Breitlacherstraße 101',
+            addressLocality: 'Frankfurt am Main',
+            postalCode: '60489',
+            addressRegion: 'Hessen',
+            addressCountry: 'DE',
+          },
+        },
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: suburb.name,
+          postalCode: suburb.postalCode,
+          containedInPlace: {
+            '@type': 'City',
+            name: city.name,
+          },
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `${service.nameDe} Leistungen`,
+          itemListElement: service.deliverablesDe.map((item, idx) => ({
+            '@type': 'Offer',
+            position: idx + 1,
+            itemOffered: {
+              '@type': 'Service',
+              name: item,
+            },
+          })),
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: service.faqsDe.map(faq => ({
+          '@type': 'Question',
+          name: `${faq.q} (${suburb.name})`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.a,
+          },
+        })),
       },
     ],
   };

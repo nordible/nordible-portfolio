@@ -11,7 +11,7 @@ export default function Testimonials() {
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
-  const marqueeTestimonials = [...testimonials, ...testimonials];
+  const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
     <section id="testimonials" className="relative py-20 bg-white dark:bg-gray-900 overflow-hidden scroll-mt-20">
@@ -49,25 +49,21 @@ export default function Testimonials() {
                     ))}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium italic">
+                  <p
+                    className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium italic"
+                    lang={testimonial.language}
+                  >
                     "{testimonial.text}"
                   </p>
                 </div>
 
-                <div className="flex items-center space-x-3 pt-4 border-t border-nordible-border dark:border-gray-700">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-10 h-10 rounded-full object-cover border border-nordible-blue/20 bg-white p-0.5"
-                  />
-                  <div>
-                    <h4 className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-                      {testimonial.role} · {testimonial.company}
-                    </p>
-                  </div>
+                <div className="pt-4 border-t border-nordible-border dark:border-gray-700">
+                  <h4 className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-0.5">
+                    {testimonial.role} · {testimonial.company}
+                  </p>
                 </div>
               </div>
             ))}

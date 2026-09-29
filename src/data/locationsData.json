@@ -167,5 +167,92 @@
       { "slug": "mittelbuchen", "name": "Mittelbuchen", "postalCode": "63454", "districtGroup": "Nord-West" },
       { "slug": "wolfgang", "name": "Wolfgang", "postalCode": "63457", "districtGroup": "Ost" }
     ]
+  },
+  {
+    "slug": "eschborn",
+    "name": "Eschborn",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "eschborn-sued", "name": "Eschborn-Süd (Business Park)", "postalCode": "65760", "districtGroup": "Wirtschaftszentrum" },
+      { "slug": "mitte", "name": "Eschborn-Mitte", "postalCode": "65760", "districtGroup": "Zentrum" },
+      { "slug": "niederhoechstadt", "name": "Niederhöchstadt", "postalCode": "65760", "districtGroup": "Nord" },
+      { "slug": "camp-phoenix-park", "name": "Camp-Phönix-Park", "postalCode": "65760", "districtGroup": "Gewerbegebiet" }
+    ]
+  },
+  {
+    "slug": "neu-isenburg",
+    "name": "Neu-Isenburg",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "zentrum", "name": "Zentrum", "postalCode": "63263", "districtGroup": "Mitte" },
+      { "slug": "gewerbegebiet-ost", "name": "Gewerbegebiet Ost", "postalCode": "63263", "districtGroup": "Wirtschaftszentrum" },
+      { "slug": "gravenbruch", "name": "Gravenbruch", "postalCode": "63263", "districtGroup": "Ost" },
+      { "slug": "zeppelinheim", "name": "Zeppelinheim", "postalCode": "63263", "districtGroup": "West" }
+    ]
+  },
+  {
+    "slug": "oberursel",
+    "name": "Oberursel (Taunus)",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "mitte", "name": "Oberursel-Mitte", "postalCode": "61440", "districtGroup": "Zentrum" },
+      { "slug": "bommersheim", "name": "Bommersheim", "postalCode": "61440", "districtGroup": "Ost" },
+      { "slug": "oberstedten", "name": "Oberstedten", "postalCode": "61440", "districtGroup": "Nord" },
+      { "slug": "stierstadt", "name": "Stierstadt", "postalCode": "61440", "districtGroup": "Süd" },
+      { "slug": "weisskirchen", "name": "Weißkirchen", "postalCode": "61440", "districtGroup": "Süd-Ost" }
+    ]
+  },
+  {
+    "slug": "kronberg",
+    "name": "Kronberg im Taunus",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "kronberg-mitte", "name": "Kronberg-Mitte", "postalCode": "61476", "districtGroup": "Zentrum" },
+      { "slug": "oberhoechstadt", "name": "Oberhöchstadt", "postalCode": "61476", "districtGroup": "Ost" },
+      { "slug": "schoenberg", "name": "Schönberg", "postalCode": "61476", "districtGroup": "West" }
+    ]
+  },
+  {
+    "slug": "bad-soden",
+    "name": "Bad Soden am Taunus",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "bad-soden-zentrum", "name": "Bad Soden Zentrum", "postalCode": "65812", "districtGroup": "Zentrum" },
+      { "slug": "neuenhain", "name": "Neuenhain", "postalCode": "65812", "districtGroup": "Nord" },
+      { "slug": "altenhain", "name": "Altenhain", "postalCode": "65812", "districtGroup": "West" }
+    ]
+  },
+  {
+    "slug": "hofheim",
+    "name": "Hofheim am Taunus",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "kernstadt", "name": "Hofheim Kernstadt", "postalCode": "65719", "districtGroup": "Zentrum" },
+      { "slug": "wallau", "name": "Wallau (Gewerbegebiet)", "postalCode": "65719", "districtGroup": "Gewerbegebiet" },
+      { "slug": "marxheim", "name": "Marxheim", "postalCode": "65719", "districtGroup": "Süd" },
+      { "slug": "diedenbergen", "name": "Diedenbergen", "postalCode": "65719", "districtGroup": "West" },
+      { "slug": "lorsbach", "name": "Lorsbach", "postalCode": "65719", "districtGroup": "Nord" }
+    ]
+  },
+  {
+    "slug": "langen",
+    "name": "Langen (Hessen)",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "zentrum", "name": "Langen-Zentrum", "postalCode": "63225", "districtGroup": "Mitte" },
+      { "slug": "neurott", "name": "Neurott (Wirtschaftscampus)", "postalCode": "63225", "districtGroup": "Wirtschaftszentrum" },
+      { "slug": "oberlinden", "name": "Oberlinden", "postalCode": "63225", "districtGroup": "West" }
+    ]
+  },
+  {
+    "slug": "ruesselsheim",
+    "name": "Rüsselsheim am Main",
+    "state": "Hessen",
+    "suburbs": [
+      { "slug": "innenstadt", "name": "Innenstadt", "postalCode": "65428", "districtGroup": "Zentrum" },
+      { "slug": "hasengrund", "name": "Hasengrund (Industriegebiet)", "postalCode": "65428", "districtGroup": "Industrie" },
+      { "slug": "koenigstaedten", "name": "Königstädten", "postalCode": "65428", "districtGroup": "Süd" },
+      { "slug": "bauschheim", "name": "Bauschheim", "postalCode": "65428", "districtGroup": "West" }
+    ]
   }
 ]

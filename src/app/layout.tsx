@@ -78,6 +78,61 @@ const jsonLd = {
     longitude: 8.608,
   },
   priceRange: '€€',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '3',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      inLanguage: 'de',
+      author: {
+        '@type': 'Organization',
+        name: 'Shams Consult Architektur und Stadtplanung',
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+      },
+      reviewBody:
+        'Für Shams Consult ist absolute Detailgenauigkeit entscheidend – das gilt auch für unsere digitale Infrastruktur. Die Zusammenarbeit mit Kabeer Shah hebt sich deutlich von klassischen Agenturen ab. Herr Shah hat nicht nur unseren Webauftritt optimiert und unsere regionalen Promotions sowie Videoschnitte koordiniert, sondern auch maßgeschneiderte KI-Agenten implementiert, die unsere täglichen Workflows entlasten. Besonders schätzen wir den direkten Zugang auf Gründerebene: Es gibt keine Reibungsverluste durch Zwischeninstanzen oder Juniormanager. Kabeer Shah agiert als echter, strategischer Partner, der unsere Geschäftsprozesse versteht und technische Lösungen mit Fokus auf eine nachhaltige, langfristige Zusammenarbeit liefert.',
+    },
+    {
+      '@type': 'Review',
+      inLanguage: 'de',
+      author: {
+        '@type': 'Person',
+        name: 'Amruth Jai',
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+      },
+      reviewBody:
+        'Die Zusammenarbeit mit Nordible Technologies hat mir sehr viel Spaß gemacht. Kabeer ist ein absolut professioneller und erfahrener Architekt für technische Lösungen. Ich würde Nordible Technologies jedem empfehlen, der in Frankfurt professionelle geschäftliche E-Mail-Lösungen, maßgeschneiderte Software, Social-Media-Management oder Marketing-Dienstleistungen sucht.',
+    },
+    {
+      '@type': 'Review',
+      inLanguage: 'en',
+      author: {
+        '@type': 'Person',
+        name: 'Vrishank Shete',
+        jobTitle: 'Senior Principal Engineer',
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+      },
+      reviewBody:
+        'I had the opportunity to work with Kabeer Shah at Vantive (Baxter Healthcare) on strategic initiatives for our Remote Service Tool platform. Kabeer consistently demonstrated exceptional product and engineering leadership, driving architectural direction, aligning cross-functional teams, and making decisions that significantly improved operational efficiency and business outcomes. His ability to combine technical strategy, stakeholder alignment, and execution clarity sets him apart. Kabeer thinks and operates like an executive leader, and any organization would benefit greatly from his vision, ownership, and strategic mindset.',
+    },
+  ],
   areaServed: [
     { '@type': 'City', name: 'Frankfurt am Main' },
     { '@type': 'AdministrativeArea', name: 'Rhein-Main-Gebiet' },

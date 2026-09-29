@@ -96,7 +96,8 @@ export interface Translations {
       company: string;
       rating: number;
       text: string;
-      avatar: string;
+      avatar?: string;
+      language?: string;
     }>;
   };
   process: {
@@ -351,28 +352,28 @@ export const translations: Record<Language, Translations> = {
       subtitle: "",
       items: [
         {
-          name: "Majeed Shams",
-          role: "Founder",
-          company: "Shams Consult",
+          name: "Shams Consult",
+          role: "Architecture & Urban Planning",
+          company: "Google Review",
           rating: 5,
-          text: "Nordible transformed our digital platforms and marketing infrastructure. Their combined mastery of modern web architecture and AI-driven discoverability (GEO) has generated tangible commercial growth.",
-          avatar: "/images/logos/shams-consult-logo.png"
+          text: "Für Shams Consult ist absolute Detailgenauigkeit entscheidend – das gilt auch für unsere digitale Infrastruktur. Die Zusammenarbeit mit Kabeer Shah hebt sich deutlich von klassischen Agenturen ab. Herr Shah hat nicht nur unseren Webauftritt optimiert und unsere regionalen Promotions sowie Videoschnitte koordiniert, sondern auch maßgeschneiderte KI-Agenten implementiert, die unsere täglichen Workflows entlasten. Besonders schätzen wir den direkten Zugang auf Gründerebene: Es gibt keine Reibungsverluste durch Zwischeninstanzen oder Juniormanager. Kabeer Shah agiert als echter, strategischer Partner, der unsere Geschäftsprozesse versteht und technische Lösungen mit Fokus auf eine nachhaltige, langfristige Zusammenarbeit liefert.",
+          language: "de"
         },
         {
-          name: "Sarah Johnson",
-          role: "Product Manager",
-          company: "Healthcare Tech",
+          name: "Amruth Jai",
+          role: "Verified Client",
+          company: "Google Review",
           rating: 5,
-          text: "Nordible delivered an exceptional healthcare platform that exceeded our expectations. Their attention to detail and technical expertise made the project a huge success.",
-          avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
+          text: "Die Zusammenarbeit mit Nordible Technologies hat mir sehr viel Spaß gemacht. Kabeer ist ein absolut professioneller und erfahrener Architekt für technische Lösungen. Ich würde Nordible Technologies jedem empfehlen, der in Frankfurt professionelle geschäftliche E-Mail-Lösungen, maßgeschneiderte Software, Social-Media-Management oder Marketing-Dienstleistungen sucht.",
+          language: "de"
         },
         {
           name: "Vrishank Shete",
-          role: "Tech Lead",
-          company: "Baxter Healthcare",
+          role: "Senior Principal Engineer",
+          company: "Vantive International (Baxter Healthcare) · LinkedIn",
           rating: 5,
-          text: "The architectural depth Nordible brings to technology solutions is rare. They didn't just write code; they built a resilient infrastructure that handles our scale effortlessly.",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+          text: "I had the opportunity to work with Kabeer Shah at Vantive (Baxter Healthcare) on strategic initiatives for our Remote Service Tool platform. Kabeer consistently demonstrated exceptional product and engineering leadership, driving architectural direction, aligning cross-functional teams, and making decisions that significantly improved operational efficiency and business outcomes. His ability to combine technical strategy, stakeholder alignment, and execution clarity sets him apart. Kabeer thinks and operates like an executive leader, and any organization would benefit greatly from his vision, ownership, and strategic mindset.",
+          language: "en"
         }
       ]
     },
@@ -696,28 +697,28 @@ export const translations: Record<Language, Translations> = {
       subtitle: "",
       items: [
         {
-          name: "Majeed Shams",
-          role: "Gründer",
-          company: "Shams Consult",
+          name: "Shams Consult",
+          role: "Architektur und Stadtplanung",
+          company: "Google-Rezension",
           rating: 5,
-          text: "Nordible hat unsere digitalen Plattformen und unsere Marketing-Infrastruktur grundlegend transformiert. Die Kombination aus moderner Web-Architektur und KI-Suchmaschinenoptimierung (GEO) sorgt für spürbares geschäftliches Wachstum.",
-          avatar: "/images/logos/shams-consult-logo.png"
+          text: "Für Shams Consult ist absolute Detailgenauigkeit entscheidend – das gilt auch für unsere digitale Infrastruktur. Die Zusammenarbeit mit Kabeer Shah hebt sich deutlich von klassischen Agenturen ab. Herr Shah hat nicht nur unseren Webauftritt optimiert und unsere regionalen Promotions sowie Videoschnitte koordiniert, sondern auch maßgeschneiderte KI-Agenten implementiert, die unsere täglichen Workflows entlasten. Besonders schätzen wir den direkten Zugang auf Gründerebene: Es gibt keine Reibungsverluste durch Zwischeninstanzen oder Juniormanager. Kabeer Shah agiert als echter, strategischer Partner, der unsere Geschäftsprozesse versteht und technische Lösungen mit Fokus auf eine nachhaltige, langfristige Zusammenarbeit liefert.",
+          language: "de"
         },
         {
-          name: "Sarah Johnson",
-          role: "Produktmanagerin",
-          company: "Healthcare Tech",
+          name: "Amruth Jai",
+          role: "Verifizierte Bewertung",
+          company: "Google-Rezension",
           rating: 5,
-          text: "Nordible lieferte eine herausragende Healthcare-Plattform, die unsere Erwartungen übertroffen hat. Ihre Liebe zum Detail und ihre technische Expertise machten das Projekt zu einem vollen Erfolg.",
-          avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face"
+          text: "Die Zusammenarbeit mit Nordible Technologies hat mir sehr viel Spaß gemacht. Kabeer ist ein absolut professioneller und erfahrener Architekt für technische Lösungen. Ich würde Nordible Technologies jedem empfehlen, der in Frankfurt professionelle geschäftliche E-Mail-Lösungen, maßgeschneiderte Software, Social-Media-Management oder Marketing-Dienstleistungen sucht.",
+          language: "de"
         },
         {
           name: "Vrishank Shete",
-          role: "Technischer Leiter",
-          company: "Baxter Healthcare",
+          role: "Senior Principal Engineer",
+          company: "Vantive International (Baxter Healthcare) · LinkedIn-Empfehlung",
           rating: 5,
-          text: "Die architektonische Tiefe, die Nordible in Technologielösungen einbringt, ist außergewöhnlich. Sie haben nicht nur Code geschrieben, sondern eine widerstandsfähige Infrastruktur aufgebaut, die unsere Skalierung mühelos bewältigt.",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+          text: "I had the opportunity to work with Kabeer Shah at Vantive (Baxter Healthcare) on strategic initiatives for our Remote Service Tool platform. Kabeer consistently demonstrated exceptional product and engineering leadership, driving architectural direction, aligning cross-functional teams, and making decisions that significantly improved operational efficiency and business outcomes. His ability to combine technical strategy, stakeholder alignment, and execution clarity sets him apart. Kabeer thinks and operates like an executive leader, and any organization would benefit greatly from his vision, ownership, and strategic mindset.",
+          language: "en"
         }
       ]
     },
