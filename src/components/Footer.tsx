@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
@@ -123,6 +123,21 @@ export default function Footer() {
                     <span>{language === 'de' ? 'Rechnungsersteller' : 'Invoice Generator'}</span>
                     <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase tracking-wider">
                       {language === 'de' ? '100% Kostenlos' : '100% Free'}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://business-directory.nordible.co/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={language === 'de' ? 'Unternehmen eintragen & B2B-Leads erhalten' : 'List your business & get B2B leads'}
+                    className="text-blue-100/90 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
+                  >
+                    <Building2 className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
+                    <span>{language === 'de' ? 'B2B-Firmenverzeichnis' : 'B2B Business Directory'}</span>
+                    <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold uppercase tracking-wider">
+                      {language === 'de' ? 'Kostenlos' : 'Free Listing'}
                     </span>
                   </a>
                 </li>
