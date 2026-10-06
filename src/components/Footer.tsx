@@ -1,8 +1,9 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
+import { Mascot } from './Mascot';
 
 export default function Footer() {
   const { t, language, getPath } = useLanguage();
@@ -18,10 +19,54 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-nordible-dark text-white py-20 overflow-hidden text-left">
+    <footer className="relative bg-nordible-dark text-white overflow-hidden text-left">
+      {/* High-Converting Agency Promo Banner */}
+      <div className="border-b border-white/10 bg-gradient-to-r from-[#0D2B75] via-[#145BFF]/30 to-[#0D2B75] py-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 shrink-0 drop-shadow-xl">
+              <Mascot variant="hero-wave" alt="Nordible Mascot" priority />
+            </div>
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold text-[#FF9F1A]">
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>{language === 'de' ? 'Individuelle Softwareentwicklung & KI' : 'Custom Software & AI Engineering'}</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight font-heading">
+                {language === 'de'
+                  ? 'Benötigen Sie automatisierte Systeme oder maßgeschneiderte Software?'
+                  : 'Need automated systems, AI agents, or custom web apps?'}
+              </h2>
+              <p className="text-sm text-blue-100/80 max-w-2xl">
+                {language === 'de'
+                  ? 'Nordible Technologies entwickelt hochperformante Webanwendungen, Cloud-Infrastrukturen und KI-Lösungen für zukunftsorientierte Unternehmen.'
+                  : 'Nordible Technologies engineers enterprise-grade web applications, autonomous AI agents, and cloud platforms for ambitious teams.'}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById('contact') || document.getElementById('consultation');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  navigate(`${homePath}#contact`);
+                }
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#145BFF] hover:bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <span>{language === 'de' ? 'Kostenloses Erstgespräch' : 'Book Free Strategy Call'}</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent pointer-events-none"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="space-y-3">

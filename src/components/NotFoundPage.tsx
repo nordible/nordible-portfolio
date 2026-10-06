@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Mascot } from './Mascot';
 
 export default function NotFoundPage() {
   const { t, language } = useLanguage();
@@ -103,8 +104,12 @@ export default function NotFoundPage() {
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center space-y-10">
-        {/* Visual 404 Anchor / Badge */}
+        {/* Visual 404 Anchor / Badge & Mascot */}
         <div className="space-y-4">
+          <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto drop-shadow-xl">
+            <Mascot variant="pricing-peek" alt="Nordible 404 Mascot" priority />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/60 text-nordible-blue dark:text-blue-400 text-xs font-bold tracking-wider uppercase font-mono shadow-sm">
             <Compass className="w-4 h-4 animate-spin-slow" />
             <span>{nf.badge}</span>

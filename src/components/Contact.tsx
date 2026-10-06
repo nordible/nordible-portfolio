@@ -3,6 +3,7 @@ import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, 
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import SectionAnchor from './SectionAnchor';
+import { Mascot } from './Mascot';
 
 export default function Contact() {
   const { t, language } = useLanguage();
@@ -55,14 +56,20 @@ export default function Contact() {
           <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-nordible-blue/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="relative max-w-2xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md shadow-blue-600/20">
-              <Calendar className="h-4 w-4" />
-              <span>{isDe ? 'Online-Terminbuchung' : 'Online Booking'}</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 drop-shadow-md">
+                <Mascot variant="mail-send" alt="Nordible Online Booking Mascot" />
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md shadow-blue-600/20 mb-2">
+                  <Calendar className="h-4 w-4" />
+                  <span>{isDe ? 'Online-Terminbuchung' : 'Online Booking'}</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
+                  {isDe ? 'Wählen Sie Ihren Wunschtermin' : 'Choose Your Preferred Time Slot'}
+                </h3>
+              </div>
             </div>
-
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              {isDe ? 'Wählen Sie Ihren Wunschtermin' : 'Choose Your Preferred Time Slot'}
-            </h3>
 
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto">
               {isDe

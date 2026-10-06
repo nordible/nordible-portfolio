@@ -2,6 +2,7 @@
 import { ArrowLeft, ArrowRight, Zap, Award, ShieldCheck, Target, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from '@/lib/router-compat';
+import { Mascot } from './Mascot';
 
 interface WhyChooseUsPageProps {
   onBack?: () => void;
@@ -134,6 +135,33 @@ export default function WhyChooseUsPage({ onBack, onBookConsultation }: WhyChoos
               </div>
             ))}
           </div>
+        </div>
+
+        {/* High-Impact Mascot Strategy Callout */}
+        <div className="rounded-2xl bg-gradient-to-r from-blue-900/10 via-blue-800/5 to-transparent border border-nordible-border dark:border-blue-800/40 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 drop-shadow-md">
+              <Mascot variant="celebrate" alt="Nordible Mascot Celebration" />
+            </div>
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading">
+                {language === 'de' ? 'Bereit für den nächsten Schritt?' : 'Ready for the Next Level?'}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1 max-w-xl">
+                {language === 'de'
+                  ? 'Lassen Sie uns Ihre Vision in performante, skalierbare Software mit wissenschaftsbasiertem UX verwandeln.'
+                  : 'Let us engineer your vision into high-performance, scalable software backed by science-driven UX.'}
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={handleConsultation}
+            className="btn-primary shrink-0 text-xs px-7 py-3.5 shadow-md shadow-blue-500/20"
+          >
+            <span>{t.nav.getStarted}</span>
+            <ArrowRight className="h-4 w-4 ml-1" />
+          </button>
         </div>
 
         {/* Action Controls at Bottom */}
