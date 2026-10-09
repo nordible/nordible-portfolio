@@ -1,4 +1,31 @@
 export const contactConfig = {
+  websiteUrl: 'https://nordible.co',
+  cardUrl: 'https://nordible.co/card',
+  vcardDownloadUrl: '/api/vcard',
+  company: {
+    name: 'Nordible Technologies',
+    legalName: 'Nordible Technologies',
+    taglineDe: 'Individuelle Softwareentwicklung, KI-Agenten & Cloud-Architektur',
+    taglineEn: 'Custom Software Engineering, AI Agents & Cloud Architecture',
+    descriptionDe: 'Ihr Technologiepartner in Frankfurt am Main für moderne Web- & Cloud-Systeme, autonome Agenten und skalierbare Software.',
+  },
+  founder: {
+    name: 'Kabeer Shah',
+    firstName: 'Kabeer',
+    lastName: 'Shah',
+    titleDe: 'Gründer & Solutions Architect',
+    titleEn: 'Founder & Solutions Architect',
+    email: 'kabeer@nordible.co',
+    phone: '+49 1521 1065739',
+    linkedin: 'https://www.linkedin.com/in/meetkabeershah/',
+    github: 'https://github.com/skbr1234',
+  },
+  social: {
+    linkedin: 'https://www.linkedin.com/company/nordible-co/',
+    github: 'https://github.com/nordible',
+    instagram: 'https://www.instagram.com/nordible.co/',
+    youtube: 'https://www.youtube.com/@nordible',
+  },
   phone: {
     display: '+49 1521 1065739',
     raw: '+4915211065739',
@@ -27,3 +54,4 @@ export const contactConfig = {
     embedUrl: 'https://maps.google.com/maps?q=Breitlacherstra%C3%9Fe%20101,%2060489%20Frankfurt%20am%20Main&t=&z=15&ie=UTF8&iwloc=&output=embed',
   },
 };
+

@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle, MapPin, Navigation, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle, MapPin, Navigation, ExternalLink, QrCode, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import SectionAnchor from './SectionAnchor';
@@ -192,6 +192,44 @@ export default function Contact() {
                 <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
+          </div>
+
+          {/* Digital Business Card / vCard CTA */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-white dark:from-slate-800/80 dark:via-blue-950/40 dark:to-slate-900 border border-blue-200/60 dark:border-blue-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-left shadow-sm">
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-xl bg-[#145BFF] text-white flex items-center justify-center shadow-md shadow-blue-500/20 shrink-0">
+                <QrCode className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white">
+                  {isDe ? 'Digitale Visitenkarte & QR-Code' : 'Digital Business Card & QR Code'}
+                </div>
+                <div className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-300">
+                  {isDe
+                    ? 'Kontaktdaten inkl. aller Social-Media-Profile mit einem Klick auf dem Smartphone speichern.'
+                    : 'Download full company & founder contact details including social profiles in 1 click.'}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto shrink-0">
+              <a
+                href={contactConfig.vcardDownloadUrl}
+                download="Nordible-Technologies.vcf"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#145BFF] hover:bg-blue-600 text-xs font-bold text-white shadow-md shadow-blue-500/20 active:scale-95 transition-all text-center"
+                title={isDe ? 'Visitenkarte direkt herunterladen' : 'Download vCard directly'}
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>{isDe ? 'Direkt herunterladen' : 'Download Contact'}</span>
+              </a>
+
+              <a
+                href="/card"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 text-xs font-bold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm active:scale-95 transition-all text-center"
+              >
+                <span>{isDe ? 'Visitenkarte ansehen' : 'View Card & QR'}</span>
+                <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+              </a>
+            </div>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
@@ -12,10 +12,10 @@ export default function Footer() {
   const homePath = getPath('/');
 
   const socialLinks = [
-    { icon: Github, url: 'https://github.com/nordible', label: 'GitHub' },
-    { icon: Linkedin, url: 'https://www.linkedin.com/company/nordible-co/', label: 'LinkedIn' },
-    { icon: Instagram, url: 'https://www.instagram.com/nordible.co/', label: 'Instagram' },
-    { icon: Youtube, url: 'https://www.youtube.com/@nordible', label: 'YouTube' }
+    { icon: Github, url: contactConfig.social.github, label: 'GitHub' },
+    { icon: Linkedin, url: contactConfig.social.linkedin, label: 'LinkedIn' },
+    { icon: Instagram, url: contactConfig.social.instagram, label: 'Instagram' },
+    { icon: Youtube, url: contactConfig.social.youtube, label: 'YouTube' }
   ];
 
   return (
@@ -101,6 +101,16 @@ export default function Footer() {
                   ? 'Persönliche Termine vor Ort in Frankfurt, Rhein-Main und deutschlandweit nach Vereinbarung.' 
                   : 'On-site appointments in Frankfurt, Rhine-Main, and across Germany by arrangement.'}
               </p>
+
+              <div className="pt-1">
+                <Link
+                  to={getPath('/card')}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-nordible-blue text-blue-200 hover:text-white text-xs font-medium transition-colors group"
+                >
+                  <UserCheck className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
+                  <span>{language === 'de' ? 'Digitale Visitenkarte (vCard)' : 'Digital Business Card (vCard)'}</span>
+                </Link>
+              </div>
             </div>
 
             <div className="pt-6">
