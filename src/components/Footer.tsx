@@ -183,7 +183,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a 
-                    href="https://business-directory.nordible.co/" 
+                    href="https://biz.nordible.co/" 
                     target="_blank"
                     rel="noopener noreferrer"
                     title={language === 'de' ? 'Unternehmen eintragen & B2B-Leads erhalten' : 'List your business & get B2B leads'}
