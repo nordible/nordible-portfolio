@@ -1,0 +1,422 @@
+/* =========================================================
+   NORDIBLE ENTERPRISE PITCH DECK STYLES
+   16:9 Landscape Screen Presentation & Vector Print-to-PDF
+   ========================================================= */
+
+.deck-container {
+  min-height: 100vh;
+  background-color: #060b18;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding: 24px 16px 120px 16px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   DESKTOP STICKY TOOLBAR (HIDDEN ON PRINT)
+   ========================================================= */
+.deck-toolbar {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  background: rgba(11, 19, 43, 0.92);
+  backdrop-filter: blur(16px);
+  padding: 10px 24px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  transition: all 0.2s ease;
+}
+
+.deck-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #93c5fd;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.deck-btn-back:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.deck-nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deck-nav-dot {
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: monospace;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deck-nav-dot:hover, .deck-nav-dot.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #3b82f6;
+}
+
+.deck-btn-print {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.deck-btn-print:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+}
+
+/* =========================================================
+   INDIVIDUAL SLIDE CANVAS (1920 x 1080 Aspect Ratio)
+   ========================================================= */
+.deck-slide {
+  width: 100%;
+  max-width: 1280px;
+  aspect-ratio: 16 / 9;
+  background: #0b132b;
+  background-image: 
+    radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 64px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-badge {
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  color: #0b132b;
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.brand-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.brand-title span {
+  color: #3b82f6;
+}
+
+.slide-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0;
+  z-index: 10;
+}
+
+.section-headline {
+  font-family: 'Sora', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+
+.section-subline {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+  max-width: 900px;
+  line-height: 1.5;
+}
+
+.slide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  z-index: 10;
+}
+
+.slide-footer .contact-bits {
+  display: flex;
+  gap: 24px;
+}
+
+/* Grids */
+.deck-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.deck-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.deck-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-card-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.deck-card-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.deck-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.deck-pill {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: monospace;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+
+/* Case Study Cards */
+.deck-case-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deck-case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.deck-client-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #60a5fa;
+}
+
+.deck-case-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.deck-case-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 12px;
+}
+
+.deck-case-highlight {
+  background: rgba(37, 99, 235, 0.12);
+  border-left: 3px solid #3b82f6;
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #bfdbfe;
+  margin-bottom: 10px;
+}
+
+/* Founder Slide */
+.deck-founder-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.deck-founder-card {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.deck-founder-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+
+/* =========================================================
+   SCIENCE-BACKED MOBILE BOTTOM THUMB-ZONE BAR
+   ========================================================= */
+.deck-mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(11, 19, 43, 0.95);
+  backdrop-filter: blur(16px);
+  border-t: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   PRINT-TO-PDF STYLES (@media print)
+   ========================================================= */
+@media print {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  body, html {
+    background: #0b132b !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .deck-toolbar,
+  .deck-mobile-bar {
+    display: none !important;
+  }
+
+  .deck-container {
+    padding: 0 !important;
+    gap: 0 !important;
+    background: transparent !important;
+  }
+
+  .deck-slide {
+    width: 1920px !important;
+    height: 1080px !important;
+    max-width: none !important;
+    aspect-ratio: auto !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    padding: 80px 100px !important;
+  }
+}

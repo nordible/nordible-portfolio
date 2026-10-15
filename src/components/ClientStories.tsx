@@ -22,6 +22,13 @@ export default function ClientStories() {
       role: "CEO",
       company: "Baxter International",
       rating: 5
+    },
+    {
+      quote: "Nordible's strategic execution delivered extraordinary results for our practice. In under a month, our Google search impressions surged by +490%, and direct search inquiries produced 2 signed client mandates. The bottom-bar mobile UX and founder-level dedication set a new standard.",
+      author: "Dipl.-Ing. Majeed Shams",
+      role: "Principal Architect & Founder",
+      company: "Shams Consult (Frankfurt am Main)",
+      rating: 5
     }
   ];
 
@@ -42,7 +49,7 @@ export default function ClientStories() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="tech-card rounded-xl p-8 transition-all duration-300 hover:shadow-2xl relative notch-tl">
               <ShieldCheck className="h-8 w-8 text-green-500/20 absolute top-6 right-6" />

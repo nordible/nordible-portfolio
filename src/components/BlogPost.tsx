@@ -25,7 +25,11 @@ import {
   BadgePercent,
   TrendingUp,
   ExternalLink,
-  Target
+  Target,
+  X,
+  ZoomIn,
+  Info,
+  Briefcase
 } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -33,7 +37,8 @@ import {
   articlesBySlug, 
   defaultArticleSlug, 
   articleNotFoundTranslations,
-  ArticleCard
+  ArticleCard,
+  ArticleImage
 } from '../data/blogContent';
 
 interface BlogPostProps {
@@ -50,6 +55,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeLightboxImage, setActiveLightboxImage] = useState<ArticleImage | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,6 +67,14 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSlug]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveLightboxImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   if (!articleTranslations) {
     const notFound = articleNotFoundTranslations[language];
@@ -270,9 +284,9 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
           {/* Client Identity Chip (if client is defined) */}
           {content.client && (
-            <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-sm max-w-fit">
+            <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-sm max-w-fit">
               {content.client.logo && (
-                <div className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-700/50 p-1.5 border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-700/50 p-2 border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
                   <img
                     src={content.client.logo}
                     alt={content.client.name}
@@ -280,26 +294,23 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   />
                 </div>
               )}
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-extrabold text-nordible-dark dark:text-white font-heading">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 block">
+                  {content.client.label || (language === 'de' ? 'Auftraggeber & Praxispartner' : 'Client & Practice Partner')}
+                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
                     {content.client.name}
                   </span>
-                  {content.client.link && (
-                    <a
-                      href={content.client.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400"
-                      aria-label={`Visit ${content.client.name}`}
-                    >
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
+                  {content.client.location && (
+                    <span className="text-xs font-mono text-gray-500 dark:text-gray-400">
+                      · {content.client.location}
+                    </span>
                   )}
                 </div>
-                {content.client.location && (
-                  <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400 block">
-                    {content.client.location}
+                {content.client.industry && (
+                  <span className="text-[11px] text-gray-600 dark:text-gray-400 block font-medium">
+                    {content.client.industry}
                   </span>
                 )}
               </div>
@@ -371,13 +382,20 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         )}
 
         {/* Featured Hero Visual */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group">
+        <div 
+          onClick={() => setActiveLightboxImage(content.heroImage)}
+          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500"
+        >
           <img
             src={content.heroImage.src}
             alt={content.heroImage.alt}
             className="w-full h-auto object-cover max-h-[520px] transition-transform duration-500 group-hover:scale-[1.01]"
             loading="eager"
           />
+          <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+            <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+            <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+          </div>
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
           {(content.heroImage.caption || content.heroImage.badge) && (
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 rounded-2xl bg-gray-950/80 backdrop-blur-md border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -407,6 +425,23 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               </h2>
             </div>
 
+            {/* Executive Business Takeaway */}
+            {section.businessTakeaway && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/90 to-indigo-50/40 dark:from-blue-950/40 dark:to-indigo-950/30 border border-blue-200/80 dark:border-blue-900/50 flex items-start gap-3.5 shadow-sm">
+                <div className="p-2 rounded-xl bg-nordible-blue text-white shrink-0 mt-0.5">
+                  <Briefcase className="h-4 w-4" />
+                </div>
+                <div className="space-y-1 text-left">
+                  <span className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
+                    {language === 'de' ? 'Kernaussage für Entscheider' : 'Executive Business Takeaway'}
+                  </span>
+                  <p className="text-sm sm:text-base font-semibold text-nordible-dark dark:text-blue-100 leading-snug">
+                    {section.businessTakeaway}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {section.paragraphs && section.paragraphs.map((p, pIdx) => (
               <p key={pIdx} className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {p}
@@ -431,6 +466,133 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                       {card.desc}
                     </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Section Single Image */}
+            {section.image && (
+              <div 
+                onClick={() => section.image && setActiveLightboxImage(section.image)}
+                className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-800 bg-gray-950 shadow-xl group my-6 cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500"
+              >
+                <img
+                  src={section.image.src}
+                  alt={section.image.alt}
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                  loading="lazy"
+                />
+                <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                  <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+                </div>
+                {(section.image.caption || section.image.badge || section.image.explanation || section.image.businessBenefit) && (
+                  <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
+                    {(section.image.caption || section.image.badge) && (
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        {section.image.caption && <span className="font-mono text-blue-200 font-medium text-xs">{section.image.caption}</span>}
+                        {section.image.badge && (
+                          <span className="font-mono text-emerald-400 flex items-center gap-1 text-xs shrink-0 font-semibold">
+                            <CheckCircle2 className="h-3.5 w-3.5" />
+                            {section.image.badge}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    {(section.image.explanation || section.image.businessBenefit) && (
+                      <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
+                        {section.image.explanation && (
+                          <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                              <Info className="h-3.5 w-3.5" />
+                              {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                            </span>
+                            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                              {section.image.explanation}
+                            </p>
+                          </div>
+                        )}
+                        {section.image.businessBenefit && (
+                          <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                              <TrendingUp className="h-3.5 w-3.5" />
+                              {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                            </span>
+                            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
+                              {section.image.businessBenefit}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Section Multi-Image Full-Width Stack */}
+            {section.images && section.images.length > 0 && (
+              <div className="grid grid-cols-1 gap-6 pt-2 my-6">
+                {section.images.map((img, iIdx) => (
+                  <div 
+                    key={iIdx} 
+                    onClick={() => setActiveLightboxImage(img)}
+                    className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-700 bg-gray-950 shadow-lg group flex flex-col justify-between cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 hover:shadow-2xl"
+                  >
+                    <div className="overflow-hidden bg-black/50 flex items-center justify-center relative">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                        <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                        <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+                      </div>
+                    </div>
+                    {(img.caption || img.badge || img.explanation || img.businessBenefit) && (
+                      <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
+                        {(img.caption || img.badge) && (
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            {img.caption && <span className="font-mono text-blue-200 font-medium text-xs">{img.caption}</span>}
+                            {img.badge && (
+                              <span className="font-mono text-emerald-400 flex items-center gap-1 text-xs shrink-0 font-semibold">
+                                <CheckCircle2 className="h-3.5 w-3.5" />
+                                {img.badge}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                        {(img.explanation || img.businessBenefit) && (
+                          <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
+                            {img.explanation && (
+                              <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
+                                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                                  <Info className="h-3.5 w-3.5" />
+                                  {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                                </span>
+                                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                                  {img.explanation}
+                                </p>
+                              </div>
+                            )}
+                            {img.businessBenefit && (
+                              <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
+                                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                                  <TrendingUp className="h-3.5 w-3.5" />
+                                  {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                                </span>
+                                <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
+                                  {img.businessBenefit}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -470,6 +632,42 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             )}
           </section>
         ))}
+
+        {/* Client Live Website Reference Card */}
+        {content.client && content.client.link && (
+          <div className="p-6 rounded-2xl bg-white dark:bg-gray-800/90 border border-nordible-border dark:border-gray-700 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              {content.client.logo && (
+                <div className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-700/50 p-2 border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
+                  <img
+                    src={content.client.logo}
+                    alt={content.client.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              )}
+              <div className="text-left">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 block">
+                  {language === 'de' ? 'Live-Praxis-Webseite erkunden' : 'Explore Live Practice Website'}
+                </span>
+                <span className="text-base font-extrabold text-nordible-dark dark:text-white font-heading">
+                  {content.client.name} {content.client.location ? `· ${content.client.location}` : ''}
+                </span>
+              </div>
+            </div>
+
+            <a
+              href={content.client.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-xs font-bold text-nordible-dark dark:text-white hover:border-nordible-blue dark:hover:border-blue-400 hover:text-nordible-blue transition-all cursor-pointer shrink-0"
+              aria-label={`Visit ${content.client.name}`}
+            >
+              <span>{content.client.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+              <ExternalLink className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+            </a>
+          </div>
+        )}
 
         {/* Call to Action Card */}
         <section className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
@@ -547,6 +745,92 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         >
           <ArrowUp className="h-5 w-5" />
         </button>
+      )}
+
+      {/* Fullscreen Interactive Lightbox Modal */}
+      {activeLightboxImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setActiveLightboxImage(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Top Bar with Badge & Close Button */}
+          <div 
+            className="w-full max-w-7xl flex items-center justify-between gap-4 z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2">
+              {activeLightboxImage.badge && (
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  {activeLightboxImage.badge}
+                </span>
+              )}
+            </div>
+
+            <button
+              onClick={() => setActiveLightboxImage(null)}
+              className="p-2.5 sm:px-4 sm:py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer"
+              aria-label="Close Fullscreen"
+            >
+              <span>{language === 'de' ? 'Schließen (Esc)' : 'Close (Esc)'}</span>
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Fullscreen Image Container */}
+          <div 
+            className="flex-1 flex items-center justify-center w-full max-w-7xl my-2 overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={activeLightboxImage.src}
+              alt={activeLightboxImage.alt || 'Fullscreen screenshot'}
+              className="max-w-full max-h-[82vh] object-contain rounded-xl shadow-2xl ring-1 ring-white/10"
+            />
+          </div>
+
+          {/* Bottom Caption & Plain-Language Executive Card */}
+          {(activeLightboxImage.caption || activeLightboxImage.explanation || activeLightboxImage.businessBenefit) && (
+            <div 
+              className="w-full max-w-4xl p-4 sm:p-5 rounded-2xl bg-gray-950/95 border border-white/10 backdrop-blur-md text-left text-xs sm:text-sm text-gray-200 z-10 space-y-3"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {activeLightboxImage.caption && (
+                <div className="font-mono text-blue-200 text-xs sm:text-sm font-semibold text-center border-b border-gray-800 pb-2">
+                  {activeLightboxImage.caption}
+                </div>
+              )}
+              {(activeLightboxImage.explanation || activeLightboxImage.businessBenefit) && (
+                <div className="grid sm:grid-cols-2 gap-3 pt-1">
+                  {activeLightboxImage.explanation && (
+                    <div className="space-y-1 bg-gray-900/60 rounded-xl p-3 border border-gray-800">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                        <Info className="h-3.5 w-3.5" />
+                        {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                      </span>
+                      <p className="text-xs text-gray-300 leading-relaxed font-normal">
+                        {activeLightboxImage.explanation}
+                      </p>
+                    </div>
+                  )}
+                  {activeLightboxImage.businessBenefit && (
+                    <div className="space-y-1 bg-emerald-950/40 border border-emerald-500/25 rounded-xl p-3">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                        <TrendingUp className="h-3.5 w-3.5" />
+                        {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                      </span>
+                      <p className="text-xs text-emerald-100/90 leading-relaxed font-normal">
+                        {activeLightboxImage.businessBenefit}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       )}
     </article>
   );

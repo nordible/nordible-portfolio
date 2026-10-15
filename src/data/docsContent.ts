@@ -104,6 +104,16 @@ export interface ExecutiveAsset {
 
 export const executiveAssets: ExecutiveAsset[] = [
   {
+    id: 'pitch-deck',
+    title: 'Executive Pitch Deck (Slides)',
+    subtitle: '5-Slide Enterprise Presentation',
+    fileName: 'nordible-pitch-deck.pdf',
+    fileUrl: '/deck?print=true',
+    fileType: 'pdf',
+    badge: '5 Slides',
+    targetBlank: true,
+  },
+  {
     id: 'b2b-flyer',
     title: 'B2B Prospectus Flyer (PDF)',
     subtitle: 'Vector Print-Ready DIN A4',

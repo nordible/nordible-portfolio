@@ -135,15 +135,15 @@ const projects = [
     client: 'Shams Consult',
     logo: '/images/logos/shams-consult-logo.png',
     link: 'https://shams-consult.de/',
-    caseStudySlug: 'shams-consult-google-ranking',
-    description: 'Architecture and urban planning consultancy based in Frankfurt am Main and Rödermark. Secured #1 organic position on Google for critical industry search terms through semantic search architecture, technical performance, and high-trust assets.',
+    caseStudySlug: 'b2b-seo-case-study-google-page-1',
+    description: 'Architecture and urban planning consultancy in Frankfurt am Main. Scaled search impressions by +490% and active users by +275% in 30 days while advancing to Google Page 1, securing selected #1 regional rankings, and climbing from Page 7 to Page 3 in Frankfurt.',
     technologies: ['Semantic SEO', 'Technical Performance', 'Information Architecture', 'B2B Creative Strategy', 'Content Engineering'],
-    outcome: 'Secured and maintained the #1 organic position on Google for core high-intent B2B search terms without paid ads.',
-    image: '/images/shams-consult-architecture-case-study.jpg',
+    outcome: '+490% search impressions, +317% organic search clicks, and 2 new signed client mandates from 3 connected calls in 30 days without paid ads.',
+    image: '/images/shams-consult/shams-consult-homepage-hero.png',
     metrics: {
-      ranking: '#1 Google',
-      channel: 'Organic B2B',
-      market: 'Frankfurt / Rhein-Main'
+      impressions: '+490%',
+      ranking: 'Google Page 1',
+      new_clients: '2 Clients Signed'
     },
     gradient: 'from-blue-600 to-emerald-600'
   },
@@ -272,18 +272,21 @@ const metricLabelTranslationsDe: Record<string, string> = {
   focus: 'Fokus',
   channel: 'Vertriebskanal',
   market: 'Zielmarkt',
-  ranking: 'Platzierung'
+  ranking: 'Platzierung',
+  impressions: 'Impressionen',
+  directions: 'Routenanfragen',
+  new_clients: 'Neukunden'
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
   'shams-consult': {
     client: 'Shams Consult',
-    description: 'Architektur- und Stadtplanungsbüro mit Sitz in Frankfurt am Main und Rödermark. Erzielte Platz 1 bei Google für zentrale Branchensuchbegriffe durch semantische Suchstruktur, moderne Web-Performance und zielgruppengerechte Informationsarchitektur.',
-    outcome: 'Sicherte die organische Spitzenposition (Platz 1) bei Google für zentrale B2B-Kernsuchbegriffe ganz ohne laufende Werbeausgaben.',
+    description: 'Architektur- und Stadtplanungsbüro in Frankfurt am Main. Steigerung der Google-Suchimpressionen um +490% und der aktiven Nutzer um +275% in 30 Tagen durch wissenschaftlich fundierte UX, Subsekunden-Ladezeiten und semantische SEO.',
+    outcome: '+490% Google-Impressionen, +317% organische Klicks und 2 gewonnene Neukundenmandate aus 3 Erstgesprächen in 30 Tagen ganz ohne Werbeausgaben.',
     metricValues: {
-      ranking: 'Platz 1 bei Google',
-      channel: 'Organisch B2B',
-      market: 'Frankfurt / Rhein-Main'
+      impressions: '+490% Zuwachs',
+      ranking: 'Google Platz 1',
+      new_clients: '2 Mandate'
     }
   },
   'nordible-email': {

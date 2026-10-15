@@ -1,6 +1,6 @@
-import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
+import { execFile } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -746,22 +746,23 @@ const htmlContent = `<!DOCTYPE html>
         <div class="case-card">
           <div>
             <div class="case-header">
-              <span class="client-tag">Nordible Ecosystem</span>
-              <span class="pill">Proprietary Products</span>
+              <span class="client-tag">Shams Consult</span>
+              <span class="pill">Architecture &amp; Urban Planning</span>
             </div>
-            <h3 class="case-title">Nordible Professional Email &amp; Tools</h3>
+            <h3 class="case-title">Frankfurt Architecture Authority &amp; Local GEO</h3>
             <p class="case-desc">
-              Launched secure business email infrastructure with custom domain routing and privacy-first automation extensions for professional workflows.
+              Engineered high-performance web architecture, mobile thumb-zone conversion ergonomics, and semantic entity schema for premier Frankfurt architecture practice.
             </p>
           </div>
           <div>
             <div class="case-highlight">
-              &bull; Enterprise SSL/TLS encryption &bull; 99.9% delivery SLA
+              &bull; +490% Google Impressions &bull; +317% Organic Clicks &bull; 61 Route Directions &bull; 100/100 Lighthouse
             </div>
             <div class="card-pills">
-              <span class="pill">Docker</span>
-              <span class="pill">Cloud Infrastructure</span>
-              <span class="pill">TypeScript</span>
+              <span class="pill">Science-Backed UX</span>
+              <span class="pill">Local GEO / Maps</span>
+              <span class="pill">Semantic SEO</span>
+              <span class="pill">100/100 Lighthouse</span>
             </div>
           </div>
         </div>
@@ -854,31 +855,77 @@ const htmlContent = `<!DOCTYPE html>
 </html>`;
 
 async function generatePdf() {
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 2 });
-  await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
-
   const publicDir = path.join(__dirname, 'public');
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
 
+  const htmlPath = path.join(publicDir, 'pitch-deck.html');
+  fs.writeFileSync(htmlPath, htmlContent, 'utf-8');
+
   const pdfPath = path.join(publicDir, 'nordible-pitch-deck.pdf');
-  await page.pdf({
-    path: pdfPath,
-    width: '1920px',
-    height: '1080px',
-    printBackground: true,
-    pageRanges: '1-5'
+
+  let puppeteer;
+  try {
+    puppeteer = (await import('puppeteer')).default;
+  } catch {
+    // Puppeteer not installed, fallback to system browser
+  }
+
+  if (puppeteer) {
+    const browser = await puppeteer.launch({
+      headless: "new",
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 2 });
+    await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
+
+    await page.pdf({
+      path: pdfPath,
+      width: '1920px',
+      height: '1080px',
+      printBackground: true,
+      pageRanges: '1-5'
+    });
+
+    console.log(`Generated pitch deck PDF with Puppeteer at: ${pdfPath}`);
+    await browser.close();
+    return;
+  }
+
+  const browserBinaries = [
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+    'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'
+  ];
+
+  const browserPath = browserBinaries.find(p => fs.existsSync(p));
+  if (!browserPath) {
+    throw new Error('Neither Puppeteer nor Chrome/Edge executable was found on the system.');
+  }
+
+  console.log(`Using system browser engine: ${browserPath}`);
+  await new Promise((resolve, reject) => {
+    execFile(
+      browserPath,
+      [
+        '--headless',
+        '--disable-gpu',
+        '--no-pdf-header-footer',
+        `--print-to-pdf=${pdfPath}`,
+        htmlPath
+      ],
+      (error) => {
+        if (error) return reject(error);
+        resolve();
+      }
+    );
   });
 
   console.log(`Generated pitch deck PDF at: ${pdfPath}`);
-  await browser.close();
 }
 
 generatePdf().catch(err => {
