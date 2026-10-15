@@ -10,12 +10,6 @@ export interface InternalDoc {
 
 // Map of canonical metadata overrides for known flagship documents
 const DOC_METADATA_REGISTRY: Record<string, Partial<InternalDoc>> = {
-  'b2b-prospectus-flyer': {
-    id: 'prospect-flyer',
-    shortTitle: 'B2B Prospectus Flyer',
-    category: 'Commercial Collateral',
-    isFlyer: true,
-  },
   'business-plan-nordible-technologies': {
     id: 'business-plan',
     shortTitle: 'Business Plan',
@@ -80,8 +74,8 @@ export const internalDocs: InternalDoc[] = Object.entries(rawDocModules).map(([f
   parseDocMetadata(filePath, content)
 );
 
-// Fallback safety sorting: place prospect-flyer first, followed by business-plan, etc.
-const PREFERRED_ORDER = ['prospect-flyer', 'business-plan', 'financial-plan', 'loi-templates'];
+// Fallback safety sorting: place business-plan first, followed by financial-plan, etc.
+const PREFERRED_ORDER = ['business-plan', 'financial-plan', 'loi-templates'];
 internalDocs.sort((a, b) => {
   const indexA = PREFERRED_ORDER.indexOf(a.id);
   const indexB = PREFERRED_ORDER.indexOf(b.id);
@@ -111,27 +105,7 @@ export const executiveAssets: ExecutiveAsset[] = [
     fileUrl: '/brochure?print=true',
     fileType: 'pdf',
     badge: '6 Pages A4',
-    targetBlank: true,
-  },
-  {
-    id: 'pitch-deck',
-    title: 'Executive Pitch Deck (Slides)',
-    subtitle: '5-Slide Enterprise Presentation',
-    fileName: 'nordible-pitch-deck.pdf',
-    fileUrl: '/deck?print=true',
-    fileType: 'pdf',
-    badge: '5 Slides',
-    targetBlank: true,
-  },
-  {
-    id: 'b2b-flyer',
-    title: 'B2B Prospectus Flyer (PDF)',
-    subtitle: 'Vector Print-Ready DIN A4',
-    fileName: 'nordible-b2b-prospectus-flyer.pdf',
-    fileUrl: '/prospect-flyer?print=true',
-    fileType: 'pdf',
-    badge: 'DIN A4',
-    targetBlank: true,
+    targetBlank: false,
   },
   {
     id: 'linkedin-cover',

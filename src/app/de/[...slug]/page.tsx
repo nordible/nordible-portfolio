@@ -10,7 +10,6 @@ import BlogPost from '@/components/BlogPost';
 import AreasServedPage from '@/components/AreasServedPage';
 import LocationLandingPage from '@/components/LocationLandingPage';
 import QrCodeGeneratorPage from '@/components/QrCodeGeneratorPage';
-import ProspectFlyerPage from '@/components/ProspectFlyerPage';
 import BrochurePage from '@/components/BrochurePage';
 import DigitalCardPage from '@/components/DigitalCardPage';
 import PrivacyPolicy from '@/components/PrivacyPolicy';
@@ -33,7 +32,6 @@ export function generateStaticParams() {
     { slug: ['blog'] },
     { slug: ['standorte'] },
     { slug: ['qr-code-generator'] },
-    { slug: ['prospect-flyer'] },
     { slug: ['brochure'] },
     { slug: ['card'] },
     { slug: ['privacy'] },
@@ -92,7 +90,6 @@ export default async function DePage({ params }: { params: Promise<{ slug: strin
     </>
   );
   if (path === 'qr-code-generator') return <QrCodeGeneratorPage />;
-  if (path === 'prospect-flyer') return <ProspectFlyerPage />;
   if (path === 'brochure') return <RouteClientWrapper><BrochurePage /></RouteClientWrapper>;
   if (path === 'card') return <DigitalCardPage />;
   if (path === 'privacy') return <PrivacyPolicy />;

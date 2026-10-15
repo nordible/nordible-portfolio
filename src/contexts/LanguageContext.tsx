@@ -11,6 +11,8 @@ import {
   NON_DEFAULT_LANGUAGES
 } from '../lib/i18n';
 
+export type { Language, Translations };
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;

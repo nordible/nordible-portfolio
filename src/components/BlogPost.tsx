@@ -11,7 +11,6 @@ import {
   Calendar, 
   Clock, 
   CheckCircle2, 
-  ArrowUp, 
   ShieldCheck, 
   Building2, 
   Compass, 
@@ -58,7 +57,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeLightboxImage, setActiveLightboxImage] = useState<ArticleImage | null>(null);
 
   // 3-Step Qualification & Ad Funnel Modal State
@@ -76,12 +74,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSlug]);
 
   useEffect(() => {
@@ -164,10 +156,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     setAuditError(null);
     setAuditStep(1);
     setIsAuditModalOpen(true);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const renderCardIcon = (icon?: ArticleCard['icon']) => {
@@ -780,16 +768,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           <span>{funnel.coreOffer.mobileBtnText}</span>
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
-
-        {showScrollTop && (
-          <button
-            onClick={scrollToTop}
-            className="p-3 rounded-xl border border-nordible-border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 active:scale-95 transition-transform cursor-pointer"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </button>
-        )}
       </div>
 
       {/* 3-Step Interactive Qualification Modal */}
@@ -1188,17 +1166,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             )}
           </div>
         </div>
-      )}
-
-      {/* Desktop Floating Back to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="hidden md:flex fixed bottom-8 right-8 z-40 p-3.5 rounded-2xl bg-white dark:bg-gray-800 text-nordible-dark dark:text-blue-400 border border-nordible-border dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="h-5 w-5" />
-        </button>
       )}
 
       {/* Fullscreen Interactive Lightbox Modal */}
