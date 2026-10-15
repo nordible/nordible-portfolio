@@ -38,8 +38,11 @@ import {
   defaultArticleSlug, 
   articleNotFoundTranslations,
   ArticleCard,
-  ArticleImage
+  ArticleImage,
+  auditFunnelTranslations
 } from '../data/blogContent';
+import { contactConfig } from '../config/contact';
+import { sendContactEmail } from '../services/emailService';
 
 interface BlogPostProps {
   onBookConsultation?: () => void;
@@ -48,6 +51,7 @@ interface BlogPostProps {
 
 export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPostProps) {
   const { language, getPath } = useLanguage();
+  const funnel = auditFunnelTranslations[language];
   const params = useParams<{ slug?: string }>();
   const activeSlug = propSlug || params.slug || defaultArticleSlug;
   const articleTranslations = articlesBySlug[activeSlug];
@@ -56,6 +60,18 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeLightboxImage, setActiveLightboxImage] = useState<ArticleImage | null>(null);
+
+  // 3-Step Qualification & Ad Funnel Modal State
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
+  const [auditStep, setAuditStep] = useState<1 | 2 | 3 | 'disqualified' | 'success'>(1);
+  const [auditIndustry, setAuditIndustry] = useState('');
+  const [auditGoal, setAuditGoal] = useState('');
+  const [auditWebsite, setAuditWebsite] = useState('');
+  const [auditEmail, setAuditEmail] = useState('');
+  const [auditPhone, setAuditPhone] = useState('');
+  const [isSubmittingAudit, setIsSubmittingAudit] = useState(false);
+  const [auditError, setAuditError] = useState<string | null>(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -144,6 +160,12 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     }
   };
 
+  const openAuditModal = () => {
+    setAuditError(null);
+    setAuditStep(1);
+    setIsAuditModalOpen(true);
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -187,6 +209,15 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         return <TrendingUp className="h-5 w-5 text-nordible-blue dark:text-blue-400 shrink-0" />;
       default:
         return <TrendingUp className="h-5 w-5 text-nordible-blue dark:text-blue-400 shrink-0" />;
+    }
+  };
+
+  const getIndustryIcon = (iconType: 'building' | 'briefcase' | 'shield' | 'target') => {
+    switch (iconType) {
+      case 'building': return Building2;
+      case 'briefcase': return Briefcase;
+      case 'shield': return ShieldCheck;
+      case 'target': return Target;
     }
   };
 
@@ -260,6 +291,28 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             </span>
           </div>
         </nav>
+
+        {/* Ad Campaign Header Banner */}
+        <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-3.5 sm:p-4 shadow-lg shadow-blue-500/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+          <div className="flex items-center gap-2.5">
+            <span className="p-2 rounded-xl bg-white/20 text-white shrink-0">
+              <Sparkles className="h-4 w-4" />
+            </span>
+            <p className="text-xs sm:text-sm font-medium leading-snug">
+              <strong className="font-bold">
+                {funnel.adRibbon.boldText}
+              </strong>{' '}
+              {funnel.adRibbon.subtitle}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={openAuditModal}
+            className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0"
+          >
+            {funnel.adRibbon.buttonText}
+          </button>
+        </div>
 
         {/* Header Block */}
         <header className="space-y-6 text-left">
@@ -669,38 +722,41 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           </div>
         )}
 
-        {/* Call to Action Card */}
+        {/* Core Offer Box: Free 15-Minute Audit */}
         <section className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
-          <div className="max-w-2xl mx-auto space-y-4 relative z-10">
-            {content.cta.badge && (
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-blue-200 border border-white/20">
-                {content.cta.badge}
-              </span>
-            )}
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading">
-              {content.cta.title}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-2xl mx-auto space-y-5 relative z-10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-blue-200 border border-white/20">
+              <Sparkles className="h-3.5 w-3.5" />
+              {funnel.coreOffer.badge}
+            </span>
+
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading leading-tight">
+              {funnel.coreOffer.title}
             </h2>
-            {content.cta.desc && (
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-                {content.cta.desc}
-              </p>
-            )}
+
+            <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed font-normal">
+              {funnel.coreOffer.subtitle}
+            </p>
+
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
-                onClick={handleConsultation}
-                className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-8 py-4 shadow-xl cursor-pointer w-full sm:w-auto"
+                type="button"
+                onClick={openAuditModal}
+                className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-6 py-4 shadow-xl cursor-pointer w-full sm:w-auto font-bold inline-flex items-center justify-center gap-2 transition-all active:scale-95"
               >
-                <span>{content.cta.buttonText}</span>
-                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
+                <span>{funnel.coreOffer.startAuditBtn}</span>
+                <ArrowRight className="h-4 w-4" />
               </button>
-              {content.cta.secondaryText && (
-                <Link
-                  to={getPath('/')}
-                  className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto"
-                >
-                  <span>{content.cta.secondaryText}</span>
-                </Link>
-              )}
+
+              <button
+                type="button"
+                onClick={handleConsultation}
+                className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto cursor-pointer"
+              >
+                <span>{funnel.coreOffer.bookCallBtn}</span>
+              </button>
             </div>
           </div>
         </section>
@@ -718,11 +774,11 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         </button>
 
         <button
-          onClick={handleConsultation}
-          className="btn-primary flex-1 py-3 text-xs tracking-wider shadow-lg shadow-blue-500/20 active:scale-95 cursor-pointer"
+          onClick={openAuditModal}
+          className="btn-primary flex-1 py-3 text-xs tracking-wider shadow-lg shadow-blue-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
         >
-          <span>{content.cta.mobileButtonText || content.cta.buttonText}</span>
-          <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+          <span>{funnel.coreOffer.mobileBtnText}</span>
+          <ArrowRight className="h-3.5 w-3.5" />
         </button>
 
         {showScrollTop && (
@@ -735,6 +791,404 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           </button>
         )}
       </div>
+
+      {/* 3-Step Interactive Qualification Modal */}
+      {isAuditModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setIsAuditModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="w-full max-w-lg bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6 text-left relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-3 border-b border-nordible-border dark:border-gray-800">
+              <div className="flex items-center gap-2">
+                <span className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400">
+                  <Sparkles className="h-4 w-4" />
+                </span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
+                  {funnel.modal.badge}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAuditModalOpen(false)}
+                className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                aria-label={funnel.modal.closeAria}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Progress Bar (Step 1-3) */}
+            {typeof auditStep === 'number' && (
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] font-mono text-gray-400">
+                  <span>{funnel.modal.stepOf(auditStep, 3)}</span>
+                  <span>{auditStep === 1 ? '33%' : auditStep === 2 ? '66%' : '100%'}</span>
+                </div>
+                <div className="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-nordible-blue transition-all duration-300"
+                    style={{ width: `${(auditStep / 3) * 100}%` }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: Industry Category */}
+            {auditStep === 1 && (
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
+                    {funnel.modal.step1.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    {funnel.modal.step1.subtitle}
+                  </p>
+                </div>
+
+                <div className="space-y-2.5">
+                  {funnel.modal.step1.industries.map((item) => {
+                    const ItemIcon = getIndustryIcon(item.iconType);
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => {
+                          setAuditIndustry(item.id);
+                          setAuditStep(2);
+                        }}
+                        className={`w-full p-3.5 rounded-2xl border text-left flex items-center justify-between gap-3 transition-all cursor-pointer ${
+                          auditIndustry === item.id
+                            ? 'border-nordible-blue bg-blue-50/50 dark:bg-blue-950/40 text-nordible-blue dark:text-blue-300 shadow-sm'
+                            : 'border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-gray-800 dark:text-gray-200'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="p-2 rounded-xl bg-gray-100 dark:bg-gray-700/60 text-nordible-blue dark:text-blue-400">
+                            <ItemIcon className="h-4 w-4" />
+                          </span>
+                          <span className="text-xs sm:text-sm font-bold">
+                            {item.label}
+                          </span>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-gray-400 shrink-0" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Step 2: Goal & Readiness (Filter) */}
+            {auditStep === 2 && (
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
+                    {funnel.modal.step2.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    {funnel.modal.step2.subtitle}
+                  </p>
+                </div>
+
+                <div className="space-y-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuditGoal('mandate');
+                      setAuditStep(3);
+                    }}
+                    className="w-full p-4 rounded-2xl border border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-left flex items-start gap-3 transition-all cursor-pointer group"
+                  >
+                    <span className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+                      <TrendingUp className="h-4 w-4" />
+                    </span>
+                    <div className="flex-1">
+                      <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
+                        {funnel.modal.step2.mandate.title}
+                      </div>
+                      <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
+                        {funnel.modal.step2.mandate.desc}
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuditGoal('ranking');
+                      setAuditStep(3);
+                    }}
+                    className="w-full p-4 rounded-2xl border border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-left flex items-start gap-3 transition-all cursor-pointer group"
+                  >
+                    <span className="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-nordible-blue dark:text-blue-400 shrink-0 mt-0.5">
+                      <Trophy className="h-4 w-4" />
+                    </span>
+                    <div className="flex-1">
+                      <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
+                        {funnel.modal.step2.ranking.title}
+                      </div>
+                      <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
+                        {funnel.modal.step2.ranking.desc}
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Disqualification Option: Private/Tire-kicker */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuditStep('disqualified');
+                    }}
+                    className="w-full p-4 rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/30 hover:border-gray-400 text-left flex items-start gap-3 transition-all cursor-pointer"
+                  >
+                    <span className="p-2 rounded-xl bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 shrink-0 mt-0.5">
+                      <Info className="h-4 w-4" />
+                    </span>
+                    <div className="flex-1">
+                      <div className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300">
+                        {funnel.modal.step2.disqualified.title}
+                      </div>
+                      <div className="text-[11px] text-gray-400 mt-0.5">
+                        {funnel.modal.step2.disqualified.desc}
+                      </div>
+                    </div>
+                  </button>
+                </div>
+
+                <div className="pt-2 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={() => setAuditStep(1)}
+                    className="text-xs font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                  >
+                    ← {funnel.modal.backBtn}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Step 3: Verified Contact Info */}
+            {auditStep === 3 && (
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!auditEmail || !auditWebsite) return;
+                  setIsSubmittingAudit(true);
+                  setAuditError(null);
+
+                  // 1. Immediately persist lead to localStorage so it is visible in /dashboard
+                  try {
+                    const stored = localStorage.getItem('nordible_leads');
+                    const existingLeads = stored ? JSON.parse(stored) : [];
+                    const newLead = {
+                      id: Date.now().toString(),
+                      fullName: auditWebsite,
+                      email: auditEmail,
+                      phone: auditPhone,
+                      projectType: `Audit: ${auditIndustry || 'B2B Case Study'}`,
+                      budget: '15-Min Free Audit',
+                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${auditWebsite}\nTelefon: ${auditPhone}`,
+                      status: 'new' as const,
+                      submittedAt: new Date().toISOString()
+                    };
+                    localStorage.setItem('nordible_leads', JSON.stringify([newLead, ...existingLeads]));
+                  } catch (err) {
+                    console.warn('Could not persist lead to localStorage:', err);
+                  }
+
+                  // 2. Dispatch email notification and handle errors explicitly
+                  try {
+                    const success = await sendContactEmail({
+                      fullName: auditWebsite,
+                      email: auditEmail,
+                      phone: auditPhone,
+                      projectType: `B2B Case Study Audit (${auditIndustry || 'Allgemein'})`,
+                      budget: '15-Min Audit',
+                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${auditWebsite}\nTelefon: ${auditPhone}`
+                    });
+
+                    if (success) {
+                      setAuditStep('success');
+                    } else {
+                      setAuditError(funnel.modal.step3.errorMessage);
+                    }
+                  } catch (err) {
+                    console.error('Audit submission failed:', err);
+                    setAuditError(funnel.modal.step3.errorMessage);
+                  } finally {
+                    setIsSubmittingAudit(false);
+                  }
+                }}
+                className="space-y-4"
+              >
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
+                    {funnel.modal.step3.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                    {funnel.modal.step3.subtitle}
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                      {funnel.modal.step3.websiteLabel}
+                    </label>
+                    <input
+                      type="url"
+                      required
+                      placeholder={funnel.modal.step3.websitePlaceholder}
+                      value={auditWebsite}
+                      onChange={(e) => setAuditWebsite(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                      {funnel.modal.step3.emailLabel}
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder={funnel.modal.step3.emailPlaceholder}
+                      value={auditEmail}
+                      onChange={(e) => setAuditEmail(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                      {funnel.modal.step3.phoneLabel}
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder={funnel.modal.step3.phonePlaceholder}
+                      value={auditPhone}
+                      onChange={(e) => setAuditPhone(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                    />
+                  </div>
+                </div>
+
+                {auditError && (
+                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900/60 text-red-700 dark:text-red-300 text-xs flex items-start gap-2.5 animate-in fade-in duration-200">
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-red-500 dark:text-red-400" />
+                    <div className="flex-1 leading-relaxed">
+                      <span>{auditError}</span>
+                    </div>
+                  </div>
+                )}
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmittingAudit}
+                    className="btn-primary w-full py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>
+                      {isSubmittingAudit
+                        ? funnel.modal.step3.submittingBtn
+                        : funnel.modal.step3.submitBtn}
+                    </span>
+                  </button>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] text-gray-400 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuditError(null);
+                      setAuditStep(2);
+                    }}
+                    className="font-semibold hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                  >
+                    ← {funnel.modal.backBtn}
+                  </button>
+                  <span className="flex items-center gap-1">
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                    {funnel.modal.step3.confidentialNote}
+                  </span>
+                </div>
+              </form>
+            )}
+
+            {/* Disqualified Screen (Polite Redirect to Free Resources) */}
+            {auditStep === 'disqualified' && (
+              <div className="space-y-4 py-2">
+                <div className="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                  <Info className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
+                    {funnel.modal.disqualifiedScreen.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    {funnel.modal.disqualifiedScreen.desc}
+                  </p>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <Link
+                    to={getPath('/blog')}
+                    onClick={() => setIsAuditModalOpen(false)}
+                    className="btn-primary py-3 px-5 text-xs font-bold text-center"
+                  >
+                    {funnel.modal.disqualifiedScreen.hubBtn}
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsAuditModalOpen(false)}
+                    className="btn-secondary py-3 px-4 text-xs font-semibold"
+                  >
+                    {funnel.modal.disqualifiedScreen.closeBtn}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Success Screen */}
+            {auditStep === 'success' && (
+              <div className="space-y-5 py-2 text-center">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="h-7 w-7" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-black font-heading text-gray-900 dark:text-white">
+                    {funnel.modal.successScreen.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-sm mx-auto">
+                    {funnel.modal.successScreen.desc}
+                  </p>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={contactConfig.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center justify-center gap-2 py-3.5 px-6 text-xs sm:text-sm font-bold uppercase tracking-wider w-full shadow-lg shadow-blue-500/30"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    <span>{funnel.modal.successScreen.reserveSlotBtn}</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Desktop Floating Back to Top Button */}
       {showScrollTop && (

@@ -20,7 +20,7 @@ import {
   Building2,
   Sparkles
 } from 'lucide-react';
-import { getCity, getSuburb, getAdjacentSuburbs, City, Suburb } from '../data/locations';
+import { getCity, getSuburb, getAdjacentSuburbs, City, Suburb, localProofCardTranslations } from '../data/locations';
 import { getService, getAllServices, ServiceItem } from '../data/services';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from './Header';
@@ -42,6 +42,7 @@ export default function ServiceLocationLandingPage() {
     service: string; 
   }>();
   const { language, getPath } = useLanguage();
+  const proofCard = localProofCardTranslations[language] || localProofCardTranslations.en;
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -287,6 +288,93 @@ export default function ServiceLocationLandingPage() {
                 <span>{isDe ? 'Termin anfragen' : 'Request Meeting'}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Local Case Study & Social Proof Box */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="bg-gradient-to-br from-blue-50/70 via-white to-blue-50/40 dark:from-gray-800/90 dark:via-gray-800 dark:to-gray-900 border border-nordible-blue/30 dark:border-blue-500/30 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg shadow-blue-500/5 relative overflow-hidden text-left">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-blue-100 dark:bg-blue-950/80 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                  <TrendingUp className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                  <span>{proofCard.badge}</span>
+                </div>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                  {proofCard.subBadge}
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-xl sm:text-2xl font-black font-heading text-gray-900 dark:text-white leading-tight">
+                  {proofCard.title(suburbData.name)}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                  {proofCard.description}
+                </p>
+              </div>
+
+              {/* Hard Metrics Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-gray-800/90 border border-gray-100 dark:border-gray-700/80 shadow-xs">
+                  <div className="text-lg sm:text-xl font-black font-mono text-nordible-blue dark:text-blue-400">
+                    {proofCard.metrics.page1Label}
+                  </div>
+                  <div className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-0.5">
+                    {proofCard.metrics.page1Sub}
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-gray-800/90 border border-gray-100 dark:border-gray-700/80 shadow-xs">
+                  <div className="text-lg sm:text-xl font-black font-mono text-nordible-blue dark:text-blue-400">
+                    {proofCard.metrics.climbLabel}
+                  </div>
+                  <div className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-0.5">
+                    {proofCard.metrics.climbSub}
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-gray-800/90 border border-gray-100 dark:border-gray-700/80 shadow-xs">
+                  <div className="text-lg sm:text-xl font-black font-mono text-nordible-blue dark:text-blue-400">
+                    {proofCard.metrics.callsLabel}
+                  </div>
+                  <div className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-0.5">
+                    {proofCard.metrics.callsSub}
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white/90 dark:bg-gray-800/90 border border-gray-100 dark:border-gray-700/80 shadow-xs">
+                  <div className="text-lg sm:text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                    {proofCard.metrics.clientsLabel}
+                  </div>
+                  <div className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-0.5">
+                    {proofCard.metrics.clientsSub}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={goToConsultation}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-nordible-blue hover:bg-blue-600 text-white text-xs font-bold transition-all cursor-pointer shadow-md shadow-blue-500/20 active:scale-95"
+                >
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>{proofCard.ctaAudit(suburbData.name)}</span>
+                </button>
+
+                <Link
+                  to={getPath('/blog/b2b-seo-case-study-google-page-1')}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-nordible-blue dark:text-blue-400 hover:underline transition-all"
+                >
+                  <span>{proofCard.ctaStudy}</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>

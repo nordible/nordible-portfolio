@@ -38,6 +38,80 @@ export interface BlogHubContent {
   posts: BlogPostItem[];
 }
 
+export interface AuditFunnelIndustryOption {
+  id: string;
+  label: string;
+  iconType: 'building' | 'briefcase' | 'shield' | 'target';
+}
+
+export interface AuditFunnelTranslations {
+  adRibbon: {
+    boldText: string;
+    subtitle: string;
+    buttonText: string;
+  };
+  coreOffer: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    startAuditBtn: string;
+    bookCallBtn: string;
+    mobileBtnText: string;
+  };
+  modal: {
+    badge: string;
+    stepOf: (step: number, total: number) => string;
+    closeAria: string;
+    backBtn: string;
+    step1: {
+      title: string;
+      subtitle: string;
+      industries: AuditFunnelIndustryOption[];
+    };
+    step2: {
+      title: string;
+      subtitle: string;
+      mandate: {
+        title: string;
+        desc: string;
+      };
+      ranking: {
+        title: string;
+        desc: string;
+      };
+      disqualified: {
+        title: string;
+        desc: string;
+      };
+    };
+    step3: {
+      title: string;
+      subtitle: string;
+      websiteLabel: string;
+      websitePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      submitBtn: string;
+      submittingBtn: string;
+      confidentialNote: string;
+      errorMessage: string;
+    };
+    disqualifiedScreen: {
+      title: string;
+      desc: string;
+      hubBtn: string;
+      closeBtn: string;
+    };
+    successScreen: {
+      title: string;
+      desc: string;
+      reserveSlotBtn: string;
+    };
+  };
+}
+
 export interface ArticleCard {
   title: string;
   desc: string;
@@ -1292,3 +1366,183 @@ export const articleNotFoundTranslations: Record<'en' | 'de', {
     backBtn: 'Zurück zur Beitragsübersicht'
   }
 };
+
+export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslations> = {
+  de: {
+    adRibbon: {
+      boldText: 'Unternehmer in Frankfurt & Rhein-Main?',
+      subtitle: 'Sichern Sie sich eine kostenlose 15-Min. Standort-Analyse für Google & KI-Suche.',
+      buttonText: 'Analyse anfragen →'
+    },
+    coreOffer: {
+      badge: 'Kostenloses 15-Minuten-Audit',
+      title: 'Bereit für planbare Neukunden über Google & KI-Suche?',
+      subtitle: 'Wir analysieren die Suchbegriffe Ihrer Frankfurter Wettbewerber und zeigen Ihnen, wie Sie aus Klicks zahlende Mandate machen – exakt nach dem Modell dieser Fallstudie.',
+      startAuditBtn: 'Kostenlose Potenzialanalyse starten (Dauert 30 Sek.)',
+      bookCallBtn: 'Erstgespräch direkt buchen',
+      mobileBtnText: 'Kostenlose Analyse starten'
+    },
+    modal: {
+      badge: 'Kostenlose 15-Min. Potenzialanalyse',
+      stepOf: (step, total) => `Schritt ${step} von ${total}`,
+      closeAria: 'Schließen',
+      backBtn: 'Zurück',
+      step1: {
+        title: 'Welche Branche vertreten Sie?',
+        subtitle: 'Wählen Sie Ihren Schwerpunkt für maßgeschneiderte Vergleichsdaten aus Frankfurt:',
+        industries: [
+          {
+            id: 'architektur',
+            label: 'Architektur-, Planungs- oder Ingenieurbüro',
+            iconType: 'building'
+          },
+          {
+            id: 'kanzlei',
+            label: 'Kanzlei, Wirtschaftsprüfung oder Beratung',
+            iconType: 'briefcase'
+          },
+          {
+            id: 'medtech',
+            label: 'MedTech, Healthcare oder spezialisierter B2B-Dienstleister',
+            iconType: 'shield'
+          },
+          {
+            id: 'sonstiges',
+            label: 'Sonstiges B2B-Unternehmen',
+            iconType: 'target'
+          }
+        ]
+      },
+      step2: {
+        title: 'Was ist Ihr wichtigstes Ziel für die nächsten 6 Monate?',
+        subtitle: 'Damit wir prüfen können, ob unser Modell für Ihr Vorhaben geeignet ist:',
+        mandate: {
+          title: 'Planbar 2–5 neue Mandanten / Großprojekte gewinnen',
+          desc: 'Fokus auf qualifizierte Anrufe & Abschlussquote'
+        },
+        ranking: {
+          title: 'Spitzenplatzierung auf Google Seite 1 & in KI-Suchmaschinen',
+          desc: 'Sichtbarkeit in ChatGPT, Perplexity & Google Maps'
+        },
+        disqualified: {
+          title: 'Ich recherchiere aktuell nur privat / unverbindlich',
+          desc: 'Kein geplantes Budget für Mandantenwachstum'
+        }
+      },
+      step3: {
+        title: 'Wohin dürfen wir die Auswertung senden?',
+        subtitle: 'Wir analysieren Ihre Domain vorab, damit das 15-Minuten-Gespräch sofort maximale Erkenntnisse liefert:',
+        websiteLabel: 'Unternehmens-Website *',
+        websitePlaceholder: 'https://ihre-firma.de',
+        emailLabel: 'Geschäftliche E-Mail-Adresse *',
+        emailPlaceholder: 'name@ihre-firma.de',
+        phoneLabel: 'Telefonnummer (für das 15-Min. Auswertungsgespräch) *',
+        phonePlaceholder: '+49 69 12345678',
+        submitBtn: 'Analyse anfordern & Termin sichern →',
+        submittingBtn: 'Wird übermittelt...',
+        confidentialNote: '100% kostenlos & vertraulich',
+        errorMessage: 'Übertragungsfehler. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mail@nordible.co.'
+      },
+      disqualifiedScreen: {
+        title: 'Kostenlose Ressourcen für Ihr Selbststudium',
+        desc: 'Unsere individuelle 15-Minuten-Analyse richtet sich speziell an Unternehmen mit aktivem Mandantenfokus. Für privates Interesse stellen wir Ihnen all unsere Leitfäden und Analysen kostenfrei in unserem Insights-Hub bereit.',
+        hubBtn: 'Zu den Leitfäden & Fallstudien',
+        closeBtn: 'Schließen'
+      },
+      successScreen: {
+        title: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
+        desc: 'Wir starten die Vorab-Analyse Ihrer Website. Wählen Sie jetzt direkt Ihren Wunschtermin im Google Kalender:',
+        reserveSlotBtn: '15-Minuten-Slot jetzt reservieren'
+      }
+    }
+  },
+  en: {
+    adRibbon: {
+      boldText: 'Business owner in Frankfurt & Rhein-Main?',
+      subtitle: 'Secure a free 15-min location audit for Google & AI search.',
+      buttonText: 'Request Audit →'
+    },
+    coreOffer: {
+      badge: 'Free 15-Minute Audit',
+      title: 'Ready for predictable new clients via Google & AI Search?',
+      subtitle: "We analyze your Frankfurt competitors' search keywords and show you how to turn clicks into paying client mandates – exactly following this case study's model.",
+      startAuditBtn: 'Start Free Potential Audit (Takes 30 sec)',
+      bookCallBtn: 'Book Discovery Call Directly',
+      mobileBtnText: 'Start Free Audit'
+    },
+    modal: {
+      badge: 'Free 15-Min Potential Audit',
+      stepOf: (step, total) => `Step ${step} of ${total}`,
+      closeAria: 'Close',
+      backBtn: 'Back',
+      step1: {
+        title: 'Which industry do you represent?',
+        subtitle: 'Select your sector for tailored competitor benchmarks in Frankfurt:',
+        industries: [
+          {
+            id: 'architektur',
+            label: 'Architecture, planning, or engineering firm',
+            iconType: 'building'
+          },
+          {
+            id: 'kanzlei',
+            label: 'Law firm, auditing, or management consultancy',
+            iconType: 'briefcase'
+          },
+          {
+            id: 'medtech',
+            label: 'MedTech, healthcare, or specialized B2B provider',
+            iconType: 'shield'
+          },
+          {
+            id: 'sonstiges',
+            label: 'Other B2B business',
+            iconType: 'target'
+          }
+        ]
+      },
+      step2: {
+        title: 'What is your primary goal for the next 6 months?',
+        subtitle: 'Helps us verify whether our model is suitable for your goals:',
+        mandate: {
+          title: 'Predictably win 2–5 new client mandates / major projects',
+          desc: 'Focus on qualified calls & signed clients'
+        },
+        ranking: {
+          title: 'Top ranking on Google Page 1 & in AI search engines',
+          desc: 'Visibility in ChatGPT, Perplexity & Google Maps'
+        },
+        disqualified: {
+          title: 'I am currently only researching privately / without commercial intent',
+          desc: 'No planned commercial budget'
+        }
+      },
+      step3: {
+        title: 'Where should we send your preliminary audit?',
+        subtitle: 'We pre-analyze your domain so the 15-minute call provides immediate, actionable insights:',
+        websiteLabel: 'Company Website *',
+        websitePlaceholder: 'https://your-company.com',
+        emailLabel: 'Business Email Address *',
+        emailPlaceholder: 'name@your-company.com',
+        phoneLabel: 'Phone Number (for the 15-min review call) *',
+        phonePlaceholder: '+49 69 12345678',
+        submitBtn: 'Request Audit & Secure Slot →',
+        submittingBtn: 'Submitting...',
+        confidentialNote: '100% free & confidential',
+        errorMessage: 'Transmission error. Please try again or email us directly at mail@nordible.co.'
+      },
+      disqualifiedScreen: {
+        title: 'Free Resources for Self-Study',
+        desc: 'Our 1-on-1 audit is tailored specifically for businesses actively acquiring client mandates. For private research, explore all our guides and blueprints free of charge in our Insights Hub.',
+        hubBtn: 'Explore All Guides & Studies',
+        closeBtn: 'Close'
+      },
+      successScreen: {
+        title: 'Thank you! Your request has been received.',
+        desc: 'We have initiated the pre-audit of your website. Choose your preferred review slot on Google Calendar now:',
+        reserveSlotBtn: 'Reserve 15-Minute Slot Now'
+      }
+    }
+  }
+};
+

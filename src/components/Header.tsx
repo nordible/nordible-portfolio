@@ -48,6 +48,7 @@ export default function Header() {
   const navItems = [
     { key: 'services', label: t.nav.services },
     { key: 'portfolio', label: t.nav.portfolio },
+    { key: 'caseStudies', label: t.nav.caseStudies, path: '/blog' },
     { key: 'about', label: t.nav.about, path: '/company-profile' },
     { key: 'consultation', label: t.nav.consultation },
   ];
@@ -58,7 +59,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-5">
           {/* Brand Logo */}
           <div 
-            className="flex items-center space-x-3 cursor-pointer" 
+            className="flex items-center space-x-3 cursor-pointer shrink-0" 
             onClick={() => {
               if (location.pathname !== homePath) {
                 navigate(homePath);
@@ -69,16 +70,16 @@ export default function Header() {
             <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center p-1.5 shadow-md shadow-blue-500/10 border border-nordible-border dark:border-gray-700">
               <img src="/images/logos/nordible-icon.png" alt="Nordible Technologies Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Nordible Technologies</span>
+            <span className="text-lg xl:text-xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Nordible Technologies</span>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-x-3.5 lg:gap-x-5 xl:gap-x-7">
             {navItems.map((item) => (
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.key, item.path)}
-                className="text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-widest"
+                className="text-xs lg:text-[13px] font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-wider whitespace-nowrap"
               >
                 {item.label}
               </button>
@@ -123,7 +124,7 @@ export default function Header() {
 
             <button
               onClick={() => handleNavClick('consultation')}
-              className="btn-primary py-2.5 px-5 text-xs"
+              className="btn-primary py-2 px-3.5 lg:py-2.5 lg:px-5 text-xs whitespace-nowrap"
             >
               {t.nav.getStarted}
             </button>

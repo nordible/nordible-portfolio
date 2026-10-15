@@ -14,6 +14,7 @@ export interface Translations {
     home: string;
     services: string;
     portfolio: string;
+    caseStudies: string;
     about: string;
     founderStory: string;
     consultation: string;
@@ -222,6 +223,7 @@ export const translations: Record<Language, Translations> = {
       home: "Home",
       services: "Services",
       portfolio: "Portfolio",
+      caseStudies: "Case Studies",
       about: "About",
       founderStory: "Founder Story",
       consultation: "Consultation",
@@ -567,6 +569,7 @@ export const translations: Record<Language, Translations> = {
       home: "Startseite",
       services: "Leistungen",
       portfolio: "Projekte",
+      caseStudies: "Fallstudien",
       about: "Über uns",
       founderStory: "Gründer-Story",
       consultation: "Erstgespräch",
