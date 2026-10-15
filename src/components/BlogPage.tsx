@@ -5,8 +5,7 @@ import {
   ArrowRight, 
   Calendar, 
   Clock, 
-  Search,
-  Sparkles
+  Search
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -46,8 +45,6 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
       post.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
-
-  const featuredPost = content.posts.find(p => p.featured) || content.posts[0];
 
   const blogHubJsonLd = {
     "@context": "https://schema.org",
@@ -136,79 +133,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
           </div>
         </header>
 
-        {/* Featured Case Study Hero Card */}
-        {featuredPost && (
-          <section aria-labelledby="featured-heading" className="text-left">
-            <h2 id="featured-heading" className="sr-only">{content.featuredBadge}</h2>
-            <Link
-              to={`/blog/${featuredPost.slug}`}
-              className="group block relative rounded-3xl overflow-hidden bg-white dark:bg-gray-800/90 border border-nordible-border dark:border-gray-700/80 shadow-xl shadow-blue-500/5 hover:border-nordible-blue/60 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10"
-            >
-              <div className="grid lg:grid-cols-12 gap-0">
-                {/* Visual Side */}
-                <div className="lg:col-span-7 relative overflow-hidden bg-gray-950 aspect-[16/9] lg:aspect-auto">
-                  <img
-                    src={featuredPost.image}
-                    alt={featuredPost.imageAlt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="eager"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-nordible-blue text-white shadow-lg">
-                      <Sparkles className="h-3 w-3" />
-                      {content.featuredBadge}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Side */}
-                <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-xs font-semibold text-gray-500 dark:text-gray-400">
-                      <span className="inline-flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5" />
-                        {featuredPost.date}
-                      </span>
-                      <span>·</span>
-                      <span className="inline-flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
-                        {featuredPost.readTime}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading leading-tight group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
-                      {featuredPost.title}
-                    </h3>
-
-                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal line-clamp-3">
-                      {featuredPost.excerpt}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 pt-2">
-                      {featuredPost.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-gray-100 dark:bg-gray-700/60 text-gray-600 dark:text-gray-300"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-nordible-border dark:border-gray-700/80 flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                      {content.readComplete}
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </section>
-        )}
-
-        {/* Secondary Articles Grid */}
+        {/* Case Studies Grid */}
         <section className="space-y-6 text-left">
           <div className="flex items-center justify-between">
             <h2 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
@@ -219,7 +144,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <Link
                 key={post.id}

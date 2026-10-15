@@ -381,7 +381,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           </div>
         )}
 
-        {/* Featured Hero Visual */}
+        {/* Case Study Hero Visual */}
         <div 
           onClick={() => setActiveLightboxImage(content.heroImage)}
           className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500"

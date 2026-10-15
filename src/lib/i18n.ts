@@ -328,7 +328,7 @@ export const translations: Record<Language, Translations> = {
     },
     portfolio: {
       badge: "",
-      title: "Featured Client Results & Solutions",
+      title: "Client Results & Solutions",
       subtitle: "",
       viewLive: "View Live Project",
       technologies: "Technologies",

@@ -10,7 +10,6 @@ export interface BlogPostItem {
   image: string;
   imageAlt: string;
   tags: string[];
-  featured?: boolean;
   published: boolean;
 }
 
@@ -26,8 +25,6 @@ export interface BlogHubContent {
     ai: string;
   };
   searchPlaceholder: string;
-  featuredBadge: string;
-  readComplete: string;
   allArticlesHeading: string;
   showing: string;
   articleSingle: string;
@@ -126,12 +123,10 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       ai: 'AI Strategy',
     },
     searchPlaceholder: 'Search topics or keywords...',
-    featuredBadge: 'Featured Case Study',
-    readComplete: 'Read Complete Case Study',
-    allArticlesHeading: 'All Articles & Blueprints',
+    allArticlesHeading: 'Case Studies & Blueprints',
     showing: 'Showing',
-    articleSingle: 'article',
-    articlePlural: 'articles',
+    articleSingle: 'case study',
+    articlePlural: 'case studies',
     readMore: 'Read',
     ctaBadge: 'GEO Engineering & AI Strategy',
     ctaTitle: 'Ready to make your business discoverable in AI search engines?',
@@ -151,7 +146,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/shams-consult/shams-consult-homepage-hero.png',
         imageAlt: 'Case Study: Google Page 1 & Regional #1 Rankings - Shams Consult',
         tags: ['SEO', 'B2B', 'Architecture', 'Frankfurt', 'Google Page 1', 'Case Study'],
-        featured: true,
         published: true,
       },
       {
@@ -166,7 +160,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-dominate-ai-search.jpg',
         imageAlt: 'Case Study: How to Dominate AI Search and Local Directory Presence in Frankfurt',
         tags: ['GEO', 'Local SEO', 'AI Search', 'Schema.org', 'Frankfurt'],
-        featured: false,
         published: true,
       },
       {
@@ -181,7 +174,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-ai-replaced-seo.jpg',
         imageAlt: 'AI Replaced SEO: Generative Engine Optimization Blueprint',
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'AI Retrieval'],
-        featured: false,
         published: true,
       }
     ]
@@ -198,12 +190,10 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       ai: 'KI-Strategie',
     },
     searchPlaceholder: 'Themen oder Schlagwörter durchsuchen...',
-    featuredBadge: 'Ausgewählte Fallstudie',
-    readComplete: 'Vollständige Fallstudie lesen',
-    allArticlesHeading: 'Alle Artikel & Leitfäden',
+    allArticlesHeading: 'Fallstudien & Leitfäden',
     showing: 'Zeigt',
-    articleSingle: 'Artikel',
-    articlePlural: 'Artikel',
+    articleSingle: 'Fallstudie',
+    articlePlural: 'Fallstudien',
     readMore: 'Lesen',
     ctaBadge: 'GEO-Engineering & KI-Strategie',
     ctaTitle: 'Bereit, Ihr Unternehmen in KI-Suchmaschinen auffindbar zu machen?',
@@ -223,7 +213,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/shams-consult/shams-consult-homepage-hero.png',
         imageAlt: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen - Shams Consult',
         tags: ['SEO', 'B2B', 'Architektur', 'Frankfurt', 'Google Seite 1', 'Fallstudie'],
-        featured: true,
         published: true,
       },
       {
@@ -238,7 +227,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-dominate-ai-search.jpg',
         imageAlt: 'Fallstudie: Wie man KI-Suche und lokale Verzeichnisse in Frankfurt dominiert',
         tags: ['GEO', 'Lokales SEO', 'KI-Suche', 'Schema.org', 'Frankfurt'],
-        featured: false,
         published: true,
       },
       {
@@ -253,7 +241,6 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         image: '/images/frankfurt-geo-ai-replaced-seo.jpg',
         imageAlt: 'AI Replaced SEO: Generative Engine Optimization Blueprint',
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'KI-Retrieval'],
-        featured: false,
         published: true,
       }
     ]
