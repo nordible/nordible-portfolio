@@ -379,7 +379,7 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     },
     introParagraphs: [
       'High-intent local B2B searches require more than superficial keyword stuffing; they demand semantic precision, rock-solid technical performance, cognitive ergonomics, and messaging aligned with high-value commercial intent.',
-      'Here is how Nordible helped Shams Consult, an architecture and urban planning consultancy based in Frankfurt am Main and Rödermark, establish Google Page 1 authority across its primary services, secure selected #1 regional rankings, climb 4 full pages in Frankfurt (from Page 7 to Page 3 in 30 days), and convert direct Google search calls into 2 signed client mandates.'
+      'Here is how Nordible helped Shams Consult, an architecture and urban planning consultancy based in Frankfurt am Main and Rödermark, transition from zero digital discoverability to Google Page 1 authority across its primary services, secure selected #1 regional rankings, debut on Page 7 post-launch and surge 4 full pages to Page 3 in Frankfurt within 30 days, and convert direct Google search calls into 2 signed client mandates.'
     ],
     metrics: [
       {
@@ -399,8 +399,8 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       }
     ],
     objective: {
-      title: 'The Objective',
-      text: 'Establish Shams Consult as the definitive authority across Frankfurt and the Rhine-Main region for public institutions, commercial investors, and private builders searching for architectural design, master planning, and project development.'
+      title: 'The Baseline & Objective',
+      text: 'Starting from an outdated legacy website with zero search discoverability anywhere, the mission was to establish Shams Consult as the definitive authority across Frankfurt and the Rhine-Main region for public institutions, commercial investors, and private builders searching for architectural design, master planning, and project development.'
     },
     heroImage: {
       src: '/images/shams-consult/shams-consult-homepage-hero.png',
@@ -471,11 +471,11 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       },
       {
         number: '03',
-        title: 'Search Dominance: +490% Google Impressions & Frankfurt Page 7 → Page 3 Climb',
+        title: 'Search Dominance: Zero Visibility → Page 7 Debut → Frankfurt Page 3 Climb',
         businessTakeaway: 'Inbound search visibility quadrupled (+490%) and website clicks tripled (+317%) in just 28 days—all organically without paying for Google Ads.',
         paragraphs: [
           'Within 28 days of launch, Google Search Console registered a +490% surge in how often Shams Consult appeared in Google search results (rising from 505 to 2,980 total impressions) and a +317% jump in qualified organic visitors (from 23 to 96 clicks).',
-          'Crucially, in the hyper-competitive Frankfurt am Main metropolitan market, Shams Consult leaped 4 full pages higher—advancing from Page 7 to Page 3 in just 30 days. Across the entire region, the firm\'s average ranking rose to position 9.7, securing prime Google Page 1 visibility for key target services.'
+          'Crucially, while the practice had zero prior search presence, its initial post-launch index placed it on Page 7 in the hyper-competitive Frankfurt am Main metropolitan market. Within just 30 days, it surged 4 full pages higher to Page 3. Across the entire region, the firm\'s average ranking rose to position 9.7, securing prime Google Page 1 visibility for key target services.'
         ],
         images: [
           {
@@ -508,9 +508,9 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
           {
             src: '/images/shams-consult/google-search-frankfurt-am-main.png',
             alt: 'Google Search Progress - Architekturbüro Frankfurt am Main',
-            caption: 'Google Search: "Architekturbüro Frankfurt am Main" → Rapid Climb: Page 7 → Page 3 in 30 Days',
+            caption: 'Google Search: "Architekturbüro Frankfurt am Main" → Zero Visibility to Page 7 Debut & Page 3 Climb in 30 Days',
             badge: 'Page 7 → Page 3 (Frankfurt)',
-            explanation: 'Live Google search in Germany’s most competitive financial capital showing Shams Consult surging 4 full pages higher in only 30 days.',
+            explanation: 'Live Google search in Germany’s most competitive financial capital showing Shams Consult breaking into the index at Page 7 and surging 4 full pages higher to Page 3 in only 30 days.',
             businessBenefit: 'Fast-tracks exposure in Germany\'s most lucrative real estate development market, putting the practice within reach of Page 1 commercial mandates.'
           },
           {
@@ -720,7 +720,7 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
         number: '08',
         title: 'The Result',
         businessTakeaway: 'Sustainable digital authority that translates directly into booked client consultations, without recurring advertising costs.',
-        quote: 'Shams Consult now commands strong Google Page 1 visibility across core commercial services, holds selected #1 rankings for high-intent submarket queries, and leaped from Page 7 to Page 3 in Frankfurt am Main in its first 30 days.'
+        quote: 'Starting from zero digital presence, Shams Consult broke into the index at Page 7, surged to Page 3 in Frankfurt am Main within 30 days, and now commands strong Google Page 1 visibility across core commercial services with selected #1 regional rankings.'
       }
     ],
     cta: {
@@ -750,7 +750,7 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     },
     introParagraphs: [
       'Qualifizierte lokale B2B-Suchanfragen erfordern mehr als oberflächliches Keyword-Targeting. Sie verlangen semantische Präzision, ein einwandfreies technisches Fundament, kognitive Ergonomie und eine klare Ansprache der Zielgruppe.',
-      'So hat Nordible das Büro Shams Consult (Frankfurt am Main / Rödermark) dabei unterstützt, Google Seite 1 für Kernleistungen zu sichern, ausgewählte regionale Spitzenpositionen (Platz 1) zu erobern, in Frankfurt in nur 30 Tagen von Seite 7 auf Seite 3 aufzusteigen (+4 Seiten) und direkte Google-Suchanrufe in 2 feste Mandatsabschlüsse zu verwandeln.'
+      'So hat Nordible das Büro Shams Consult (Frankfurt am Main / Rödermark) dabei unterstützt, ausgehend von null digitaler Auffindbarkeit mit der neuen Web-Architektur direkt auf Seite 7 in den Google-Index einzusteigen, binnen 30 Tagen auf Seite 3 in Frankfurt vorzurücken, Google Seite 1 sowie ausgewählte regionale Spitzenpositionen (Platz 1) zu erobern und direkte Google-Suchanrufe in 2 feste Mandatsabschlüsse zu verwandeln.'
     ],
     metrics: [
       {
@@ -770,8 +770,8 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       }
     ],
     objective: {
-      title: 'Das Ziel',
-      text: 'Positionierung von Shams Consult als führende Adresse im Rhein-Main-Gebiet für öffentliche Auftraggeber, gewerbliche Investoren und private Bauherren in den Disziplinen Architektur, Stadtplanung und Projektentwicklung.'
+      title: 'Ausgangslage & Ziel',
+      text: 'Ausgehend von einer veralteten Website ohne jegliche digitale Auffindbarkeit bestand das Ziel darin, Shams Consult als führende Adresse im Rhein-Main-Gebiet für öffentliche Auftraggeber, gewerbliche Investoren und private Bauherren in den Disziplinen Architektur, Stadtplanung und Projektentwicklung zu etablieren.'
     },
     heroImage: {
       src: '/images/shams-consult/shams-consult-homepage-hero.png',
@@ -842,11 +842,11 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       },
       {
         number: '03',
-        title: 'Suchdominanz: +490% Google-Impressionen & Frankfurter Aufstieg von Seite 7 auf 3',
+        title: 'Suchdominanz: Von Null Auffindbarkeit über Seite 7 auf Seite 3 in Frankfurt',
         businessTakeaway: 'Suchsichtbarkeit vervierfacht (+490%) und Klicks verdreifacht (+317%) in 28 Tagen – rein organisch ohne Werbekosten.',
         paragraphs: [
           'Bereits 28 Tage nach dem Relaunch verzeichnete die Google Search Console einen Anstieg der Suchimpressionen um +490% (von 505 auf 2.980) und ein Plus von +317% bei den organischen Klicks (von 23 auf 96).',
-          'Besonders eindrucksvoll: Im hart umkämpften Kernmarkt Frankfurt am Main kletterte Shams Consult in nur 30 Tagen von Seite 7 auf Seite 3 (+4 Seiten). Im regionalen Gesamtschnitt verbesserte sich die Position auf 9,7 – und sicherte verlässliche Google-Seite-1-Sichtbarkeit für relevante Suchbegriffe.'
+          'Besonders eindrucksvoll: Während vor dem Projektstart keinerlei Auffindbarkeit im Google-Index existierte, stieg Shams Consult nach dem Livegang direkt auf Seite 7 im hart umkämpften Kernmarkt Frankfurt am Main ein und kletterte in nur 30 Tagen um 4 volle Seiten auf Seite 3 vor. Im regionalen Gesamtschnitt verbesserte sich die Position auf 9,7 – und sicherte verlässliche Google-Seite-1-Sichtbarkeit für relevante Suchbegriffe.'
         ],
         images: [
           {
@@ -879,9 +879,9 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
           {
             src: '/images/shams-consult/google-search-frankfurt-am-main.png',
             alt: 'Google-Suche Fortschritt - Architekturbüro Frankfurt am Main',
-            caption: 'Google-Suche: „Architekturbüro Frankfurt am Main“ → Dynamischer Aufstieg: Seite 7 → Seite 3 in 30 Tagen',
+            caption: 'Google-Suche: „Architekturbüro Frankfurt am Main“ → Von Null Auffindbarkeit auf Seite 7 & Aufstieg auf Seite 3',
             badge: 'Seite 7 → Seite 3 (Frankfurt)',
-            explanation: 'Live-Google-Suche im hart umkämpften Finanzzentrum Frankfurt am Main: Shams Consult verbesserte sich in nur 30 Tagen um 4 volle Seiten nach vorne.',
+            explanation: 'Live-Google-Suche im hart umkämpften Finanzzentrum Frankfurt am Main: Shams Consult startete bei null Sichtbarkeit, stieg auf Seite 7 ein und rückte in nur 30 Tagen um 4 volle Seiten nach vorne auf Seite 3.',
             businessBenefit: 'Erschließt den margenstärksten Immobilienmarkt Hessens und rückt in greifbare Reichweite der ersten Seite für Großprojekte.'
           },
           {
@@ -1091,7 +1091,7 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
         number: '08',
         title: 'Das Ergebnis',
         businessTakeaway: 'Nachhaltige digitale Sichtbarkeit, die direkt in konkrete Beratungsgespräche mündet – ganz ohne dauerhafte Werbekosten.',
-        quote: 'Shams Consult verfügt heute über eine starke Google-Seite-1-Präsenz für Kernleistungen, hält ausgewählte Spitzenpositionen (Platz 1) bei gezielten Nischensuchen und kletterte in Frankfurt am Main in den ersten 30 Tagen von Seite 7 auf Seite 3.'
+        quote: 'Ausgehend von null digitaler Präsenz stieg Shams Consult direkt auf Seite 7 ein, kletterte in Frankfurt am Main binnen 30 Tagen auf Seite 3 und verfügt heute über verlässliche Google-Seite-1-Präsenz für Kernleistungen sowie ausgewählte Spitzenpositionen (Platz 1).'
       }
     ],
     cta: {
