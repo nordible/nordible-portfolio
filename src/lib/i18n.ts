@@ -24,6 +24,8 @@ export interface Translations {
   hero: {
     titlePart1: string;
     titleHighlight: string;
+    capabilities: string;
+    locationAnchor: string;
     subtitle: string;
     ctaButton: string;
     founderName: string;
@@ -254,6 +256,8 @@ export const translations: Record<Language, Translations> = {
     hero: {
       titlePart1: "We don’t just build technology solutions for businesses—",
       titleHighlight: "we build partnerships with people.",
+      capabilities: "Your trusted technology service provider for custom software, AI automation, and digital business growth.",
+      locationAnchor: "Frankfurt am Main · Regional, Nationwide & Global",
       subtitle: "Your complete technology partner for every stage of business growth—whether you need to launch a new product, modernize legacy systems, or optimize operations.",
       ctaButton: "Schedule Free Consultation",
       founderName: "Kabeer Shah",
@@ -621,6 +625,8 @@ export const translations: Record<Language, Translations> = {
     hero: {
       titlePart1: "Wir entwickeln nicht nur Technologielösungen für Unternehmen – ",
       titleHighlight: "wir bauen Partnerschaften mit Menschen auf.",
+      capabilities: "Ihr verlässlicher Technologiedienstleister für moderne Software, KI-Automatisierung und digitales Unternehmenswachstum.",
+      locationAnchor: "Frankfurt am Main · Regional, Bundesweit & Weltweit",
       subtitle: "Ihr verlässlicher Technologiepartner für jede Phase Ihres Unternehmenswachstums – von der Neuproduktentwicklung bis zur Modernisierung von Altsystemen und Skalierung von Betriebsabläufen.",
       ctaButton: "Kostenfreies Erstgespräch anfragen",
       founderName: "Kabeer Shah",

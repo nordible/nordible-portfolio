@@ -391,17 +391,11 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
 
 export default function Portfolio() {
   const { t, language, getPath } = useLanguage();
-  const [selectedAudience, setSelectedAudience] = useState<AudienceType>('all');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
-  const filteredProjects = selectedAudience === 'all'
-    ? projects
-    : projects.filter((p) => p.audience === selectedAudience);
-
-  const safeIndex = currentIndex >= filteredProjects.length ? 0 : currentIndex;
-  const currentProject = filteredProjects[safeIndex] || filteredProjects[0];
+  const currentProject = projects[currentIndex];
   const isDe = language === 'de';
   const deProject = isDe ? portfolioTranslationsDe[currentProject.id] : undefined;
   const displayClient = deProject?.client || currentProject.client;
@@ -423,28 +417,16 @@ export default function Portfolio() {
   };
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
-  }, [filteredProjects.length]);
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
-  }, [filteredProjects.length]);
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  }, []);
 
   const togglePause = () => {
     setIsPaused((prev) => !prev);
   };
-
-  useEffect(() => {
-    const handleAudienceChange = (e: Event) => {
-      const customEvent = e as CustomEvent<AudienceType>;
-      if (customEvent.detail) {
-        setSelectedAudience(customEvent.detail);
-        setCurrentIndex(0);
-      }
-    };
-    window.addEventListener('select-audience', handleAudienceChange);
-    return () => window.removeEventListener('select-audience', handleAudienceChange);
-  }, []);
 
   useEffect(() => {
     if (isPaused) return;
@@ -469,53 +451,13 @@ export default function Portfolio() {
     <section id="portfolio" className="relative py-10 sm:py-14 bg-nordible-bg dark:bg-gray-900 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {t.portfolio.title && (
-          <div className="text-center mb-6">
+          <div className="text-center mb-8">
             <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
               <span>{t.portfolio.title}</span>
               <SectionAnchor id="portfolio" />
             </h2>
           </div>
         )}
-
-        {/* Audience Segment Filter Pills (Science-backed Hick's Law Reduction) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-          {[
-            { id: 'all' as AudienceType, label: isDe ? 'Alle Referenzen' : 'All Proof', count: projects.length },
-            { id: 'local' as AudienceType, label: isDe ? 'Lokale Unternehmen' : 'Local Businesses', count: projects.filter(p => p.audience === 'local').length, badge: 'Shams & BUNS' },
-            { id: 'startup' as AudienceType, label: isDe ? 'Tech-Startups' : 'Tech Startups', count: projects.filter(p => p.audience === 'startup').length, badge: 'InstaReM & Parents' },
-            { id: 'enterprise' as AudienceType, label: isDe ? 'Konzerne & Enterprise' : 'Enterprise', count: projects.filter(p => p.audience === 'enterprise').length, badge: 'GE, Vantive, Next' },
-          ].map((tab) => {
-            const isActive = selectedAudience === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setSelectedAudience(tab.id);
-                  setCurrentIndex(0);
-                }}
-                className={`group px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                  isActive
-                    ? 'bg-nordible-blue text-white shadow-md shadow-blue-500/20 scale-[1.02]'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-nordible-blue border border-nordible-border dark:border-gray-700'
-                }`}
-              >
-                <span>{tab.label}</span>
-                {tab.badge && (
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-mono hidden sm:inline-block ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
-                  }`}>
-                    {tab.badge}
-                  </span>
-                )}
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono ${
-                  isActive ? 'bg-white/25 text-white' : 'bg-blue-50 dark:bg-blue-950/50 text-nordible-blue dark:text-blue-400'
-                }`}>
-                  {tab.count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
 
         {/* Compact Horizontal Split Card */}
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-blue-500/5 overflow-hidden border border-nordible-border dark:border-gray-700 transition-all">
@@ -550,7 +492,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest block drop-shadow-sm">{displayClient}</span>
-                    <span className="text-[11px] font-mono text-white/75">{safeIndex + 1} {t.portfolio.of || (isDe ? 'von' : 'of')} {filteredProjects.length}</span>
+                    <span className="text-[11px] font-mono text-white/75">{currentIndex + 1} {t.portfolio.of || (isDe ? 'von' : 'of')} {projects.length}</span>
                   </div>
                 </div>
               </div>
@@ -653,7 +595,7 @@ export default function Portfolio() {
             </button>
 
             <span className="px-3 text-xs font-mono font-bold text-gray-600 dark:text-gray-300 select-none">
-              0{safeIndex + 1} / 0{filteredProjects.length}
+              0{currentIndex + 1} / 0{projects.length}
             </span>
 
             <button

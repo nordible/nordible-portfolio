@@ -1,5 +1,5 @@
 'use client';
-import { ArrowRight, Store, Rocket, Building2, ChevronRight } from 'lucide-react';
+import { ArrowRight, Store, Rocket, Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -15,8 +15,7 @@ export default function Hero() {
     }
   };
 
-  const handleSelectPath = (audienceKey: 'local' | 'startup' | 'enterprise') => {
-    window.dispatchEvent(new CustomEvent('select-audience', { detail: audienceKey }));
+  const handleSelectPath = () => {
     const element = document.getElementById('portfolio');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -32,7 +31,6 @@ export default function Hero() {
       desc: isDe 
         ? 'Lokale Google-Dominanz & digitale Bestellsysteme ohne Werbekosten.' 
         : 'Local Google search authority & direct ordering funnels with €0 ad spend.',
-      proof: 'Shams Consult · BUNS 069',
       highlight: isDe ? 'Seite 1 & +74% Umsatz' : 'Page 1 & +74% Revenue',
       accentColor: 'border-amber-500/30 hover:border-amber-500/70 hover:shadow-amber-500/10',
       badgeColor: 'bg-amber-100 text-amber-900 dark:bg-amber-950/80 dark:text-amber-200'
@@ -45,7 +43,6 @@ export default function Hero() {
       desc: isDe 
         ? 'Schnelle Marktreife für SaaS, KI-Agenten und Cloud-Architektur.' 
         : 'Rapid time-to-market for SaaS, AI agents, and resilient web/mobile apps.',
-      proof: 'InstaReM · Parents VIP',
       highlight: isDe ? '100 Mio. $ Plattform & 200% Skalierung' : '$100M+ Volume & 200% Scale',
       accentColor: 'border-blue-500/30 hover:border-blue-500/70 hover:shadow-blue-500/10',
       badgeColor: 'bg-blue-100 text-blue-900 dark:bg-blue-950/80 dark:text-blue-200'
@@ -58,7 +55,6 @@ export default function Hero() {
       desc: isDe 
         ? 'Sichere MedTech- & FinTech-Lösungen, RPA und Cloud-Infrastruktur.' 
         : 'Enterprise healthcare IoT, back-office RPA, and high-security compliance.',
-      proof: 'GE · Vantive · NextServices · Smartek21',
       highlight: isDe ? '40 Std./Woche gespart & 99.9% Uptime' : '40h/week saved & 99.9% uptime',
       accentColor: 'border-emerald-500/30 hover:border-emerald-500/70 hover:shadow-emerald-500/10',
       badgeColor: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/80 dark:text-emerald-200'
@@ -75,9 +71,18 @@ export default function Hero() {
           
           {/* Left Column: Focused Value Proposition */}
           <div className="lg:col-span-7 text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white leading-[1.2] tracking-tight mb-8 font-heading">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white leading-[1.2] tracking-tight mb-4 font-heading">
               {t.hero.titlePart1}<span className="text-nordible-blue">{t.hero.titleHighlight}</span>
             </h1>
+
+            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed mb-4 max-w-2xl">
+              {t.hero.capabilities}
+            </p>
+
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/70 dark:border-blue-900/60 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
+              <MapPin className="h-4 w-4 text-nordible-blue shrink-0" />
+              <span>{t.hero.locationAnchor}</span>
+            </div>
             
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-stretch sm:items-center">
               <button
@@ -151,7 +156,7 @@ export default function Hero() {
               return (
                 <div
                   key={p.id}
-                  onClick={() => handleSelectPath(p.id)}
+                  onClick={handleSelectPath}
                   className={`group relative p-5 rounded-2xl bg-white dark:bg-gray-800/90 border ${p.accentColor} shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between text-left`}
                 >
                   <div>
@@ -175,14 +180,14 @@ export default function Hero() {
                   <div className="pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between">
                     <div>
                       <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                        {isDe ? 'Echte Referenz:' : 'Real Proof:'}
+                        {isDe ? 'Fokus-Ergebnis:' : 'Measurable Impact:'}
                       </div>
                       <div className="text-xs font-bold text-nordible-dark dark:text-white">
-                        {p.proof}
+                        {p.highlight}
                       </div>
                     </div>
                     <div className="flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 group-hover:translate-x-1 transition-transform">
-                      <span>{isDe ? 'Referenzen' : 'View Proof'}</span>
+                      <span>{isDe ? 'Mehr erfahren' : 'Learn More'}</span>
                       <ChevronRight className="h-3.5 w-3.5 ml-0.5" />
                     </div>
                   </div>
