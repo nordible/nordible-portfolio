@@ -6,7 +6,7 @@ import { blogHubTranslations } from '../data/blogContent';
 import SectionAnchor from './SectionAnchor';
 
 export default function BlogTeaser() {
-  const { language, getPath } = useLanguage();
+  const { language, getPath, t } = useLanguage();
   const content = blogHubTranslations[language];
   const posts = content.posts.slice(0, 2);
 
@@ -17,7 +17,7 @@ export default function BlogTeaser() {
         {/* Section Heading */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            <span>{language === 'de' ? 'Unsere Technologie-Einblicke' : 'Our Technology Insights'}</span>
+            <span>{t.blogTeaser.badge}</span>
             <SectionAnchor id="insights" />
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function BlogTeaser() {
             to={getPath('/blog')}
             className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
           >
-            <span>{language === 'de' ? 'Alle Einblicke & Fallstudien ansehen' : 'Explore All Insights & Case Studies'}</span>
+            <span>{t.blogTeaser.exploreAll}</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

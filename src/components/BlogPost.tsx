@@ -28,17 +28,25 @@ import {
   X,
   ZoomIn,
   Info,
-  Briefcase
+  Briefcase,
+  Utensils,
+  Code,
+  Wrench,
+  Layers,
+  Cpu,
+  FileText,
+  BookOpen
 } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { 
   articlesBySlug, 
   defaultArticleSlug, 
-  articleNotFoundTranslations,
   ArticleCard,
   ArticleImage,
-  auditFunnelTranslations
+  auditFunnelTranslations,
+  AuditFunnelIndustryOption,
+  AuditFunnelGoalOption
 } from '../data/blogContent';
 import { contactConfig } from '../config/contact';
 import { sendContactEmail } from '../services/emailService';
@@ -49,7 +57,7 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPostProps) {
-  const { language, getPath } = useLanguage();
+  const { language, getPath, t } = useLanguage();
   const funnel = auditFunnelTranslations[language];
   const params = useParams<{ slug?: string }>();
   const activeSlug = propSlug || params.slug || defaultArticleSlug;
@@ -61,7 +69,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
   // 3-Step Qualification & Ad Funnel Modal State
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
-  const [auditStep, setAuditStep] = useState<1 | 2 | 3 | 'disqualified' | 'success'>(1);
+  const [auditStep, setAuditStep] = useState<1 | 2 | 3 | 'success'>(1);
   const [auditIndustry, setAuditIndustry] = useState('');
   const [auditGoal, setAuditGoal] = useState('');
   const [auditWebsite, setAuditWebsite] = useState('');
@@ -69,6 +77,55 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   const [auditPhone, setAuditPhone] = useState('');
   const [isSubmittingAudit, setIsSubmittingAudit] = useState(false);
   const [auditError, setAuditError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{
+    website?: string;
+    email?: string;
+    phone?: string;
+  }>({});
+  const [touchedFields, setTouchedFields] = useState<{
+    website?: boolean;
+    email?: boolean;
+    phone?: boolean;
+  }>({});
+
+  const validateWebsite = (val: string): string | undefined => {
+    const trimmed = val.trim();
+    if (!trimmed) return funnel.modal.step3.validation.websiteRequired;
+    const clean = trimmed.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+    const domainRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+    if (!domainRegex.test(clean)) {
+      return funnel.modal.step3.validation.websiteInvalid;
+    }
+    return undefined;
+  };
+
+  const validateEmail = (val: string): string | undefined => {
+    const trimmed = val.trim();
+    if (!trimmed) return funnel.modal.step3.validation.emailRequired;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(trimmed)) {
+      return funnel.modal.step3.validation.emailInvalid;
+    }
+    return undefined;
+  };
+
+  const validatePhone = (val: string): string | undefined => {
+    const trimmed = val.trim();
+    if (!trimmed) return funnel.modal.step3.validation.phoneRequired;
+    const digitsOnly = trimmed.replace(/\D/g, '');
+    const validCharsRegex = /^[\d\s+\-()/.]{6,25}$/;
+    if (!validCharsRegex.test(trimmed) || digitsOnly.length < 6) {
+      return funnel.modal.step3.validation.phoneInvalid;
+    }
+    return undefined;
+  };
+
+  const normalizeWebsite = (val: string): string => {
+    const trimmed = val.trim();
+    if (!trimmed) return '';
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+  };
 
   const navigate = useNavigate();
 
@@ -85,7 +142,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   }, []);
 
   if (!articleTranslations) {
-    const notFound = articleNotFoundTranslations[language];
     return (
       <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-32 pb-24 flex items-center justify-center">
         <div className="max-w-md mx-auto px-4 text-center space-y-6">
@@ -93,20 +149,20 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             <AlertCircle className="h-8 w-8" />
           </div>
           <span className="inline-block px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
-            {notFound.badge}
+            {t.blogPost.notFoundBadge}
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading">
-            {notFound.title}
+            {t.blogPost.notFoundTitle}
           </h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            {notFound.desc}
+            {t.blogPost.notFoundDesc}
           </p>
           <Link
             to={getPath('/blog')}
             className="inline-flex items-center gap-2 btn-primary py-3 px-6 text-xs font-bold uppercase tracking-wider"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span>{notFound.backBtn}</span>
+            <span>{t.blogPost.notFoundBackBtn}</span>
           </Link>
         </div>
       </div>
@@ -154,6 +210,8 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
   const openAuditModal = () => {
     setAuditError(null);
+    setFieldErrors({});
+    setTouchedFields({});
     setAuditStep(1);
     setIsAuditModalOpen(true);
   };
@@ -200,12 +258,28 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     }
   };
 
-  const getIndustryIcon = (iconType: 'building' | 'briefcase' | 'shield' | 'target') => {
+  const getIndustryIcon = (iconType: AuditFunnelIndustryOption['iconType']) => {
     switch (iconType) {
+      case 'utensils': return Utensils;
       case 'building': return Building2;
       case 'briefcase': return Briefcase;
       case 'shield': return ShieldCheck;
+      case 'code': return Code;
+      case 'wrench': return Wrench;
       case 'target': return Target;
+      default: return Target;
+    }
+  };
+
+  const getGoalIcon = (iconType: AuditFunnelGoalOption['iconType']) => {
+    switch (iconType) {
+      case 'layers': return Layers;
+      case 'cpu': return Cpu;
+      case 'trophy': return Trophy;
+      case 'utensils': return Utensils;
+      case 'trending': return TrendingUp;
+      case 'info': return Info;
+      default: return TrendingUp;
     }
   };
 
@@ -323,41 +397,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {content.title}
           </h1>
 
-          {/* Client Identity Chip (if client is defined) */}
-          {content.client && (
-            <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-sm max-w-fit">
-              {content.client.logo && (
-                <div className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-gray-700/50 p-2 border border-gray-200 dark:border-gray-600 flex items-center justify-center shrink-0">
-                  <img
-                    src={content.client.logo}
-                    alt={content.client.name}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-              )}
-              <div className="space-y-0.5">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 block">
-                  {content.client.label || (language === 'de' ? 'Auftraggeber & Praxispartner' : 'Client & Practice Partner')}
-                </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
-                    {content.client.name}
-                  </span>
-                  {content.client.location && (
-                    <span className="text-xs font-mono text-gray-500 dark:text-gray-400">
-                      · {content.client.location}
-                    </span>
-                  )}
-                </div>
-                {content.client.industry && (
-                  <span className="text-[11px] text-gray-600 dark:text-gray-400 block font-medium">
-                    {content.client.industry}
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-
           {/* Intro Paragraphs */}
           <div className="space-y-4">
             {content.introParagraphs.map((para, idx) => (
@@ -425,30 +464,61 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         {/* Case Study Hero Visual */}
         <div 
           onClick={() => setActiveLightboxImage(content.heroImage)}
-          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500"
+          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
         >
-          <img
-            src={content.heroImage.src}
-            alt={content.heroImage.alt}
-            className="w-full h-auto object-cover max-h-[520px] transition-transform duration-500 group-hover:scale-[1.01]"
-            loading="eager"
-          />
-          <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-            <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-            <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+          <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
+            <img
+              src={content.heroImage.src}
+              alt={content.heroImage.alt}
+              className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+              loading="eager"
+            />
+            <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+              <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+              <span>{t.blogPost.fullscreen}</span>
+            </div>
           </div>
-          <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
-          {(content.heroImage.caption || content.heroImage.badge) && (
-            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 rounded-2xl bg-gray-950/80 backdrop-blur-md border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              {content.heroImage.caption && (
-                <span className="text-xs font-mono font-semibold text-blue-200">
-                  {content.heroImage.caption}
-                </span>
+          {(content.heroImage.caption || content.heroImage.badge || content.heroImage.explanation || content.heroImage.businessBenefit) && (
+            <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
+              {(content.heroImage.caption || content.heroImage.badge) && (
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  {content.heroImage.caption && (
+                    <span className="text-xs font-mono font-semibold text-blue-200">
+                      {content.heroImage.caption}
+                    </span>
+                  )}
+                  {content.heroImage.badge && (
+                    <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-semibold">
+                      <CheckCircle2 className="h-4 w-4" /> {content.heroImage.badge}
+                    </span>
+                  )}
+                </div>
               )}
-              {content.heroImage.badge && (
-                <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4" /> {content.heroImage.badge}
-                </span>
+              {(content.heroImage.explanation || content.heroImage.businessBenefit) && (
+                <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
+                  {content.heroImage.explanation && (
+                    <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                        <Info className="h-3.5 w-3.5" />
+                        {t.blogPost.whatYouSee}
+                      </span>
+                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                        {content.heroImage.explanation}
+                      </p>
+                    </div>
+                  )}
+                  {content.heroImage.businessBenefit && (
+                    <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                        <TrendingUp className="h-3.5 w-3.5" />
+                        {t.blogPost.businessBenefit}
+                      </span>
+                      <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
+                        {content.heroImage.businessBenefit}
+                      </p>
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           )}
@@ -474,7 +544,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                 </div>
                 <div className="space-y-1 text-left">
                   <span className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
-                    {language === 'de' ? 'Kernaussage für Entscheider' : 'Executive Business Takeaway'}
+                    {t.blogPost.executiveTakeaway}
                   </span>
                   <p className="text-sm sm:text-base font-semibold text-nordible-dark dark:text-blue-100 leading-snug">
                     {section.businessTakeaway}
@@ -516,17 +586,19 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {section.image && (
               <div 
                 onClick={() => section.image && setActiveLightboxImage(section.image)}
-                className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-800 bg-gray-950 shadow-xl group my-6 cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500"
+                className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-800 bg-gray-950 shadow-xl group my-6 cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
               >
-                <img
-                  src={section.image.src}
-                  alt={section.image.alt}
-                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
-                  loading="lazy"
-                />
-                <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-                  <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+                <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
+                  <img
+                    src={section.image.src}
+                    alt={section.image.alt}
+                    className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                    <span>{t.blogPost.fullscreen}</span>
+                  </div>
                 </div>
                 {(section.image.caption || section.image.badge || section.image.explanation || section.image.businessBenefit) && (
                   <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
@@ -547,7 +619,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                           <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
                               <Info className="h-3.5 w-3.5" />
-                              {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                              {t.blogPost.whatYouSee}
                             </span>
                             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
                               {section.image.explanation}
@@ -558,7 +630,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                           <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                               <TrendingUp className="h-3.5 w-3.5" />
-                              {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                              {t.blogPost.businessBenefit}
                             </span>
                             <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
                               {section.image.businessBenefit}
@@ -590,7 +662,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                       />
                       <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
                         <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-                        <span>{language === 'de' ? 'Vollbild' : 'Full Screen'}</span>
+                        <span>{t.blogPost.fullscreen}</span>
                       </div>
                     </div>
                     {(img.caption || img.badge || img.explanation || img.businessBenefit) && (
@@ -612,7 +684,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                               <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
                                 <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
                                   <Info className="h-3.5 w-3.5" />
-                                  {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                                  {t.blogPost.whatYouSee}
                                 </span>
                                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
                                   {img.explanation}
@@ -623,7 +695,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                               <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
                                 <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                                   <TrendingUp className="h-3.5 w-3.5" />
-                                  {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                                  {t.blogPost.businessBenefit}
                                 </span>
                                 <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
                                   {img.businessBenefit}
@@ -689,7 +761,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               )}
               <div className="text-left">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 block">
-                  {language === 'de' ? 'Live-Praxis-Webseite erkunden' : 'Explore Live Practice Website'}
+                  {t.blogPost.exploreLiveWebsite}
                 </span>
                 <span className="text-base font-extrabold text-nordible-dark dark:text-white font-heading">
                   {content.client.name} {content.client.location ? `· ${content.client.location}` : ''}
@@ -830,7 +902,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   </p>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2 max-h-[52vh] overflow-y-auto pr-1">
                   {funnel.modal.step1.industries.map((item) => {
                     const ItemIcon = getIndustryIcon(item.iconType);
                     return (
@@ -838,17 +910,17 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                         key={item.id}
                         type="button"
                         onClick={() => {
-                          setAuditIndustry(item.id);
+                          setAuditIndustry(item.label);
                           setAuditStep(2);
                         }}
-                        className={`w-full p-3.5 rounded-2xl border text-left flex items-center justify-between gap-3 transition-all cursor-pointer ${
-                          auditIndustry === item.id
+                        className={`w-full p-3 rounded-2xl border text-left flex items-center justify-between gap-3 transition-all cursor-pointer ${
+                          auditIndustry === item.label
                             ? 'border-nordible-blue bg-blue-50/50 dark:bg-blue-950/40 text-nordible-blue dark:text-blue-300 shadow-sm'
                             : 'border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-gray-800 dark:text-gray-200'
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <span className="p-2 rounded-xl bg-gray-100 dark:bg-gray-700/60 text-nordible-blue dark:text-blue-400">
+                          <span className="p-2 rounded-xl bg-gray-100 dark:bg-gray-700/60 text-nordible-blue dark:text-blue-400 shrink-0">
                             <ItemIcon className="h-4 w-4" />
                           </span>
                           <span className="text-xs sm:text-sm font-bold">
@@ -875,69 +947,37 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   </p>
                 </div>
 
-                <div className="space-y-2.5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuditGoal('mandate');
-                      setAuditStep(3);
-                    }}
-                    className="w-full p-4 rounded-2xl border border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-left flex items-start gap-3 transition-all cursor-pointer group"
-                  >
-                    <span className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
-                      <TrendingUp className="h-4 w-4" />
-                    </span>
-                    <div className="flex-1">
-                      <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
-                        {funnel.modal.step2.mandate.title}
-                      </div>
-                      <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
-                        {funnel.modal.step2.mandate.desc}
-                      </div>
-                    </div>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuditGoal('ranking');
-                      setAuditStep(3);
-                    }}
-                    className="w-full p-4 rounded-2xl border border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-left flex items-start gap-3 transition-all cursor-pointer group"
-                  >
-                    <span className="p-2 rounded-xl bg-blue-100 dark:bg-blue-950 text-nordible-blue dark:text-blue-400 shrink-0 mt-0.5">
-                      <Trophy className="h-4 w-4" />
-                    </span>
-                    <div className="flex-1">
-                      <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
-                        {funnel.modal.step2.ranking.title}
-                      </div>
-                      <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
-                        {funnel.modal.step2.ranking.desc}
-                      </div>
-                    </div>
-                  </button>
-
-                  {/* Disqualification Option: Private/Tire-kicker */}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuditStep('disqualified');
-                    }}
-                    className="w-full p-4 rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/30 hover:border-gray-400 text-left flex items-start gap-3 transition-all cursor-pointer"
-                  >
-                    <span className="p-2 rounded-xl bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 shrink-0 mt-0.5">
-                      <Info className="h-4 w-4" />
-                    </span>
-                    <div className="flex-1">
-                      <div className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-300">
-                        {funnel.modal.step2.disqualified.title}
-                      </div>
-                      <div className="text-[11px] text-gray-400 mt-0.5">
-                        {funnel.modal.step2.disqualified.desc}
-                      </div>
-                    </div>
-                  </button>
+                <div className="space-y-2.5 max-h-[52vh] overflow-y-auto pr-1">
+                  {funnel.modal.step2.goals.map((goal) => {
+                    const GoalIcon = getGoalIcon(goal.iconType);
+                    return (
+                      <button
+                        key={goal.id}
+                        type="button"
+                        onClick={() => {
+                          setAuditGoal(goal.title);
+                          setAuditStep(3);
+                        }}
+                        className={`w-full p-3.5 rounded-2xl border text-left flex items-start gap-3 transition-all cursor-pointer group ${
+                          auditGoal === goal.title
+                            ? 'border-nordible-blue bg-blue-50/50 dark:bg-blue-950/40 text-nordible-blue dark:text-blue-300 shadow-sm'
+                            : 'border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-gray-800 dark:text-gray-200'
+                        }`}
+                      >
+                        <span className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-nordible-blue dark:text-blue-400 shrink-0 mt-0.5">
+                          <GoalIcon className="h-4 w-4" />
+                        </span>
+                        <div className="flex-1">
+                          <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
+                            {goal.title}
+                          </div>
+                          <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
+                            {goal.desc}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
 
                 <div className="pt-2 flex items-center justify-between">
@@ -955,9 +995,20 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {/* Step 3: Verified Contact Info */}
             {auditStep === 3 && (
               <form
+                noValidate
                 onSubmit={async (e) => {
                   e.preventDefault();
-                  if (!auditEmail || !auditWebsite) return;
+                  const webErr = validateWebsite(auditWebsite);
+                  const emailErr = validateEmail(auditEmail);
+                  const phoneErr = validatePhone(auditPhone);
+
+                  if (webErr || emailErr || phoneErr) {
+                    setFieldErrors({ website: webErr, email: emailErr, phone: phoneErr });
+                    setTouchedFields({ website: true, email: true, phone: true });
+                    return;
+                  }
+
+                  const normalizedWebsite = normalizeWebsite(auditWebsite);
                   setIsSubmittingAudit(true);
                   setAuditError(null);
 
@@ -967,12 +1018,12 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     const existingLeads = stored ? JSON.parse(stored) : [];
                     const newLead = {
                       id: Date.now().toString(),
-                      fullName: auditWebsite,
-                      email: auditEmail,
-                      phone: auditPhone,
+                      fullName: normalizedWebsite,
+                      email: auditEmail.trim(),
+                      phone: auditPhone.trim(),
                       projectType: `Audit: ${auditIndustry || 'B2B Case Study'}`,
                       budget: '15-Min Free Audit',
-                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${auditWebsite}\nTelefon: ${auditPhone}`,
+                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${normalizedWebsite}\nTelefon: ${auditPhone.trim()}`,
                       status: 'new' as const,
                       submittedAt: new Date().toISOString()
                     };
@@ -984,12 +1035,12 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   // 2. Dispatch email notification and handle errors explicitly
                   try {
                     const success = await sendContactEmail({
-                      fullName: auditWebsite,
-                      email: auditEmail,
-                      phone: auditPhone,
+                      fullName: normalizedWebsite,
+                      email: auditEmail.trim(),
+                      phone: auditPhone.trim(),
                       projectType: `B2B Case Study Audit (${auditIndustry || 'Allgemein'})`,
                       budget: '15-Min Audit',
-                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${auditWebsite}\nTelefon: ${auditPhone}`
+                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${normalizedWebsite}\nTelefon: ${auditPhone.trim()}`
                     });
 
                     if (success) {
@@ -1021,13 +1072,34 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                       {funnel.modal.step3.websiteLabel}
                     </label>
                     <input
-                      type="url"
-                      required
+                      type="text"
+                      autoCapitalize="none"
+                      autoCorrect="off"
                       placeholder={funnel.modal.step3.websitePlaceholder}
                       value={auditWebsite}
-                      onChange={(e) => setAuditWebsite(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                      onBlur={() => {
+                        setTouchedFields((prev) => ({ ...prev, website: true }));
+                        setFieldErrors((prev) => ({ ...prev, website: validateWebsite(auditWebsite) }));
+                      }}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setAuditWebsite(val);
+                        if (touchedFields.website) {
+                          setFieldErrors((prev) => ({ ...prev, website: validateWebsite(val) }));
+                        }
+                      }}
+                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                        touchedFields.website && fieldErrors.website
+                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
+                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                      }`}
                     />
+                    {touchedFields.website && fieldErrors.website && (
+                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
+                        <AlertCircle className="h-3 w-3 shrink-0" />
+                        <span>{fieldErrors.website}</span>
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -1036,12 +1108,33 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     </label>
                     <input
                       type="email"
-                      required
+                      autoCapitalize="none"
+                      autoCorrect="off"
                       placeholder={funnel.modal.step3.emailPlaceholder}
                       value={auditEmail}
-                      onChange={(e) => setAuditEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                      onBlur={() => {
+                        setTouchedFields((prev) => ({ ...prev, email: true }));
+                        setFieldErrors((prev) => ({ ...prev, email: validateEmail(auditEmail) }));
+                      }}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setAuditEmail(val);
+                        if (touchedFields.email) {
+                          setFieldErrors((prev) => ({ ...prev, email: validateEmail(val) }));
+                        }
+                      }}
+                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                        touchedFields.email && fieldErrors.email
+                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
+                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                      }`}
                     />
+                    {touchedFields.email && fieldErrors.email && (
+                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
+                        <AlertCircle className="h-3 w-3 shrink-0" />
+                        <span>{fieldErrors.email}</span>
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -1050,12 +1143,31 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     </label>
                     <input
                       type="tel"
-                      required
                       placeholder={funnel.modal.step3.phonePlaceholder}
                       value={auditPhone}
-                      onChange={(e) => setAuditPhone(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue"
+                      onBlur={() => {
+                        setTouchedFields((prev) => ({ ...prev, phone: true }));
+                        setFieldErrors((prev) => ({ ...prev, phone: validatePhone(auditPhone) }));
+                      }}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setAuditPhone(val);
+                        if (touchedFields.phone) {
+                          setFieldErrors((prev) => ({ ...prev, phone: validatePhone(val) }));
+                        }
+                      }}
+                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                        touchedFields.phone && fieldErrors.phone
+                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
+                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                      }`}
                     />
+                    {touchedFields.phone && fieldErrors.phone && (
+                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
+                        <AlertCircle className="h-3 w-3 shrink-0" />
+                        <span>{fieldErrors.phone}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -1101,65 +1213,62 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               </form>
             )}
 
-            {/* Disqualified Screen (Polite Redirect to Free Resources) */}
-            {auditStep === 'disqualified' && (
-              <div className="space-y-4 py-2">
-                <div className="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-                  <Info className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
-                    {funnel.modal.disqualifiedScreen.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                    {funnel.modal.disqualifiedScreen.desc}
-                  </p>
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    to={getPath('/blog')}
-                    onClick={() => setIsAuditModalOpen(false)}
-                    className="btn-primary py-3 px-5 text-xs font-bold text-center"
-                  >
-                    {funnel.modal.disqualifiedScreen.hubBtn}
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setIsAuditModalOpen(false)}
-                    className="btn-secondary py-3 px-4 text-xs font-semibold"
-                  >
-                    {funnel.modal.disqualifiedScreen.closeBtn}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Success Screen */}
+            {/* Success Screen: Instant Blueprint Access + Consultation Option */}
             {auditStep === 'success' && (
-              <div className="space-y-5 py-2 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="h-7 w-7" />
+              <div className="space-y-4 py-2 text-center animate-in fade-in zoom-in-95 duration-200">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
+                  <CheckCircle2 className="h-6 w-6" />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-black font-heading text-gray-900 dark:text-white">
+                <div className="space-y-1">
+                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
                     {funnel.modal.successScreen.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-sm mx-auto">
+                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed max-w-md mx-auto">
                     {funnel.modal.successScreen.desc}
                   </p>
                 </div>
 
-                <div className="pt-2">
+                {/* Direct Instant Resource Access Card */}
+                <div className="p-4 rounded-2xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/70 dark:bg-blue-950/40 text-left space-y-2.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-nordible-blue dark:text-blue-300">
+                    <BookOpen className="h-4 w-4 shrink-0 text-nordible-blue dark:text-blue-400" />
+                    <span>{funnel.modal.successScreen.blueprintHeading}</span>
+                  </div>
+                  <p className="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {funnel.modal.successScreen.blueprintDesc}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-2 pt-1">
+                    <a
+                      href="/brochure.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary py-2.5 px-4 text-xs font-bold text-center inline-flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <FileText className="h-3.5 w-3.5" />
+                      <span>{funnel.modal.successScreen.downloadBlueprintBtn}</span>
+                      <ExternalLink className="h-3 w-3 opacity-80" />
+                    </a>
+                    <Link
+                      to={getPath('/blog')}
+                      onClick={() => setIsAuditModalOpen(false)}
+                      className="btn-secondary py-2.5 px-4 text-xs font-semibold text-center inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span>{funnel.modal.successScreen.exploreHubBtn}</span>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Calendar Review Call Option */}
+                <div className="pt-1">
                   <a
                     href={contactConfig.bookingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center justify-center gap-2 py-3.5 px-6 text-xs sm:text-sm font-bold uppercase tracking-wider w-full shadow-lg shadow-blue-500/30"
+                    className="w-full py-3 px-5 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-nordible-blue dark:hover:border-blue-400 bg-white dark:bg-gray-800 text-xs font-bold text-gray-800 dark:text-gray-200 hover:text-nordible-blue dark:hover:text-white transition-all inline-flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                   >
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
                     <span>{funnel.modal.successScreen.reserveSlotBtn}</span>
-                    <ExternalLink className="h-3.5 w-3.5" />
+                    <ExternalLink className="h-3.5 w-3.5 text-gray-400" />
                   </a>
                 </div>
               </div>
@@ -1178,7 +1287,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         >
           {/* Top Bar with Badge & Close Button */}
           <div 
-            className="w-full max-w-7xl flex items-center justify-between gap-4 z-10"
+            className="w-full max-w-7xl flex items-center justify-between gap-4 z-10 shrink-0"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2">
@@ -1195,27 +1304,27 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               className="p-2.5 sm:px-4 sm:py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer"
               aria-label="Close Fullscreen"
             >
-              <span>{language === 'de' ? 'Schließen (Esc)' : 'Close (Esc)'}</span>
+              <span>{t.blogPost.closeFullscreen}</span>
               <X className="h-4 w-4" />
             </button>
           </div>
 
           {/* Fullscreen Image Container */}
           <div 
-            className="flex-1 flex items-center justify-center w-full max-w-7xl my-2 overflow-hidden"
+            className="flex-1 min-h-0 flex items-center justify-center w-full max-w-7xl my-2 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <img
               src={activeLightboxImage.src}
               alt={activeLightboxImage.alt || 'Fullscreen screenshot'}
-              className="max-w-full max-h-[82vh] object-contain rounded-xl shadow-2xl ring-1 ring-white/10"
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl ring-1 ring-white/10"
             />
           </div>
 
-          {/* Bottom Caption & Plain-Language Executive Card */}
+          {/* Bottom Caption & Plain-Language Executive Card (always strictly underneath image) */}
           {(activeLightboxImage.caption || activeLightboxImage.explanation || activeLightboxImage.businessBenefit) && (
             <div 
-              className="w-full max-w-4xl p-4 sm:p-5 rounded-2xl bg-gray-950/95 border border-white/10 backdrop-blur-md text-left text-xs sm:text-sm text-gray-200 z-10 space-y-3"
+              className="w-full max-w-4xl p-4 sm:p-5 rounded-2xl bg-gray-950/95 border border-white/10 backdrop-blur-md text-left text-xs sm:text-sm text-gray-200 shrink-0 space-y-3"
               onClick={(e) => e.stopPropagation()}
             >
               {activeLightboxImage.caption && (
@@ -1229,7 +1338,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     <div className="space-y-1 bg-gray-900/60 rounded-xl p-3 border border-gray-800">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
                         <Info className="h-3.5 w-3.5" />
-                        {language === 'de' ? 'Was Sie hier sehen' : 'Plain-Language Explanation'}
+                        {t.blogPost.whatYouSee}
                       </span>
                       <p className="text-xs text-gray-300 leading-relaxed font-normal">
                         {activeLightboxImage.explanation}
@@ -1240,7 +1349,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                     <div className="space-y-1 bg-emerald-950/40 border border-emerald-500/25 rounded-xl p-3">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
                         <TrendingUp className="h-3.5 w-3.5" />
-                        {language === 'de' ? 'Geschäftlicher Nutzen' : 'Business Benefit'}
+                        {t.blogPost.businessBenefit}
                       </span>
                       <p className="text-xs text-emerald-100/90 leading-relaxed font-normal">
                         {activeLightboxImage.businessBenefit}

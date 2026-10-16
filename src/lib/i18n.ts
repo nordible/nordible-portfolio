@@ -215,6 +215,27 @@ export interface Translations {
       contact: string;
     };
   };
+  blogTeaser: {
+    badge: string;
+    exploreAll: string;
+  };
+  blogPost: {
+    fullscreen: string;
+    closeFullscreen: string;
+    executiveTakeaway: string;
+    whatYouSee: string;
+    businessBenefit: string;
+    exploreLiveWebsite: string;
+    clientPracticePartner: string;
+    shareArticle: string;
+    linkCopied: string;
+    copyCode: string;
+    codeCopied: string;
+    notFoundBadge: string;
+    notFoundTitle: string;
+    notFoundDesc: string;
+    notFoundBackBtn: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -562,6 +583,27 @@ export const translations: Record<Language, Translations> = {
         blog: "Tech Insights",
         contact: "Get in Touch"
       }
+    },
+    blogTeaser: {
+      badge: "Our Technology Insights",
+      exploreAll: "Explore All Insights & Case Studies"
+    },
+    blogPost: {
+      fullscreen: "Full Screen",
+      closeFullscreen: "Close (Esc)",
+      executiveTakeaway: "Executive Business Takeaway",
+      whatYouSee: "Plain-Language Explanation",
+      businessBenefit: "Business Benefit",
+      exploreLiveWebsite: "Explore Live Practice Website",
+      clientPracticePartner: "Client & Practice Partner",
+      shareArticle: "Share",
+      linkCopied: "Copied Link",
+      copyCode: "Copy",
+      codeCopied: "Copied",
+      notFoundBadge: "404 Error",
+      notFoundTitle: "Case Study Not Found",
+      notFoundDesc: "The requested article or case study could not be located.",
+      notFoundBackBtn: "Back to Case Studies"
     }
   },
   de: {
@@ -908,6 +950,27 @@ export const translations: Record<Language, Translations> = {
         blog: "Tech-Einblicke",
         contact: "Kontakt aufnehmen"
       }
+    },
+    blogTeaser: {
+      badge: "Unsere Technologie-Einblicke",
+      exploreAll: "Alle Einblicke & Fallstudien ansehen"
+    },
+    blogPost: {
+      fullscreen: "Vollbild",
+      closeFullscreen: "Schließen (Esc)",
+      executiveTakeaway: "Kernaussage für Entscheider",
+      whatYouSee: "Was Sie hier sehen",
+      businessBenefit: "Geschäftlicher Nutzen",
+      exploreLiveWebsite: "Live-Praxis-Webseite erkunden",
+      clientPracticePartner: "Auftraggeber & Praxispartner",
+      shareArticle: "Teilen",
+      linkCopied: "Link kopiert",
+      copyCode: "Kopieren",
+      codeCopied: "Kopiert",
+      notFoundBadge: "Fehler 404",
+      notFoundTitle: "Fallstudie nicht gefunden",
+      notFoundDesc: "Der gewünschte Artikel oder die Fallstudie konnte nicht gefunden werden.",
+      notFoundBackBtn: "Zurück zu den Fallstudien"
     }
   }
 };

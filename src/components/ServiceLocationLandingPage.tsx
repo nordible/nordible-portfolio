@@ -368,7 +368,7 @@ export default function ServiceLocationLandingPage() {
                 </button>
 
                 <Link
-                  to={getPath('/blog/b2b-seo-case-study-google-page-1')}
+                  to={getPath('/blog/architecture-firm-seo-case-study')}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-nordible-blue dark:text-blue-400 hover:underline transition-all"
                 >
                   <span>{proofCard.ctaStudy}</span>

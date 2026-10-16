@@ -41,7 +41,15 @@ export interface BlogHubContent {
 export interface AuditFunnelIndustryOption {
   id: string;
   label: string;
-  iconType: 'building' | 'briefcase' | 'shield' | 'target';
+  iconType: 'building' | 'briefcase' | 'shield' | 'target' | 'utensils' | 'code' | 'wrench';
+}
+
+export interface AuditFunnelGoalOption {
+  id: string;
+  title: string;
+  desc: string;
+  iconType: 'layers' | 'cpu' | 'trophy' | 'utensils' | 'trending' | 'info';
+  isDisqualifier?: boolean;
 }
 
 export interface AuditFunnelTranslations {
@@ -71,18 +79,7 @@ export interface AuditFunnelTranslations {
     step2: {
       title: string;
       subtitle: string;
-      mandate: {
-        title: string;
-        desc: string;
-      };
-      ranking: {
-        title: string;
-        desc: string;
-      };
-      disqualified: {
-        title: string;
-        desc: string;
-      };
+      goals: AuditFunnelGoalOption[];
     };
     step3: {
       title: string;
@@ -97,6 +94,14 @@ export interface AuditFunnelTranslations {
       submittingBtn: string;
       confidentialNote: string;
       errorMessage: string;
+      validation: {
+        websiteRequired: string;
+        websiteInvalid: string;
+        emailRequired: string;
+        emailInvalid: string;
+        phoneRequired: string;
+        phoneInvalid: string;
+      };
     };
     disqualifiedScreen: {
       title: string;
@@ -108,6 +113,10 @@ export interface AuditFunnelTranslations {
       title: string;
       desc: string;
       reserveSlotBtn: string;
+      blueprintHeading: string;
+      blueprintDesc: string;
+      downloadBlueprintBtn: string;
+      exploreHubBtn: string;
     };
   };
 }
@@ -209,8 +218,22 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaSecondary: 'Explore All Services →',
     posts: [
       {
-        id: 'b2b-seo-case-study-google-page-1',
-        slug: 'b2b-seo-case-study-google-page-1',
+        id: 'restaurant-delivery-growth-case-study',
+        slug: 'restaurant-delivery-growth-case-study',
+        title: '+74% Revenue Sprint: How a Restaurant Scaled Digital Sales & Average Basket Size with 0% Cancellations',
+        excerpt: 'How transforming bare text menus into a high-converting visual storefront accelerated food sales, drove a +74% revenue surge, and boosted average basket values with zero cancellations.',
+        category: 'Restaurant Revenue & E-Commerce',
+        categorySlug: 'geo',
+        readTime: '3 min read',
+        date: 'October 2026',
+        image: '/images/buns-069/buns-069-homepage-hero.png',
+        imageAlt: 'Case Study: Restaurant Digital Sales Surge and Revenue Growth',
+        tags: ['E-Commerce', 'Restaurant Sales', 'Revenue Growth', 'Lieferando', 'Uber Eats', 'Frankfurt', 'Case Study'],
+        published: true,
+      },
+      {
+        id: 'architecture-firm-seo-case-study',
+        slug: 'architecture-firm-seo-case-study',
         title: 'Case Study: Google Page 1 & Regional #1 Positions for an Architecture Firm',
         excerpt: 'How Nordible helped an architecture practice achieve Google Page 1 across primary services, secure selected #1 regional rankings, climb 4 pages in Frankfurt, and win 2 signed clients from inbound calls.',
         category: 'B2B SEO Case Study',
@@ -218,7 +241,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         readTime: '3 min read',
         date: 'September 2026',
         image: '/images/shams-consult/shams-consult-homepage-hero.png',
-        imageAlt: 'Case Study: Google Page 1 & Regional #1 Rankings - Shams Consult',
+        imageAlt: 'Case Study: Google Page 1 & Regional #1 Rankings - Architecture Firm',
         tags: ['SEO', 'B2B', 'Architecture', 'Frankfurt', 'Google Page 1', 'Case Study'],
         published: true,
       },
@@ -276,8 +299,22 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaSecondary: 'Alle Leistungen ansehen →',
     posts: [
       {
-        id: 'b2b-seo-case-study-google-page-1',
-        slug: 'b2b-seo-case-study-google-page-1',
+        id: 'restaurant-delivery-growth-case-study',
+        slug: 'restaurant-delivery-growth-case-study',
+        title: '+74 % Umsatz-Sprint: Wie ein Restaurant den digitalen Bestellumsatz bei 0 % Stornorate maximierte',
+        excerpt: 'Wie die Transformation bildloser Textkarten in ein umsatzstarkes digitales Schaufenster den Bestellumsatz um +74 % steigerte, Warenkorbwerte erhöhte und Stornierungen komplett eliminierte.',
+        category: 'Gastronomie-Umsatz & E-Commerce',
+        categorySlug: 'geo',
+        readTime: '3 Min. Lesezeit',
+        date: 'Oktober 2026',
+        image: '/images/buns-069/buns-069-homepage-hero.png',
+        imageAlt: 'Fallstudie: Restaurant digitaler Bestellumsatz und Umsatzwachstum',
+        tags: ['E-Commerce', 'Gastronomie-Umsatz', 'Bestellumsatz', 'Lieferando', 'Uber Eats', 'Frankfurt', 'Fallstudie'],
+        published: true,
+      },
+      {
+        id: 'architecture-firm-seo-case-study',
+        slug: 'architecture-firm-seo-case-study',
         title: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen für ein Architekturbüro',
         excerpt: 'Wie Nordible ein deutsches Architekturbüro zu Google Seite 1 für Kernleistungen, ausgewählten regionalen Spitzenplätzen, einem 4-Seiten-Sprung in Frankfurt und 2 festen Neukundenmandaten aus direkten Anrufen verhalf.',
         category: 'B2B-SEO-Fallstudie',
@@ -285,7 +322,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         readTime: '3 Min. Lesezeit',
         date: 'September 2026',
         image: '/images/shams-consult/shams-consult-homepage-hero.png',
-        imageAlt: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen - Shams Consult',
+        imageAlt: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen - Architekturbüro',
         tags: ['SEO', 'B2B', 'Architektur', 'Frankfurt', 'Google Seite 1', 'Fallstudie'],
         published: true,
       },
@@ -1339,13 +1376,337 @@ export const frankfurtPostTranslations: Record<'en' | 'de', ArticleContent> = {
   }
 };
 
-export const articlesBySlug: Record<string, Record<'en' | 'de', ArticleContent>> = {
-  'b2b-seo-case-study-google-page-1': shamsPostTranslations,
-  'shams-consult-google-ranking': shamsPostTranslations,
-  'frankfurt-local-seo-ai-discoverability': frankfurtPostTranslations,
+export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
+  en: {
+    navHome: 'Home',
+    navBlog: 'Blog',
+    navCurrent: 'Case Study',
+    share: 'Share',
+    copied: 'Copied Link',
+    badge: 'Hospitality & Restaurant Sales Case Study',
+    date: 'October 2026',
+    readTime: '3 min read',
+    title: '+74% Revenue Sprint: How a Restaurant Scaled Digital Sales & Average Basket Size with 0% Cancellations',
+    client: {
+      name: 'Buns 069',
+      location: 'Frankfurt am Main',
+      label: 'Client & Hospitality Partner',
+      industry: 'Hospitality, Food Commerce & Digital Revenue',
+      logo: '/images/logos/buns069-logo.webp',
+      link: 'https://buns069.de/'
+    },
+    introParagraphs: [
+      'In food e-commerce, the Picture Superiority Effect dictates buyer decisions: customers do not buy food they cannot see. Prior to partnering with Nordible, Buns 069 operated on delivery marketplaces with bare, image-less text listings. Without visual appetence, customer decision fatigue was high, basket sizes remained constrained, and the store was disadvantaged in platform ranking algorithms.',
+      'Nordible engineered a complete visual turnaround: introducing professional, high-contrast food photography and structured digital menu architecture. Immediately following this visual transformation, customer order volume surged across both major German platforms—scaling combined monthly delivery revenue past €17,250+, sustaining an exceptional 0% cancellation rate on Lieferando (333 successful orders), and driving a +74% October revenue surge on Uber Eats with a 21% menu conversion rate.'
+    ],
+    metrics: [
+      {
+        label: 'Monthly Digital Sales Volume',
+        value: '€17,250+',
+        icon: 'trending'
+      },
+      {
+        label: 'Lieferando Order Fulfillment',
+        value: '0% Cancellations',
+        icon: 'trophy'
+      },
+      {
+        label: 'Uber Eats Revenue Growth',
+        value: '+74% Growth',
+        icon: 'percent'
+      }
+    ],
+    objective: {
+      title: 'The Objective',
+      text: 'Transform Buns 069 from an image-less, low-converting text menu into a premier visual burger brand across Germany’s top delivery marketplaces, maximizing average basket value and driving immediate order volume growth through science-backed food presentation.'
+    },
+    heroImage: {
+      src: '/images/buns-069/buns-069-homepage-hero.png',
+      alt: 'Buns 069 Online Ordering Website and Homemade Burger Experience',
+      caption: 'Buns 069 Official Website & Digital Storefront · Frankfurt am Main / Offenbach',
+      badge: 'Digital Commerce & Online Ordering',
+      explanation: 'High-converting digital storefront and visual menu architecture driving direct customer acquisition, delivery orders, and table bookings.',
+      businessBenefit: 'Professional food photography and intuitive ordering journeys transformed customer perception and sparked immediate sales surges across all digital channels.'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'The Catalyst: Transforming Image-Less Menus into High-Converting Visuals',
+        businessTakeaway: 'Before our intervention, the store had zero food images or visual representations. Introducing professional food designs sparked an immediate surge in customer orders and marketplace discoverability.',
+        paragraphs: [
+          'The initial diagnosis revealed a fundamental conversion bottleneck: Buns 069 had zero photos for its burgers, signature fries, and handmade dips on both Lieferando and Uber Eats. Prospective diners were forced to read plain text descriptions, leading to high abandonment rates and unguided, low-ticket orders.',
+          'Nordible deployed a full visual overhaul: capturing high-definition, appetizing product imagery and establishing clear visual hierarchies for every menu category. Customers could immediately inspect burger textures, premium toppings, and artisanal buns. Following this rollout, platform algorithms instantly registered increased click-through and completion rates, pushing Buns 069 to top carousel positions.'
+        ],
+        cards: [
+          {
+            title: 'From Zero Photos to 100% Visuals',
+            desc: 'Eliminated text-only placeholders with high-resolution, appetite-inducing imagery for every signature burger, side, and beverage.',
+            badge: 'Visual Overhaul',
+            icon: 'sparkles'
+          },
+          {
+            title: 'Cognitive Combo Bundling',
+            desc: 'Restructured visual menu pairings (Burger + Artisanal Fries + Drink), prompting higher basket values (€30.88 on Lieferando, €35.74 on Uber Eats).',
+            badge: 'Basket Architecture',
+            icon: 'zap'
+          },
+          {
+            title: 'High-Converting Digital Menus',
+            desc: 'Streamlined item options and visual add-on prompts, lifting the Uber Eats menu-to-order conversion rate to a high-performing 21%.',
+            badge: '21% Menu Conversion',
+            icon: 'compass'
+          },
+          {
+            title: 'Zero Kitchen Drop-Offs',
+            desc: 'Seamless kitchen-to-courier ticket coordination eliminated cancelled orders, maintaining an unbroken 0% cancellation rate.',
+            badge: '0% Cancellations',
+            icon: 'shield'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'Lieferando Impact: €10,282 Revenue & Flawless 0% Cancellation Rate',
+        businessTakeaway: 'Following the visual redesign, Lieferando monthly turnover expanded by +32% to €10,282 across 333 orders with zero kitchen errors or cancelled tickets.',
+        paragraphs: [
+          'In September 2026, the Lieferando Partner Hub recorded €10,282.00 in total revenue for Buns 069—representing a +32% increase compared to the previous four-week period.',
+          'Most impressively, across all 333 incoming orders, the store achieved a 0% cancellation rate (a 100% improvement over previous periods). In delivery operations, every cancelled order costs the kitchen wasted ingredients and damages marketplace algorithm standing. Achieving 0% cancellations signals optimal kitchen readiness and guarantees maximum profitability.'
+        ],
+        images: [
+          {
+            src: '/images/buns-069/lieferando-orders-revenue.png',
+            alt: 'Lieferando Partner Hub Analytics Buns 069 September 2026',
+            caption: 'Lieferando Partner Hub: €10,282.00 Total Revenue (↑ 32%), 333 Orders, 0% Cancellation Rate',
+            badge: '100% Delivery Reliability',
+            explanation: 'Official merchant portal metrics confirming €10,282 in gross delivery revenue and €30.88 average order value across 333 fulfilled tickets.',
+            businessBenefit: 'Reliable high-volume delivery cash flow with zero wasted inventory.'
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Uber Eats Acceleration: +48% Monthly Baseline & +74% October Surge',
+        businessTakeaway: 'On Uber Eats, the visual update drove €6,976 in 30 days (+48% sales), followed by an accelerated October sprint generating €4,432 in just 16 days (+74% growth).',
+        paragraphs: [
+          'On Uber Eats, the impact of professional dish photography was immediately visible: the store generated €6,976 in sales over 30 days (Sep 14 – Oct 13, 2026), marking a +48% surge in sales and a +33% increase in booked orders (200 total orders).',
+          'Entering October 2026, growth accelerated further as platform algorithms rewarded the higher engagement: the first 16 days produced €4,432 in sales (a +74% leap over the preceding cycle) across 124 booked orders (+61%). Average ticket size expanded to €35.74 (+8%), with 21% of all menu visitors completing a purchase.'
+        ],
+        images: [
+          {
+            src: '/images/buns-069/uber-eats-30-days-growth.png',
+            alt: 'Uber Eats Manager 30 Days Performance Buns 069',
+            caption: 'Uber Eats Manager: €6,976 Sales (↑ 48%) and 200 Booked Orders (↑ 33%)',
+            badge: '+48% 30-Day Growth',
+            explanation: 'Verified 30-day dashboard verifying 200 booked orders and €6,976 in revenue.',
+            businessBenefit: 'Consistent order volume expansion across non-peak delivery windows.'
+          },
+          {
+            src: '/images/buns-069/uber-eats-october-surge.png',
+            alt: 'Uber Eats Manager October Sprint €4,432 Sales',
+            caption: 'Uber Eats Sprint (Oct 1–16): €4,432 Sales (↑ 74%), 124 Orders (↑ 61%), €35.74 Ticket Size',
+            badge: '+74% Sprint Surge',
+            explanation: '16-day acceleration metric showing €4,432 in gross sales, 21% menu conversion rate, and €35.74 average basket size.',
+            businessBenefit: 'Higher revenue per ticket maximizes delivery courier efficiency and net margin.'
+          }
+        ]
+      },
+      {
+        number: '04',
+        title: 'Key Takeaways for Food & Retail Operators',
+        businessTakeaway: 'Predictable digital delivery requires active menu engineering, cross-platform presence, and operational precision rather than passive listing.',
+        paragraphs: [
+          'The combined digital delivery volume for Buns 069 across Lieferando and Uber Eats now exceeds €17,250 per month, supported by over 533 orders and an average ticket value above €32.50.',
+          'By treating delivery marketplaces as active digital storefronts—optimizing photography, bundle logic, and kitchen fulfillment—hospitality brands can build robust, crisis-resilient revenue streams that complement in-store dining.'
+        ],
+        quote: 'Buns 069 demonstrates that digital delivery channels are not just a side activity. When transformed from image-less listings into high-converting visual storefronts with operational rigor, they generate over €17,250 in predictable monthly revenue with 0% wasted orders.'
+      }
+    ],
+    cta: {
+      badge: 'Scale Your Restaurant Revenue',
+      title: 'Ready to turn digital delivery into a predictable profit driver?',
+      desc: 'Whether you run an established restaurant group or an emerging food brand, we engineer high-converting digital menus, local delivery SEO, and operational growth systems.',
+      buttonText: 'Schedule Hospitality Strategy Call',
+      secondaryText: 'Explore More Case Studies',
+      mobileButtonText: 'Book Strategy Call'
+    }
+  },
+  de: {
+    navHome: 'Startseite',
+    navBlog: 'Blog',
+    navCurrent: 'Fallstudie',
+    share: 'Teilen',
+    copied: 'Link kopiert',
+    badge: 'Gastronomie- & Umsatz-Fallstudie',
+    date: 'Oktober 2026',
+    readTime: '3 Min. Lesezeit',
+    title: '+74 % Umsatz-Sprint: Wie ein Restaurant den digitalen Bestellumsatz bei 0 % Stornorate maximierte',
+    client: {
+      name: 'Buns 069',
+      location: 'Frankfurt am Main',
+      label: 'Kunde & Gastronomie-Partner',
+      industry: 'Gastronomie, Food-Commerce & digitaler Umsatz',
+      logo: '/images/logos/buns069-logo.webp',
+      link: 'https://buns069.de/'
+    },
+    introParagraphs: [
+      'Im digitalen Food-E-Commerce gilt der sogenannte Picture-Superiority-Effekt: Gäste bestellen nicht, was sie sich nicht bildlich vorstellen können. Vor der Zusammenarbeit mit Nordible trat Buns 069 auf den großen Lieferportalen mit rein textbasierten Speisekarten ohne Produktbilder auf. Die Folge: Hohe Kaufzurückhaltung, ungenutzte Warenkorbpotenziale und algorithmische Benachteiligung im Plattform-Ranking.',
+      'Nordible leitete die visuelle Transformation ein: Professionelle Food-Fotografie, appetitanregende Bilddarstellungen und eine klare Menü-Architektur. Unmittelbar nach Einführung dieser visuellen Aufwertung explodierte die Bestellnachfrage auf den führenden Plattformen: Der monatliche Gesamtlieferumsatz kletterte auf über 17.250 €, Lieferando erzielte 10.282 € bei einer makellosen Stornoquote von 0 % (333 erfolgreiche Bestellungen) und Uber Eats beschleunigte im Oktober um +74 % bei einer Menü-Konversion von 21 %.'
+    ],
+    metrics: [
+      {
+        label: 'Monatlicher digitaler Bestellumsatz',
+        value: '17.250 €+',
+        icon: 'trending'
+      },
+      {
+        label: 'Lieferando-Auftragsabwicklung',
+        value: '0 % Storno',
+        icon: 'trophy'
+      },
+      {
+        label: 'Uber Eats Umsatz-Sprint',
+        value: '+74 % Sprint',
+        icon: 'percent'
+      }
+    ],
+    objective: {
+      title: 'Die Zielsetzung',
+      text: 'Buns 069 von einer bildlosen, textlastigen Lieferkarte in ein visuell führendes Burger-Erlebnis auf den relevanten Lieferportalen zu verwandeln, den durchschnittlichen Warenkorbwert durch appetitgetriebene Menüpsychologie zu maximieren und die Bestellfrequenz nachhaltig zu vervielfachen.'
+    },
+    heroImage: {
+      src: '/images/buns-069/buns-069-homepage-hero.png',
+      alt: 'Buns 069 Online-Bestellplattform und Homemade Burger Experience',
+      caption: 'Buns 069 Offizielle Website & Digitaler Storefront · Frankfurt am Main / Offenbach',
+      badge: 'Digital Commerce & Online-Bestellsystem',
+      explanation: 'Hochkonvertierender digitaler Auftritt und visuelle Menü-Architektur zur direkten Neukundengewinnung, Lieferbestellung und Abholung.',
+      businessBenefit: 'Professionelle Food-Fotografie und intuitive Menüführung steigern die Markenwahrnehmung und lösten eine sofortige Nachfragewelle über alle Vertriebskanäle aus.'
+    },
+    sections: [
+      {
+        number: '01',
+        title: 'Der Wendepunkt: Vom bildlosen Platzhalter zum hochkonvertierenden Schaufenster',
+        businessTakeaway: 'Vor unserer Überarbeitung besaß der Eintrag keinerlei Produktfotos. Die Einführung professioneller Food-Designs führte unmittelbar zu einer massiven Nachfragewelle und Spitzenplatzierungen im Algorithmus.',
+        paragraphs: [
+          'Die Ausgangsanalyse deckte die zentrale Konversionsbremse auf: Buns 069 besaß auf Lieferando und Uber Eats weder für die Burger-Kreationen noch für Beilagen oder hausgemachte Saucen eigene Bilddarstellungen. Kaufinteressenten sahen lediglich nüchterne Textzeilen, was zu hoher Absprungrate und kleinen Einzelbestellungen führte.',
+          'Nordible setzte einen ganzheitlichen visuellen Relaunch um: Hochauflösende, farb- und kontraststarke Produktfotografie für jedes Gericht und eine klare Appetit-Leitführung. Hungrige Kunden sahen sofort die Qualität von Fleisch, Brioche-Buns und Beilagen. Die Plattform-Algorithmen registrierten den rasanten Anstieg der Klick- und Kaufabschlüsse und beförderten Buns 069 sofort in die prominentesten Entdeckungs-Karussells.'
+        ],
+        cards: [
+          {
+            title: 'Von 0 Fotos zu 100 % visueller Führung',
+            desc: 'Vollständige Ablösung der reinen Textzeilen durch brillante, appetitanregende Produktinszenierungen für alle Haupt- und Nebengerichte.',
+            badge: 'Visueller Relaunch',
+            icon: 'sparkles'
+          },
+          {
+            title: 'Kognitive Menü-Bundles',
+            desc: 'Strukturierte visuelle Kombinationen (Burger + Signature-Pommes + Dip) steigerten den Durchschnittswarenkorb auf 30,88 € (Lieferando) und 35,74 € (Uber Eats).',
+            badge: 'Höherer Bestellwert',
+            icon: 'zap'
+          },
+          {
+            title: '21 % Menü-Konversion',
+            desc: 'Durchdachte Menüführung und klare Zusatzoptionen verwandelten mehr als jeden fünften Menü-Besucher auf Uber Eats in einen zahlenden Kunden.',
+            badge: 'Konversions-Sprung',
+            icon: 'compass'
+          },
+          {
+            title: 'Fehlerfreie Küchenabwicklung',
+            desc: 'Reibungslose Abläufe zwischen Display, Küche und Fahrern senkten die Stornoquote bei allen 333 Lieferando-Bestellungen auf exakt 0 %.',
+            badge: '0 % Stornos',
+            icon: 'shield'
+          }
+        ]
+      },
+      {
+        number: '02',
+        title: 'Lieferando-Performance: 10.282 € Umsatz & perfekte 0 % Stornorate',
+        businessTakeaway: 'Der Lieferando-Umsatz stieg im Monatsvergleich um +32 % auf 10.282 € bei 333 Bestellungen – ohne eine einzige stornierte Order.',
+        paragraphs: [
+          'Im September 2026 verzeichnete der Lieferando Partner Hub für Buns 069 einen Gesamtumsatz von 10.282,00 € – ein Zuwachs von +32 % gegenüber dem vorangegangenen 4-Wochen-Zeitraum.',
+          'Besonders hervorzuheben: Bei allen 333 Bestellungen lag die Stornoquote bei exakt 0 % (eine Verbesserung um 100 %). Jede stornierte Bestellung bedeutet in der Gastronomie weggeworfene Lebensmittel und algorithmische Abstrafung. Eine Quote von 0 % beweist perfekte operative Vorbereitung und sichert vollen Gewinn.'
+        ],
+        images: [
+          {
+            src: '/images/buns-069/lieferando-orders-revenue.png',
+            alt: 'Lieferando Partner Hub Daten Buns 069 September 2026',
+            caption: 'Lieferando Partner Hub: 10.282,00 € Gesamtumsatz (↑ 32 %), 333 Bestellungen, 0 % Stornorate',
+            badge: '100 % Lieferzuverlässigkeit',
+            explanation: 'Offizielle Händlerdaten über 10.282 € Bruttolieferumsatz und 30,88 € Durchschnittswarenkorb bei 333 Bestellungen.',
+            businessBenefit: 'Zuverlässiger Cashflow aus dem Liefergeschäft ohne Warenverlust.'
+          }
+        ]
+      },
+      {
+        number: '03',
+        title: 'Uber Eats Dynamik: +48 % Monatsplus und +74 % Oktober-Sprint',
+        businessTakeaway: 'Auf Uber Eats erzielte die visuelle Überarbeitung 6.976 € in 30 Tagen (+48 %), gefolgt von einem rasanten Oktobersprint mit 4.432 € in nur 16 Tagen (+74 %).',
+        paragraphs: [
+          'Auf Uber Eats zeigte sich die Kraft professioneller Food-Designs sofort: In den 30 Tagen vom 14. Sep bis 13. Okt 2026 stieg der Umsatz auf 6.976 € – ein Plus von +48 % bei 200 Bestellungen (+33 %).',
+          'Im Oktober beschleunigte sich dieser Trend massiv, da der Algorithmus die hohen Interaktionsraten honorierte: In den ersten 16 Tagen wurden bereits 4.432 € umgesetzt (+74 % Zuwachs) bei 124 Bestellungen (+61 %). Der durchschnittliche Warenkorbwert kletterte auf 35,74 € (+8 %), während 21 % aller Menü-Besucher direkt bestellten.'
+        ],
+        images: [
+          {
+            src: '/images/buns-069/uber-eats-30-days-growth.png',
+            alt: 'Uber Eats Manager 30-Tage-Performance Buns 069',
+            caption: 'Uber Eats Manager: 6.976 € Umsatz (↑ 48 %) und 200 Bestellungen (↑ 33 %)',
+            badge: '+48 % 30-Tage-Wachstum',
+            explanation: 'Offizielles Uber-Eats-Dashboard mit 200 verbuchten Bestellungen und 6.976 € Monatsumsatz.',
+            businessBenefit: 'Skalierbares Umsatzwachstum auch außerhalb traditioneller Stoßzeiten.'
+          },
+          {
+            src: '/images/buns-069/uber-eats-october-surge.png',
+            alt: 'Uber Eats Manager Oktober Sprint 4.432 € Umsatz',
+            caption: 'Uber Eats Sprint (1.–16. Okt): 4.432 € Umsatz (↑ 74 %), 124 Bestellungen (↑ 61 %), 35,74 € Warenkorb',
+            badge: '+74 % Sprint-Wachstum',
+            explanation: '16-Tage-Sprintdaten mit 4.432 € Umsatz, 21 % Menü-Konversion und 35,74 € Warenkorbwert.',
+            businessBenefit: 'Höherer Deckungsbeitrag pro Kurierfahrt maximiert den Nettogewinn der Küche.'
+          }
+        ]
+      },
+      {
+        number: '04',
+        title: 'Erkenntnisse für Gastronomie & Einzelhandel',
+        businessTakeaway: 'Planbarer Liefererfolg verlangt aktive Speisekarten-Architektur, Multi-Plattform-Präsenz und operative Disziplin statt passiver Händlereinträge.',
+        paragraphs: [
+          'Das gesamte digitale Liefervolumen von Buns 069 über Lieferando und Uber Eats übersteigt mittlerweile 17.250 € pro Monat, getragen von über 533 Bestellungen und einem durchschnittlichen Warenkorb von über 32,50 €.',
+          'Wer Lieferplattformen als vollwertige digitale Vertriebskanäle versteht – mit optimierten Fotos, smarten Bundles und verlässlicher Küchenabwicklung –, baut sich ein krisensicheres zweites Standbein zum Gastraum auf.'
+        ],
+        quote: 'Buns 069 beweist: Lieferservices sind kein notwendiges Übel, sondern ein profitabler Wachstumsmotor. Durch die Verwandlung bildloser Textkarten in ein hochkonvertierendes visuelles Schaufenster generiert das Lokal planbar über 17.250 € Monatsumsatz bei 0 % Stornos.'
+      }
+    ],
+    cta: {
+      badge: 'Gastronomie-Umsatz steigern',
+      title: 'Bereit, Ihren Lieferservice in eine planbare Ertragsquelle zu verwandeln?',
+      desc: 'Ob Burger-Store, Restaurant oder Franchise-Konzept: Wir optimieren Ihre digitalen Speisekarten, steigern Warenkorbwerte und etablieren messbare Wachstumssysteme.',
+      buttonText: 'Gastronomie-Strategiegespräch vereinbaren',
+      secondaryText: 'Weitere Fallstudien entdecken',
+      mobileButtonText: 'Beratung anfragen'
+    }
+  }
 };
 
-export const defaultArticleSlug = 'b2b-seo-case-study-google-page-1';
+export const articlesBySlug: Record<string, Record<'en' | 'de', ArticleContent>> = {
+  // Primary SEO slugs (targeted user searches)
+  'restaurant-delivery-growth-case-study': bunsPostTranslations,
+  'architecture-firm-seo-case-study': shamsPostTranslations,
+  'frankfurt-local-seo-ai-discoverability': frankfurtPostTranslations,
+
+  // Architecture SEO aliases & query variants
+  'b2b-seo-case-study-google-page-1': shamsPostTranslations,
+  'architekturbuero-seo-fallstudie': shamsPostTranslations,
+  'shams-consult-google-ranking': shamsPostTranslations,
+
+  // Restaurant Sales & Revenue SEO aliases & query variants
+  'restaurant-revenue-growth-case-study': bunsPostTranslations,
+  'restaurant-sales-surge-case-study': bunsPostTranslations,
+  'restaurant-bestellumsatz-steigern': bunsPostTranslations,
+  'restaurant-delivery-growth': bunsPostTranslations,
+  'restaurant-lieferumsatz-steigern': bunsPostTranslations,
+  'buns-069-ecommerce-delivery-growth': bunsPostTranslations,
+  'buns069-delivery-growth': bunsPostTranslations,
+};
+
+export const defaultArticleSlug = 'restaurant-delivery-growth-case-study';
 
 export const articleNotFoundTranslations: Record<'en' | 'de', {
   badge: string;
@@ -1370,7 +1731,7 @@ export const articleNotFoundTranslations: Record<'en' | 'de', {
 export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslations> = {
   de: {
     adRibbon: {
-      boldText: 'Unternehmer in Frankfurt & Rhein-Main?',
+      boldText: 'Unternehmer?',
       subtitle: 'Sichern Sie sich eine kostenlose 15-Min. Standort-Analyse für Google & KI-Suche.',
       buttonText: 'Analyse anfragen →'
     },
@@ -1392,6 +1753,11 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
         subtitle: 'Wählen Sie Ihren Schwerpunkt für maßgeschneiderte Vergleichsdaten aus Frankfurt:',
         industries: [
           {
+            id: 'gastronomie',
+            label: 'Gastronomie, Restaurant & Lieferservice / E-Commerce',
+            iconType: 'utensils'
+          },
+          {
             id: 'architektur',
             label: 'Architektur-, Planungs- oder Ingenieurbüro',
             iconType: 'building'
@@ -1403,8 +1769,18 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
           },
           {
             id: 'medtech',
-            label: 'MedTech, Healthcare oder spezialisierter B2B-Dienstleister',
+            label: 'MedTech, Healthcare oder Facharztpraxis',
             iconType: 'shield'
+          },
+          {
+            id: 'software',
+            label: 'Software, SaaS, Cloud & FinTech',
+            iconType: 'code'
+          },
+          {
+            id: 'mittelstand',
+            label: 'Handwerk, Fertigung & B2B-Mittelstand',
+            iconType: 'wrench'
           },
           {
             id: 'sonstiges',
@@ -1415,33 +1791,67 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
       },
       step2: {
         title: 'Was ist Ihr wichtigstes Ziel für die nächsten 6 Monate?',
-        subtitle: 'Damit wir prüfen können, ob unser Modell für Ihr Vorhaben geeignet ist:',
-        mandate: {
-          title: 'Planbar 2–5 neue Mandanten / Großprojekte gewinnen',
-          desc: 'Fokus auf qualifizierte Anrufe & Abschlussquote'
-        },
-        ranking: {
-          title: 'Spitzenplatzierung auf Google Seite 1 & in KI-Suchmaschinen',
-          desc: 'Sichtbarkeit in ChatGPT, Perplexity & Google Maps'
-        },
-        disqualified: {
-          title: 'Ich recherchiere aktuell nur privat / unverbindlich',
-          desc: 'Kein geplantes Budget für Mandantenwachstum'
-        }
+        subtitle: 'Wählen Sie Ihren strategischen Schwerpunkt aus unserem Leistungsspektrum:',
+        goals: [
+          {
+            id: 'web-dev',
+            title: 'Maßgeschneiderte Webplattform, Portal oder App entwickeln / modernisieren',
+            desc: 'Schneller 2–4 Wochen MVP-Launch mit 100 % Code-Eigentum',
+            iconType: 'layers'
+          },
+          {
+            id: 'ai-automation',
+            title: 'Prozesse & Kundenservice durch autonome KI-Agenten automatisieren',
+            desc: '24/7 Support, Dokumenten-Parsing & bis zu 80 % Zeitersparnis',
+            iconType: 'cpu'
+          },
+          {
+            id: 'seo-geo',
+            title: 'Google Seite 1 & Nennung in KI-Suchmaschinen (ChatGPT, Perplexity & Maps)',
+            desc: 'Entscheider erreichen, die aktiv nach Lösungen in Frankfurt suchen',
+            iconType: 'trophy'
+          },
+          {
+            id: 'restaurant-revenue',
+            title: 'Digitalen Bestellumsatz & Gastronomie-Erlöse nachhaltig steigern',
+            desc: 'Höhere Warenkörbe, +70 % Umsatzwachstum & maximale Margen pro Bestellung',
+            iconType: 'utensils'
+          },
+          {
+            id: 'b2b-clients',
+            title: 'Planbar 2–5 neue Mandate, Großkunden oder Projekte gewinnen',
+            desc: 'Fokus auf qualifizierte Inbound-Anrufe & messbare Abschlussquoten',
+            iconType: 'trending'
+          },
+          {
+            id: 'free-resources',
+            title: 'Kostenloses Wissens- & Blueprint-Paket für eigene Recherchen',
+            desc: 'Wachstums-Blueprints, SEO-Analysen & Leitfäden direkt freischalten',
+            iconType: 'info'
+          }
+        ]
       },
       step3: {
-        title: 'Wohin dürfen wir die Auswertung senden?',
-        subtitle: 'Wir analysieren Ihre Domain vorab, damit das 15-Minuten-Gespräch sofort maximale Erkenntnisse liefert:',
+        title: 'Wohin dürfen wir die Auswertung & Ressourcen senden?',
+        subtitle: 'Wir analysieren Ihre Domain vorab, damit das 15-Minuten-Gespräch & Ihre Unterlagen sofort maximale Erkenntnisse liefern:',
         websiteLabel: 'Unternehmens-Website *',
         websitePlaceholder: 'https://ihre-firma.de',
         emailLabel: 'Geschäftliche E-Mail-Adresse *',
         emailPlaceholder: 'name@ihre-firma.de',
-        phoneLabel: 'Telefonnummer (für das 15-Min. Auswertungsgespräch) *',
+        phoneLabel: 'Telefonnummer (für Rückfragen & das Auswertungsgespräch) *',
         phonePlaceholder: '+49 69 12345678',
-        submitBtn: 'Analyse anfordern & Termin sichern →',
+        submitBtn: 'Analyse anfordern & Ressourcen freischalten →',
         submittingBtn: 'Wird übermittelt...',
         confidentialNote: '100% kostenlos & vertraulich',
-        errorMessage: 'Übertragungsfehler. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mail@nordible.co.'
+        errorMessage: 'Übertragungsfehler. Bitte versuchen Sie es erneut oder schreiben Sie direkt an mail@nordible.co.',
+        validation: {
+          websiteRequired: 'Bitte geben Sie Ihre Website oder Domain ein.',
+          websiteInvalid: 'Bitte geben Sie eine gültige Domain ein (z. B. ihre-firma.de oder https://...).',
+          emailRequired: 'Bitte geben Sie Ihre geschäftliche E-Mail-Adresse ein.',
+          emailInvalid: 'Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@ihre-firma.de).',
+          phoneRequired: 'Bitte geben Sie Ihre Telefonnummer ein.',
+          phoneInvalid: 'Bitte geben Sie eine gültige Telefonnummer ein (mind. 6 Ziffern, z. B. +49 69 12345678).'
+        }
       },
       disqualifiedScreen: {
         title: 'Kostenlose Ressourcen für Ihr Selbststudium',
@@ -1451,14 +1861,18 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
       },
       successScreen: {
         title: 'Vielen Dank! Ihre Anfrage ist eingegangen.',
-        desc: 'Wir starten die Vorab-Analyse Ihrer Website. Wählen Sie jetzt direkt Ihren Wunschtermin im Google Kalender:',
-        reserveSlotBtn: '15-Minuten-Slot jetzt reservieren'
+        desc: 'Ihre Domain und Kontaktdaten wurden übermittelt. Wir analysieren Ihre Potenziale. Wählen Sie hier Ihren Termin oder laden Sie direkt unsere Blueprints herunter:',
+        reserveSlotBtn: '15-Minuten-Slot jetzt reservieren',
+        blueprintHeading: 'Sofortzugriff auf Ressourcen & Blueprints:',
+        blueprintDesc: 'Laden Sie unsere B2B-Wachstums-Broschüre herunter oder lesen Sie alle Fallstudien online:',
+        downloadBlueprintBtn: 'Wachstums-Blueprint ansehen (Web/PDF)',
+        exploreHubBtn: 'Alle Fallstudien im Insights-Hub'
       }
     }
   },
   en: {
     adRibbon: {
-      boldText: 'Business owner in Frankfurt & Rhein-Main?',
+      boldText: 'Business owner',
       subtitle: 'Secure a free 15-min location audit for Google & AI search.',
       buttonText: 'Request Audit →'
     },
@@ -1480,6 +1894,11 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
         subtitle: 'Select your sector for tailored competitor benchmarks in Frankfurt:',
         industries: [
           {
+            id: 'gastronomie',
+            label: 'Restaurant, Food Delivery & E-Commerce',
+            iconType: 'utensils'
+          },
+          {
             id: 'architektur',
             label: 'Architecture, planning, or engineering firm',
             iconType: 'building'
@@ -1491,45 +1910,89 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
           },
           {
             id: 'medtech',
-            label: 'MedTech, healthcare, or specialized B2B provider',
+            label: 'MedTech, healthcare, or medical practice',
             iconType: 'shield'
           },
           {
+            id: 'software',
+            label: 'Software, SaaS, cloud platform & FinTech',
+            iconType: 'code'
+          },
+          {
+            id: 'mittelstand',
+            label: 'Manufacturing, trade & commercial Mittelstand',
+            iconType: 'wrench'
+          },
+          {
             id: 'sonstiges',
-            label: 'Other B2B business',
+            label: 'Other commercial business',
             iconType: 'target'
           }
         ]
       },
       step2: {
         title: 'What is your primary goal for the next 6 months?',
-        subtitle: 'Helps us verify whether our model is suitable for your goals:',
-        mandate: {
-          title: 'Predictably win 2–5 new client mandates / major projects',
-          desc: 'Focus on qualified calls & signed clients'
-        },
-        ranking: {
-          title: 'Top ranking on Google Page 1 & in AI search engines',
-          desc: 'Visibility in ChatGPT, Perplexity & Google Maps'
-        },
-        disqualified: {
-          title: 'I am currently only researching privately / without commercial intent',
-          desc: 'No planned commercial budget'
-        }
+        subtitle: 'Select your strategic priority from our core technology capabilities:',
+        goals: [
+          {
+            id: 'web-dev',
+            title: 'Build or modernize custom web platforms, portals, or mobile apps',
+            desc: 'Rapid 2–4 week MVP turnaround with 100% full IP ownership',
+            iconType: 'layers'
+          },
+          {
+            id: 'ai-automation',
+            title: 'Automate repetitive workflows & customer ops with autonomous AI agents',
+            desc: '24/7 intelligent support, document processing & up to 80% time saved',
+            iconType: 'cpu'
+          },
+          {
+            id: 'seo-geo',
+            title: 'Google Page 1 dominance & direct citations in AI engines (ChatGPT, Perplexity)',
+            desc: 'Capture high-intent buyers searching actively in Frankfurt & regionally',
+            iconType: 'trophy'
+          },
+          {
+            id: 'restaurant-revenue',
+            title: 'Scale digital sales & restaurant revenue with high-converting visual menus',
+            desc: 'Increase average ticket sizes, unlock +70% revenue growth & protect kitchen margins',
+            iconType: 'utensils'
+          },
+          {
+            id: 'b2b-clients',
+            title: 'Predictably win 2–5 high-value client mandates or major projects',
+            desc: 'Laser focus on qualified inbound calls & signed customer accounts',
+            iconType: 'trending'
+          },
+          {
+            id: 'free-resources',
+            title: 'Free Blueprint & Knowledge Pack for in-house research',
+            desc: 'Instant access to digital blueprints, SEO teardowns & developer guides',
+            iconType: 'info'
+          }
+        ]
       },
       step3: {
-        title: 'Where should we send your preliminary audit?',
-        subtitle: 'We pre-analyze your domain so the 15-minute call provides immediate, actionable insights:',
+        title: 'Where should we send your preliminary audit & resources?',
+        subtitle: 'We pre-analyze your domain so the 15-minute call and your documentation provide immediate, actionable insights:',
         websiteLabel: 'Company Website *',
         websitePlaceholder: 'https://your-company.com',
         emailLabel: 'Business Email Address *',
         emailPlaceholder: 'name@your-company.com',
-        phoneLabel: 'Phone Number (for the 15-min review call) *',
+        phoneLabel: 'Phone Number (for review call & follow-up) *',
         phonePlaceholder: '+49 69 12345678',
-        submitBtn: 'Request Audit & Secure Slot →',
+        submitBtn: 'Request Audit & Unlock Resources →',
         submittingBtn: 'Submitting...',
         confidentialNote: '100% free & confidential',
-        errorMessage: 'Transmission error. Please try again or email us directly at mail@nordible.co.'
+        errorMessage: 'Transmission error. Please try again or email us directly at mail@nordible.co.',
+        validation: {
+          websiteRequired: 'Please enter your company website or domain.',
+          websiteInvalid: 'Please enter a valid domain (e.g. your-company.com or https://...).',
+          emailRequired: 'Please enter your business email address.',
+          emailInvalid: 'Please enter a valid email address (e.g. name@your-company.com).',
+          phoneRequired: 'Please enter your phone number.',
+          phoneInvalid: 'Please enter a valid phone number (at least 6 digits, e.g. +49 69 12345678).'
+        }
       },
       disqualifiedScreen: {
         title: 'Free Resources for Self-Study',
@@ -1539,8 +2002,12 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
       },
       successScreen: {
         title: 'Thank you! Your request has been received.',
-        desc: 'We have initiated the pre-audit of your website. Choose your preferred review slot on Google Calendar now:',
-        reserveSlotBtn: 'Reserve 15-Minute Slot Now'
+        desc: 'Your domain and contact details have been securely recorded. We are analyzing your growth potential. Choose a review slot below or access our blueprints immediately:',
+        reserveSlotBtn: 'Reserve 15-Minute Slot Now',
+        blueprintHeading: 'Instant Access to Resources & Blueprints:',
+        blueprintDesc: 'Read our comprehensive B2B Growth Blueprint or explore all deep-dive case studies online:',
+        downloadBlueprintBtn: 'View Growth Blueprint (Web/PDF)',
+        exploreHubBtn: 'Explore All Case Studies in Hub'
       }
     }
   }

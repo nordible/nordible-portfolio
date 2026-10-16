@@ -118,14 +118,15 @@ const projects = [
     client: 'Buns 069 Homemade Burger',
     logo: '/images/logos/buns069-logo.webp',
     link: 'https://www.buns069.de/',
+    caseStudySlug: 'restaurant-delivery-growth-case-study',
     description: 'Local food commerce & digital scaling for a premier handcrafted burger brand in the Rhine-Main region. Targeted with increasing overall business volume through high-converting direct ordering funnels, local SEO/GEO visibility, and customer retention.',
     technologies: ['Local SEO & GEO', 'Conversion Optimization', 'Digital Ordering Funnels', 'Performance Marketing', 'Retention Systems'],
-    outcome: 'Structured a high-impact digital expansion roadmap designed to maximize direct customer orders, boost repeat purchase frequency, and scale overall business volume across the Rhine-Main market.',
+    outcome: 'Engineered a visual menu overhaul and high-converting digital storefront driving a +74% revenue surge and 0% order cancellations across online ordering channels.',
     image: 'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
-      focus: 'Volume Growth',
-      channel: 'Direct Orders',
-      market: 'Rhein-Main (069)'
+      focus: '+74% Revenue Sprint',
+      channel: 'Digital Sales Volume',
+      market: 'Frankfurt & Rhein-Main'
     },
     gradient: 'from-amber-600 to-orange-700'
   },
@@ -135,7 +136,7 @@ const projects = [
     client: 'Shams Consult',
     logo: '/images/logos/shams-consult-logo.png',
     link: 'https://shams-consult.de/',
-    caseStudySlug: 'b2b-seo-case-study-google-page-1',
+    caseStudySlug: 'architecture-firm-seo-case-study',
     description: 'Architecture and urban planning consultancy in Frankfurt am Main. Scaled search impressions by +490% and active users by +275% in 30 days while advancing to Google Page 1, securing selected #1 regional rankings, and climbing from Page 7 to Page 3 in Frankfurt.',
     technologies: ['Semantic SEO', 'Technical Performance', 'Information Architecture', 'B2B Creative Strategy', 'Content Engineering'],
     outcome: '+490% search impressions, +317% organic search clicks, and 2 new signed client mandates from 3 connected calls in 30 days without paid ads.',
