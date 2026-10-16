@@ -99,13 +99,13 @@ export interface ExecutiveAsset {
 export const executiveAssets: ExecutiveAsset[] = [
   {
     id: 'corporate-brochure',
-    title: 'Corporate Brochure (6 Pages)',
+    title: 'Corporate Brochure (Tri-Fold)',
     subtitle: 'AI-Native Digital Growth Partner',
     fileName: 'nordible-corporate-brochure.pdf',
-    fileUrl: '/brochure?print=true',
-    fileType: 'pdf',
-    badge: '6 Pages A4',
-    targetBlank: false,
+    fileUrl: '/brochure.html',
+    fileType: 'html',
+    badge: 'DIN A4 Wickelfalz',
+    targetBlank: true,
   },
   {
     id: 'linkedin-cover',

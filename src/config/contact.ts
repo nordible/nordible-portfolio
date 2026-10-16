@@ -15,7 +15,7 @@ export const contactConfig = {
     lastName: 'Shah',
     titleDe: 'Gründer & Solutions Architect',
     titleEn: 'Founder & Solutions Architect',
-    email: 'kabeer@nordible.co',
+    email: 'mail@nordible.co',
     phone: '+49 1521 1065739',
     linkedin: 'https://www.linkedin.com/in/meetkabeershah/',
     github: 'https://github.com/skbr1234',
@@ -37,9 +37,9 @@ export const contactConfig = {
   },
   email: {
     general: 'mail@nordible.co',
-    founder: 'kabeer@nordible.co',
+    founder: 'mail@nordible.co',
     mailToGeneral: 'mailto:mail@nordible.co',
-    mailToFounder: 'mailto:kabeer@nordible.co',
+    mailToFounder: 'mailto:mail@nordible.co',
   },
   bookingUrl: 'https://calendar.app.google/N4XakE4t9zZVmHqYA',
   address: {

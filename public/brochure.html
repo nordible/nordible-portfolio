@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordible Technologies · Digital Growth B2B Broschüre (DIN A4 Wickelfalz)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       CSS RESET & PHYSICAL PRINT ENGINE (DIN A4 LANDSCAPE: 297mm x 210mm)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --nordible-blue: #0D2B75;
+      --nordible-brand: #145BFF;
+      --nordible-dark: #0A192F;
+      --nordible-navy: #071638;
+      --nordible-orange: #FF6B00;
+      --nordible-orange-light: #FFF4ED;
+      --nordible-orange-border: #FFD6B3;
+      --nordible-emerald: #059669;
+      --nordible-emerald-light: #ECFDF5;
+      --nordible-text: #0F172A;
+      --nordible-slate: #334155;
+      --nordible-muted: #64748B;
+      --nordible-card-bg: #FFFFFF;
+      --nordible-border: #E2E8F0;
+      --nordible-panel-bg: #F8FAFC;
+    }
+
+    html, body {
+      background-color: #0B1329;
+      color: var(--nordible-text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ==========================================================================
+       SCREEN PREVIEW TOOLBAR (HIDDEN ON PRINT)
+       ========================================================================== */
+    .screen-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 28px;
+      background: rgba(11, 19, 41, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .toolbar-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .toolbar-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--nordible-orange);
+      background: rgba(255, 107, 0, 0.16);
+      border: 1px solid rgba(255, 107, 0, 0.4);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .duplex-hint-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #FDE68A;
+      background: rgba(217, 119, 6, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .print-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #FF6B00 0%, #E55F00 100%);
+      color: #FFFFFF;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .print-button:hover {
+      background: linear-gradient(135deg, #FF7D1E 0%, #F06500 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(255, 107, 0, 0.45);
+    }
+
+    /* ==========================================================================
+       VIEWPORT CONTAINER (DESKTOP PREVIEW)
+       ========================================================================== */
+    .document-viewport {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 36px 16px 80px 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .sheet-card-container {
+      width: 100%;
+      max-width: 297mm;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sheet-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+
+    .sheet-meta-bar .badge {
+      background: var(--nordible-brand);
+      color: #FFFFFF;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 10px;
+    }
+
+    /* ==========================================================================
+       PHYSICAL SHEET (DIN A4 LANDSCAPE: 297mm x 210mm)
+       ========================================================================== */
+    .sheet {
+      width: 297mm;
+      height: 210mm;
+      min-width: 297mm;
+      min-height: 210mm;
+      max-width: 297mm;
+      max-height: 210mm;
+      background: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: grid;
+      grid-template-columns: 97mm 100mm 100mm;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    /* Fold lines indicator in screen preview */
+    .sheet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 97mm;
+      width: 1px;
+      background: rgba(15, 23, 42, 0.08);
+      border-right: 1px dashed rgba(20, 91, 255, 0.25);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .sheet::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 197mm;
+      width: 1px;
+      background: rgba(15, 23, 42, 0.08);
+      border-right: 1px dashed rgba(20, 91, 255, 0.25);
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       PANEL COMMON FOUNDATION
+       ========================================================================== */
+    .panel {
+      height: 210mm;
+      padding: 11mm 8.5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-header-tag {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--nordible-muted);
+      border-bottom: 1px solid var(--nordible-border);
+      padding-bottom: 5px;
+      margin-bottom: 7px;
+    }
+
+    .panel-header-tag .category {
+      color: var(--nordible-brand);
+      font-weight: 800;
+    }
+
+    .panel-h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--nordible-blue);
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .panel-lead {
+      font-size: 9.5px;
+      line-height: 1.45;
+      color: var(--nordible-slate);
+      margin-bottom: 7px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2.5px 7px;
+      border-radius: 9999px;
+      background: rgba(20, 91, 255, 0.08);
+      color: var(--nordible-brand);
+      border: 1px solid rgba(20, 91, 255, 0.18);
+    }
+
+    /* ==========================================================================
+       PANEL 1: FRONT COVER (TITELSEITE - SHEET 1 RECHTS)
+       ========================================================================== */
+    .panel-cover {
+      background: radial-gradient(circle at 85% 15%, rgba(20, 91, 255, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 85%, rgba(255, 107, 0, 0.06) 0%, transparent 50%),
+                  #FFFFFF;
+    }
+
+    .cover-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .cover-brand-header img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .cover-brand-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--nordible-blue);
+      line-height: 1.15;
+    }
+
+    .cover-brand-subtitle {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--nordible-muted);
+    }
+
+    .cover-headline-box {
+      margin-bottom: 8px;
+    }
+
+    .cover-supertag {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--nordible-orange);
+      background: var(--nordible-orange-light);
+      border: 1px solid var(--nordible-orange-border);
+      padding: 2.5px 7px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .cover-main-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--nordible-dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 5px;
+    }
+
+    .cover-main-title span {
+      color: var(--nordible-brand);
+    }
+
+    .cover-lead {
+      font-size: 9.5px;
+      line-height: 1.45;
+      color: var(--nordible-slate);
+      margin-bottom: 8px;
+    }
+
+    .cover-pillars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .cover-pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 8.5px;
+      font-weight: 600;
+      color: var(--nordible-text);
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .cover-pillar-item svg {
+      color: var(--nordible-emerald);
+      flex-shrink: 0;
+    }
+
+    /* Big QR Code Card (Front Cover Website) */
+    .qr-promo-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0D2B75 0%, #071638 100%);
+      color: #FFFFFF;
+      padding: 8px 10px;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(13, 43, 117, 0.25);
+    }
+
+    .qr-code-box {
+      width: 58px;
+      height: 58px;
+      background: #FFFFFF;
+      padding: 3px;
+      border-radius: 7px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-code-box svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .qr-text-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .qr-badge-micro {
+      font-family: 'Space Mono', monospace;
+      font-size: 7px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #93C5FD;
+    }
+
+    .qr-title-bold {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .qr-hint-sub {
+      font-size: 7.5px;
+      color: #CBD5E1;
+      line-height: 1.3;
+    }
+
+    .qr-url-chip {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: var(--nordible-orange);
+      margin-top: 1px;
+    }
+
+    .cover-footer-authority {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: var(--nordible-muted);
+      border-top: 1px solid var(--nordible-border);
+      padding-top: 5px;
+    }
+
+    /* ==========================================================================
+       PANEL 5: LEISTUNGEN & TEAM (KLAPPE - SHEET 1 LINKS)
+       ========================================================================== */
+    .panel-services {
+      background: var(--nordible-panel-bg);
+      border-right: 1px solid var(--nordible-border);
+    }
+
+    .cost-comparison-box {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin-bottom: 7px;
+    }
+
+    .cost-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--nordible-muted);
+      margin-bottom: 3px;
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+      padding: 1.5px 0;
+    }
+
+    .cost-row.strike {
+      color: #94A3B8;
+      text-decoration: line-through;
+    }
+
+    .cost-row.highlight {
+      font-weight: 700;
+      color: var(--nordible-emerald);
+      border-top: 1px dashed #E2E8F0;
+      padding-top: 3px;
+      margin-top: 2px;
+    }
+
+    .services-grid-mini {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 5px;
+      margin-bottom: 6px;
+    }
+
+    .service-item-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 7px;
+      padding: 4.5px 7px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .service-icon-wrap {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      background: rgba(20, 91, 255, 0.08);
+      color: var(--nordible-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .service-content-mini h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--nordible-blue);
+      line-height: 1.2;
+    }
+
+    .service-content-mini p {
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: var(--nordible-slate);
+    }
+
+    /* ==========================================================================
+       PANEL 6: RÜCKSEITE & KONTAKT (SHEET 1 MITTE)
+       ========================================================================== */
+    .panel-back {
+      background: #FFFFFF;
+      border-right: 1px solid var(--nordible-border);
+    }
+
+    .steps-list-compact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 7px;
+    }
+
+    .step-item-mini {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 4px 6px;
+    }
+
+    .step-num-badge {
+      width: 16px;
+      height: 16px;
+      background: var(--nordible-blue);
+      color: #FFFFFF;
+      border-radius: 4px;
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text h5 {
+      font-family: 'Sora', sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--nordible-dark);
+      line-height: 1.2;
+    }
+
+    .step-text p {
+      font-size: 7.5px;
+      line-height: 1.3;
+      color: var(--nordible-slate);
+    }
+
+    /* Contact Details Card */
+    .contact-card-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin-bottom: 7px;
+    }
+
+    .contact-founder-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+    }
+
+    .founder-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--nordible-blue);
+    }
+
+    .founder-role {
+      font-size: 7.5px;
+      color: var(--nordible-muted);
+      font-weight: 600;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 8px;
+      color: var(--nordible-slate);
+      padding: 1.5px 0;
+    }
+
+    .contact-line svg {
+      color: var(--nordible-brand);
+      flex-shrink: 0;
+    }
+
+    .legal-imprint-micro {
+      font-size: 6.8px;
+      color: var(--nordible-muted);
+      line-height: 1.35;
+      border-top: 1px solid var(--nordible-border);
+      padding-top: 4px;
+    }
+
+    /* ==========================================================================
+       PANEL 2: DAS DILEMMA (SHEET 2 LINKS)
+       ========================================================================== */
+    .panel-dilemma {
+      background: #FFFFFF;
+      border-right: 1px solid var(--nordible-border);
+    }
+
+    .dilemma-cards-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 7px;
+    }
+
+    .dilemma-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 3px solid #EF4444;
+      border-radius: 6px;
+      padding: 5px 7px;
+    }
+
+    .dilemma-card h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      color: #991B1B;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dilemma-card p {
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: var(--nordible-slate);
+    }
+
+    .platform-presence-card {
+      background: rgba(20, 91, 255, 0.04);
+      border: 1px solid rgba(20, 91, 255, 0.15);
+      border-radius: 8px;
+      padding: 6px 8px;
+    }
+
+    .platform-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--nordible-blue);
+      margin-bottom: 4px;
+    }
+
+    .platforms-tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .platform-tag {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 7.5px;
+      font-weight: 600;
+      color: var(--nordible-slate);
+    }
+
+    /* ==========================================================================
+       PANEL 3: DIE STRATEGIE (SHEET 2 MITTE)
+       ========================================================================== */
+    .panel-strategy {
+      background: var(--nordible-panel-bg);
+      border-right: 1px solid var(--nordible-border);
+    }
+
+    .pillars-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 5.5px;
+      margin-bottom: 7px;
+    }
+
+    .pillar-card-full {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 3px solid var(--nordible-brand);
+      border-radius: 6px;
+      padding: 5px 7px;
+    }
+
+    .pillar-card-full h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--nordible-blue);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pillar-card-full p {
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: var(--nordible-slate);
+    }
+
+    .quote-banner-box {
+      background: linear-gradient(135deg, rgba(20, 91, 255, 0.08) 0%, rgba(255, 107, 0, 0.06) 100%);
+      border: 1px solid rgba(20, 91, 255, 0.2);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 8px;
+      line-height: 1.4;
+      font-style: italic;
+      color: var(--nordible-dark);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       PANEL 4: ERGEBNISSE & FALLSTUDIEN (SHEET 2 RECHTS - MIDNIGHT NAVY ACCENT)
+       ========================================================================== */
+    .panel-results {
+      background: radial-gradient(circle at 90% 10%, #153A90 0%, #071638 75%);
+      color: #FFFFFF;
+    }
+
+    .panel-results .panel-header-tag {
+      color: #94A3B8;
+      border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .panel-results .panel-header-tag .category {
+      color: #60A5FA;
+    }
+
+    .panel-results .panel-h1 {
+      color: #FFFFFF;
+    }
+
+    .panel-results .panel-lead {
+      color: #CBD5E1;
+    }
+
+    .case-card-dark {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 6px 8px;
+      margin-bottom: 6px;
+    }
+
+    .case-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .case-brand {
+      font-family: 'Sora', sans-serif;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .case-metric-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: #34D399;
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      padding: 1.5px 6px;
+      border-radius: 4px;
+    }
+
+    .case-metric-badge.orange {
+      color: #FDBA74;
+      background: rgba(251, 146, 60, 0.15);
+      border-color: rgba(251, 146, 60, 0.35);
+    }
+
+    .case-desc-line {
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: #E2E8F0;
+    }
+
+    .testimonial-dark-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 6px 8px;
+    }
+
+    .stars-row {
+      color: #FBBF24;
+      font-size: 8.5px;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-text {
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: #F1F5F9;
+      font-style: italic;
+      margin-bottom: 3px;
+    }
+
+    .testimonial-author {
+      font-size: 7px;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PRINT MEDIA QUERIES (EXACT DIN A4 LANDSCAPE 297mm x 210mm)
+       ========================================================================== */
+    @media print {
+      @page {
+        size: 297mm 210mm landscape;
+        margin: 0;
+      }
+
+      html, body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 297mm !important;
+        height: 210mm !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .document-viewport {
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+        max-width: none !important;
+      }
+
+      .sheet-card-container {
+        max-width: none !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .sheet {
+        width: 297mm !important;
+        height: 210mm !important;
+        min-width: 297mm !important;
+        min-height: 210mm !important;
+        max-width: 297mm !important;
+        max-height: 210mm !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .sheet::before,
+      .sheet::after {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       SCREEN TOOLBAR (NO-PRINT)
+       ========================================================= -->
+  <header class="screen-toolbar no-print">
+    <div class="toolbar-left">
+      <div class="toolbar-brand">
+        <img src="./images/logos/nordible-icon.png" alt="Nordible" style="width: 24px; height: 24px; object-fit: contain;">
+        <span class="toolbar-title">Nordible Technologies</span>
+        <span class="toolbar-badge">DIN A4 Wickelfalz</span>
+      </div>
+    </div>
+
+    <div class="toolbar-right">
+      <div class="duplex-hint-badge">
+        <span>🖨️ Druckeinstellung: Im Dialog „An kurzer Kante spiegeln“ (Flip on short edge) wählen!</span>
+      </div>
+
+      <button type="button" class="print-button" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Als PDF exportieren / Drucken (Strg + P)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       DOCUMENT VIEWPORT
+       ========================================================= -->
+  <main class="document-viewport">
+
+    <!-- -------------------------------------------------------
+         SHEET 1: AUSSENSEITE (OUTSIDE SPREAD: [ 5 | 6 | 1 ])
+         ------------------------------------------------------- -->
+    <div class="sheet-card-container">
+      <div class="sheet-meta-bar no-print">
+        <span>BOGEN 1: AUSSENSEITE (Klappe [S. 5] • Rückseite [S. 6] • Titelseite [S. 1])</span>
+        <span class="badge">DIN A4 Quer · 297 × 210 mm</span>
+      </div>
+
+      <div class="sheet">
+
+        <!-- ==================== PANEL 5: LEISTUNGEN & TEAM (KLAPPE) ==================== -->
+        <section class="panel panel-services">
+          <div>
+            <div class="panel-header-tag">
+              <span>05 · Fähigkeiten & Modell</span>
+              <span class="category">Ihr Digital-Team</span>
+            </div>
+
+            <h2 class="panel-h1">Ihr komplettes Digital-Team.</h2>
+            <p class="panel-lead">
+              Statt 6 verschiedene Einzelspezialisten oder teure Festangestellte mühsam zu koordinieren, erhalten Sie alle Wachstumsdisziplinen aus einer Hand.
+            </p>
+
+            <div class="cost-comparison-box">
+              <div class="cost-title">Kosten interner Spezialisten:</div>
+              <div class="cost-row strike">
+                <span>Web-Entwickler, SEO, GEO & Design</span>
+                <span>ab 395.000 €/J.</span>
+              </div>
+              <div class="cost-row highlight">
+                <span>Nordible-Modell (Sofort startklar)</span>
+                <span>Planbare Flatrate</span>
+              </div>
+            </div>
+
+            <div class="services-grid-mini">
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>High-Performance Web</h4>
+                  <p>Konversionsstarke Plattformen mit Subsekunden-Ladezeiten.</p>
+                </div>
+              </div>
+
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><rect x="4" y="8" width="16" height="12" rx="2"></rect></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>Generative Engine Optimization</h4>
+                  <p>Direkte Empfehlungen in ChatGPT, Perplexity & Google Gemini.</p>
+                </div>
+              </div>
+
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>Google-Suchdominanz (SEO)</h4>
+                  <p>Systematische Seite-1-Platzierungen für kaufbereite Interessenten.</p>
+                </div>
+              </div>
+
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>Google Maps & Reputationsschutz</h4>
+                  <p>Regionale Führung im Map Pack und aktive Bewertungspflege.</p>
+                </div>
+              </div>
+
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>KI-Automatisierung & Lead-Systeme</h4>
+                  <p>24/7 Vorqualifizierung & nahtlose CRM-Verknüpfung.</p>
+                </div>
+              </div>
+
+              <div class="service-item-card">
+                <div class="service-icon-wrap">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                </div>
+                <div class="service-content-mini">
+                  <h4>Direktes Gründer-Sparring</h4>
+                  <p>Wöchentliche Transparenz, ROI-Analysen und klare Sprache.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover-footer-authority">
+            <span>nordible.co/services</span>
+            <span>Made in Germany</span>
+          </div>
+        </section>
+
+        <!-- ==================== PANEL 6: RÜCKSEITE & KONTAKT ==================== -->
+        <section class="panel panel-back">
+          <div>
+            <div class="panel-header-tag">
+              <span>06 · Direktkontakt</span>
+              <span class="category">Nächste Schritte</span>
+            </div>
+
+            <h2 class="panel-h1">Fokus auf Ihr Handwerk.</h2>
+            <p class="panel-lead">
+              Wir machen Ihr Unternehmen digital zur führenden Adresse in Ihrer Region & Branche.
+            </p>
+
+            <div class="steps-list-compact">
+              <div class="step-item-mini">
+                <div class="step-num-badge">01</div>
+                <div class="step-text">
+                  <h5>15-Min. Kennenlerngespräch</h5>
+                  <p>Unverbindliche Klärung Ihrer Ziele & aktuellen Hürden.</p>
+                </div>
+              </div>
+
+              <div class="step-item-mini">
+                <div class="step-num-badge">02</div>
+                <div class="step-text">
+                  <h5>Kostenfreies Digital-Audit</h5>
+                  <p>Wir analysieren Ihre Website, Google- & KI-Sichtbarkeit vorab.</p>
+                </div>
+              </div>
+
+              <div class="step-item-mini">
+                <div class="step-num-badge">03</div>
+                <div class="step-text">
+                  <h5>Planbare Aktivierung</h5>
+                  <p>Start Ihres maßgeschneiderten Wachstumsfahrplans.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Booking QR Code Card -->
+            <div class="qr-promo-card">
+              <div class="qr-code-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h31v31H0z"/><path stroke="#000000" d="M1 1.5h7m1 0h1m2 0h2m1 0h1m3 0h1m3 0h7M1 2.5h1m5 0h1m1 0h4m4 0h1m2 0h2m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h4m1 0h1m4 0h1m3 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m5 0h1m1 0h4m2 0h1m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m2 0h4m1 0h4m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m2 0h1m2 0h3m2 0h1m2 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 8.5h2m1 0h1m1 0h1m4 0h2M1 9.5h1m2 0h6m1 0h5m1 0h3m2 0h1m2 0h1m1 0h3M1 10.5h2m2 0h1m5 0h1m1 0h1m1 0h2m1 0h3m3 0h2m1 0h2M2 11.5h3m2 0h1m1 0h1m1 0h1m3 0h2m4 0h2m1 0h1m2 0h1M5 12.5h1m3 0h1m1 0h1m3 0h1m2 0h1m2 0h2m3 0h1m2 0h1M1 13.5h4m2 0h1m1 0h1m1 0h1m1 0h4m3 0h2m1 0h2m4 0h1M1 14.5h1m1 0h1m1 0h1m3 0h2m1 0h1m3 0h2m1 0h1m3 0h1m1 0h5M1 15.5h1m1 0h5m7 0h2m1 0h3m4 0h1m1 0h1m1 0h1M4 16.5h1m3 0h2m2 0h1m1 0h2m1 0h1m2 0h3m1 0h1m2 0h1m1 0h1M7 17.5h2m1 0h1m5 0h1m7 0h1m1 0h1M1 18.5h1m1 0h2m3 0h2m1 0h2m3 0h1m2 0h3m3 0h1m1 0h2M1 19.5h3m1 0h3m4 0h6m2 0h1m4 0h2m2 0h1M1 20.5h3m2 0h1m1 0h3m1 0h3m2 0h1m4 0h1m2 0h3M1 21.5h5m1 0h2m1 0h2m2 0h1m1 0h1m1 0h1m2 0h8M9 22.5h1m2 0h3m1 0h1m1 0h2m1 0h1m3 0h2M1 23.5h7m1 0h2m2 0h2m1 0h1m3 0h2m1 0h1m1 0h2M1 24.5h1m5 0h1m1 0h6m3 0h4m3 0h1m2 0h2M1 25.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m2 0h1m2 0h7m2 0h1M1 26.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h4m2 0h1m8 0h1M1 27.5h1m1 0h3m1 0h1m2 0h1m2 0h1m2 0h1m1 0h2m1 0h2m1 0h2m1 0h3M1 28.5h1m5 0h1m3 0h1m3 0h1m6 0h1m1 0h1m1 0h2m1 0h1M1 29.5h7m1 0h1m1 0h1m1 0h5m2 0h2m1 0h3"/></svg>
+              </div>
+              <div class="qr-text-info">
+                <span class="qr-badge-micro">1-Klick-Buchung</span>
+                <span class="qr-title-bold">Gespräch buchen</span>
+                <span class="qr-hint-sub">QR-Code mit Smartphone scannen</span>
+                <span class="qr-url-chip">cal.com/nordible/consultation</span>
+              </div>
+            </div>
+
+            <!-- Direct Contact Box -->
+            <div class="contact-card-box" style="margin-top: 6px;">
+              <div class="contact-founder-row">
+                <span class="founder-name">Kabeer Shah</span>
+                <span class="founder-role">Gründer & Solutions Architect</span>
+              </div>
+              <div class="contact-line">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>+49 1521 1065739</span>
+              </div>
+              <div class="contact-line">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>mail@nordible.co</span>
+              </div>
+              <div class="contact-line">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Breitlacherstr. 101, 60489 Frankfurt</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="legal-imprint-micro">
+            Nordible Technologies · Inh. Kabeer Shah · Breitlacherstr. 101, 60489 Frankfurt am Main · USt-IdNr. DE349580456
+          </div>
+        </section>
+
+        <!-- ==================== PANEL 1: TITELSEITE (FRONT COVER) ==================== -->
+        <section class="panel panel-cover">
+          <div>
+            <div class="cover-brand-header">
+              <img src="./images/logos/nordible-icon.png" alt="Nordible Technologies Logo">
+              <div>
+                <div class="cover-brand-title">Nordible Technologies</div>
+                <div class="cover-brand-subtitle">Digital Growth & Architecture</div>
+              </div>
+            </div>
+
+            <div class="cover-headline-box">
+              <span class="cover-supertag">Technologie- & Wachstumspartner</span>
+              <h1 class="cover-main-title">
+                Ihr Unternehmen verdient die <span>volle Aufmerksamkeit</span> Ihrer Kunden.
+              </h1>
+              <p class="cover-lead">
+                Wir verwandeln Ihre digitale Präsenz von einem passiven Kostenfaktor in eine verlässliche, planbare Neukundenmaschine.
+              </p>
+            </div>
+
+            <div class="cover-pillars-list">
+              <div class="cover-pillar-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Google- & KI-Suchdominanz (#1 Rankings)</span>
+              </div>
+              <div class="cover-pillar-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Subsekunden-Ladezeiten & Enterprise-Code</span>
+              </div>
+              <div class="cover-pillar-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Direkte Partnerschaft auf Augenhöhe (Kein Callcenter)</span>
+              </div>
+              <div class="cover-pillar-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Nachweisbare Resultate im deutschen Mittelstand</span>
+              </div>
+            </div>
+
+            <!-- Big Website QR Code Card -->
+            <div class="qr-promo-card">
+              <div class="qr-code-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h27v27H0z"/><path stroke="#000000" d="M1 1.5h7m5 0h1m3 0h1m1 0h7M1 2.5h1m5 0h1m4 0h1m1 0h1m1 0h1m2 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h3m2 0h2m3 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m4 0h1m4 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h3m2 0h4m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m5 0h3M1 9.5h1m1 0h5m3 0h1m4 0h1m2 0h5M1 10.5h1m3 0h1m2 0h1m4 0h2m2 0h1m2 0h1m3 0h1M6 11.5h2m2 0h1m2 0h4m1 0h1m2 0h2m1 0h2M1 12.5h3m5 0h2m3 0h1m1 0h3m1 0h2m3 0h1M1 13.5h1m3 0h4m2 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h3M1 14.5h1m1 0h3m11 0h2m1 0h1m1 0h1m1 0h1M1 15.5h1m2 0h1m2 0h3m2 0h2m2 0h1m2 0h4m1 0h2M1 16.5h1m2 0h1m1 0h1m3 0h1m1 0h1m2 0h1m4 0h2m3 0h1M1 17.5h1m1 0h1m2 0h2m4 0h1m3 0h6m1 0h1M9 18.5h2m2 0h5m3 0h2M1 19.5h7m2 0h2m2 0h2m1 0h1m1 0h1m1 0h1m1 0h3M1 20.5h1m5 0h1m1 0h2m2 0h2m2 0h1m3 0h2m1 0h1M1 21.5h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h7m1 0h1m1 0h1M1 22.5h1m1 0h3m1 0h1m1 0h2m7 0h2m1 0h5M1 23.5h1m1 0h3m1 0h1m1 0h5m2 0h2m4 0h2m1 0h1M1 24.5h1m5 0h1m2 0h1m1 0h1m2 0h8m2 0h1M1 25.5h7m1 0h1m2 0h1m6 0h7"/></svg>
+              </div>
+              <div class="qr-text-info">
+                <span class="qr-badge-micro">Digitales Portfolio</span>
+                <span class="qr-title-bold">nordible.co</span>
+                <span class="qr-hint-sub">Kamera auf den QR-Code richten</span>
+                <span class="qr-url-chip">Website & Fallstudien ansehen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover-footer-authority">
+            <span>Frankfurt am Main</span>
+            <span>B2B Growth Engine 2026</span>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- -------------------------------------------------------
+         SHEET 2: INNENSEITE (INSIDE SPREAD: [ 2 | 3 | 4 ])
+         ------------------------------------------------------- -->
+    <div class="sheet-card-container">
+      <div class="sheet-meta-bar no-print">
+        <span>BOGEN 2: INNENSEITE (Panorama: Problem [S. 2] • Strategie [S. 3] • Fallstudien [S. 4])</span>
+        <span class="badge">DIN A4 Quer · 297 × 210 mm</span>
+      </div>
+
+      <div class="sheet">
+
+        <!-- ==================== PANEL 2: DAS DILEMMA ==================== -->
+        <section class="panel panel-dilemma">
+          <div>
+            <div class="panel-header-tag">
+              <span>02 · Die Markt-Realität</span>
+              <span class="category">Marktanalyse</span>
+            </div>
+
+            <h2 class="panel-h1">Warum Einzellösungen heute scheitern.</h2>
+            <p class="panel-lead">
+              Klassische Webagenturen verstehen keine Softwarearchitektur. SEO-Agenturen können keinen Code optimieren. Und interne IT-Teams binden immense Fixkosten.
+            </p>
+
+            <div class="dilemma-cards-wrap">
+              <div class="dilemma-card">
+                <h4>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span>Google- & KI-Blindheit</span>
+                </h4>
+                <p>87% der B2B-Käufer starten bei Google & KI. Wer auf Seite 2 steht, existiert für lukrative Anfragen schlicht nicht.</p>
+              </div>
+
+              <div class="dilemma-card">
+                <h4>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span>Langsame Ladezeiten</span>
+                </h4>
+                <p>Jede Sekunde Wartezeit senkt Konversionen um 20%. Veraltete WordPress-Seiten verbrennen täglich kaufbereite Leads.</p>
+              </div>
+
+              <div class="dilemma-card">
+                <h4>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  <span>Fehlende KI-Semantik (GEO)</span>
+                </h4>
+                <p>ChatGPT, Perplexity & Gemini beantworten Suchen direkt. Ohne strukturierte Daten wird Ihre Firma übersehen.</p>
+              </div>
+            </div>
+
+            <div class="platform-presence-card">
+              <div class="platform-title">Ihre Kunden suchen Sie aktuell hier:</div>
+              <div class="platforms-tags-cloud">
+                <span class="platform-tag">Google Search</span>
+                <span class="platform-tag">ChatGPT</span>
+                <span class="platform-tag">Perplexity AI</span>
+                <span class="platform-tag">Google Maps</span>
+                <span class="platform-tag">LinkedIn B2B</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cover-footer-authority">
+            <span>Status quo</span>
+            <span>Verpasste Marktanteile</span>
+          </div>
+        </section>
+
+        <!-- ==================== PANEL 3: DIE STRATEGIE ==================== -->
+        <section class="panel panel-strategy">
+          <div>
+            <div class="panel-header-tag">
+              <span>03 · Die Architektur</span>
+              <span class="category">Kontinuierliches Wachstum</span>
+            </div>
+
+            <h2 class="panel-h1">Digitales Wachstum ist kein Einmalprojekt.</h2>
+            <p class="panel-lead">
+              Echtes Marktwachstum ist eine planbare Investition. Einmalige Websites veralten sofort – wir sichern Ihren dauerhaften Vorsprung.
+            </p>
+
+            <div class="pillars-stack">
+              <div class="pillar-card-full">
+                <h4>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  <span>1. Technische Spitzenklasse</span>
+                </h4>
+                <p>Next.js & Cloud-Architektur mit 100/100 Google Lighthouse Score für maximale Geschwindigkeit und Sicherheit.</p>
+              </div>
+
+              <div class="pillar-card-full">
+                <h4>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                  <span>2. Omnipräsenz in Suche & KI</span>
+                </h4>
+                <p>Systematisches Keyword-Targeting & strukturierte Wissensgraphen, damit Algorithmen Sie als Nummer 1 empfehlen.</p>
+              </div>
+
+              <div class="pillar-card-full">
+                <h4>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>3. Vertrauensbildende Autorität</span>
+                </h4>
+                <p>Messbare Fallstudien, verifizierte Rezensionen und glasklare Nutzenargumente, die Besucher zu Kunden wandeln.</p>
+              </div>
+            </div>
+
+            <div class="quote-banner-box">
+              „Wer aufhört, besser zu werden, hat aufgehört, gut zu sein. Wir sichern Ihre Marktführerschaft wöchentlich ab.“
+            </div>
+          </div>
+
+          <div class="cover-footer-authority">
+            <span>Das Nordible-System</span>
+            <span>Planbar & Skalierbar</span>
+          </div>
+        </section>
+
+        <!-- ==================== PANEL 4: ERGEBNISSE & FALLSTUDIEN (MIDNIGHT NAVY ACCENT) ==================== -->
+        <section class="panel panel-results">
+          <div>
+            <div class="panel-header-tag">
+              <span>04 · Nachweisbare Zahlen</span>
+              <span class="category">Echte Erfolge</span>
+            </div>
+
+            <h2 class="panel-h1">Ergebnisse statt leerer Versprechen.</h2>
+            <p class="panel-lead">
+              Konkrete Zahlen und messbare Erfolge unserer Partnerschaften im deutschen Mittelstand:
+            </p>
+
+            <div class="case-card-dark">
+              <div class="case-header">
+                <span class="case-brand">Shams Consult</span>
+                <span class="case-metric-badge">#1 Google-Ranking</span>
+              </div>
+              <p class="case-desc-line">
+                Architektur & Bauanträge: Platz 1 für „Bauantrag Frankfurt“, 400+ qualifizierte Kundenanfragen, 100/100 Lighthouse Performance.
+              </p>
+            </div>
+
+            <div class="case-card-dark">
+              <div class="case-header">
+                <span class="case-brand">Buns 069</span>
+                <span class="case-metric-badge orange">+85% Online-Bestellungen</span>
+              </div>
+              <p class="case-desc-line">
+                Gastronomie & E-Commerce: Provisionsfreie Direktplattform, 4.8 Sterne bei 350+ Bewertungen, regionale Marktführerschaft.
+              </p>
+            </div>
+
+            <div class="testimonial-dark-box">
+              <div class="stars-row">★★★★★</div>
+              <p class="testimonial-text">
+                „Nordible hat unsere Online-Präsenz komplett transformiert. Wir belegen Platz 1 bei Google und erhalten wöchentlich planbare Bauherren-Anfragen.“
+              </p>
+              <div class="testimonial-author">
+                Dipl.-Ing. M. Shams · Inhaber Shams Consult
+              </div>
+            </div>
+          </div>
+
+          <div class="cover-footer-authority" style="border-top-color: rgba(255,255,255,0.15); color: #94A3B8;">
+            <span>Referenzen 2026</span>
+            <span>100% Verifiziert</span>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

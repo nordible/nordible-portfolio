@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import RouteClientWrapper from '@/components/RouteClientWrapper';
 import FounderPage from '@/components/FounderPage';
 import InvestmentModelsPage from '@/components/InvestmentModelsPage';
@@ -10,7 +10,6 @@ import BlogPost from '@/components/BlogPost';
 import AreasServedPage from '@/components/AreasServedPage';
 import LocationLandingPage from '@/components/LocationLandingPage';
 import QrCodeGeneratorPage from '@/components/QrCodeGeneratorPage';
-import BrochurePage from '@/components/BrochurePage';
 import DigitalCardPage from '@/components/DigitalCardPage';
 import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
@@ -90,7 +89,7 @@ export default async function DePage({ params }: { params: Promise<{ slug: strin
     </>
   );
   if (path === 'qr-code-generator') return <QrCodeGeneratorPage />;
-  if (path === 'brochure') return <RouteClientWrapper><BrochurePage /></RouteClientWrapper>;
+  if (path === 'brochure') redirect('/brochure.html');
   if (path === 'card') return <DigitalCardPage />;
   if (path === 'privacy') return <PrivacyPolicy />;
   if (path === 'terms') return <TermsOfService />;
