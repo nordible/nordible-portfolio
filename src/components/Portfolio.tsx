@@ -80,15 +80,15 @@ const projects = [
     client: 'Smartek21',
     logo: '/images/logos/smartek21_logo.png',
     link: 'https://smartek21.com',
-    description: 'Chatbot-building platform with Natural Language Processing for creating conversational AI chatbots.',
+    description: 'Intelligent conversational AI platform delivering 24/7 automated customer self-service, query triage, and CRM integration.',
 
-    technologies: ['AngularJS', 'Node.js', 'MySQL', 'AWS', 'NLP'],
-    outcome: 'Enabled 500+ businesses to deploy chatbots, reducing customer service costs by 60%',
+    technologies: ['Conversational AI', 'NLP', 'Node.js', 'AngularJS', 'AWS Cloud Architecture'],
+    outcome: 'Cut customer service operating costs by 60% across 500+ deployed businesses while maintaining 90% first-contact resolution.',
     image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
-      bots: '500+',
-      cost_reduction: '60%',
-      accuracy: '90%'
+      bots: '500+ Live Deployments',
+      cost_reduction: '60% Cost Saved',
+      accuracy: '90% Resolution'
     },
 
     gradient: 'from-orange-600 to-red-600'
@@ -99,15 +99,15 @@ const projects = [
     client: 'NextServices HSS Pvt Ltd',
     logo: '/images/logos/nextservices_logo.png',
     link: 'https://nextservices.com/',
-    description: 'Internal process automation technology solution for automating web scraping, data processing, reporting, and email workflows.',
+    description: 'Enterprise workflow automation platform eliminating manual back-office tasks, invoice extraction, data reconciliation, and executive reporting.',
 
-    technologies: ['C#', 'JavaScript', 'SQL Server', '.NET Framework', 'ASP.NET MVC'],
-    outcome: 'Automated 80% of manual processes, saving 40+ hours per week and reducing errors by 90%',
+    technologies: ['C#', '.NET Framework', 'SQL Server', 'Robotic Process Automation', 'Data Pipeline Engineering'],
+    outcome: 'Automated 80% of repetitive operational workflows, saving 40+ billable employee hours per week and reducing processing errors by 90%.',
     image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
-      automation: '80%',
-      time_saved: '40h/week',
-      error_reduction: '90%'
+      automation: '80% Workflows',
+      time_saved: '40h/week Saved',
+      error_reduction: '90% Fewer Errors'
     },
 
     gradient: 'from-emerald-600 to-teal-600'
@@ -121,7 +121,7 @@ const projects = [
     caseStudySlug: 'restaurant-delivery-growth-case-study',
     description: 'Local food commerce & digital scaling for a premier handcrafted burger brand in the Rhine-Main region. Targeted with increasing overall business volume through high-converting direct ordering funnels, local SEO/GEO visibility, and customer retention.',
     technologies: ['Local SEO & GEO', 'Conversion Optimization', 'Digital Ordering Funnels', 'Performance Marketing', 'Retention Systems'],
-    outcome: 'Engineered a visual menu overhaul and high-converting digital storefront driving a +74% revenue surge and 0% order cancellations across online ordering channels.',
+    outcome: 'Engineered storefront conversion architecture and digital ordering systems, driving a +74% revenue surge and 0% cancellations across online ordering channels.',
     image: 'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1200',
     metrics: {
       focus: '+74% Revenue Sprint',
@@ -137,14 +137,14 @@ const projects = [
     logo: '/images/logos/shams-consult-logo.png',
     link: 'https://shams-consult.de/',
     caseStudySlug: 'architecture-firm-seo-case-study',
-    description: 'Architecture and urban planning consultancy in Frankfurt am Main. Scaled search impressions by +490% and active users by +275% in 30 days while advancing to Google Page 1, securing selected #1 regional rankings, and climbing from Page 7 to Page 3 in Frankfurt.',
-    technologies: ['Semantic SEO', 'Technical Performance', 'Information Architecture', 'B2B Creative Strategy', 'Content Engineering'],
-    outcome: '+490% search impressions, +317% organic search clicks, and 2 new signed client mandates from 3 connected calls in 30 days without paid ads.',
+    description: 'Architecture and urban planning consultancy in Frankfurt am Main. Established Google Page 1 authority across core service lines and transformed organic search interest into signed commercial mandates without paid ads.',
+    technologies: ['B2B Client Funnel Architecture', 'Semantic Search Authority', 'Performance Engineering', 'Information Architecture'],
+    outcome: 'Engineered a search authority architecture that drove +490% search impressions, +317% organic clicks, and secured 2 signed client mandates from 3 connected calls in 30 days.',
     image: '/images/shams-consult/shams-consult-homepage-hero.png',
     metrics: {
-      impressions: '+490%',
+      impressions: '+490% Reach',
       ranking: 'Google Page 1',
-      new_clients: '2 Clients Signed'
+      new_clients: '2 Signed Mandates'
     },
     gradient: 'from-blue-600 to-emerald-600'
   },

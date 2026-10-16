@@ -221,7 +221,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
         title: '+74% Revenue Sprint: How a Restaurant Scaled Digital Sales & Average Basket Size with 0% Cancellations',
-        excerpt: 'How transforming bare text menus into a high-converting visual storefront accelerated food sales, drove a +74% revenue surge, and boosted average basket values with zero cancellations.',
+        excerpt: 'How storefront conversion engineering and digital visual architecture accelerated online sales, drove a +74% revenue sprint, and eliminated cancellations.',
         category: 'Restaurant Revenue & E-Commerce',
         categorySlug: 'geo',
         readTime: '3 min read',
@@ -234,9 +234,9 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       {
         id: 'architecture-firm-seo-case-study',
         slug: 'architecture-firm-seo-case-study',
-        title: 'Case Study: Google Page 1 & Regional #1 Positions for an Architecture Firm',
-        excerpt: 'How Nordible helped an architecture practice achieve Google Page 1 across primary services, secure selected #1 regional rankings, climb 4 pages in Frankfurt, and win 2 signed clients from inbound calls.',
-        category: 'B2B SEO Case Study',
+        title: 'Case Study: How an Architecture Firm Won 2 Signed High-Value Client Mandates via Google Page 1 Searches',
+        excerpt: 'How Nordible engineered local search authority and a high-converting B2B web experience that turned organic Google searchers into 2 signed client mandates in 30 days without paid ads.',
+        category: 'B2B Client Acquisition & SEO',
         categorySlug: 'geo',
         readTime: '3 min read',
         date: 'September 2026',
@@ -248,9 +248,9 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
-        title: 'How We Engineered Local Dominance and AI Discoverability for a Frankfurt Business',
-        excerpt: 'Technical and strategic blueprint for mastering German business directory ecosystems and Generative Engine Optimization (GEO) to dominate conversational AI recommendations.',
-        category: 'GEO & Local SEO',
+        title: 'How a Local Business Captured Direct AI Recommendations (ChatGPT, Perplexity) & Google Maps Dominance',
+        excerpt: 'A practical blueprint for German businesses to get directly recommended by AI engines and local search, converting high-intent regional buyers into direct inquiries.',
+        category: 'AI Search & Local Dominance',
         categorySlug: 'geo',
         readTime: '5 min read',
         date: 'September 2026',
@@ -302,7 +302,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
         title: '+74 % Umsatz-Sprint: Wie ein Restaurant den digitalen Bestellumsatz bei 0 % Stornorate maximierte',
-        excerpt: 'Wie die Transformation bildloser Textkarten in ein umsatzstarkes digitales Schaufenster den Bestellumsatz um +74 % steigerte, Warenkorbwerte erhöhte und Stornierungen komplett eliminierte.',
+        excerpt: 'Wie Storefront-Architektur und Conversion-Engineering den Bestellumsatz um +74 % steigerten, Warenkorbwerte erhöhten und Stornierungen komplett eliminierten.',
         category: 'Gastronomie-Umsatz & E-Commerce',
         categorySlug: 'geo',
         readTime: '3 Min. Lesezeit',
@@ -315,9 +315,9 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       {
         id: 'architecture-firm-seo-case-study',
         slug: 'architecture-firm-seo-case-study',
-        title: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen für ein Architekturbüro',
-        excerpt: 'Wie Nordible ein deutsches Architekturbüro zu Google Seite 1 für Kernleistungen, ausgewählten regionalen Spitzenplätzen, einem 4-Seiten-Sprung in Frankfurt und 2 festen Neukundenmandaten aus direkten Anrufen verhalf.',
-        category: 'B2B-SEO-Fallstudie',
+        title: 'Fallstudie: Wie ein Architekturbüro über Google Seite 1 zwei feste Neukunden-Mandate gewann',
+        excerpt: 'Wie Nordible durch lokale Suchautorität und einen zielgerichteten B2B-Webauftritt qualifizierte Google-Suchanfragen in 2 feste Neukunden-Mandate innerhalb von 30 Tagen verwandelte.',
+        category: 'B2B-Mandantengewinnung & SEO',
         categorySlug: 'geo',
         readTime: '3 Min. Lesezeit',
         date: 'September 2026',
@@ -329,9 +329,9 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
       {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
-        title: 'Wie wir lokale Dominanz und KI-Auffindbarkeit für ein Frankfurter Unternehmen realisiert haben',
-        excerpt: 'Technischer und strategischer Leitfaden zur Beherrschung deutscher Branchenverzeichnisse und Generative Engine Optimization (GEO) für direkte KI-Empfehlungen.',
-        category: 'GEO & Lokales SEO',
+        title: 'Wie ein regionales Unternehmen Spitzenplätze in Google Maps und KI-Empfehlungen (ChatGPT, Perplexity) sicherte',
+        excerpt: 'Praxisnaher Leitfaden für deutsche Unternehmen, um von KI-Suchmaschinen direkt zitiert zu werden und kaufbereite Interessenten in konkrete Anfragen zu verwandeln.',
+        category: 'KI-Suche & Lokale Dominanz',
         categorySlug: 'geo',
         readTime: '5 Min. Lesezeit',
         date: 'September 2026',
@@ -365,10 +365,10 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     navCurrent: 'Case Study',
     share: 'Share',
     copied: 'Copied Link',
-    badge: 'B2B SEO & UX Case Study',
+    badge: 'B2B Client Acquisition & SEO Case Study',
     date: 'September 2026',
     readTime: '4 min read',
-    title: 'Case Study: Scaling an Architecture Firm to Google Page 1 & Regional #1 Positions with Science-Backed UX',
+    title: 'Case Study: How an Architecture Firm Won 2 Signed High-Value Client Mandates via Google Page 1 Searches',
     client: {
       name: 'Shams Consult',
       location: 'Frankfurt am Main & Rödermark',
@@ -736,10 +736,10 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     navCurrent: 'Fallstudie',
     share: 'Teilen',
     copied: 'Link kopiert',
-    badge: 'B2B-SEO- & UX-Fallstudie',
+    badge: 'B2B-Mandantengewinnung & SEO-Fallstudie',
     date: 'September 2026',
     readTime: '4 Min. Lesezeit',
-    title: 'Fallstudie: Google Seite 1 & regionale Spitzenplatzierungen für ein deutsches Architekturbüro durch wissenschaftlich fundierte UX',
+    title: 'Fallstudie: Wie ein deutsches Architekturbüro über Google Seite 1 zwei feste Neukunden-Mandate gewann',
     client: {
       name: 'Shams Consult',
       location: 'Frankfurt am Main & Rödermark',
@@ -1396,8 +1396,8 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       link: 'https://buns069.de/'
     },
     introParagraphs: [
-      'In food e-commerce, the Picture Superiority Effect dictates buyer decisions: customers do not buy food they cannot see. Prior to partnering with Nordible, Buns 069 operated on delivery marketplaces with bare, image-less text listings. Without visual appetence, customer decision fatigue was high, basket sizes remained constrained, and the store was disadvantaged in platform ranking algorithms.',
-      'Nordible engineered a complete visual turnaround: introducing professional, high-contrast food photography and structured digital menu architecture. Immediately following this visual transformation, customer order volume surged across both major German platforms—scaling combined monthly delivery revenue past €17,250+, sustaining an exceptional 0% cancellation rate on Lieferando (333 successful orders), and driving a +74% October revenue surge on Uber Eats with a 21% menu conversion rate.'
+      'In digital food commerce, visual presentation and storefront friction dictate purchase decisions: customers do not buy what they cannot clearly evaluate. Prior to partnering with Nordible, Buns 069 operated on online ordering platforms with bare, text-only listings. Decision friction was high, average basket sizes remained constrained, and the store lacked algorithmic reach.',
+      'Nordible engineered a high-converting digital storefront architecture, visual asset systems, and conversion funnel optimization. Immediately following this rollout, customer demand surged across major digital channels—scaling monthly online sales past €17,250+, sustaining an exceptional 0% cancellation rate on Lieferando (333 successful orders), and driving a +74% October revenue surge on Uber Eats with a 21% store conversion rate.'
     ],
     metrics: [
       {
@@ -1418,35 +1418,35 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     ],
     objective: {
       title: 'The Objective',
-      text: 'Transform Buns 069 from an image-less, low-converting text menu into a premier visual burger brand across Germany’s top delivery marketplaces, maximizing average basket value and driving immediate order volume growth through science-backed food presentation.'
+      text: 'Transform Buns 069 into a premier high-converting digital food brand across Germany’s top ordering channels, maximizing average ticket sizes and scaling sustainable sales volume through storefront conversion engineering.'
     },
     heroImage: {
       src: '/images/buns-069/buns-069-homepage-hero.png',
       alt: 'Buns 069 Online Ordering Website and Homemade Burger Experience',
       caption: 'Buns 069 Official Website & Digital Storefront · Frankfurt am Main / Offenbach',
       badge: 'Digital Commerce & Online Ordering',
-      explanation: 'High-converting digital storefront and visual menu architecture driving direct customer acquisition, delivery orders, and table bookings.',
-      businessBenefit: 'Professional food photography and intuitive ordering journeys transformed customer perception and sparked immediate sales surges across all digital channels.'
+      explanation: 'High-converting digital storefront architecture and ordering funnel engineering driving direct customer acquisition and online sales.',
+      businessBenefit: 'Conversion-engineered digital storefronts and professional asset architecture elevated brand authority and sparked immediate sales surges across all digital channels.'
     },
     sections: [
       {
         number: '01',
-        title: 'The Catalyst: Transforming Image-Less Menus into High-Converting Visuals',
-        businessTakeaway: 'Before our intervention, the store had zero food images or visual representations. Introducing professional food designs sparked an immediate surge in customer orders and marketplace discoverability.',
+        title: 'The Catalyst: Engineering a High-Converting Visual Storefront',
+        businessTakeaway: 'Before our intervention, the store operated with zero visual representations. Implementing conversion-engineered visual storefront architecture sparked an immediate surge in customer orders and marketplace discoverability.',
         paragraphs: [
           'The initial diagnosis revealed a fundamental conversion bottleneck: Buns 069 had zero photos for its burgers, signature fries, and handmade dips on both Lieferando and Uber Eats. Prospective diners were forced to read plain text descriptions, leading to high abandonment rates and unguided, low-ticket orders.',
-          'Nordible deployed a full visual overhaul: capturing high-definition, appetizing product imagery and establishing clear visual hierarchies for every menu category. Customers could immediately inspect burger textures, premium toppings, and artisanal buns. Following this rollout, platform algorithms instantly registered increased click-through and completion rates, pushing Buns 069 to top carousel positions.'
+          'Nordible deployed a full storefront overhaul: capturing high-definition, appetizing product imagery and establishing clear visual hierarchies for every category. Customers could immediately inspect burger textures, premium toppings, and artisanal buns. Following this rollout, platform algorithms instantly registered increased click-through and completion rates, pushing Buns 069 to top carousel positions.'
         ],
         cards: [
           {
             title: 'From Zero Photos to 100% Visuals',
-            desc: 'Eliminated text-only placeholders with high-resolution, appetite-inducing imagery for every signature burger, side, and beverage.',
-            badge: 'Visual Overhaul',
+            desc: 'Eliminated text-only placeholders with high-resolution, appetite-inducing imagery for every signature item, side, and beverage.',
+            badge: 'Conversion Architecture',
             icon: 'sparkles'
           },
           {
             title: 'Cognitive Combo Bundling',
-            desc: 'Restructured visual menu pairings (Burger + Artisanal Fries + Drink), prompting higher basket values (€30.88 on Lieferando, €35.74 on Uber Eats).',
+            desc: 'Restructured visual order flows and combo pairings (Burger + Artisanal Fries + Drink), prompting higher basket values (€30.88 on Lieferando, €35.74 on Uber Eats).',
             badge: 'Basket Architecture',
             icon: 'zap'
           },
@@ -1549,8 +1549,8 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       link: 'https://buns069.de/'
     },
     introParagraphs: [
-      'Im digitalen Food-E-Commerce gilt der sogenannte Picture-Superiority-Effekt: Gäste bestellen nicht, was sie sich nicht bildlich vorstellen können. Vor der Zusammenarbeit mit Nordible trat Buns 069 auf den großen Lieferportalen mit rein textbasierten Speisekarten ohne Produktbilder auf. Die Folge: Hohe Kaufzurückhaltung, ungenutzte Warenkorbpotenziale und algorithmische Benachteiligung im Plattform-Ranking.',
-      'Nordible leitete die visuelle Transformation ein: Professionelle Food-Fotografie, appetitanregende Bilddarstellungen und eine klare Menü-Architektur. Unmittelbar nach Einführung dieser visuellen Aufwertung explodierte die Bestellnachfrage auf den führenden Plattformen: Der monatliche Gesamtlieferumsatz kletterte auf über 17.250 €, Lieferando erzielte 10.282 € bei einer makellosen Stornoquote von 0 % (333 erfolgreiche Bestellungen) und Uber Eats beschleunigte im Oktober um +74 % bei einer Menü-Konversion von 21 %.'
+      'Im digitalen Commerce entscheiden visuelle Führung und reibungslose Nutzerführung über den Kaufabschluss: Kunden kaufen nicht, was sie nicht überzeugend wahrnehmen können. Vor der Zusammenarbeit mit Nordible war Buns 069 auf den großen Plattformen mit rein textbasierten Einträgen ohne visuelle Führung vertreten. Die Folge: Hohe Kaufzurückhaltung, ungenutzte Warenkorbpotenziale und algorithmische Benachteiligung im Plattform-Ranking.',
+      'Nordible implementierte eine konversionsstarke Storefront-Architektur und optimierte die digitalen Bestelltrichter. Unmittelbar nach Einführung dieser Aufwertung explodierte die Bestellnachfrage über alle digitalen Kanäle: Der monatliche Gesamtumsatz kletterte auf über 17.250 €, Lieferando erzielte 10.282 € bei einer makellosen Stornoquote von 0 % (333 erfolgreiche Bestellungen) und Uber Eats beschleunigte im Oktober um +74 % bei einer Store-Konversion von 21 %.'
     ],
     metrics: [
       {
@@ -1571,15 +1571,15 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     ],
     objective: {
       title: 'Die Zielsetzung',
-      text: 'Buns 069 von einer bildlosen, textlastigen Lieferkarte in ein visuell führendes Burger-Erlebnis auf den relevanten Lieferportalen zu verwandeln, den durchschnittlichen Warenkorbwert durch appetitgetriebene Menüpsychologie zu maximieren und die Bestellfrequenz nachhaltig zu vervielfachen.'
+      text: 'Buns 069 durch digitale Storefront-Architektur und Conversion-Engineering in eine ertragsstarke Online-Marke zu transformieren, den durchschnittlichen Warenkorbwert zu maximieren und die Bestellfrequenz nachhaltig zu vervielfachen.'
     },
     heroImage: {
       src: '/images/buns-069/buns-069-homepage-hero.png',
       alt: 'Buns 069 Online-Bestellplattform und Homemade Burger Experience',
       caption: 'Buns 069 Offizielle Website & Digitaler Storefront · Frankfurt am Main / Offenbach',
       badge: 'Digital Commerce & Online-Bestellsystem',
-      explanation: 'Hochkonvertierender digitaler Auftritt und visuelle Menü-Architektur zur direkten Neukundengewinnung, Lieferbestellung und Abholung.',
-      businessBenefit: 'Professionelle Food-Fotografie und intuitive Menüführung steigern die Markenwahrnehmung und lösten eine sofortige Nachfragewelle über alle Vertriebskanäle aus.'
+      explanation: 'Hochkonvertierende digitale Storefront-Architektur und optimierte Bestelltrichter zur direkten Kundengewinnung und Erlössteigerung.',
+      businessBenefit: 'Conversion-optimierte Storefronts und professionelle Asset-Architektur steigern die Markenwahrnehmung und lösten eine sofortige Nachfragewelle über alle digitalen Kanäle aus.'
     },
     sections: [
       {
@@ -1593,8 +1593,8 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
         cards: [
           {
             title: 'Von 0 Fotos zu 100 % visueller Führung',
-            desc: 'Vollständige Ablösung der reinen Textzeilen durch brillante, appetitanregende Produktinszenierungen für alle Haupt- und Nebengerichte.',
-            badge: 'Visueller Relaunch',
+            desc: 'Vollständige Ablösung der reinen Textzeilen durch brillante Produktinszenierungen für alle Haupt- und Nebengerichte.',
+            badge: 'Conversion-Architektur',
             icon: 'sparkles'
           },
           {
@@ -1604,8 +1604,8 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
             icon: 'zap'
           },
           {
-            title: '21 % Menü-Konversion',
-            desc: 'Durchdachte Menüführung und klare Zusatzoptionen verwandelten mehr als jeden fünften Menü-Besucher auf Uber Eats in einen zahlenden Kunden.',
+            title: '21 % Storefront-Konversion',
+            desc: 'Durchdachte Nutzerführung und klare Zusatzoptionen verwandelten mehr als jeden fünften Store-Besucher auf Uber Eats in einen zahlenden Kunden.',
             badge: 'Konversions-Sprung',
             icon: 'compass'
           },
@@ -1813,7 +1813,7 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
           },
           {
             id: 'restaurant-revenue',
-            title: 'Digitalen Bestellumsatz & Gastronomie-Erlöse nachhaltig steigern',
+            title: 'Digitalen Bestellumsatz & Gastronomie-Erlöse durch Conversion-Engineering steigern',
             desc: 'Höhere Warenkörbe, +70 % Umsatzwachstum & maximale Margen pro Bestellung',
             iconType: 'utensils'
           },
@@ -1954,7 +1954,7 @@ export const auditFunnelTranslations: Record<'en' | 'de', AuditFunnelTranslation
           },
           {
             id: 'restaurant-revenue',
-            title: 'Scale digital sales & restaurant revenue with high-converting visual menus',
+            title: 'Scale digital sales & restaurant revenue through conversion engineering',
             desc: 'Increase average ticket sizes, unlock +70% revenue growth & protect kitchen margins',
             iconType: 'utensils'
           },
