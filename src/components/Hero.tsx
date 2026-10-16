@@ -1,11 +1,12 @@
 'use client';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Store, Rocket, Building2, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Hero() {
-  const { t, getPath } = useLanguage();
+  const { t, language, getPath } = useLanguage();
   const navigate = useNavigate();
+  const isDe = language === 'de';
 
   const scrollToConsultation = () => {
     const element = document.getElementById('consultation');
@@ -13,6 +14,56 @@ export default function Hero() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const handleSelectPath = (audienceKey: 'local' | 'startup' | 'enterprise') => {
+    window.dispatchEvent(new CustomEvent('select-audience', { detail: audienceKey }));
+    const element = document.getElementById('portfolio');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const paths = [
+    {
+      id: 'local' as const,
+      icon: Store,
+      badge: isDe ? 'Lokale Unternehmen' : 'Local Businesses',
+      title: isDe ? 'Mandanten- & Umsatzwachstum' : 'Client & Revenue Growth',
+      desc: isDe 
+        ? 'Lokale Google-Dominanz & digitale Bestellsysteme ohne Werbekosten.' 
+        : 'Local Google search authority & direct ordering funnels with €0 ad spend.',
+      proof: 'Shams Consult · BUNS 069',
+      highlight: isDe ? 'Seite 1 & +74% Umsatz' : 'Page 1 & +74% Revenue',
+      accentColor: 'border-amber-500/30 hover:border-amber-500/70 hover:shadow-amber-500/10',
+      badgeColor: 'bg-amber-100 text-amber-900 dark:bg-amber-950/80 dark:text-amber-200'
+    },
+    {
+      id: 'startup' as const,
+      icon: Rocket,
+      badge: isDe ? 'Tech-Startups & Gründer' : 'Tech Startups & Founders',
+      title: isDe ? 'MVP & Skalierbare Software' : 'MVP & High-Velocity Code',
+      desc: isDe 
+        ? 'Schnelle Marktreife für SaaS, KI-Agenten und Cloud-Architektur.' 
+        : 'Rapid time-to-market for SaaS, AI agents, and resilient web/mobile apps.',
+      proof: 'InstaReM · Parents VIP',
+      highlight: isDe ? '100 Mio. $ Plattform & 200% Skalierung' : '$100M+ Volume & 200% Scale',
+      accentColor: 'border-blue-500/30 hover:border-blue-500/70 hover:shadow-blue-500/10',
+      badgeColor: 'bg-blue-100 text-blue-900 dark:bg-blue-950/80 dark:text-blue-200'
+    },
+    {
+      id: 'enterprise' as const,
+      icon: Building2,
+      badge: isDe ? 'Enterprise & Konzerne' : 'Enterprise & Corporate',
+      title: isDe ? 'Mission-Critical & Automatisierung' : 'Mission-Critical & Automation',
+      desc: isDe 
+        ? 'Sichere MedTech- & FinTech-Lösungen, RPA und Cloud-Infrastruktur.' 
+        : 'Enterprise healthcare IoT, back-office RPA, and high-security compliance.',
+      proof: 'GE · Vantive · NextServices · Smartek21',
+      highlight: isDe ? '40 Std./Woche gespart & 99.9% Uptime' : '40h/week saved & 99.9% uptime',
+      accentColor: 'border-emerald-500/30 hover:border-emerald-500/70 hover:shadow-emerald-500/10',
+      badgeColor: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/80 dark:text-emerald-200'
+    }
+  ];
 
   return (
     <section className="relative pt-8 pb-12 lg:pt-12 lg:pb-16 overflow-hidden bg-nordible-bg dark:bg-gray-900">
@@ -79,6 +130,66 @@ export default function Hero() {
             </div>
           </div>
 
+        </div>
+
+        {/* 3-Path Interactive Persona Fork (Science-backed Hick's Law Self-Selection) */}
+        <div className="mt-10 lg:mt-12 pt-8 border-t border-nordible-border/70 dark:border-gray-800">
+          <div className="text-center sm:text-left mb-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 font-mono">
+              {isDe ? 'Wählen Sie Ihren Bereich' : 'Select Your Path'}
+            </span>
+            <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">
+              {isDe 
+                ? 'Direkter Zugriff auf nachprüfbare Ergebnisse und Referenzen für Ihr Vorhaben:' 
+                : 'Direct access to verifiable results and case studies tailored to your sector:'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {paths.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.id}
+                  onClick={() => handleSelectPath(p.id)}
+                  className={`group relative p-5 rounded-2xl bg-white dark:bg-gray-800/90 border ${p.accentColor} shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between text-left`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg ${p.badgeColor}`}>
+                        {p.badge}
+                      </span>
+                      <div className="p-2 rounded-xl bg-gray-50 dark:bg-gray-700/60 text-gray-600 dark:text-gray-300 group-hover:text-nordible-blue transition-colors">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-base font-extrabold text-nordible-dark dark:text-white font-heading group-hover:text-nordible-blue transition-colors mb-1.5">
+                      {p.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                      {p.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between">
+                    <div>
+                      <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                        {isDe ? 'Echte Referenz:' : 'Real Proof:'}
+                      </div>
+                      <div className="text-xs font-bold text-nordible-dark dark:text-white">
+                        {p.proof}
+                      </div>
+                    </div>
+                    <div className="flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 group-hover:translate-x-1 transition-transform">
+                      <span>{isDe ? 'Referenzen' : 'View Proof'}</span>
+                      <ChevronRight className="h-3.5 w-3.5 ml-0.5" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

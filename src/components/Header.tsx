@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, ChevronDown, Store, Rocket, Building2 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,12 +9,21 @@ import { Language } from '../lib/i18n';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAudienceOpen, setIsAudienceOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
   const { language, setLanguage, t, getPath, supportedLanguages } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
 
+  const isDe = language === 'de';
   const homePath = getPath('/');
+
+  const handleAudienceClick = (audienceKey: 'local' | 'startup' | 'enterprise') => {
+    setIsMenuOpen(false);
+    setIsAudienceOpen(false);
+    window.dispatchEvent(new CustomEvent('select-audience', { detail: audienceKey }));
+    handleNavClick('portfolio');
+  };
 
   const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);
@@ -50,16 +59,15 @@ export default function Header() {
     { key: 'portfolio', label: t.nav.portfolio },
     { key: 'caseStudies', label: t.nav.caseStudies, path: '/blog' },
     { key: 'about', label: t.nav.about, path: '/company-profile' },
-    { key: 'consultation', label: t.nav.consultation },
   ];
 
   return (
     <header className="header-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-5">
+        <div className="flex justify-between items-center py-4">
           {/* Brand Logo */}
           <div 
-            className="flex items-center space-x-3 cursor-pointer shrink-0" 
+            className="flex items-center space-x-2.5 cursor-pointer shrink-0" 
             onClick={() => {
               if (location.pathname !== homePath) {
                 navigate(homePath);
@@ -67,19 +75,92 @@ export default function Header() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center p-1.5 shadow-md shadow-blue-500/10 border border-nordible-border dark:border-gray-700">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center p-1.5 shadow-md shadow-blue-500/10 border border-nordible-border dark:border-gray-700">
               <img src="/images/logos/nordible-icon.png" alt="Nordible Technologies Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-lg xl:text-xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Nordible Technologies</span>
+            <span className="text-base sm:text-lg font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
+              <span className="hidden 2xl:inline">Nordible Technologies</span>
+              <span className="2xl:hidden">Nordible</span>
+            </span>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-x-3.5 lg:gap-x-5 xl:gap-x-7">
+          <nav className="hidden md:flex items-center gap-x-2.5 lg:gap-x-3.5 xl:gap-x-5">
+            {/* Audience Quick-Switcher Dropdown */}
+            <div className="relative" onMouseLeave={() => setIsAudienceOpen(false)}>
+              <button
+                onClick={() => setIsAudienceOpen(!isAudienceOpen)}
+                onMouseEnter={() => setIsAudienceOpen(true)}
+                className="flex items-center gap-1 text-xs lg:text-[13px] font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-wider whitespace-nowrap py-1 cursor-pointer"
+              >
+                <span>{isDe ? 'Zielgruppen' : 'Who We Serve'}</span>
+                <ChevronDown className={`h-3 w-3 transition-transform ${isAudienceOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isAudienceOpen && (
+                <div 
+                  className="absolute left-0 mt-1 w-64 rounded-2xl bg-white dark:bg-gray-800 shadow-xl border border-nordible-border dark:border-gray-700 p-2 z-50 animate-in fade-in slide-in-from-top-2"
+                  onMouseEnter={() => setIsAudienceOpen(true)}
+                >
+                  <button
+                    onClick={() => handleAudienceClick('local')}
+                    className="w-full text-left p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors flex items-center gap-3 group cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-300 shrink-0">
+                      <Store className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue">
+                        {isDe ? 'Lokale Unternehmen' : 'Local Businesses'}
+                      </div>
+                      <div className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
+                        Shams Consult · BUNS 069
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => handleAudienceClick('startup')}
+                    className="w-full text-left p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors flex items-center gap-3 group cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-300 shrink-0">
+                      <Rocket className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue">
+                        {isDe ? 'Tech-Startups & Gründer' : 'Tech Startups & Founders'}
+                      </div>
+                      <div className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
+                        InstaReM · Parents VIP
+                      </div>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => handleAudienceClick('enterprise')}
+                    className="w-full text-left p-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors flex items-center gap-3 group cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-300 shrink-0">
+                      <Building2 className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue">
+                        {isDe ? 'Enterprise & Konzerne' : 'Enterprise & Corporate'}
+                      </div>
+                      <div className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">
+                        GE · Vantive · Next · Smartek
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
+
             {navItems.map((item) => (
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.key, item.path)}
-                className="text-xs lg:text-[13px] font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-wider whitespace-nowrap"
+                className="text-xs lg:text-[13px] font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-wider whitespace-nowrap cursor-pointer"
               >
                 {item.label}
               </button>
@@ -116,7 +197,7 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-95"
+              className="p-2 rounded-xl bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-95 cursor-pointer shrink-0"
               aria-label="Toggle Dark Mode"
             >
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -124,7 +205,7 @@ export default function Header() {
 
             <button
               onClick={() => handleNavClick('consultation')}
-              className="btn-primary py-2 px-3.5 lg:py-2.5 lg:px-5 text-xs whitespace-nowrap"
+              className="btn-primary py-2 px-3 lg:px-4 text-xs whitespace-nowrap cursor-pointer shrink-0 shadow-md shadow-blue-500/10"
             >
               {t.nav.getStarted}
             </button>
@@ -176,11 +257,50 @@ export default function Header() {
                 <button
                   key={item.key}
                   onClick={() => handleNavClick(item.key, item.path)}
-                  className="block w-full text-left px-4 py-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:bg-nordible-bg dark:hover:bg-gray-800 rounded-xl transition-colors"
+                  className="block w-full text-left px-4 py-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:bg-nordible-bg dark:hover:bg-gray-800 rounded-xl transition-colors cursor-pointer"
                 >
                   {item.label}
                 </button>
               ))}
+
+              {/* Mobile Audience Quick-Select (Science-backed Thumb Zone) */}
+              <div className="pt-2 pb-1 px-4 border-t border-gray-100 dark:border-gray-800">
+                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest block mb-2 font-mono">
+                  {isDe ? 'Zielgruppen / Referenzen' : 'Who We Serve'}
+                </span>
+                <div className="grid grid-cols-1 gap-1.5">
+                  <button
+                    onClick={() => handleAudienceClick('local')}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/30 text-xs font-bold text-amber-900 dark:text-amber-200 border border-amber-200/50 dark:border-amber-900/50 cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Store className="h-3.5 w-3.5 text-amber-600" />
+                      <span>{isDe ? 'Lokale Unternehmen' : 'Local Businesses'}</span>
+                    </span>
+                    <span className="text-[10px] opacity-75 font-mono">Shams · BUNS</span>
+                  </button>
+                  <button
+                    onClick={() => handleAudienceClick('startup')}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-blue-50/60 dark:bg-blue-950/30 text-xs font-bold text-blue-900 dark:text-blue-200 border border-blue-200/50 dark:border-blue-900/50 cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Rocket className="h-3.5 w-3.5 text-blue-600" />
+                      <span>{isDe ? 'Tech-Startups' : 'Tech Startups'}</span>
+                    </span>
+                    <span className="text-[10px] opacity-75 font-mono">InstaReM · Parents</span>
+                  </button>
+                  <button
+                    onClick={() => handleAudienceClick('enterprise')}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/30 text-xs font-bold text-emerald-900 dark:text-emerald-200 border border-emerald-200/50 dark:border-emerald-900/50 cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Building2 className="h-3.5 w-3.5 text-emerald-600" />
+                      <span>{isDe ? 'Enterprise & Konzerne' : 'Enterprise & Corporate'}</span>
+                    </span>
+                    <span className="text-[10px] opacity-75 font-mono">GE · Vantive · Next</span>
+                  </button>
+                </div>
+              </div>
               <div className="flex items-center justify-between px-4 py-3">
                  <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">Theme</span>
                  <button
