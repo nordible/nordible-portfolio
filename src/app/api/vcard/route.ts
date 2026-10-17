@@ -20,6 +20,8 @@ export async function GET() {
     `X-SOCIALPROFILE;type=github:${contactConfig.social.github}`,
     `X-SOCIALPROFILE;type=instagram:${contactConfig.social.instagram}`,
     `X-SOCIALPROFILE;type=youtube:${contactConfig.social.youtube}`,
+    `X-SOCIALPROFILE;type=tiktok:${contactConfig.social.tiktok}`,
+    `X-SOCIALPROFILE;type=twitter:${contactConfig.social.x}`,
     `X-SOCIALPROFILE;type=whatsapp:${contactConfig.whatsapp.chatUrl}`,
     `NOTE:${contactConfig.company.name} – ${contactConfig.company.taglineDe}\\nAdresse: ${contactConfig.address.full}\\nWebsite: ${contactConfig.websiteUrl}\\nTermin buchen: ${contactConfig.bookingUrl}`,
     `REV:${new Date().toISOString()}`,

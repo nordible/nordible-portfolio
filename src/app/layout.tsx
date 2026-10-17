@@ -144,6 +144,8 @@ const jsonLd = {
     'https://github.com/nordible',
     'https://www.instagram.com/nordible.co/',
     'https://www.youtube.com/@nordible',
+    'https://www.tiktok.com/@nordible',
+    'https://x.com/nordiblehq',
   ],
   openingHoursSpecification: [
     {

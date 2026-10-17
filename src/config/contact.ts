@@ -25,6 +25,8 @@ export const contactConfig = {
     github: 'https://github.com/nordible',
     instagram: 'https://www.instagram.com/nordible.co/',
     youtube: 'https://www.youtube.com/@nordible',
+    tiktok: 'https://www.tiktok.com/@nordible',
+    x: 'https://x.com/nordiblehq',
   },
   phone: {
     display: '+49 1521 1065739',

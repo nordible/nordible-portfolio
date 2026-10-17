@@ -25,6 +25,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { contactConfig } from '@/config/contact';
+import { XIcon, TikTokIcon } from './SocialIcons';
 
 export default function DigitalCardPage() {
   const [downloaded, setDownloaded] = useState(false);
@@ -124,6 +125,20 @@ export default function DigitalCardPage() {
       url: contactConfig.social.youtube,
       icon: Youtube,
       color: 'hover:text-[#FF0000] hover:border-[#FF0000]/40',
+    },
+    {
+      name: 'X (Twitter)',
+      handle: '@nordiblehq',
+      url: contactConfig.social.x,
+      icon: XIcon,
+      color: 'hover:text-black dark:hover:text-white hover:border-gray-400',
+    },
+    {
+      name: 'TikTok',
+      handle: '@nordible',
+      url: contactConfig.social.tiktok,
+      icon: TikTokIcon,
+      color: 'hover:text-black dark:hover:text-white hover:border-[#EE1D52]/40',
     },
   ];
 

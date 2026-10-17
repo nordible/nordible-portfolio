@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import { Mascot } from './Mascot';
+import { XIcon, TikTokIcon } from './SocialIcons';
 
 export default function Footer() {
   const { t, language, getPath } = useLanguage();
@@ -14,7 +15,9 @@ export default function Footer() {
   const socialLinks = [
     { icon: Github, url: contactConfig.social.github, label: 'GitHub' },
     { icon: Linkedin, url: contactConfig.social.linkedin, label: 'LinkedIn' },
+    { icon: XIcon, url: contactConfig.social.x, label: 'X (Twitter)' },
     { icon: Instagram, url: contactConfig.social.instagram, label: 'Instagram' },
+    { icon: TikTokIcon, url: contactConfig.social.tiktok, label: 'TikTok' },
     { icon: Youtube, url: contactConfig.social.youtube, label: 'YouTube' }
   ];
 
