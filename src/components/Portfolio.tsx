@@ -18,7 +18,7 @@ const projects = [
     description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
     technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
     outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',
-    image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-4386466.webp',
     metrics: {
       users: '10K+',
       improvement: '40%',
@@ -36,7 +36,7 @@ const projects = [
     description: 'Flagship fintech product for cost-effective foreign remittances serving millions of users globally.',
     technologies: ['Node.js', 'React.js', 'PostgreSQL', 'Mocha', 'AWS'],
     outcome: 'Successfully delivered a platform processing millions in remittances with 99.9% uptime',
-    image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-6801648.webp',
     metrics: {
       users: '1M+',
       transactions: '$100M+',
@@ -54,7 +54,7 @@ const projects = [
     description: 'Medical device support platform for remote diagnosis and troubleshooting of medical devices in healthcare facilities.',
     technologies: ['Node.js', 'PostgreSQL', 'AWS IoT', 'Jest', 'TDD', 'AWS'],
     outcome: 'Reduced device downtime by 50% and improved remote diagnostic accuracy by 75%',
-    image: 'https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-3786157.webp',
     metrics: {
       devices: '15K+',
       downtime: '-50%',
@@ -72,7 +72,7 @@ const projects = [
     description: 'End-to-end influencer social media promotions, market surveys, and content creation process management platform.',
     technologies: ['Node.js', 'MySQL', 'Mocha', 'Microservices', 'AWS', 'Redis', 'Python'],
     outcome: 'Streamlined influencer campaigns resulting in 200% increase in campaign efficiency',
-    image: 'https://images.pexels.com/photos/1250452/pexels-photo-1250452.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-1250452.webp',
     metrics: {
       campaigns: '5K+',
       efficiency: '200%',
@@ -91,7 +91,7 @@ const projects = [
 
     technologies: ['Conversational AI', 'NLP', 'Node.js', 'AngularJS', 'AWS Cloud Architecture'],
     outcome: 'Cut customer service operating costs by 60% across 500+ deployed businesses while maintaining 90% first-contact resolution.',
-    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-8386440.webp',
     metrics: {
       bots: '500+ Live Deployments',
       cost_reduction: '60% Cost Saved',
@@ -111,7 +111,7 @@ const projects = [
 
     technologies: ['C#', '.NET Framework', 'SQL Server', 'Robotic Process Automation', 'Data Pipeline Engineering'],
     outcome: 'Automated 80% of repetitive operational workflows, saving 40+ billable employee hours per week and reducing processing errors by 90%.',
-    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-3861969.webp',
     metrics: {
       automation: '80% Workflows',
       time_saved: '40h/week Saved',
@@ -168,7 +168,7 @@ const projects = [
     description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
     technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
     outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
-    image: 'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-193004.webp',
     metrics: {
       uptime: '99.9%',
       security: 'SSL/TLS',
@@ -186,7 +186,7 @@ const projects = [
     description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
     technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
     outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
-    image: 'https://images.pexels.com/photos/60504/pexels-photo-60504.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-267350.webp',
     metrics: {
       reach: '50 Iterations',
       safety: 'Human-Emulation',
@@ -203,7 +203,7 @@ const projects = [
     description: 'A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.',
     technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
     outcome: 'Successfully launched cross-platform (Web & Android) with a privacy-first, science-backed approach to habit formation.',
-    image: 'https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-48604.webp',
     metrics: {
       platform: 'Web & Android',
       method: 'Elastic Habits',
@@ -221,7 +221,7 @@ const projects = [
 
     technologies: ['TypeScript', 'HTML5', 'CSS3', 'REST API', 'Trading APIs'],
     outcome: 'Built comprehensive trading API demonstration with real-time dummy data simulation and interactive documentation',
-    image: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-6801648.webp',
     metrics: {
       endpoints: '25+',
       coverage: '100%',
@@ -240,7 +240,7 @@ const projects = [
     description: 'Platform connecting nerds and geeks with like-minded individuals for meaningful conversations and collaborations.',
     technologies: ['React.js', 'Node.js', 'AI/ML', 'WebSocket', 'MongoDB'],
     outcome: 'Built a community platform that brings together tech enthusiasts and facilitates meaningful connections',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/images/portfolio/project-3184291.webp',
     metrics: {
       users: '700',
       connections: '4',
@@ -545,14 +545,14 @@ export default function Portfolio() {
 
                 {/* Key Metrics - Compact Horizontal Row */}
                 <div>
-                  <div className="flex items-center space-x-1.5 text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                  <div className="flex items-center space-x-1.5 text-[9px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-1.5">
                     <TrendingUp className="h-3 w-3 text-nordible-blue" />
                     <span>{t.portfolio.keyMetrics || (isDe ? 'Kernmetriken' : 'Key Metrics')}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 sm:gap-3">
                     {Object.entries(currentProject.metrics).map(([key, value], index) => (
                       <div key={index} className="p-2.5 rounded-xl bg-nordible-section-bg dark:bg-gray-700/50 border border-nordible-border/70 dark:border-gray-700 text-left">
-                        <span className="text-[8px] sm:text-[9px] text-gray-400 dark:text-gray-400 uppercase tracking-wider font-bold block truncate">
+                        <span className="text-[8px] sm:text-[9px] text-gray-600 dark:text-gray-400 uppercase tracking-wider font-bold block truncate">
                           {getMetricLabel(key)}
                         </span>
                         <span className="text-sm sm:text-base font-extrabold tracking-tight font-heading text-nordible-dark dark:text-white block truncate">
@@ -566,7 +566,7 @@ export default function Portfolio() {
 
               {/* Technologies Tags */}
               <div className="pt-2 border-t border-nordible-border dark:border-gray-700 flex flex-wrap items-center gap-1.5">
-                <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mr-1">
+                <span className="text-[9px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest mr-1">
                   {t.portfolio.technologies || (isDe ? 'Technologien' : 'Stack')}:
                 </span>
                 {currentProject.technologies.map((tech, index) => (

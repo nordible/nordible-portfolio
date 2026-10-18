@@ -61,7 +61,7 @@ export default function TrustSignals() {
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-nordible-dark dark:text-white mb-1.5 tracking-tight font-heading">
                     {stat.number}
                   </div>
-                  <div className="text-[10px] sm:text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[0.15em] mb-1">
+                  <div className="text-[10px] sm:text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-[0.15em] mb-1">
                     {stat.label}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
@@ -105,6 +105,9 @@ export default function TrustSignals() {
                   <img
                     src={company.logo}
                     alt={company.name}
+                    width={160}
+                    height={48}
+                    loading="lazy"
                     className="max-h-11 sm:max-h-12 max-w-[170px] sm:max-w-[200px] object-contain filter grayscale opacity-60 dark:invert dark:opacity-60 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 dark:group-hover/logo:opacity-100 transition-all duration-300 transform group-hover/logo:scale-105"
                   />
                   <span className="absolute -top-2 -right-1 opacity-0 group-hover/logo:opacity-100 transition-opacity p-1 bg-white dark:bg-gray-900 rounded-full shadow-sm border border-nordible-border dark:border-gray-700">

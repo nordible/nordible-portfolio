@@ -28,7 +28,7 @@ export default function Process() {
             return (
               <div key={index} className="relative group z-10">
                 <div className="card-premium h-full flex flex-col hover:border-nordible-blue/30 transition-all duration-500 p-8">
-                  <div className="absolute top-4 right-4 font-heading text-4xl font-extrabold text-gray-200 dark:text-gray-700 opacity-60">
+                  <div aria-hidden="true" className="absolute top-4 right-4 font-heading text-4xl font-extrabold text-gray-200 dark:text-gray-700 opacity-60">
                     {step.number}
                   </div>
                   

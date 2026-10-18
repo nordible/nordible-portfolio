@@ -111,10 +111,13 @@ export default function Hero() {
               {/* Cutout Image with constrained height for complete single-screen visibility */}
               <div className="relative z-10 flex justify-center">
                 <img
-                  src="/images/founder-transparent.png"
+                  src="/images/founder-transparent.webp"
                   alt={`${t.hero.founderName} - ${t.hero.founderRole}`}
+                  width={780}
+                  height={932}
                   className="max-h-[320px] sm:max-h-[360px] lg:max-h-[390px] w-auto object-contain drop-shadow-xl group-hover:scale-[1.02] transition-transform duration-300"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
 
@@ -140,9 +143,9 @@ export default function Hero() {
         {/* 3-Path Interactive Persona Fork (Science-backed Hick's Law Self-Selection) */}
         <div className="mt-10 lg:mt-12 pt-8 border-t border-nordible-border/70 dark:border-gray-800">
           <div className="text-center sm:text-left mb-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 font-mono">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 font-mono">
               {isDe ? 'Wählen Sie Ihren Bereich' : 'Select Your Path'}
-            </span>
+            </h2>
             <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">
               {isDe 
                 ? 'Direkter Zugriff auf nachprüfbare Ergebnisse und Referenzen für Ihr Vorhaben:' 
@@ -179,7 +182,7 @@ export default function Hero() {
 
                   <div className="pt-3 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between">
                     <div>
-                      <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                      <div className="text-[10px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
                         {isDe ? 'Fokus-Ergebnis:' : 'Measurable Impact:'}
                       </div>
                       <div className="text-xs font-bold text-nordible-dark dark:text-white">

@@ -58,10 +58,10 @@ export default function Testimonials() {
                 </div>
 
                 <div className="pt-4 border-t border-nordible-border dark:border-gray-700">
-                  <h4 className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
+                  <h3 className="text-sm font-extrabold text-nordible-dark dark:text-white font-heading">
                     {testimonial.name}
-                  </h4>
-                  <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-0.5">
+                  </h3>
+                  <p className="text-[11px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider mt-0.5">
                     {testimonial.role} · {testimonial.company}
                   </p>
                 </div>

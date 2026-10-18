@@ -20,7 +20,7 @@ export default function Contact() {
         
         {/* Header & Value Proposition */}
         <div className="text-center mb-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 text-xs font-bold font-heading mb-4">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold font-heading mb-4">
             <Sparkles className="h-3.5 w-3.5" />
             <span>{isDe ? 'Unverbindliche Erstberatung' : 'Zero-Obligation Consultation'}</span>
           </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center text-xs font-bold text-emerald-600 dark:text-emerald-400 pt-1">
+              <div className="flex items-center text-xs font-bold text-emerald-700 dark:text-emerald-400 pt-1">
                 <span>{isDe ? 'Chat starten' : 'Start chat'}</span>
                 <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -304,7 +304,7 @@ export default function Contact() {
 
         {/* What Happens Next - 3-Step Mental Model Roadmap */}
         <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-6">
             {isDe ? 'Was passiert als Nächstes?' : 'What Happens Next'}
           </h3>
           <div className="grid md:grid-cols-3 gap-6 relative">

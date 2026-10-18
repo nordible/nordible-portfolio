@@ -104,8 +104,11 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-3xl overflow-hidden bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 shadow-md p-4 flex flex-col items-center">
               <img
-                src="/images/founder-transparent.png"
+                src="/images/founder-transparent.webp"
                 alt="Kabeer Shah - Founder"
+                width={780}
+                height={932}
+                loading="lazy"
                 className="w-full max-h-[380px] object-contain"
               />
               <div className="mt-4 text-center w-full pt-4 border-t border-nordible-border dark:border-gray-700">

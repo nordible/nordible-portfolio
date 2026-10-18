@@ -46,7 +46,7 @@ export default function Services() {
                   key={index}
                   className="card-premium group relative flex flex-col w-[320px] sm:w-[360px] md:w-[380px] shrink-0 hover:border-nordible-blue/30 transition-all duration-500 !p-6 text-left"
                 >
-                  <div className="absolute top-0 right-0 p-4 font-heading text-3xl font-extrabold opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
+                  <div aria-hidden="true" className="absolute top-0 right-0 p-4 font-heading text-3xl font-extrabold opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
                     0{originalIndex + 1}
                   </div>
 
