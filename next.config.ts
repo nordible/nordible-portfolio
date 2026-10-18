@@ -6,6 +6,9 @@ const pad = (n: number) => String(n).padStart(2, '0');
 const appVersion = `${pad(now.getDate())}${pad(now.getMonth() + 1)}${now.getFullYear()}.${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_APP_VERSION: appVersion,
+  },
   trailingSlash: false,
   images: {
     unoptimized: true,

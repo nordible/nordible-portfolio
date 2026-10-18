@@ -313,7 +313,7 @@ export default function Footer() {
             </div>
             <span className="text-white/20 hidden sm:inline">·</span>
             <span className="font-mono text-[11px] sm:text-xs text-blue-100/40 tracking-wider">
-              v{typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'}
+              v{process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}
             </span>
           </div>
         </div>
