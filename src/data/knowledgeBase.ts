@@ -16,14 +16,14 @@ export const knowledgeBase = {
       prospectFlyerUrl: "/brochure",
       bookingUrl: contactConfig.bookingUrl
     },
-    summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair 15+ years of enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
+    summary: "Nordible Technologies is an AI-native tech and growth partner founded by Kabeer Shah. Operating under the 'Services as Software' model, we pair enterprise tech architecture with autonomous AI agent pipelines to deliver production-ready web and mobile applications, resilient cloud systems, and digital marketing growth at 10x speed with zero agency overhead."
   },
   
   founder: {
     name: "Kabeer Shah",
     role: "Tech Leader & Solutions Architect",
-    experienceYears: "15+",
-    bio: "Results-oriented Tech Leader with over 13 years of experience building and scaling high-performance software teams. Proven track record in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing tech operations for cost and speed.",
+    experienceYears: "Battle-Tested",
+    bio: "Results-oriented Tech Leader with a proven track record building and scaling high-performance software teams. Experienced in orchestrating end-to-end product development for Fintech and Healthcare sectors. Expert in driving architectural strategy (Microservices, AWS), ensuring regulatory compliance (PCI-DSS, HIPAA), and optimizing tech operations for cost and speed.",
     linkedin: "https://www.linkedin.com/in/meetkabeershah/",
     github: "https://github.com/skbr1234",
     email: "mail@nordible.co",

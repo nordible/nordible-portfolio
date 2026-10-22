@@ -4,7 +4,7 @@ import FounderPage from '@/components/FounderPage';
 
 export const metadata: Metadata = {
   title: 'Founder Journey - Kabeer Shah | Nordible Technologies',
-  description: '15+ years of battle-tested systems architecture, enterprise software engineering, and technical leadership.',
+  description: 'Battle-tested systems architecture, enterprise software engineering, and technical leadership delivering measurable business results.',
   alternates: {
     canonical: '/founder',
   },

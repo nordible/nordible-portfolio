@@ -164,7 +164,7 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
               <ul className="space-y-3 text-xs text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2.5">
                   <ShieldCheck className="h-4 w-4 text-nordible-blue shrink-0 mt-0.5" />
-                  <span><strong>15+ Years</strong> delivering software &amp; tech solutions</span>
+                  <span><strong>Proven Track Record</strong> delivering software &amp; tech solutions</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Award className="h-4 w-4 text-nordible-blue shrink-0 mt-0.5" />

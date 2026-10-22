@@ -298,7 +298,7 @@ export default function LocationLandingPage() {
                 <UserCheck className="h-5 w-5 text-blue-600 dark:text-cyan-400 flex-shrink-0" />
                 <div>
                   <div className="text-xs font-bold text-gray-900 dark:text-white">{isDe ? 'Gründergeführt' : 'Founder-Led'}</div>
-                  <div className="text-[11px] text-gray-500 dark:text-gray-400">{isDe ? '15+ Jahre Erfahrung' : '15+ yrs depth'}</div>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400">{isDe ? 'Ergebnisorientiert' : 'Results-Driven'}</div>
                 </div>
               </div>
             </div>

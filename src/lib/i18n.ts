@@ -269,7 +269,7 @@ export const translations: Record<Language, Translations> = {
       title: "Proven Results Across Industries",
       subtitle: "",
       stats: [
-        { number: "15+", label: "Years Experience", description: "Battle-tested leadership" },
+        { number: "10x", label: "Delivery Velocity", description: "AI-native speed & precision" },
         { number: "50+", label: "Solutions Delivered", description: "Across web, mobile & cloud" },
         { number: "1M+", label: "Users Served", description: "Across global platforms" },
         { number: "24h", label: "Response Time", description: "Rapid Direct Sync" },
@@ -333,8 +333,8 @@ export const translations: Record<Language, Translations> = {
         },
         {
           title: "Proven Track Record",
-          description: "15+ years delivering successful digital platforms, marketing growth, and technology solutions for global brands and growing businesses.",
-          metric: "15+ Yrs Depth"
+          description: "Delivering high-impact digital platforms, revenue growth, and scalable technology solutions for global brands and growing businesses.",
+          metric: "Proven Impact"
         },
         {
           title: "Complete Accountability",
@@ -420,9 +420,9 @@ export const translations: Record<Language, Translations> = {
       title: "AI-Native Business Technology",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies empowers businesses with technology and creative content. As an AI-native business technology partner, we deliver production-grade technology solutions, AI agent implementation, resilient cloud architectures, digital marketing, social media management, and professional video editing that drive measurable revenue.",
-      desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing 15+ years of senior tech architecture with autonomous AI workflows.",
-      stat1Number: "15+",
-      stat1Label: "Years Experience",
+      desc2: "From rapid MVP and product builds to comprehensive enterprise software platforms and data-driven social media growth, we eliminate traditional agency bloat by pairing enterprise-grade systems architecture with autonomous AI workflows.",
+      stat1Number: "10x",
+      stat1Label: "Delivery Speed",
       stat2Number: "50+",
       stat2Label: "Solutions Shipped",
       qualities: [
@@ -432,19 +432,19 @@ export const translations: Record<Language, Translations> = {
       ],
       founderStoryLinkBadge: "MEET THE FOUNDER",
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
-      founderStoryLinkDesc: "From 15+ years leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
+      founderStoryLinkDesc: "From leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
       founderStoryLinkButton: "Read Founder's Journey →"
     },
     founderPage: {
       backToHome: "Back to Home",
       badge: "THE FOUNDER'S JOURNEY",
       title: "Direct Leadership, Architectural Rigor & Strategic Partnership",
-      subtitle: "15+ years of tech leadership, hands-on business discovery, and mission-critical cloud scaling.",
+      subtitle: "Enterprise tech leadership, hands-on business discovery, and mission-critical cloud scaling.",
       quote: "“The best technology solutions aren’t built in isolation—they are born from listening deeply to business challenges and building with care and precision.”",
       quoteAuthor: "Kabeer Shah",
       quoteRole: "Tech Leader & Founder",
       introTitle: "From Hands-on Building to Strategic Tech Leadership",
-      introP1: "With over 13 years of battle-tested software and tech solutions experience, Kabeer Shah founded Nordible Technologies with a fundamental principle: technology must directly serve business outcomes through authentic human partnerships.",
+      introP1: "With a battle-tested track record delivering high-impact software and tech solutions, Kabeer Shah founded Nordible Technologies with a fundamental principle: technology must directly serve business outcomes through authentic human partnerships.",
       introP2: "Having architected mission-critical platforms for Fortune 500 and MedTech leaders like GE Healthcare, Baxter/Vantive, and Nipro, and led tech teams for Fintech unicorns like Nium Inc. (Instarem), Kabeer brings rare full-spectrum mastery—from low-level cloud architecture and PCI-DSS/HIPAA compliance to executive technical strategy.",
       introP3: "Unlike traditional agencies with layers of account managers, Kabeer personally leads client discovery, technical strategy, and architectural direction—ensuring zero communication breakdown and 100% accountability.",
       milestonesTitle: "Career Milestones & Technical Leadership",
@@ -638,7 +638,7 @@ export const translations: Record<Language, Translations> = {
       title: "Erprobte Ergebnisse für wachsende Unternehmen",
       subtitle: "",
       stats: [
-        { number: "15+", label: "Jahre Erfahrung", description: "Erprobte technische Führung" },
+        { number: "10x", label: "Umsetzungs-Speed", description: "KI-native Effizienz & Präzision" },
         { number: "50+", label: "Realisierte Lösungen", description: "Web, Mobile & Cloud-Systeme" },
         { number: "1M+", label: "Nutzer Erreicht", description: "Auf weltweiten Plattformen" },
         { number: "24h", label: "Reaktionszeit", description: "Schnelle direkte Abstimmung" },
@@ -701,9 +701,9 @@ export const translations: Record<Language, Translations> = {
           metric: "2–4 Woc. MVP"
         },
         {
-          title: "Langjährige Praxiserfahrung",
-          description: "Über 13 Jahre Erfahrung im Aufbau erfolgreicher digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
-          metric: "15+ Jahre Tiefe"
+          title: "Nachweisbare Resultate",
+          description: "Erfolgreicher Aufbau performanter digitaler Lösungen und Marketingstrategien für globale Marken und mittelständische Unternehmen.",
+          metric: "Messbarer Erfolg"
         },
         {
           title: "Volle Verantwortung",
@@ -789,9 +789,9 @@ export const translations: Record<Language, Translations> = {
       title: "KI-nativer Business-Technologie",
       titleHighlight: "Partner",
       desc1: "Nordible Technologies stärkt Unternehmen durch Technologie und kreative Inhalte. Als KI-nativer Business-Technologiepartner liefern wir produktionsreife Technologielösungen, die Implementierung von KI-Agenten, ausfallsichere Cloud-Architekturen, digitales Marketing, Social-Media-Management und professionelle Videobearbeitung für nachhaltiges Geschäftswachstum.",
-      desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von 15+ Jahren Senior-Tech-Architektur mit autonomen KI-Workflows.",
-      stat1Number: "15+",
-      stat1Label: "Jahre Erfahrung",
+      desc2: "Von schneller MVP- und Produktentwicklung bis hin zu komplexen Unternehmensplattformen und Wachstumsinitiativen eliminieren wir klassischen Agentur-Ballast durch die direkte Verbindung von praxiserprobter Enterprise-Architektur mit autonomen KI-Workflows.",
+      stat1Number: "10x",
+      stat1Label: "Umsetzungs-Speed",
       stat2Number: "50+",
       stat2Label: "Lösungen Realisiert",
       qualities: [
@@ -801,19 +801,19 @@ export const translations: Record<Language, Translations> = {
       ],
       founderStoryLinkBadge: "LERNEN SIE DEN GRÜNDER KENNEN",
       founderStoryLinkTitle: "Der persönliche Werdegang von Kabeer Shah",
-      founderStoryLinkDesc: "Von über 13 Jahren technischer Leitung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
+      founderStoryLinkDesc: "Von technischer Führung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
       founderStoryLinkButton: "Werdegang des Gründers lesen →"
     },
     founderPage: {
       backToHome: "Zurück zur Startseite",
       badge: "DER WERDEGANG DES GRÜNDERS",
       title: "Direkte Führung, technische Exzellenz & echte Partnerschaft",
-      subtitle: "Über 13 Jahre Erfahrung in Tech-Architektur, unternehmerischer Beratung und geschäftskritischer Cloud-Skalierung.",
+      subtitle: "Praxiserprobte Tech-Führung, unternehmerische Beratung und geschäftskritische Cloud-Skalierung.",
       quote: "„Die besten Technologielösungen entstehen nicht isoliert – sie wachsen aus dem aufmerksamen Zuhören bei geschäftlichen Herausforderungen und der Leidenschaft für verlässliche Technologie.“",
       quoteAuthor: "Kabeer Shah",
       quoteRole: "Tech Leader & Gründer",
       introTitle: "Vom passionierten Entwickler zum strategischen Technologiepartner",
-      introP1: "Mit über 13 Jahren praxiserprobter Erfahrung im Bereich Software- und Technologielösungen gründete Kabeer Shah Nordible Technologies mit einem klaren Leitsatz: Technologie muss stets messbare geschäftliche Resultate durch verlässliche menschliche Partnerschaften schaffen.",
+      introP1: "Mit nachweisbaren Erfolgen bei der Umsetzung geschäftskritischer Software- und Technologielösungen gründete Kabeer Shah Nordible Technologies mit einem klaren Leitsatz: Technologie muss stets messbare geschäftliche Resultate durch verlässliche menschliche Partnerschaften schaffen.",
       introP2: "Nachdem er geschäftskritische Systeme für globale Gesundheitsunternehmen wie GE Healthcare, Baxter/Vantive und Nipro entworfen und Tech-Teams bei Fintech-Unicorns wie Nium Inc. (Instarem) geleitet hat, vereint Kabeer tiefes Fachwissen – von regulatorischer Compliance (PCI-DSS, HIPAA) bis hin zu strategischer Führung.",
       introP3: "Anders als bei anonymen Agenturen mit vielen Zwischenebenen führt Kabeer die strategische Beratung, Konzeption und architektonische Umsetzung persönlich – für eine direkte Kommunikation ohne Reibungsverluste und 100% Verbindlichkeit.",
       milestonesTitle: "Berufliche Meilensteine & Technische Führung",

@@ -22,7 +22,7 @@
 ## 2. Founder Profile: Kabeer Shah
 
 - **Role**: Founder, Principal Systems Architect & Technical Director
-- **Experience**: 15+ years of battle-tested software engineering, distributed systems, and team leadership.
+- **Experience**: Battle-tested software engineering, distributed systems, and proven technical leadership.
 - **Key Credentials & Career Milestones**:
   - **GE Healthcare & Baxter / Vantive (Quest Global)**: Technical Lead & Engineering Manager delivering oncology clinical platforms (OncoCare) and AWS IoT remote diagnostic backends (Remote Service Tool - RST) under strict HIPAA and FDA regulations.
   - **Nium Inc. / Instarem (Fintech Unicorn)**: Engineering Lead & Interim Head of Engineering. Built and directed cross-functional team of 18+ engineers, led PCI-DSS Level 1 audit certifications, and high-volume fintech API integrations (e.g. PhonePe). Awarded Best Team.
