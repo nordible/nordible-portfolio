@@ -132,6 +132,17 @@ export interface Translations {
     founderStoryLinkDesc: string;
     founderStoryLinkButton: string;
   };
+  motto: {
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    subtitle: string;
+    items: Array<{
+      tag: string;
+      title: string;
+      description: string;
+    }>;
+  };
   founderPage: {
     backToHome: string;
     badge: string;
@@ -434,6 +445,29 @@ export const translations: Record<Language, Translations> = {
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
       founderStoryLinkDesc: "From leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
       founderStoryLinkButton: "Read Founder's Journey →"
+    },
+    motto: {
+      badge: "OUR GUIDING PRINCIPLES",
+      title: "Built on Purpose. ",
+      titleHighlight: "Driven by Impact.",
+      subtitle: "Three non-negotiable principles that shape every architecture, line of code, and partnership at Nordible Technologies.",
+      items: [
+        {
+          tag: "01 / Ambition",
+          title: "Solve Bigger Problems",
+          description: "We don't settle for surface-level fixes. We embrace technical complexity and build solutions for challenges that truly move business needles."
+        },
+        {
+          tag: "02 / Empathy",
+          title: "Always Prioritize People",
+          description: "Software is built by people for people. We lead with transparent communication, respect, and deep partnership at eye level."
+        },
+        {
+          tag: "03 / Permanence",
+          title: "Build for the Long Term",
+          description: "We design resilient architectures and sustainable solutions engineered to endure and scale—never disposable shortcuts."
+        }
+      ]
     },
     founderPage: {
       backToHome: "Back to Home",
@@ -803,6 +837,29 @@ export const translations: Record<Language, Translations> = {
       founderStoryLinkTitle: "Der persönliche Werdegang von Kabeer Shah",
       founderStoryLinkDesc: "Von technischer Führung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
       founderStoryLinkButton: "Werdegang des Gründers lesen →"
+    },
+    motto: {
+      badge: "UNSER LEITBILD",
+      title: "Geleitet von Werten. ",
+      titleHighlight: "Fokussiert auf Wirkung.",
+      subtitle: "Drei unverhandelbare Grundsätze, die jede Architektur, jeden Algorithmus und jede Partnerschaft bei Nordible Technologies prägen.",
+      items: [
+        {
+          tag: "01 / Ambition",
+          title: "Größere Probleme lösen",
+          description: "Wir geben uns nicht mit oberflächlichen Übergangslösungen zufrieden. Wir meistern technische Komplexität und lösen Herausforderungen, die echten geschäftlichen Mehrwert schaffen."
+        },
+        {
+          tag: "02 / Empathie",
+          title: "Den Menschen immer an erste Stelle setzen",
+          description: "Technologie entsteht von Menschen für Menschen. Wir setzen auf offene Kommunikation, gegenseitigen Respekt und echte Partnerschaft auf Augenhöhe."
+        },
+        {
+          tag: "03 / Nachhaltigkeit",
+          title: "Langfristig denken und bauen",
+          description: "Wir entwickeln zukunftssichere Architekturen und skalierbare Systeme mit dauerhaftem Wert – keine kurzlebigen Schnellschüsse."
+        }
+      ]
     },
     founderPage: {
       backToHome: "Zurück zur Startseite",

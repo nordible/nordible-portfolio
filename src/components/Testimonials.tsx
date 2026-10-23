@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionAnchor from './SectionAnchor';
+import { Mascot } from './Mascot';
 
 export default function Testimonials() {
   const { t } = useLanguage();
@@ -18,7 +19,10 @@ export default function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {tm.title && (
           <div className="text-center mb-12">
-            <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <h2 className="group inline-flex items-center justify-center gap-3 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+              <span className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 drop-shadow inline-block">
+                <Mascot variant="celebrate" alt="Nordible Client Success Mascot" />
+              </span>
               <span>{tm.title}</span>
               <SectionAnchor id="testimonials" />
             </h2>

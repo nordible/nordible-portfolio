@@ -3,6 +3,7 @@ import { ArrowRight, Building2, ShieldCheck, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionAnchor from './SectionAnchor';
+import { Mascot } from './Mascot';
 
 export default function About() {
   const { language, getPath } = useLanguage();
@@ -14,7 +15,10 @@ export default function About() {
         
         {/* Section Heading */}
         <div className="text-center mb-8">
-          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+          <h2 className="group inline-flex items-center justify-center gap-3 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 drop-shadow inline-block">
+              <Mascot variant="primary-mascot" alt="Nordible Primary Mascot" priority />
+            </span>
             <span>{isDe ? 'Über Nordible Technologies' : 'About Nordible Technologies'}</span>
             <SectionAnchor id="about" />
           </h2>

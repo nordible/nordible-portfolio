@@ -1,6 +1,7 @@
 import { ArrowLeft, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { contactConfig } from '../config/contact';
+import { Mascot } from './Mascot';
 
 export default function TermsOfService() {
   return (
@@ -15,7 +16,12 @@ export default function TermsOfService() {
         </Link>
 
         <div className="card-premium p-10 md:p-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-nordible-dark dark:text-white mb-10 font-heading tracking-tight">Terms of Service</h1>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">Terms of Service</h1>
+            <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 drop-shadow-md">
+              <Mascot variant="security-shield" alt="Nordible Security & Compliance Mascot" priority />
+            </div>
+          </div>
           
           <div className="prose prose-blue dark:prose-invert max-w-none">
             <p className="text-gray-500 dark:text-gray-400 mb-12 font-bold text-xs uppercase tracking-widest border-b border-nordible-border dark:border-gray-700 pb-4">

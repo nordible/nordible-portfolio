@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, Video, Bot, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionAnchor from './SectionAnchor';
+import { Mascot } from './Mascot';
 
 export default function Services() {
   const { t } = useLanguage();
@@ -20,7 +21,10 @@ export default function Services() {
     <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+          <h2 className="group inline-flex items-center justify-center gap-3 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            <span className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 drop-shadow inline-block">
+              <Mascot variant="working-laptop" alt="Nordible Software Engineering Mascot" />
+            </span>
             <span>{s.title}</span>
             <SectionAnchor id="services" />
           </h2>

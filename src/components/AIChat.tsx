@@ -4,6 +4,7 @@ import { Send, User, Mail, Phone, Calendar } from 'lucide-react';
 import { askAI } from '../services/aiService';
 import { sendContactEmail, ContactFormData } from '../services/emailService';
 import { contactConfig } from '../config/contact';
+import { Mascot } from './Mascot';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -126,7 +127,7 @@ export default function AIChat() {
           <div className="px-8 py-6 bg-nordible-dark text-white flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center p-1.5 border border-white/15 shadow-sm">
-                <img src="/images/logos/nordible-icon.png" alt="Nordible AI" className="w-full h-full object-contain" />
+                <Mascot variant="hero-wave" alt="Nordible AI Mascot" className="w-8 h-8" priority />
               </div>
               <div>
                 <h3 className="font-extrabold text-lg font-heading leading-tight text-white">Nordible AI</h3>
