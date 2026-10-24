@@ -160,12 +160,14 @@ export const SERVICES: ServiceItem[] = [
     deliverablesDe: [
       'Generative Engine Optimization (GEO) für direkte Nennung in KI-Assistenten',
       'Lokale SEO-Optimierung (Google 3-Pack, Schema.org Entitäten-Graphen)',
+      'SEA & Google Ads Kampagnen für sofortige regionale Sichtbarkeit',
       'High-Intent B2B Content-Marketing & Landingpage-Funnel',
       'Ergonomische Conversion-Rate-Optimierung für Mobilgeräte',
     ],
     deliverablesEn: [
       'Generative Engine Optimization (GEO) for AI search visibility',
       'Local SEO dominance (Google 3-Pack, Schema.org entity graphs)',
+      'SEA & Google Ads campaigns for immediate regional buyer intent',
       'High-intent B2B content marketing and conversion funnels',
       'Mobile thumb-zone UX optimization for higher inbound calls',
     ],

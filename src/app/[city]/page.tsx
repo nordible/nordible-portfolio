@@ -18,9 +18,17 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
       title: 'Technologielösungen | Nordible',
     };
   }
+  const isHanau = city.toLowerCase() === 'hanau';
+  const title = isHanau 
+    ? 'Website erstellen, Software & SEO in Hanau | Nordible' 
+    : `Softwareentwicklung & KI-Lösungen in ${cityData.name} | Nordible`;
+  const description = isHanau
+    ? 'Webdesign, individuelle Software & Google Ads / SEO für Unternehmen in Hanau & Main-Kinzig-Kreis. Direkt geführt von Gründer Kabeer Shah · Vor Ort in 24h · Kostenloses Erstgespräch.'
+    : `Ihr regionaler Technologie- & Marketingpartner in ${cityData.name} & Rhein-Main. Maßgeschneiderte Web-/Mobile-Apps, KI-Agenten & SEO. Direkt geführt von Gründer Kabeer Shah.`;
+
   return {
-    title: `Softwareentwicklung & KI-Lösungen in ${cityData.name} | Nordible`,
-    description: `Ihr regionaler Technologie- & Marketingpartner in ${cityData.name} & Rhein-Main. Maßgeschneiderte Web-/Mobile-Apps, KI-Agenten & SEO. Direkt geführt von Gründer Kabeer Shah.`,
+    title,
+    description,
     alternates: {
       canonical: `/${city}`,
     },

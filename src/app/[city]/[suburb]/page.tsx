@@ -25,9 +25,17 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
       title: 'Technologielösungen | Nordible',
     };
   }
+  const isHanau = city.toLowerCase() === 'hanau';
+  const title = isHanau
+    ? `Website erstellen & Software in ${result.suburb.name}, Hanau | Nordible`
+    : `Softwareentwicklung & Digitalagentur in ${result.suburb.name}, ${result.city.name} | Nordible`;
+  const description = isHanau
+    ? `Website erstellen, individuelle Software & Google Ads / SEO für Unternehmen in Hanau-${result.suburb.name} (${result.suburb.postalCode}). Direkt vom Gründer Kabeer Shah · Vor Ort in 24h · Kostenloses Erstgespräch.`
+    : `Moderne Software, KI-Automatisierung & Marketing für Unternehmen in ${result.suburb.name} (${result.suburb.postalCode}), ${result.city.name}. 100% IP-Eigentum, 24h Reaktionszeit & direktes Erstgespräch mit Gründer Kabeer Shah.`;
+
   return {
-    title: `Softwareentwicklung & Digitalagentur in ${result.suburb.name}, ${result.city.name} | Nordible`,
-    description: `Moderne Software, KI-Automatisierung & Marketing für Unternehmen in ${result.suburb.name} (${result.suburb.postalCode}), ${result.city.name}. 100% IP-Eigentum, 24h Reaktionszeit & direktes Erstgespräch mit Gründer Kabeer Shah.`,
+    title,
+    description,
     alternates: {
       canonical: `/${city}/${suburb}`,
     },

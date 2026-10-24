@@ -72,8 +72,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (slug.length === 1) {
     const city = getCity(slug[0]);
     if (city) {
-      title = `Custom Software & AI Solutions in ${city.name} | Nordible`;
-      description = `Technology & marketing partner in ${city.name} & Rhine-Main. Bespoke software engineering, AI agents, and SEO by founder Kabeer Shah.`;
+      const isHanau = city.slug === 'hanau';
+      title = isHanau 
+        ? 'Web Development, Software & SEO in Hanau | Nordible' 
+        : `Custom Software & AI Solutions in ${city.name} | Nordible`;
+      description = isHanau
+        ? 'Web design, bespoke software engineering & Google Ads / SEO for companies in Hanau & Rhine-Main. Direct founder collaboration with Kabeer Shah.'
+        : `Technology & marketing partner in ${city.name} & Rhine-Main. Bespoke software engineering, AI agents, and SEO by founder Kabeer Shah.`;
     }
   } else if (slug.length === 2) {
     const sub = getSuburb(slug[0], slug[1]);
