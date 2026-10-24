@@ -213,6 +213,13 @@ export interface Translations {
     privacy: string;
     terms: string;
     rights: string;
+    regionalHub: {
+      title: string;
+      subtitle: string;
+      viewAll: string;
+      coreServices: string;
+      serviceLinks: Array<{ label: string; path: string }>;
+    };
   };
   notFound: {
     badge: string;
@@ -611,7 +618,20 @@ export const translations: Record<Language, Translations> = {
       legalTitle: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
-      rights: "All rights reserved."
+      rights: "All rights reserved.",
+      regionalHub: {
+        title: "Regional Technology & SEO Hubs (Rhine-Main)",
+        subtitle: "Local software engineering, AI systems & SEO services across Hesse:",
+        viewAll: "View all 15 regions",
+        coreServices: "Core Services:",
+        serviceLinks: [
+          { label: "Web Development Frankfurt", path: "/frankfurt/altstadt/web-app-entwicklung" },
+          { label: "SEO & GEO Bad Homburg", path: "/bad-homburg/mitte/digital-marketing-seo" },
+          { label: "Digital Marketing Hanau", path: "/hanau/steinheim/digital-marketing-seo" },
+          { label: "AI Agents Oberursel", path: "/oberursel/mitte/ki-agenten-automation" },
+          { label: "Search Engine Optimization Frankfurt", path: "/frankfurt/altstadt/digital-marketing-seo" }
+        ]
+      }
     },
     notFound: {
       badge: "404 Error",
@@ -1008,7 +1028,20 @@ export const translations: Record<Language, Translations> = {
       legalTitle: "Rechtliches",
       privacy: "Datenschutzerklärung",
       terms: "Impressum & AGB",
-      rights: "Alle Rechte vorbehalten."
+      rights: "Alle Rechte vorbehalten.",
+      regionalHub: {
+        title: "Regionale Standorte & SEO-Hubs (Rhein-Main)",
+        subtitle: "Lokale Softwareentwicklung, KI-Systeme & SEO-Betreuung vor Ort:",
+        viewAll: "Alle 15 Standorte anzeigen",
+        coreServices: "Fokusleistungen:",
+        serviceLinks: [
+          { label: "Webentwicklung Frankfurt", path: "/frankfurt/altstadt/web-app-entwicklung" },
+          { label: "SEO & GEO Bad Homburg", path: "/bad-homburg/mitte/digital-marketing-seo" },
+          { label: "Digital Marketing Hanau", path: "/hanau/steinheim/digital-marketing-seo" },
+          { label: "KI-Agenten Oberursel", path: "/oberursel/mitte/ki-agenten-automation" },
+          { label: "Suchmaschinenoptimierung Frankfurt", path: "/frankfurt/altstadt/digital-marketing-seo" }
+        ]
+      }
     },
     notFound: {
       badge: "Fehler 404",

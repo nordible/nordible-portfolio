@@ -285,19 +285,17 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
             <div>
               <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-300">
-                {language === 'de' ? 'Regionale Standorte & SEO-Hubs (Rhein-Main)' : 'Regional Technology & SEO Hubs (Rhine-Main)'}
+                {f.regionalHub.title}
               </h3>
               <p className="text-xs text-blue-100/60 mt-0.5">
-                {language === 'de' 
-                  ? 'Lokale Softwareentwicklung, KI-Systeme & SEO-Betreuung vor Ort:' 
-                  : 'Local software engineering, AI systems & SEO services across Hesse:'}
+                {f.regionalHub.subtitle}
               </p>
             </div>
             <Link
               to={getPath('/standorte')}
               className="text-xs font-semibold text-nordible-blue hover:text-blue-300 inline-flex items-center gap-1 transition-colors group shrink-0"
             >
-              <span>{language === 'de' ? 'Alle 15 Standorte anzeigen' : 'View all 15 regions'}</span>
+              <span>{f.regionalHub.viewAll}</span>
               <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -329,27 +327,16 @@ export default function Footer() {
           </div>
 
           {/* High-Intent Service Anchors */}
-          <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-blue-100/50">
-            <span className="font-mono text-blue-300/80 font-bold uppercase tracking-wider">{language === 'de' ? 'Fokusleistungen:' : 'Core Services:'}</span>
-            <Link to={getPath('/frankfurt/altstadt/web-app-entwicklung')} className="hover:text-white transition-colors">
-              Webentwicklung Frankfurt
-            </Link>
-            <span className="text-white/20">·</span>
-            <Link to={getPath('/bad-homburg/mitte/digital-marketing-seo')} className="hover:text-white transition-colors">
-              SEO & GEO Bad Homburg
-            </Link>
-            <span className="text-white/20">·</span>
-            <Link to={getPath('/hanau/steinheim/digital-marketing-seo')} className="hover:text-white transition-colors">
-              Digital Marketing Hanau
-            </Link>
-            <span className="text-white/20">·</span>
-            <Link to={getPath('/oberursel/mitte/ki-agenten-automation')} className="hover:text-white transition-colors">
-              KI-Agenten Oberursel
-            </Link>
-            <span className="text-white/20">·</span>
-            <Link to={getPath('/frankfurt/altstadt/digital-marketing-seo')} className="hover:text-white transition-colors">
-              Suchmaschinenoptimierung Frankfurt
-            </Link>
+          <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-blue-100/50">
+            <span className="font-mono text-blue-300/80 font-bold uppercase tracking-wider">{f.regionalHub.coreServices}</span>
+            {f.regionalHub.serviceLinks.map((service, idx) => (
+              <span key={service.path} className="inline-flex items-center gap-4">
+                {idx > 0 && <span className="text-white/20 select-none">·</span>}
+                <Link to={getPath(service.path)} className="hover:text-white transition-colors">
+                  {service.label}
+                </Link>
+              </span>
+            ))}
           </div>
         </div>
 

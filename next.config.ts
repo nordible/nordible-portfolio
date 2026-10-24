@@ -32,6 +32,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.nordible.co' }],
+        destination: 'https://nordible.co/:path*',
+        permanent: true,
+      },
       { source: '/pricing', destination: '/investment-models', permanent: true },
       { source: '/about', destination: '/company-profile', permanent: true },
       { source: '/why-us', destination: '/why-choose-us', permanent: true },
