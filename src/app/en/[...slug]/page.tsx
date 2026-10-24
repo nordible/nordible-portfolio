@@ -65,7 +65,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       robots: { index: false, follow: false },
     };
   }
+
+  let title = 'Nordible Technologies | Technology & Marketing Partner';
+  let description = 'AI-native technology and marketing partner in Frankfurt & Rhine-Main. Custom software, AI agents, and data-driven marketing.';
+
+  if (slug.length === 1) {
+    const city = getCity(slug[0]);
+    if (city) {
+      title = `Custom Software & AI Solutions in ${city.name} | Nordible`;
+      description = `Technology & marketing partner in ${city.name} & Rhine-Main. Bespoke software engineering, AI agents, and SEO by founder Kabeer Shah.`;
+    }
+  } else if (slug.length === 2) {
+    const sub = getSuburb(slug[0], slug[1]);
+    if (sub) {
+      title = `Software Engineering & Digital Agency in ${sub.suburb.name}, ${sub.city.name} | Nordible`;
+      description = `Modern software, AI automation & marketing in ${sub.suburb.name} (${sub.suburb.postalCode}), ${sub.city.name}. 100% IP ownership & direct founder discovery.`;
+    }
+  } else if (slug.length === 3) {
+    const sub = getSuburb(slug[0], slug[1]);
+    const srv = getService(slug[2]);
+    if (sub && srv) {
+      title = `${srv.nameEn} in ${sub.suburb.name}, ${sub.city.name} | Nordible`;
+      description = `${srv.heroTaglineEn} For businesses in ${sub.suburb.name} (${sub.suburb.postalCode}), ${sub.city.name}. Schedule a free consultation with founder Kabeer Shah.`;
+    }
+  }
+
   return {
+    title,
+    description,
     alternates: {
       canonical: `/en/${path}`,
     },

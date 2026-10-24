@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { 
   ArrowLeft, 
   Share2, 
@@ -58,6 +58,7 @@ interface BlogPostProps {
 
 export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPostProps) {
   const { language, getPath, t } = useLanguage();
+  const isDe = language === 'de';
   const funnel = auditFunnelTranslations[language];
   const params = useParams<{ slug?: string }>();
   const activeSlug = propSlug || params.slug || defaultArticleSlug;
@@ -743,7 +744,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                 </p>
               </div>
             )}
-          </section>
+            </section>
         ))}
 
         {/* Client Live Website Reference Card */}

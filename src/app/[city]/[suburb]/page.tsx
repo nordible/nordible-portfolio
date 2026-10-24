@@ -20,8 +20,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ city: string; suburb: string }> }): Promise<Metadata> {
   const { city, suburb } = await params;
   const result = getSuburb(city, suburb);
+  if (!result) {
+    return {
+      title: 'Technologielösungen | Nordible',
+    };
+  }
   return {
-    title: result ? `Softwareentwicklung in ${result.suburb.name}, ${result.city.name} | Nordible` : 'Technologielösungen | Nordible',
+    title: `Softwareentwicklung & Digitalagentur in ${result.suburb.name}, ${result.city.name} | Nordible`,
+    description: `Moderne Software, KI-Automatisierung & Marketing für Unternehmen in ${result.suburb.name} (${result.suburb.postalCode}), ${result.city.name}. 100% IP-Eigentum, 24h Reaktionszeit & direktes Erstgespräch mit Gründer Kabeer Shah.`,
     alternates: {
       canonical: `/${city}/${suburb}`,
     },

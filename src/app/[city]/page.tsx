@@ -13,8 +13,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const { city } = await params;
   const cityData = getCity(city);
+  if (!cityData) {
+    return {
+      title: 'Technologielösungen | Nordible',
+    };
+  }
   return {
-    title: cityData ? `Technologielösungen & Softwareentwicklung in ${cityData.name} | Nordible` : 'Technologielösungen | Nordible',
+    title: `Softwareentwicklung & KI-Lösungen in ${cityData.name} | Nordible`,
+    description: `Ihr regionaler Technologie- & Marketingpartner in ${cityData.name} & Rhein-Main. Maßgeschneiderte Web-/Mobile-Apps, KI-Agenten & SEO. Direkt geführt von Gründer Kabeer Shah.`,
     alternates: {
       canonical: `/${city}`,
     },

@@ -42,8 +42,8 @@ export async function generateMetadata({
   const locationWithZip = `${suburbResult.suburb.name} (${suburbResult.suburb.postalCode}), ${suburbResult.city.name}`;
 
   return {
-    title: `${serviceData.nameDe} in ${locationWithZip} | Nordible`,
-    description: `${serviceData.nameDe} für Unternehmen in ${locationWithZip}. ${serviceData.descriptionDe}`,
+    title: `${serviceData.nameDe} in ${suburbResult.suburb.name}, ${suburbResult.city.name} | Nordible`,
+    description: `${serviceData.heroTaglineDe} Für Unternehmen in ${locationWithZip}. Jetzt unverbindliches Erstgespräch mit Gründer Kabeer Shah vereinbaren.`,
     alternates: {
       canonical: `/${city}/${suburb}/${service}`,
     },
