@@ -1,10 +1,10 @@
 export const SUPPORTED_LANGUAGES = [
-  { code: 'en', label: 'English', shortLabel: 'EN' },
-  { code: 'de', label: 'Deutsch', shortLabel: 'DE' }
+  { code: 'de', label: 'Deutsch', shortLabel: 'DE' },
+  { code: 'en', label: 'English', shortLabel: 'EN' }
 ] as const;
 
 export type Language = typeof SUPPORTED_LANGUAGES[number]['code'];
-export const DEFAULT_LANGUAGE: Language = 'en';
+export const DEFAULT_LANGUAGE: Language = 'de';
 export const NON_DEFAULT_LANGUAGES: Language[] = SUPPORTED_LANGUAGES
   .map(l => l.code)
   .filter((code): code is Language => code !== DEFAULT_LANGUAGE);
@@ -22,6 +22,7 @@ export interface Translations {
     investmentModels: string;
   };
   hero: {
+    rotatingTitles: string[];
     titlePart1: string;
     titleHighlight: string;
     capabilities: string;
@@ -265,10 +266,15 @@ export const translations: Record<Language, Translations> = {
       investmentModels: "Investment Models"
     },
     hero: {
-      titlePart1: "We don’t just build technology solutions for businesses—",
-      titleHighlight: "we build partnerships with people.",
-      capabilities: "Your trusted technology service provider for custom software, AI automation, and digital business growth.",
-      locationAnchor: "Frankfurt am Main · Regional, Nationwide & Global",
+      rotatingTitles: [
+        "Solve Bigger Problems",
+        "Always Prioritize People",
+        "Build for the Long Term"
+      ],
+      titlePart1: "Technology & Marketing Partner in ",
+      titleHighlight: "Frankfurt & Rhein-Main.",
+      capabilities: "Custom software & AI systems paired with data-driven marketing.",
+      locationAnchor: "Frankfurt am Main & Rhein-Main · Regional, Nationwide & Global",
       subtitle: "Your complete technology partner for every stage of business growth—whether you need to launch a new product, modernize legacy systems, or optimize operations.",
       ctaButton: "Schedule Free Consultation",
       founderName: "Kabeer Shah",
@@ -657,10 +663,15 @@ export const translations: Record<Language, Translations> = {
       investmentModels: "Investitionsmodelle"
     },
     hero: {
-      titlePart1: "Wir entwickeln nicht nur Technologielösungen für Unternehmen – ",
-      titleHighlight: "wir bauen Partnerschaften mit Menschen auf.",
-      capabilities: "Ihr verlässlicher Technologiedienstleister für moderne Software, KI-Automatisierung und digitales Unternehmenswachstum.",
-      locationAnchor: "Frankfurt am Main · Regional, Bundesweit & Weltweit",
+      rotatingTitles: [
+        "Größere Probleme lösen",
+        "Den Menschen immer an erste Stelle setzen",
+        "Langfristig denken und bauen"
+      ],
+      titlePart1: "Technologie- & Marketingpartner in ",
+      titleHighlight: "Frankfurt & Rhein-Main.",
+      capabilities: "Maßgeschneiderte Software & KI-Systeme gepaart mit datengetriebenem Marketing.",
+      locationAnchor: "Frankfurt am Main & Rhein-Main · Hessen, Bundesweit & Weltweit",
       subtitle: "Ihr verlässlicher Technologiepartner für jede Phase Ihres Unternehmenswachstums – von der Neuproduktentwicklung bis zur Modernisierung von Altsystemen und Skalierung von Betriebsabläufen.",
       ctaButton: "Kostenfreies Erstgespräch anfragen",
       founderName: "Kabeer Shah",

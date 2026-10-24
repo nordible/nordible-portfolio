@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { ArrowRight, Store, Rocket, Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,6 +8,32 @@ export default function Hero() {
   const { t, language, getPath } = useLanguage();
   const navigate = useNavigate();
   const isDe = language === 'de';
+
+  const rotatingTitles = t.hero.rotatingTitles || [
+    'Solve Bigger Problems',
+    'Always Prioritize People',
+    'Build for the Long Term'
+  ];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const interval = setInterval(() => {
+      setIsFading(true);
+      timeoutId = setTimeout(() => {
+        setTitleIndex((prev) => (prev + 1) % rotatingTitles.length);
+        setIsFading(false);
+      }, 250);
+    }, 3500);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeoutId);
+    };
+  }, [rotatingTitles.length]);
+
+  const currentTitle = rotatingTitles[titleIndex % rotatingTitles.length];
 
   const scrollToConsultation = () => {
     const element = document.getElementById('consultation');
@@ -103,7 +130,7 @@ export default function Hero() {
                 navigate(getPath('/founder'));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              title="Read Kabeer Shah's Journey"
+              title={isDe ? "Gründergeschichte lesen" : "Read Founder's Story"}
             >
               {/* Soft background depth glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400/20 dark:bg-blue-600/15 blur-3xl rounded-full pointer-events-none"></div>
@@ -121,17 +148,17 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Founder Credential Card */}
-              <div className="relative z-20 -mt-6 w-full rounded-2xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-md px-4 py-3 shadow-lg border border-nordible-border dark:border-gray-700 text-left group-hover:border-nordible-blue/40 transition-colors">
-                <div className="text-base font-extrabold text-nordible-dark dark:text-white font-heading">
-                  {t.hero.founderName}
-                </div>
-                <div className="text-xs font-semibold text-gray-600 dark:text-gray-300 mt-0.5">
-                  {t.hero.founderRole}
-                </div>
-                <div className="mt-1">
-                  <span className="text-[11px] font-semibold text-nordible-blue dark:text-blue-400 group-hover:underline inline-flex items-center gap-0.5">
-                    {t.hero.readFounderStory}
+              {/* Minimalist Glassmorphic Principle Ticker Capsule */}
+              <div className="relative z-20 -mt-5 px-5 py-2 rounded-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-lg border border-nordible-border dark:border-gray-700 group-hover:border-nordible-blue/40 transition-colors">
+                <div className="h-6 flex items-center justify-center overflow-hidden" aria-live="polite">
+                  <span
+                    className={`text-xs sm:text-sm font-extrabold font-heading text-nordible-blue dark:text-blue-400 tracking-tight transition-all duration-300 ease-out motion-reduce:transition-none transform ${
+                      isFading
+                        ? 'opacity-0 -translate-y-2 motion-reduce:opacity-100 motion-reduce:translate-y-0'
+                        : 'opacity-100 translate-y-0'
+                    }`}
+                  >
+                    “{currentTitle}”
                   </span>
                 </div>
               </div>

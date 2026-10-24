@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import TrustSignals from '@/components/TrustSignals';
 import About from '@/components/About';
-import Motto from '@/components/Motto';
 import Services from '@/components/Services';
 import BusinessBenefits from '@/components/BusinessBenefits';
 import InvestmentModelsTeaser from '@/components/InvestmentModelsTeaser';
@@ -28,7 +27,6 @@ export default function HomePage() {
         <Hero />
         <TrustSignals />
         <About />
-        <Motto />
         <Services />
         <BusinessBenefits />
         <InvestmentModelsTeaser />

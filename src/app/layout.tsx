@@ -25,19 +25,16 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nordible.co'),
-  title: 'Nordible Technologies | Technology Solutions, AI Agents & Digital Marketing | Frankfurt',
-  description: 'Nordible Technologies: AI-native business technology partner in Frankfurt am Main. We empower businesses with custom software solutions, mobile apps, AI agents, professional video editing, and data-driven social media management.',
+  title: 'Nordible Technologies | Technologie- & Marketingpartner | Frankfurt & Rhein-Main',
+  description: 'Nordible Technologies: Ihr verlässlicher Technologie- & Marketingpartner in Frankfurt am Main & Rhein-Main. Maßgeschneiderte Software, KI-Systeme und datengetriebenes Marketing.',
   keywords: [
-    'Business Technology Partner Frankfurt',
-    'AI Agents Frankfurt',
-    'Video Editing Frankfurt',
-    'Social Media Management Frankfurt',
-    'Web Development Frankfurt',
-    'Mobile Apps Frankfurt',
-    'Technology Solutions',
-    'Software Architecture',
-    'GEO',
-    'Cloud Infrastructure',
+    'Technologiepartner Frankfurt',
+    'Marketingpartner Frankfurt',
+    'Softwareentwicklung Frankfurt',
+    'KI Agenten Frankfurt',
+    'App Entwicklung Frankfurt',
+    'Digitales Marketing Frankfurt',
+    'Rhein-Main',
     'Nordible Technologies',
   ],
   authors: [{ name: 'Nordible Technologies' }],
@@ -226,7 +223,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable} ${spaceMono.variable}`} suppressHydrationWarning>
+    <html lang="de" className={`${inter.variable} ${sora.variable} ${spaceMono.variable}`} suppressHydrationWarning>
       <head>
         <link rel="alternate" type="text/markdown" title="LLMs.txt" href="/llms.txt" />
         <link rel="alternate" type="text/markdown" title="LLMs Full Knowledge Base" href="/llms-full.txt" />

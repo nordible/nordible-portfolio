@@ -3,10 +3,10 @@ import HomePage from '@/app/page';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/de',
+    canonical: '/en',
   },
 };
 
-export default function DeHomePage() {
+export default function EnHomePage() {
   return <HomePage />;
 }
