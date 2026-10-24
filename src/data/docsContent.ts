@@ -25,6 +25,11 @@ const DOC_METADATA_REGISTRY: Record<string, Partial<InternalDoc>> = {
     shortTitle: 'Contract & LoI',
     category: 'Legal & Immigration',
   },
+  'brand-identity-and-design-system': {
+    id: 'brand-design-system',
+    shortTitle: 'Brand & Design',
+    category: 'Design & Identity',
+  },
 };
 
 import { rawDocModules } from './rawDocs';
@@ -75,7 +80,7 @@ export const internalDocs: InternalDoc[] = Object.entries(rawDocModules).map(([f
 );
 
 // Fallback safety sorting: place business-plan first, followed by financial-plan, etc.
-const PREFERRED_ORDER = ['business-plan', 'financial-plan', 'loi-templates'];
+const PREFERRED_ORDER = ['business-plan', 'financial-plan', 'loi-templates', 'brand-design-system'];
 internalDocs.sort((a, b) => {
   const indexA = PREFERRED_ORDER.indexOf(a.id);
   const indexB = PREFERRED_ORDER.indexOf(b.id);
@@ -115,5 +120,15 @@ export const executiveAssets: ExecutiveAsset[] = [
     fileUrl: '/images/nordible-linkedin-cover.png',
     fileType: 'image',
     badge: 'PNG',
+  },
+  {
+    id: 'brand-mascot',
+    title: 'Official Brand Mascot (WebP)',
+    subtitle: 'Full High-Resolution Character Asset',
+    fileName: 'primary-mascot.webp',
+    fileUrl: '/mascot/primary-mascot.webp',
+    fileType: 'image',
+    badge: 'WebP',
+    targetBlank: true,
   },
 ];
