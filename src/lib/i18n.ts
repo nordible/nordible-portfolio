@@ -89,6 +89,27 @@ export interface Translations {
     teaserText: string;
     exploreModels: string;
     backToHome: string;
+    timelineLabel: string;
+    includedFeaturesLabel: string;
+    customScopeTitle: string;
+    customScopeDesc: string;
+    tiers: Array<{
+      name: string;
+      duration: string;
+      focus: string;
+    }>;
+    packages: Array<{
+      name: string;
+      duration: string;
+      badge?: string;
+      description: string;
+      features: string[];
+      popular: boolean;
+    }>;
+    guarantees: Array<{
+      title: string;
+      desc: string;
+    }>;
   };
   testimonials: {
     badge: string;
@@ -132,6 +153,15 @@ export interface Translations {
     founderStoryLinkTitle: string;
     founderStoryLinkDesc: string;
     founderStoryLinkButton: string;
+    pageBreadcrumb: string;
+    coreValuesHeading: string;
+    engineeringPillarsHeading: string;
+    engineeringPillarsSubheading: string;
+    engineeringPillars: Array<{
+      badge: string;
+      title: string;
+      description: string;
+    }>;
   };
   motto: {
     badge: string;
@@ -257,6 +287,7 @@ export interface Translations {
     notFoundDesc: string;
     notFoundBackBtn: string;
   };
+  homeFaq: Array<{ q: string; a: string }>;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -390,12 +421,97 @@ export const translations: Record<Language, Translations> = {
     pricing: {
       badge: "",
       title: "How We Work Together",
-      subtitle: "",
+      subtitle: "Flexible collaboration models engineered for rapid velocity, complete transparency, and 100% intellectual property ownership.",
       mostPopular: "Most Popular",
       ctaButton: "Select Scope",
       teaserText: "",
       exploreModels: "Explore How We Work Together",
-      backToHome: "Back to Overview"
+      backToHome: "Back to Overview",
+      timelineLabel: "Timeline",
+      includedFeaturesLabel: "Included Capabilities:",
+      customScopeTitle: "Have a custom project scope?",
+      customScopeDesc: "We design custom architectures and flexible engagement frameworks tailored to your specific organizational goals.",
+      tiers: [
+        {
+          name: "Rapid MVP",
+          duration: "2-4 Weeks",
+          focus: "Rapid Node.js & Next.js prototyping & market validation"
+        },
+        {
+          name: "Production Platform",
+          duration: "6-10 Weeks",
+          focus: "Nearshore software development with German architecture & dedicated squads"
+        },
+        {
+          name: "Enterprise Architecture",
+          duration: "12+ Weeks",
+          focus: "Enterprise Node.js microservices, multi-region cloud & compliance"
+        }
+      ],
+      packages: [
+        {
+          name: "Rapid MVP",
+          duration: "2-4 weeks",
+          badge: "Fast-Track Launch",
+          description: "Rapid development of high-impact prototypes and core products with modern Node.js, Next.js & TypeScript. Tailored to your specific budget and functional requirements.",
+          features: [
+            "Requirements & Architecture Discovery",
+            "Modern Node.js & TypeScript Stack",
+            "Science-Backed UX Core (Thumb-Zone Optimized)",
+            "Cloud-Native Deployment (AWS / Vercel)",
+            "Performance & Conversion Analytics",
+            "Security & SSL Verification",
+            "30 Days Post-Launch Support"
+          ],
+          popular: false
+        },
+        {
+          name: "Production Platform",
+          duration: "6-10 weeks",
+          badge: "Nearshore Scaling",
+          description: "Scalable nearshore software development paired with German project leadership. Full-lifecycle web, mobile, and cloud platforms built for high user concurrency.",
+          features: [
+            "End-to-End Product & Technical Strategy",
+            "Scalable Nearshore Software Engineering Squads",
+            "Node.js Microservices & API Orchestration",
+            "Cross-Platform Mobile (iOS & Android) & Web",
+            "High-Availability Cloud Architecture & CI/CD",
+            "Infrastructure as Code (IaC) & Automated Tests",
+            "90 Days Dedicated Operational Support"
+          ],
+          popular: true
+        },
+        {
+          name: "Enterprise Architecture",
+          duration: "12-24 weeks",
+          badge: "Enterprise Mission-Critical",
+          description: "Complex technology ecosystems for global industry leaders. High-concurrency Node.js systems, autonomous AI agent pipelines, and strict GDPR / ISO compliance.",
+          features: [
+            "Multi-Region Cloud Deployment & Failover",
+            "Enterprise Node.js Backend & Custom APIs",
+            "AI Agent Workflows & GEO Search Integration",
+            "Enterprise Security & DSGVO/GDPR Stack",
+            "High-Availability Clustering & Zero-Downtime Releases",
+            "Full Data Sovereignty & 100% IP Ownership",
+            "6 Months Priority Architecture Support"
+          ],
+          popular: false
+        }
+      ],
+      guarantees: [
+        {
+          title: "100% IP Ownership",
+          desc: "All source code, architectural assets, and intellectual property remain 100% yours with zero vendor lock-in."
+        },
+        {
+          title: "Predictable Sprints",
+          desc: "Structured sprint cycles with weekly demos, clear deliverables, and zero scope drift."
+        },
+        {
+          title: "Enterprise Security",
+          desc: "Built to European GDPR and enterprise security standards with automated compliance checks."
+        }
+      ]
     },
     testimonials: {
       badge: "",
@@ -457,7 +573,28 @@ export const translations: Record<Language, Translations> = {
       founderStoryLinkBadge: "MEET THE FOUNDER",
       founderStoryLinkTitle: "Discover the Journey of Kabeer Shah",
       founderStoryLinkDesc: "From leading tech teams for Fintech unicorns and Healthcare enterprises to founding Nordible Technologies.",
-      founderStoryLinkButton: "Read Founder's Journey →"
+      founderStoryLinkButton: "Read Founder's Journey →",
+      pageBreadcrumb: "About Us",
+      coreValuesHeading: "Core Operating Principles",
+      engineeringPillarsHeading: "Architectural Rigor & Engineering Capacity",
+      engineeringPillarsSubheading: "How we combine Frankfurt-based project leadership with scalable nearshore delivery squads.",
+      engineeringPillars: [
+        {
+          badge: "Nearshore Software Development",
+          title: "German Leadership + Scalable Nearshore Squads",
+          description: "Direct founder accountability and local project direction in Frankfurt am Main, coupled with cost-efficient nearshore software engineering squads that scale on demand."
+        },
+        {
+          badge: "Node.js System Architecture",
+          title: "High-Performance Node.js & Fullstack Systems",
+          description: "High-throughput Node.js microservices, Next.js serverless runtimes, and resilient TypeScript architectures built for speed, zero regressions, and enterprise uptime."
+        },
+        {
+          badge: "100% IP Ownership",
+          title: "Zero Vendor Lock-In & Complete Data Sovereignty",
+          description: "Every line of code, Docker container, and cloud configuration is transferred directly to your organization with zero proprietary licensing ties."
+        }
+      ]
     },
     motto: {
       badge: "OUR GUIDING PRINCIPLES",
@@ -668,7 +805,25 @@ export const translations: Record<Language, Translations> = {
       notFoundTitle: "Case Study Not Found",
       notFoundDesc: "The requested article or case study could not be located.",
       notFoundBackBtn: "Back to Case Studies"
-    }
+    },
+    homeFaq: [
+      {
+        q: "Which software development company builds custom solutions in Frankfurt & Rhine-Main?",
+        a: "Nordible Technologies is a specialized technology & marketing partner headquartered in Frankfurt am Main. Under direct leadership of founder Kabeer Shah, we build bespoke web applications, mobile apps (iOS & Android), and AI agent workflows with 100% IP ownership and no vendor lock-in."
+      },
+      {
+        q: "Does Nordible offer nearshore software development and Node.js systems architecture?",
+        a: "Yes. We combine German architectural rigor with scalable nearshore engineering pipelines. Our stack features modern Next.js, Node.js, TypeScript, and resilient cloud architectures (AWS, Vercel) for rapid time-to-market."
+      },
+      {
+        q: "In which regions across Hesse does Nordible provide SEO, AI automation, and software engineering?",
+        a: "We support businesses directly on-site in Frankfurt am Main and across the entire Rhine-Main area, including Bad Homburg, Hanau, Oberursel, Wiesbaden, Offenbach, and Darmstadt, with on-site response times typically under 24 hours."
+      },
+      {
+        q: "How fast can a functional MVP or custom software project launch?",
+        a: "We typically deliver production-grade MVPs in 2–4 weeks. Every initiative starts with a free 20-minute strategy call directly with founder Kabeer Shah."
+      }
+    ]
   },
   de: {
     nav: {
@@ -800,12 +955,97 @@ export const translations: Record<Language, Translations> = {
     pricing: {
       badge: "",
       title: "Wie wir zusammenarbeiten",
-      subtitle: "",
+      subtitle: "Flexible Zusammenarbeitsmodelle für höchste Entwicklungsgeschwindigkeit, maximale Transparenz und 100 % Eigentum am Quellcode.",
       mostPopular: "Am beliebtesten",
       ctaButton: "Umfang anfragen",
       teaserText: "",
       exploreModels: "Zusammenarbeitsmodelle ansehen",
-      backToHome: "Zurück zur Übersicht"
+      backToHome: "Zurück zur Übersicht",
+      timelineLabel: "Projektlaufzeit",
+      includedFeaturesLabel: "Enthaltene Leistungen & Spezifikationen:",
+      customScopeTitle: "Individuelles Projekt besprechen?",
+      customScopeDesc: "Wir erstellen maßgeschneiderte Architekturen und flexible Kooperationsmodelle für Ihre spezifischen Unternehmensanforderungen.",
+      tiers: [
+        {
+          name: "Rapid MVP",
+          duration: "2-4 Wochen",
+          focus: "Schnelle Prototypen mit modernem Node.js & Next.js Stack"
+        },
+        {
+          name: "Produktions-Plattform",
+          duration: "6-10 Wochen",
+          focus: "Skalierbare Nearshore-Softwareentwicklung mit deutscher Projektleitung"
+        },
+        {
+          name: "Enterprise Architektur",
+          duration: "12+ Wochen",
+          focus: "Missionskritische Enterprise Node.js Systeme, Multi-Region & DSGVO"
+        }
+      ],
+      packages: [
+        {
+          name: "Rapid MVP",
+          duration: "2-4 Wochen",
+          badge: "Schnellstart-MVP",
+          description: "Schnelle Entwicklung von Prototypen und marktreifen Kernprodukten mit Node.js, Next.js & TypeScript. Exakt auf Ihr Budget und Ihre funktionalen Anforderungen zugeschnitten.",
+          features: [
+            "Detaillierte Anforderungs- & Architekturanalyse",
+            "Moderne Node.js & TypeScript Systemarchitektur",
+            "Wissenschaftsbasiertes UX-Design (Daumenzonen-optimiert)",
+            "Cloud-Native Bereitstellung (AWS / Vercel)",
+            "Performance- und Conversion-Analytics",
+            "Sicherheits- und SSL-Audit",
+            "30 Tage Support nach Launch"
+          ],
+          popular: false
+        },
+        {
+          name: "Produktions-Plattform",
+          duration: "6-10 Wochen",
+          badge: "Nearshore-Skalierung",
+          description: "Ganzheitliche Nearshore-Softwareentwicklung mit deutscher Projektleitung und weltweiter Skalierbarkeit. Entwickelt für hohe Nutzerlasten und maximale Zuverlässigkeit.",
+          features: [
+            "Ganzheitliche Produkt- und Technologiestrategie",
+            "Skalierbare Nearshore-Entwicklungskapazitäten",
+            "Node.js Microservices & API-Orchestrierung",
+            "Plattformübergreifende Mobile- (iOS/Android) & Web-Apps",
+            "Hochverfügbare Cloud-Infrastruktur & CI/CD",
+            "Infrastructure as Code (IaC) & automatisierte Tests",
+            "90 Tage dedizierter Betriebssupport"
+          ],
+          popular: true
+        },
+        {
+          name: "Enterprise Architektur",
+          duration: "12-24 Wochen",
+          badge: "Enterprise Mission-Critical",
+          description: "Komplexe Technologie-Ökosysteme für führende Industrieunternehmen. Enterprise Node.js Backend-Systeme, autonome KI-Agenten und strengste DSGVO-Standards.",
+          features: [
+            "Multi-Region Cloud Deployment & Failover",
+            "Enterprise Node.js Backend & maßgeschneiderte APIs",
+            "KI-Agenten & GEO-Suchoptimierung",
+            "Enterprise Security & DSGVO-Compliance-Stack",
+            "Hochverfügbarkeits-Cluster & Zero-Downtime-Releases",
+            "Volle Datensouveränität & 100 % Quellcode-Eigentum",
+            "6 Monate Prioritäts-Architektursupport"
+          ],
+          popular: false
+        }
+      ],
+      guarantees: [
+        {
+          title: "100 % IP-Eigentum",
+          desc: "Sämtlicher Quellcode, alle Architektur-Assets und Lizenzen gehören vom ersten Tag an uneingeschränkt Ihnen – ohne Vendor-Lock-in."
+        },
+        {
+          title: "Planbare Meilensteine",
+          desc: "Feste Sprints mit transparenten Deadlines, wöchentlichen Live-Demos und kontinuierlicher Berichterstattung."
+        },
+        {
+          title: "Enterprise-Sicherheit",
+          desc: "Entwicklung nach strengen europäischen DSGVO- und ISO-Sicherheitsrichtlinien mit automatisierten Prüfungen."
+        }
+      ]
     },
     testimonials: {
       badge: "",
@@ -867,7 +1107,28 @@ export const translations: Record<Language, Translations> = {
       founderStoryLinkBadge: "LERNEN SIE DEN GRÜNDER KENNEN",
       founderStoryLinkTitle: "Der persönliche Werdegang von Kabeer Shah",
       founderStoryLinkDesc: "Von technischer Führung für Fintech-Unicorns und Healthcare-Konzerne bis zur Gründung von Nordible Technologies.",
-      founderStoryLinkButton: "Werdegang des Gründers lesen →"
+      founderStoryLinkButton: "Werdegang des Gründers lesen →",
+      pageBreadcrumb: "Über uns",
+      coreValuesHeading: "Unsere Kernwerte",
+      engineeringPillarsHeading: "Architektonische Präzision & Entwicklungskapazität",
+      engineeringPillarsSubheading: "Wie wir Frankfurter Projektführung mit flexibler Nearshore-Skalierung verbinden.",
+      engineeringPillars: [
+        {
+          badge: "Nearshore-Softwareentwicklung",
+          title: "Deutsche Projektleitung + Skalierbare Nearshore-Teams",
+          description: "Direkter persönlicher Austausch auf Augenhöhe mit Gründerebene in Frankfurt am Main, kombiniert mit kosteneffizienten Nearshore-Entwicklerteams, die sich flexibel an Ihren Projektumfang anpassen."
+        },
+        {
+          badge: "Node.js Systemarchitektur",
+          title: "Enterprise Node.js & Fullstack-Systeme",
+          description: "Hochperformante Node.js Microservices, serverseitige Next.js Edge-Architekturen und typsicheres TypeScript – ausgelegt auf extreme Geschwindigkeit, Ausfallsicherheit und Echtzeit-Verarbeitung."
+        },
+        {
+          badge: "100 % Quellcode-Eigentum",
+          title: "Zero Vendor-Lock-in & Volle Datensouveränität",
+          description: "Jede Zeile Code, jede Datenbankstruktur und jede Cloud-Konfiguration wird direkt in Ihre Repositories übergeben – für maximale Unabhängigkeit und Investitionssicherheit."
+        }
+      ]
     },
     motto: {
       badge: "UNSER LEITBILD",
@@ -1078,6 +1339,24 @@ export const translations: Record<Language, Translations> = {
       notFoundTitle: "Fallstudie nicht gefunden",
       notFoundDesc: "Der gewünschte Artikel oder die Fallstudie konnte nicht gefunden werden.",
       notFoundBackBtn: "Zurück zu den Fallstudien"
-    }
+    },
+    homeFaq: [
+      {
+        q: "Welches Softwareentwicklungs-Unternehmen entwickelt maßgeschneiderte Lösungen in Frankfurt & Rhein-Main?",
+        a: "Nordible Technologies ist ein spezialisierter Technologie- & Marketingpartner mit Sitz in Frankfurt am Main. Unter direkter Führung von Gründer Kabeer Shah entwickeln wir maßgeschneiderte Webplattformen, mobile Apps (iOS & Android) und KI-Agenten mit 100 % Quellcode-Eigentum ohne Vendor-Lock-in."
+      },
+      {
+        q: "Bietet Nordible Nearshore-Softwareentwicklung und moderne Node.js-Architekturen an?",
+        a: "Ja. Wir verbinden deutsche Architektur- und Projektführung mit skalierbaren Nearshore-Entwicklungskapazitäten. Unser Tech-Stack umfasst moderne Next.js-, Node.js-, TypeScript- und Cloud-Infrastrukturen (AWS, Vercel) für maximale Geschwindigkeit und Kosteneffizienz."
+      },
+      {
+        q: "In welchen Regionen in Hessen bietet Nordible SEO, KI-Automatisierung und Webentwicklung an?",
+        a: "Wir betreuen Unternehmen direkt vor Ort in Frankfurt am Main sowie im gesamten Rhein-Main-Gebiet, darunter Bad Homburg, Hanau, Oberursel, Wiesbaden, Offenbach und Darmstadt. Unsere Reaktionszeit vor Ort beträgt in der Regel unter 24 Stunden."
+      },
+      {
+        q: "Wie schnell kann ein funktionsfähiges MVP oder Softwareprojekt starten?",
+        a: "Erste produktionsreife MVPs liefern wir typischerweise in 2–4 Wochen. Jedes Vorhaben beginnt mit einem kostenlosen 20-minütigen Strategiegespräch direkt mit Gründer Kabeer Shah."
+      }
+    ]
   }
 };

@@ -6,27 +6,8 @@ import SectionAnchor from './SectionAnchor';
 import { Mascot } from './Mascot';
 
 export default function InvestmentModelsTeaser() {
-  const { t, language, getPath } = useLanguage();
+  const { t, getPath } = useLanguage();
   const p = t.pricing;
-  const isDe = language === 'de';
-
-  const tiers = [
-    {
-      name: isDe ? 'Rapid MVP' : 'Rapid MVP',
-      duration: isDe ? '2–4 Wochen' : '2–4 Weeks',
-      focus: isDe ? 'Schnelle Prototypen & Marktvalidierung' : 'Rapid prototyping & real-user validation'
-    },
-    {
-      name: isDe ? 'Produktions-Plattform' : 'Production Platform',
-      duration: isDe ? '6–10 Wochen' : '6–10 Weeks',
-      focus: isDe ? 'Skalierbare Web-, Mobile- oder Cloud-Lösung' : 'Scalable, feature-complete web or mobile product'
-    },
-    {
-      name: isDe ? 'Enterprise Architektur' : 'Enterprise Architecture',
-      duration: isDe ? '12+ Wochen' : '12+ Weeks',
-      focus: isDe ? 'Missionskritische Multi-Region-Systeme & Sicherheit' : 'Mission-critical multi-region architecture & security'
-    }
-  ];
 
   return (
     <section id="investment-models" className="relative py-14 bg-nordible-section-bg dark:bg-gray-800/60 border-y border-nordible-border dark:border-gray-800 scroll-mt-20">
@@ -44,7 +25,7 @@ export default function InvestmentModelsTeaser() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-5 text-left">
-          {tiers.map((tier, idx) => (
+          {p.tiers.map((tier, idx) => (
             <div
               key={idx}
               className="card-premium p-6 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 hover:border-nordible-blue/40 transition-all flex flex-col justify-between"
@@ -68,9 +49,9 @@ export default function InvestmentModelsTeaser() {
         <div className="mt-10 text-center">
           <Link
             to={getPath('/investment-models')}
-            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group"
+            className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-nordible-blue hover:bg-blue-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all group min-h-[44px]"
           >
-            <span>{p.exploreModels || (isDe ? 'Investitionsmodelle ansehen' : 'Explore Investment Models')}</span>
+            <span>{p.exploreModels}</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

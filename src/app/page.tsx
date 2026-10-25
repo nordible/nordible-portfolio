@@ -12,6 +12,7 @@ import Process from '@/components/Process';
 import BlogTeaser from '@/components/BlogTeaser';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { translations } from '@/lib/i18n';
 
 export const metadata: Metadata = {
   alternates: {
@@ -19,9 +20,26 @@ export const metadata: Metadata = {
   },
 };
 
+const deFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: translations.de.homeFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(deFaqSchema) }}
+      />
       <Header />
       <main>
         <Hero />

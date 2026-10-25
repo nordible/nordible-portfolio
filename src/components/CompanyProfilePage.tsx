@@ -1,7 +1,7 @@
 'use client';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Shield, Zap, Target } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Shield, Zap, Target, Cpu, Server, Code2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigate } from '@/lib/router-compat';
 
 interface CompanyProfilePageProps {
   onBack?: () => void;
@@ -10,7 +10,7 @@ interface CompanyProfilePageProps {
 
 export default function CompanyProfilePage({ onBack, onBookConsultation }: CompanyProfilePageProps) {
   const navigate = useNavigate();
-  const { t, language, getPath } = useLanguage();
+  const { t, getPath } = useLanguage();
   const a = t.about;
 
   const handleBack = onBack || (() => navigate(getPath('/')));
@@ -22,6 +22,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
   });
 
   const qualityIcons = [Shield, Zap, Target];
+  const engineeringIcons = [Server, Cpu, Code2];
 
   return (
     <article className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-20">
@@ -32,14 +33,14 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           <button
             type="button"
             onClick={handleBack}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer min-h-[44px]"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>{t.founderPage.backToHome}</span>
           </button>
 
           <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
-            Nordible Technologies · {language === 'de' ? 'Über uns' : 'About Us'}
+            Nordible Technologies · {a.pageBreadcrumb}
           </span>
         </div>
 
@@ -75,10 +76,46 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           </div>
         </div>
 
+        {/* Engineering & Delivery Pillars (SEO: Nearshore Softwareentwicklung & Node.js Architecture) */}
+        <div className="space-y-6 text-left">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
+              {a.engineeringPillarsHeading}
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mt-1">
+              {a.engineeringPillarsSubheading}
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6">
+            {a.engineeringPillars.map((pillar, index) => {
+              const Icon = engineeringIcons[index % engineeringIcons.length];
+              return (
+                <div key={index} className="card-premium group p-6 flex flex-col justify-between hover:border-nordible-blue/40 transition-all">
+                  <div>
+                    <div className="inline-block px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-900/30 text-[10px] font-bold text-nordible-blue dark:text-blue-400 uppercase tracking-widest mb-4 border border-blue-100 dark:border-blue-800">
+                      {pillar.badge}
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-3 text-nordible-blue dark:text-blue-400">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-extrabold text-base text-nordible-dark dark:text-white mb-2 font-heading">
+                      {pillar.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed mt-2">
+                    {pillar.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Core Qualities / Principles */}
         <div className="space-y-6 text-left">
           <h2 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-            {language === 'de' ? 'Unsere Kernwerte' : 'Core Operating Principles'}
+            {a.coreValuesHeading}
           </h2>
 
           <div className="grid sm:grid-cols-3 gap-6">
@@ -114,10 +151,10 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
             </div>
             <button
               onClick={() => {
-                navigate('/founder');
+                navigate(getPath('/founder'));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs px-6 py-3 shrink-0 shadow-lg cursor-pointer"
+              className="btn-primary min-h-[44px] bg-white text-nordible-dark hover:bg-blue-50 text-xs px-6 py-3 shrink-0 shadow-lg cursor-pointer"
             >
               <span>{a.founderStoryLinkButton}</span>
             </button>
@@ -129,7 +166,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           <button
             type="button"
             onClick={handleBack}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer min-h-[44px]"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>{t.founderPage.backToHome}</span>
@@ -138,7 +175,7 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           <button
             type="button"
             onClick={handleConsultation}
-            className="btn-primary w-full sm:w-auto text-xs px-7 py-3"
+            className="btn-primary w-full sm:w-auto text-xs px-7 py-3 min-h-[48px]"
           >
             <span>{t.nav.getStarted}</span>
             <ArrowRight className="h-4 w-4 ml-1" />
