@@ -138,28 +138,6 @@ export default function CompanyProfilePage({ onBack, onBookConsultation }: Compa
           </div>
         </div>
 
-        {/* Founder Story Link Banner */}
-        <div className="relative rounded-3xl bg-gradient-to-r from-nordible-dark via-blue-950 to-nordible-dark text-white p-8 sm:p-10 shadow-xl overflow-hidden text-left">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-            <div className="space-y-2 max-w-2xl">
-              <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-white">
-                {a.founderStoryLinkTitle}
-              </h3>
-              <p className="text-sm text-blue-100/80 font-medium leading-relaxed">
-                {a.founderStoryLinkDesc}
-              </p>
-            </div>
-            <button
-              onClick={() => {
-                navigate(getPath('/founder'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="btn-primary min-h-[44px] bg-white text-nordible-dark hover:bg-blue-50 text-xs px-6 py-3 shrink-0 shadow-lg cursor-pointer"
-            >
-              <span>{a.founderStoryLinkButton}</span>
-            </button>
-          </div>
-        </div>
 
         {/* Action Controls at Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-nordible-border dark:border-gray-800">

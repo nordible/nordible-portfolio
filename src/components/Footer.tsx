@@ -231,17 +231,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <button 
-                  onClick={() => {
-                    navigate(getPath('/founder'));
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }} 
-                  className="text-blue-100/60 hover:text-white transition-colors text-left cursor-pointer"
-                >
-                  {f.founderStory}
-                </button>
-              </li>
-              <li>
                 <Link 
                   to={getPath('/investment-models')} 
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"

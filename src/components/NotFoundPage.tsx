@@ -6,7 +6,6 @@ import {
   ArrowLeft, 
   Layers, 
   Compass, 
-  User, 
   TrendingUp, 
   BookOpen, 
   Mail,
@@ -74,16 +73,16 @@ export default function NotFoundPage() {
       action: () => handleNavigate('/investment-models')
     },
     {
-      title: nf.links.founderStory,
-      description: language === 'de' ? 'Hintergrund, Vision und technische Leitung' : 'Founder journey, ethos, and leadership',
-      icon: User,
-      action: () => handleNavigate('/founder')
-    },
-    {
-      title: nf.links.blog,
-      description: language === 'de' ? 'Architekturmuster und Tech-Analysen' : 'Modern architecture patterns & tech essays',
+      title: nf.links.caseStudies,
+      description: language === 'de' ? 'Messbare Kundenerfolge, Architektur-Breakdowns und Ergebnisse' : 'Real-world client ROI, architecture & verifiable results',
       icon: BookOpen,
       action: () => handleNavigate('/blog')
+    },
+    {
+      title: nf.links.portfolio,
+      description: language === 'de' ? 'Ausgewählte Systeme, Plattformen und digitale Produkte' : 'Flagship platforms, custom systems & product showcase',
+      icon: Compass,
+      action: () => handleNavigate('/', 'portfolio')
     },
     {
       title: nf.links.contact,

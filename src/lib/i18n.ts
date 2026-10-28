@@ -260,10 +260,12 @@ export interface Translations {
     quickLinksTitle: string;
     links: {
       services: string;
-      founderStory: string;
+      caseStudies: string;
       investmentModels: string;
-      blog: string;
+      portfolio: string;
       contact: string;
+      founderStory?: string;
+      blog?: string;
     };
   };
   blogTeaser: {
@@ -779,10 +781,12 @@ export const translations: Record<Language, Translations> = {
       quickLinksTitle: "Quick Destinations",
       links: {
         services: "Solutions & Architecture",
-        founderStory: "Founder's Journey",
+        caseStudies: "Case Studies",
         investmentModels: "Investment Models",
-        blog: "Tech Insights",
-        contact: "Get in Touch"
+        portfolio: "Product Portfolio",
+        contact: "Get in Touch",
+        founderStory: "Founder's Journey",
+        blog: "Tech Insights"
       }
     },
     blogTeaser: {
@@ -1313,10 +1317,12 @@ export const translations: Record<Language, Translations> = {
       quickLinksTitle: "Schnelleinstiege",
       links: {
         services: "Lösungen & Architektur",
-        founderStory: "Gründer-Story",
+        caseStudies: "Fallstudien",
         investmentModels: "Investitionsmodelle",
-        blog: "Tech-Einblicke",
-        contact: "Kontakt aufnehmen"
+        portfolio: "Produkt-Portfolio",
+        contact: "Kontakt aufnehmen",
+        founderStory: "Gründer-Story",
+        blog: "Tech-Einblicke"
       }
     },
     blogTeaser: {

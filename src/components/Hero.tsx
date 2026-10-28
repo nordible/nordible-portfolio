@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Store, Rocket, Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -34,6 +34,34 @@ export default function Hero() {
   }, [rotatingTitles.length]);
 
   const currentTitle = rotatingTitles[titleIndex % rotatingTitles.length];
+
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleFounderClick = () => {
+    clickCountRef.current += 1;
+    if (clickTimerRef.current) {
+      clearTimeout(clickTimerRef.current);
+    }
+
+    if (clickCountRef.current >= 3) {
+      clickCountRef.current = 0;
+      navigate(getPath('/founder'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      clickTimerRef.current = setTimeout(() => {
+        clickCountRef.current = 0;
+      }, 1200);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (clickTimerRef.current) {
+        clearTimeout(clickTimerRef.current);
+      }
+    };
+  }, []);
 
   const scrollToConsultation = () => {
     const element = document.getElementById('consultation');
@@ -125,26 +153,23 @@ export default function Hero() {
           {/* Right Column: Serious Founder Executive Showcase */}
           <div className="lg:col-span-5 relative flex justify-center items-center">
             <div 
-              className="relative w-full max-w-sm flex flex-col items-center cursor-pointer group"
-              onClick={() => {
-                navigate(getPath('/founder'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              title={isDe ? "Gründergeschichte lesen" : "Read Founder's Story"}
+              className="relative w-full max-w-sm flex flex-col items-center select-none cursor-default group"
+              onClick={handleFounderClick}
             >
               {/* Soft background depth glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400/20 dark:bg-blue-600/15 blur-3xl rounded-full pointer-events-none"></div>
 
               {/* Cutout Image with constrained height for complete single-screen visibility */}
-              <div className="relative z-10 flex justify-center">
+              <div className="relative z-10 flex justify-center select-none">
                 <img
                   src="/images/founder-transparent.webp"
                   alt={`${t.hero.founderName} - ${t.hero.founderRole}`}
                   width={780}
                   height={932}
-                  className="max-h-[320px] sm:max-h-[360px] lg:max-h-[390px] w-auto object-contain drop-shadow-xl group-hover:scale-[1.02] transition-transform duration-300"
+                  className="max-h-[320px] sm:max-h-[360px] lg:max-h-[390px] w-auto object-contain drop-shadow-xl select-none"
                   loading="eager"
                   fetchPriority="high"
+                  draggable={false}
                 />
               </div>
 
