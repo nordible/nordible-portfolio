@@ -1,0 +1,874 @@
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+// Output directories
+const carouselsDir = path.join(rootDir, 'public', 'carousels');
+const imagesDir = path.join(carouselsDir, 'images');
+const slidesDir = path.join(carouselsDir, 'slides');
+
+for (const dir of [carouselsDir, imagesDir, slidesDir]) {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+}
+
+// Browser candidates
+const browserCandidates = [
+  'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+  'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
+  'google-chrome',
+  'chromium-browser',
+  'chromium'
+];
+
+let browserPath = browserCandidates.find(cand => {
+  try { return fs.existsSync(cand); } catch { return false; }
+}) || 'msedge';
+
+console.log(`Using headless browser: ${browserPath}`);
+
+const commonCss = `
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --nordible-blue: #145BFF;
+    --nordible-dark: #0D2B75;
+    --nordible-orange: #FF9F1A;
+    --nordible-emerald: #059669;
+    --nordible-bg: #FAFBFF;
+    --nordible-card: #FFFFFF;
+    --nordible-border: #E2E8F0;
+    --nordible-slate: #1E293B;
+    --nordible-muted: #64748B;
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: var(--nordible-bg);
+    color: var(--nordible-slate);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Slide Dimensions: 1080 x 1350 px (Mobile 4:5 Portrait) */
+  .slide-container {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #FAFBFF;
+    background-image: 
+      radial-gradient(ellipse 90% 50% at 50% -10%, rgba(56, 189, 248, 0.22), rgba(20, 91, 255, 0.08), transparent 70%),
+      radial-gradient(circle at 95% 95%, rgba(20, 91, 255, 0.06), transparent 50%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 72px 76px 60px 76px;
+    box-sizing: border-box;
+  }
+
+  /* Top brand gradient line */
+  .slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #145BFF 0%, #38BDF8 50%, #FF9F1A 100%);
+  }
+
+  /* Header (Mobile Scaled) */
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .brand-logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .brand-icon-box {
+    width: 58px;
+    height: 58px;
+    background: #FFFFFF;
+    border: 2px solid var(--nordible-border);
+    border-radius: 16px;
+    padding: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(20, 91, 255, 0.1);
+  }
+
+  .brand-icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .brand-company-title {
+    font-family: var(--font-heading);
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--nordible-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .header-pills-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .client-logo-pill {
+    background: #FFFFFF;
+    border: 2px solid var(--nordible-border);
+    border-radius: 999px;
+    padding: 8px 22px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .client-logo-pill img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .slide-counter-badge {
+    background: #FFFFFF;
+    border: 2px solid var(--nordible-border);
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--nordible-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Mascot + Speech Bubble (Mobile Optimized) */
+  .mascot-hero-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 28px 0 20px 0;
+  }
+
+  .mascot-avatar {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 12px 20px rgba(20, 91, 255, 0.16));
+  }
+
+  .mascot-avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .speech-bubble-container {
+    position: relative;
+    background: #FFFFFF;
+    border: 2px solid var(--nordible-border);
+    border-radius: 24px;
+    padding: 22px 30px;
+    box-shadow: 0 12px 28px rgba(20, 91, 255, 0.07);
+    flex: 1;
+  }
+
+  .speech-bubble-container::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border-left: 2px solid var(--nordible-border);
+    border-bottom: 2px solid var(--nordible-border);
+  }
+
+  .speech-bubble-speaker {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--nordible-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .speech-bubble-message {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--nordible-dark);
+  }
+
+  /* Eyebrow & Titles (Large Mobile Typography) */
+  .eyebrow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(20, 91, 255, 0.08);
+    border: 1.5px solid rgba(20, 91, 255, 0.25);
+    border-radius: 999px;
+    padding: 9px 24px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--nordible-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .title-main {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--nordible-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .title-main .text-highlight-blue {
+    color: var(--nordible-blue);
+  }
+
+  .title-main .text-highlight-orange {
+    color: var(--nordible-orange);
+  }
+
+  .title-main .text-highlight-emerald {
+    color: var(--nordible-emerald);
+  }
+
+  .subtitle-text {
+    font-size: 27px;
+    line-height: 1.45;
+    color: var(--nordible-slate);
+    font-weight: 500;
+  }
+
+  /* Single Column High-Contrast Mobile Cards */
+  .mobile-card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .mobile-card {
+    background: #FFFFFF;
+    border: 2px solid var(--nordible-border);
+    border-radius: 24px;
+    padding: 26px 32px;
+    box-shadow: 0 10px 24px rgba(20, 91, 255, 0.05);
+  }
+
+  .mobile-card.featured-blue {
+    border-color: var(--nordible-blue);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F2F7FF 100%);
+  }
+
+  .mobile-card.featured-green {
+    border-color: var(--nordible-emerald);
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+  }
+
+  /* Mobile Zoomed Proof Card */
+  .mobile-zoom-frame {
+    width: 100%;
+    height: 420px;
+    border-radius: 24px;
+    border: 3px solid #CBD5E1;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    margin-top: 20px;
+    background: #000000;
+  }
+
+  .mobile-zoom-frame img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Footer (Thumb Zone) */
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 26px;
+    border-top: 2px solid var(--nordible-border);
+    z-index: 10;
+  }
+
+  .footer-client-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--nordible-slate);
+  }
+
+  .status-dot-green {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--nordible-emerald);
+    box-shadow: 0 0 12px rgba(5, 150, 105, 0.5);
+  }
+
+  .footer-attribution strong {
+    color: var(--nordible-dark);
+    font-weight: 800;
+  }
+
+  .footer-thumb-cta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(20, 91, 255, 0.08);
+    border: 1.5px solid rgba(20, 91, 255, 0.25);
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--nordible-blue);
+  }
+`;
+
+const generateSlideHtml = (slideNumber, contentHtml, mascotVariant, mascotSpeech, relPrefix) => {
+  const nordibleIconPath = `${relPrefix}images/logos/nordible-icon.png`;
+  const bombayLogoPath = `${relPrefix}images/logos/bombay-studio-logo.png`;
+  const mascotImgPath = `${relPrefix}mascot/${mascotVariant}.webp`;
+
+  return `
+    <div class="slide-container" id="slide-${slideNumber}">
+      <!-- Header -->
+      <div class="slide-header">
+        <div class="brand-logo-lockup">
+          <div class="brand-icon-box">
+            <img src="${nordibleIconPath}" alt="Nordible Logo">
+          </div>
+          <span class="brand-company-title">Nordible Technologies</span>
+        </div>
+
+        <div class="header-pills-group">
+          <div class="client-logo-pill">
+            <img src="${bombayLogoPath}" alt="Bombay Studio Logo">
+          </div>
+          <div class="slide-counter-badge">
+            0${slideNumber} / 06
+          </div>
+        </div>
+      </div>
+
+      <!-- Mascot Hero Callout -->
+      <div class="mascot-hero-section">
+        <div class="mascot-avatar">
+          <img src="${mascotImgPath}" alt="Nordible Mascot">
+        </div>
+        <div class="speech-bubble-container">
+          <div class="speech-bubble-speaker">Nordible AI Strategist</div>
+          <div class="speech-bubble-message">${mascotSpeech}</div>
+        </div>
+      </div>
+
+      <!-- Main Body Content -->
+      <div class="slide-content-area" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        ${contentHtml}
+      </div>
+
+      <!-- Thumb Zone Footer -->
+      <div class="slide-footer">
+        <div class="footer-client-tag">
+          <div class="status-dot-green"></div>
+          <div class="footer-attribution">Client: <strong>Bombay Studio</strong></div>
+        </div>
+        <div class="footer-thumb-cta">
+          <span>Swipe →</span>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+// Slide Data - Mobile First Scale
+const slidesData = [
+  // SLIDE 1: The Hook
+  {
+    num: 1,
+    mascot: 'hero-wave',
+    speech: 'We engineered AI Search for Bombay Studio — and ChatGPT ranked them #1 in Mumbai!',
+    html: (p) => `
+      <div class="eyebrow-badge">Client Success Story · GEO</div>
+      <h1 class="title-main">
+        Ranked <span class="text-highlight-blue">#1 on ChatGPT</span> Over Global Firms
+      </h1>
+      <p class="subtitle-text">
+        When high-ticket buyers search conversational AI for turnkey luxury interior architects, Bombay Studio wins the top spot.
+      </p>
+
+      <div class="mobile-card featured-blue" style="margin-top: 26px; display: flex; align-items: center; gap: 28px; padding: 28px 32px;">
+        <div style="min-width: 120px; height: 120px; border-radius: 22px; background: linear-gradient(135deg, #145BFF 0%, #0D2B75 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; box-shadow: 0 10px 24px rgba(20, 91, 255, 0.35);">
+          <span style="font-family: var(--font-heading); font-size: 52px; font-weight: 800; line-height: 1;">#1</span>
+          <span style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Rank</span>
+        </div>
+        <div style="flex: 1;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #ECFDF5; border: 1.5px solid #A7F3D0; color: #059669; font-size: 17px; font-weight: 800; padding: 6px 16px; border-radius: 999px; margin-bottom: 8px;">
+            ● First one to contact
+          </div>
+          <div style="font-family: var(--font-heading); font-size: 30px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 6px;">
+            Bombay Studio · Mumbai
+          </div>
+          <div style="font-size: 20px; color: var(--nordible-slate); font-weight: 600; line-height: 1.4;">
+            Turnkey luxury architecture, Italian marble & itemized BOQs.
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-card-stack" style="margin-top: 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="mobile-card" style="padding: 22px 26px;">
+            <div style="font-family: var(--font-heading); font-size: 38px; font-weight: 800; color: var(--nordible-blue); margin-bottom: 4px;">#1 Choice</div>
+            <div style="font-size: 18px; font-weight: 700; color: var(--nordible-dark);">Top ChatGPT Recommendation</div>
+          </div>
+          <div class="mobile-card" style="padding: 22px 26px;">
+            <div style="font-family: var(--font-heading); font-size: 38px; font-weight: 800; color: var(--nordible-emerald); margin-bottom: 4px;">₹1.2 Cr+</div>
+            <div style="font-size: 18px; font-weight: 700; color: var(--nordible-dark);">Pre-Qualified Client Leads</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+
+  // SLIDE 2: The Shift
+  {
+    num: 2,
+    mascot: 'working-laptop',
+    speech: 'Old SEO is losing ground. Affluent buyers don’t click 10 blue links — they ask AI directly!',
+    html: (p) => `
+      <div class="eyebrow-badge">Market Shift · Conversational AI</div>
+      <h2 class="title-main">
+        Search Moved From <span class="text-highlight-orange">10 Blue Links</span> to AI Recommendations
+      </h2>
+      <p class="subtitle-text">
+        Affluent clients searching for 5 BHK luxury architecture prompt ChatGPT for trusted shortlists.
+      </p>
+
+      <div class="mobile-card-stack" style="margin-top: 24px;">
+        <div class="mobile-card" style="border-left: 6px solid #EF4444; padding: 24px 28px;">
+          <div style="font-size: 16px; font-weight: 800; color: #EF4444; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Legacy SEO (Dying)</div>
+          <div style="font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 8px;">Fighting for clicks across 10 blue links</div>
+          <div style="font-size: 20px; color: var(--nordible-slate); line-height: 1.4;">High ad spend, declining CTR, and ignored by AI conversational models.</div>
+        </div>
+
+        <div class="mobile-card featured-blue" style="border-left: 6px solid var(--nordible-blue); padding: 24px 28px;">
+          <div style="font-size: 16px; font-weight: 800; color: var(--nordible-blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Generative Engine Optimization (GEO)</div>
+          <div style="font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 8px;">Becomes the single #1 trusted recommendation</div>
+          <div style="font-size: 20px; color: var(--nordible-dark); font-weight: 600; line-height: 1.4;">Direct conversational synthesis with pre-qualified buyers ready to hire.</div>
+        </div>
+      </div>
+    `
+  },
+
+  // SLIDE 3: The Proof (Zoomed Macro View)
+  {
+    num: 3,
+    mascot: 'celebrate',
+    speech: 'Look at the live result! ChatGPT gives Bombay Studio the badge: "First one to contact"!',
+    html: (p) => `
+      <div class="eyebrow-badge">Verified Evidence · ChatGPT</div>
+      <h2 class="title-main">
+        The Result: <span class="text-highlight-emerald">„First One To Contact“</span>
+      </h2>
+      <p class="subtitle-text">
+        Query: <em>„Substitute of Yodezeen for 5 BHK luxury architecture in Mumbai.“</em>
+      </p>
+
+      <!-- Zoomed Macro Frame showing the exact ChatGPT recommendation card -->
+      <div class="mobile-zoom-frame">
+        <img src="${p}images/case-studies/bombay-studio/chatgpt-ranking.jpeg" style="top: -950px;" alt="ChatGPT Zoomed Proof">
+      </div>
+
+      <div class="mobile-card-stack" style="margin-top: 20px;">
+        <div class="mobile-card" style="display: flex; align-items: center; gap: 20px; padding: 20px 26px; border-left: 6px solid var(--nordible-emerald);">
+          <div style="font-size: 32px;">🏆</div>
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--nordible-dark);">Ranked #1 Top Recommendation</div>
+            <div style="font-size: 19px; color: var(--nordible-slate);">Surpassing international luxury firms with full website backlink.</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+
+  // SLIDE 4: The Strategy
+  {
+    num: 4,
+    mascot: 'primary-mascot',
+    speech: 'LLMs don’t read keyword stuffing. Here is our 3-pillar GEO framework:',
+    html: (p) => `
+      <div class="eyebrow-badge">Nordible GEO Framework</div>
+      <h2 class="title-main">
+        How We Reverse-Engineered <span class="text-highlight-blue">AI Visibility</span>
+      </h2>
+      <p class="subtitle-text">
+        AI models evaluate structured entity authority, contextual nuance, and citation consensus.
+      </p>
+
+      <div class="mobile-card-stack" style="margin-top: 22px;">
+        <div class="mobile-card" style="display: flex; align-items: center; gap: 22px; padding: 22px 26px;">
+          <div style="min-width: 54px; height: 54px; border-radius: 16px; background: rgba(20, 91, 255, 0.12); color: var(--nordible-blue); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 26px; font-weight: 800;">1</div>
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 23px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 4px;">Entity Authority & Knowledge Graphs</div>
+            <div style="font-size: 18px; color: var(--nordible-slate); line-height: 1.4;">Connecting Bombay Studio to luxury turnkey architecture in LLM neural weights.</div>
+          </div>
+        </div>
+
+        <div class="mobile-card" style="display: flex; align-items: center; gap: 22px; padding: 22px 26px;">
+          <div style="min-width: 54px; height: 54px; border-radius: 16px; background: rgba(5, 150, 105, 0.12); color: var(--nordible-emerald); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 26px; font-weight: 800;">2</div>
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 23px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 4px;">High-Ticket Intent Matching</div>
+            <div style="font-size: 18px; color: var(--nordible-slate); line-height: 1.4;">Authoritative content addressing 5 BHK flats, Italian marble, and itemized BOQs.</div>
+          </div>
+        </div>
+
+        <div class="mobile-card" style="display: flex; align-items: center; gap: 22px; padding: 22px 26px;">
+          <div style="min-width: 54px; height: 54px; border-radius: 16px; background: rgba(255, 159, 26, 0.15); color: var(--nordible-orange); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 26px; font-weight: 800;">3</div>
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 23px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 4px;">Citation Loops & Trust Verification</div>
+            <div style="font-size: 18px; color: var(--nordible-slate); line-height: 1.4;">External trust signals confirming safety before LLMs recommend the brand.</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+
+  // SLIDE 5: The Funnel (Zoomed High-Budget View)
+  {
+    num: 5,
+    mascot: 'pricing-peek',
+    speech: 'AI pre-qualifies buyers by budget and turnkey scope before they even leave the chat!',
+    html: (p) => `
+      <div class="eyebrow-badge">High-Ticket Lead Generation</div>
+      <h2 class="title-main">
+        Filtering Leads With <span class="text-highlight-blue">₹1.2 Cr+ Budgets</span>
+      </h2>
+      <p class="subtitle-text">
+        ChatGPT interactive prompt guides clients to select substantial turnkey project budgets.
+      </p>
+
+      <!-- Zoomed Macro Frame of Funnel -->
+      <div class="mobile-zoom-frame">
+        <img src="${p}images/case-studies/bombay-studio/chatgpt-funnel.jpeg" style="top: -240px;" alt="ChatGPT Budget Filter">
+      </div>
+
+      <div class="mobile-card-stack" style="margin-top: 20px;">
+        <div class="mobile-card featured-green" style="display: flex; align-items: center; gap: 20px; padding: 20px 26px;">
+          <div style="font-size: 32px;">💰</div>
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 23px; font-weight: 800; color: var(--nordible-dark);">Pre-Qualified High-Ticket Inquiries</div>
+            <div style="font-size: 18px; color: var(--nordible-slate); font-weight: 600;">Filters for ₹80L–₹1.2Cr+ turnkey contracts directly in AI chat.</div>
+          </div>
+        </div>
+      </div>
+    `
+  },
+
+  // SLIDE 6: CTA (Science-backed Thumb Action)
+  {
+    num: 6,
+    mascot: 'hero-wave',
+    speech: 'Are clients finding your competitors when they ask AI? Let Nordible audit your AI search ranking today!',
+    html: (p) => `
+      <div style="text-align: center; margin: 0 auto; max-width: 860px;">
+        <div class="eyebrow-badge">Next Step · Partner With Nordible</div>
+        <h2 class="title-main" style="margin-bottom: 20px;">
+          Is Your Business Recommended When <span class="text-highlight-blue">Clients Ask AI?</span>
+        </h2>
+        <p class="subtitle-text" style="margin: 0 auto 36px auto;">
+          While competitors waste ad budgets on crowded keywords, high-ticket prospects ask ChatGPT, Claude, and Perplexity for recommendations.
+        </p>
+
+        <div class="mobile-card featured-blue" style="padding: 44px 40px; box-shadow: 0 16px 40px rgba(20, 91, 255, 0.12);">
+          <div style="font-size: 16px; font-weight: 800; color: var(--nordible-blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">
+            Free AI Search Audit
+          </div>
+          <div style="font-family: var(--font-heading); font-size: 34px; font-weight: 800; color: var(--nordible-dark); margin-bottom: 28px;">
+            Get Your Brand Recommended by AI
+          </div>
+
+          <div style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; background: var(--nordible-blue); color: #FFFFFF; font-family: var(--font-heading); font-size: 23px; font-weight: 800; padding: 22px 50px; border-radius: 20px; box-shadow: 0 12px 28px rgba(20, 91, 255, 0.4); text-transform: uppercase; letter-spacing: 0.05em;">
+            <span>Partner With Nordible →</span>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 48px; margin-top: 36px; padding-top: 26px; border-top: 2px solid var(--nordible-border);">
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: var(--nordible-muted); text-transform: uppercase;">Website</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--nordible-dark);">nordible.com</div>
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: var(--nordible-muted); text-transform: uppercase;">Email</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--nordible-dark);">info@nordible.com</div>
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 800; color: var(--nordible-muted); text-transform: uppercase;">Hub</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--nordible-dark);">Frankfurt am Main</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
+];
+
+// 1. Generate Combined Multi-Slide HTML
+const generateCombinedHtml = () => {
+  const slidesHtml = slidesData.map(s => 
+    generateSlideHtml(s.num, s.html('../'), s.mascot, s.speech, '../')
+  ).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bombay Studio Case Study — Mobile-First GEO Carousel | Nordible</title>
+  <style>
+    ${commonCss}
+
+    .carousel-view-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      padding: 40px 16px 120px 16px;
+    }
+
+    .slide-container {
+      border: 2px solid var(--nordible-border);
+      border-radius: 32px;
+      box-shadow: 0 20px 50px rgba(20, 91, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    /* Screen preview controls bar */
+    .screen-controls-bar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(13, 43, 117, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 12px 28px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover { background: var(--nordible-blue); }
+    .ctrl-btn.primary { background: #FFFFFF; color: var(--nordible-dark); border-color: #FFFFFF; }
+
+    .pills-track { display: flex; gap: 8px; }
+    .dot-pill { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); cursor: pointer; transition: all 0.2s; }
+    .dot-pill.active { width: 28px; border-radius: 999px; background: #FFFFFF; }
+
+    /* Mobile responsive preview on screen */
+    @media screen and (max-width: 1120px) {
+      .carousel-view-wrapper { padding: 16px 8px 100px 8px; gap: 20px; }
+      .slide-container {
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        min-height: calc(100vh - 120px);
+        padding: 32px 24px;
+        border-radius: 24px;
+      }
+      .title-main { font-size: 32px; line-height: 1.2; margin-bottom: 12px; }
+      .subtitle-text { font-size: 16px; line-height: 1.45; }
+      .mascot-hero-section { gap: 14px; margin: 16px 0; }
+      .mascot-avatar { width: 72px; height: 72px; }
+      .speech-bubble-container { padding: 14px 18px; border-radius: 16px; }
+      .speech-bubble-message { font-size: 15px; }
+      .mobile-zoom-frame { height: 260px; }
+    }
+
+    /* Print Styles (Exact 1080 x 1350 Multi-Page PDF) */
+    @page { size: 1080px 1350px; margin: 0; }
+    @media print {
+      body { background: #FAFBFF; }
+      .screen-controls-bar { display: none !important; }
+      .carousel-view-wrapper { padding: 0 !important; gap: 0 !important; }
+      .slide-container {
+        width: 1080px !important;
+        height: 1350px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel-view-wrapper">
+    ${slidesHtml}
+  </div>
+
+  <div class="screen-controls-bar">
+    <button class="ctrl-btn" onclick="prevSlide()">← Prev</button>
+    <div class="pills-track">
+      ${slidesData.map((_, i) => `<div class="dot-pill ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i + 1})"></div>`).join('')}
+    </div>
+    <button class="ctrl-btn" onclick="nextSlide()">Next →</button>
+    <button class="ctrl-btn primary" onclick="window.print()">Print / PDF</button>
+  </div>
+
+  <script>
+    let cur = 1;
+    const total = ${slidesData.length};
+    function updateDots() {
+      document.querySelectorAll('.dot-pill').forEach((d, i) => {
+        d.classList.toggle('active', i + 1 === cur);
+      });
+    }
+    function goToSlide(n) {
+      cur = n;
+      const el = document.getElementById('slide-' + n);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      updateDots();
+    }
+    function prevSlide() { if (cur > 1) goToSlide(cur - 1); }
+    function nextSlide() { if (cur < total) goToSlide(cur + 1); }
+  </script>
+</body>
+</html>`;
+};
+
+// 2. Generate Single Slide HTMLs
+const generateSingleSlideHtml = (s) => {
+  const content = generateSlideHtml(s.num, s.html('../../'), s.mascot, s.speech, '../../');
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide ${s.num}</title>
+  <style>
+    ${commonCss}
+    html, body {
+      width: 1080px;
+      height: 1350px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #FAFBFF;
+    }
+    .slide-container {
+      width: 1080px !important;
+      height: 1350px !important;
+      border-radius: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  </style>
+</head>
+<body>
+  ${content}
+</body>
+</html>`;
+};
+
+// Write files
+console.log('Writing mobile-first HTML carousel...');
+const combinedHtmlPath = path.join(carouselsDir, 'bombay-studio-case-study.html');
+fs.writeFileSync(combinedHtmlPath, generateCombinedHtml(), 'utf-8');
+
+slidesData.forEach(s => {
+  const slideHtmlPath = path.join(slidesDir, `slide-${s.num}.html`);
+  fs.writeFileSync(slideHtmlPath, generateSingleSlideHtml(s), 'utf-8');
+});
+
+console.log('Generating mobile-optimized PNG images (1080x1350)...');
+slidesData.forEach(s => {
+  const slideHtmlPath = path.join(slidesDir, `slide-${s.num}.html`);
+  const imageOutputPath = path.join(imagesDir, `slide-${s.num}.png`);
+  const cmd = `"${browserPath}" --headless --disable-gpu --run-all-compositor-stages-before-draw --window-size=1080,1350 --hide-scrollbars --screenshot="${imageOutputPath}" "${slideHtmlPath}"`;
+  execSync(cmd, { stdio: 'ignore' });
+  const stats = fs.statSync(imageOutputPath);
+  console.log(`✅ Slide ${s.num} image generated: slide-${s.num}.png (${(stats.size / 1024).toFixed(1)} KB)`);
+});
+
+console.log('Generating multi-page PDF with all 6 slides...');
+const pdfOutputPath = path.join(carouselsDir, 'bombay-studio-case-study.pdf');
+const pdfCmd = `"${browserPath}" --headless --disable-gpu --run-all-compositor-stages-before-draw --no-pdf-header-footer --print-to-pdf="${pdfOutputPath}" "${combinedHtmlPath}"`;
+execSync(pdfCmd, { stdio: 'ignore' });
+
+if (fs.existsSync(pdfOutputPath)) {
+  const stats = fs.statSync(pdfOutputPath);
+  console.log(`✅ Multi-page PDF generated: bombay-studio-case-study.pdf (${(stats.size / 1024 / 1024).toFixed(2)} MB)`);
+}
+
+console.log('Mobile-first carousel assets generated successfully!');

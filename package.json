@@ -10,6 +10,9 @@
     "lint": "eslint --fix",
     "type-check": "tsc --noEmit",
     "pdf:brochure": "node scripts/generate-brochure-pdf.js",
+    "pdf:carousel": "node scripts/generate-flyer-images.js && node scripts/generate-carousel-pdf.js",
+    "pdf:carousel:de": "node scripts/generate-flyer-images-de.js && node scripts/generate-carousel-pdf-de.js",
+    "pdf:carousel:all": "npm run pdf:carousel && npm run pdf:carousel:de",
     "sitemap": "node scripts/generate-sitemap.js",
     "check": "npm run type-check && npm run lint && npm run build"
   },

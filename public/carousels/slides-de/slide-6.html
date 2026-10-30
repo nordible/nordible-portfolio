@@ -1,0 +1,195 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --nordible-blue: #145BFF;
+    --nordible-dark: #071638;
+    --nordible-orange: #FF6B00;
+    --nordible-emerald: #059669;
+    --nordible-bg: #FAFBFF;
+    --nordible-card: #FFFFFF;
+    --nordible-border: #E2E8F0;
+    --nordible-slate: #1E293B;
+    --nordible-muted: #64748B;
+    --font-heading: 'Sora', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html, body {
+    width: 1080px;
+    height: 1350px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--nordible-bg);
+    color: var(--nordible-slate);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Canvas with Generous Edge Breathing Space (104px horizontal padding) */
+  .flyer-canvas {
+    width: 1080px;
+    height: 1350px;
+    background: #FAFBFF;
+    background-image: 
+      radial-gradient(ellipse 90% 45% at 50% -5%, rgba(56, 189, 248, 0.28), rgba(20, 91, 255, 0.08), transparent 70%),
+      radial-gradient(circle at 90% 90%, rgba(20, 91, 255, 0.06), transparent 50%);
+    position: relative;
+    padding: 80px 104px 72px 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Top accent strip */
+  .flyer-canvas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #145BFF 0%, #38BDF8 50%, #FF9F1A 100%);
+  }
+
+  /* Stacked Large Nordible Header */
+  .stacked-nordible-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stacked-brand-icon {
+    width: 88px;
+    height: 88px;
+    background: #FFFFFF;
+    border: 3px solid var(--nordible-border);
+    border-radius: 26px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(20, 91, 255, 0.15);
+  }
+
+  .stacked-brand-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .stacked-brand-text {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--nordible-dark);
+    letter-spacing: -0.02em;
+  }
+
+  /* Slide Counter Pill */
+  .minimal-header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
+
+  .slide-counter-pill {
+    background: #FFFFFF;
+    border: 2.5px solid var(--nordible-border);
+    border-radius: 999px;
+    padding: 10px 28px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--nordible-dark);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  }
+
+  /* Poster Cards */
+  .flyer-card {
+    background: #FFFFFF;
+    border: 3px solid var(--nordible-border);
+    border-radius: 32px;
+    padding: 38px 44px;
+    box-shadow: 0 16px 40px rgba(20, 91, 255, 0.08);
+  }
+
+  /* Thumb Zone Footer */
+  .flyer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 28px;
+    border-top: 2.5px solid var(--nordible-border);
+  }
+
+  .footer-proof-tag {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--nordible-slate);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-swipe-pill {
+    background: var(--nordible-blue);
+    color: #FFFFFF;
+    padding: 16px 36px;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    box-shadow: 0 10px 26px rgba(20, 91, 255, 0.4);
+    letter-spacing: 0.02em;
+  }
+</style></head><body>
+<div class="flyer-canvas">
+  <div class="minimal-header-right">
+    <div class="slide-counter-pill">06 / 07</div>
+  </div>
+
+  <div style="margin: auto 0; text-align: center;">
+    <!-- Reduced 1-line Hook -->
+    <h2 style="font-family: var(--font-heading); font-size: 46px; font-weight: 800; color: var(--nordible-dark); max-width: 900px; margin: 0 auto 36px auto; letter-spacing: -0.02em;">
+      ChatGPT filtert Anfragen <span style="color: var(--nordible-blue);">automatisch nach Budget vor.</span>
+    </h2>
+
+    <!-- Maximum Hero Width Proof Frame -->
+    <div style="width: 100%; height: 530px; border-radius: 36px; border: 4px solid #CBD5E1; overflow: hidden; position: relative; box-shadow: 0 24px 54px rgba(0,0,0,0.24); background: #000000; margin-bottom: 28px;">
+      <img src="../../images/case-studies/bombay-studio/chatgpt-funnel.jpeg" style="width: 100%; position: absolute; top: -250px; left: 0;" alt="ChatGPT Funnel Proof">
+    </div>
+
+    <!-- Reduced Text Highlight Card with Graphic Shield -->
+    <div class="flyer-card" style="padding: 36px 48px; background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%); border-color: #22C55E; border-width: 3.5px; box-shadow: 0 16px 40px rgba(34, 197, 94, 0.14); text-align: center;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 8px;">
+        <span style="font-size: 44px;">🛡️</span>
+        <span style="font-family: var(--font-heading); font-size: 50px; font-weight: 800; color: #15803D; letter-spacing: -0.02em;">
+          KEINE ZEITDIEBE.
+        </span>
+      </div>
+      <div style="font-family: var(--font-heading); font-size: 34px; font-weight: 800; color: var(--nordible-dark);">
+        ₹80 Lakh bis ₹1,2 Crore+ Projektbudgets
+      </div>
+    </div>
+  </div>
+
+  <div class="flyer-footer">
+    <div class="footer-proof-tag">Automatisierte Inbound-Leads</div>
+    <div class="footer-swipe-pill">Jetzt handeln →</div>
+  </div>
+</div>
+</body></html>
