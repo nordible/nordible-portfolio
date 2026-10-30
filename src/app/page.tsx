@@ -47,10 +47,10 @@ export default function HomePage() {
         <About />
         <Services />
         <BusinessBenefits />
-        <InvestmentModelsTeaser />
         <Portfolio />
         <Testimonials />
         <Process />
+        <InvestmentModelsTeaser />
         <BlogTeaser />
         <Contact />
       </main>

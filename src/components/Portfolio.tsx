@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import SectionAnchor from './SectionAnchor';
 
 export type AudienceType = 'all' | 'local' | 'startup' | 'enterprise';
 
@@ -470,9 +469,8 @@ export default function Portfolio() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {t.portfolio.title && (
           <div className="text-center mb-8">
-            <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-              <span>{t.portfolio.title}</span>
-              <SectionAnchor id="portfolio" />
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+              {t.portfolio.title}
             </h2>
           </div>
         )}

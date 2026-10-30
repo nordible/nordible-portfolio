@@ -1,13 +1,10 @@
 'use client';
-import { useState } from 'react';
-import { Award, Users, TrendingUp, Play, Pause, ExternalLink, Zap, ShieldCheck, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Users, TrendingUp, ExternalLink, Zap, ShieldCheck, UserCheck } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TrustSignals() {
   const { t } = useLanguage();
   const ts = t.trustSignals;
-  const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
   const statIcons = [Award, TrendingUp, Users, Zap, ShieldCheck, UserCheck];
 
@@ -45,8 +42,8 @@ export default function TrustSignals() {
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-20 pointer-events-none"></div>
 
           <div
-            className={`animate-marquee flex items-stretch space-x-5 sm:space-x-6 py-2 ${isPaused ? 'paused' : ''}`}
-            style={{ animationDuration: '36s', animationDirection: direction }}
+            className="animate-marquee flex items-stretch space-x-5 sm:space-x-6 py-2 hover:[animation-play-state:paused]"
+            style={{ animationDuration: '36s' }}
           >
             {marqueeStats.map((stat, index) => {
               const Icon = statIcons[index % statIcons.length];
@@ -90,8 +87,8 @@ export default function TrustSignals() {
             <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
 
             <div
-              className={`animate-marquee flex items-center space-x-12 sm:space-x-16 ${isPaused ? 'paused' : ''}`}
-              style={{ animationDuration: '32s', animationDirection: direction }}
+              className="animate-marquee flex items-center space-x-12 sm:space-x-16 hover:[animation-play-state:paused]"
+              style={{ animationDuration: '32s' }}
             >
               {marqueeCompanies.map((company, index) => (
                 <a
@@ -115,56 +112,6 @@ export default function TrustSignals() {
                   </span>
                 </a>
               ))}
-            </div>
-          </div>
-
-          {/* Accessible UX Motion Controls (Subtle Left, Pause/Play, Right) */}
-          <div className="mt-8 flex justify-center items-center">
-            <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm">
-              <button
-                onClick={() => {
-                  setDirection('reverse');
-                  setIsPaused(false);
-                }}
-                aria-label="Move left"
-                title="Move left"
-                className={`p-1.5 rounded-full transition-colors cursor-pointer ${
-                  direction === 'reverse' && !isPaused
-                    ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                    : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
-              >
-                <ChevronLeft className="h-3.5 w-3.5" />
-              </button>
-
-              <button
-                onClick={() => setIsPaused((prev) => !prev)}
-                aria-label={isPaused ? "Resume movement" : "Pause movement"}
-                title={isPaused ? "Resume movement" : "Pause movement"}
-                className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-              >
-                {isPaused ? (
-                  <Play className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
-                ) : (
-                  <Pause className="h-3.5 w-3.5" />
-                )}
-              </button>
-
-              <button
-                onClick={() => {
-                  setDirection('normal');
-                  setIsPaused(false);
-                }}
-                aria-label="Move right"
-                title="Move right"
-                className={`p-1.5 rounded-full transition-colors cursor-pointer ${
-                  direction === 'normal' && !isPaused
-                    ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                    : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
-              >
-                <ChevronRight className="h-3.5 w-3.5" />
-              </button>
             </div>
           </div>
         </div>

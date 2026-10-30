@@ -2,8 +2,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import SectionAnchor from './SectionAnchor';
-import { Mascot } from './Mascot';
 
 export default function InvestmentModelsTeaser() {
   const { t, getPath } = useLanguage();
@@ -15,12 +13,8 @@ export default function InvestmentModelsTeaser() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading - Clean & Centered */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <h2 className="group inline-flex items-center justify-center gap-3 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            <span className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 drop-shadow inline-block">
-              <Mascot variant="pricing-peek" alt="Nordible Investment Models Mascot" />
-            </span>
-            <span>{p.title}</span>
-            <SectionAnchor id="investment-models" />
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            {p.title}
           </h2>
         </div>
 

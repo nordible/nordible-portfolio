@@ -3,7 +3,6 @@
 import React from 'react';
 import { Target, Users, TrendingUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import SectionAnchor from './SectionAnchor';
 
 const mottoIcons = [Target, Users, TrendingUp];
 const accentStyles = [
@@ -41,12 +40,11 @@ export default function Motto() {
             <span>{m.badge}</span>
           </div>
 
-          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading mb-4">
             <span>
               {m.title}
               <span className="text-nordible-blue">{m.titleHighlight}</span>
             </span>
-            <SectionAnchor id="leitbild" />
           </h2>
 
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-medium leading-relaxed">

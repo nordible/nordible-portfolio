@@ -1,16 +1,11 @@
 'use client';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, Mail, ArrowRight, TrendingUp, Play, Pause, ChevronLeft, ChevronRight, Video, Bot, Cpu } from 'lucide-react';
+import { Terminal, Mail, ArrowRight, TrendingUp, Video, Bot, Cpu } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import SectionAnchor from './SectionAnchor';
-import { Mascot } from './Mascot';
 
 export default function Services() {
   const { t } = useLanguage();
   const s = t.services;
-  const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState<'normal' | 'reverse'>('normal');
 
   const serviceIcons = [TrendingUp, Video, Bot, Terminal, Cpu, Mail];
   const serviceColors = ['bg-blue-600', 'bg-purple-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-nordible-dark', 'bg-nordible-blue'];
@@ -21,12 +16,8 @@ export default function Services() {
     <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="group inline-flex items-center justify-center gap-3 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            <span className="w-9 h-9 sm:w-11 sm:h-11 shrink-0 drop-shadow inline-block">
-              <Mascot variant="working-laptop" alt="Nordible Software Engineering Mascot" />
-            </span>
-            <span>{s.title}</span>
-            <SectionAnchor id="services" />
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            {s.title}
           </h2>
         </div>
 
@@ -37,8 +28,8 @@ export default function Services() {
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
 
           <div
-            className={`animate-marquee flex items-stretch space-x-6 py-2 ${isPaused ? 'paused' : ''}`}
-            style={{ animationDuration: '40s', animationDirection: direction }}
+            className="animate-marquee flex items-stretch space-x-6 py-2 hover:[animation-play-state:paused]"
+            style={{ animationDuration: '40s' }}
           >
             {marqueeServices.map((service, index) => {
               const originalIndex = index % s.items.length;
@@ -115,56 +106,6 @@ export default function Services() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Accessible UX Motion Controls (Subtle Left, Pause/Play, Right) */}
-        <div className="mt-8 flex justify-center items-center">
-          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm">
-            <button
-              onClick={() => {
-                setDirection('reverse');
-                setIsPaused(false);
-              }}
-              aria-label="Move left"
-              title="Move left"
-              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
-                direction === 'reverse' && !isPaused
-                  ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                  : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-              }`}
-            >
-              <ChevronLeft className="h-3.5 w-3.5" />
-            </button>
-
-            <button
-              onClick={() => setIsPaused((prev) => !prev)}
-              aria-label={isPaused ? 'Resume movement' : 'Pause movement'}
-              title={isPaused ? 'Resume movement' : 'Pause movement'}
-              className="p-1.5 rounded-full text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-            >
-              {isPaused ? (
-                <Play className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
-              ) : (
-                <Pause className="h-3.5 w-3.5" />
-              )}
-            </button>
-
-            <button
-              onClick={() => {
-                setDirection('normal');
-                setIsPaused(false);
-              }}
-              aria-label="Move right"
-              title="Move right"
-              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
-                direction === 'normal' && !isPaused
-                  ? 'text-nordible-blue dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                  : 'text-gray-500 hover:text-nordible-blue dark:text-gray-400 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-              }`}
-            >
-              <ChevronRight className="h-3.5 w-3.5" />
-            </button>
           </div>
         </div>
       </div>

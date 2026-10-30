@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { blogHubTranslations } from '../data/blogContent';
-import SectionAnchor from './SectionAnchor';
 
 export default function BlogTeaser() {
   const { language, getPath, t } = useLanguage();
@@ -16,9 +15,8 @@ export default function BlogTeaser() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="text-center mb-10 max-w-2xl mx-auto">
-          <h2 className="group inline-flex items-center justify-center gap-2 text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            <span>{t.blogTeaser.badge}</span>
-            <SectionAnchor id="insights" />
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
+            {t.blogTeaser.badge}
           </h2>
         </div>
 
