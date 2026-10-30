@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Sun, Moon, Globe, ChevronDown, Phone, MessageCircle, Mail, Calendar } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe, Phone, MessageCircle, Mail, Calendar } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -10,7 +10,6 @@ import { contactConfig } from '../config/contact';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAudienceOpen, setIsAudienceOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
   const { language, setLanguage, t, getPath, supportedLanguages } = useLanguage();
   const navigate = useNavigate();
@@ -23,12 +22,6 @@ export default function Header() {
     ? 'Hallo Nordible, ich interessiere mich für ein Technologie-Projekt in Frankfurt/Rhein-Main.'
     : "Hello Nordible, I'd like to discuss a technology project in Frankfurt/Rhine-Main.";
   const whatsappUrl = `https://wa.me/${contactConfig.whatsapp.number}?text=${encodeURIComponent(whatsappMessage)}`;
-
-  const handleAudienceClick = () => {
-    setIsMenuOpen(false);
-    setIsAudienceOpen(false);
-    handleNavClick('portfolio');
-  };
 
   const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);
@@ -90,46 +83,6 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-x-2.5 lg:gap-x-3.5 xl:gap-x-5">
-            {/* Audience Quick-Switcher Dropdown */}
-            <div className="relative" onMouseLeave={() => setIsAudienceOpen(false)}>
-              <button
-                onClick={() => setIsAudienceOpen(!isAudienceOpen)}
-                onMouseEnter={() => setIsAudienceOpen(true)}
-                className="flex items-center gap-1 text-xs lg:text-[13px] font-bold text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors uppercase tracking-wider whitespace-nowrap py-1 cursor-pointer"
-              >
-                <span>{isDe ? 'Zielgruppen' : 'Who We Serve'}</span>
-                <ChevronDown className={`h-3 w-3 transition-transform ${isAudienceOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {isAudienceOpen && (
-                <div 
-                  className="absolute left-0 mt-1 w-60 rounded-2xl bg-white dark:bg-gray-800 shadow-xl border border-nordible-border dark:border-gray-700 p-1.5 z-50 animate-in fade-in slide-in-from-top-2"
-                  onMouseEnter={() => setIsAudienceOpen(true)}
-                >
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors text-xs font-bold text-gray-800 dark:text-gray-200 hover:text-nordible-blue dark:hover:text-blue-400 cursor-pointer"
-                  >
-                    {isDe ? 'Lokale Unternehmen' : 'Local Businesses'}
-                  </button>
-
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors text-xs font-bold text-gray-800 dark:text-gray-200 hover:text-nordible-blue dark:hover:text-blue-400 cursor-pointer"
-                  >
-                    {isDe ? 'Tech-Startups & Gründer' : 'Tech Startups & Founders'}
-                  </button>
-
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/60 transition-colors text-xs font-bold text-gray-800 dark:text-gray-200 hover:text-nordible-blue dark:hover:text-blue-400 cursor-pointer"
-                  >
-                    {isDe ? 'Enterprise & Konzerne' : 'Enterprise & Corporate'}
-                  </button>
-                </div>
-              )}
-            </div>
-
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -177,52 +130,18 @@ export default function Header() {
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
 
-            {/* 4 Direct Conversion Action Icons (Hick's Law & Floating Dock Parity) */}
-            <div className="flex items-center gap-1.5 pl-1.5 border-l border-nordible-border/80 dark:border-gray-800">
-              {/* Call */}
-              <a
-                href={contactConfig.phone.telHref}
-                className="p-2 rounded-xl text-gray-700 dark:text-gray-200 hover:text-nordible-blue hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-nordible-border/80 dark:border-gray-700/80 transition-all hover:scale-105 active:scale-95 shrink-0"
-                title={`${isDe ? 'Direkt anrufen' : 'Call directly'}: ${contactConfig.phone.display}`}
-                aria-label={isDe ? 'Direkt anrufen' : 'Call directly'}
-              >
-                <Phone className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
-              </a>
-
-              {/* WhatsApp */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-xl text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 border border-emerald-200/70 dark:border-emerald-800/60 transition-all hover:scale-105 active:scale-95 shrink-0"
-                title="WhatsApp Chat"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-              </a>
-
-              {/* Email */}
-              <a
-                href={contactConfig.email.mailToGeneral}
-                className="p-2 rounded-xl text-gray-700 dark:text-gray-200 hover:text-nordible-blue hover:bg-blue-50 dark:hover:bg-blue-950/40 border border-nordible-border/80 dark:border-gray-700/80 transition-all hover:scale-105 active:scale-95 shrink-0"
-                title={`E-Mail: ${contactConfig.email.general}`}
-                aria-label={isDe ? 'E-Mail senden' : 'Send email'}
-              >
-                <Mail className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
-              </a>
-
-              {/* Google Calendar Booking */}
-              <a
-                href={contactConfig.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-nordible-blue hover:bg-nordible-dark text-white shadow-md shadow-blue-500/20 transition-all hover:scale-105 active:scale-95 shrink-0"
-                title={isDe ? 'Termin buchen (Google Calendar)' : 'Book Strategy Call (Google Calendar)'}
-                aria-label={isDe ? 'Termin buchen' : 'Book Strategy Call'}
-              >
-                <Calendar className="h-4 w-4" />
-              </a>
-            </div>
+            {/* Single Prominent Conversion CTA (Hick's Law Optimization) */}
+            <a
+              href={contactConfig.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-nordible-blue hover:bg-nordible-dark text-white text-xs lg:text-sm font-bold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] shrink-0 ml-1.5 cursor-pointer"
+              title={isDe ? 'Termin buchen (Google Calendar)' : 'Book Strategy Call (Google Calendar)'}
+              aria-label={isDe ? 'Termin buchen' : 'Book Strategy Call'}
+            >
+              <Calendar className="h-4 w-4" />
+              <span>{isDe ? 'Termin buchen' : 'Book Call'}</span>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -277,33 +196,7 @@ export default function Header() {
                 </button>
               ))}
 
-              {/* Mobile Audience Quick-Select */}
-              <div className="pt-2 pb-1 px-4 border-t border-gray-100 dark:border-gray-800">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest block mb-2 font-mono">
-                  {isDe ? 'Zielgruppen' : 'Who We Serve'}
-                </span>
-                <div className="grid grid-cols-1 gap-1">
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-                  >
-                    {isDe ? 'Lokale Unternehmen' : 'Local Businesses'}
-                  </button>
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-                  >
-                    {isDe ? 'Tech-Startups & Gründer' : 'Tech Startups & Founders'}
-                  </button>
-                  <button
-                    onClick={handleAudienceClick}
-                    className="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer"
-                  >
-                    {isDe ? 'Enterprise & Konzerne' : 'Enterprise & Corporate'}
-                  </button>
-                </div>
-              </div>
-              <div className="flex items-center justify-between px-4 py-3">
+              <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100 dark:border-gray-800">
                  <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">Theme</span>
                  <button
                   onClick={toggleTheme}

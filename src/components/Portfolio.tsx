@@ -159,6 +159,24 @@ const projects = [
     gradient: 'from-blue-600 to-emerald-600'
   },
   {
+    id: 'bombay-studio',
+    title: 'Bombay Studio',
+    client: 'Bombay Studio',
+    audience: 'local' as const,
+    logo: '/images/logos/bombay-studio-logo.png',
+    link: 'https://www.bombaystudio.in/',
+    description: 'Premier luxury architectural planning and turnkey interior execution studio in Mumbai. Scaled inbound high-ticket acquisition through Generative Engine Optimization (GEO).',
+    technologies: ['Generative Engine Optimization (GEO)', 'AI Search Authority', 'Entity Graph Engineering', 'Turnkey Funnel Architecture'],
+    outcome: 'Ranked #1 on ChatGPT for luxury 5 BHK turnkey architecture in Mumbai, designated as "First one to contact" and filtering ₹80L–₹1.2Cr+ project budgets.',
+    image: '/images/case-studies/bombay-studio/chatgpt-ranking.jpeg',
+    metrics: {
+      ranking: '#1 on ChatGPT',
+      status: 'First to Contact',
+      leads: '₹1.2 Cr+ Budgets'
+    },
+    gradient: 'from-blue-600 to-indigo-700'
+  },
+  {
     id: 'nordible-email',
     title: 'Nordible Professional Email',
     client: 'Nordible Product',

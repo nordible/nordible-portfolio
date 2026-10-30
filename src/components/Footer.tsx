@@ -163,11 +163,11 @@ export default function Footer() {
                 <li>
                   <Link 
                     to={getPath('/qr-code-generator')} 
-                    className="text-blue-100/80 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
+                    title={language === 'de' ? 'Kostenloser QR-Code-Generator' : 'Free QR Code Generator'}
+                    className="text-blue-100/90 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
                   >
                     <QrCode className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
-                    <span>{language === 'de' ? 'QR-Code-Generator' : 'QR Code Generator'}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] rounded bg-blue-500/20 text-blue-300 font-bold uppercase tracking-wider">Free</span>
+                    <span>{language === 'de' ? 'Kostenloser QR-Code-Generator' : 'Free QR Code Generator'}</span>
                   </Link>
                 </li>
                 <li>
@@ -175,12 +175,14 @@ export default function Footer() {
                     href="https://free-invoice-generator.nordible.co/" 
                     target="_blank"
                     rel="noopener noreferrer"
+                    title={language === 'de' ? 'Kostenloser Rechnungsersteller für Menschen und Agenten' : 'Free invoice generator for humans and agents'}
                     className="text-blue-100/90 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
                   >
                     <FileText className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
-                    <span>{language === 'de' ? 'Rechnungsersteller' : 'Invoice Generator'}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold uppercase tracking-wider">
-                      {language === 'de' ? '100% Kostenlos' : '100% Free'}
+                    <span>
+                      {language === 'de' 
+                        ? 'Kostenloser Rechnungsersteller für Menschen und Agenten' 
+                        : 'Free Invoice Generator for Humans and Agents'}
                     </span>
                   </a>
                 </li>
@@ -189,13 +191,14 @@ export default function Footer() {
                     href="https://biz.nordible.co/" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={language === 'de' ? 'Unternehmen eintragen & B2B-Leads erhalten' : 'List your business & get B2B leads'}
+                    title={language === 'de' ? 'Kostenloses B2B-Firmenverzeichnis für Menschen und Agenten' : 'Free B2B directory for humans and agents'}
                     className="text-blue-100/90 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
                   >
                     <Building2 className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
-                    <span>{language === 'de' ? 'B2B-Firmenverzeichnis' : 'B2B Business Directory'}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold uppercase tracking-wider">
-                      {language === 'de' ? 'Kostenlos' : 'Free Listing'}
+                    <span>
+                      {language === 'de' 
+                        ? 'Kostenloses B2B-Firmenverzeichnis für Menschen und Agenten' 
+                        : 'Free B2B Directory for Humans and Agents'}
                     </span>
                   </a>
                 </li>
