@@ -154,6 +154,26 @@ export interface ArticleSection {
   quote?: string;
 }
 
+export interface ArticleTopRibbon {
+  boldText: string;
+  subtitle: string;
+  buttonText: string;
+  action?: 'audit' | 'consultation' | 'link';
+  link?: string;
+}
+
+export interface ArticleCta {
+  badge?: string;
+  title: string;
+  desc?: string;
+  buttonText: string;
+  buttonAction?: 'audit' | 'consultation';
+  secondaryText?: string;
+  secondaryAction?: 'audit' | 'consultation';
+  secondaryLink?: string;
+  mobileButtonText?: string;
+}
+
 export interface ArticleContent {
   navHome: string;
   navBlog: string;
@@ -185,14 +205,8 @@ export interface ArticleContent {
   }>;
   heroImage: ArticleImage;
   sections: ArticleSection[];
-  cta: {
-    badge?: string;
-    title: string;
-    desc?: string;
-    buttonText: string;
-    secondaryText?: string;
-    mobileButtonText?: string;
-  };
+  topRibbon?: ArticleTopRibbon;
+  cta: ArticleCta;
 }
 
 export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {

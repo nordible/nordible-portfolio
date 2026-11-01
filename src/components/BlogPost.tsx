@@ -355,7 +355,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           </div>
         </nav>
 
-        {/* Ad Campaign Header Banner */}
+        {/* Context-Aware Header Ribbon */}
         <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-3.5 sm:p-4 shadow-lg shadow-blue-500/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
           <div className="flex items-center gap-2.5">
             <span className="p-2 rounded-xl bg-white/20 text-white shrink-0">
@@ -363,18 +363,30 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             </span>
             <p className="text-xs sm:text-sm font-medium leading-snug">
               <strong className="font-bold">
-                {funnel.adRibbon.boldText}
+                {content.topRibbon?.boldText || funnel.adRibbon.boldText}
               </strong>{' '}
-              {funnel.adRibbon.subtitle}
+              {content.topRibbon?.subtitle || funnel.adRibbon.subtitle}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={openAuditModal}
-            className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0"
-          >
-            {funnel.adRibbon.buttonText}
-          </button>
+          {content.topRibbon?.action === 'link' && content.topRibbon.link ? (
+            <a
+              href={content.topRibbon.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0 inline-flex items-center gap-1.5"
+            >
+              <span>{content.topRibbon.buttonText}</span>
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={content.topRibbon?.action === 'consultation' ? handleConsultation : openAuditModal}
+              className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0"
+            >
+              {content.topRibbon?.buttonText || funnel.adRibbon.buttonText}
+            </button>
+          )}
         </div>
 
         {/* Header Block */}
@@ -783,41 +795,53 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
           </div>
         )}
 
-        {/* Core Offer Box: Free 15-Minute Audit */}
+        {/* Context-Aware Core Offer Box */}
         <section className="bg-gradient-to-br from-nordible-dark via-blue-950 to-nordible-dark text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden space-y-6 shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-2xl mx-auto space-y-5 relative z-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-blue-200 border border-white/20">
               <Sparkles className="h-3.5 w-3.5" />
-              {funnel.coreOffer.badge}
+              {content.cta?.badge || funnel.coreOffer.badge}
             </span>
 
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-heading leading-tight">
-              {funnel.coreOffer.title}
+              {content.cta?.title || funnel.coreOffer.title}
             </h2>
 
             <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed font-normal">
-              {funnel.coreOffer.subtitle}
+              {content.cta?.desc || funnel.coreOffer.subtitle}
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 type="button"
-                onClick={openAuditModal}
+                onClick={content.cta?.buttonAction === 'audit' ? openAuditModal : handleConsultation}
                 className="btn-primary bg-white text-nordible-dark hover:bg-blue-50 text-xs sm:text-sm px-6 py-4 shadow-xl cursor-pointer w-full sm:w-auto font-bold inline-flex items-center justify-center gap-2 transition-all active:scale-95"
               >
-                <span>{funnel.coreOffer.startAuditBtn}</span>
+                <span>{content.cta?.buttonText || funnel.coreOffer.startAuditBtn}</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
 
-              <button
-                type="button"
-                onClick={handleConsultation}
-                className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto cursor-pointer"
-              >
-                <span>{funnel.coreOffer.bookCallBtn}</span>
-              </button>
+              {content.cta?.secondaryLink ? (
+                <a
+                  href={content.cta.secondaryLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2"
+                >
+                  <span>{content.cta.secondaryText}</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={content.cta?.secondaryAction === 'audit' ? openAuditModal : handleConsultation}
+                  className="btn-secondary bg-white/10 text-white border-white/20 hover:bg-white/20 text-xs sm:text-sm px-6 py-4 w-full sm:w-auto cursor-pointer"
+                >
+                  <span>{content.cta?.secondaryText || funnel.coreOffer.bookCallBtn}</span>
+                </button>
+              )}
             </div>
           </div>
         </section>
@@ -835,10 +859,10 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
         </button>
 
         <button
-          onClick={openAuditModal}
+          onClick={content.cta?.buttonAction === 'audit' ? openAuditModal : handleConsultation}
           className="btn-primary flex-1 py-3 text-xs tracking-wider shadow-lg shadow-blue-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
         >
-          <span>{funnel.coreOffer.mobileBtnText}</span>
+          <span>{content.cta?.mobileButtonText || content.cta?.buttonText || funnel.coreOffer.mobileBtnText}</span>
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
       </div>

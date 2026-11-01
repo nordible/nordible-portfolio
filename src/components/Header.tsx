@@ -1,7 +1,23 @@
 'use client';
 
-import { useState } from 'react';
-import { Menu, X, Globe, Phone, MessageCircle, Mail, Calendar } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { 
+  Menu, 
+  X, 
+  Globe, 
+  Phone, 
+  MessageCircle, 
+  Mail, 
+  Calendar,
+  ChevronDown,
+  Building2,
+  UserCheck,
+  ShieldCheck,
+  FileText,
+  QrCode,
+  ExternalLink,
+  Sparkles
+} from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../lib/i18n';
@@ -9,9 +25,19 @@ import { contactConfig } from '../config/contact';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const { language, setLanguage, t, getPath, supportedLanguages } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const isDe = language === 'de';
   const homePath = getPath('/');
@@ -23,6 +49,7 @@ export default function Header() {
 
   const handleNavClick = (target: string, path?: string) => {
     setIsMenuOpen(false);
+    setIsAboutOpen(false);
     if (path) {
       navigate(getPath(path));
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -57,6 +84,51 @@ export default function Header() {
     { key: 'about', label: t.nav.about, path: '/company-profile' },
   ];
 
+  const aboutLinks = [
+    {
+      title: t.nav.companyProfile,
+      desc: isDe ? 'Mission & Services as Software' : 'Mission & Services as Software',
+      path: '/company-profile',
+      icon: Building2,
+    },
+    {
+      title: t.nav.founderStory,
+      desc: isDe ? 'Kabeer Shah: Werdegang & Story' : 'Kabeer Shah: Leadership & Story',
+      path: '/founder',
+      icon: UserCheck,
+    },
+    {
+      title: t.nav.whyChooseUs,
+      desc: isDe ? '100 % Code-Eigentum ohne Mittelsmänner' : '100% IP ownership & direct lead',
+      path: '/why-choose-us',
+      icon: ShieldCheck,
+    },
+  ];
+
+  const freeTools = [
+    {
+      title: t.nav.freeInvoiceGenerator,
+      desc: isDe ? 'Zero-Database, DIN A4 & MCP-nativ' : 'Zero-database, DIN A4 & MCP native',
+      href: 'https://free-invoice-generator.nordible.co/',
+      isExternal: true,
+      icon: FileText,
+    },
+    {
+      title: t.nav.freeBusinessDirectory,
+      desc: isDe ? 'Agentische KI-Suche ohne Provision' : 'Agentic AI search & 0% commission',
+      href: 'http://business-directory.nordible.co/',
+      isExternal: true,
+      icon: Globe,
+    },
+    {
+      title: t.nav.freeQrCodeGenerator,
+      desc: isDe ? 'Dauerhafte, werbefreie Vektor-Codes' : 'Permanent & ad-free vector codes',
+      path: '/qr-code-generator',
+      isExternal: false,
+      icon: QrCode,
+    },
+  ];
+
   return (
     <header className="header-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +153,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-x-2.5 lg:gap-x-3.5 xl:gap-x-5">
-            {navItems.map((item) => (
+            {navItems.filter(item => item.key !== 'about').map((item) => (
               <button
                 key={item.key}
                 onClick={() => handleNavClick(item.key, item.path)}
@@ -90,6 +162,140 @@ export default function Header() {
                 {item.label}
               </button>
             ))}
+
+            {/* About Dropdown with Free Tools Sub-Navigation */}
+            <div 
+              className="relative"
+              onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                setIsAboutOpen(true);
+              }}
+              onMouseLeave={() => {
+                timeoutRef.current = setTimeout(() => setIsAboutOpen(false), 200);
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                className={`flex items-center gap-1 text-xs lg:text-[13px] font-bold uppercase tracking-wider whitespace-nowrap cursor-pointer py-2 transition-colors ${
+                  isAboutOpen 
+                    ? 'text-nordible-blue dark:text-blue-400' 
+                    : 'text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400'
+                }`}
+                aria-expanded={isAboutOpen}
+                aria-haspopup="true"
+              >
+                <span>{t.nav.about}</span>
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isAboutOpen ? 'rotate-180 text-nordible-blue dark:text-blue-400' : ''}`} />
+              </button>
+
+              {/* Sub-Navigation & Sub-Sub Navigation Panel */}
+              {isAboutOpen && (
+                <div 
+                  className="absolute right-0 top-full pt-2 z-50 w-[580px] animate-in fade-in slide-in-from-top-2 duration-200"
+                  role="menu"
+                >
+                  <div className="bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-2xl shadow-2xl p-4 grid grid-cols-2 gap-3 divide-x divide-nordible-border/60 dark:divide-gray-800">
+                    {/* Left Column: About Nordible Pages */}
+                    <div className="space-y-1.5 pr-1">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-2 block">
+                        {isDe ? 'Über Nordible' : 'About Nordible'}
+                      </span>
+                      {aboutLinks.map((link) => {
+                        const Icon = link.icon;
+                        return (
+                          <button
+                            key={link.path}
+                            onClick={() => {
+                              setIsAboutOpen(false);
+                              handleNavClick('about', link.path);
+                            }}
+                            className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer"
+                          >
+                            <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors">
+                                {link.title}
+                              </span>
+                              <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug">
+                                {link.desc}
+                              </span>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Right Column: Free Tools (Sub - Sub Navigation) */}
+                    <div className="pl-3 space-y-1.5">
+                      <div className="flex items-center justify-between px-2">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 block">
+                          {t.nav.freeTools}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
+                          <Sparkles className="h-2.5 w-2.5" />
+                          {isDe ? 'Kostenfrei' : 'Free'}
+                        </span>
+                      </div>
+                      {freeTools.map((tool) => {
+                        const Icon = tool.icon;
+                        if (tool.isExternal) {
+                          return (
+                            <a
+                              key={tool.href}
+                              href={tool.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsAboutOpen(false)}
+                              className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer block"
+                            >
+                              <span className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                                <Icon className="h-4 w-4" />
+                              </span>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-1">
+                                  <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                                    {tool.title}
+                                  </span>
+                                  <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-nordible-blue shrink-0" />
+                                </div>
+                                <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug truncate">
+                                  {tool.desc}
+                                </span>
+                              </div>
+                            </a>
+                          );
+                        }
+                        return (
+                          <button
+                            key={tool.path}
+                            onClick={() => {
+                              setIsAboutOpen(false);
+                              handleNavClick('tool', tool.path);
+                            }}
+                            className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer"
+                          >
+                            <span className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                                {tool.title}
+                              </span>
+                              <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug truncate">
+                                {tool.desc}
+                              </span>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Adaptive Language Switcher */}
             {supportedLanguages.length <= 2 ? (
@@ -175,7 +381,7 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden animate-in fade-in slide-in-from-top-4 duration-300">
             <div className="px-2 pt-2 pb-6 space-y-2 bg-white dark:bg-gray-900 border-t border-nordible-border dark:border-gray-800">
-              {navItems.map((item) => (
+              {navItems.filter(item => item.key !== 'about').map((item) => (
                 <button
                   key={item.key}
                   onClick={() => handleNavClick(item.key, item.path)}
@@ -184,6 +390,76 @@ export default function Header() {
                   {item.label}
                 </button>
               ))}
+
+              {/* Mobile About Accordion with Free Tools Sub-Navigation */}
+              <div className="border border-nordible-border/70 dark:border-gray-800 rounded-2xl overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                >
+                  <span>{t.nav.about}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileAboutOpen ? 'rotate-180 text-nordible-blue' : ''}`} />
+                </button>
+
+                {isMobileAboutOpen && (
+                  <div className="px-3 pb-3 space-y-3 bg-gray-50/50 dark:bg-gray-800/40 border-t border-nordible-border/50 dark:border-gray-800">
+                    {/* About Links */}
+                    <div className="pt-2 space-y-1">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-400 px-2 block">
+                        {isDe ? 'Über Nordible' : 'About Nordible'}
+                      </span>
+                      {aboutLinks.map((link) => (
+                        <button
+                          key={link.path}
+                          onClick={() => handleNavClick('about', link.path)}
+                          className="w-full text-left px-3 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue rounded-lg transition-colors cursor-pointer block"
+                        >
+                          {link.title}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Sub-Sub Navigation: Free Tools */}
+                    <div className="pt-2 border-t border-gray-200/60 dark:border-gray-700/60 space-y-1">
+                      <div className="flex items-center justify-between px-2 mb-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 block">
+                          {t.nav.freeTools}
+                        </span>
+                        <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400">
+                          {isDe ? 'Kostenfrei' : 'Free'}
+                        </span>
+                      </div>
+                      {freeTools.map((tool) => {
+                        if (tool.isExternal) {
+                          return (
+                            <a
+                              key={tool.href}
+                              href={tool.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsMenuOpen(false)}
+                              className="w-full text-left px-3 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue rounded-lg transition-colors flex items-center justify-between"
+                            >
+                              <span>{tool.title}</span>
+                              <ExternalLink className="h-3.5 w-3.5 text-gray-400" />
+                            </a>
+                          );
+                        }
+                        return (
+                          <button
+                            key={tool.path}
+                            onClick={() => handleNavClick('tool', tool.path)}
+                            className="w-full text-left px-3 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue rounded-lg transition-colors block cursor-pointer"
+                          >
+                            {tool.title}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Mobile 4 Quick Actions (Call, WhatsApp, Email, Calendar) */}
               <div className="pt-3 px-4 border-t border-gray-100 dark:border-gray-800">

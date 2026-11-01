@@ -20,6 +20,12 @@ export interface Translations {
     consultation: string;
     getStarted: string;
     investmentModels: string;
+    companyProfile: string;
+    whyChooseUs: string;
+    freeTools: string;
+    freeInvoiceGenerator: string;
+    freeBusinessDirectory: string;
+    freeQrCodeGenerator: string;
   };
   hero: {
     rotatingTitles: string[];
@@ -303,7 +309,13 @@ export const translations: Record<Language, Translations> = {
       founderStory: "Founder Story",
       consultation: "Consultation",
       getStarted: "Get Started",
-      investmentModels: "Investment Models"
+      investmentModels: "Investment Models",
+      companyProfile: "Company Profile",
+      whyChooseUs: "Why Choose Us",
+      freeTools: "Free Tools",
+      freeInvoiceGenerator: "Free Invoice Generator",
+      freeBusinessDirectory: "Free Business Directory",
+      freeQrCodeGenerator: "Free QR Code Generator"
     },
     hero: {
       rotatingTitles: [
@@ -839,7 +851,13 @@ export const translations: Record<Language, Translations> = {
       founderStory: "Gründer-Story",
       consultation: "Erstgespräch",
       getStarted: "Projekt anfragen",
-      investmentModels: "Investitionsmodelle"
+      investmentModels: "Investitionsmodelle",
+      companyProfile: "Unternehmensprofil",
+      whyChooseUs: "Warum Nordible",
+      freeTools: "Kostenlose Tools",
+      freeInvoiceGenerator: "Kostenloser Rechnungsersteller",
+      freeBusinessDirectory: "Kostenloses Branchenverzeichnis",
+      freeQrCodeGenerator: "Kostenloser QR-Code-Generator"
     },
     hero: {
       rotatingTitles: [
