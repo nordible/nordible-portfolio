@@ -21,6 +21,17 @@
 - [Architecture & Tech Insights](https://nordible.co/blog): Technical articles on generative engine optimization (GEO), cloud architectures, and modern engineering.
 - [Book Consultation / Erstgespräch anfragen](https://nordible.co/#consultation): Direct 1-on-1 consultation with founder Kabeer Shah.
 
+## Free Tools & Open-Source Utilities
+
+- [Free Invoice Generator](https://free-invoice-generator.nordible.co/): Zero-database, 100% client-side privacy-first invoicing suite conforming to DIN 5008 / ISO 216 layout standards and German GoBD statutory VAT calculations (19%, 7%, 0% Kleinunternehmer §19 UStG). No registration, no telemetry, runs offline.
+  - Source Code: https://github.com/nordible/free-invoice-generator
+  - AI Agent MCP Server: `@nordible/invoice-mcp` (npm) — enables Claude Desktop, Cursor, and autonomous AI agents to calculate compliant taxes and emit PDF invoices programmatically.
+  - Detailed Case Study: https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study
+- [Free International Business Directory](http://business-directory.nordible.co/): High-authority, AI-indexable directory for verified service businesses with 0% middleman commission and native Generative Engine Optimization (GEO).
+  - Source Code: https://github.com/nordible/business-directory
+  - Detailed Case Study: https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study
+- [Free QR Code Generator](https://nordible.co/qr-code-generator): High-resolution, permanent, vector-grade QR codes with zero expiration, zero tracking redirects, and no paywalls.
+
 ## Dedicated Portfolio Project Pages (Detailed Views)
 
 - [CareIntellect Platform (GE Healthcare)](https://nordible.co/projekte/oncocare): Clinical oncology care decision-support platform cutting clinician data processing time by 60%.
@@ -37,8 +48,8 @@
 - [Habitualist](https://nordible.co/projekte/habitualist): Science-backed cross-platform mobile habit tracker built on the Elastic Habits method.
 - [Zerodha Sandbox](https://nordible.co/projekte/zerodha-sandbox): Interactive Kite Connect trading API simulation suite accelerating onboarding by 4x.
 - [NerdsPal.com](https://nordible.co/projekte/nerdspal): Real-time collaborative peer knowledge platform with sub-100ms WebSocket chat latency.
-- [Nordible Free Invoice Generator](https://nordible.co/projekte/invoice-generator): Zero-database, 100% client-side privacy-first invoicing suite.
-- [Nordible Business Directory](https://nordible.co/projekte/nordible-directory): International verified business directory optimized for AI search engine discoverability.
+- [Nordible Free Invoice Generator](https://nordible.co/projekte/invoice-generator): Zero-database, DIN 5008 / ISO 216 privacy-first invoicing suite with native Model Context Protocol (MCP) AI agent support.
+- [Nordible Business Directory](https://nordible.co/projekte/nordible-directory): International verified business directory optimized for AI search engine (GEO) discoverability.
 
 ## Executive Case Studies (Business Leaders POV)
 
@@ -47,7 +58,7 @@
 - [Baxter RST Remote Diagnostics Case Study](https://nordible.co/blog/vantive-baxter-healthcare-remote-diagnostics-case-study): Halving hospital medical device downtime with AWS IoT telemetry.
 - [Parents.VIP Creator Marketing Case Study](https://nordible.co/blog/parents-vip-influencer-creator-marketing-platform-case-study): Doubling brand campaign throughput (+200%) across 5,000+ creator campaigns.
 - [SmartbotHub Enterprise AI Case Study](https://nordible.co/blog/smartbothub-enterprise-conversational-ai-cost-reduction-case-study): Cutting support OpEx by 60% with 90% first-contact resolution.
-- [NextAuto Enterprise RPA Case Study](https://nordible.co/blog/nextauto-enterprise-workflow-rpa-automation-case-study): Reclaiming 40+ billable employee hours per week by automating 80% of workflows.
+- [NextAuto Enterprise RPA Case Study](https://nordible.co/blog/nextauto-enterprise-workflow-rpa-automation-case-study): Reclaiming 40+ billable employee hours per week by automating 80% of workflows with 90% error reduction.
 - [BUNS 069 Food Commerce Case Study](https://nordible.co/blog/restaurant-delivery-growth-case-study): +74% revenue surge and 0% cancellations across digital ordering funnels.
 - [Shams Consult B2B Client Acquisition Case Study](https://nordible.co/blog/architecture-firm-seo-case-study): Winning 2 signed mandates in 30 days without paid ads via Google Page 1.
 - [Bombay Studio Luxury Living GEO Case Study](https://nordible.co/blog/bombay-studio-luxury-interior-architecture-geo-case-study): Ranking #1 on ChatGPT and pre-filtering ₹1.2Cr+ project budgets.
@@ -56,7 +67,7 @@
 - [Habitualist Behavioral App Case Study](https://nordible.co/blog/habitualist-cross-platform-habit-tracker-growth-case-study): Cutting mobile app engineering costs by 50% with unified React Native.
 - [Zerodha Sandbox Fintech Simulator Case Study](https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study): Accelerating fintech API onboarding by 4x.
 - [NerdsPal Real-Time Collaboration Case Study](https://nordible.co/blog/nerdspal-community-knowledge-sharing-platform-case-study): Scaling to 700+ active tech members with sub-100ms latency.
-- [Nordible Invoicing Suite Case Study](https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study): Generating B2B inbound leads with 0€ hosting costs.
+- [Nordible Invoicing Suite Case Study](https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study): Zero-database, DIN 5008 client-side privacy invoicing with native AI agent MCP integration.
 - [Nordible Business Directory GEO Case Study](https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study): Direct buyer discovery in conversational AI search.
 
 ## Direct Contact Information

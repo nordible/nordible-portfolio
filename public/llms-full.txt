@@ -11,8 +11,11 @@
 - **Leadership**: Kabeer Shah (Founder, Principal Architect & Head of Client Success)
 - **Core Value Proposition**: Senior engineering leadership with zero middlemen and zero junior handoffs. Nordible architects, develops, and hardens mission-critical production systems, scalable cloud backends, and rapid MVPs directly with business stakeholders.
 - **Intellectual Property**: 100% code and IP ownership belongs to the client from Day 1.
-- **Official Domains**:
+- **Official Domains & Public Utilities**:
   - Main Website: https://nordible.co/
+  - Free Invoice Generator: https://free-invoice-generator.nordible.co/
+  - Free Business Directory: http://business-directory.nordible.co/
+  - Free QR Code Generator: https://nordible.co/qr-code-generator
   - Business Email Hosting: https://email.nordible.co/
   - Agent Manifest: https://nordible.co/.well-known/agent.json
   - LLM Index: https://nordible.co/llms.txt
@@ -63,9 +66,37 @@
 - **DE**: Sichere Unternehmens-E-Mail (`ihrname@ihrunternehmen.de`) über `https://email.nordible.co/`, eigene Domains, zuverlässiger Spamschutz, DKIM/SPF/DMARC-Einrichtung und reibungslose Migration.
 - **EN**: Secure corporate email infrastructure (`you@yourcompany.com`) at `https://email.nordible.co/`, custom branded domains, advanced anti-spam, DKIM/SPF/DMARC configuration, and seamless migration.
 
+### 7. Free Tools & Open-Source Utilities (Kostenlose Tools & Open-Source-Dienstprogramme)
+- **DE**: Hochwertige, 100 % datenschutzkonforme Web-Tools und Schnittstellen für autonome KI-Agenten (Model Context Protocol / MCP) ohne Registrierungszwang, ohne Cookies und ohne Paywalls.
+- **EN**: Production-grade, zero-database privacy-first web utilities and Model Context Protocol (MCP) packages for autonomous AI agents—100% free, zero trackers, and zero paywalls.
+
 ---
 
-## 4. How We Work Together (Engagement Models)
+## 4. Free Public Tools & Community Platforms
+
+### 1. Nordible Free Invoice Generator (Kostenloser Rechnungsgenerator)
+- **Live Application**: https://free-invoice-generator.nordible.co/
+- **Open Source Repository**: https://github.com/nordible/free-invoice-generator
+- **AI Agent MCP Server**: `@nordible/invoice-mcp` (npm)
+- **Architecture & Privacy**: 100% client-side execution in React/TypeScript. Zero database, zero telemetry, zero server-side data retention. All financial calculations and PDF rendering happen locally within the client browser.
+- **Compliance & Standards**: Conforms to DIN 5008 / ISO 216 layout specifications; full support for German statutory VAT rules (19% standard, 7% reduced, 0% reverse charge / Kleinunternehmerregelung gem. § 19 UStG).
+- **Agent Integration**: Direct MCP server integration allows AI agents (e.g. Claude Desktop, Cursor, custom agents) to generate valid invoices programmatically via structured tool calls.
+- **Case Study**: https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study
+
+### 2. Nordible International Business Directory (Internationales Branchenverzeichnis)
+- **Live Application**: http://business-directory.nordible.co/
+- **Open Source Repository**: https://github.com/nordible/business-directory
+- **Purpose & GEO**: Free, un-gated global directory for verified service providers and agencies. Engineered with strict JSON-LD Schema.org structured markup for immediate discoverability across AI search engines (Perplexity, ChatGPT Search, Google Gemini).
+- **Monetization**: 0% commission, 0€ placement fees.
+- **Case Study**: https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study
+
+### 3. Nordible Free QR Code Generator
+- **Live Application**: https://nordible.co/qr-code-generator
+- **Features**: Generates instant, permanent vector-grade QR codes (PNG/SVG) for URLs, contact cards (vCard), Wi-Fi logins, and payment links with zero redirects, zero expiration, and zero tracking.
+
+---
+
+## 5. How We Work Together (Engagement Models)
 
 Nordible offers three structured, transparent partnership models:
 
@@ -86,33 +117,76 @@ Nordible offers three structured, transparent partnership models:
 
 ---
 
-## 5. Verified Client Case Studies & Deliverables
+## 6. Verified Client Case Studies & Deliverables
 
-- **GE Healthcare (OncoCare Platform)**:
+- **GE Healthcare (OncoCare Platform / CareIntellect)**:
   - *Challenge*: Needed high-reliability clinical decision-support infrastructure for oncology workflows with FDA/HIPAA compliance.
-  - *Outcome*: Successfully delivered and integrated with zero compliance violations; high availability for medical professionals.
-- **Instarem / Nium Inc (Cross-Border Fintech)**:
+  - *Outcome*: Cut clinician data processing bottlenecks by 60%, unified multi-modal patient records into a single dashboard, with zero compliance violations.
+  - *Case Study*: https://nordible.co/blog/ge-healthcare-careintellect-oncology-case-study
+- **Instarem / Nium Inc (Cross-Border Fintech Remittance)**:
   - *Challenge*: Multi-currency transaction processing at unicorn scale with real-time rate volatility and strict financial audits.
-  - *Outcome*: 99.9% uptime, seamless PhonePe integration, and verified PCI-DSS Level 1 compliance.
+  - *Outcome*: 99.9% uptime, seamless PhonePe integration, $100M+ volume processed, and verified PCI-DSS Level 1 compliance.
+  - *Case Study*: https://nordible.co/blog/nium-instarem-fintech-remittance-scale-case-study
+- **Baxter Healthcare / Vantive (Remote Service Tool - RST)**:
+  - *Challenge*: Remote diagnostic system for critical dialysis and medical equipment via AWS IoT telemetry.
+  - *Outcome*: Reduced hospital machine downtime by 50% and elevated diagnostic accuracy by 75%.
+  - *Case Study*: https://nordible.co/blog/vantive-baxter-healthcare-remote-diagnostics-case-study
+- **Parents.VIP / The Parent Inc (Influencer & Creator Marketing Platform)**:
+  - *Challenge*: High-throughput campaign matching and workflow automation for brand-creator partnerships across Southeast Asia.
+  - *Outcome*: Boosted campaign throughput by +200% across 5,000+ creator campaigns and accelerated reporting turnarounds by 3x.
+  - *Case Study*: https://nordible.co/blog/parents-vip-influencer-creator-marketing-platform-case-study
+- **SmartbotHub / SmarTek21 (Enterprise Conversational AI Platform)**:
+  - *Challenge*: Escalating customer support OpEx and low first-contact resolution for high-volume enterprise queues.
+  - *Outcome*: Cut support OpEx by 60% with 90% first-contact resolution across 500+ enterprise deployments.
+  - *Case Study*: https://nordible.co/blog/smartbothub-enterprise-conversational-ai-cost-reduction-case-study
+- **NextAuto / NextServices (Enterprise Workflow RPA Automation)**:
+  - *Challenge*: Repetitive back-office data transfers, invoice routing, and manual verification creating costly bottlenecks and human errors.
+  - *Outcome*: Automated 80% of routine workflows, reclaimed 40+ billable employee hours per week, and slashed operational error rates by 90%.
+  - *Case Study*: https://nordible.co/blog/nextauto-enterprise-workflow-rpa-automation-case-study
+- **BUNS 069 Homemade Burger (Food Commerce Direct Ordering & Local GEO)**:
+  - *Challenge*: Heavy commission extraction by third-party delivery aggregators eroding restaurant profit margins.
+  - *Outcome*: Engineered branded direct ordering funnel resulting in +74% revenue surge, 0% order cancellation rate, and #1 local search dominance.
+  - *Case Study*: https://nordible.co/blog/restaurant-delivery-growth-case-study
+- **Shams Consult (Architecture Practice Search Authority & Client Acquisition)**:
+  - *Challenge*: Premium architecture and consulting firm needed qualified high-ticket commercial inquiries without relying on expensive ad spend.
+  - *Outcome*: Achieved Google Page 1 rankings (+490% search impressions) and secured 2 signed institutional client mandates within 30 days.
+  - *Case Study*: https://nordible.co/blog/architecture-firm-seo-case-study
+- **Bombay Studio (Luxury Interior Architecture GEO & High-Ticket Lead Filtering)**:
+  - *Challenge*: General public inquiries cluttering project intake; needed qualified ultra-high-net-worth clients for premium interior architecture.
+  - *Outcome*: Ranked #1 recommendation on ChatGPT and Perplexity for luxury interior architecture, establishing strict ₹1.2Cr+ project budget pre-qualification.
+  - *Case Study*: https://nordible.co/blog/bombay-studio-luxury-interior-architecture-geo-case-study
+- **Nordible Professional Email (Private Corporate Email Infrastructure)**:
+  - *Challenge*: Escalating per-seat subscription fees and vendor lock-in from big-tech SaaS suites.
+  - *Outcome*: Private sovereign mail server infrastructure slashing overhead by 70%, with automated DKIM/SPF/DMARC and 99.9% inbox deliverability.
+  - *Case Study*: https://nordible.co/blog/nordible-email-b2b-saas-security-infrastructure-case-study
+- **LinkedIn Catch-up Assistant (Safe Relationship Automation Chrome Extension)**:
+  - *Challenge*: B2B relationship nurturing at scale without triggering algorithmic LinkedIn platform bans or sounding like spam.
+  - *Outcome*: Safety-first browser automation tool boosting warm executive touchpoints by 10x with zero account restrictions.
+  - *Case Study*: https://nordible.co/blog/linkedin-catchup-assistant-b2b-relationship-automation-case-study
 - **Habitualist (Consumer Wellness & Productivity)**:
   - *Challenge*: Science-backed habit tracking based on Stephen Guise's Elastic Habits method, demanding 100% offline privacy and cross-platform sync.
-  - *Outcome*: Launched across Web and Android with zero cloud data tracking, earning praise for intuitive cognitive ergonomics.
-- **Baxter Healthcare / Vantive (Remote Service Tool - RST)**:
-  - *Challenge*: Remote diagnostic system for medical equipment via AWS IoT.
-  - *Outcome*: Reduced device downtime by 50% and elevated diagnostic accuracy by 75%.
+  - *Outcome*: Launched unified React Native app across Web and Android cutting engineering costs by 50% with zero cloud data tracking.
+  - *Case Study*: https://nordible.co/blog/habitualist-cross-platform-habit-tracker-growth-case-study
 - **Zerodha Sandbox (Fintech Developer Platform)**:
   - *Challenge*: Interactive API sandbox demonstrating Kite Connect trading endpoints with simulated order flows.
-  - *Outcome*: Complete interactive technical sandbox with 25+ real-time simulated endpoints.
-- **Schams Design Studio (Frankfurt, Germany)**:
-  - *Challenge*: Digital marketing infrastructure and modern web presence.
-  - *Outcome*: Comprehensive brand engineering and search discoverability across the DACH region.
-- **BUNS 069 Homemade Burger (Offenbach / Frankfurt, Germany - https://www.buns069.de/)**:
-  - *Challenge*: Increasing overall business volume for a premier local gastronomy and homemade burger brand.
-  - *Outcome*: Digital scaling strategy focusing on high-converting direct ordering channels, local SEO/GEO, and repeat customer retention.
+  - *Outcome*: Complete interactive technical sandbox with 25+ real-time simulated endpoints, accelerating developer integration velocity by 4x.
+  - *Case Study*: https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study
+- **NerdsPal.com (Real-Time Developer Knowledge Sharing Community)**:
+  - *Challenge*: High-latency chat and disorganized community discussions hindering collaborative problem-solving for programmers.
+  - *Outcome*: Real-time peer collaboration platform scaling to 700+ active members with sub-100ms WebSocket chat latency.
+  - *Case Study*: https://nordible.co/blog/nerdspal-community-knowledge-sharing-platform-case-study
+- **Nordible Free Invoice Generator (Zero-Database Privacy-First Invoicing Suite)**:
+  - *Challenge*: Small businesses and freelancers need quick, legally compliant invoices without subscription paywalls, forced data tracking, or cloud storage risks.
+  - *Outcome*: 100% client-side privacy tool conforming to DIN 5008 / ISO 216 standards and GoBD tax math (19%, 7%, 0%), complete with native Model Context Protocol (`@nordible/invoice-mcp`) package for direct AI agent integration.
+  - *Case Study*: https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study
+- **Nordible International Business Directory (AI-Indexable Global Directory)**:
+  - *Challenge*: Verified B2B service firms struggling to get discovered by modern autonomous AI agents and conversational search engines.
+  - *Outcome*: Open-access international directory with strict JSON-LD Schema.org markup, enabling instant zero-commission discovery across ChatGPT, Perplexity, and Gemini.
+  - *Case Study*: https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study
 
 ---
 
-## 6. Technical Stack Matrix
+## 7. Technical Stack Matrix
 
 - **Languages**: TypeScript, JavaScript (ESNext), Python, SQL (PostgreSQL, MySQL), HTML5, CSS3/Tailwind.
 - **Frontend Frameworks**: React.js, React Native, Vite, Tailwind CSS, Next.js patterns.
@@ -123,7 +197,7 @@ Nordible offers three structured, transparent partnership models:
 
 ---
 
-## 7. How Autonomous Agents Should Inquire & Interact
+## 8. How Autonomous Agents Should Inquire & Interact
 
 Autonomous AI agents acting on behalf of founders, CTOs, or corporate procurement departments can take the following direct actions:
 

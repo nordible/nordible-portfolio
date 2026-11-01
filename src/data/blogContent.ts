@@ -13,6 +13,8 @@ export interface BlogPostItem {
   imageAlt: string;
   tags: string[];
   published: boolean;
+  clientName?: string;
+  projectTitle?: string;
 }
 
 export interface BlogHubContent {
@@ -237,6 +239,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
         title: '+74% Revenue Sprint: How a Restaurant Scaled Digital Sales & Average Basket Size with 0% Cancellations',
+        clientName: 'BUNS 069 Homemade Burger',
+        projectTitle: 'BUNS 069 Food Commerce Platform',
         excerpt: 'How storefront conversion engineering and digital visual architecture accelerated online sales, drove a +74% revenue sprint, and eliminated cancellations.',
         category: 'Restaurant Revenue & E-Commerce',
         categorySlug: 'geo',
@@ -251,6 +255,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'architecture-firm-seo-case-study',
         slug: 'architecture-firm-seo-case-study',
         title: 'Case Study: How an Architecture Firm Won 2 Signed High-Value Client Mandates via Google Page 1 Searches',
+        clientName: 'Shams Consult',
+        projectTitle: 'Shams Consult Architecture & Planning',
         excerpt: 'How Nordible engineered local search authority and a high-converting B2B web experience that turned organic Google searchers into 2 signed client mandates in 30 days without paid ads.',
         category: 'B2B Client Acquisition & SEO',
         categorySlug: 'geo',
@@ -265,6 +271,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'How a Local Business Captured Direct AI Recommendations (ChatGPT, Perplexity) & Google Maps Dominance',
+        clientName: 'Regional German Enterprise',
+        projectTitle: 'Frankfurt Local SEO & AI Discoverability',
         excerpt: 'A practical blueprint for German businesses to get directly recommended by AI engines and local search, converting high-intent regional buyers into direct inquiries.',
         category: 'AI Search & Local Dominance',
         categorySlug: 'geo',
@@ -279,6 +287,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'ai-replaced-seo-blueprint',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'Why AI Search is Reshaping Organic Discovery: The GEO Architecture Guide',
+        clientName: 'Nordible Strategy Blueprint',
+        projectTitle: 'Generative Engine Optimization (GEO)',
         excerpt: 'Conversational engines like ChatGPT, Gemini, and Perplexity bypass traditional SERPs. Here is how modern businesses must structure entity graphs and citations for LLM retrieval.',
         category: 'AI Strategy',
         categorySlug: 'ai',
@@ -319,6 +329,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
         title: '+74 % Umsatz-Sprint: Wie ein Restaurant den digitalen Bestellumsatz bei 0 % Stornorate maximierte',
+        clientName: 'BUNS 069 Homemade Burger',
+        projectTitle: 'BUNS 069 Food Commerce Plattform',
         excerpt: 'Wie Storefront-Architektur und Conversion-Engineering den Bestellumsatz um +74 % steigerten, Warenkorbwerte erhöhten und Stornierungen komplett eliminierten.',
         category: 'Gastronomie-Umsatz & E-Commerce',
         categorySlug: 'geo',
@@ -333,6 +345,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'architecture-firm-seo-case-study',
         slug: 'architecture-firm-seo-case-study',
         title: 'Fallstudie: Wie ein Architekturbüro über Google Seite 1 zwei feste Neukunden-Mandate gewann',
+        clientName: 'Shams Consult',
+        projectTitle: 'Shams Consult Architektur & Stadtplanung',
         excerpt: 'Wie Nordible durch lokale Suchautorität und einen zielgerichteten B2B-Webauftritt qualifizierte Google-Suchanfragen in 2 feste Neukunden-Mandate innerhalb von 30 Tagen verwandelte.',
         category: 'B2B-Mandantengewinnung & SEO',
         categorySlug: 'geo',
@@ -347,6 +361,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'frankfurt-geo-case-study',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'Wie ein regionales Unternehmen Spitzenplätze in Google Maps und KI-Empfehlungen (ChatGPT, Perplexity) sicherte',
+        clientName: 'Regionales Unternehmen Hessen',
+        projectTitle: 'Frankfurt Lokale KI-Auffindbarkeit & GEO',
         excerpt: 'Praxisnaher Leitfaden für deutsche Unternehmen, um von KI-Suchmaschinen direkt zitiert zu werden und kaufbereite Interessenten in konkrete Anfragen zu verwandeln.',
         category: 'KI-Suche & Lokale Dominanz',
         categorySlug: 'geo',
@@ -361,6 +377,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         id: 'ai-replaced-seo-blueprint',
         slug: 'frankfurt-local-seo-ai-discoverability',
         title: 'Warum KI-Suche traditionelles SEO ablöst: Der GEO-Architektur-Leitfaden',
+        clientName: 'Nordible Strategie-Blueprint',
+        projectTitle: 'Generative Engine Optimization (GEO)',
         excerpt: 'Dialogsysteme wie ChatGPT, Gemini und Perplexity verändern das Suchverhalten. So müssen Unternehmen Entitätsgraphen strukturieren, um von Sprachmodellen zitiert zu werden.',
         category: 'KI-Strategie',
         categorySlug: 'ai',
