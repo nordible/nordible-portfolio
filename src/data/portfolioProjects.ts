@@ -1302,7 +1302,7 @@ export const portfolioProjects: ProjectData[] = [
     liveUrl: 'http://business-directory.nordible.co/',
     repoUrl: 'https://github.com/nordible/business-directory',
     caseStudySlug: 'nordible-business-directory-ai-search-indexing-case-study',
-    image: '/images/portfolio/project-3861969.webp',
+    image: '/images/portfolio/business-directory.png',
     gradient: 'from-blue-700 to-emerald-600',
   },
 ];
