@@ -1,3 +1,5 @@
+import { generatedCaseStudies, generatedBlogPostItems } from './caseStudiesData';
+
 export interface BlogPostItem {
   id: string;
   slug: string;
@@ -272,7 +274,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         imageAlt: 'AI Replaced SEO: Generative Engine Optimization Blueprint',
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'AI Retrieval'],
         published: true,
-      }
+      },
+      ...generatedBlogPostItems.en,
     ]
   },
   de: {
@@ -353,7 +356,8 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         imageAlt: 'AI Replaced SEO: Generative Engine Optimization Blueprint',
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'KI-Retrieval'],
         published: true,
-      }
+      },
+      ...generatedBlogPostItems.de,
     ]
   }
 };
@@ -1704,6 +1708,7 @@ export const articlesBySlug: Record<string, Record<'en' | 'de', ArticleContent>>
   'restaurant-lieferumsatz-steigern': bunsPostTranslations,
   'buns-069-ecommerce-delivery-growth': bunsPostTranslations,
   'buns069-delivery-growth': bunsPostTranslations,
+  ...generatedCaseStudies,
 };
 
 export const defaultArticleSlug = 'restaurant-delivery-growth-case-study';

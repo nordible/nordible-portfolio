@@ -14,6 +14,7 @@ const projects = [
     audience: 'enterprise' as const,
     logo: '/images/logos/GeneralElectric_logo.svg',
     link: 'https://www.gehealthcare.com/en/products/software/careintellect',
+    caseStudySlug: 'ge-healthcare-careintellect-oncology-case-study',
     description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
     technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
     outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',
@@ -32,6 +33,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/InstaRem_logo.svg',
     link: 'https://www.instarem.com',
+    caseStudySlug: 'nium-instarem-fintech-remittance-scale-case-study',
     description: 'Flagship fintech product for cost-effective foreign remittances serving millions of users globally.',
     technologies: ['Node.js', 'React.js', 'PostgreSQL', 'Mocha', 'AWS'],
     outcome: 'Successfully delivered a platform processing millions in remittances with 99.9% uptime',
@@ -50,6 +52,7 @@ const projects = [
     audience: 'enterprise' as const,
     logo: '/images/logos/vantive_logo.jpg',
     link: 'https://www.vantive.com',
+    caseStudySlug: 'vantive-baxter-healthcare-remote-diagnostics-case-study',
     description: 'Medical device support platform for remote diagnosis and troubleshooting of medical devices in healthcare facilities.',
     technologies: ['Node.js', 'PostgreSQL', 'AWS IoT', 'Jest', 'TDD', 'AWS'],
     outcome: 'Reduced device downtime by 50% and improved remote diagnostic accuracy by 75%',
@@ -68,6 +71,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/TheParentInc-logo.webp',
     link: 'https://www.parents.vip',
+    caseStudySlug: 'parents-vip-influencer-creator-marketing-platform-case-study',
     description: 'End-to-end influencer social media promotions, market surveys, and content creation process management platform.',
     technologies: ['Node.js', 'MySQL', 'Mocha', 'Microservices', 'AWS', 'Redis', 'Python'],
     outcome: 'Streamlined influencer campaigns resulting in 200% increase in campaign efficiency',
@@ -86,6 +90,7 @@ const projects = [
     audience: 'enterprise' as const,
     logo: '/images/logos/smartek21_logo.png',
     link: 'https://smartek21.com',
+    caseStudySlug: 'smartbothub-enterprise-conversational-ai-cost-reduction-case-study',
     description: 'Intelligent conversational AI platform delivering 24/7 automated customer self-service, query triage, and CRM integration.',
 
     technologies: ['Conversational AI', 'NLP', 'Node.js', 'AngularJS', 'AWS Cloud Architecture'],
@@ -106,6 +111,7 @@ const projects = [
     audience: 'enterprise' as const,
     logo: '/images/logos/nextservices_logo.png',
     link: 'https://nextservices.com/',
+    caseStudySlug: 'nextauto-enterprise-workflow-rpa-automation-case-study',
     description: 'Enterprise workflow automation platform eliminating manual back-office tasks, invoice extraction, data reconciliation, and executive reporting.',
 
     technologies: ['C#', '.NET Framework', 'SQL Server', 'Robotic Process Automation', 'Data Pipeline Engineering'],
@@ -164,6 +170,7 @@ const projects = [
     audience: 'local' as const,
     logo: '/images/logos/bombay-studio-logo.png',
     link: 'https://www.bombaystudio.in/',
+    caseStudySlug: 'bombay-studio-luxury-interior-architecture-geo-case-study',
     description: 'Premier luxury architectural planning and turnkey interior execution studio in Mumbai. Scaled inbound high-ticket acquisition through Generative Engine Optimization (GEO).',
     technologies: ['Generative Engine Optimization (GEO)', 'AI Search Authority', 'Entity Graph Engineering', 'Turnkey Funnel Architecture'],
     outcome: 'Ranked #1 on ChatGPT for luxury 5 BHK turnkey architecture in Mumbai, designated as "First one to contact" and filtering ₹80L–₹1.2Cr+ project budgets.',
@@ -182,6 +189,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logo-email.webp',
     link: 'https://email.nordible.co/',
+    caseStudySlug: 'nordible-email-b2b-saas-security-infrastructure-case-study',
     description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
     technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
     outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
@@ -200,6 +208,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/Linkedin-Catchup-assistant-icon.png',
     link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
+    caseStudySlug: 'linkedin-catchup-assistant-b2b-relationship-automation-case-study',
     description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
     technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
     outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
@@ -217,6 +226,7 @@ const projects = [
     audience: 'startup' as const,
     logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzQzMzhjYSIvPjxwYXRoIGQ9Ik0zNSA1MGwxMCAxMCAyMC0yMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiLz48L3N2Zz4=',
     link: 'https://habitualist.app',
+    caseStudySlug: 'habitualist-cross-platform-habit-tracker-growth-case-study',
     description: 'A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.',
     technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
     outcome: 'Successfully launched cross-platform (Web & Android) with a privacy-first, science-backed approach to habit formation.',
@@ -234,6 +244,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/zerodha-logo.png',
     link: 'https://nordible.github.io/zerodha-sandbox/',
+    caseStudySlug: 'zerodha-sandbox-fintech-trading-api-simulator-case-study',
     description: 'Interactive trading API sandbox demonstrating Zerodha Kite Connect integration with comprehensive endpoints for orders, portfolio, quotes, and market data.',
 
     technologies: ['TypeScript', 'HTML5', 'CSS3', 'REST API', 'Trading APIs'],
@@ -254,6 +265,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/nerdspal-logo.svg',
     link: 'https://www.producthunt.com/products/nersdpal-com',
+    caseStudySlug: 'nerdspal-community-knowledge-sharing-platform-case-study',
     description: 'Platform connecting nerds and geeks with like-minded individuals for meaningful conversations and collaborations.',
     technologies: ['React.js', 'Node.js', 'AI/ML', 'WebSocket', 'MongoDB'],
     outcome: 'Built a community platform that brings together tech enthusiasts and facilitates meaningful connections',
@@ -264,6 +276,44 @@ const projects = [
       engagement: 'inactive'
     },
     gradient: 'from-cyan-600 to-blue-600'
+  },
+  {
+    id: 'invoice-generator',
+    title: 'Nordible Invoicing Suite',
+    client: 'Nordible Product',
+    audience: 'startup' as const,
+    logo: '/images/logo-email.webp',
+    link: 'https://free-invoice-generator.nordible.co',
+    caseStudySlug: 'nordible-free-invoice-generator-privacy-first-case-study',
+    description: '100% private, client-side professional invoice generator with PDF rendering and zero monthly subscription costs.',
+    technologies: ['Next.js', 'React', 'Client-Side PDF', 'Zero-Database', 'GDPR Security'],
+    outcome: '0€ server hosting costs and 100% data privacy with instant client-side invoice generation.',
+    image: '/images/portfolio/project-6801648.webp',
+    metrics: {
+      hosting: '0€ / mo',
+      privacy: '100%',
+      speed: 'Instant'
+    },
+    gradient: 'from-blue-600 to-teal-500'
+  },
+  {
+    id: 'nordible-directory',
+    title: 'Nordible Business Directory',
+    client: 'Nordible Product',
+    audience: 'enterprise' as const,
+    logo: '/images/logos/nordible-logo.png',
+    link: 'https://directory.nordible.co',
+    caseStudySlug: 'nordible-business-directory-ai-search-indexing-case-study',
+    description: 'International verified business directory platform optimized for AI search engine discoverability (GEO) and B2B partner discovery.',
+    technologies: ['Next.js 16', 'Supabase', 'Schema.org Entity Graph', 'AI Search Optimization'],
+    outcome: 'Structured verified business footprint for AI search citations and international commercial visibility.',
+    image: '/images/portfolio/project-3861969.webp',
+    metrics: {
+      visibility: 'Global Reach',
+      verification: '100% Verified',
+      engine: 'AI Search (GEO)'
+    },
+    gradient: 'from-blue-700 to-emerald-600'
   }
 ];
 
@@ -518,24 +568,35 @@ export default function Portfolio() {
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight font-heading text-white drop-shadow-md">
                   {currentProject.title}
                 </h3>
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <a
-                    href={currentProject.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary py-2 px-4 text-[10px] uppercase tracking-widest inline-flex items-center shadow-lg shadow-blue-500/25"
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    to={getPath(`/projekte/${currentProject.id}`)}
+                    className="btn-primary py-2 px-3 text-[10px] uppercase tracking-widest inline-flex items-center shadow-lg shadow-blue-500/25"
                   >
-                    <span>{t.portfolio.viewLive || "View Project"}</span>
-                    <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-                  </a>
+                    <span>{isDe ? 'Detailseite' : 'Project Page'}</span>
+                    <ArrowRight className="ml-1 h-3 w-3" />
+                  </Link>
+
                   {currentProject.caseStudySlug && (
                     <Link
                       to={getPath(`/blog/${currentProject.caseStudySlug}`)}
-                      className="inline-flex items-center gap-1.5 py-2 px-3 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-white/40 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md transition-all shadow-md"
+                      className="inline-flex items-center gap-1 py-2 px-3 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-white/40 bg-white/15 hover:bg-white/25 text-white backdrop-blur-md transition-all shadow-md"
                     >
                       <span>{isDe ? 'Fallstudie' : 'Case Study'}</span>
                       <ArrowRight className="h-3 w-3" />
                     </Link>
+                  )}
+
+                  {currentProject.link && (
+                    <a
+                      href={currentProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 py-2 px-2.5 text-[10px] uppercase tracking-wider text-white/85 hover:text-white transition-colors"
+                    >
+                      <span>{t.portfolio.viewLive || "Live"}</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
                   )}
                 </div>
               </div>

@@ -22,16 +22,56 @@ const corePages = [
   { path: 'card', priority: '0.6', changefreq: 'monthly' },
   { path: 'privacy', priority: '0.5', changefreq: 'monthly' },
   { path: 'terms', priority: '0.5', changefreq: 'monthly' },
+  { path: 'lite', priority: '0.9', changefreq: 'weekly' },
+  { path: 'lite/projekte', priority: '0.8', changefreq: 'weekly' },
+  { path: 'lite/fallstudien', priority: '0.8', changefreq: 'weekly' },
+  { path: 'lite/services', priority: '0.7', changefreq: 'monthly' },
+  { path: 'lite/company-profile', priority: '0.7', changefreq: 'monthly' },
+  { path: 'lite/kontakt', priority: '0.7', changefreq: 'monthly' },
 ];
 
-// 2. Flagship case studies / blog articles
+// 2. All 16 Dedicated Projects
+const projectIds = [
+  'oncocare',
+  'instarem',
+  'rst-baxter',
+  'parents-vip',
+  'smartbothub',
+  'nextauto',
+  'buns069',
+  'shams-consult',
+  'bombay-studio',
+  'nordible-email',
+  'linkedin-catchup',
+  'habitualist',
+  'zerodha-sandbox',
+  'nerdspal',
+  'invoice-generator',
+  'nordible-directory',
+];
+
+// 3. Flagship case studies / blog articles (All 16 projects)
 const blogArticles = [
   'restaurant-delivery-growth-case-study',
   'architecture-firm-seo-case-study',
   'frankfurt-local-seo-ai-discoverability',
+  'ge-healthcare-careintellect-oncology-case-study',
+  'nium-instarem-fintech-remittance-scale-case-study',
+  'vantive-baxter-healthcare-remote-diagnostics-case-study',
+  'parents-vip-influencer-creator-marketing-platform-case-study',
+  'smartbothub-enterprise-conversational-ai-cost-reduction-case-study',
+  'nextauto-enterprise-workflow-rpa-automation-case-study',
+  'bombay-studio-luxury-interior-architecture-geo-case-study',
+  'nordible-email-b2b-saas-security-infrastructure-case-study',
+  'linkedin-catchup-assistant-b2b-relationship-automation-case-study',
+  'habitualist-cross-platform-habit-tracker-growth-case-study',
+  'zerodha-sandbox-fintech-trading-api-simulator-case-study',
+  'nerdspal-community-knowledge-sharing-platform-case-study',
+  'nordible-free-invoice-generator-privacy-first-case-study',
+  'nordible-business-directory-ai-search-indexing-case-study',
 ];
 
-// 3. Locations from locationsData.json
+// 4. Locations from locationsData.json
 const locationsData = JSON.parse(
   fs.readFileSync(path.join(projectRoot, 'src', 'data', 'locationsData.json'), 'utf8')
 );
@@ -78,8 +118,14 @@ for (const p of corePages) {
   addEntry(p.path, p.priority, p.changefreq);
 }
 
+for (const id of projectIds) {
+  addEntry(`projekte/${id}`, '0.8', 'weekly');
+  addEntry(`lite/projekte/${id}`, '0.7', 'weekly');
+}
+
 for (const slug of blogArticles) {
   addEntry(`blog/${slug}`, '0.8', 'weekly');
+  addEntry(`lite/fallstudien/${slug}`, '0.7', 'weekly');
 }
 
 for (const loc of locationPaths) {

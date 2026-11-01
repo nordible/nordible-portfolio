@@ -1,16 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Sun, Moon, Globe, Phone, MessageCircle, Mail, Calendar } from 'lucide-react';
+import { Menu, X, Globe, Phone, MessageCircle, Mail, Calendar } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../lib/i18n';
 import { contactConfig } from '../config/contact';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
   const { language, setLanguage, t, getPath, supportedLanguages } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
@@ -121,14 +119,14 @@ export default function Header() {
               </div>
             )}
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-xl bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all active:scale-95 cursor-pointer shrink-0"
-              aria-label="Toggle Dark Mode"
+            {/* Lite Mode Toggle for Low-Bandwidth / 2G-3G */}
+            <a
+              href="/lite"
+              className="px-2.5 py-1 text-xs font-mono font-medium rounded-lg border border-amber-300 dark:border-amber-700/50 bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors"
+              title={isDe ? 'Lite-Version (Sparmodus für langsames Internet)' : 'Lite Version (Low-bandwidth mode)'}
             >
-              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+              ⚡ Lite
+            </a>
 
             {/* Single Prominent Conversion CTA (Hick's Law Optimization) */}
             <a
@@ -196,14 +194,14 @@ export default function Header() {
                 </button>
               ))}
 
-              <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100 dark:border-gray-800">
-                 <span className="text-sm font-bold text-gray-500 uppercase tracking-widest">Theme</span>
-                 <button
-                  onClick={toggleTheme}
-                  className="p-3 rounded-xl bg-nordible-bg dark:bg-gray-800 text-nordible-dark dark:text-blue-400"
+              <div className="px-4 py-2 border-t border-gray-100 dark:border-gray-800">
+                <a
+                  href="/lite"
+                  className="flex items-center justify-between py-2 px-3 rounded-xl text-xs font-bold text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50"
                 >
-                  {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                </button>
+                  <span>⚡ {isDe ? 'Lite-Version (Sparmodus)' : 'Lite Version (2G/3G Mode)'}</span>
+                  <span className="font-mono text-[10px] uppercase">Aktivieren →</span>
+                </a>
               </div>
               {/* Mobile 4 Quick Actions (Call, WhatsApp, Email, Calendar) */}
               <div className="pt-3 px-4 border-t border-gray-100 dark:border-gray-800">

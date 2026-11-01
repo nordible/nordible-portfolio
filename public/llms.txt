@@ -9,7 +9,10 @@
 - [Full Knowledge Base (EN & DE)](https://nordible.co/llms-full.txt): Complete reference containing founder background, technical capabilities, engagement models, and verified client case studies.
 - [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration.
 - [Homepage (EN)](https://nordible.co/): Official website and capabilities overview.
-- [Startseite (DE)](https://nordible.co/de): Deutsche Webpräsenz und Leistungsübersicht.
+- [Startseite (DE)](https://nordible.co/): Deutsche Webpräsenz und Leistungsübersicht.
+- [Lite Version / Sparmodus](https://nordible.co/lite): Ultra-lightweight version (<15KB) for slow 2G/3G connections and LLM scraping.
+- [Lite Projects Index](https://nordible.co/lite/projekte): Low-bandwidth catalog of all 16 portfolio projects.
+- [Lite Case Studies Index](https://nordible.co/lite/fallstudien): Low-bandwidth business case studies for decision-makers.
 - [Company Profile](https://nordible.co/company-profile): Full company overview, core values, architectural rigor, and corporate credentials.
 - [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history (former Tech Lead for GE Healthcare OncoCare and Baxter Healthcare AWS IoT RST, Interim Head of Engineering at Nium Instarem).
 - [How We Work Together](https://nordible.co/investment-models): Structured engagement models with transparent fixed estimates.
@@ -18,23 +21,43 @@
 - [Architecture & Tech Insights](https://nordible.co/blog): Technical articles on generative engine optimization (GEO), cloud architectures, and modern engineering.
 - [Book Consultation / Erstgespräch anfragen](https://nordible.co/#consultation): Direct 1-on-1 consultation with founder Kabeer Shah.
 
-## Kernkompetenzen / Services (Deutsch)
+## Dedicated Portfolio Project Pages (Detailed Views)
 
-- **Digitales Marketing & Social-Media-Management**: Kanalmanagement für LinkedIn, Instagram, YouTube; Auffindbarkeit in Google & KI-Suchmaschinen (GEO), bezahlte Kampagnen.
-- **Videobearbeitung & Content-Produktion**: Professioneller Schnitt für Social Media Reels, Werbevideos, Präsentationen, dynamische Untertitel und Motion Graphics.
-- **Implementierung von KI-Agenten**: Praxisnahe autonome KI-Agenten für Geschäftsprozess-Automatisierung, CRM-/API-Integrationen und operative Effizienz.
-- **Technologielösungen & Softwareentwicklung**: Individuelle Web- und Mobile-Apps (iOS, Android, React Native), Webportale, 100 % Eigentum am Code.
-- **Geschäftsprozess-Automatisierung & Systeme**: Workflow-Vernetzung, interne Dashboards und spürbare Zeitersparnis bei Routineaufgaben.
-- **Business Email & Setup**: Sichere geschäftliche E-Mail-Infrastruktur (`ihrname@ihrunternehmen.de`) unter `https://email.nordible.co/`.
+- [CareIntellect Platform (GE Healthcare)](https://nordible.co/projekte/oncocare): Clinical oncology care decision-support platform cutting clinician data processing time by 60%.
+- [Instarem.com (NIUM)](https://nordible.co/projekte/instarem): Global cross-border remittance engine processing $100M+ volume at 99.9% uptime.
+- [RST Remote Service Tool (Baxter / Vantive)](https://nordible.co/projekte/rst-baxter): AWS IoT medical device support platform halving hospital machine downtime by 50%.
+- [Parents.VIP (The Parent Inc)](https://nordible.co/projekte/parents-vip): Influencer marketing platform boosting campaign throughput by 200% across 5,000+ brand deals.
+- [SmartbotHub (Smartek21)](https://nordible.co/projekte/smartbothub): Conversational AI platform cutting customer service operating costs by 60% across 500+ enterprises.
+- [NextAuto (NextServices)](https://nordible.co/projekte/nextauto): Enterprise RPA platform automating 80% of workflows and saving 40+ billable hours/week.
+- [BUNS 069](https://nordible.co/projekte/buns069): Food commerce direct ordering platform driving a +74% revenue sprint with 0% cancellations.
+- [Shams Consult](https://nordible.co/projekte/shams-consult): Architecture search authority driving +490% impressions and 2 signed mandates in 30 days.
+- [Bombay Studio](https://nordible.co/projekte/bombay-studio): Luxury interior architecture practice ranked #1 on ChatGPT for ₹1.2Cr+ project budgets.
+- [Nordible Professional Email](https://nordible.co/projekte/nordible-email): Secure hosted corporate email slashing infrastructure overhead by 70%.
+- [LinkedIn Catch-up Assistant](https://nordible.co/projekte/linkedin-catchup): Safety-first Chrome extension boosting warm B2B relationship touchpoints by 10x.
+- [Habitualist](https://nordible.co/projekte/habitualist): Science-backed cross-platform mobile habit tracker built on the Elastic Habits method.
+- [Zerodha Sandbox](https://nordible.co/projekte/zerodha-sandbox): Interactive Kite Connect trading API simulation suite accelerating onboarding by 4x.
+- [NerdsPal.com](https://nordible.co/projekte/nerdspal): Real-time collaborative peer knowledge platform with sub-100ms WebSocket chat latency.
+- [Nordible Free Invoice Generator](https://nordible.co/projekte/invoice-generator): Zero-database, 100% client-side privacy-first invoicing suite.
+- [Nordible Business Directory](https://nordible.co/projekte/nordible-directory): International verified business directory optimized for AI search engine discoverability.
 
-## Core Capabilities (English)
- 
-- **Digital Marketing & Social Media Management**: Multi-channel management, performance advertising, AI Search & Google visibility (GEO), and brand engagement.
-- **Video Editing & Content Production**: Professional editing for social media videos, reels, promotional content, presentations, captions, and motion graphics.
-- **AI Agent Implementation**: Practical AI agents for workflow automation, team support, business tool integrations, and operational efficiency.
-- **Technology Solutions**: Custom web and mobile apps, scalable software architectures, and modern digital portals with 100% code ownership.
-- **Business Systems & Automation**: Workflow and process automation, tool integrations, custom dashboards, and operational time savings.
-- **Business Email & Setup**: Hosted secure corporate email infrastructure (`you@yourcompany.com`), custom domains, and spam defense at `https://email.nordible.co/`.
+## Executive Case Studies (Business Leaders POV)
+
+- [GE Healthcare CareIntellect Case Study](https://nordible.co/blog/ge-healthcare-careintellect-oncology-case-study): Sashing clinician data bottlenecks by 60% with HIPAA-compliant AWS pipelines.
+- [NIUM Instarem Fintech Scale Case Study](https://nordible.co/blog/nium-instarem-fintech-remittance-scale-case-study): Scaling global currency remittance to $100M+ with PCI-DSS compliance.
+- [Baxter RST Remote Diagnostics Case Study](https://nordible.co/blog/vantive-baxter-healthcare-remote-diagnostics-case-study): Halving hospital medical device downtime with AWS IoT telemetry.
+- [Parents.VIP Creator Marketing Case Study](https://nordible.co/blog/parents-vip-influencer-creator-marketing-platform-case-study): Doubling brand campaign throughput (+200%) across 5,000+ creator campaigns.
+- [SmartbotHub Enterprise AI Case Study](https://nordible.co/blog/smartbothub-enterprise-conversational-ai-cost-reduction-case-study): Cutting support OpEx by 60% with 90% first-contact resolution.
+- [NextAuto Enterprise RPA Case Study](https://nordible.co/blog/nextauto-enterprise-workflow-rpa-automation-case-study): Reclaiming 40+ billable employee hours per week by automating 80% of workflows.
+- [BUNS 069 Food Commerce Case Study](https://nordible.co/blog/restaurant-delivery-growth-case-study): +74% revenue surge and 0% cancellations across digital ordering funnels.
+- [Shams Consult B2B Client Acquisition Case Study](https://nordible.co/blog/architecture-firm-seo-case-study): Winning 2 signed mandates in 30 days without paid ads via Google Page 1.
+- [Bombay Studio Luxury Living GEO Case Study](https://nordible.co/blog/bombay-studio-luxury-interior-architecture-geo-case-study): Ranking #1 on ChatGPT and pre-filtering ₹1.2Cr+ project budgets.
+- [Nordible Email Infrastructure Case Study](https://nordible.co/blog/nordible-email-b2b-saas-security-infrastructure-case-study): Eliminating big-tech SaaS lock-in with private email infrastructure.
+- [LinkedIn Catch-up Assistant Case Study](https://nordible.co/blog/linkedin-catchup-assistant-b2b-relationship-automation-case-study): Boosting relationship touchpoints 10x without account ban risks.
+- [Habitualist Behavioral App Case Study](https://nordible.co/blog/habitualist-cross-platform-habit-tracker-growth-case-study): Cutting mobile app engineering costs by 50% with unified React Native.
+- [Zerodha Sandbox Fintech Simulator Case Study](https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study): Accelerating fintech API onboarding by 4x.
+- [NerdsPal Real-Time Collaboration Case Study](https://nordible.co/blog/nerdspal-community-knowledge-sharing-platform-case-study): Scaling to 700+ active tech members with sub-100ms latency.
+- [Nordible Invoicing Suite Case Study](https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study): Generating B2B inbound leads with 0€ hosting costs.
+- [Nordible Business Directory GEO Case Study](https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study): Direct buyer discovery in conversational AI search.
 
 ## Direct Contact Information
 

@@ -21,6 +21,8 @@ import { getAllCities, getCity, getSuburb } from '@/data/locations';
 import { getAllServices, getService } from '@/data/services';
 import { articlesBySlug } from '@/data/blogContent';
 import ServiceLocationLandingPage from '@/components/ServiceLocationLandingPage';
+import ProjectDetailPage from '@/components/ProjectDetailPage';
+import { getAllProjects, getProject } from '@/data/portfolioProjects';
 
 export function generateStaticParams() {
   const slugs: Array<{ slug: string[] }> = [
@@ -41,6 +43,13 @@ export function generateStaticParams() {
 
   for (const articleSlug of Object.keys(articlesBySlug)) {
     slugs.push({ slug: ['blog', articleSlug] });
+    slugs.push({ slug: ['case-studies', articleSlug] });
+    slugs.push({ slug: ['fallstudien', articleSlug] });
+  }
+
+  for (const project of getAllProjects()) {
+    slugs.push({ slug: ['projects', project.id] });
+    slugs.push({ slug: ['projekte', project.id] });
   }
 
   const services = getAllServices();
@@ -68,6 +77,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   let title = 'Nordible Technologies | Technology & Marketing Partner';
   let description = 'AI-native technology and marketing partner in Frankfurt & Rhine-Main. Custom software, AI agents, and data-driven marketing.';
+
+  if (slug.length === 2 && (slug[0] === 'projects' || slug[0] === 'projekte')) {
+    const project = getProject(slug[1]);
+    if (project) {
+      return {
+        title: `${project.title} (${project.client}) | Nordible Technologies`,
+        description: project.executiveSummary.en,
+        alternates: {
+          canonical: `/en/projects/${slug[1]}`,
+        },
+      };
+    }
+  }
+
+  if (slug.length === 2 && (slug[0] === 'case-studies' || slug[0] === 'fallstudien')) {
+    const article = articlesBySlug[slug[1]]?.en || articlesBySlug[slug[1]]?.de;
+    if (article) {
+      return {
+        title: `${article.title} | Nordible Technologies`,
+        description: article.introParagraphs?.[0],
+        alternates: {
+          canonical: `/en/case-studies/${slug[1]}`,
+        },
+      };
+    }
+  }
 
   if (slug.length === 1) {
     const city = getCity(slug[0]);
@@ -129,6 +164,27 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
   if (path === 'dashboard') return <LeadDashboard />;
 
   if (slug.length === 2 && slug[0] === 'blog') {
+    const articleSlug = slug[1];
+    return (
+      <RouteClientWrapper>
+        <BlogPost slug={articleSlug} />
+      </RouteClientWrapper>
+    );
+  }
+
+  if (slug.length === 2 && (slug[0] === 'projects' || slug[0] === 'projekte')) {
+    const project = getProject(slug[1]);
+    if (project) {
+      return (
+        <RouteClientWrapper>
+          <ProjectDetailPage project={project} />
+        </RouteClientWrapper>
+      );
+    }
+    notFound();
+  }
+
+  if (slug.length === 2 && (slug[0] === 'case-studies' || slug[0] === 'fallstudien')) {
     const articleSlug = slug[1];
     return (
       <RouteClientWrapper>

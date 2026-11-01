@@ -364,6 +364,10 @@ export default function Footer() {
               <span>{language === 'de' ? 'in Deutschland gemacht' : 'in Germany'}</span>
             </div>
             <span className="text-white/20 hidden sm:inline">·</span>
+            <a href="/lite" className="text-amber-300 hover:text-amber-200 transition-colors font-bold inline-flex items-center gap-1">
+              <span>⚡ {language === 'de' ? 'Lite-Version (Sparmodus)' : 'Lite Version (2G/3G)'}</span>
+            </a>
+            <span className="text-white/20 hidden sm:inline">·</span>
             <span className="font-mono text-[11px] sm:text-xs text-blue-100/40 tracking-wider">
               v{process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}
             </span>

@@ -27,6 +27,7 @@ export default function FloatingCTA() {
 
   if (
     location.pathname.startsWith('/portal') ||
+    location.pathname.startsWith('/lite') ||
     location.pathname.includes('flyer') ||
     location.pathname.includes('brochure') ||
     location.pathname.includes('card')
