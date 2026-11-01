@@ -1233,7 +1233,7 @@ export const portfolioProjects: ProjectData[] = [
     id: 'nordible-directory',
     title: 'Nordible International Business Directory',
     client: 'Nordible Free Business Platform',
-    clientRole: '100% Free Public Business Directory',
+    clientRole: 'Free Public Business Directory',
     audience: 'local',
     badge: {
       en: 'Agentic · Free · Open Source',
@@ -1244,8 +1244,8 @@ export const portfolioProjects: ProjectData[] = [
       de: 'Agentic, kostenfrei und Open Source: Wie das freie B2B-Verzeichnis Unternehmen zu Neukunden ohne Provision verhilft',
     },
     executiveSummary: {
-      en: 'Most online platforms trap businesses behind paywalls, charging 15%–30% cuts on closed deals or €50+ per single shared lead. Nordible built http://business-directory.nordible.co/ as a 100% free community initiative to help honest businesses, service providers, and tradespeople get discovered by real B2B buyers and modern AI search engines (ChatGPT, Perplexity)—with zero broker fees and direct customer relationships.',
-      de: 'Klassische Vermittlungsportale verlangen 15 % bis 30 % Provision auf Aufträge oder verkaufen überteuerte Leads an mehrere Anbieter gleichzeitig. Nordible hat http://business-directory.nordible.co/ als 100 % kostenfreie Initiative ins Leben gerufen, um Dienstleistern, Handwerkern und Betrieben zu echter Sichtbarkeit bei B2B-Einkäufern und modernen KI-Suchmaschinen (ChatGPT, Perplexity) zu verhelfen – ohne Vermittlungsgebühren und mit direktem Kundenkontakt.',
+      en: 'Most online platforms trap businesses behind paywalls, charging 15%–30% cuts on closed deals or €50+ per single shared lead. Nordible built http://business-directory.nordible.co/ as a free community initiative to help honest businesses, service providers, and tradespeople get discovered by real B2B buyers and modern AI search engines (ChatGPT, Perplexity)—with zero broker fees and direct customer relationships.',
+      de: 'Klassische Vermittlungsportale verlangen 15 % bis 30 % Provision auf Aufträge oder verkaufen überteuerte Leads an mehrere Anbieter gleichzeitig. Nordible hat http://business-directory.nordible.co/ als kostenfreie Initiative ins Leben gerufen, um Dienstleistern, Handwerkern und Betrieben zu echter Sichtbarkeit bei B2B-Einkäufern und modernen KI-Suchmaschinen (ChatGPT, Perplexity) zu verhelfen – ohne Vermittlungsgebühren und mit direktem Kundenkontakt.',
     },
     businessChallenge: {
       en: [
@@ -1261,12 +1261,12 @@ export const portfolioProjects: ProjectData[] = [
     },
     strategicSolution: {
       en: [
-        'Launched a 100% free, public business directory where 100% of revenue stays with the business owner.',
+        'Launched a free, public business directory where 100% of revenue stays with the business owner.',
         'Enabled direct, frictionless communication via verified direct phone, email, and WhatsApp links without middleman interference.',
         'Built with AI-first entity standards so conversational engines cite and recommend listed businesses to buyers for free.',
       ],
       de: [
-        'Bereitstellung eines 100 % kostenfreien Branchenverzeichnisses, bei dem 100 % des Auftragsumsatzes beim Betrieb verbleiben.',
+        'Bereitstellung eines kostenfreien Branchenverzeichnisses, bei dem 100 % des Auftragsumsatzes beim Betrieb verbleiben.',
         'Direkter und unkomplizierter Kundenkontakt über verifizierte Telefonnummern, E-Mails und WhatsApp ohne Zwischenhändler.',
         'Strukturierung nach modernen KI-Standards, damit Chatbots und KI-Suchmaschinen gelistete Firmen als Empfehlung zitieren.',
       ],
@@ -1274,7 +1274,7 @@ export const portfolioProjects: ProjectData[] = [
     businessResults: [
       {
         label: 'Commission Rate',
-        value: '0% Free',
+        value: '0% Commission',
         context: 'Zero commissions, zero lead fees, and zero recurring retainers for listed companies',
         labelDe: 'Provision',
         contextDe: 'Keine Vermittlungsprovisionen, keine Lead-Gebühren und keine versteckten Kosten',
@@ -1295,9 +1295,9 @@ export const portfolioProjects: ProjectData[] = [
       },
     ],
     technologyTrust: {
-      en: 'Built on the three pillars: Agentic AI discoverability, 100% Free access for business owners, and fully Open Source on GitHub: https://github.com/nordible/business-directory.',
-      de: 'Aufgebaut auf drei Kernwerten: Agentic KI-Auffindbarkeit, 100 % kostenfrei für Betriebe und vollständig Open Source auf GitHub: https://github.com/nordible/business-directory.',
-      stack: ['Agentic AI', '100% Free Forever', 'Open Source', '0% Commission', 'Direct Inquiries'],
+      en: 'Built on the three pillars: Agentic AI discoverability, Free access for business owners, and fully Open Source on GitHub: https://github.com/nordible/business-directory.',
+      de: 'Aufgebaut auf drei Kernwerten: Agentic KI-Auffindbarkeit, kostenfrei für Betriebe und vollständig Open Source auf GitHub: https://github.com/nordible/business-directory.',
+      stack: ['Agentic AI', 'Free to Use', 'Open Source', '0% Commission', 'Direct Inquiries'],
     },
     liveUrl: 'http://business-directory.nordible.co/',
     repoUrl: 'https://github.com/nordible/business-directory',

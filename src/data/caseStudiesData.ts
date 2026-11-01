@@ -20,7 +20,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       title: project.heroHeadline.en,
       client: {
         name: 'Nordible Community Initiative',
-        industry: '100% Free Business Directory',
+        industry: 'Free Business Directory',
         link: 'http://business-directory.nordible.co/',
       },
       introParagraphs: [
@@ -40,7 +40,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       heroImage: {
         src: project.image,
         alt: `${project.title} - Free Global Business Directory`,
-        badge: '100% Free Forever',
+        badge: 'Free to Use',
         caption: 'Connecting verified businesses directly with clients and AI search engines.',
         businessBenefit: '0% commission on all deals and inquiries',
       },
@@ -71,7 +71,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         {
           number: '02',
           title: 'The Solution: An Agentic, Free, and Open-Source B2B Platform',
-          businessTakeaway: 'Built on three viral pillars: Agentic AI discoverability, 100% Free access with 0% commission, and full Open-Source transparency.',
+          businessTakeaway: 'Built on three viral pillars: Agentic AI discoverability, Free access with 0% commission, and full Open-Source transparency.',
           paragraphs: [
             'Nordible engineered http://business-directory.nordible.co/ to provide a fair, public marketplace. Any legitimate company can claim their profile, display verified services, and receive customer inquiries directly.',
             'Every listing is automatically formatted with Schema.org entity graphs, making the platform natively agentic so modern search crawlers and AI answer engines (ChatGPT, Perplexity, Gemini) can index and recommend businesses directly.',
@@ -84,9 +84,9 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               icon: 'sparkles',
             },
             {
-              title: '100% Free Forever',
+              title: 'Free to Use',
               desc: 'Free to join, free to list, and free to receive direct customer messages with 0% commission.',
-              badge: '100% Free',
+              badge: 'Free',
               icon: 'zap',
             },
             {
@@ -153,7 +153,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       title: project.heroHeadline.de,
       client: {
         name: 'Nordible Initiative für Unternehmen',
-        industry: '100 % Kostenfreies Branchenverzeichnis',
+        industry: 'Kostenfreies Branchenverzeichnis',
         link: 'http://business-directory.nordible.co/',
       },
       introParagraphs: [
@@ -173,7 +173,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       heroImage: {
         src: project.image,
         alt: `${project.title} - Kostenfreies internationales B2B-Verzeichnis`,
-        badge: '100 % Kostenfrei',
+        badge: 'Kostenfrei',
         caption: 'Verbindet verifizierte Betriebe direkt mit Kunden und KI-Suchmaschinen.',
         businessBenefit: '0 % Provision auf alle Aufträge und Kundenanfragen',
       },
@@ -204,7 +204,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         {
           number: '02',
           title: 'Die Lösung: Eine agentische, kostenfreie und quelloffene B2B-Plattform',
-          businessTakeaway: 'Drei Kernpfeiler für maximale Wirkung: Agentic KI-Auffindbarkeit, 100 % kostenfrei ohne Provision und volle Open-Source-Transparenz.',
+          businessTakeaway: 'Drei Kernpfeiler für maximale Wirkung: Agentic KI-Auffindbarkeit, kostenfrei ohne Provision und volle Open-Source-Transparenz.',
           paragraphs: [
             'Nordible hat http://business-directory.nordible.co/ ins Leben gerufen, um einen fairen, öffentlichen Marktplatz zu schaffen. Jedes geprüfte Unternehmen kann sein Profil kostenfrei eintragen und Kundenanfragen direkt empfangen.',
             'Jeder Eintrag wird semantisch aufbereitet, wodurch die Plattform nativ agentisch arbeitet: Moderne KI-Suchmaschinen (ChatGPT, Perplexity, Gemini) können Betriebe bei passenden Kundenfragen direkt zitieren und empfehlen.',
@@ -217,7 +217,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               icon: 'sparkles',
             },
             {
-              title: '100 % Kostenfrei',
+              title: 'Kostenfrei',
               desc: 'Kostenlose Registrierung, dauerhafter Eintrag und 0 % Vermittlungsgebühren.',
               badge: 'Kostenfrei',
               icon: 'zap',
