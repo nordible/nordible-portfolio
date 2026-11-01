@@ -7,6 +7,264 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
   const project = portfolioProjects.find((p) => p.id === projectId);
   if (!project) return null;
 
+  if (projectId === 'nordible-directory') {
+    const enDirectoryArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Community Platform',
+      readTime: '3 min read',
+      title: project.heroHeadline.en,
+      client: {
+        name: 'Nordible Community Initiative',
+        industry: '100% Free Business Directory',
+        link: 'http://business-directory.nordible.co/',
+      },
+      introParagraphs: [
+        project.executiveSummary.en,
+        'We believe that business technology should create opportunities, not tollbooths. http://business-directory.nordible.co/ was launched to give every legitimate enterprise, tradesperson, and professional consultant fair visibility without paying predatory commission fees.',
+      ],
+      objective: {
+        title: 'Mission & Community Value',
+        text: 'Eliminate expensive middleman commissions and help businesses gain authentic, direct client inquiries and AI search discoverability.',
+        points: project.businessChallenge.en,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Free Global Business Directory`,
+        badge: '100% Free Forever',
+        caption: 'Connecting verified businesses directly with clients and AI search engines.',
+        businessBenefit: '0% commission on all deals and inquiries',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Challenge: Predatory Broker Fees and Paywalled Leads',
+          businessTakeaway: 'When third-party aggregator portals charge 15%–30% commissions or sell €50 leads to 5 competitors at once, small business margins are decimated.',
+          paragraphs: [
+            'Traditional online business directories and lead brokers force business owners into costly bidding wars just to receive basic customer inquiries.',
+            'Furthermore, as business buyers shift toward conversational AI engines like ChatGPT and Perplexity to source verified service providers, traditional directory listings with unstructured HTML are completely skipped by AI crawlers.',
+          ],
+          cards: [
+            {
+              title: '0% Hidden Take-Rates',
+              desc: 'No middleman cuts on your contracts. What you earn from clients is 100% yours.',
+              badge: 'Fair Commerce',
+              icon: 'shield',
+            },
+            {
+              title: 'Direct Client Relations',
+              desc: 'Customers contact you directly through phone, WhatsApp, and email—no gatekeepers.',
+              badge: 'Direct Contact',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Our Solution: A 100% Free, AI-Discoverable Business Directory',
+          businessTakeaway: 'Giving businesses direct client inquiries with 0% commission and natural citation in conversational AI engines.',
+          paragraphs: [
+            'Nordible engineered http://business-directory.nordible.co/ to provide a fair, public marketplace. Any legitimate company can claim their profile, display verified services, and receive customer inquiries directly.',
+            'Every listing is automatically formatted with Schema.org entity graphs, allowing modern search crawlers and AI answer engines (ChatGPT, Perplexity, Gemini) to index and recommend the business for relevant regional inquiries.',
+          ],
+          cards: [
+            {
+              title: '100% Free Forever',
+              desc: 'Free to join, free to list, and free to receive direct customer messages.',
+              badge: 'Zero Cost',
+              icon: 'zap',
+            },
+            {
+              title: 'AI Search Ready',
+              desc: 'Structured for instant citation and recommendations in ChatGPT and Perplexity.',
+              badge: 'AI Discovery',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Direct Economic Value for Business Owners',
+          businessTakeaway: 'Saving thousands in ad spend and broker cuts while building enduring brand credibility.',
+          paragraphs: [
+            'By listing in the directory, businesses bypass expensive pay-per-click ads and broker commissions.',
+            'Key advantages include 0% commission fees, 100% direct customer inquiries via WhatsApp and phone, and official verification badges that build immediate buyer trust.',
+          ],
+          quote: 'Technology should empower small businesses to connect directly with their customers, not extract toll fees on every relationship.',
+        },
+        {
+          number: '04',
+          title: 'Open Source Transparency & GitHub Repository',
+          businessTakeaway: 'We prioritize practical business impact over technical jargon. The entire platform source code is transparently public.',
+          paragraphs: [
+            'We don’t hide behind complex tech jargon. The complete source code of the business directory is open-source and freely available on GitHub for the community to inspect, customize, and self-host.',
+            'Explore the open-source repository on GitHub: https://github.com/nordible/business-directory',
+          ],
+          cards: [
+            {
+              title: 'Open Source on GitHub',
+              desc: 'Inspect or contribute to the complete codebase at https://github.com/nordible/business-directory.',
+              badge: 'GitHub Repository',
+              icon: 'bot',
+            },
+            {
+              title: 'Community First',
+              desc: 'Built transparently to support entrepreneurship and open web discovery worldwide.',
+              badge: 'Transparency',
+              icon: 'sparkles',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Free Directory Listing',
+        title: 'Add Your Business to http://business-directory.nordible.co/ Today',
+        desc: 'Join the free global business directory. Get your verified profile and start receiving direct inquiries with 0% commission.',
+        buttonText: 'Visit Free Business Directory →',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Open Free Directory',
+      },
+    };
+
+    const deDirectoryArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'Förderinitiative',
+      readTime: '3 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      client: {
+        name: 'Nordible Initiative für Unternehmen',
+        industry: '100 % Kostenfreies Branchenverzeichnis',
+        link: 'http://business-directory.nordible.co/',
+      },
+      introParagraphs: [
+        project.executiveSummary.de,
+        'Wir sind überzeugt, dass Unternehmenstechnologie Chancen eröffnen muss, anstatt Mautgebühren zu kassieren. Mit http://business-directory.nordible.co/ schaffen wir eine offene Anlaufstelle, damit seriöse Handwerker, Berater und Betriebe ohne Provisionsabgaben von echten Kunden gefunden werden.',
+      ],
+      objective: {
+        title: 'Mission & Nutzen für Betriebe',
+        text: 'Beseitigung überteuerter Vermittlungsgebühren und Schaffung direkter Kundenkontakte sowie Auffindbarkeit in modernen KI-Suchen.',
+        points: project.businessChallenge.de,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.labelDe || m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Kostenfreies internationales B2B-Verzeichnis`,
+        badge: '100 % Kostenfrei',
+        caption: 'Verbindet verifizierte Betriebe direkt mit Kunden und KI-Suchmaschinen.',
+        businessBenefit: '0 % Provision auf alle Aufträge und Kundenanfragen',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Das Problem: Teure Vermittler und Gebührenfallen',
+          businessTakeaway: 'Wenn Portale 15 % bis 30 % Vermittlungsprovision fordern oder Leads für 50 € mehrfach verkaufen, leidet die Marge des Betriebs massiv.',
+          paragraphs: [
+            'Herkömmliche Handwerker- und Dienstleisterportale zwingen Unternehmen in kostspielige Bieterkämpfe, um überhaupt Kundenanfragen zu erhalten.',
+            'Gleichzeitig recherchieren Unternehmenskunden Partner zunehmend über KI-Assistenten wie ChatGPT oder Perplexity. Veraltete Verzeichnisse mit unstrukturiertem HTML werden von KI-Systemen jedoch ignoriert.',
+          ],
+          cards: [
+            {
+              title: '0 % Provision',
+              desc: 'Keine Beteiligung an Ihren Umsätzen. Was Sie erwirtschaften, gehört zu 100 % Ihnen.',
+              badge: 'Fairer Wettbewerb',
+              icon: 'shield',
+            },
+            {
+              title: 'Direkter Draht',
+              desc: 'Kunden kontaktieren Sie direkt per Telefon, WhatsApp oder E-Mail – ohne Sperren.',
+              badge: 'Direktkontakt',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Unsere Lösung: 100 % gebührenfrei & KI-suchmaschinenfähig',
+          businessTakeaway: 'Direkte Kundenanfragen für Betriebe bei 0 % Vermittlungsgebühr und automatische Empfehlungen durch KI-Systeme.',
+          paragraphs: [
+            'Nordible hat http://business-directory.nordible.co/ ins Leben gerufen, um einen fairen, öffentlichen Marktplatz zu schaffen. Jedes geprüfte Unternehmen kann sein Profil kostenfrei eintragen und Kundenanfragen direkt empfangen.',
+            'Jeder Eintrag wird semantisch aufbereitet, sodass moderne KI-Suchmaschinen (ChatGPT, Perplexity, Gemini) den Betrieb bei passenden Anfragen als Empfehlung zitieren können.',
+          ],
+          cards: [
+            {
+              title: 'Dauerhaft kostenfrei',
+              desc: 'Kostenlose Registrierung, kostenloser Eintrag und gebührenfreie Kundenanfragen.',
+              badge: '0 € Kosten',
+              icon: 'zap',
+            },
+            {
+              title: 'Bereit für KI-Suchen',
+              desc: 'Strukturiert für direkte Empfehlungen in ChatGPT und Perplexity.',
+              badge: 'KI-Sichtbarkeit',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Echter Mehrwert: 100 % des Umsatzes bleibt beim Betrieb',
+          businessTakeaway: 'Tausende Euro an Werbekosten und Vermittlerabgaben sparen und gleichzeitig Vertrauen aufbauen.',
+          paragraphs: [
+            'Durch den Eintrag im Verzeichnis sparen Unternehmen teure Klickpreise bei Google Ads und Provisionsabgaben an Portale.',
+            'Der offizielle Verifizierungs-Check schützt vor Fakeprofilen und signalisiert potenziellen Kunden sofortige Seriosität.',
+          ],
+          quote: 'Technologie muss Betriebe stärken, anstatt bei jeder Kundenbeziehung mitzukassieren.',
+        },
+        {
+          number: '04',
+          title: 'Open Source & Transparenz: Quellcode auf GitHub',
+          businessTakeaway: 'Wir stellen den echten geschäftlichen Nutzen über Fachchinesisch. Der vollständige Code ist öffentlich einsehbar.',
+          paragraphs: [
+            'Wir verstecken uns nicht hinter kompliziertem technischem Kauderwelsch. Der gesamte Quellcode des Verzeichnisses ist quelloffen und frei auf GitHub verfügbar.',
+            'Den vollständigen Open-Source-Code finden Sie auf GitHub: https://github.com/nordible/business-directory',
+          ],
+          cards: [
+            {
+              title: 'GitHub Repository',
+              desc: 'Vollständiger Quellcode auf GitHub unter https://github.com/nordible/business-directory.',
+              badge: 'GitHub Code',
+              icon: 'bot',
+            },
+            {
+              title: 'Echte Offenheit',
+              desc: 'Transparenz für Unternehmer und weltweite Community-Entwicklung.',
+              badge: 'Transparenz',
+              icon: 'sparkles',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Kostenloser Eintrag',
+        title: 'Tragen Sie Ihr Unternehmen jetzt auf http://business-directory.nordible.co/ ein',
+        desc: 'Werden Sie Teil des freien Unternehmensverzeichnisses. Erhalten Sie Ihr verifiziertes Profil und direkte Kundenanfragen mit 0 % Provision.',
+        buttonText: 'Zum kostenlosen Verzeichnis →',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'Kostenlos eintragen',
+      },
+    };
+
+    return { en: enDirectoryArticle, de: deDirectoryArticle };
+  }
+
   const enArticle: ArticleContent = {
     navHome: 'Home',
     navBlog: 'Case Studies',

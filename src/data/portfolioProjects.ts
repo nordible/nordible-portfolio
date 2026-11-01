@@ -47,6 +47,7 @@ export interface ProjectData {
     company: string;
   };
   liveUrl?: string;
+  repoUrl?: string;
   caseStudySlug: string;
   image: string;
   gradient: string;
@@ -1231,74 +1232,75 @@ export const portfolioProjects: ProjectData[] = [
   {
     id: 'nordible-directory',
     title: 'Nordible International Business Directory',
-    client: 'Nordible Technologies Product',
-    clientRole: 'Global B2B Index & GEO Engine',
-    audience: 'enterprise',
+    client: 'Nordible Free Business Platform',
+    clientRole: '100% Free Public Business Directory',
+    audience: 'local',
     badge: {
-      en: 'B2B Index · AI Search Optimization',
-      de: 'B2B-Verzeichnis · KI-Suchmaschinenoptimierung',
+      en: '100% Free Platform · 0% Commission',
+      de: '100 % Kostenfreie Plattform · 0 % Provision',
     },
     heroHeadline: {
-      en: 'Empowering Verified Businesses to Get Discovered by AI Search Engines (ChatGPT, Perplexity) and B2B Buyers Worldwide',
-      de: 'Sichtbarkeit für verifizierte Unternehmen in KI-Suchmaschinen (ChatGPT, Perplexity) und globalen B2B-Märkten',
+      en: 'Helping Businesses Win Real Clients Worldwide with 0% Commission & Free AI Discoverability',
+      de: 'Echte Kunden gewinnen ohne Provision: Wie Nordible Unternehmen mit einem 100 % kostenfreien Verzeichnis stärkt',
     },
     executiveSummary: {
-      en: 'Traditional web directories are broken—spam-filled, slow, and completely ignored by modern AI answer engines. Nordible built the International Business Directory: a high-trust, structured business index engineered with automated company verification and Schema.org entity graphs, making verified enterprises directly discoverable and recommendable by ChatGPT, Gemini, and corporate buyers globally.',
-      de: 'Klassische Branchenbücher sind veraltet, unübersichtlich und werden von modernen KI-Assistenten ignoriert. Nordible entwickelte das International Business Directory: ein strukturiertes B2B-Verzeichnis mit verifizierten Unternehmensprofilen und Schema.org-Entitätsgraphen, das gelistete Firmen für ChatGPT, Gemini und internationale Einkäufer direkt auffindbar und zitierfähig macht.',
+      en: 'Most online platforms trap businesses behind paywalls, charging 15%–30% cuts on closed deals or €50+ per single shared lead. Nordible built http://business-directory.nordible.co/ as a 100% free community initiative to help honest businesses, service providers, and tradespeople get discovered by real B2B buyers and modern AI search engines (ChatGPT, Perplexity)—with zero broker fees and direct customer relationships.',
+      de: 'Klassische Vermittlungsportale verlangen 15 % bis 30 % Provision auf Aufträge oder verkaufen überteuerte Leads an mehrere Anbieter gleichzeitig. Nordible hat http://business-directory.nordible.co/ als 100 % kostenfreie Initiative ins Leben gerufen, um Dienstleistern, Handwerkern und Betrieben zu echter Sichtbarkeit bei B2B-Einkäufern und modernen KI-Suchmaschinen (ChatGPT, Perplexity) zu verhelfen – ohne Vermittlungsgebühren und mit direktem Kundenkontakt.',
     },
     businessChallenge: {
       en: [
-        'Businesses lose potential enterprise clients who search for verified vendors via conversational AI instead of traditional Google links.',
-        'Existing directory listings offer low domain authority and fail to provide the structured entity citations required by LLMs.',
-        'Managing international multi-lingual business listings requires complex regional moderation and categorization.',
+        'Predatory lead platforms charge 15%–30% commissions or force businesses into expensive monthly bidding wars.',
+        'Hard-earned client relationships get held hostage by third-party middlemen who hide direct customer contacts.',
+        'Businesses miss out on corporate buyers who now research verified partners using conversational AI (ChatGPT, Perplexity).',
       ],
       de: [
-        'Unternehmen entgehen lukrative B2B-Aufträge, weil Einkäufer neue Partner vermehrt über KI-Suchsysteme recherchieren.',
-        'Alte Firmenverzeichnisse bieten keinerlei semantische Struktur, die von KI-Modellen als verifizierte Quelle erkannt wird.',
-        'Mehrsprachige internationale Unternehmensprofile erfordern eine saubere, hochperformante Datenstruktur.',
+        'Aggressive Lead-Plattformen verlangen 15 % bis 30 % Provision oder zwingen Betriebe in teure monatliche Bieterkämpfe.',
+        'Der direkte Draht zum Kunden geht verloren, weil Vermittlungsportale Kontaktdaten blockieren und Gebühren aufschlagen.',
+        'Betriebe verlieren wertvolle B2B-Aufträge, weil Einkäufer neue Partner vermehrt über KI-Suchsysteme (ChatGPT, Perplexity) recherchieren.',
       ],
     },
     strategicSolution: {
       en: [
-        'Engineered an enterprise directory architecture with automated Schema.org Organization and LocalBusiness entity generation.',
-        'Implemented multi-lingual localized routing (DE/EN) with sub-second page delivery optimized for AI crawlers.',
-        'Built automated moderation and verification pipelines ensuring 100% verified authentic company listings.',
+        'Launched a 100% free, public business directory where 100% of revenue stays with the business owner.',
+        'Enabled direct, frictionless communication via verified direct phone, email, and WhatsApp links without middleman interference.',
+        'Built with AI-first entity standards so conversational engines cite and recommend listed businesses to buyers for free.',
       ],
       de: [
-        'Entwicklung einer modernen Verzeichnis-Architektur mit automatisierten Schema.org-Entitätsdaten für KI-Crawler.',
-        'Zweisprachige Lokalisierung (DE/EN) mit Subsekunden-Ladezeiten für menschliche Besucher und KI-Agenten gleichermaßen.',
-        'Integrierte Verifizierungs-Workflows zur Gewährleistung ausschließlich seriöser, geprüfter Unternehmensauftritte.',
+        'Bereitstellung eines 100 % kostenfreien Branchenverzeichnisses, bei dem 100 % des Auftragsumsatzes beim Betrieb verbleiben.',
+        'Direkter und unkomplizierter Kundenkontakt über verifizierte Telefonnummern, E-Mails und WhatsApp ohne Zwischenhändler.',
+        'Strukturierung nach modernen KI-Standards, damit Chatbots und KI-Suchmaschinen gelistete Firmen als Empfehlung zitieren.',
       ],
     },
     businessResults: [
       {
-        label: 'AI Discoverability',
-        value: 'High',
-        context: 'Structured for instant ingestion by ChatGPT, Perplexity, and Google AI Overview',
-        labelDe: 'KI-Auffindbarkeit',
-        contextDe: 'Optimiert für direkte Empfehlungen in ChatGPT, Perplexity und Google AI',
+        label: 'Commission Rate',
+        value: '0% Free',
+        context: 'Zero commissions, zero lead fees, and zero recurring retainers for listed companies',
+        labelDe: 'Provision',
+        contextDe: 'Keine Vermittlungsprovisionen, keine Lead-Gebühren und keine versteckten Kosten',
       },
       {
-        label: 'Verification Integrity',
-        value: '100% Verified',
-        context: 'Elimination of spam entries through automated and human business vetting',
-        labelDe: 'Verifizierung',
-        contextDe: 'Hohe Datenqualität und Ausschluss von Spam durch zweistufige Prüfung',
+        label: 'Client Contact',
+        value: '100% Direct',
+        context: 'Direct inquiries via phone, WhatsApp, and email without platform gatekeepers',
+        labelDe: 'Kundenkontakt',
+        contextDe: 'Direkte Anfragen per Telefon, WhatsApp und E-Mail ohne Zwischenschaltung Dritter',
       },
       {
-        label: 'Global Indexing',
-        value: 'Global Reach',
-        context: 'Cross-industry visibility for enterprises seeking international commercial partners',
-        labelDe: 'Reichweite',
-        contextDe: 'Internationale Sichtbarkeit für Unternehmen auf der Suche nach Kooperationen',
+        label: 'AI Recommendation',
+        value: 'AI-Ready',
+        context: 'Structured to be recommended directly in ChatGPT, Perplexity, and Google AI answers',
+        labelDe: 'KI-Empfehlungen',
+        contextDe: 'Optimal aufbereitet für direkte Empfehlungen in ChatGPT, Perplexity und Google AI',
       },
     ],
     technologyTrust: {
-      en: 'Engineered with Next.js 16, Supabase PostgreSQL, Tailwind CSS, Schema.org entity optimization, and automated AI extraction pipelines.',
-      de: 'Realisierung mit Next.js 16, Supabase PostgreSQL, Tailwind CSS und KI-optimierten Schema-Schnittstellen.',
-      stack: ['Next.js 16', 'Supabase', 'Schema.org Entity Graph', 'AI Search Optimization', 'PostgreSQL'],
+      en: 'We prioritize genuine business growth over technical jargon. The entire platform source code is transparently open-source on GitHub: https://github.com/nordible/business-directory.',
+      de: 'Wir stellen den praktischen Nutzen für Betriebe über technisches Fachchinesisch. Der vollständige Quellcode ist quelloffen und transparent auf GitHub einsehbar: https://github.com/nordible/business-directory.',
+      stack: ['100% Free Forever', '0% Commission', 'Direct Client Contacts', 'AI Citations', 'Open Source'],
     },
-    liveUrl: 'https://directory.nordible.co',
+    liveUrl: 'http://business-directory.nordible.co/',
+    repoUrl: 'https://github.com/nordible/business-directory',
     caseStudySlug: 'nordible-business-directory-ai-search-indexing-case-study',
     image: '/images/portfolio/project-3861969.webp',
     gradient: 'from-blue-700 to-emerald-600',
