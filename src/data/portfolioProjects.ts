@@ -1236,12 +1236,12 @@ export const portfolioProjects: ProjectData[] = [
     clientRole: '100% Free Public Business Directory',
     audience: 'local',
     badge: {
-      en: '100% Free Platform · 0% Commission',
-      de: '100 % Kostenfreie Plattform · 0 % Provision',
+      en: 'Agentic · Free · Open Source',
+      de: 'Agentic · Kostenfrei · Open Source',
     },
     heroHeadline: {
-      en: 'Helping Businesses Win Real Clients Worldwide with 0% Commission & Free AI Discoverability',
-      de: 'Echte Kunden gewinnen ohne Provision: Wie Nordible Unternehmen mit einem 100 % kostenfreien Verzeichnis stärkt',
+      en: 'The Agentic, Free, and Open-Source B2B Directory: Helping Businesses Win Clients Worldwide with 0% Commission',
+      de: 'Agentic, kostenfrei und Open Source: Wie das freie B2B-Verzeichnis Unternehmen zu Neukunden ohne Provision verhilft',
     },
     executiveSummary: {
       en: 'Most online platforms trap businesses behind paywalls, charging 15%–30% cuts on closed deals or €50+ per single shared lead. Nordible built http://business-directory.nordible.co/ as a 100% free community initiative to help honest businesses, service providers, and tradespeople get discovered by real B2B buyers and modern AI search engines (ChatGPT, Perplexity)—with zero broker fees and direct customer relationships.',
@@ -1295,9 +1295,9 @@ export const portfolioProjects: ProjectData[] = [
       },
     ],
     technologyTrust: {
-      en: 'We prioritize genuine business growth over technical jargon. The entire platform source code is transparently open-source on GitHub: https://github.com/nordible/business-directory.',
-      de: 'Wir stellen den praktischen Nutzen für Betriebe über technisches Fachchinesisch. Der vollständige Quellcode ist quelloffen und transparent auf GitHub einsehbar: https://github.com/nordible/business-directory.',
-      stack: ['100% Free Forever', '0% Commission', 'Direct Client Contacts', 'AI Citations', 'Open Source'],
+      en: 'Built on the three pillars: Agentic AI discoverability, 100% Free access for business owners, and fully Open Source on GitHub: https://github.com/nordible/business-directory.',
+      de: 'Aufgebaut auf drei Kernwerten: Agentic KI-Auffindbarkeit, 100 % kostenfrei für Betriebe und vollständig Open Source auf GitHub: https://github.com/nordible/business-directory.',
+      stack: ['Agentic AI', '100% Free Forever', 'Open Source', '0% Commission', 'Direct Inquiries'],
     },
     liveUrl: 'http://business-directory.nordible.co/',
     repoUrl: 'https://github.com/nordible/business-directory',
