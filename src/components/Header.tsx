@@ -11,7 +11,6 @@ import {
   Calendar,
   ChevronDown,
   Building2,
-  UserCheck,
   ShieldCheck,
   FileText,
   QrCode,
@@ -90,12 +89,6 @@ export default function Header() {
       desc: isDe ? 'Mission & Services as Software' : 'Mission & Services as Software',
       path: '/company-profile',
       icon: Building2,
-    },
-    {
-      title: t.nav.founderStory,
-      desc: isDe ? 'Kabeer Shah: Werdegang & Story' : 'Kabeer Shah: Leadership & Story',
-      path: '/founder',
-      icon: UserCheck,
     },
     {
       title: t.nav.whyChooseUs,
