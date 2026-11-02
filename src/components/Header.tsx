@@ -86,13 +86,11 @@ export default function Header() {
   const aboutLinks = [
     {
       title: t.nav.companyProfile,
-      desc: isDe ? 'Mission & Services as Software' : 'Mission & Services as Software',
       path: '/company-profile',
       icon: Building2,
     },
     {
       title: t.nav.whyChooseUs,
-      desc: isDe ? '100 % Code-Eigentum ohne Mittelsmänner' : '100% IP ownership & direct lead',
       path: '/why-choose-us',
       icon: ShieldCheck,
     },
@@ -101,21 +99,18 @@ export default function Header() {
   const freeTools = [
     {
       title: t.nav.freeInvoiceGenerator,
-      desc: isDe ? 'Zero-Database, DIN A4 & MCP-nativ' : 'Zero-database, DIN A4 & MCP native',
       href: 'https://free-invoice-generator.nordible.co/',
       isExternal: true,
       icon: FileText,
     },
     {
       title: t.nav.freeBusinessDirectory,
-      desc: isDe ? 'Agentische KI-Suche ohne Provision' : 'Agentic AI search & 0% commission',
       href: 'http://business-directory.nordible.co/',
       isExternal: true,
       icon: Globe,
     },
     {
       title: t.nav.freeQrCodeGenerator,
-      desc: isDe ? 'Dauerhafte, werbefreie Vektor-Codes' : 'Permanent & ad-free vector codes',
       path: '/qr-code-generator',
       isExternal: false,
       icon: QrCode,
@@ -185,13 +180,13 @@ export default function Header() {
               {/* Sub-Navigation & Sub-Sub Navigation Panel */}
               {isAboutOpen && (
                 <div 
-                  className="absolute right-0 top-full pt-2 z-50 w-[580px] animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute right-0 top-full pt-2 z-50 w-[480px] animate-in fade-in slide-in-from-top-2 duration-200"
                   role="menu"
                 >
-                  <div className="bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-2xl shadow-2xl p-4 grid grid-cols-2 gap-3 divide-x divide-nordible-border/60 dark:divide-gray-800">
+                  <div className="bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-2xl shadow-2xl p-3.5 grid grid-cols-2 gap-2 divide-x divide-nordible-border/60 dark:divide-gray-800">
                     {/* Left Column: About Nordible Pages */}
-                    <div className="space-y-1.5 pr-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-2 block">
+                    <div className="space-y-1 pr-1">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-2 block mb-1">
                         {isDe ? 'Über Nordible' : 'About Nordible'}
                       </span>
                       {aboutLinks.map((link) => {
@@ -203,27 +198,22 @@ export default function Header() {
                               setIsAboutOpen(false);
                               handleNavClick('about', link.path);
                             }}
-                            className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer"
+                            className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center gap-2.5 group cursor-pointer"
                           >
-                            <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                            <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 group-hover:scale-105 transition-transform shrink-0">
                               <Icon className="h-4 w-4" />
                             </span>
-                            <div className="flex-1 min-w-0">
-                              <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors">
-                                {link.title}
-                              </span>
-                              <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug">
-                                {link.desc}
-                              </span>
-                            </div>
+                            <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                              {link.title}
+                            </span>
                           </button>
                         );
                       })}
                     </div>
 
                     {/* Right Column: Free Tools (Sub - Sub Navigation) */}
-                    <div className="pl-3 space-y-1.5">
-                      <div className="flex items-center justify-between px-2">
+                    <div className="pl-3 space-y-1">
+                      <div className="flex items-center justify-between px-2 mb-1">
                         <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 block">
                           {t.nav.freeTools}
                         </span>
@@ -242,22 +232,17 @@ export default function Header() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={() => setIsAboutOpen(false)}
-                              className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer block"
+                              className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center justify-between gap-2 group cursor-pointer block"
                             >
-                              <span className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
-                                <Icon className="h-4 w-4" />
-                              </span>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between gap-1">
-                                  <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
-                                    {tool.title}
-                                  </span>
-                                  <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-nordible-blue shrink-0" />
-                                </div>
-                                <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug truncate">
-                                  {tool.desc}
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0">
+                                  <Icon className="h-4 w-4" />
+                                </span>
+                                <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                                  {tool.title}
                                 </span>
                               </div>
+                              <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-nordible-blue shrink-0 mr-1" />
                             </a>
                           );
                         }
@@ -268,19 +253,14 @@ export default function Header() {
                               setIsAboutOpen(false);
                               handleNavClick('tool', tool.path);
                             }}
-                            className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-start gap-2.5 group cursor-pointer"
+                            className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center gap-2.5 group cursor-pointer"
                           >
-                            <span className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0 mt-0.5">
+                            <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0">
                               <Icon className="h-4 w-4" />
                             </span>
-                            <div className="flex-1 min-w-0">
-                              <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
-                                {tool.title}
-                              </span>
-                              <span className="text-[11px] text-gray-500 dark:text-gray-400 block leading-snug truncate">
-                                {tool.desc}
-                              </span>
-                            </div>
+                            <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                              {tool.title}
+                            </span>
                           </button>
                         );
                       })}

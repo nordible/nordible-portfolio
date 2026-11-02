@@ -71,6 +71,11 @@ export default function LiteProjectsPage() {
                   Live aufrufen ↗
                 </a>
               )}
+              {project.repoUrl && (
+                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                  GitHub-Quellcode ↗
+                </a>
+              )}
             </div>
           </article>
         ))}

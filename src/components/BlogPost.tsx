@@ -31,6 +31,7 @@ import {
   Briefcase,
   Utensils,
   Code,
+  Globe,
   Wrench,
   Layers,
   Cpu,
@@ -759,8 +760,8 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             </section>
         ))}
 
-        {/* Client Live Website Reference Card */}
-        {content.client && content.client.link && (
+        {/* Client Live Website & Code Reference Card */}
+        {content.client && (content.client.link || content.client.repoUrl) && (
           <div className="p-6 rounded-2xl bg-white dark:bg-gray-800/90 border border-nordible-border dark:border-gray-700 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               {content.client.logo && (
@@ -774,7 +775,11 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               )}
               <div className="text-left">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 block">
-                  {t.blogPost.exploreLiveWebsite}
+                  {content.client.repoUrl && !content.client.link
+                    ? (language === 'de' ? 'Open-Source-Quellcode' : 'Open Source Repository')
+                    : content.client.repoUrl && content.client.link
+                    ? (language === 'de' ? 'Offizielle Projekt- & Code-Links' : 'Official Project & Code Links')
+                    : t.blogPost.exploreLiveWebsite}
                 </span>
                 <span className="text-base font-extrabold text-nordible-dark dark:text-white font-heading">
                   {content.client.name} {content.client.location ? `· ${content.client.location}` : ''}
@@ -782,16 +787,35 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               </div>
             </div>
 
-            <a
-              href={content.client.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-nordible-border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-xs font-bold text-nordible-dark dark:text-white hover:border-nordible-blue dark:hover:border-blue-400 hover:text-nordible-blue transition-all cursor-pointer shrink-0"
-              aria-label={`Visit ${content.client.name}`}
-            >
-              <span>{content.client.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-              <ExternalLink className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
-            </a>
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              {content.client.link && (
+                <a
+                  href={content.client.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-xs font-bold text-nordible-dark dark:text-white hover:border-nordible-blue dark:hover:border-blue-400 hover:text-nordible-blue transition-all cursor-pointer"
+                  aria-label={`Visit ${content.client.name}`}
+                >
+                  <Globe className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                  <span>{content.client.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+                  <ExternalLink className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                </a>
+              )}
+
+              {content.client.repoUrl && (
+                <a
+                  href={content.client.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-nordible-border dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-xs font-bold text-nordible-dark dark:text-white hover:border-nordible-blue dark:hover:border-blue-400 hover:text-nordible-blue transition-all cursor-pointer"
+                  aria-label={`Open Source Repository for ${content.client.name}`}
+                >
+                  <Code className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                  <span>{language === 'de' ? 'Quellcode (GitHub)' : 'GitHub Repo'}</span>
+                  <ExternalLink className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />
+                </a>
+              )}
+            </div>
           </div>
         )}
 

@@ -191,6 +191,7 @@ export interface ArticleContent {
     location?: string;
     logo?: string;
     link?: string;
+    repoUrl?: string;
     label?: string;
     industry?: string;
   };

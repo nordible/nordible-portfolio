@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, TrendingUp, Pause, Play, ArrowRight, Code } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export type AudienceType = 'all' | 'local' | 'startup' | 'enterprise';
@@ -261,19 +261,20 @@ const projects = [
   {
     id: 'nerdspal',
     title: 'NerdsPal.com',
-    client: 'Community Platform',
+    client: 'EdTech Venture',
     audience: 'startup' as const,
     logo: '/images/logos/nerdspal-logo.svg',
     link: 'https://www.producthunt.com/products/nersdpal-com',
+    repoUrl: 'https://github.com/nordible/StackOverflowClone',
     caseStudySlug: 'nerdspal-community-knowledge-sharing-platform-case-study',
-    description: 'Platform connecting nerds and geeks with like-minded individuals for meaningful conversations and collaborations.',
-    technologies: ['React.js', 'Node.js', 'AI/ML', 'WebSocket', 'MongoDB'],
-    outcome: 'Built a community platform that brings together tech enthusiasts and facilitates meaningful connections',
-    image: '/images/portfolio/project-3184291.webp',
+    description: 'Real-time collaborative developer platform with sub-100ms WebSocket chat, peer mentorship rooms, and scalable cloud architecture.',
+    technologies: ['React.js', 'Node.js', 'WebSocket', 'MongoDB', 'GCP'],
+    outcome: 'Bootstrapped to 700+ active developers and validated high-concurrency real-time architecture before transitioning IP to enterprise solutions',
+    image: '/images/portfolio/nerdspal.avif',
     metrics: {
-      users: '700',
-      connections: '4',
-      engagement: 'inactive'
+      users: '700+',
+      realtime: '<100ms',
+      retention: '40%'
     },
     gradient: 'from-cyan-600 to-blue-600'
   },
@@ -284,6 +285,7 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logo-email.webp',
     link: 'https://free-invoice-generator.nordible.co',
+    repoUrl: 'https://github.com/nordible/free-invoice-generator',
     caseStudySlug: 'nordible-free-invoice-generator-privacy-first-case-study',
     description: 'Free to use, client-side professional invoice generator with DIN A4 PDF rendering and native Model Context Protocol (MCP) AI support.',
     technologies: ['Next.js 16', 'MCP Server', 'Client-Side PDF', 'Zero-Database', 'GoBD & GDPR'],
@@ -303,6 +305,7 @@ const projects = [
     audience: 'enterprise' as const,
     logo: '/images/logos/nordible-logo.png',
     link: 'https://directory.nordible.co',
+    repoUrl: 'https://github.com/nordible/business-directory',
     caseStudySlug: 'nordible-business-directory-ai-search-indexing-case-study',
     description: 'International verified business directory platform optimized for AI search engine discoverability (GEO) and B2B partner discovery.',
     technologies: ['Next.js 16', 'Supabase', 'Schema.org Entity Graph', 'AI Search Optimization'],
@@ -358,7 +361,8 @@ const metricLabelTranslationsDe: Record<string, string> = {
   ranking: 'Platzierung',
   impressions: 'Impressionen',
   directions: 'Routenanfragen',
-  new_clients: 'Neukunden'
+  new_clients: 'Neukunden',
+  retention: 'Bindung'
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
@@ -447,11 +451,11 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
     }
   },
   'nerdspal': {
-    client: 'Community-Plattform',
-    description: 'Community-Plattform zur Vernetzung von Tech-Enthusiasten und Entwicklern für fachlichen Austausch und Kooperationen.',
-    outcome: 'Aufbau einer spezialisierten Community-Plattform zur Förderung tiefgehender technischer Vernetzung.',
+    client: 'EdTech-Venture',
+    description: 'Echtzeit-Kollaborationsplattform für Entwickler mit Sub-100ms WebSocket-Chat, interaktiven Mentorenräumen und skalierbarer Cloud-Architektur.',
+    outcome: 'Aufbau auf 700+ aktive Entwickler und Validierung der High-Concurrency-Architektur vor strategischer IP-Übernahme in Enterprise-Lösungen.',
     metricValues: {
-      engagement: 'Inaktiv'
+      retention: '40 %'
     }
   }
 };
@@ -596,6 +600,19 @@ export default function Portfolio() {
                     >
                       <span>{t.portfolio.viewLive || "Live"}</span>
                       <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+
+                  {currentProject.repoUrl && (
+                    <a
+                      href={currentProject.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 py-2 px-2.5 text-[10px] uppercase tracking-wider text-white/85 hover:text-white transition-colors"
+                    >
+                      <Code className="h-3 w-3" />
+                      <span>{isDe ? 'Quellcode' : 'GitHub'}</span>
+                      <ExternalLink className="h-2.5 w-2.5" />
                     </a>
                   )}
                 </div>

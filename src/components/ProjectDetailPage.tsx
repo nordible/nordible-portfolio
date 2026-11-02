@@ -17,7 +17,8 @@ import {
   ArrowRight,
   FileText,
   Sparkles,
-  Bot
+  Bot,
+  Code
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -213,6 +214,22 @@ Website: ${contactConfig.websiteUrl}
                   >
                     <span>{isDe ? 'Produkt / Website aufrufen' : 'Visit Live Project'}</span>
                     <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </>
+              )}
+
+              {project.repoUrl && (
+                <>
+                  <span className="text-slate-300 dark:text-slate-700">·</span>
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    <Code className="h-3.5 w-3.5" />
+                    <span>{isDe ? 'Open-Source-Code (GitHub)' : 'Open Source Repo (GitHub)'}</span>
+                    <ExternalLink className="h-3 w-3" />
                   </a>
                 </>
               )}

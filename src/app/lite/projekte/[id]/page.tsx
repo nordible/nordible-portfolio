@@ -45,6 +45,11 @@ export default async function LiteProjectDetailPage({ params }: { params: Promis
               Offizielle Website ↗
             </a>
           )}
+          {project.repoUrl && (
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+              GitHub-Repository ↗
+            </a>
+          )}
         </div>
       </header>
 

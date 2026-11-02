@@ -29,6 +29,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         name: 'Nordible Community Initiative',
         industry: 'Free Business Directory',
         link: 'http://business-directory.nordible.co/',
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
         project.executiveSummary.en,
@@ -171,6 +172,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         name: 'Nordible Initiative für Unternehmen',
         industry: 'Kostenfreies Branchenverzeichnis',
         link: 'http://business-directory.nordible.co/',
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
         project.executiveSummary.de,
@@ -316,6 +318,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         name: 'Nordible Open Source Platform',
         industry: 'Privacy-First Invoicing & MCP Server',
         link: 'https://free-invoice-generator.nordible.co',
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
         project.executiveSummary.en,
@@ -457,6 +460,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         name: 'Nordible Open Source Plattform',
         industry: 'Datenschutz-Rechnungstool & MCP-Server',
         link: 'https://free-invoice-generator.nordible.co',
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
         project.executiveSummary.de,
@@ -865,6 +869,382 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enNextAutoArticle, de: deNextAutoArticle };
   }
 
+  if (projectId === 'nerdspal') {
+    const enNerdsPalArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Venture Case Study',
+      readTime: '5 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'Executive & Technical Leaders:',
+        subtitle: 'Discover how battle-tested real-time architectures de-risk mission-critical enterprise systems.',
+        buttonText: 'Schedule Engineering Consultation →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'NerdsPal.com (Co-Founded Venture)',
+        industry: 'Real-Time Developer Community & Q&A Platform',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        project.executiveSummary.en,
+        'For business decision-makers, evaluating an engineering partner is fundamentally an assessment of technical capability and strategic maturity under real-world pressure. In building NerdsPal from scratch with zero outside capital, Nordible proved that it can design, scale, and maintain high-concurrency event-driven systems that users actively rely upon. More importantly, it established a disciplined precedent: knowing when a technical proving ground has accomplished its mission, and strategically harvesting its architectural innovations for high-margin enterprise deployments.',
+      ],
+      objective: {
+        title: 'The Venture Hypothesis & Technical Proving Ground',
+        text: 'Validate sub-100ms real-time collaboration at scale, bootstrap a sticky developer community with zero cloud waste, and build reusable event-driven infrastructure for future enterprise applications.',
+        points: project.businessChallenge.en,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.label,
+        value: m.value,
+        icon: m.label.includes('Traction')
+          ? ('users' as const)
+          : m.label.includes('Latency')
+          ? ('trending' as const)
+          : m.label.includes('Retention')
+          ? ('percent' as const)
+          : ('trophy' as const),
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Real-Time Collaborative Platform Case Study`,
+        badge: 'Battle-Tested Real-Time Architecture',
+        caption: 'Sub-100ms real-time WebSocket collaboration proven in production under live concurrency.',
+        businessBenefit: 'Validated low-latency WebSocket infrastructure and 100% reusable IP',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Operational Bottleneck: Why Asynchronous Developer Channels Fail',
+          businessTakeaway: 'When engineering talent loses hours waiting on asynchronous forum responses, productivity plummets. Real-time peer collaboration reduces problem resolution from days to minutes.',
+          paragraphs: [
+            'Software development is inherently momentum-driven. When junior engineers, CS students, or independent developers hit cryptic compiler errors or configuration dead-ends, their options are severely limited. Traditional platforms like Stack Overflow are asynchronous, heavily gated, and notorious for punitive moderation that discourages early-stage experimentation.',
+            'Furthermore, async ticket queues create cognitive fragmentation. By the time an answer arrives 6 to 24 hours later, the developer has lost their flow state. NerdsPal addressed this core latency gap: creating an environment where developers could connect instantly through real-time audio/chat and simultaneous code collaboration.',
+          ],
+          cards: [
+            {
+              title: 'The Cost of Asynchronous Lag',
+              desc: 'Waiting hours for forum replies breaks developer flow states and stalls active development sprints.',
+              badge: 'Productivity Drain',
+              icon: 'shield',
+            },
+            {
+              title: 'Punitive Gatekeeping Barriers',
+              desc: 'Rigid downvoting mechanisms on legacy Q&A platforms alienate learning talent instead of resolving hurdles.',
+              badge: 'Friction',
+              icon: 'users',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Engineering Blueprint: Sub-100ms Concurrency with Zero Cloud Waste',
+          businessTakeaway: 'True software resilience is not about throwing massive cloud budgets at traffic spikes; it is about event-driven architectures that scale on demand with minimal idle cost.',
+          paragraphs: [
+            'Real-time multi-room chat, presence detection, and live syntax-highlighted code synchronization present severe scaling hurdles. Conventional architectures that rely on frequent HTTP polling quickly exhaust server resources and generate runaway cloud invoices.',
+            'Nordible designed a custom, lightweight event-driven communication backbone using WebSockets and Node.js microservices. Connection pooling and memory-efficient broadcast mechanisms ensured that active rooms experienced sub-100ms latency, while idle instances consumed virtually zero compute overhead on Google Cloud Platform.',
+          ],
+          cards: [
+            {
+              title: 'Sub-100ms WebSocket Mesh',
+              desc: 'Instant messaging and synchronized code snippet distribution with sub-tenth-of-a-second latency.',
+              badge: 'Real-Time Concurrency',
+              icon: 'zap',
+            },
+            {
+              title: 'Zero-Waste Cloud Economics',
+              desc: 'Event-driven serverless and containerized architecture scaling dynamically during peak activity spikes.',
+              badge: 'Cost Efficiency',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Traction & Cognitive UX: 700+ Developers and 40% Cohort Retention',
+          businessTakeaway: 'A technical architecture is only as valuable as the user engagement it sustains. High retention stems from intuitive cognitive ergonomics and natural incentive loops.',
+          paragraphs: [
+            'Without any paid marketing or external advertising spend, NerdsPal scaled to over 700 active technical developers entirely through developer word-of-mouth and a viral launch on Product Hunt.',
+            'To maintain sustained engagement without salaried support staff, Nordible engineered a peer-driven karma and reputation system. Experienced mentors were rewarded with visible peer credibility and community badges for providing prompt, verified answers, leading to a remarkable 40% monthly cohort retention rate.',
+          ],
+          cards: [
+            {
+              title: 'Organic Network Growth',
+              desc: '700+ registered technical contributors onboarded via developer advocacy and organic discovery.',
+              badge: 'High Traction',
+              icon: 'users',
+            },
+            {
+              title: 'Gamified Peer Alignment',
+              desc: 'Reputation mechanics that naturally aligned junior learner needs with senior mentor recognition.',
+              badge: 'Engagement Loop',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Strategic Sunset vs. The Quitter Fallacy: Why Mature Founders Know When to Transition IP',
+          businessTakeaway: 'A venture succeeds when its core thesis is proven. Sunsetting a bootstrapped B2C experiment to rechannel validated real-time assets into high-margin enterprise software is strategic capital discipline, not surrender.',
+          paragraphs: [
+            'In the tech industry, a common misconception conflates sunsetting a product with failure. In reality, mature software executives understand capital allocation: consumer EdTech communities have notoriously low ability-to-pay, and monetizing them often requires intrusive ads or deceptive paywalls that destroy user trust.',
+            'Rather than compromising the product or burning personal capital on low-margin consumer freemium models, Nordible’s leadership made the disciplined decision to conclude NerdsPal’s public lifecycle after achieving its educational and architectural milestones. Crucially, the venture had fulfilled its primary mission: proving sub-100ms real-time WebSockets and distributed state synchronization under real-world load.',
+            'Every line of code, real-time socket manager, moderation microservice, and architectural lesson was retained as proprietary intellectual property—positioning Nordible with battle-tested technical assets ready for higher-leverage commercial applications.',
+          ],
+          cards: [
+            {
+              title: 'Strategic Capital Discipline',
+              desc: 'Knowing when to redirect engineering talent from low-margin B2C experiments to high-value enterprise software.',
+              badge: 'Executive Focus',
+              icon: 'building',
+            },
+            {
+              title: '100% IP & Asset Retention',
+              desc: 'Battle-tested WebSocket architectures and real-time state sync engines preserved for enterprise systems.',
+              badge: 'Proprietary IP',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '05',
+          title: 'The Enterprise Legacy: How NerdsPal Powers Nordible’s Client Systems Today',
+          businessTakeaway: 'Enterprise clients trust Nordible because our software architectures are not academic theories—they were tested, refined, and proven in public production.',
+          paragraphs: [
+            'Today, the real-time event infrastructure initially engineered for NerdsPal serves as a core foundational pillar across Nordible’s enterprise client engagements. From financial trading telemetry engines to live medical collaboration workspaces, our clients benefit directly from systems that have already weathered real-world traffic.',
+            'When you partner with Nordible, you work directly with the systems architects who solved distributed concurrency, sub-100ms latency, and high-retention UX firsthand—delivering production reliability without agency middleman delays.',
+            'To demonstrate complete transparency and code craft, the core collaborative Q&A implementation is available as open-source software on GitHub at https://github.com/nordible/StackOverflowClone. Technical evaluators and engineering leaders can directly inspect our codebase, component modularity, and event architectures.',
+          ],
+          cards: [
+            {
+              title: 'Production-Proven Reliability',
+              desc: 'Enterprise clients bypass costly R&D trial-and-error by adopting real-time systems already proven under concurrency.',
+              badge: 'De-Risked Software',
+              icon: 'bot',
+            },
+            {
+              title: 'Open Source Codebase (GitHub)',
+              desc: 'Inspect or fork the complete collaborative repository at https://github.com/nordible/StackOverflowClone.',
+              badge: 'GitHub Repository',
+              icon: 'bot',
+            },
+            {
+              title: 'Direct Founder Architecture',
+              desc: 'Zero agency bloat. Enterprise leaders interface directly with the senior engineers who build and scale their systems.',
+              badge: 'Senior Leadership',
+              icon: 'zap',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Real-Time Enterprise Architecture',
+        title: 'Planning a high-concurrency real-time platform or collaborative workflow?',
+        desc: 'From sub-second live telemetry to scalable event-driven WebSocket architectures: We build resilient, high-performance systems with 100% code ownership from Day 1.',
+        buttonText: 'Schedule Technical Architecture Review',
+        buttonAction: 'consultation',
+        secondaryText: 'Inspect GitHub Repository →',
+        secondaryLink: 'https://github.com/nordible/StackOverflowClone',
+        mobileButtonText: 'Book Architecture Review',
+      },
+    };
+
+    const deNerdsPalArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'Venture-Fallstudie',
+      readTime: '5 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'Geschäftsführung & IT-Entscheider:',
+        subtitle: 'Erfahren Sie, wie praxiserprobte Echtzeit-Architekturen das Risiko geschäftskritischer Enterprise-Systeme minimieren.',
+        buttonText: 'Architektur-Erstgespräch buchen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'NerdsPal.com (Mitgegründetes Venture)',
+        industry: 'Echtzeit-Entwickler-Community & Q&A-Plattform',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        project.executiveSummary.de,
+        'Für unternehmerische Entscheider ist die Wahl eines Softwarepartners vor allem eine Frage der technischen Kompetenz und strategischen Reife unter realen Marktbedingungen. Mit dem Aufbau von NerdsPal ohne externes Risikokapital hat Nordible bewiesen, hochgradig parallele, eventgesteuerte Systeme zu konzipieren, zu skalieren und stabil zu betreiben. Noch entscheidender ist jedoch die unternehmerische Disziplin: Zu erkennen, wann ein technologischer Prüfstand seine Mission erfüllt hat, und die validierten Innovationen gezielt in margenstarke B2B-Lösungen zu überführen.',
+      ],
+      objective: {
+        title: 'Die Venture-Hypothese & der technologische Prüfstand',
+        text: 'Validierung von verzögerungsfreier Sub-100ms-Kollaboration im Produktivbetrieb, Aufbau einer engagierten Entwickler-Community ohne Cloud-Verschwendung und Entwicklung wiederverwendbarer Event-Architekturen für künftige Enterprise-Systeme.',
+        points: project.businessChallenge.de,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.labelDe || m.label,
+        value: m.value,
+        icon: m.label.includes('Traction')
+          ? ('users' as const)
+          : m.label.includes('Latency')
+          ? ('trending' as const)
+          : m.label.includes('Retention')
+          ? ('percent' as const)
+          : ('trophy' as const),
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Echtzeit-Kollaborations-Fallstudie`,
+        badge: 'Praxiserprobte Echtzeit-Architektur',
+        caption: 'Sub-100ms WebSocket-Echtzeitkommunikation im Live-Einsatz unter realer Last bewiesen.',
+        businessBenefit: 'Validierte Latenz-Optimierung und 100 % wiederverwendbare Software-Assets',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Der operative Engpass: Warum asynchrone Entwickler-Foren scheitern',
+          businessTakeaway: 'Wenn technische Fachkräfte Stunden auf Antworten in Foren warten, bricht die Produktivität ein. Direkte Peer-Kollaboration in Echtzeit verkürzt die Lösungszeit von Tagen auf Minuten.',
+          paragraphs: [
+            'Softwareentwicklung lebt vom kontinuierlichen Arbeitsfluss. Stoßen Nachwuchsentwickler oder Informatikstudenten auf komplexe Compilerfehler oder Konfigurationsprobleme, sind herkömmliche Kanäle unzureichend. Klassische Plattformen wie Stack Overflow reagieren asynchron, erfordern zeitraubende Formatierungen und schrecken Einsteiger durch rigide Moderation ab.',
+            'Das Warten auf Antworten führt zu fatalen Unterbrechungen: Wenn erst Stunden später eine Rückmeldung eintrifft, ist der gedankliche Kontext verloren. NerdsPal schloss diese Lücke, indem Lernende per Knopfdruck direkt in Live-Räume mit Fachexperten für simultanes Code-Sharing verbunden wurden.',
+          ],
+          cards: [
+            {
+              title: 'Kosten asynchroner Verzögerung',
+              desc: 'Stundenlanges Warten auf Forenbeiträge unterbricht den Entwicklungsfluss und blockiert Projekte.',
+              badge: 'Produktivitätsverlust',
+              icon: 'shield',
+            },
+            {
+              title: 'Hürden klassischer Foren',
+              desc: 'Strenge Downvoting-Mechanismen verunsichern lernende Fachkräfte, anstatt Lösungen zu fördern.',
+              badge: 'Reibungsverlust',
+              icon: 'users',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Das technologische Fundament: Sub-100ms Latenz bei minimalen Cloud-Kosten',
+          businessTakeaway: 'Echte Software-Resilienz bedeutet nicht, Lastspitzen mit teurer Server-Hardware zu überdecken, sondern ereignisgesteuerte Architekturen zu bauen, die bedarfsgerecht und kostenschonend skalieren.',
+          paragraphs: [
+            'Multi-User-Live-Chat, Anwesenheitserkennung und synchrones Code-Highlighting stellen hohe Anforderungen an die Infrastruktur. Klassische Ansätze mit regelmäßigem HTTP-Polling überlasten Server und treiben Cloud-Kosten unkontrolliert in die Höhe.',
+            'Nordible entwickelte ein leichtgewichtiges, ereignisgesteuertes Kommunikations-Backbone auf Basis von WebSockets und Node.js-Microservices. Durch optimiertes Connection-Pooling erreichten aktive Räume eine Latenz von unter 100 ms, während ungenutzte Instanzen auf der Google Cloud Platform nahezu keine Leerlaufkosten verursachten.',
+          ],
+          cards: [
+            {
+              title: 'Sub-100ms WebSocket-Mesh',
+              desc: 'Verzögerungsfreie Live-Nachrichten und synchronisierte Code-Snippets in Sekundenbruchteilen.',
+              badge: 'Echtzeit-Concurrency',
+              icon: 'zap',
+            },
+            {
+              title: 'Kostenschonende Cloud-Effizienz',
+              desc: 'Ereignisgesteuerte Architektur, die dynamisch skaliert und Leerlaufkosten auf null minimiert.',
+              badge: 'Kapitaleffizienz',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Organische Traktion & Community-UX: 700+ Entwickler und 40 % Nutzerbindung',
+          businessTakeaway: 'Eine technische Architektur entfaltet ihren Wert erst durch nachhaltige Nutzung. Hohe Bindung entsteht durch kognitive Ergonomie und wirksame Anreizsysteme.',
+          paragraphs: [
+            'Vollständig ohne bezahlte Werbung wuchs NerdsPal auf über 700 aktive Entwickler an – getragen allein durch Mundpropaganda in der Entwickler-Community und einen erfolgreichen Product-Hunt-Start.',
+            'Um eine verlässliche Betreuung ohne feste Angestellte zu gewährleisten, konzipierte Nordible ein Reputations- und Karma-System. Erfahrene Mentoren erhielten für schnelle, qualifizierte Hilfe sichtbare Community-Anerkennung, was zu einer herausragenden monatlichen Wiedernutzungsrate von 40 % führte.',
+          ],
+          cards: [
+            {
+              title: 'Organisches Netzwerkwachstum',
+              desc: '700+ registrierte Entwickler, gewonnen durch Empfehlungen und engagierte Community-Nutzung.',
+              badge: 'Hohe Traktion',
+              icon: 'users',
+            },
+            {
+              title: 'Motivierendes Reputationssystem',
+              desc: 'Karma-Mechanik, die das Hilfsbedürfnis von Lernenden perfekt mit der Expertise von Mentoren verband.',
+              badge: 'Engagement-Schleife',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Strategischer Projektabschluss statt Aufgeben: Warum weitsichtige Gründer IP gezielt überführen',
+          businessTakeaway: 'Ein Projekt ist dann erfolgreich abgeschlossen, wenn seine Kernhypothese bewiesen ist. Ein Consumer-Experiment planmäßig zu beenden, um validierte Echtzeit-Assets in rentable Enterprise-Software zu überführen, ist strategische Reife – kein Aufgeben.',
+          paragraphs: [
+            'In der Technologiebranche wird das Beenden eines Produkts oft vorschnell mit Scheitern verwechselt. Erfahrene Führungskräfte wissen jedoch, wie wichtig disziplinierte Kapitalallokation ist: Reine B2C-Lernplattformen verfügen über geringe Zahlungsbereitschaft, und eine Monetarisierung über nervige Werbebanner hätte dem Nutzervertrauen geschadet.',
+            'Anstatt das Produkt durch unpassende Werbung zu verwässern oder Ressourcen in margenarmen Consumer-Abomodellen zu binden, traf die Geschäftsführung von Nordible die wohlüberlegte Entscheidung, NerdsPal nach Erreichen der Bildungs- und Architekturziele planmäßig abzuschließen. Die zentrale Mission war vollständig erfüllt: Der Nachweis, dass Sub-100ms-WebSockets unter realer Last stabil skalieren.',
+            'Sämtliche Programmcodes, WebSocket-Manager, Moderations-Microservices und Architektur-Erkenntnisse blieben zu 100 % im Besitz von Nordible – als praxiserprobtes Fundament für anspruchsvolle B2B-Projekte.',
+          ],
+          cards: [
+            {
+              title: 'Unternehmerische Fokus-Disziplin',
+              desc: 'Gezielte Verlagerung von Entwicklerkapazitäten von margenarmen B2C-Diensten hin zu wertschöpfenden B2B-Lösungen.',
+              badge: 'Strategischer Fokus',
+              icon: 'building',
+            },
+            {
+              title: '100 % Eigentum an Kerntechnologie',
+              desc: 'Echtzeit-Synchronisationsmuster und WebSocket-Engines vollständig für Unternehmenssysteme gesichert.',
+              badge: 'Proprietäres IP',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '05',
+          title: 'Das Enterprise-Erbe: Wie NerdsPal heute Nordibles Firmenkunden stärkt',
+          businessTakeaway: 'Geschäftskunden schätzen Nordible, weil unsere Software-Architekturen keine akademischen Theorien sind – sie wurden im harten Live-Betrieb erprobt und optimiert.',
+          paragraphs: [
+            'Heute bildet die für NerdsPal entwickelte Echtzeit-Event-Infrastruktur ein unverzichtbares Rückgrat in den Enterprise-Projekten von Nordible. Von Finanzhandels-Telemetrie bis hin zu kollaborativen medizinischen Anwendungen profitieren unsere Kunden von Systemen, die unzählige reale Nutzerverbindungen gemeistert haben.',
+            'Bei Nordible arbeiten Sie direkt mit den Systemarchitekten zusammen, die Concurrency, Sub-100ms-Latenz und intuitive Nutzerführung aus erster Hand beherrschen – für maximale Ausfallsicherheit ohne Agentur-Umwege.',
+            'Als Beleg für maximale Transparenz und technische Sorgfalt steht die grundlegende kollaborative Q&A-Architektur als Open-Source-Projekt auf GitHub bereit: https://github.com/nordible/StackOverflowClone. Technische Entscheider können Code-Qualität, Komponentenstruktur und Concurrency-Muster direkt im Quellcode evaluieren.',
+          ],
+          cards: [
+            {
+              title: 'Praxiserprobte Zuverlässigkeit',
+              desc: 'Unternehmen umgehen riskante Entwicklungsphasen durch den Einsatz praxiserprobter Echtzeit-Komponenten.',
+              badge: 'Risikominimierung',
+              icon: 'bot',
+            },
+            {
+              title: 'Open-Source-Codebase (GitHub)',
+              desc: 'Vollständigen Quellcode einsehen oder forken unter https://github.com/nordible/StackOverflowClone.',
+              badge: 'GitHub Repository',
+              icon: 'bot',
+            },
+            {
+              title: 'Direkter Gründerkontakt',
+              desc: 'Keine verlustreichen Agentur-Ebenen: Entscheider sprechen direkt mit den leitenden Software-Architekten.',
+              badge: 'Senior Leadership',
+              icon: 'zap',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Enterprise-Echtzeit-Architektur',
+        title: 'Planen Sie eine performante Echtzeit-Plattform oder kollaborative Workflows?',
+        desc: 'Von latenzarmer Live-Telemetrie bis zu skalierbaren WebSocket-Infrastrukturen: Wir entwickeln ausfallsichere Systeme mit 100 % Code-Eigentum ab Tag 1.',
+        buttonText: 'Technisches Architektur-Erstgespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Open-Source-Code auf GitHub ansehen →',
+        secondaryLink: 'https://github.com/nordible/StackOverflowClone',
+        mobileButtonText: 'Architektur-Gespräch',
+      },
+    };
+
+    return { en: enNerdsPalArticle, de: deNerdsPalArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);
@@ -1091,6 +1471,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       name: project.client,
       industry: project.clientRole || 'Enterprise Partner',
       link: project.liveUrl,
+      repoUrl: project.repoUrl,
     },
     introParagraphs: [
       project.executiveSummary.en,
@@ -1198,6 +1579,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       name: project.client,
       industry: project.clientRole || 'Unternehmenspartner',
       link: project.liveUrl,
+      repoUrl: project.repoUrl,
     },
     introParagraphs: [
       project.executiveSummary.de,
