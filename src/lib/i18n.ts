@@ -321,7 +321,8 @@ export const translations: Record<Language, Translations> = {
       rotatingTitles: [
         "Solve Bigger Problems",
         "Always Prioritize People",
-        "Build for the Long Term"
+        "Build for the Long Term",
+        "Always Have Fun"
       ],
       titlePart1: "Technology & Marketing Partner in ",
       titleHighlight: "Frankfurt & Rhein-Main.",
@@ -614,7 +615,7 @@ export const translations: Record<Language, Translations> = {
       badge: "OUR GUIDING PRINCIPLES",
       title: "Built on Purpose. ",
       titleHighlight: "Driven by Impact.",
-      subtitle: "Three non-negotiable principles that shape every architecture, line of code, and partnership at Nordible Technologies.",
+      subtitle: "Four non-negotiable principles that shape every architecture, line of code, and partnership at Nordible Technologies.",
       items: [
         {
           tag: "01 / Ambition",
@@ -630,6 +631,11 @@ export const translations: Record<Language, Translations> = {
           tag: "03 / Permanence",
           title: "Build for the Long Term",
           description: "We design resilient architectures and sustainable solutions engineered to endure and scale—never disposable shortcuts."
+        },
+        {
+          tag: "04 / Joy",
+          title: "Always Have Fun",
+          description: "Great engineering flourishes when work brings genuine joy and excitement. We approach hard challenges with positive energy, creative play, and enthusiasm."
         }
       ]
     },
@@ -863,7 +869,8 @@ export const translations: Record<Language, Translations> = {
       rotatingTitles: [
         "Größere Probleme lösen",
         "Den Menschen immer an erste Stelle setzen",
-        "Langfristig denken und bauen"
+        "Langfristig denken und bauen",
+        "Immer Spaß an der Arbeit haben"
       ],
       titlePart1: "Technologie- & Marketingpartner in ",
       titleHighlight: "Frankfurt & Rhein-Main.",
@@ -1156,7 +1163,7 @@ export const translations: Record<Language, Translations> = {
       badge: "UNSER LEITBILD",
       title: "Geleitet von Werten. ",
       titleHighlight: "Fokussiert auf Wirkung.",
-      subtitle: "Drei unverhandelbare Grundsätze, die jede Architektur, jeden Algorithmus und jede Partnerschaft bei Nordible Technologies prägen.",
+      subtitle: "Vier unverhandelbare Grundsätze, die jede Architektur, jeden Algorithmus und jede Partnerschaft bei Nordible Technologies prägen.",
       items: [
         {
           tag: "01 / Ambition",
@@ -1172,6 +1179,11 @@ export const translations: Record<Language, Translations> = {
           tag: "03 / Nachhaltigkeit",
           title: "Langfristig denken und bauen",
           description: "Wir entwickeln zukunftssichere Architekturen und skalierbare Systeme mit dauerhaftem Wert – keine kurzlebigen Schnellschüsse."
+        },
+        {
+          tag: "04 / Freude",
+          title: "Immer Spaß an der Arbeit haben",
+          description: "Exzellente Technologie entsteht dort, wo echte Begeisterung und Freude an der Arbeit herrschen. Wir begegnen komplexen Aufgaben mit Neugier, positiver Energie und Leidenschaft."
         }
       ]
     },

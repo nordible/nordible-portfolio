@@ -138,3 +138,28 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Animated Values Behind Founder Cutout */
+@keyframes marquee-behind-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-behind-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.animate-behind-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-behind-left 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-behind-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-behind-right 32s linear infinite;
+  will-change: transform;
+}

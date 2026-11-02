@@ -11,6 +11,11 @@
 - **Leadership**: Kabeer Shah (Founder, Principal Architect & Head of Client Success)
 - **Core Value Proposition**: Senior engineering leadership with zero middlemen and zero junior handoffs. Nordible architects, develops, and hardens mission-critical production systems, scalable cloud backends, and rapid MVPs directly with business stakeholders.
 - **Intellectual Property**: 100% code and IP ownership belongs to the client from Day 1.
+- **Company Values & Guiding Principles**:
+  1. *Solve Bigger Problems*: Tackle root business challenges with architectural rigor instead of band-aids.
+  2. *Always Prioritize People*: Transparent, respectful communication and human-centric engineering.
+  3. *Build for the Long Term*: Resilient, scalable systems with zero technical debt and 100% IP ownership.
+  4. *Always Have Fun*: High-energy passion, creative playfulness, and genuine joy in building game-changing software.
 - **Official Domains & Public Utilities**:
   - Main Website: https://nordible.co/
   - Free Invoice Generator: https://free-invoice-generator.nordible.co/

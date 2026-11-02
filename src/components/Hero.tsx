@@ -9,31 +9,12 @@ export default function Hero() {
   const navigate = useNavigate();
   const isDe = language === 'de';
 
-  const rotatingTitles = t.hero.rotatingTitles || [
+  const mottos = t.hero.rotatingTitles || [
     'Solve Bigger Problems',
     'Always Prioritize People',
-    'Build for the Long Term'
+    'Build for the Long Term',
+    'Always Have Fun'
   ];
-  const [titleIndex, setTitleIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
-
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
-    const interval = setInterval(() => {
-      setIsFading(true);
-      timeoutId = setTimeout(() => {
-        setTitleIndex((prev) => (prev + 1) % rotatingTitles.length);
-        setIsFading(false);
-      }, 250);
-    }, 3500);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeoutId);
-    };
-  }, [rotatingTitles.length]);
-
-  const currentTitle = rotatingTitles[titleIndex % rotatingTitles.length];
 
   const clickCountRef = useRef(0);
   const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -159,6 +140,56 @@ export default function Hero() {
               {/* Soft background depth glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400/20 dark:bg-blue-600/15 blur-3xl rounded-full pointer-events-none"></div>
 
+              {/* Animated 4 Company Mottos Moving Behind Founder Cutout */}
+              <div 
+                className="absolute inset-x-[-100px] sm:inset-x-[-160px] top-4 bottom-4 z-0 flex flex-col justify-between py-2 overflow-hidden pointer-events-none select-none opacity-45 dark:opacity-35"
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+                }}
+                aria-hidden="true"
+              >
+                {/* Line 1: Motto 1 -> Leftward */}
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35">
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`m1-${idx}`} className="inline-flex items-center gap-6">
+                      <span>{mottos[0]}</span>
+                      <span className="text-nordible-orange text-xs select-none">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 2: Motto 2 -> Rightward */}
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25">
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`m2-${idx}`} className="inline-flex items-center gap-6">
+                      <span>{mottos[1]}</span>
+                      <span className="text-nordible-blue text-xs select-none">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 3: Motto 3 -> Leftward */}
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '30s' }}>
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`m3-${idx}`} className="inline-flex items-center gap-6">
+                      <span>{mottos[2]}</span>
+                      <span className="text-nordible-orange text-xs select-none">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 4: Motto 4 -> Rightward */}
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25" style={{ animationDuration: '34s' }}>
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`m4-${idx}`} className="inline-flex items-center gap-6">
+                      <span>{mottos[3]}</span>
+                      <span className="text-nordible-blue text-xs select-none">✦</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               {/* Cutout Image with constrained height for complete single-screen visibility */}
               <div className="relative z-10 flex justify-center select-none">
                 <img
@@ -173,20 +204,7 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Minimalist Glassmorphic Principle Ticker Capsule */}
-              <div className="relative z-20 -mt-5 px-5 py-2 rounded-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-lg border border-nordible-border dark:border-gray-700 group-hover:border-nordible-blue/40 transition-colors">
-                <div className="h-6 flex items-center justify-center overflow-hidden" aria-live="polite">
-                  <span
-                    className={`text-xs sm:text-sm font-extrabold font-heading text-nordible-blue dark:text-blue-400 tracking-tight transition-all duration-300 ease-out motion-reduce:transition-none transform ${
-                      isFading
-                        ? 'opacity-0 -translate-y-2 motion-reduce:opacity-100 motion-reduce:translate-y-0'
-                        : 'opacity-100 translate-y-0'
-                    }`}
-                  >
-                    “{currentTitle}”
-                  </span>
-                </div>
-              </div>
+              
             </div>
           </div>
 

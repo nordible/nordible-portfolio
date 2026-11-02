@@ -1,14 +1,16 @@
 import { ArrowLeft, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
 import { Mascot } from './Mascot';
 
 export default function PrivacyPolicy() {
+  const { getPath } = useLanguage();
   return (
     <div className="min-h-screen bg-nordible-bg dark:bg-gray-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link
-          to="/"
+          to={getPath('/')}
           className="inline-flex items-center space-x-2 text-gray-500 hover:text-nordible-blue mb-10 font-bold text-sm uppercase tracking-widest transition-all active:scale-95"
         >
           <ArrowLeft className="h-5 w-5" />

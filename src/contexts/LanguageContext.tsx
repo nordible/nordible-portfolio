@@ -21,6 +21,8 @@ interface LanguageContextType {
   supportedLanguages: typeof SUPPORTED_LANGUAGES;
 }
 
+const STORAGE_KEY = 'nordible_lang';
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 // Dynamically extracts language code from URL path, matching any non-default locale (e.g. /de, /fr, /es)
@@ -51,11 +53,46 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Deterministic source of truth from the current URL path
   const language = getLocaleFromPath(location.pathname);
 
+  // Sync document language and respect localStorage preference for non-localized paths
   useEffect(() => {
     document.documentElement.lang = language;
-  }, [language]);
+
+    if (typeof window === 'undefined') return;
+
+    try {
+      const hasExplicitLocale = NON_DEFAULT_LANGUAGES.some(
+        code => location.pathname === `/${code}` || location.pathname.startsWith(`/${code}/`)
+      );
+
+      if (hasExplicitLocale) {
+        // User explicitly visited a localized route (e.g. /en or /en/blog)
+        localStorage.setItem(STORAGE_KEY, language);
+      } else {
+        // User is on a default route without locale prefix (e.g. / or /blog/xyz)
+        const savedLang = localStorage.getItem(STORAGE_KEY);
+        if (savedLang && savedLang !== DEFAULT_LANGUAGE && NON_DEFAULT_LANGUAGES.includes(savedLang as Language)) {
+          // If user previously chose English (or non-default), keep them in that language
+          if (!location.pathname.startsWith('/api') && !location.pathname.startsWith('/_next')) {
+            const clean = stripLocalePrefix(location.pathname);
+            const target = clean === '/' ? `/${savedLang}` : `/${savedLang}${clean}`;
+            navigate(`${target}${location.search}${location.hash}`, { replace: true });
+          }
+        }
+      }
+    } catch {
+      // Ignore storage errors in restricted private browsing
+    }
+  }, [language, location.pathname, location.search, location.hash, navigate]);
 
   const setLanguage = (targetLang: Language) => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(STORAGE_KEY, targetLang);
+      } catch {
+        // Ignore
+      }
+    }
+
     if (targetLang === language) return;
 
     const baseRoute = stripLocalePrefix(location.pathname);

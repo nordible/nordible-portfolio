@@ -102,14 +102,64 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
           
           {/* Left Column: Portrait, Credentials & Certifications */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl overflow-hidden bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 shadow-md p-4 flex flex-col items-center">
+            <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 shadow-md p-4 flex flex-col items-center">
+              {/* Animated 4 Company Mottos Moving Behind Founder Cutout */}
+              <div 
+                className="absolute inset-x-[-80px] top-6 bottom-24 z-0 flex flex-col justify-between py-2 overflow-hidden pointer-events-none select-none opacity-40 dark:opacity-30"
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+                }}
+                aria-hidden="true"
+              >
+                {/* Line 1: Motto 1 -> Leftward */}
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-xs sm:text-sm font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35">
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`fm1-${idx}`} className="inline-flex items-center gap-4">
+                      <span>{(t.hero.rotatingTitles || [])[0]}</span>
+                      <span className="text-nordible-orange text-xs">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 2: Motto 2 -> Rightward */}
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-4 text-xs sm:text-sm font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25">
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`fm2-${idx}`} className="inline-flex items-center gap-4">
+                      <span>{(t.hero.rotatingTitles || [])[1]}</span>
+                      <span className="text-nordible-blue text-xs">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 3: Motto 3 -> Leftward */}
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-xs sm:text-sm font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '30s' }}>
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`fm3-${idx}`} className="inline-flex items-center gap-4">
+                      <span>{(t.hero.rotatingTitles || [])[2]}</span>
+                      <span className="text-nordible-orange text-xs">✦</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Line 4: Motto 4 -> Rightward */}
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-4 text-xs sm:text-sm font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25" style={{ animationDuration: '34s' }}>
+                  {Array.from({ length: 8 }).map((_, idx) => (
+                    <span key={`fm4-${idx}`} className="inline-flex items-center gap-4">
+                      <span>{(t.hero.rotatingTitles || [])[3]}</span>
+                      <span className="text-nordible-blue text-xs">✦</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               <img
                 src="/images/founder-transparent.webp"
                 alt="Kabeer Shah - Founder"
                 width={780}
                 height={932}
                 loading="lazy"
-                className="w-full max-h-[380px] object-contain"
+                className="relative z-10 w-full max-h-[380px] object-contain drop-shadow-xl"
               />
               <div className="mt-4 text-center w-full pt-4 border-t border-nordible-border dark:border-gray-700">
                 <div className="text-lg font-extrabold text-nordible-dark dark:text-white font-heading">

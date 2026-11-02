@@ -16,7 +16,7 @@ interface BlogPageProps {
 }
 
 export default function BlogPage({ onBookConsultation }: BlogPageProps) {
-  const { language } = useLanguage();
+  const { language, getPath } = useLanguage();
   const content = blogHubTranslations[language];
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'geo' | 'ai'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -74,7 +74,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
         {/* Breadcrumbs Navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
           <Link
-            to="/"
+            to={getPath('/')}
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors cursor-pointer group"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -148,7 +148,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
             {filteredPosts.map((post) => (
               <Link
                 key={post.id}
-                to={`/blog/${post.slug}`}
+                to={getPath(`/blog/${post.slug}`)}
                 className="group flex flex-col rounded-3xl overflow-hidden bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-md hover:border-nordible-blue/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
               >
                 {/* Card Image */}
@@ -236,7 +236,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
               </button>
 
               <Link
-                to="/"
+                to={getPath('/')}
                 className="text-xs font-bold uppercase tracking-widest text-blue-300 hover:text-white transition-colors"
               >
                 {content.ctaSecondary}
