@@ -151,6 +151,18 @@ export default function FounderPage({ onBack, onBookConsultation }: FounderPageP
                     </span>
                   ))}
                 </div>
+
+                {/* Line 5: Motto 5 -> Leftward */}
+                {(t.hero.rotatingTitles || [])[4] && (
+                  <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-xs sm:text-sm font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '38s' }}>
+                    {Array.from({ length: 8 }).map((_, idx) => (
+                      <span key={`fm5-${idx}`} className="inline-flex items-center gap-4">
+                        <span>{(t.hero.rotatingTitles || [])[4]}</span>
+                        <span className="text-nordible-orange text-xs">✦</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <img

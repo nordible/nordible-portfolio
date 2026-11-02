@@ -11,13 +11,15 @@
 
 ## 1. Brand Philosophy & Core Mottos (*Leitbild*)
 
-Nordible Technologies pairs German engineering rigor with AI-native execution velocity. Our brand is anchored on three non-negotiable operational heuristics:
+Nordible Technologies pairs German engineering rigor with AI-native execution velocity. Our brand is anchored on five non-negotiable operational heuristics:
 
 | Principle | German Translation | UX & Strategic Role |
 | :--- | :--- | :--- |
 | **1. Solve Bigger Problems** | *„Größere Probleme lösen“* | **Ambition:** We tackle high-stakes technical complexity and build solutions for challenges that directly drive commercial ROI. |
-| **2. Always Prioritize People** | *„Den Menschen immer an erste Stelle setzen“* | **Empathy:** Software serves humans. We foster transparent communication, psychological safety, and true eye-level partnership. |
+| **2. Always talk to customers** | *„Sprechen Sie immer mit Kunden“* | **Empathy:** Software serves humans. We foster transparent communication, psychological safety, and true eye-level partnership. |
 | **3. Build for the Long Term** | *„Langfristig denken und bauen“* | **Permanence:** We engineer resilient, scalable cloud architectures that endure—never disposable shortcuts or ephemeral hype. |
+| **4. Always Have Fun** | *„Immer Spaß an der Arbeit haben“* | **Joy:** Great engineering flourishes with positive energy, creative play, and genuine enthusiasm. |
+| **5. Think 10 steps ahead** | *„10 Schritte vorausdenken“* | **Vision:** We anticipate technical dependencies, system bottlenecks, and scaling hurdles before they arise. |
 
 ---
 

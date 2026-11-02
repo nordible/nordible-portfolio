@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Target, Users, TrendingUp, Sparkles } from 'lucide-react';
+import { Target, Users, TrendingUp, Sparkles, Compass } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const mottoIcons = [Target, Users, TrendingUp, Sparkles];
+const mottoIcons = [Target, Users, TrendingUp, Sparkles, Compass];
 const accentStyles = [
   {
     iconBg: 'bg-blue-50 dark:bg-blue-950/50 text-nordible-blue dark:text-blue-400 border-blue-200/60 dark:border-blue-900/50',
@@ -25,6 +25,11 @@ const accentStyles = [
     iconBg: 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 border-purple-200/60 dark:border-purple-900/50',
     tagColor: 'text-purple-600 dark:text-purple-400',
     hoverBorder: 'hover:border-purple-500/40',
+  },
+  {
+    iconBg: 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border-indigo-200/60 dark:border-indigo-900/50',
+    tagColor: 'text-indigo-600 dark:text-indigo-400',
+    hoverBorder: 'hover:border-indigo-500/40',
   },
 ];
 
@@ -57,8 +62,8 @@ export default function Motto() {
           </p>
         </div>
 
-        {/* 4-Pillar Cards Grid (Miller's Law Chunking) */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {/* 5-Pillar Cards Grid (Miller's Law Chunking) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
           {m.items.map((item, index) => {
             const Icon = mottoIcons[index % mottoIcons.length];
             const styling = accentStyles[index % accentStyles.length];

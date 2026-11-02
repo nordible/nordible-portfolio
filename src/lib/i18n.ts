@@ -320,9 +320,10 @@ export const translations: Record<Language, Translations> = {
     hero: {
       rotatingTitles: [
         "Solve Bigger Problems",
-        "Always Prioritize People",
+        "Always talk to customers",
         "Build for the Long Term",
-        "Always Have Fun"
+        "Always Have Fun",
+        "Think 10 steps ahead"
       ],
       titlePart1: "Technology & Marketing Partner in ",
       titleHighlight: "Frankfurt & Rhein-Main.",
@@ -615,7 +616,7 @@ export const translations: Record<Language, Translations> = {
       badge: "OUR GUIDING PRINCIPLES",
       title: "Built on Purpose. ",
       titleHighlight: "Driven by Impact.",
-      subtitle: "Four non-negotiable principles that shape every architecture, line of code, and partnership at Nordible Technologies.",
+      subtitle: "Five non-negotiable principles that shape every architecture, line of code, and partnership at Nordible Technologies.",
       items: [
         {
           tag: "01 / Ambition",
@@ -624,7 +625,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           tag: "02 / Empathy",
-          title: "Always Prioritize People",
+          title: "Always talk to customers",
           description: "Software is built by people for people. We lead with transparent communication, respect, and deep partnership at eye level."
         },
         {
@@ -636,6 +637,11 @@ export const translations: Record<Language, Translations> = {
           tag: "04 / Joy",
           title: "Always Have Fun",
           description: "Great engineering flourishes when work brings genuine joy and excitement. We approach hard challenges with positive energy, creative play, and enthusiasm."
+        },
+        {
+          tag: "05 / Vision",
+          title: "Think 10 steps ahead",
+          description: "We anticipate technical dependencies, system bottlenecks, and scaling hurdles before they arise—engineering resilient software built for the future."
         }
       ]
     },
@@ -868,9 +874,10 @@ export const translations: Record<Language, Translations> = {
     hero: {
       rotatingTitles: [
         "Größere Probleme lösen",
-        "Den Menschen immer an erste Stelle setzen",
+        "Sprechen Sie immer mit Kunden",
         "Langfristig denken und bauen",
-        "Immer Spaß an der Arbeit haben"
+        "Immer Spaß an der Arbeit haben",
+        "10 Schritte vorausdenken"
       ],
       titlePart1: "Technologie- & Marketingpartner in ",
       titleHighlight: "Frankfurt & Rhein-Main.",
@@ -1163,7 +1170,7 @@ export const translations: Record<Language, Translations> = {
       badge: "UNSER LEITBILD",
       title: "Geleitet von Werten. ",
       titleHighlight: "Fokussiert auf Wirkung.",
-      subtitle: "Vier unverhandelbare Grundsätze, die jede Architektur, jeden Algorithmus und jede Partnerschaft bei Nordible Technologies prägen.",
+      subtitle: "Fünf unverhandelbare Grundsätze, die jede Architektur, jeden Algorithmus und jede Partnerschaft bei Nordible Technologies prägen.",
       items: [
         {
           tag: "01 / Ambition",
@@ -1172,7 +1179,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           tag: "02 / Empathie",
-          title: "Den Menschen immer an erste Stelle setzen",
+          title: "Sprechen Sie immer mit Kunden",
           description: "Technologie entsteht von Menschen für Menschen. Wir setzen auf offene Kommunikation, gegenseitigen Respekt und echte Partnerschaft auf Augenhöhe."
         },
         {
@@ -1184,6 +1191,11 @@ export const translations: Record<Language, Translations> = {
           tag: "04 / Freude",
           title: "Immer Spaß an der Arbeit haben",
           description: "Exzellente Technologie entsteht dort, wo echte Begeisterung und Freude an der Arbeit herrschen. Wir begegnen komplexen Aufgaben mit Neugier, positiver Energie und Leidenschaft."
+        },
+        {
+          tag: "05 / Weitsicht",
+          title: "10 Schritte vorausdenken",
+          description: "Wir antizipieren technische Abhängigkeiten, Systemengpässe und Skalierungshürden frühzeitig – für zukunftssichere Software mit strategischem Weitblick."
         }
       ]
     },

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ArrowRight, Store, Rocket, Building2, ChevronRight, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -11,9 +11,10 @@ export default function Hero() {
 
   const mottos = t.hero.rotatingTitles || [
     'Solve Bigger Problems',
-    'Always Prioritize People',
+    'Always talk to customers',
     'Build for the Long Term',
-    'Always Have Fun'
+    'Always Have Fun',
+    'Think 10 steps ahead'
   ];
 
   const clickCountRef = useRef(0);
@@ -188,6 +189,18 @@ export default function Hero() {
                     </span>
                   ))}
                 </div>
+
+                {/* Line 5: Motto 5 -> Leftward */}
+                {mottos[4] && (
+                  <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '38s' }}>
+                    {Array.from({ length: 8 }).map((_, idx) => (
+                      <span key={`m5-${idx}`} className="inline-flex items-center gap-6">
+                        <span>{mottos[4]}</span>
+                        <span className="text-nordible-orange text-xs select-none">✦</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Cutout Image with constrained height for complete single-screen visibility */}
