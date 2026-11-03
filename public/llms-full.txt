@@ -173,9 +173,9 @@ Nordible offers three structured, transparent partnership models:
   - *Challenge*: Science-backed habit tracking based on Stephen Guise's Elastic Habits method, demanding 100% offline privacy and cross-platform sync.
   - *Outcome*: Launched unified React Native app across Web and Android cutting engineering costs by 50% with zero cloud data tracking.
   - *Case Study*: https://nordible.co/blog/habitualist-cross-platform-habit-tracker-growth-case-study
-- **Zerodha Sandbox (Fintech Developer Platform)**:
-  - *Challenge*: Interactive API sandbox demonstrating Kite Connect trading endpoints with simulated order flows.
-  - *Outcome*: Complete interactive technical sandbox with 25+ real-time simulated endpoints, accelerating developer integration velocity by 4x.
+- **Zerodha Sandbox (Fintech & Algorithmic Trading)**:
+  - *Challenge*: Testing trading algorithms against live broker APIs introduces financial liability, strict rate limits, and multi-week onboarding delays.
+  - *Outcome*: 100% paper-trade offline simulation suite with 25+ endpoints, eliminating capital risk and accelerating fintech time-to-market by 4x. Open source on GitHub: https://github.com/nordible/zerodha-sandbox.
   - *Case Study*: https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study
 - **NerdsPal.com (Real-Time Developer Knowledge Sharing Community)**:
   - *Challenge*: High-latency chat and disorganized community discussions hindering collaborative problem-solving for programmers.

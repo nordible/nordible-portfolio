@@ -244,12 +244,13 @@ const projects = [
     audience: 'startup' as const,
     logo: '/images/logos/zerodha-logo.png',
     link: 'https://nordible.github.io/zerodha-sandbox/',
+    repoUrl: 'https://github.com/nordible/zerodha-sandbox',
     caseStudySlug: 'zerodha-sandbox-fintech-trading-api-simulator-case-study',
-    description: 'Interactive trading API sandbox demonstrating Zerodha Kite Connect integration with comprehensive endpoints for orders, portfolio, quotes, and market data.',
+    description: 'High-fidelity offline trading API simulation suite eliminating financial risk, rate limits, and onboarding delays for Zerodha Kite Connect integrations.',
 
     technologies: ['TypeScript', 'HTML5', 'CSS3', 'REST API', 'Trading APIs'],
-    outcome: 'Built comprehensive trading API demonstration with real-time dummy data simulation and interactive documentation',
-    image: '/images/portfolio/project-6801648.webp',
+    outcome: 'Enabled risk-free algorithmic testing and 4x faster fintech onboarding with 25+ simulated endpoints and 24/7 CI/CD availability',
+    image: '/images/portfolio/zerodha-sandbox.png',
     metrics: {
       endpoints: '25+',
       coverage: '100%',
@@ -444,8 +445,8 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
   },
   'zerodha-sandbox': {
     client: 'Fintech Developer Tool',
-    description: 'Interaktive Trading-API-Sandbox zur Demonstration der Zerodha Kite Connect-Integration mit umfassenden Endpunkten für Orders, Portfolios und Marktdaten.',
-    outcome: 'Umfassende Handels-API-Demonstration mit Echtzeit-Simulation und interaktiver technischer Dokumentation.',
+    description: 'Simulationsgetreue Offline-Trading-API-Suite für Zerodha Kite Connect – eliminiert Kapitalrisiken, Ratenbegrenzungen und Integrationsverzögerungen.',
+    outcome: '100 % risikofreie Entwicklung von Handelsalgorithmen und 4-fach schnellere Marktreife mit 25+ simulierten Endpunkten rund um die Uhr.',
     metricValues: {
       interactive: 'Ja'
     }

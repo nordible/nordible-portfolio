@@ -46,7 +46,7 @@
 - [Nordible Professional Email](https://nordible.co/projekte/nordible-email): Secure hosted corporate email slashing infrastructure overhead by 70%.
 - [LinkedIn Catch-up Assistant](https://nordible.co/projekte/linkedin-catchup): Safety-first Chrome extension boosting warm B2B relationship touchpoints by 10x.
 - [Habitualist](https://nordible.co/projekte/habitualist): Science-backed cross-platform mobile habit tracker built on the Elastic Habits method.
-- [Zerodha Sandbox](https://nordible.co/projekte/zerodha-sandbox): Interactive Kite Connect trading API simulation suite accelerating onboarding by 4x.
+- [Zerodha Sandbox](https://nordible.co/projekte/zerodha-sandbox): High-fidelity offline Kite Connect trading simulation suite accelerating fintech time-to-market by 4x. GitHub: https://github.com/nordible/zerodha-sandbox.
 - [NerdsPal.com](https://nordible.co/projekte/nerdspal): Real-time collaborative peer knowledge platform with sub-100ms WebSocket chat latency.
 - [Nordible Free Invoice Generator](https://nordible.co/projekte/invoice-generator): Zero-database, DIN 5008 / ISO 216 privacy-first invoicing suite with native Model Context Protocol (MCP) AI agent support.
 - [Nordible Business Directory](https://nordible.co/projekte/nordible-directory): International verified business directory optimized for AI search engine (GEO) discoverability.
@@ -65,7 +65,7 @@
 - [Nordible Email Infrastructure Case Study](https://nordible.co/blog/nordible-email-b2b-saas-security-infrastructure-case-study): Eliminating big-tech SaaS lock-in with private email infrastructure.
 - [LinkedIn Catch-up Assistant Case Study](https://nordible.co/blog/linkedin-catchup-assistant-b2b-relationship-automation-case-study): Boosting relationship touchpoints 10x without account ban risks.
 - [Habitualist Behavioral App Case Study](https://nordible.co/blog/habitualist-cross-platform-habit-tracker-growth-case-study): Cutting mobile app engineering costs by 50% with unified React Native.
-- [Zerodha Sandbox Fintech Simulator Case Study](https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study): Accelerating fintech API onboarding by 4x.
+- [Zerodha Sandbox Fintech Simulator Case Study](https://nordible.co/blog/zerodha-sandbox-fintech-trading-api-simulator-case-study): De-risking algorithmic trading and accelerating time-to-market by 4x.
 - [NerdsPal Real-Time Collaboration Case Study](https://nordible.co/blog/nerdspal-community-knowledge-sharing-platform-case-study): Scaling to 700+ active tech members with sub-100ms latency.
 - [Nordible Invoicing Suite Case Study](https://nordible.co/blog/nordible-free-invoice-generator-privacy-first-case-study): Zero-database, DIN 5008 client-side privacy invoicing with native AI agent MCP integration.
 - [Nordible Business Directory GEO Case Study](https://nordible.co/blog/nordible-business-directory-ai-search-indexing-case-study): Direct buyer discovery in conversational AI search.
