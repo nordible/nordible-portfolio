@@ -411,6 +411,69 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {content.title}
           </h1>
 
+          {/* Case Study Hero Visual */}
+          <div 
+            onClick={() => setActiveLightboxImage(content.heroImage)}
+            className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
+          >
+            <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
+              <img
+                src={content.heroImage.src}
+                alt={content.heroImage.alt}
+                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+                loading="eager"
+              />
+              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                <span>{t.blogPost.fullscreen}</span>
+              </div>
+            </div>
+            {(content.heroImage.caption || content.heroImage.badge || content.heroImage.explanation || content.heroImage.businessBenefit) && (
+              <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
+                {(content.heroImage.caption || content.heroImage.badge) && (
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    {content.heroImage.caption && (
+                      <span className="text-xs font-mono font-semibold text-blue-200">
+                        {content.heroImage.caption}
+                      </span>
+                    )}
+                    {content.heroImage.badge && (
+                      <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-semibold">
+                        <CheckCircle2 className="h-4 w-4" /> {content.heroImage.badge}
+                      </span>
+                    )}
+                  </div>
+                )}
+                {(content.heroImage.explanation || content.heroImage.businessBenefit) && (
+                  <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
+                    {content.heroImage.explanation && (
+                      <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
+                          <Info className="h-3.5 w-3.5" />
+                          {t.blogPost.whatYouSee}
+                        </span>
+                        <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                          {content.heroImage.explanation}
+                        </p>
+                      </div>
+                    )}
+                    {content.heroImage.businessBenefit && (
+                      <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                          <TrendingUp className="h-3.5 w-3.5" />
+                          {t.blogPost.businessBenefit}
+                        </span>
+                        <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
+                          {content.heroImage.businessBenefit}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Intro Paragraphs */}
           <div className="space-y-4">
             {content.introParagraphs.map((para, idx) => (
@@ -474,69 +537,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             ))}
           </div>
         )}
-
-        {/* Case Study Hero Visual */}
-        <div 
-          onClick={() => setActiveLightboxImage(content.heroImage)}
-          className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
-        >
-          <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
-            <img
-              src={content.heroImage.src}
-              alt={content.heroImage.alt}
-              className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
-              loading="eager"
-            />
-            <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-              <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-              <span>{t.blogPost.fullscreen}</span>
-            </div>
-          </div>
-          {(content.heroImage.caption || content.heroImage.badge || content.heroImage.explanation || content.heroImage.businessBenefit) && (
-            <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
-              {(content.heroImage.caption || content.heroImage.badge) && (
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  {content.heroImage.caption && (
-                    <span className="text-xs font-mono font-semibold text-blue-200">
-                      {content.heroImage.caption}
-                    </span>
-                  )}
-                  {content.heroImage.badge && (
-                    <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-semibold">
-                      <CheckCircle2 className="h-4 w-4" /> {content.heroImage.badge}
-                    </span>
-                  )}
-                </div>
-              )}
-              {(content.heroImage.explanation || content.heroImage.businessBenefit) && (
-                <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
-                  {content.heroImage.explanation && (
-                    <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
-                        <Info className="h-3.5 w-3.5" />
-                        {t.blogPost.whatYouSee}
-                      </span>
-                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
-                        {content.heroImage.explanation}
-                      </p>
-                    </div>
-                  )}
-                  {content.heroImage.businessBenefit && (
-                    <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                        <TrendingUp className="h-3.5 w-3.5" />
-                        {t.blogPost.businessBenefit}
-                      </span>
-                      <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-                        {content.heroImage.businessBenefit}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
 
         {/* Dynamic Sections */}
         {content.sections.map((section, sIdx) => (
