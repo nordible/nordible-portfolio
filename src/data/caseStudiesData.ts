@@ -1553,6 +1553,316 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enOncocareArticle, de: deOncocareArticle };
   }
 
+  if (projectId === 'instarem') {
+    const enInstaremArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Fintech Unicorn Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'Fintech Executive & Founder:',
+        subtitle: 'Scale mission-critical payment rails and navigate PCI-DSS compliance audits.',
+        buttonText: 'Discuss FinTech Strategy →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'NIUM Inc. (Instarem.com)',
+        industry: 'Global Remittance & Payments Unicorn',
+        location: 'Singapore & Global Payment Corridors',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'In cross-border consumer FinTech, hyper-growth introduces acute operational stakes: a single compliance failure or regulatory audit snag can freeze international banking licenses, trigger punitive sanctions, and abruptly stall revenue. For Instarem.com—the flagship consumer remittance arm of unicorn NIUM processing over $6B annually across 160+ countries—scaling demanded world-class execution across regulatory compliance and engineering alike.',
+        'Nordible founder Kabeer Shah partnered directly with NIUM’s technology division, taking end-to-end stewardship of the instarem.com technology stack across mobile applications, web platforms, and transaction processing. By resolving critical legal and statutory barriers through successful PCI-DSS certification and regulatory audits, and architecting high-volume payment rails like PhonePe, the platform unlocked massive market corridors with zero downtime.',
+      ],
+      objective: {
+        title: 'Commercial Mission & Regulatory Imperative',
+        text: 'Achieve complete PCI-DSS audit compliance across international jurisdictions, take end-to-end stewardship of mobile and web platforms, and integrate strategic high-volume payment partners like PhonePe.',
+        points: project.businessChallenge.en,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - NIUM Global FinTech Remittance Platform`,
+        badge: 'Unicorn Scale Impact',
+        caption: 'End-to-end technical stewardship by Kabeer Shah with NIUM’s payments division.',
+        businessBenefit: '$6B+ global remittance volume de-risked through flawless PCI-DSS compliance',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Regulatory Gauntlet: Scaling Under Multi-Jurisdiction Audit Pressure',
+          businessTakeaway: 'In international FinTech, technical scaling is meaningless if a single failed PCI-DSS audit can halt operations and freeze banking partner relationships.',
+          paragraphs: [
+            'Cross-border payment platforms operate under intense scrutiny from international financial regulators. As Instarem scaled into dozens of global jurisdictions, the platform was required to satisfy demanding statutory audits and rigid PCI-DSS data vaulting protocols.',
+            'A single vulnerability in payment settlement pipelines or customer data handling exposes a financial institution to severe legal liabilities, reputational damage, and the revocation of operational banking licenses.',
+            'For executive leadership, the challenge was clear: the technology solution had to be architected directly around the explicit requirements of external audits—without sacrificing transaction speed or platform release velocity.',
+          ],
+          cards: [
+            {
+              title: 'Regulatory Exposure',
+              desc: 'Financial authorities enforce zero-tolerance audit standards for payment security and customer data vaults.',
+              badge: 'Statutory Risk',
+              icon: 'shield',
+            },
+            {
+              title: 'Corridor Fragility',
+              desc: 'Inability to clear compliance checks instantly stalls expansion into lucrative foreign exchange markets.',
+              badge: 'Market Barrier',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'End-to-End Platform Stewardship: Mobile App, Web & Transaction Rails',
+          businessTakeaway: 'Unified leadership across consumer mobile applications and core transaction infrastructure eliminates operational silos and guarantees 99.9% availability.',
+          paragraphs: [
+            'To maintain flawless operational continuity across millions of transactions, Kabeer Shah collaborated alongside NIUM’s internal technology team, taking end-to-end responsibility for the instarem.com product ecosystem.',
+            'This holistic stewardship encompassed consumer mobile applications (iOS and Android), web portals, and core transactional routing. By unifying the delivery model under senior architectural direction, the team eliminated handoff friction between mobile and backend engineers.',
+            'The result was a high-concurrency payment engine maintaining 99.9% uptime even during peak holiday remittance seasons and market volatility surges, protecting millions in transaction fee revenue.',
+          ],
+          cards: [
+            {
+              title: 'Unified Product Stewardship',
+              desc: 'Seamless alignment across mobile apps and web checkout flows eliminates drop-offs and operational friction.',
+              badge: 'Operational Leverage',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Surge-Proof Reliability',
+              desc: 'Guaranteed platform stability and sub-second payment routing during peak currency trading windows.',
+              badge: '99.9% Uptime',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Unlocking Strategic Payment Corridors: The PhonePe Integration',
+          businessTakeaway: 'Seamless partner integrations convert dormant market potential into high-volume, automated remittance revenue.',
+          paragraphs: [
+            'In competitive remittance corridors, market leadership is dictated by integration speed with regional consumer payment giants. To expand reach, NIUM prioritized a mission-critical integration with PhonePe.',
+            'Kabeer Shah architected and guided the PhonePe payment rail integration, ensuring frictionless, high-throughput consumer transactions with automated reconciliation and zero checkout drop-offs.',
+            'By delivering the integration as an audit-approved, compliant payment flow, Instarem unlocked vital consumer channels, drastically reduced partner onboarding cycles, and captured high-margin transaction flow in strategic remittance markets.',
+          ],
+          cards: [
+            {
+              title: 'Frictionless Payment Rails',
+              desc: 'Direct payment integration enabling instant, low-cost consumer remittance directly through PhonePe.',
+              badge: 'Commercial Growth',
+              icon: 'bot',
+            },
+            {
+              title: 'Automated Reconciliation',
+              desc: 'High-throughput settlement pipelines eliminating manual transactional reconciliation and margin leakage.',
+              badge: 'Financial Precision',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Legal De-Risking as a Growth Engine: 100% Audit Readiness',
+          businessTakeaway: 'Aligning technology architecture directly with statutory audit requirements transforms compliance from a cost center into a competitive advantage.',
+          paragraphs: [
+            'Rather than treating compliance as an afterthought, Kabeer Shah ensured that every architectural decision was engineered specifically to satisfy the rigorous criteria of PCI-DSS and multi-national financial regulatory audits.',
+            'By establishing institutional data vaults, end-to-end cryptographic audit trails, and automated deployment verification gates, the platform cleared every external audit with a 100% pass rate.',
+            'This legal certainty gave institutional banking partners and enterprise clients the confidence to open high-volume credit lines, positioning Instarem and NIUM as trusted global market leaders.',
+          ],
+          cards: [
+            {
+              title: 'Audit-Approved Architecture',
+              desc: 'Engineered specifically to satisfy external auditors, PCI-DSS mandates, and central bank regulations on Day 1.',
+              badge: 'Regulatory Certainty',
+              icon: 'shield',
+            },
+            {
+              title: 'Institutional Partner Trust',
+              desc: 'Clearing rigorous audits gave global banking partners the confidence to open high-volume liquidity rails.',
+              badge: 'Enterprise Trust',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Fintech & High-Concurrency APIs',
+        title: 'Scale Your Financial Infrastructure with Resilient, Compliant Architecture',
+        desc: 'Speak directly with systems architect Kabeer Shah to evaluate your payment rails, PCI-DSS compliance posture, and partner API integrations.',
+        buttonText: 'Schedule FinTech Discovery Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Book FinTech Call',
+      },
+    };
+
+    const deInstaremArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'FinTech-Unicorn-Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'FinTech-Entscheider & Gründer:',
+        subtitle: 'Skalieren Sie globale Zahlungssysteme und sichern Sie PCI-DSS-Audits revisionssicher ab.',
+        buttonText: 'FinTech-Strategie besprechen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'NIUM Inc. (Instarem.com)',
+        industry: 'Globaler Zahlungsverkehr & FinTech-Infrastruktur',
+        location: 'Singapur & Globale Zahlungskorridore',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Im internationalen FinTech-Sektor birgt explosives Wachstum immense operative Risiken: Ein einziger Fehler bei aufsichtsrechtlichen Prüfungen kann Banklizenzen gefährden, Strafzahlungen nach sich ziehen und das Geschäft abrupt stoppen. Für Instarem.com – das Flaggschiff des FinTech-Unicorns NIUM mit einem jährlichen Transaktionsvolumen von über 6 Mrd. $ in mehr als 160 Ländern – war höchste regulatorische Präzision bei maximaler Ausfallsicherheit geschäftskritisch.',
+        'Nordible-Gründer Kabeer Shah übernahm in enger Zusammenarbeit mit dem Technologieteam von NIUM die ganzheitliche Verantwortung für den instarem.com-Technologiestack über Mobile App, Webportal und Transaktions-Infrastruktur. Durch die erfolgreiche Bewältigung komplexer rechtlicher Auflagen bei PCI-DSS- und Finanz-Audits sowie die Integration strategischer Zahlungskorridore wie PhonePe wurde der Weg für verlässlichen Massenzahlungsverkehr geebnet.',
+      ],
+      objective: {
+        title: 'Geschäftlicher Auftrag & regulatorische Absicherung',
+        text: 'Vollständige PCI-DSS-Audit-Konformität in internationalen Rechtsräumen, ganzheitliche technische Führung von Mobile App und Webplattform sowie strategische Anbindung von Partnern wie PhonePe.',
+        points: project.businessChallenge.de,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.labelDe || m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - NIUM Globale FinTech-Zahlungsplattform`,
+        badge: 'Unicorn-Wachstumserfolg',
+        caption: 'Ganzheitliche technische Verantwortung durch Kabeer Shah mit dem NIUM-Zahlungsteam.',
+        businessBenefit: 'Über 6 Mrd. $ weltweites Zahlungsvolumen durch lückenlose PCI-DSS-Compliance abgesichert',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die regulatorische Bewährungsprobe: Skalierung unter strengen Audit-Auflagen',
+          businessTakeaway: 'Im globalen FinTech-Markt ist Skalierung wertlos, wenn ein einziges nicht bestandenes Audit die Geschäftstätigkeit lahmlegt und Bankpartnerschaften gefährdet.',
+          paragraphs: [
+            'Internationale Zahlungsplattformen stehen unter strikter Aufsicht globaler Finanzaufsichtsbehörden. Bei der Expansion von Instarem in dutzende Länder mussten höchste Sicherheitsanforderungen und strenge PCI-DSS-Datentresore zwingend erfüllt werden.',
+            'Sicherheitslücken in Zahlungsabwicklungen oder unzureichende Audit-Protokolle bergen existenzielle Risiken: Sie führen zu empfindlichen Strafen und im schlimmsten Fall zum Entzug von Bankenlizenzen.',
+            'Für die Geschäftsführung war entscheidend, dass die technische Architektur von Grund auf exakt den gesetzlichen Vorgaben externer Audits entsprach – ohne dabei die Entwicklungsgeschwindigkeit oder Transaktionszeiten zu verlangsamen.',
+          ],
+          cards: [
+            {
+              title: 'Regulatorisches Risiko',
+              desc: 'Finanzbehörden verlangen null Fehlertoleranz bei Zahlungssicherheit und dem Schutz sensibler Finanzdaten.',
+              badge: 'Aufsichtsrecht',
+              icon: 'shield',
+            },
+            {
+              title: 'Marktbarriere',
+              desc: 'Verzögerungen bei Zertifizierungen blockieren den Markteintritt in margenstarke Devisenkorridore.',
+              badge: 'Expansionsrisiko',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Ganzheitliche Technologie-Verantwortung: Mobile App, Web & Zahlungskern',
+          businessTakeaway: 'Die einheitliche Führung über mobile Endkunden-Apps und die zentrale Transaktions-Infrastruktur beseitigt operative Silos und sichert 99,9 % Verfügbarkeit.',
+          paragraphs: [
+            'Um absolute Betriebssicherheit bei Millionen von Transaktionen zu gewährleisten, steuerte Kabeer Shah gemeinsam mit dem NIUM-Team den gesamten Technologie-Stack von instarem.com.',
+            'Diese Verantwortung umfasste die mobilen Apps (iOS und Android), das Webportal sowie die Kern-Transaktionssysteme. Die Zusammenführung unter einer erfahrenen architektonischen Leitung beseitigte Reibungsverluste zwischen verschiedenen Entwicklungsteams.',
+            'Das Ergebnis war eine hochbelastbare Zahlungsplattform, die selbst bei extremen Feiertagsspitzen und Währungsschwankungen 99,9 % Verfügbarkeit garantierte und Transaktionserlöse verlässlich sicherte.',
+          ],
+          cards: [
+            {
+              title: 'Ganzheitliche Produktführung',
+              desc: 'Nahtlose Abstimmung zwischen Mobile Apps und Web-Checkout verhindert Transaktionsabbrüche.',
+              badge: 'Operative Effizienz',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Spitzenlast-Stabilität',
+              desc: 'Garantierte Ausfallsicherheit und Subsekunden-Routing auch bei massiven Volumenspitzen.',
+              badge: '99,9 % Verfügbarkeit',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Erschließung strategischer Korridore: Die PhonePe-Integration',
+          businessTakeaway: 'Nahtlose Partneranbindungen verwandeln ungenutztes Marktpotenzial in planbaren, hochautomatisierten Zahlungsverkehr.',
+          paragraphs: [
+            'In umkämpften Überweisungsmärkten entscheidet die Anbindung an marktführende Bezahldienste über den Markterfolg. Um Marktanteile zu gewinnen, trieb NIUM die strategische Integration von PhonePe voran.',
+            'Kabeer Shah konzipierte und leitete die PhonePe-Schnittstellenanbindung für reibungslose, hochvolumige Endkundenzahlungen mit automatisierter Abstimmung und minimaler Checkout-Reibung.',
+            'Durch die revisionssichere Implementierung erschloss Instarem entscheidende Kundenkanäle, verkürzte Partner-Onboarding-Zyklen und sicherte sich margenstarke Transaktionsströme in zentralen Wachstumsmärkten.',
+          ],
+          cards: [
+            {
+              title: 'Reibungslose Bezahlpfade',
+              desc: 'Direkte Schnittstellenanbindung für sekundenschnelle Auslandsüberweisungen über PhonePe.',
+              badge: 'Wachstumskorridor',
+              icon: 'bot',
+            },
+            {
+              title: 'Automatisierter Abgleich',
+              desc: 'Automatisierte Settlement-Pipelines verhindern manuelle Nachbearbeitung und Einnahmenverluste.',
+              badge: 'Präzision',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Rechtssicherheit als Wettbewerbsvorteil: 100 % Audit-Erfolg',
+          businessTakeaway: 'Die direkte Ausrichtung der Software-Architektur an gesetzlichen Vorgaben macht Compliance vom Kostenfaktor zum strategischen Wachstumstreiber.',
+          paragraphs: [
+            'Anstatt Compliance als lästige Pflicht zu betrachten, stellte Kabeer Shah sicher, dass jede architektonische Entscheidung exakt den Anforderungen von PCI-DSS und internationalen Finanz-Audits entsprach.',
+            'Durch bankenkonforme Datentresore, kryptografische Audit-Trails und automatisierte Prüfprozesse bestand die Plattform sämtliche externe Audits zu 100 % im ersten Anlauf.',
+            'Diese Rechtssicherheit schuf das nötige Vertrauen bei institutionellen Bankpartnern, um umfangreiche Liquiditätskorridore zu öffnen und NIUM als globale FinTech-Größe zu etablieren.',
+          ],
+          cards: [
+            {
+              title: 'Audit-Konforme Architektur',
+              desc: 'Maßgeschneidert nach den Anforderungen externer Auditoren und zentraler Bankenaufsichtsbehörden.',
+              badge: 'Rechtssicherheit',
+              icon: 'shield',
+            },
+            {
+              title: 'Institutionelles Partnervertrauen',
+              desc: 'Bestandene Audits gaben internationalen Bankpartnern das Vertrauen für hochvolumige Kredit- und Liquiditätslinien.',
+              badge: 'Bankenvertrauen',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Fintech & Hochleistungs-APIs',
+        title: 'Finanzinfrastruktur mit belastbaren, konformen APIs skalieren',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über Ihre Zahlungsarchitektur, PCI-DSS-Compliance und strategische API-Anbindungen.',
+        buttonText: 'FinTech-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'FinTech-Gespräch',
+      },
+    };
+
+    return { en: enInstaremArticle, de: deInstaremArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);

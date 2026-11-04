@@ -55,7 +55,7 @@ export const knowledgeBase = {
       company: "Nium Inc. (Instarem)",
       role: "Engineering Lead / Interim Head of Engineering",
       duration: "September 2018 – March 2020",
-      description: "Fintech unicorn: Built and led cross-functional engineering department of 18+ engineers. Directed PCI-DSS compliance roadmap and high-value API integrations including PhonePe. Awarded Best Team.",
+      description: "Fintech unicorn: Managed end-to-end instarem.com technology stack across mobile, web, and transaction rails with NIUM's team. Resolved critical legal and regulatory hurdles by leading successful PCI-DSS audits and high-value API integrations including PhonePe. Awarded Best Team.",
       technologies: ["Node.js", "React.js", "PostgreSQL", "AWS", "PCI-DSS", "Agile Transformation"]
     },
     {

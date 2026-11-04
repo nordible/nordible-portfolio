@@ -413,21 +413,44 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
           {/* Case Study Hero Visual */}
           <div 
-            onClick={() => setActiveLightboxImage(content.heroImage)}
-            className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
+            className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
           >
-            <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
-              <img
-                src={content.heroImage.src}
-                alt={content.heroImage.alt}
-                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
-                loading="eager"
-              />
-              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-                <span>{t.blogPost.fullscreen}</span>
+            {content.client?.link ? (
+              <a
+                href={content.client.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative overflow-hidden bg-black/40 flex items-center justify-center cursor-pointer group/link block"
+                aria-label={language === 'de' ? `Live-Projekt ${content.client.name || ''} öffnen` : `Visit live ${content.client.name || 'project'}`}
+              >
+                <img
+                  src={content.heroImage.src}
+                  alt={content.heroImage.alt}
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover/link:scale-[1.01]"
+                  loading="eager"
+                />
+                <div className="absolute top-4 right-4 px-3.5 py-2 rounded-xl bg-nordible-blue text-white text-xs font-bold font-mono flex items-center gap-2 shadow-lg shadow-blue-500/40 group-hover/link:bg-blue-500 transition-all active:scale-95">
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  <span>{language === 'de' ? 'Live-Projekt öffnen ↗' : 'Visit Live Platform ↗'}</span>
+                </div>
+              </a>
+            ) : (
+              <div 
+                onClick={() => setActiveLightboxImage(content.heroImage)}
+                className="relative overflow-hidden bg-black/40 flex items-center justify-center cursor-zoom-in"
+              >
+                <img
+                  src={content.heroImage.src}
+                  alt={content.heroImage.alt}
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.01]"
+                  loading="eager"
+                />
+                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                  <span>{t.blogPost.fullscreen}</span>
+                </div>
               </div>
-            </div>
+            )}
             {(content.heroImage.caption || content.heroImage.badge || content.heroImage.explanation || content.heroImage.businessBenefit) && (
               <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
                 {(content.heroImage.caption || content.heroImage.badge) && (
@@ -599,21 +622,44 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {/* Section Single Image */}
             {section.image && (
               <div 
-                onClick={() => section.image && setActiveLightboxImage(section.image)}
-                className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-800 bg-gray-950 shadow-xl group my-6 cursor-zoom-in transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
+                className="relative rounded-2xl overflow-hidden border border-nordible-border dark:border-gray-800 bg-gray-950 shadow-xl group my-6 transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
               >
-                <div className="relative overflow-hidden bg-black/40 flex items-center justify-center">
-                  <img
-                    src={section.image.src}
-                    alt={section.image.alt}
-                    className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
-                    <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
-                    <span>{t.blogPost.fullscreen}</span>
+                {content.client?.link ? (
+                  <a
+                    href={content.client.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative overflow-hidden bg-black/40 flex items-center justify-center cursor-pointer group/link block"
+                    aria-label={language === 'de' ? `Live-Projekt ${content.client.name || ''} öffnen` : `Visit live ${content.client.name || 'project'}`}
+                  >
+                    <img
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      className="w-full h-auto object-contain transition-transform duration-300 group-hover/link:scale-[1.01]"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-lg bg-nordible-blue text-white text-xs font-bold font-mono flex items-center gap-1.5 shadow-md group-hover/link:bg-blue-500 transition-all">
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      <span>{language === 'de' ? 'Live-Projekt ↗' : 'Visit Live ↗'}</span>
+                    </div>
+                  </a>
+                ) : (
+                  <div 
+                    onClick={() => section.image && setActiveLightboxImage(section.image)}
+                    className="relative overflow-hidden bg-black/40 flex items-center justify-center cursor-zoom-in"
+                  >
+                    <img
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                      <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
+                      <span>{t.blogPost.fullscreen}</span>
+                    </div>
                   </div>
-                </div>
+                )}
                 {(section.image.caption || section.image.badge || section.image.explanation || section.image.businessBenefit) && (
                   <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
                     {(section.image.caption || section.image.badge) && (
@@ -1345,6 +1391,17 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   {activeLightboxImage.badge}
                 </span>
+              )}
+              {content.client?.link && (
+                <a
+                  href={content.client.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 rounded-xl bg-nordible-blue hover:bg-blue-500 text-white text-xs font-bold font-mono flex items-center gap-1.5 transition-all shadow-md active:scale-95"
+                >
+                  <span>{language === 'de' ? 'Live-Projekt öffnen' : 'Open Live Project'}</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               )}
             </div>
 

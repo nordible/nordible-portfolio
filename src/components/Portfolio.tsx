@@ -29,18 +29,18 @@ const projects = [
   {
     id: 'instarem',
     title: 'Instarem.com',
-    client: 'NIUM',
+    client: 'NIUM Inc.',
     audience: 'startup' as const,
     logo: '/images/logos/InstaRem_logo.svg',
     link: 'https://www.instarem.com',
     caseStudySlug: 'nium-instarem-fintech-remittance-scale-case-study',
-    description: 'Flagship fintech product for cost-effective foreign remittances serving millions of users globally.',
-    technologies: ['Node.js', 'React.js', 'PostgreSQL', 'Mocha', 'AWS'],
-    outcome: 'Successfully delivered a platform processing millions in remittances with 99.9% uptime',
-    image: '/images/portfolio/project-6801648.webp',
+    description: 'End-to-end technology stewardship for NIUM’s instarem.com by Kabeer Shah—overseeing mobile, web, PCI-DSS compliance audits, and high-volume PhonePe payment rails.',
+    technologies: ['Cross-Border Remittance', 'PCI-DSS Compliance', 'PhonePe Rails', 'Mobile & Web Stack'],
+    outcome: 'Scaled global remittance rails with 100% audit pass rate and seamless PhonePe integration',
+    image: '/images/portfolio/nium-instarem-fintech.png',
     metrics: {
       users: '1M+',
-      transactions: '$100M+',
+      transactions: '$6B+',
       uptime: '99.9%'
     },
     gradient: 'from-purple-600 to-blue-600'
