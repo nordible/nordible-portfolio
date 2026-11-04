@@ -9,16 +9,16 @@ export type AudienceType = 'all' | 'local' | 'startup' | 'enterprise';
 const projects = [
   {
     id: 'oncocare',
-    title: 'CareIntellect Platform',
-    client: 'General Electric',
+    title: 'CareIntellect (Oncology Platform)',
+    client: 'General Electric Healthcare',
     audience: 'enterprise' as const,
     logo: '/images/logos/GeneralElectric_logo.svg',
     link: 'https://www.gehealthcare.com/en/products/software/careintellect',
     caseStudySlug: 'ge-healthcare-careintellect-oncology-case-study',
-    description: 'Comprehensive oncology care assistant platform for clinicians to manage patient data and enable confident cancer care decision-making.',
-    technologies: ['Node.js', 'PostgreSQL', 'React.js', 'AWS', 'Leadership'],
-    outcome: 'Improved patient care coordination by 40% and reduced data processing time by 60%',
-    image: '/images/portfolio/project-4386466.webp',
+    description: 'Oncology care intelligence platform developed with GE Healthcare Budapest, featuring a lightweight longitudinal timeline UI and closed-loop treatment optimization.',
+    technologies: ['Clinical Decision Support', 'Care Timeline UX', 'HIPAA Compliance', 'Cloud Architecture'],
+    outcome: 'Slashed clinician data bottlenecks by 60% with instantaneous longitudinal patient tracking',
+    image: '/images/portfolio/ge-careintellect-oncology.png',
     metrics: {
       users: '10K+',
       improvement: '40%',

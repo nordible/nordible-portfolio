@@ -666,7 +666,7 @@ export const translations: Record<Language, Translations> = {
           company: "Quest Global (GE Healthcare, Baxter/Vantive & Nipro)",
           description: "Directing software delivery and architectural strategy for global healthcare and medical device leaders.",
           highlights: [
-            "Architected GE Healthcare's 'OncoCare' decision-support platform aggregating complex patient data for cancer care.",
+            "Architected GE Healthcare's 'CareIntellect / OncoCare' oncology platform with the Budapest team, designing a lightweight timeline UI and closed-loop cancer treatment optimization engine.",
             "Led backend strategy for Baxter/Vantive's Remote Service Tool (RST) using AWS IoT & Lambda for remote device diagnostics.",
             "Directed the SDLC for critical medical device support systems for Nipro under strict FDA & HIPAA compliance.",
             "Enforced standardized checklist-driven development to minimize deployment errors."
@@ -1220,7 +1220,7 @@ export const translations: Record<Language, Translations> = {
           company: "Quest Global (GE Healthcare, Baxter/Vantive & Nipro)",
           description: "Leitung der Softwareentwicklung und Architekturstrategie für weltweit führende MedTech- und Gesundheitsunternehmen.",
           highlights: [
-            "Architektur der OncoCare-Entscheidungsunterstützungsplattform für GE Healthcare zur Aggregation komplexer onkologischer Patientendaten.",
+            "Architektur der 'CareIntellect / OncoCare'-Onkologieplattform in Zusammenarbeit mit dem GE Healthcare-Team in Budapest: Leichtgewichtige Behandlungszeitachse und datenbasierte Therapieoptimierung.",
             "Leitung der Backend-Strategie für das Remote Service Tool (RST) von Baxter/Vantive mit AWS IoT und Lambda zur Fernwartung von Medizingeräten.",
             "Steuerung des SDLC für geschäftskritische Medizinprodukte-Supportsysteme für Nipro unter strengen FDA- und HIPAA-Vorgaben.",
             "Einführung standardisierter Checklisten-Prozesse zur Minimierung von Deployment-Fehlern."

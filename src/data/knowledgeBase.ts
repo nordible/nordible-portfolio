@@ -41,7 +41,7 @@ export const knowledgeBase = {
       company: "Quest Global",
       role: "Technical Lead / Engineering Manager",
       duration: "May 2023 – June 2026",
-      description: "Led engineering delivery for enterprise leaders including GE Healthcare, Vantive (Baxter Healthcare), and Nipro. Architected OncoCare oncology decision-support platform for GE Healthcare; engineered AWS IoT and Lambda backend for Baxter's Remote Service Tool (RST).",
+      description: "Led engineering delivery for enterprise leaders including GE Healthcare, Vantive (Baxter Healthcare), and Nipro. Collaborated online with GE Healthcare's Budapest team to architect CareIntellect for Oncology—featuring a lightweight timeline UI and closed-loop cancer treatment optimization engine; engineered AWS IoT and Lambda backend for Baxter's Remote Service Tool (RST).",
       technologies: ["Node.js", "PostgreSQL", "AWS IoT", "AWS Lambda", "TDD", "HIPAA Compliance"]
     },
     {

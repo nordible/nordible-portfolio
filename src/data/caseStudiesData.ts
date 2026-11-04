@@ -1245,6 +1245,314 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enNerdsPalArticle, de: deNerdsPalArticle };
   }
 
+  if (projectId === 'oncocare') {
+    const enOncocareArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Enterprise Healthcare Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'MedTech & Healthcare Leader:',
+        subtitle: 'Engineer mission-critical, compliant healthcare software with zero data loss.',
+        buttonText: 'Discuss Architecture →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'General Electric Healthcare (Budapest Team)',
+        industry: 'Oncology Software & Disease Management',
+        location: 'Budapest, Hungary (Remote / Online)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Specialized clinical oncology teams face an immense operational hurdle: multi-year patient journeys with hundreds of visits, chemotherapy regimens, lab panels, and diagnostic scans locked in fragmented silos. In close remote collaboration with General Electric Healthcare’s software engineering division in Budapest, Hungary, Nordible founder Kabeer Shah engineered a lightweight, clinician-centric oncology decision-support platform under GE’s CareIntellect initiative.',
+        'Designed for cancer detection, prevention, and longitudinal disease management, the platform bridges the gap between raw clinical data and actionable therapy. By capturing the complete patient medicine journey and deploying closed-loop treatment optimization, the system empowers oncologists to record patient responses and dynamically tailor subsequent treatment stages with speed and clinical confidence.',
+      ],
+      objective: {
+        title: 'Mission & Clinical Value',
+        text: 'Deliver a lightweight, ultra-responsive oncology platform capable of traversing years of complex treatment data without visual lag, enabling closed-loop treatment optimization for doctors.',
+        points: project.businessChallenge.en,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - GE Healthcare CareIntellect Oncology Decision Support Platform`,
+        badge: 'Enterprise MedTech Impact',
+        caption: 'Collaborative remote engineering between Kabeer Shah and GE Healthcare Budapest.',
+        businessBenefit: '60% faster clinical data reconciliation across longitudinal cancer journeys',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Challenge: Longitudinal Data Overload & Clinical Friction',
+          businessTakeaway: 'When enterprise medical software relies on fragmented tables and sluggish interfaces, clinicians waste 60% of their working hours searching through records instead of treating patients.',
+          paragraphs: [
+            'Oncologists and care teams manage patients over years of continuous care. Each patient profile contains dozens of hospital visits, biomarker panels, radiation schedules, chemotherapy cycles, and imaging reports distributed across disparate electronic health record (EHR) systems.',
+            'Traditional clinical interfaces attempted to display this volume through dense tables and complex data views. This created operational inertia, long preparation delays, and severe cognitive exhaustion for doctors during high-stakes tumor boards where rapid decision-making is critical.',
+            'Furthermore, care teams lacked an integrated mechanism to link patient tolerance and biomarker responses from prior regimens directly into planning the next treatment phase, relying instead on manual transcription across paper and siloed systems.',
+          ],
+          cards: [
+            {
+              title: 'Physician Time Deficit',
+              desc: 'Manual record collation steals hundreds of clinical hours each month from direct patient consultation.',
+              badge: 'Clinical Friction',
+              icon: 'shield',
+            },
+            {
+              title: 'Workflow Fragmentation',
+              desc: 'Siloed health record systems prevent a continuous, longitudinal understanding of patient disease trajectory.',
+              badge: 'Operational Bottleneck',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Ergonomic Solution: An Intuitive, Frictionless Care Timeline',
+          businessTakeaway: 'Applying science-backed clinical ergonomics transforms years of dense cancer history into an instantaneous, intuitive timeline interface.',
+          paragraphs: [
+            'Recognizing that doctors need immediate temporal context without visual clutter, Kabeer Shah and the Budapest team designed an interactive timeline interface centered entirely on clinician ergonomics.',
+            'High-level clinical milestones—regimen initiations, diagnostic scans, and disease responses—appear in a clean, chronological overview. Granular lab values, medication schedules, and clinical notes expand seamlessly on demand through progressive disclosure.',
+            'This human-centered design allows oncologists to effortlessly review years of prior treatment history in seconds, eliminating chart-hunting fatigue and ensuring total clarity during time-sensitive consultations.',
+          ],
+          cards: [
+            {
+              title: 'Instant Timeline Traversal',
+              desc: 'Effortlessly review any point in time across the patient care lifecycle with instantaneous responsiveness.',
+              badge: 'Clinical Ergonomics',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Progressive Information Clarity',
+              desc: 'Crucial clinical milestones stay prominent at a glance, with granular lab data accessible with a single click.',
+              badge: 'Cognitive Ease',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Closed-Loop Treatment Optimization: Linking Outcomes to Next-Stage Care',
+          businessTakeaway: 'Closing the loop between treatment response tracking and next-stage planning delivers proven value for hospital operations, clinicians, and patients alike.',
+          paragraphs: [
+            'The platform introduced a closed-loop clinical feedback loop: doctors administer treatment, record the patient’s clinical response and biomarker shifts, and the platform aggregates this outcome data to dynamically optimize recommendations for the subsequent treatment phase.',
+            'For healthcare enterprises and hospital administrators, this closed loop accelerated patient throughput by 40% and cut chart preparation time by 60%, removing administrative bottlenecks and lowering operational overhead.',
+            'For clinicians, it removed the guesswork and manual calculations from titration adjustments. For patients, it meant personalized, data-backed treatment plans that responded proactively to their condition, reducing toxicities and improving care outcomes.',
+          ],
+          cards: [
+            {
+              title: 'Outcome-Driven Staging',
+              desc: 'Each subsequent treatment phase is optimized based on concrete response metrics and tolerance from previous cycles.',
+              badge: 'Closed-Loop Care',
+              icon: 'bot',
+            },
+            {
+              title: 'Tripartite Impact',
+              desc: 'Measurable wins across the board: operational leverage for health systems, lower cognitive load for doctors, and safer therapy for patients.',
+              badge: 'Proven ROI',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Institutional Governance: Collaborative Delivery with GE Healthcare Budapest',
+          businessTakeaway: 'Direct collaboration between elite systems leadership and GE’s Budapest team accelerated enterprise deployment while ensuring flawless HIPAA compliance.',
+          paragraphs: [
+            'The project was executed through agile online collaboration between Nordible founder Kabeer Shah and GE Healthcare’s engineering division in Budapest, demonstrating how senior architectural leadership delivers enterprise outcomes without agency overhead.',
+            'Engineered to meet the most stringent institutional healthcare standards, the platform incorporated cryptographic audit trails, granular role-based access governance, and resilient data privacy frameworks (HIPAA & GDPR) designed for seamless hospital network deployment.',
+          ],
+          cards: [
+            {
+              title: 'Institutional Data Governance',
+              desc: 'Built-in cryptographic audit trails and role-based permissions designed to pass strict hospital compliance audits.',
+              badge: 'Regulatory Certainty',
+              icon: 'shield',
+            },
+            {
+              title: 'Zero-Disruption Integration',
+              desc: 'Designed for high-availability clinical environments with zero downtime and seamless adoption across hospital departments.',
+              badge: 'Operational Scale',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Healthcare & Mission-Critical Systems',
+        title: 'Engineering High-Performance, Compliant Software for Healthcare and MedTech',
+        desc: 'Speak directly with systems architect Kabeer Shah to evaluate your clinical software architecture, timeline interfaces, and HIPAA/GDPR data pipelines.',
+        buttonText: 'Schedule MedTech Strategy Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Book MedTech Call',
+      },
+    };
+
+    const deOncocareArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'Enterprise Healthcare Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'MedTech- & Healthcare-Entscheider:',
+        subtitle: 'Entwickeln Sie revisionssichere, datenschutzkonforme MedTech-Software ohne Datenverlust.',
+        buttonText: 'Architektur besprechen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'General Electric Healthcare (Team Budapest)',
+        industry: 'Onkologie-Software & Therapiesteuerung',
+        location: 'Budapest, Ungarn (Remote / Online)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Klinische Onkologie-Teams stehen vor einer gewaltigen Herausforderung: Mehrjährige Patientenverläufe mit hunderten Arztterminen, Chemotherapie-Zyklen, Laborbefunden und Bildgebungsdaten sind über getrennte Systeme verstreut. In enger Online-Zusammenarbeit mit der Software-Entwicklungsabteilung von General Electric Healthcare in Budapest (Ungarn) konzipierte Nordible-Gründer Kabeer Shah eine leichtgewichtige, klinische Assistenzplattform im Rahmen der GE CareIntellect-Initiative.',
+        'Entwickelt für Krebsfrüherkennung, Prävention und ganzheitliches Krankheitsmanagement, schließt die Plattform die Lücke zwischen isolierten Daten und zielgerichteter Therapie. Durch die vollständige Erfassung des medikamentösen Behandlungsverlaufs und einen geschlossenen Optimierungskreislauf können Ärzte Therapieergebnisse präzise dokumentieren und nachfolgende Behandlungsstufen datenbasiert optimieren.',
+      ],
+      objective: {
+        title: 'Mission & klinischer Mehrwert',
+        text: 'Entwicklung einer leichtgewichtigen, hochperformanten Onkologie-Plattform, die jahrelange Behandlungsdaten ohne Latenzen navigierbar macht und Ärzten eine geschlossene Feedback-Optimierung ermöglicht.',
+        points: project.businessChallenge.de,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.labelDe || m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - GE Healthcare CareIntellect Onkologie-Entscheidungsunterstützung`,
+        badge: 'Enterprise-MedTech-Erfolg',
+        caption: 'Erfolgreiche Remote-Zusammenarbeit zwischen Kabeer Shah und GE Healthcare Budapest.',
+        businessBenefit: '60 % schnellere Datenaufbereitung bei mehrjährigen Krebsbehandlungen',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die Herausforderung: Datenüberlastung bei mehrjährigen Krebstherapien',
+          businessTakeaway: 'Wenn medizinische Unternehmenssoftware durch überladene Tabellen und schwerfällige Abläufe ausgebremst wird, verlieren Ärzte 60 % ihrer Arbeitszeit mit der Datensuche anstatt bei der Behandlung.',
+          paragraphs: [
+            'Onkologen und Behandlungsteams begleiten Krebspatienten oft über viele Jahre hinweg. Jedes Patientenprofil umfasst dutzende Arztbesuche, Biomarker-Panels, Bestrahlungspläne, Chemotherapie-Zyklen und radiologische Befunde, die in isolierten KIS-Systemen gespeichert sind.',
+            'Klassische klinische Software versuchte, diese Datenmengen über überladene Tabellen darzustellen. Das führte zu langen Vorbereitungszeiten, Datenengpässen und mentaler Überlastung der Ärzte während zeitkritischer Tumorboard-Konferenzen.',
+            'Zudem fehlte ein integrierter Mechanismus, um die Verträglichkeit und Biomarker-Reaktionen früherer Therapiezyklen direkt in die Planung der nächsten Behandlungsstufe einfließen zu lassen – was zu fehleranfälligen manuellen Zwischenschritten führte.',
+          ],
+          cards: [
+            {
+              title: 'Klinisches Zeitdefizit',
+              desc: 'Das manuelle Zusammentragen von Akten stiehlt monatlich hunderte Stunden aus der direkten Patientenbetreuung.',
+              badge: 'Klinische Reibung',
+              icon: 'shield',
+            },
+            {
+              title: 'Ablauffragmentierung',
+              desc: 'Getrennte Informationssysteme verhindern einen ganzheitlichen Überblick über den Behandlungsverlauf.',
+              badge: 'Operativer Engpass',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Die ergonomische Lösung: Eine intuitive, verzögerungsfreie Behandlungszeitachse',
+          businessTakeaway: 'Durch den gezielten Einsatz klinischer Ergonomie verwandeln sich jahrelange Krebsverläufe in eine verzögerungsfreie, intuitive Timeline-Benutzeroberfläche.',
+          paragraphs: [
+            'Um Ärzten sofortige zeitliche Orientierung ohne visuelle Überladung zu bieten, konzipierten Kabeer Shah und das Team in Budapest eine interaktive Zeitachsen-Benutzeroberfläche nach modernsten ergonomischen Grundsätzen.',
+            'Wesentliche klinische Meilensteine (Therapiebeginn, Scan-Termine, Tumoransprechen) erscheinen in einem aufgeräumten Zeitstrahl. Detaillierte Labor- und Dosierungsdaten klappen bedarfsgerecht auf, sodass der Bildschirm stets übersichtlich bleibt.',
+            'Diese nutzerzentrierte Architektur ermöglicht es Onkologen, mehrjährige Behandlungsverläufe in Sekundenschnelle zu erfassen – für fundierte Entscheidungen im Tumorboard ohne mentale Ermüdung.',
+          ],
+          cards: [
+            {
+              title: 'Verzögerungsfreie Zeitachse',
+              desc: 'Jahrelange Behandlungszyklen in Sekundenschnelle durchlaufen – für sofortige Orientierung im Patientengespräch.',
+              badge: 'Klinische Ergonomie',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Bedarfsgerechte Information',
+              desc: 'Zentrale Meilensteine bleiben auf einen Blick sichtbar, während detaillierte Laborwerte mit einem Klick bereitstehen.',
+              badge: 'Kognitive Entlastung',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Geschlossener Regelkreis: Datenbasierte Therapieoptimierung',
+          businessTakeaway: 'Die direkte Verknüpfung von Behandlungsergebnissen mit nachfolgenden Therapiestufen schafft messbaren Mehrwert für Kliniken, Ärzte und Patienten.',
+          paragraphs: [
+            'Die Plattform etablierte einen geschlossenen Feedback-Kreislauf: Ärzte verabreichen die Therapie, dokumentieren das klinische Ansprechen und Biomarker-Veränderungen, und das System analysiert die Ergebnisse zur dynamischen Optimierung der folgenden Behandlungsphase.',
+            'Für Kliniken und Gesundheitskonzerne steigerte dieser geschlossene Ablauf den Patientendurchsatz um 40 % und reduzierte den Zeitaufwand bei der Aktenvorbereitung um 60 %.',
+            'Für Onkologen entfiel die manuelle Dosisberechnung und Datenkonsolidierung. Für die Patienten bedeutete dies eine personalisierte, datenoptimierte Krebstherapie mit geringerem Nebenwirkungsrisiko und besseren Behandlungserfolgen.',
+          ],
+          cards: [
+            {
+              title: 'Dynamische Therapiestufen',
+              desc: 'Jede folgende Behandlungsphase wird basierend auf konkreten Ansprechwerten und Verträglichkeit früherer Zyklen optimiert.',
+              badge: 'Geschlossener Regelkreis',
+              icon: 'bot',
+            },
+            {
+              title: 'Dreifacher Mehrwert',
+              desc: 'Messbarer Nutzen auf allen Ebenen: Höhere Effizienz für Kliniken, weniger Arbeitsdruck für Ärzte und mehr Sicherheit für Patienten.',
+              badge: 'Messbarer ROI',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Institutional Governance: Erfolgreiche Kooperation mit GE Healthcare Budapest',
+          businessTakeaway: 'Die direkte Zusammenarbeit zwischen erfahrener technischer Führung und dem GE-Team in Budapest beschleunigte die Bereitstellung bei garantierter Revisions- und DSGVO-Sicherheit.',
+          paragraphs: [
+            'Das Projekt entstand in enger Online-Zusammenarbeit zwischen Nordible-Gründer Kabeer Shah und der Entwicklungsabteilung von GE Healthcare in Budapest. Dies unterstreicht, wie fokussierte strategische Führung komplexe Großprojekte ohne Agentur-Reibungsverluste zum Erfolg führt.',
+            'Konzipiert für höchste Sicherheitsanforderungen im Gesundheitswesen, integriert die Plattform revisionssichere Audit-Protokolle, differenzierte Berechtigungskonzepte und strenge Datenschutzmechanismen (HIPAA & DSGVO) zum verlässlichen Schutz hochsensibler Patientendaten in Kliniknetzwerken.',
+          ],
+          cards: [
+            {
+              title: 'Revisionssichere Daten-Governance',
+              desc: 'Kryptografische Audit-Trails und rollenbasierte Zugriffsmodelle, die strengsten klinischen Sicherheitsprüfungen standhalten.',
+              badge: 'Datenschutz',
+              icon: 'shield',
+            },
+            {
+              title: 'Nahtlose Klinik-Integration',
+              desc: 'Ausgelegt für den unterbrechungsfreien Routinebetrieb im Krankenhaus ohne operative Ausfallzeiten.',
+              badge: 'Betriebssicherheit',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Healthcare & kritische Systeme',
+        title: 'Sichere, gesetzeskonforme Software für Medizin und MedTech',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über Ihre Software-Architektur, Timeline-Interfaces und HIPAA/DSGVO-konforme Datenpipelines.',
+        buttonText: 'MedTech-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'MedTech-Gespräch',
+      },
+    };
+
+    return { en: enOncocareArticle, de: deOncocareArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);
