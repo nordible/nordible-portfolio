@@ -223,14 +223,14 @@ const projects = [
     logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0NSIgZmlsbD0iIzQzMzhjYSIvPjxwYXRoIGQ9Ik0zNSA1MGwxMCAxMCAyMC0yMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiLz48L3N2Zz4=',
     link: 'https://habitualist.app',
     caseStudySlug: 'habitualist-cross-platform-habit-tracker-growth-case-study',
-    description: 'A science-backed habit tracker using the Elastic Habits method to help users build sustainable consistency without the guilt of streaks. Built as a cross-platform solution from the ground up.',
-    technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    outcome: 'Successfully launched cross-platform (Web & Android) with a privacy-first, science-backed approach to habit formation.',
-    image: '/images/portfolio/project-48604.webp',
+    description: 'A science-backed B2C mobile application solving the 90% app churn crisis with the Elastic Habits method and unified cross-platform architecture.',
+    technologies: ['React Native', 'React.js', 'TypeScript', 'Node.js', 'Behavioral UX'],
+    outcome: 'Halved engineering costs with a single Web & Android codebase while maximizing 30-day user retention.',
+    image: '/images/portfolio/habitualist-app-hero.png',
     metrics: {
-      platform: 'Web & Android',
-      method: 'Elastic Habits',
-      privacy: '100% Private'
+      cost_reduction: '-50% Dev Cost',
+      retention: 'High LTV',
+      privacy: '100% Offline'
     },
     gradient: 'from-indigo-600 to-purple-600'
   },
@@ -460,11 +460,13 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
     }
   },
   'habitualist': {
-    client: 'Eigenprodukt',
-    description: 'Wissenschaftlich fundierter Gewohnheitstracker nach der Elastic-Habits-Methode für nachhaltige Kontinuität ohne Streak-Druck als moderne plattformübergreifende Lösung.',
-    outcome: 'Erfolgreicher plattformübergreifender Launch (Web & Android) mit einem datenschutzorientierten, wissenschaftlichen Ansatz.',
+    client: 'B2C-Mobile-Venture',
+    description: 'Verhaltenswissenschaftlich fundierte B2C-App zur Lösung der 90 % Churn-Krise: Elastische Gewohnheiten ohne Streak-Druck auf einer einheitlichen Cross-Platform-Architektur.',
+    outcome: 'Halbierung der Entwicklungskosten durch simultanen Web- & Android-Launch bei maximaler Nutzerbindung und 100 % lokaler Privatsphäre.',
     metricValues: {
-      privacy: '100% Privat'
+      cost_reduction: '-50 % Kosten',
+      retention: 'Hohe Bindung',
+      privacy: '100 % Offline'
     }
   },
   'zerodha-sandbox': {

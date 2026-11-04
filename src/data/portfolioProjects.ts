@@ -934,39 +934,39 @@ export const portfolioProjects: ProjectData[] = [
     clientRole: 'Behavioral Science & Mobile Venture',
     audience: 'startup',
     badge: {
-      en: 'Cross-Platform Mobile · Behavioral Tech',
-      de: 'Cross-Platform Mobile · Verhaltensökonomie',
+      en: 'B2C Mobile Venture · Behavioral Science',
+      de: 'B2C-Mobile-App · Verhaltensökonomie',
     },
     heroHeadline: {
-      en: 'Slashing Mobile Engineering Costs by 50% with a Unified Cross-Platform Codebase Built on Behavioral Science',
-      de: 'Halbierung der Entwicklungskosten durch einheitliche Cross-Platform-Architektur für Web und Mobile',
+      en: 'Solving the 90% B2C App Churn Crisis: How Behavioral UX & Cross-Platform Architecture Slashed Engineering Costs by 50%',
+      de: 'Lösung der 90 % Churn-Krise bei B2C-Apps: Wie Verhaltens-UX und Cross-Platform-Architektur die Entwicklungskosten um 50 % senkten',
     },
     executiveSummary: {
-      en: 'Most mobile consumer startups burn through seed capital by maintaining separate iOS, Android, and web engineering teams, while suffering 90% user churn caused by punitive streak mechanics. Nordible engineered Habitualist using a unified React Native architecture implementing the scientifically proven "Elastic Habits" method—launching on Web & Android simultaneously at half the development cost with zero user data tracking.',
-      de: 'Startups verbrennen ihr Kapital häufig durch getrennte Entwicklerteams für iOS, Android und Web, während unrealistische Produktmechaniken zu hohen Abbruchquoten führen. Nordible konzipierte Habitualist auf einer gemeinsamen React Native-Basis nach der wissenschaftlich fundierten „Elastic Habits“-Methode – simultaner Launch für Web und Android bei 50 % geringerem Budget und vollständigem Datenschutz.',
+      en: 'Consumer mobile startups burn critical venture capital by maintaining separate native iOS, Android, and web teams, only to suffer 90%+ 30-day user churn caused by punitive "streak shame" product mechanics. Kabeer Shah worked with the product and design team to build Habitualist: a science-backed B2C mobile application built on the "Elastic Habits" behavioral paradigm. By offering flexible multi-tiered goals (Mini, Plus, Elite), Habitualist eliminates the guilt of broken streaks to radically boost long-term retention. Engineered with a unified React Native architecture and 100% offline-first local privacy, the platform launched on Web and Mobile simultaneously at half the development cost with zero recurring cloud database overhead.',
+      de: 'B2C-Mobile-Startups verbrennen ihr Wagniskapital häufig durch getrennte Entwicklerteams für iOS, Android und Web, nur um über 90 % ihrer Nutzer durch bestrafende „Streak“-Mechaniken innerhalb von 30 Tagen zu verlieren. Kabeer Shah entwickelte gemeinsam mit dem Produkt- und Designteam Habitualist: eine verhaltenswissenschaftlich fundierte B2C-App nach der „Elastic Habits“-Methode. Durch flexible Zielstufen (Mini, Plus, Elite) verhindert Habitualist die Demotivation gebrochener Gewohnheits-Streaks und steigert die langfristige Nutzerbindung drastisch. Auf Basis einer einheitlichen React Native-Architektur mit 100 % lokaler Offline-Privatsphäre startete die App simultan für Web und Android – bei 50 % reduzierten Entwicklungskosten und ohne teure Server-Infrastruktur.',
     },
     businessChallenge: {
       en: [
-        'Developing native mobile apps separately for iOS, Android, and Web doubles or triples capital expenditure and slows feature iteration.',
-        'Traditional habit trackers rely on rigid daily streaks; when users miss one day, shame causes them to delete the app, driving up customer acquisition churn.',
-        'Privacy regulations (GDPR/CCPA) impose legal risks on consumer health and wellness apps that hoard user habit logs.',
+        'The 90% Day-30 Churn Trap: B2C habit apps lose almost all acquired users because rigid streaks punish normal life interruptions, causing user guilt and immediate uninstalls.',
+        'Fragmented Mobile CapEx: Maintaining distinct codebases and engineering teams for iOS, Android, and Web burns early-stage capital 2x to 3x faster, slowing product-market fit iteration.',
+        'Consumer Privacy Backlash: Increasingly privacy-conscious consumers reject apps that track intimate personal daily habits and harvest health telemetry.',
       ],
       de: [
-        'Getrennte native App-Entwicklungen für iOS, Android und Browser vervielfachen die Kosten und verlangsamen Produktanpassungen.',
-        'Starre Streak-Modelle führen bei versäumten Tagen zu Frustration und schnellen Deinstallationen.',
-        'Verstärkte Datenschutzanforderungen machen das Sammeln sensibler Nutzerdaten zum unkalkulierbaren Haftungsrisiko.',
+        'Die 90 % Day-30-Churn-Falle: B2C-Apps verlieren den Großteil teuer akquirierter Nutzer, weil starre Streaks normale Lebensunterbrechungen bestrafen und Frustration erzeugen.',
+        'Zersplitterte Entwicklungsbudgets: Getrennte Codebasen für iOS, Android und Web verbrauchen Kapital 2- bis 3-mal schneller und verlangsamen Produktanpassungen.',
+        'Wachsendes Datenschutz-Misstrauen: Nutzer verweigern zunehmend Apps, die persönliche Gewohnheiten, Tagesabläufe und Verhaltensdaten auf fremde Server übertragen.',
       ],
     },
     strategicSolution: {
       en: [
-        'Engineered a single, unified codebase using React Native, delivering native performance on mobile and fluid responsiveness on desktop web.',
-        'Implemented the scientifically backed Elastic Habits paradigm, offering tiered daily goals (Mini, Plus, Elite) that drastically reduce user churn.',
-        'Designed a privacy-first offline storage engine: 100% of habit data stays on the user’s device without surveillance analytics.',
+        'Science-Backed Behavioral UX (Elastic Habits): Implemented multi-tiered elastic goal structures (Mini, Plus, Elite) that keep user momentum alive even on bad days, boosting Day-30 and Day-90 retention.',
+        'Unified Cross-Platform Architecture: Architected a single React Native codebase with shared business logic and responsive layouts, launching simultaneously on Android and Web at 50% lower engineering costs.',
+        'Zero-Knowledge Offline-First Engine: 100% of habit logs and personal schedules reside locally on the device with zero third-party tracking, eliminating cloud database costs and liability.',
       ],
       de: [
-        'Entwicklung einer einheitlichen React Native-Codebasis mit nativer Performance auf Android und reaktionsschneller Web-App.',
-        'Wissenschaftliche Umsetzung flexibler Zielstufen (Mini, Plus, Elite), die das Durchhaltevermögen der Nutzer nachhaltig sichern.',
-        'Lokale Datenspeicherung auf dem Endgerät: Keine Weitergabe privater Gewohnheiten an Werbenetzwerke.',
+        'Verhaltenswissenschaftliche UX (Elastic Habits): Flexible Zielstufen (Mini, Plus, Elite) erhalten die Motivation auch an schwierigen Tagen und maximieren die langfristige Nutzerbindung.',
+        'Einheitliche Cross-Platform-Architektur: Gemeinsame React Native-Codebasis mit nativer Performance auf Android und reaktionsschneller Web-App bei 50 % reduzierten Entwicklungsbudgets.',
+        'Datenschutzfreundliche Offline-First-Architektur: 100 % der Nutzerdaten bleiben verschlüsselt auf dem Endgerät – ohne Server-Fixkosten und ohne Datenschutzrisiken.',
       ],
     },
     businessResults: [
@@ -978,18 +978,18 @@ export const portfolioProjects: ProjectData[] = [
         contextDe: 'Kostenersparnis durch gemeinsame Codebasis für Browser und App Stores',
       },
       {
-        label: 'Time-to-Market',
-        value: '2x Faster',
-        context: 'Accelerated deployment from initial wireframes to production stores',
-        labelDe: 'Markteinführung',
-        contextDe: 'Doppelt so schnelle Bereitstellung vom Prototyp bis zum offiziellen Launch',
-      },
-      {
         label: 'User Retention',
-        value: 'High',
+        value: 'High LTV',
         context: 'Science-backed elasticity drastically reduces user drop-off vs rigid trackers',
         labelDe: 'Nutzerbindung',
         contextDe: 'Nachhaltige Nutzeraktivität durch flexible Gewohnheitsbildung ohne Druck',
+      },
+      {
+        label: 'Data Privacy',
+        value: '100% Offline',
+        context: 'Zero cloud telemetry or third-party tracking, ensuring complete user trust',
+        labelDe: 'Datenschutz',
+        contextDe: 'Vollständige Datensouveränität durch lokale Datenspeicherung ohne Cloud-Zwang',
       },
     ],
     technologyTrust: {
@@ -999,7 +999,7 @@ export const portfolioProjects: ProjectData[] = [
     },
     liveUrl: 'https://habitualist.app',
     caseStudySlug: 'habitualist-cross-platform-habit-tracker-growth-case-study',
-    image: '/images/portfolio/project-48604.webp',
+    image: '/images/portfolio/habitualist-app-hero.png',
     gradient: 'from-indigo-600 to-purple-600',
   },
   {

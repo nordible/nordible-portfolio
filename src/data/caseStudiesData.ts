@@ -3637,6 +3637,268 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enLinkedInCatchupArticle, de: deLinkedInCatchupArticle };
   }
 
+  if (projectId === 'habitualist') {
+    const enHabitualistArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'B2C Mobile Venture & Behavioral UX Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'B2C Founder & Consumer Tech Leader:',
+        subtitle: 'Halve mobile development costs and eliminate the 90% Day-30 app churn crisis with behavioral UX.',
+        buttonText: 'Discuss B2C Architecture →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Habitualist',
+        industry: 'B2C Mobile App & Behavioral Economics SaaS',
+        location: 'Global Mobile Distribution (Android & Web)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'For B2C mobile startups and consumer venture founders, acquiring app installs is expensive—but customer retention is where valuations are won or lost. Industry data shows that over 80% to 90% of newly acquired mobile app users churn within the first 30 days. In the habit formation and self-improvement sector, this churn is accelerated by punitive "streak" mechanics: when life inevitably interrupts a user’s daily streak, psychological guilt causes them to abandon and uninstall the app completely, incinerating customer acquisition cost (CAC).',
+        'Nordible founder Kabeer Shah collaborated with the product and engineering team to develop Habitualist: a science-backed consumer mobile app implementing the "Elastic Habits" behavioral paradigm. By introducing multi-tiered daily goals (Mini, Plus, Elite), Habitualist eliminates the guilt of streak breakage, keeping retention resilient through life changes. Engineered with a unified React Native architecture and 100% offline-first local data privacy, the venture launched simultaneously on Android and Web at half the standard engineering cost with zero recurring cloud database expenses.',
+      ],
+      objective: {
+        title: 'Commercial Mandate: Maximizing B2C Retention & Capital Efficiency',
+        text: 'Overcome the consumer app retention cliff and halve mobile engineering CapEx through science-backed behavioral UX and unified cross-platform architecture.',
+        points: project.businessChallenge.en,
+      },
+      metrics: [
+        { label: 'Dev Cost Savings', value: '-50%', icon: 'percent' },
+        { label: 'User Retention', value: 'High LTV', icon: 'trending' },
+        { label: 'Data Privacy', value: '100% Offline', icon: 'trophy' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Habitualist - Behavioral B2C Habit Tracker App',
+        badge: 'B2C Mobile Venture',
+        caption: 'Unified cross-platform behavioral mobile app engineered by Kabeer Shah with the product team.',
+        businessBenefit: 'Halved engineering costs across Web & Android while eliminating punitive streak churn',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The 90% Churn Cliff: Why Traditional B2C Habit Apps Fail',
+          businessTakeaway: 'Rigid streak counters turn normal human life disruptions into feelings of failure, driving rapid uninstalls and wasted acquisition spend.',
+          paragraphs: [
+            'Consumer habit trackers have traditionally relied on inflexible daily streak counters. While streaks drive short-term dopamine, they create an inevitable failure trap. The moment a user falls ill, travels across time zones, or faces an emergency, their 60-day streak resets to zero.',
+            'Psychologically, this triggers the "what-the-hell" effect (a well-documented behavioral cognitive bias). Users feel deep demotivation, associate the app icon with personal failure, and delete the app from their home screen—destroying cohort retention and lifetime value (LTV).',
+            'Kabeer Shah worked with the product team to embed the Elastic Habits methodology into every UX interaction. Users set tiered goals for every habit: Mini (e.g. reading 2 pages), Plus (15 pages), and Elite (30 pages). On overwhelming days, completing a Mini goal preserves their streak and sense of identity, keeping 30-day and 90-day retention remarkably high.',
+          ],
+          cards: [
+            {
+              title: 'The "Streak Shame" Churn',
+              desc: 'Punitive streak resets turn small slip-ups into permanent user abandonment, destroying marketing ROI.',
+              badge: 'Retention Killer',
+              icon: 'shield',
+            },
+            {
+              title: 'Elastic Goal Tiering',
+              desc: 'Multi-tiered goals (Mini, Plus, Elite) preserve user momentum on difficult days, sustaining active usage.',
+              badge: 'Behavioral UX',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Unified Cross-Platform Velocity: Halving Mobile CapEx with React Native',
+          businessTakeaway: 'Maintaining separate native iOS, Android, and Web teams burns seed capital 2x faster without accelerating product-market fit.',
+          paragraphs: [
+            'Early-stage consumer startups frequently run out of venture runway before finding product-market fit because they fund distinct engineering teams for Swift, Kotlin, and Web. Feature updates take months to synchronize, and bug fixes must be duplicated across multiple codebases.',
+            'Kabeer Shah architected Habitualist on a unified React Native and React.js foundation. Over 90% of state management, behavioral business logic, and UI design tokens are shared seamlessly between mobile and web clients.',
+            'This architectural decision allowed Habitualist to launch on Google Play and modern desktop browsers simultaneously at exactly half the customary engineering budget, giving the product team double the runway to iterate on conversion funnels.',
+          ],
+          cards: [
+            {
+              title: '50% Engineering Savings',
+              desc: 'Single unified codebase delivers native mobile speed and responsive web without dual developer teams.',
+              badge: 'Capital Efficiency',
+              icon: 'zap',
+            },
+            {
+              title: 'Simultaneous Dual Launch',
+              desc: 'Shipped to Google Play and Web browsers simultaneously, doubling early addressable market reach.',
+              badge: 'Market Velocity',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Zero-Knowledge Privacy: Turning Local Storage into a Competitive Edge',
+          businessTakeaway: 'Consumers actively distrust apps that harvest personal routine data; local-first architecture eliminates cloud database costs and compliance risks.',
+          paragraphs: [
+            'Modern mobile consumers are increasingly vigilant about digital surveillance. Traditional wellness apps upload private routines, sleep schedules, and personal habits to centralized cloud databases, exposing the company to GDPR liability and data breach exposure.',
+            'Furthermore, maintaining centralized databases for millions of free B2C users creates compounding monthly cloud bills (AWS/Supabase) that drain runway before monetization matures.',
+            'Habitualist was engineered with a 100% offline-first, local-persistence architecture. All user habits, logs, and analytics remain encrypted locally on the device via SQLite. This zero-knowledge approach eliminates recurring database hosting costs entirely while serving as a premier marketing differentiator for privacy-conscious consumers.',
+          ],
+          cards: [
+            {
+              title: 'Zero Cloud Database Overhead',
+              desc: 'Local-first persistence scales to millions of users with zero compounding server or bandwidth bills.',
+              badge: 'Zero OpEx',
+              icon: 'shield',
+            },
+            {
+              title: 'Consumer Trust Advantage',
+              desc: 'Guaranteed 100% offline privacy provides a compelling marketing hook that converts privacy-minded users.',
+              badge: 'Competitive Edge',
+              icon: 'users',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'B2C Product Architecture & Mobile Engineering',
+        title: 'Planning a High-Retention Consumer App or Cross-Platform Mobile Venture?',
+        desc: 'Speak directly with systems architect Kabeer Shah to evaluate your product roadmap, behavioral UX mechanics, and unified cross-platform architecture.',
+        buttonText: 'Schedule Consumer App Strategy Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Book Strategy Call',
+      },
+    };
+
+    const deHabitualistArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'B2C-Mobile-App & Verhaltensökonomie-Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'B2C-Gründer & Consumer-Tech-Entscheider:',
+        subtitle: 'Halbieren Sie mobile Entwicklungskosten und lösen Sie die 90 % Churn-Krise durch Verhaltens-UX.',
+        buttonText: 'B2C-Architektur besprechen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Habitualist',
+        industry: 'B2C-Mobile-App & Verhaltensökonomie-SaaS',
+        location: 'Globale Mobile-Distribution (Android & Web)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Für B2C-Startups und Consumer-Tech-Gründer ist die Nutzerakquise kostspielig – doch über den wirtschaftlichen Erfolg entscheidet allein die langfristige Nutzerbindung (Retention). Branchendaten belegen, dass 80 % bis über 90 % neu gewonnener App-Nutzer innerhalb der ersten 30 Tage abwandern. Bei Gewohnheitstrackern und Lifestyle-Apps wird dieser Churn durch bestrafende „Streak“-Mechaniken massiv beschleunigt: Reißt eine Serie durch Krankheit oder Reise ab, führt die Frustration zur sofortigen Deinstallation und vernichtet teures Akquisebudget.',
+        'Nordible-Gründer Kabeer Shah entwickelte gemeinsam mit dem Produkt- und Designteam Habitualist: eine wissenschaftlich fundierte B2C-Mobile-App nach der „Elastic Habits“-Methode. Durch flexible, mehrstufige Tagesziele (Mini, Plus, Elite) eliminiert Habitualist den Druck starrer Streaks und sichert nachhaltige Motivation. Auf Basis einer einheitlichen React Native-Architektur mit 100 % lokaler Offline-Datenspeicherung startete die App simultan für Android und Web – bei 50 % reduzierten Entwicklungskosten und ohne wiederkehrende Cloud-Datenbankgebühren.',
+      ],
+      objective: {
+        title: 'Strategischer Auftrag: Maximale B2C-Nutzerbindung & Kapitaleffizienz',
+        text: 'Überwindung der 30-Tage-Abbruchquote und Halbierung der mobilen Entwicklungskosten durch wissenschaftliche Verhaltens-UX und einheitliche Cross-Platform-Architektur.',
+        points: project.businessChallenge.de,
+      },
+      metrics: [
+        { label: 'Entwicklungskosten', value: '-50%', icon: 'percent' },
+        { label: 'Nutzerbindung', value: 'Hoher LTV', icon: 'trending' },
+        { label: 'Datenschutz', value: '100% Offline', icon: 'trophy' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Habitualist - Verhaltenswissenschaftliche B2C-Gewohnheitstracker-App',
+        badge: 'B2C-Mobile-Venture',
+        caption: 'Plattformübergreifende B2C-Mobile-App, entwickelt von Kabeer Shah gemeinsam mit dem Produktteam.',
+        businessBenefit: 'Halbierte Entwicklungskosten für Web & Android bei maximaler Nutzerbindung ohne Streak-Frust',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die 90 % Churn-Klippe: Warum klassische B2C-Tracker scheitern',
+          businessTakeaway: 'Starre Streak-Zähler verwandeln alltägliche Unterbrechungen in persönliche Misserfolgserlebnisse und treiben Nutzer zur schnellen Deinstallation.',
+          paragraphs: [
+            'Traditionelle Gewohnheits-Apps setzen auf unbarmherzige Streak-Ketten. Was anfangs motiviert, wird schnell zur psychologischen Falle: Wird der Nutzer krank, reist beruflich oder hat einen Notfall, springt der 60-Tage-Zähler unbarmherzig auf null zurück.',
+            'Verhaltenswissenschaftlich löst dies den gefürchteten „What-the-Hell“-Effekt aus. Nutzer empfinden Frustration, meiden das App-Icon und löschen die App dauerhaft vom Smartphone – womit der Customer Lifetime Value (LTV) sofort abstürzt.',
+            'Kabeer Shah integrierte gemeinsam mit dem Team das Prinzip der elastischen Gewohnheiten in jeden Interaktionsschritt: Nutzer wählen zwischen Mini (z. B. 2 Seiten lesen), Plus (15 Seiten) oder Elite (30 Seiten). Selbst an anstrengenden Tagen hält ein Mini-Erfolg die Kette und das Selbstbild intakt, was die 30- und 90-Tage-Retention drastisch steigert.',
+          ],
+          cards: [
+            {
+              title: 'Der Streak-Frust-Churn',
+              desc: 'Bestrafende Serienabbrüche verwandeln kleine Ausrutscher in dauerhafte Abwanderung und vernichten Marketingbudgets.',
+              badge: 'Retention-Killer',
+              icon: 'shield',
+            },
+            {
+              title: 'Elastische Zielstufen',
+              desc: 'Dreistufige Ziele (Mini, Plus, Elite) sichern den Fortschritt auch an schwierigen Tagen und erhalten die Motivation.',
+              badge: 'Verhaltens-UX',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Cross-Platform-Geschwindigkeit: Halbierung des Budgets mit React Native',
+          businessTakeaway: 'Getrennte Entwicklerteams für iOS, Android und Web verbrennen Startkapital doppelt so schnell, ohne den Product-Market-Fit zu beschleunigen.',
+          paragraphs: [
+            'Frühphasige B2C-Startups geraten oft in finanzielle Bedrängnis, weil sie parallele Teams für Swift, Kotlin und Web finanzieren. Produktiterationen verzögern sich um Monate, und Anpassungen müssen mehrfach programmiert werden.',
+            'Kabeer Shah konzipierte Habitualist auf einer gemeinsamen React Native- und React.js-Architektur. Über 90 % der Geschäftslogik, des State Managements und der Design Tokens werden zwischen Mobile und Web geteilt.',
+            'Dadurch konnte Habitualist zeitgleich im Google Play Store und für Web-Browser veröffentlicht werden – mit exakt der Hälfte des üblichen Entwicklungsbudgets und doppelter Reichweite ab Tag 1.',
+          ],
+          cards: [
+            {
+              title: '50 % Kostenersparnis',
+              desc: 'Einheitliche Codebasis bietet native App-Performance und modernes Web ohne doppelte Entwicklerteams.',
+              badge: 'Kapitaleffizienz',
+              icon: 'zap',
+            },
+            {
+              title: 'Simultaner Doppel-Launch',
+              desc: 'Gleichzeitiger Start für Android und Browser verdoppelt die frühe Zielgruppenreichweite.',
+              badge: 'Geschwindigkeit',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Zero-Knowledge-Datenschutz: Lokaler Speicher als Wettbewerbsvorteil',
+          businessTakeaway: 'Verbraucher misstrauen Apps, die private Tagesabläufe analysieren; Offline-First eliminiert Cloud-Serverkosten und Haftungsrisiken.',
+          paragraphs: [
+            'Immer mehr Verbraucher achten penibel auf digitale Privatsphäre. Gängige Lifestyle-Apps laden private Tagesroutinen und Gewohnheiten auf zentrale Server hoch, was erhebliche DSGVO-Haftungsrisiken birgt.',
+            'Zudem verursachen zentrale Cloud-Datenbanken für hunderttausende kostenlose B2C-Nutzer monatlich explodierende Infrastrukturrechnungen (AWS/Supabase), die die Marge auffressen.',
+            'Habitualist wurde nach einer 100 % lokalen Offline-First-Architektur entwickelt. Sämtliche Einträge und Statistiken verbleiben verschlüsselt auf dem Endgerät (SQLite). Das spart laufende Serverkosten vollständig ein und bietet ein starkes Vertrauensargument im Marketing.',
+          ],
+          cards: [
+            {
+              title: '0 € Cloud-Datenbankkosten',
+              desc: 'Lokale Datenspeicherung skaliert auf Millionen Nutzer ohne ansteigende Server- oder Bandbreitenrechnungen.',
+              badge: 'Zero OpEx',
+              icon: 'shield',
+            },
+            {
+              title: 'Wettbewerbsvorteil Vertrauen',
+              desc: 'Garantierter 100 % Offline-Datenschutz überzeugt anspruchsvolle Nutzer und hebt die App von Wettbewerbern ab.',
+              badge: 'Marktvorteil',
+              icon: 'users',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'B2C-Produktarchitektur & Mobile Engineering',
+        title: 'Planen Sie eine nutzerstarke B2C-App oder ein Mobile-Startup?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über Produkt-Roadmaps, verhaltenspsychologische UX-Mechaniken und einheitliche Cross-Platform-Architekturen.',
+        buttonText: 'B2C-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'Strategiegespräch buchen',
+      },
+    };
+
+    return { en: enHabitualistArticle, de: deHabitualistArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);
