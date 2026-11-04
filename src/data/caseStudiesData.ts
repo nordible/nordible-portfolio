@@ -1863,6 +1863,314 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enInstaremArticle, de: deInstaremArticle };
   }
 
+  if (projectId === 'rst-baxter') {
+    const enRstBaxterArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Healthcare IoT Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'MedTech Executive & COO:',
+        subtitle: 'Cut on-site service dispatches and maximize medical device availability with IoT telemetry.',
+        buttonText: 'Discuss MedTech Architecture →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Vantive (formerly Kidney Care at Baxter International)',
+        industry: 'Vital Organ Therapies & Medical Devices',
+        location: 'Global Hospital & Dialysis Deployments',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'In acute clinical healthcare, equipment downtime is catastrophic: when dialysis machines and life-support systems fail, hospitals face surgical cancellations, severe patient scheduling bottlenecks, and thousands of dollars in emergency field technician dispatch costs. For Vantive—the global vital organ and kidney care leader spun off from Baxter International and acquired by Carlyle for $3.8 billion—field service efficiency across 15,000+ deployed medical machines was a top operational priority.',
+        'Nordible founder Kabeer Shah implemented the Remote Service Tool (RST), an enterprise IoT telemetry and diagnostic platform engineered specifically for hospital clinical fleets. By diagnosing device anomalies and resolving software errors remotely over-the-air, RST eliminated the need for expensive physical technician visits to hospital sites—cutting on-site dispatches by 50% and slashing equipment downtime from days to minutes.',
+      ],
+      objective: {
+        title: 'Operational Mandate & Business ROI',
+        text: 'Eliminate expensive on-site field technician travel, reduce medical device downtime across hospital networks, and maintain rigorous healthcare compliance standards.',
+        points: project.businessChallenge.en,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Vantive (Baxter Kidney Care) Remote Service Tool`,
+        badge: 'Enterprise IoT Impact',
+        caption: 'Remote Service Tool (RST) implementation by Kabeer Shah for Vantive / Baxter.',
+        businessBenefit: 'Eliminated 50% of costly on-site hospital dispatches across 15,000+ medical devices',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Economic Drain: The Multi-Thousand-Dollar "Truck Roll"',
+          businessTakeaway: 'Sending a specialized biomedical engineer physically to a hospital is an expensive, slow operational bottleneck that drains margins and strands clinical equipment.',
+          paragraphs: [
+            'In the medical device industry, physical service dispatches—known as "truck rolls"—represent one of the heaviest operating expenses. Every hospital visit requires specialized travel logistics, credentialing clearances, and high hourly engineering rates.',
+            'When a dialysis machine in a clinic triggers an error code, the machine is immediately quarantined. Awaiting an on-site technician often takes 48 to 72 hours, forcing clinics to delay patient treatments and forfeit billable capacity.',
+            'For leadership at Baxter and Vantive, the strategic priority was clear: transform device maintenance from slow, reactive physical visits into an instant, cloud-connected remote triage model.',
+          ],
+          cards: [
+            {
+              title: 'High Field Dispatch Costs',
+              desc: 'Physical travel, logistics, and on-site engineering fees compound into millions in annual operational overhead.',
+              badge: 'Operational Drain',
+              icon: 'building',
+            },
+            {
+              title: 'Prolonged Equipment Downtime',
+              desc: 'Multi-day delays waiting for a technician leave hospitals with idle equipment and delayed patient treatments.',
+              badge: 'Clinical Delay',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Solution: IoT Remote Diagnostics & Over-the-Air Triage',
+          businessTakeaway: 'Replacing physical dispatches with cloud-first IoT telemetry resolves device errors in minutes while keeping equipment in service.',
+          paragraphs: [
+            'Nordible founder Kabeer Shah implemented the Remote Service Tool (RST), establishing secure, bidirectional IoT telemetry across Vantive’s global fleet of medical devices.',
+            'Equipped with an intuitive diagnostic cockpit, remote support specialists can inspect internal machine parameters, evaluate calibration logs, and isolate sensor anomalies in real time without visiting the hospital.',
+            'Over 95% of routine software anomalies, calibration resets, and configuration errors are resolved over-the-air, eliminating unnecessary engineer dispatches and restoring machines to clinical operation within minutes.',
+          ],
+          cards: [
+            {
+              title: 'Over-the-Air Resolution',
+              desc: 'Software recalibrations and error diagnostics executed instantly through secure cloud pipelines.',
+              badge: 'Instant Triage',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Continuous Machine Telemetry',
+              desc: 'Real-time visibility into machine health, preempting failures before they interrupt patient care.',
+              badge: 'Preventative Uptime',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Tripartite Impact: Hospital Directors, Biomedical Engineers, and Patients',
+          businessTakeaway: 'Eliminating on-site friction delivers compelling ROI across healthcare executives, support teams, and vulnerable patients.',
+          paragraphs: [
+            'For healthcare enterprise leaders, the financial return was immediate: on-site field dispatch volume was cut by 50%, generating millions in annual logistical savings and expanding service margins.',
+            'For biomedical engineers, the system removed stressful travel schedules and allowed top specialists to triage dozens of hospital machines worldwide from a single central command center.',
+            'Most critically, for kidney care and dialysis patients, halving equipment downtime meant treatment continuity without agonizing delays or canceled appointments.',
+          ],
+          cards: [
+            {
+              title: '-50% Service Overhead',
+              desc: 'Slashing physical dispatches directly expands operating margins and accelerates service turnaround.',
+              badge: 'Proven ROI',
+              icon: 'bot',
+            },
+            {
+              title: 'Uninterrupted Patient Care',
+              desc: 'Near-zero clinical downtime ensures patients receive life-sustaining dialysis treatments on schedule.',
+              badge: 'Patient Safety',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Institutional Governance: Medical Device Compliance & Security',
+          businessTakeaway: 'Medical IoT architectures must be built from Day 1 to withstand strict regulatory audits and clinical hospital cybersecurity checks.',
+          paragraphs: [
+            'Operating inside hospital networks requires meeting the world’s most demanding healthcare standards. Commercial remote software cannot be deployed due to strict FDA regulations, ISO 13485 mandates, and hospital cyber-defense restrictions.',
+            'The platform was engineered with end-to-end cryptographic data protection, role-based access controls, and tamper-proof audit trails—guaranteeing zero vulnerability to clinical networks while preserving patient confidentiality.',
+          ],
+          cards: [
+            {
+              title: 'Medical Device Audit Trails',
+              desc: 'Immutable telemetry and access logs engineered to pass strict FDA and hospital cybersecurity audits.',
+              badge: 'Regulatory Certainty',
+              icon: 'shield',
+            },
+            {
+              title: 'Zero-Trust Clinical Security',
+              desc: 'Segmented telemetry pipelines guaranteeing zero compromise of hospital networks or patient privacy.',
+              badge: 'Data Protection',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Healthcare & Mission-Critical Systems',
+        title: 'Eliminate Field Service Costs with Enterprise IoT Telemetry',
+        desc: 'Speak directly with systems architect Kabeer Shah to evaluate your connected device architecture, remote diagnostic telemetry, and healthcare compliance posture.',
+        buttonText: 'Schedule MedTech Strategy Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Book MedTech Call',
+      },
+    };
+
+    const deRstBaxterArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'MedTech-IoT-Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'MedTech-Entscheider & Klinik-Betriebsleiter:',
+        subtitle: 'Senken Sie Vor-Ort-Einsatzkosten und sichern Sie maximale Geräteverfügbarkeit durch IoT-Ferndiagnose.',
+        buttonText: 'MedTech-Architektur besprechen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Vantive (ehemals Kidney Care bei Baxter International)',
+        industry: 'Lebenswichtige Organtherapien & Medizintechnik',
+        location: 'Weltweiter Einsatz in Kliniken & Dialysezentren',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Im klinischen Routinebetrieb sind Geräteausfälle katastrophal: Wenn Dialysemaschinen oder lebenserhaltende Systeme streiken, drohen Behandlungsabbrüche, Klinikengpässe und tausende Euro an Notfall-Einsatzkosten für Medizintechniker. Für Vantive – den weltweiten Marktführer für Nierentherapien, der ehemals zu Baxter International gehörte und für 3,8 Mrd. $ von Carlyle übernommen wurde – war maximale Verfügbarkeit bei über 15.000 Medizingeräten von höchster strategischer Bedeutung.',
+        'Nordible-Gründer Kabeer Shah implementierte das Remote Service Tool (RST), eine hochsichere IoT-Telemetrie- und Diagnoseplattform für klinische Geräteflotten. Indem Gerätestörungen und Softwareanomalien direkt per Fernzugriff über die Cloud analysiert und behoben werden, entfällt die teure physische Anreise von Technikern in Krankenhäuser – mit 50 % weniger Vor-Ort-Einsätzen und einer Halbierung der Ausfallzeiten.',
+      ],
+      objective: {
+        title: 'Operativer Auftrag & wirtschaftlicher Nutzen',
+        text: 'Beseitigung teurer Vor-Ort-Technikereinsätze, Halbierung der Stillstandzeiten von Medizingeräten in Krankenhäusern und garantierte Einhaltung strenger Medizinprodukte-Vorschriften.',
+        points: project.businessChallenge.de,
+      },
+      metrics: project.businessResults.map((m) => ({
+        label: m.labelDe || m.label,
+        value: m.value,
+        icon: 'trending' as const,
+      })),
+      heroImage: {
+        src: project.image,
+        alt: `${project.title} - Vantive (Baxter Kidney Care) Remote Service Tool`,
+        badge: 'MedTech-IoT-Erfolg',
+        caption: 'Implementierung des Remote Service Tools (RST) durch Kabeer Shah für Vantive / Baxter.',
+        businessBenefit: '50 % weniger teure Vor-Ort-Technikereinsätze bei über 15.000 vernetzten Geräten',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Der operative Kostenfresser: Der teure Vor-Ort-Technikereinsatz',
+          businessTakeaway: 'Die Entsendung spezialisierter Medizintechniker in Krankenhäuser ist ein teurer, schwerfälliger Engpass, der Margen auffrisst und lebenswichtige Geräte blockiert.',
+          paragraphs: [
+            'In der Medizintechnik gehören physische Service-Einsätze vor Ort zu den größten operativen Kostentreibern. Jeder Krankenhausbesuch erfordert aufwendige Reiseplanung, Sicherheitsfreigaben und teure Spezialistenstunden.',
+            'Zeigt ein Dialysegerät in einer Praxis einen Fehlercode, wird es umgehend stillgelegt. Das Warten auf einen Techniker dauert oft 48 bis 72 Stunden – für Kliniken bedeutet das ausgefallene Behandlungen und wirtschaftliche Verluste.',
+            'Für die Unternehmensführung von Baxter und Vantive war klar: Die Gerätewartung musste von reaktiven, physischen Vor-Ort-Fahrten auf ein sofortiges, cloudgestütztes Ferndiagnosemodell umgestellt werden.',
+          ],
+          cards: [
+            {
+              title: 'Hohe Einsatzkosten',
+              desc: 'Reisekosten, Logistik und Technikersätze summieren sich jährlich zu Millionenbeträgen im Servicebetrieb.',
+              badge: 'Kostenfaktor',
+              icon: 'building',
+            },
+            {
+              title: 'Lange Geräte-Stillstände',
+              desc: 'Tagelanges Warten auf Techniker blockiert teure Behandlungsplätze und gefährdet Patientenzeitpläne.',
+              badge: 'Klinikverzögerung',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Die Lösung: IoT-Ferndiagnose & Fehlerbehebung über die Cloud',
+          businessTakeaway: 'Die Ablösung physischer Einsätze durch sichere IoT-Telemetrie behebt Störungen in Minuten und hält Medizingeräte im Dauerbetrieb.',
+          paragraphs: [
+            'Nordible-Gründer Kabeer Shah implementierte das Remote Service Tool (RST), das eine sichere, bidirektionale IoT-Telemetrie für die weltweite Geräteflotte von Vantive etablierte.',
+            'Über ein übersichtliches Diagnose-Cockpit können Serviceteams Geräteparameter aus der Ferne auslesen, Kalibrierungsdaten analysieren und Fehlerursachen in Echtzeit lokalisieren.',
+            'Über 95 % aller Software-Anomalien, Neukalibrierungen und Konfigurationsprobleme werden direkt über die Cloud gelöst – ohne dass ein Techniker das Krankenhaus betreten muss.',
+          ],
+          cards: [
+            {
+              title: 'Fehlerbehebung via Cloud',
+              desc: 'Rekalibrierungen und Systemdiagnosen werden sekundenschnell über sichere Cloud-Pipelines ausgeführt.',
+              badge: 'Sofortige Lösung',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Kontinuierliche Telemetrie',
+              desc: 'Echtzeit-Einblick in den Maschinenzustand verhindert Ausfälle, bevor sie den Praxisbetrieb stören.',
+              badge: 'Präventive Uptime',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Dreifacher Mehrwert: Klinikleitung, Serviceteams und Patienten',
+          businessTakeaway: 'Die Beseitigung physischer Service-Hürden liefert messbaren ROI für Entscheider, Techniker und Dialysepatienten.',
+          paragraphs: [
+            'Für MedTech-Entscheider und Klinikbetreiber war der wirtschaftliche Ertrag sofort spürbar: Die Anzahl physischer Vor-Ort-Einsätze sank um 50 %, was Millionen an Reisekosten einsparte und die Servicemargen verbesserte.',
+            'Für Servicetechniker entfielen mühsame Reisezeiten; Spezialisten können nun Dutzende Kliniken weltweit zentral von einem einzigen Cockpit aus betreuen.',
+            'Für Dialysepatienten bedeutet die Halbierung der Geräteausfallzeiten absolute Versorgungssicherheit ohne Terminverschiebungen oder Behandlungsrisiken.',
+          ],
+          cards: [
+            {
+              title: '-50 % Service-Kosten',
+              desc: 'Die drastische Reduktion physischer Anfahrten steigert die operative Marge im Geräteservice nachhaltig.',
+              badge: 'Messbarer ROI',
+              icon: 'bot',
+            },
+            {
+              title: 'Sichere Patientenversorgung',
+              desc: 'Minimale Stillstandzeiten garantieren, dass lebenserhaltende Therapien planmäßig stattfinden.',
+              badge: 'Patientensicherheit',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Regulatorische Sicherheit: FDA- und DSGVO-konforme Medizintechnik',
+          businessTakeaway: 'Medizinische IoT-Lösungen müssen von Tag 1 an strengsten Revisions- und Krankenhaus-Sicherheitsprüfungen standhalten.',
+          paragraphs: [
+            'Der Einsatz in sensiblen Kliniknetzwerken erlaubt keine gewöhnliche Fernwartungssoftware. Strikte FDA-Richtlinien, ISO 13485-Standards und Krankenhaus-Firewalls fordern kompromisslose Sicherheit.',
+            'Die Plattform wurde mit durchgängiger kryptografischer Datensicherheit, rollenbasierten Zugriffskontrollen und revisionssicheren Audit-Trails realisiert – für garantierte Compliance ohne Gefährdung klinischer Netzwerke.',
+          ],
+          cards: [
+            {
+              title: 'Revisionssichere Audit-Trails',
+              desc: 'Lückenlose Zugriffsprotokolle, konzipiert für anspruchsvolle FDA- und Klinik-Sicherheitsprüfungen.',
+              badge: 'Regulatorische Sicherheit',
+              icon: 'shield',
+            },
+            {
+              title: 'Zero-Trust Klinik-Sicherheit',
+              desc: 'Isolierte Telemetrie-Pfade gewährleisten den Schutz von Kliniknetzwerken und Patientendaten.',
+              badge: 'Datenschutz',
+              icon: 'building',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Healthcare & kritische Systeme',
+        title: 'Servicekosten durch professionelle IoT-Telemetrie senken',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über vernetzte Medizingeräte, IoT-Telemetrie und revisionssichere Healthcare-Architekturen.',
+        buttonText: 'MedTech-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'MedTech-Gespräch',
+      },
+    };
+
+    return { en: enRstBaxterArticle, de: deRstBaxterArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);
