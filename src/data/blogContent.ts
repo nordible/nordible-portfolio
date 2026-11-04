@@ -476,6 +476,12 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
             desc: 'Short authentic videos and on-site inspection photos demonstrate real engineering mastery and construction authority, transforming anonymous website visits into trusted relationships.',
             badge: 'Client Trust',
             icon: 'video'
+          },
+          {
+            title: 'Hybrid Pre-Render & Bot Readiness',
+            desc: 'Traditional SPAs lose discoverability with AI scrapers and social preview bots that omit JavaScript. We engineered a static HTML fallback shell into the root DOM paired with route-level Schema.org JSON-LD—ensuring instant First Contentful Paint (FCP) and complete crawlability by search engines and LLM agents (ChatGPT, Perplexity) before client-side hydration.',
+            badge: 'AI & Bot Ready',
+            icon: 'bot'
           }
         ]
       },
@@ -847,6 +853,12 @@ export const shamsPostTranslations: Record<'en' | 'de', ArticleContent> = {
             desc: 'Authentische Kurzvideos und Fotos direkt von Bauabnahmen und Verhandlungen belegen handwerkliche und planerische Souveränität – und schaffen sofortiges Vertrauen.',
             badge: 'Glaubwürdigkeit',
             icon: 'video'
+          },
+          {
+            title: 'Hybride Vorab-Render-Architektur',
+            desc: 'Klassische Single-Page-Apps scheitern oft an KI-Scrapern und Social-Bots ohne JavaScript-Engine. Unsere statische HTML-Fallback-Shell mit route-spezifischem Schema.org JSON-LD garantiert sofortigen First Contentful Paint (FCP) und vollste Auffindbarkeit für LLMs und Suchmaschinen bei voller React-Interaktivität.',
+            badge: 'KI- & Bot-sicher',
+            icon: 'bot'
           }
         ]
       },

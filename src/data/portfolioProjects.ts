@@ -647,11 +647,13 @@ export const portfolioProjects: ProjectData[] = [
         'Engineered an authoritative entity-based SEO architecture targeting high-intent commercial architecture keywords across Frankfurt & Rhine-Main.',
         'Built a clean, mobile-first web experience with fixed bottom-bar contact triggers (Fitts’s Law thumb zone) for instant consultation bookings.',
         'Structured project portfolios with semantic Schema.org Architect data, winning Google featured snippets and top map pack placements.',
+        'Engineered a hybrid static pre-rendering architecture (SSR fallback shell) with route-level Schema.org JSON-LD, guaranteeing 100% crawlability by AI agents and social preview bots without sacrificing rich client-side React hydration.',
       ],
       de: [
         'Entwicklung einer fundierten SEO-Entitätsarchitektur für kaufkräftige B2B-Suchbegriffe im Raum Frankfurt und Rhein-Main.',
         'Ergonomisches mobiles Design mit daumenfreundlicher Bottom-Bar für den direkten Anruf oder die Terminvereinbarung mit einem Klick.',
         'Strukturierung der Referenzprojekte mit Schema.org-Markup für Top-Platzierungen in Google-Suchergebnissen und KI-Antworten.',
+        'Implementierung einer hybriden Vorab-Render-Architektur (SSR-Fallback-Shell) mit routenspezifischen Schema.org-Daten für sofortige Indexierung durch KI-Agenten und Crawler bei nahtloser React-Hydration.',
       ],
     },
     businessResults: [
@@ -678,9 +680,9 @@ export const portfolioProjects: ProjectData[] = [
       },
     ],
     technologyTrust: {
-      en: 'Engineered with clean semantic HTML5, Next.js, sub-second TTFB hosting, and Schema.org architecture schema without bloated third-party plugins.',
-      de: 'Umgesetzt mit semantischem Next.js, blitzschnellen Server-Antwortzeiten und Schema.org B2B-Entitätsgraphen ohne schwerfällige Plugins.',
-      stack: ['B2B Client Funnel Architecture', 'Semantic Search Authority', 'Performance Engineering', 'Information Architecture'],
+      en: 'Engineered with clean semantic HTML5, hybrid SSR pre-rendering shell, Next.js, sub-second TTFB hosting, and Schema.org architecture schema without bloated third-party plugins.',
+      de: 'Umgesetzt mit semantischem Next.js, hybrider SSR-Vorab-Render-Shell, blitzschnellen Server-Antwortzeiten und Schema.org B2B-Entitätsgraphen ohne schwerfällige Plugins.',
+      stack: ['B2B Client Funnel Architecture', 'Hybrid SSR & Static Shell', 'Semantic Search Authority', 'Performance Engineering', 'Information Architecture'],
     },
     clientQuote: {
       quote: {
