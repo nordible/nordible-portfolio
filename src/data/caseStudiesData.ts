@@ -3147,9 +3147,9 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         points: project.businessChallenge.en,
       },
       metrics: [
-        { label: 'Cost Reduction', value: '-70%', icon: 'trending' },
-        { label: 'Setup Velocity', value: '5 Mins', icon: 'zap' },
-        { label: 'Data Sovereignty', value: '100%', icon: 'shield' },
+        { label: 'Cost Reduction', value: '-70%', icon: 'percent' },
+        { label: 'Setup Velocity', value: '5 Mins', icon: 'trending' },
+        { label: 'Data Sovereignty', value: '100%', icon: 'trophy' },
       ],
       heroImage: {
         src: project.image,
@@ -3173,7 +3173,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               title: 'The Per-Seat Growth Penalty',
               desc: 'Escalating monthly user fees penalize business expansion and inflate fixed IT overhead with zero productivity gain.',
               badge: 'OpEx Drain',
-              icon: 'trending',
+              icon: 'zap',
             },
             {
               title: 'Unused Software Bloat',
@@ -3203,7 +3203,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               title: 'Zero-Spam Deliverability',
               desc: 'Automated cryptographic DKIM, SPF, and DMARC alignment ensure critical sales proposals reach C-level inboxes.',
               badge: 'Revenue Protection',
-              icon: 'check',
+              icon: 'sparkles',
             },
           ],
         },
@@ -3232,7 +3232,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
           ],
         },
       ],
-      finalCta: {
+      cta: {
         badge: 'Enterprise Infrastructure & OpEx Optimization',
         title: 'Ready to Eliminate the Big-Tech Bloatware Tax on Corporate Email?',
         desc: 'Speak directly with systems architect Kabeer Shah to evaluate your email infrastructure, calculate your 70% OpEx savings, and deploy turnkey business email in minutes.',
@@ -3276,9 +3276,9 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
         points: project.businessChallenge.de,
       },
       metrics: [
-        { label: 'Kostenersparnis', value: '-70%', icon: 'trending' },
-        { label: 'Einrichtungszeit', value: '5 Min.', icon: 'zap' },
-        { label: 'Datensouveränität', value: '100%', icon: 'shield' },
+        { label: 'Kostenersparnis', value: '-70%', icon: 'percent' },
+        { label: 'Einrichtungszeit', value: '5 Min.', icon: 'trending' },
+        { label: 'Datensouveränität', value: '100%', icon: 'trophy' },
       ],
       heroImage: {
         src: project.image,
@@ -3302,7 +3302,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               title: 'Die Pro-Kopf-Kostenfalle',
               desc: 'Steigende Lizenzkosten bestrafen Unternehmenswachstum und treiben die fixen IT-Betriebskosten ohne Mehrwert in die Höhe.',
               badge: 'Margenfalle',
-              icon: 'trending',
+              icon: 'zap',
             },
             {
               title: 'Ungenutzter Software-Ballast',
@@ -3332,7 +3332,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
               title: 'Garantierte Zustellbarkeit',
               desc: 'Automatisierte SPF-, DKIM- und DMARC-Konfiguration verhindert das gefürchtete Stranden wichtiger Angebote im Spam.',
               badge: 'Umsatzsicherung',
-              icon: 'check',
+              icon: 'sparkles',
             },
           ],
         },
@@ -3361,7 +3361,7 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
           ],
         },
       ],
-      finalCta: {
+      cta: {
         badge: 'Infrastruktur- & Kostenoptimierung',
         title: 'Bereit, sich von der Bloatware-Steuer der Tech-Konzerne zu befreien?',
         desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah, um Ihre E-Mail-Infrastruktur zu analysieren, Ihr Sparpotenzial von 70 % zu berechnen und private Unternehmens-E-Mails in Minuten zu starten.',
@@ -3373,6 +3373,268 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     };
 
     return { en: enNordibleEmailArticle, de: deNordibleEmailArticle };
+  }
+
+  if (projectId === 'linkedin-catchup') {
+    const enLinkedInCatchupArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'B2B Sales Automation & Relationship Architecture',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'B2B Founder & Business Leader:',
+        subtitle: 'Generate continuous inbound C-level website traffic and reactivate dormant enterprise deals without ad spend or ban risk.',
+        buttonText: 'Explore Relationship Automation →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'LinkedIn Catch-up Assistant',
+        industry: 'B2B Relationship Automation & Inbound Traffic SaaS',
+        location: 'Chrome Web Store (Global Distribution)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'For B2B founders, partners, and sales directors, high-ticket deals don’t close from unsolicited cold pitches; they close from warm relationships and timely touchpoints. Yet staying top-of-mind across thousands of professional connections is humanly impossible. High-net-worth deals slip through the cracks simply because executives lack the bandwidth to manually track and message connections when they celebrate milestones, anniversaries, or executive career transitions.',
+        'Nordible founder Kabeer Shah collaborated with the product engineering team to build LinkedIn Catch-up Assistant: a privacy-first browser automation suite operating with human-emulated delays. By automating socially mandatory touchpoints (birthdays, work anniversaries, job promotions) and embedding a personal signature with website links into warm greetings, leaders turn casual networking into a continuous, zero-ad-spend inbound pipeline while keeping their personal profiles 100% safe from platform bans.',
+      ],
+      objective: {
+        title: 'Commercial Mandate: High-Trust Relationship Automation at Scale',
+        text: 'Systematize executive networking to drive qualified inbound traffic and revive stalled deals, while maintaining strict client-side privacy and account safety.',
+        points: project.businessChallenge.en,
+      },
+      metrics: [
+        { label: 'Re-engagement', value: '+35%', icon: 'trending' },
+        { label: 'Executive Time', value: '5h/Wk', icon: 'users' },
+        { label: 'Account Safety', value: '100%', icon: 'trophy' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'LinkedIn Catch-up Assistant - B2B Relationship Automation & Inbound Lead Generation',
+        badge: 'B2B Sales Automation',
+        caption: 'Engineered by Kabeer Shah with the Nordible product engineering team.',
+        businessBenefit: 'Drives warm executive inbound traffic and reactivates stalled enterprise deals on autopilot',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Silent Revenue Leak: The Cost of Dormant B2B Networks',
+          businessTakeaway: 'Most founders sit on goldmines of thousands of past clients, partners, and prospects who drift away due to zero follow-up.',
+          paragraphs: [
+            'Every B2B founder and enterprise executive accumulates thousands of first-degree LinkedIn connections—former clients, joint-venture partners, corporate alumni, and warm sales prospects. Yet after the initial deal concludes or contract negotiations pause, correspondence falls silent.',
+            'Sending cold, awkward "just checking in" emails feels pushy and damages professional rapport. Consequently, when those connections encounter new business challenges months later, they commission competing vendors simply because the founder was out of sight and out of mind.',
+            'Kabeer Shah worked with the product engineering team to engineer an organic bridge: leveraging socially expected milestone moments (birthdays, work anniversaries, and promotions) to create warm, natural re-engagement touchpoints that revive stalled conversations with zero awkwardness.',
+          ],
+          cards: [
+            {
+              title: 'Dormant Pipeline Loss',
+              desc: 'High-value prospects and former clients drift away simply because nobody maintained consistent touchpoints.',
+              badge: 'Lost Revenue',
+              icon: 'shield',
+            },
+            {
+              title: 'The Cold Outreach Trap',
+              desc: 'Pushy sales pitches damage executive rapport, whereas personal milestone greetings enjoy 80%+ response rates.',
+              badge: 'Relationship Friction',
+              icon: 'users',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The "Signature Trojan Horse": Driving Free Inbound C-Level Traffic',
+          businessTakeaway: 'Embedding your website in warm, socially expected greetings drives qualified executive decision-makers to your portfolio for $0 ad spend.',
+          paragraphs: [
+            'In high-ticket B2B commerce, social reciprocity is the single strongest human motivator. When an executive receives a genuine birthday or anniversary greeting, they feel a social obligation to read it, open the conversation, and reply with gratitude.',
+            'By incorporating a clean, professional signature with the founder’s name and website link into automated greetings, LinkedIn Catch-up Assistant turns routine pleasantries into high-converting traffic drivers. Curious recipients click through to explore current case studies, company portfolios, and service offerings.',
+            'This organic mechanism drives 300 to 500+ hyper-targeted C-level visits directly to your domain each month—delivering the pipeline impact of expensive LinkedIn InMail campaigns without spending a single dollar on pay-per-click advertising.',
+          ],
+          cards: [
+            {
+              title: 'Zero-Ad-Spend Inbound Traffic',
+              desc: 'Generates hundreds of warm C-suite website visits each month by leveraging natural social reciprocity.',
+              badge: 'Traffic Arbitrage',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Algorithmic Feed Dominance',
+              desc: 'Frequent 1-on-1 direct messaging signals close affinity to LinkedIn, boosting your organic post reach by 3x-5x.',
+              badge: 'Reach Multiplier',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'The "First 90 Days" Trigger & 100% Client-Side Account Safety',
+          businessTakeaway: 'Job changes trigger vendor reviews; local browser execution eliminates the ban risks that plague cloud scraping bots.',
+          paragraphs: [
+            'Executive career transitions represent the single highest-converting sales window in B2B. When a decision-maker gets promoted or joins a new enterprise as VP, Director, or Chief Officer, they enter their "First 90 Days"—a critical period where they command unallocated budgets and actively replace legacy vendors.',
+            'Catch-up Assistant identifies and congratulates promoted connections first, positioning founders at the top of the executive’s inbox before competing agencies even realize a job change occurred.',
+            'Crucially, unlike dangerous cloud automation bots that trigger LinkedIn security flags and risk permanent account bans, Catch-up Assistant runs entirely client-side in Chrome. With randomized human typing intervals and strict daily volume limits (max 50/day), the tool guarantees 100% profile protection for high-profile business leaders.',
+          ],
+          cards: [
+            {
+              title: 'Promotion & Job-Change Trigger',
+              desc: 'Congratulates newly appointed VPs and Directors right when they possess fresh budgets to hire vendors.',
+              badge: 'Sales Timing',
+              icon: 'zap',
+            },
+            {
+              title: '100% Account Safety',
+              desc: 'Human-emulated typing cadence and local-first execution eliminate ban risks from cloud scrapers.',
+              badge: 'Risk-Free',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'B2B Growth & Inbound Automation',
+        title: 'Ready to Turn Your LinkedIn Network into a Predictable Inbound Pipeline?',
+        desc: 'Speak directly with systems architect Kabeer Shah to explore bespoke relationship automation workflows, browser extensions, and B2B pipeline engineering.',
+        buttonText: 'Schedule Inbound Strategy Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Book Strategy Call',
+      },
+    };
+
+    const deLinkedInCatchupArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'B2B-Vertriebsautomation & Beziehungs-Architektur',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'B2B-Geschäftsführer & Vertriebsleiter:',
+        subtitle: 'Generieren Sie kontinuierlich kostenfreien Entscheider-Traffic und reaktivieren Sie Altkunden ohne Werbeausgaben oder Kontosperren.',
+        buttonText: 'Beziehungs-Automation anfragen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'LinkedIn Catch-up Assistant',
+        industry: 'B2B-Beziehungs-Automation & Inbound-Traffic-SaaS',
+        location: 'Chrome Web Store (Globale Distribution)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Für B2B-Geschäftsführer, Partner und Vertriebsleiter entstehen lukrative Abschlüsse nicht aus aufdringlicher Kaltakquise, sondern aus belastbaren Geschäftsbeziehungen und dem richtigen Timing. Doch die kontinuierliche Kontaktpflege tausender Geschäftskontakte ist im dichten Führungsalltag manuell unmöglich. Lukrative Aufträge gehen verloren, weil Entscheidern schlicht die Zeit fehlt, Meilensteine, Jubiläen oder Karriereschritte in ihrem Netzwerk rechtzeitig zu bemerken.',
+        'Nordible-Gründer Kabeer Shah entwickelte gemeinsam mit dem Produkt-Entwicklerteam den LinkedIn Catch-up Assistant: eine datenschutzorientierte Browser-Automatisierung mit menschlich emulierten Reaktionszeiten. Durch die intelligente Automatisierung sozial erwarteter Meilensteine (Geburtstage, Firmenjubiläen, Beförderungen) und persönliche Signaturen mit Website-Links verwandeln Führungskräfte ihr bestehendes Netzwerk in eine planbare Inbound-Pipeline – bei 100 % Profilsicherheit und null Werbeausgaben.',
+      ],
+      objective: {
+        title: 'Strategischer Auftrag: Vertrauensbasierte Beziehungs-Automation',
+        text: 'Systematische Kontaktpflege zur planbaren Generierung von Inbound-Traffic und Neugeschäft bei striktem Kontoschutz und lokaler Datenhaltung.',
+        points: project.businessChallenge.de,
+      },
+      metrics: [
+        { label: 'Reaktivierung', value: '+35%', icon: 'trending' },
+        { label: 'Zeitersparnis', value: '5h/Woche', icon: 'users' },
+        { label: 'Profilsicherheit', value: '100%', icon: 'trophy' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'LinkedIn Catch-up Assistant - B2B-Beziehungs-Automation und Inbound-Leads',
+        badge: 'B2B-Vertriebsautomation',
+        caption: 'Entwickelt von Kabeer Shah gemeinsam mit dem Nordible-Produkt-Entwicklerteam.',
+        businessBenefit: 'Generiert warmen Entscheider-Traffic und reaktiviert ruhende Kundenkontakte vollautomatisch',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die schlafende Umsatzreserve: Warum B2B-Netzwerke ungenutzt verkümmern',
+          businessTakeaway: 'Die meisten Geschäftsführer sitzen auf einem Schatz tausender Altkontakte, die mangels regelmäßiger Kontaktpflege sang- und klanglos abdriften.',
+          paragraphs: [
+            'Jeder Unternehmer besitzt hunderte oder tausende wertvolle LinkedIn-Kontakte: ehemalige Auftraggeber, Kooperationspartner, frühere Kollegen und warme Interessenten. Doch sobald ein Projekt abgeschlossen ist, reißt der persönliche Dialog im Tagesgeschäft ab.',
+            'Plumpe Nachfass-Nachrichten („Wollte mich mal wieder melden...“) wirken bedürftig und schaden dem professionellen Renommee. Wenn diese Kontakte Monate später neuen Bedarf haben, beauftragen sie oft Wettbewerber – schlicht weil der Kontakt in Vergessenheit geraten war.',
+            'Kabeer Shah und das Nordible-Team schufen die Brücke: Durch die gezielte Nutzung sozial erwarteter Meilensteine (Geburtstage, Jubiläen, Beförderungen) entstehen natürliche, sympathische Kontaktpunkte, die den geschäftlichen Dialog ohne jegliche Hürde neu entfachen.',
+          ],
+          cards: [
+            {
+              title: 'Verlorene Umsatz-Pipeline',
+              desc: 'Wertvolle Altkunden und Kontakte driften ab, weil im operativen Alltag Zeit für systematische Kontaktpflege fehlt.',
+              badge: 'Umsatzverlust',
+              icon: 'shield',
+            },
+            {
+              title: 'Die Kaltakquise-Falle',
+              desc: 'Aufdringliche Werbenachrichten verstimmen Entscheider, während persönliche Glückwünsche über 80 % Rückmeldungen erzielen.',
+              badge: 'Beziehungs-Hürde',
+              icon: 'users',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Das Signatur-Prinzip: Kostenfreier Entscheider-Traffic ohne Werbebudget',
+          businessTakeaway: 'Die Verknüpfung persönlicher Glückwünsche mit einer Website-Signatur leitet kaufkräftige Geschäftsführer direkt auf Ihr Angebot.',
+          paragraphs: [
+            'Im Geschäftsleben gilt das psychologische Prinzip der Reziprozität: Wer einen persönlichen Glückwunsch zum Geburtstag oder Jubiläum erhält, fühlt sich verpflichtet, die Nachricht zu öffnen und sich freundlich zu bedanken.',
+            'Wird diese Nachricht mit einer dezenten, professionellen Signatur samt Website- oder Fallstudien-Link versehen, erzeugt der LinkedIn Catch-up Assistant einen kontinuierlichen Besucherstrom. Neugierige Geschäftsführer klicken auf den Link und informieren sich über Ihre aktuellen Leistungen.',
+            'Dieser Mechanismus führt Monat für Monat 300 bis über 500 hochqualifizierte B2B-Besucher direkt auf Ihre Website – und erzielt dieselbe Durchschlagskraft wie teure LinkedIn-Ads, jedoch bei null Euro Mediabudget.',
+          ],
+          cards: [
+            {
+              title: 'Kostenfreier Inbound-Traffic',
+              desc: 'Führt monatlich hunderte Geschäftsführer durch das Prinzip sozialer Reziprozität direkt auf Ihre Website.',
+              badge: 'Traffic-Hebel',
+              icon: 'sparkles',
+            },
+            {
+              title: 'LinkedIn-Algorithmus-Boost',
+              desc: 'Häufiger Direktnachrichten-Austausch signalisiert Nähe: Eigene Beiträge landen ganz oben im Feed der Kontakte.',
+              badge: 'Reichweiten-Multiplikator',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Der Beförderungs-Trigger & 100 % lokaler Kontoschutz',
+          businessTakeaway: 'Stellenwechsel öffnen frische Budgets; die rein lokale Browser-Ausführung schützt das eigene Profil vor Account-Sperren.',
+          paragraphs: [
+            'Beförderungen und Jobwechsel sind die lukrativsten Vertriebsanlässe im B2B. Wenn eine Führungskraft zum VP, Bereichsleiter oder Geschäftsführer aufsteigt, beginnen die entscheidenden „ersten 90 Tage“, in denen neue Budgets verteilt und bestehende Dienstleister auf den Prüfstand gestellt werden.',
+            'Der Catch-up Assistant gratuliert diesen Entscheidern als Erster – und positioniert Ihr Angebot im Postfach, bevor Mitbewerber überhaupt vom Stellenwechsel erfahren.',
+            'Im Gegensatz zu riskanten Cloud-Bots, die IP-Sicherheitsprüfungen auslösen und LinkedIn-Profile dauerhaft sperren, agiert der Catch-up Assistant rein lokal im Chrome-Browser. Mit zufälligen menschlichen Tipp-Verzögerungen und strikten Tageslimits (max. 50 Aktionen) bleibt das persönliche Profil zu 100 % sicher.',
+          ],
+          cards: [
+            {
+              title: 'Beförderungs-Timing',
+              desc: 'Gratuliert Führungskräften exakt dann, wenn neue Budgets freigegeben und Dienstleister geprüft werden.',
+              badge: 'Kaufzeitpunkt',
+              icon: 'zap',
+            },
+            {
+              title: '100 % Profilsicherheit',
+              desc: 'Mensch-Emulation und lokale Ausführung verhindern Plattform-Warnungen und dauerhafte Sperren.',
+              badge: 'Risikofrei',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'B2B-Wachstum & Inbound-Automation',
+        title: 'Bereit, Ihr bestehendes Netzwerk in planbare Aufträge zu verwandeln?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über maßgeschneiderte Beziehungs-Automationen, Browser-Extensions und skalierbare B2B-Pipelines.',
+        buttonText: 'Inbound-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'Strategiegespräch buchen',
+      },
+    };
+
+    return { en: enLinkedInCatchupArticle, de: deLinkedInCatchupArticle };
   }
 
 

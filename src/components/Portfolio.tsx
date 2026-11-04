@@ -94,7 +94,7 @@ const projects = [
     description: 'Enterprise conversational AI and bot-creation platform engineered by Kabeer Shah with SmarTek21—enabling businesses to launch intelligent self-service bots that slash support OpEx by 60%.',
     technologies: ['Conversational AI', 'Enterprise Bot Engine', 'NLP', 'CRM Integration', 'AWS Cloud Architecture'],
     outcome: 'Reduced customer service operating costs by 60% across 500+ enterprises with 90% first-contact resolution',
-    image: '/images/portfolio/project-8386440.webp',
+    image: '/images/portfolio/intellitek-ai-platform.png',
     metrics: {
       bots: '500+ Deployments',
       cost_reduction: '60% Cost Saved',
@@ -205,14 +205,14 @@ const projects = [
     logo: '/images/logos/Linkedin-Catchup-assistant-icon.png',
     link: 'https://chromewebstore.google.com/detail/linkedin-catch-up-assista/npfnjcgcajdmcihppmihlnnjefkniaip',
     caseStudySlug: 'linkedin-catchup-assistant-b2b-relationship-automation-case-study',
-    description: 'A safety-first automation suite for LinkedIn that helps maintain authentic relationships by managing birthdays, anniversaries, and new job notifications.',
-    technologies: ['Chrome Extension', 'Node.js', 'JavaScript', 'Automation'],
-    outcome: 'Automated relationship management with human-emulation delays and privacy-first local storage.',
-    image: '/images/portfolio/project-267350.webp',
+    description: 'A safety-first Chrome extension for founders and sales leaders that turns birthdays, anniversaries, and job promotions into warm deal flow and zero-ad-spend website traffic.',
+    technologies: ['Chrome Extension Manifest V3', 'JavaScript', 'Node.js', 'Human-Emulation Algorithms', 'Local Storage Privacy'],
+    outcome: 'Generated +35% warm re-engagement and consistent C-level inbound website traffic with 100% account safety.',
+    image: '/images/portfolio/linkedin-catchup-assistant.png',
     metrics: {
-      reach: '50 Iterations',
-      safety: 'Human-Emulation',
-      privacy: 'Local Storage'
+      pipeline: '+35% Leads',
+      inbound: 'Free C-Level Traffic',
+      safety: '100% Safe'
     },
     gradient: 'from-blue-600 to-nordible-blue'
   },
@@ -360,7 +360,9 @@ const metricLabelTranslationsDe: Record<string, string> = {
   impressions: 'Impressionen',
   directions: 'Routenanfragen',
   new_clients: 'Neukunden',
-  retention: 'Bindung'
+  retention: 'Bindung',
+  pipeline: 'Pipeline',
+  inbound: 'Inbound-Traffic'
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
@@ -396,12 +398,12 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
   },
   'linkedin-catchup': {
     client: 'Nordible-Produkt',
-    description: 'Sicherheitsorientierte Automatisierungssuite für LinkedIn zur Pflege authentischer Geschäftsbeziehungen durch automatisiertes Tracking von Geburtstagen, Jubiläen und Jobwechseln.',
-    outcome: 'Automatisiertes Beziehungsmanagement mit menschenähnlicher Interaktionsverzögerung und datenschutzkonformer lokaler Speicherung.',
+    description: 'Sicherheitsorientierte Browser-Erweiterung für Geschäftsführer und Vertriebsleiter: Verwandelt Geburtstage und Beförderungen in planbare Neugeschäfts-Anfragen und kostenfreien Website-Traffic.',
+    outcome: '+35 % Reaktivierung bestehender Kontakte und kontinuierlicher B2B-Traffic durch menschlich emulierte Beziehungspflege bei 100 % Profilsicherheit.',
     metricValues: {
-      reach: '50 Iterationen',
-      safety: 'Mensch-Emulation',
-      privacy: 'Lokaler Speicher'
+      pipeline: '+35 % Leads',
+      inbound: 'Kostenfreier Traffic',
+      safety: '100 % sicher'
     }
   },
   'buns069': {
