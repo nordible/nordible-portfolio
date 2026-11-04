@@ -34,7 +34,7 @@ const projects = [
     logo: '/images/logos/InstaRem_logo.svg',
     link: 'https://www.instarem.com',
     caseStudySlug: 'nium-instarem-fintech-remittance-scale-case-study',
-    description: 'End-to-end technology stewardship for NIUM’s instarem.com by Kabeer Shah—overseeing mobile, web, PCI-DSS compliance audits, and high-volume PhonePe payment rails.',
+    description: 'End-to-end technology stewardship for NIUM’s instarem.com led by Kabeer Shah with NIUM’s engineering division—overseeing mobile, web, PCI-DSS compliance audits, and high-volume PhonePe payment rails.',
     technologies: ['Cross-Border Remittance', 'PCI-DSS Compliance', 'PhonePe Rails', 'Mobile & Web Stack'],
     outcome: 'Scaled global remittance rails with 100% audit pass rate and seamless PhonePe integration',
     image: '/images/portfolio/nium-instarem-fintech.png',
@@ -53,7 +53,7 @@ const projects = [
     logo: '/images/logos/vantive_logo.jpg',
     link: 'https://www.vantive.com',
     caseStudySlug: 'vantive-baxter-healthcare-remote-diagnostics-case-study',
-    description: 'IoT remote telemetry and diagnostic platform implemented by Kabeer Shah for Vantive (Baxter Kidney Care)—eliminating costly on-site technician dispatches and halving medical device downtime.',
+    description: 'IoT remote telemetry and diagnostic platform implemented by Kabeer Shah together with Vantive’s biomedical engineering team—eliminating costly on-site technician dispatches and halving medical device downtime.',
     technologies: ['IoT Remote Diagnostics', 'Healthcare Telemetry', 'Field Service Optimization', 'Medical Device Compliance'],
     outcome: 'Eliminated 50% of on-site technician dispatches and halved device downtime across 15,000+ medical devices',
     image: '/images/portfolio/vantive-baxter-remote-service.png',
@@ -72,14 +72,14 @@ const projects = [
     logo: '/images/logos/TheParentInc-logo.webp',
     link: 'https://www.parents.vip',
     caseStudySlug: 'parents-vip-influencer-creator-marketing-platform-case-study',
-    description: 'End-to-end influencer social media promotions, market surveys, and content creation process management platform.',
+    description: 'Autonomous creator marketing platform activating 130,000+ vetted parent micro-influencers and ambassadors across Southeast Asia for global FMCG brands.',
     technologies: ['Node.js', 'MySQL', 'Mocha', 'Microservices', 'AWS', 'Redis', 'Python'],
-    outcome: 'Streamlined influencer campaigns resulting in 200% increase in campaign efficiency',
-    image: '/images/portfolio/project-1250452.webp',
+    outcome: 'Scaled creator marketing to 130,000+ vetted parent ambassadors and 35M+ audience reach with 100% campaign automation',
+    image: '/images/portfolio/theparentinc-parents-vip.png',
     metrics: {
-      campaigns: '5K+',
-      efficiency: '200%',
-      uptime: '99.7%'
+      creators: '130K+',
+      reach: '35M+',
+      automation: '100%'
     },
     gradient: 'from-pink-600 to-purple-600'
   },
@@ -336,6 +336,7 @@ const metricLabelTranslationsDe: Record<string, string> = {
   devices: 'Geräte',
   downtime: 'Ausfallzeit',
   accuracy: 'Genauigkeit',
+  creators: 'Creators',
   bots: 'Bots',
   cost_reduction: 'Kostenersparnis',
   automation: 'Automatisierung',
@@ -414,8 +415,13 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
   },
   'parents-vip': {
     client: 'The Parent Inc / TickleMedia',
-    description: 'Ganzheitliche Plattform für Influencer-Marketing, Marktumfragen und die durchgängige Verwaltung von Content-Erstellungsprozessen.',
-    outcome: 'Optimierte Influencer-Kampagnen mit einer Steigerung der Kampagneneffizienz um 200%.'
+    description: 'Ganzheitliche Creator- und Influencer-Marketing-Plattform zur Skalierung von über 130.000 verifizierten Eltern-Botschaftern für weltweite Konsumgütermarken in Südostasien.',
+    outcome: 'Skalierung auf 130.000+ Markenbotschafter und 35 Mio.+ monatliche Reichweite bei 100 % automatisierter Kampagnenabwicklung.',
+    metricValues: {
+      creators: '130K+',
+      reach: '35 Mio.+',
+      automation: '100 %'
+    }
   },
   'rst-baxter': {
     client: 'Vantive Healthcare',

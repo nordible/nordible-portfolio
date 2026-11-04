@@ -51,7 +51,7 @@ export default function FloatingCTA() {
           {/* Quick Call Button (Direct Phone Contact) */}
           <a
             href={contactConfig.phone.telHref}
-            className="flex flex-col items-center justify-center min-w-[2.75rem] h-11 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200/80 dark:border-gray-700 transition-colors active:scale-95 shrink-0"
+            className="flex-1 flex flex-col items-center justify-center h-11 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200/80 dark:border-gray-700 transition-colors active:scale-95"
             aria-label={isDe ? 'Direkt anrufen' : 'Call directly'}
             title={contactConfig.phone.display}
           >
@@ -66,7 +66,7 @@ export default function FloatingCTA() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center min-w-[2.75rem] h-11 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50 transition-colors active:scale-95 shrink-0"
+            className="flex-1 flex flex-col items-center justify-center h-11 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50 transition-colors active:scale-95"
             aria-label="WhatsApp"
             title="WhatsApp"
           >
@@ -77,7 +77,7 @@ export default function FloatingCTA() {
           {/* Quick Email Link */}
           <a
             href={contactConfig.email.mailToGeneral}
-            className="flex flex-col items-center justify-center min-w-[2.75rem] h-11 rounded-xl bg-blue-50/70 hover:bg-blue-100 dark:bg-blue-950/30 dark:hover:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/50 transition-colors active:scale-95 shrink-0"
+            className="flex-1 flex flex-col items-center justify-center h-11 rounded-xl bg-blue-50/70 hover:bg-blue-100 dark:bg-blue-950/30 dark:hover:bg-blue-900/40 text-nordible-blue dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/50 transition-colors active:scale-95"
             aria-label={isDe ? 'E-Mail senden' : 'Send email'}
             title={contactConfig.email.general}
           >
@@ -85,22 +85,19 @@ export default function FloatingCTA() {
             <span className="text-[9px] font-bold mt-0.5 uppercase tracking-wide">Mail</span>
           </a>
 
-          {/* Primary High-Contrast Booking Link Button */}
+          {/* Direct Calendar Booking Link */}
           <a
             href={contactConfig.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 h-11 px-3 rounded-xl bg-gradient-to-r from-nordible-blue to-blue-600 hover:from-blue-600 hover:to-nordible-blue active:scale-[0.98] text-white text-xs font-bold font-heading shadow-md shadow-blue-500/25 transition-all cursor-pointer min-w-0"
+            className="flex-1 flex flex-col items-center justify-center h-11 rounded-xl bg-nordible-blue hover:bg-nordible-dark active:scale-[0.98] text-white shadow-md shadow-blue-500/25 transition-all cursor-pointer"
             aria-label={isDe ? 'Termin buchen' : 'Book Strategy Call'}
             title={isDe ? 'Google Calendar Erstgespräch buchen' : 'Book strategy session via Google Calendar'}
           >
-            <Calendar className="h-4 w-4 shrink-0 text-blue-100" />
-            <div className="flex flex-col items-start text-left leading-tight truncate">
-              <span className="truncate">{isDe ? 'Termin buchen' : 'Book Call'}</span>
-              <span className="text-[9px] font-normal text-blue-100/90 font-sans truncate">
-                {isDe ? 'Kostenfrei · Google Meet' : 'Free · Google Meet'}
-              </span>
-            </div>
+            <Calendar className="h-4 w-4 text-white" />
+            <span className="text-[9px] font-bold mt-0.5 uppercase tracking-wide">
+              {isDe ? 'Termin' : 'Book'}
+            </span>
           </a>
         </div>
       </nav>
@@ -145,17 +142,16 @@ export default function FloatingCTA() {
 
           <div className="h-4 w-px bg-nordible-border dark:bg-gray-800 mx-1" />
 
-          {/* Direct Calendar Booking Link */}
+          {/* Direct Calendar Booking Link (Icon Only) */}
           <a
             href={contactConfig.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-nordible-blue hover:bg-nordible-dark text-white shadow-md shadow-blue-500/25 text-xs font-bold font-heading transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="p-2.5 rounded-full bg-nordible-blue hover:bg-nordible-dark text-white shadow-md shadow-blue-500/25 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             aria-label={isDe ? 'Termin buchen' : 'Book Strategy Call'}
             title={isDe ? 'Google Calendar Erstgespräch buchen' : 'Book strategy session via Google Calendar'}
           >
-            <Calendar className="h-3.5 w-3.5 text-blue-100" />
-            <span>{isDe ? 'Termin buchen' : 'Book Strategy Call'}</span>
+            <Calendar className="h-4 w-4 text-white" />
           </a>
         </div>
 

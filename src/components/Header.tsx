@@ -297,19 +297,6 @@ export default function Header() {
                 </select>
               </div>
             )}
-
-            {/* Single Prominent Conversion CTA (Hick's Law Optimization) */}
-            <a
-              href={contactConfig.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-nordible-blue hover:bg-nordible-dark text-white text-xs lg:text-sm font-bold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] shrink-0 ml-1.5 cursor-pointer"
-              title={isDe ? 'Termin buchen (Google Calendar)' : 'Book Strategy Call (Google Calendar)'}
-              aria-label={isDe ? 'Termin buchen' : 'Book Strategy Call'}
-            >
-              <Calendar className="h-4 w-4" />
-              <span>{isDe ? 'Termin buchen' : 'Book Call'}</span>
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}
