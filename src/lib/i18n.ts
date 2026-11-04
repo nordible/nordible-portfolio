@@ -705,10 +705,10 @@ export const translations: Record<Language, Translations> = {
           company: "SmarTek21",
           description: "Built scalable enterprise conversational AI and natural language processing (NLP) chatbot solutions.",
           highlights: [
-            "Engineered backend and frontend architectures for 'SmartbotHub', an enterprise NLP conversational chatbot platform.",
+            "Engineered backend and frontend architectures with the SmarTek21 team for 'IntelliTek.ai' (formerly SmartBotHub), an enterprise conversational bot platform.",
             "Awarded 'Best Performer Award' for outstanding software delivery velocity using Node.js and Angular.js."
           ],
-          tags: ["Enterprise AI", "NLP Chatbots", "SmartbotHub", "Node.js", "Angular.js"]
+          tags: ["Enterprise AI", "Conversational AI", "IntelliTek.ai", "SmarTek21", "Node.js"]
         },
         {
           period: "June 2015 – March 2017",
@@ -727,7 +727,7 @@ export const translations: Record<Language, Translations> = {
           company: "Next Service HSS Pvt. Ltd.",
           description: "Designed core operational automation suites and served as a technical trainer and R&D mentor.",
           highlights: [
-            "Engineered 'NextAuto', an internal process automation suite in C#, .NET, and Node.js that eliminated manual tasks.",
+            "Engineered 'NextAuto' with the NextServices team—a HIPAA-compliant U.S. healthcare claims and eligibility automation suite in C# and .NET.",
             "Mentored junior engineers and collaborated with C-suite executives on operational efficiency.",
             "Honored with 'Best Performer Award' for automation excellence."
           ],
@@ -1259,10 +1259,10 @@ export const translations: Record<Language, Translations> = {
           company: "SmarTek21",
           description: "Entwicklung von Enterprise-Conversational-AI und Chatbot-Lösungen auf Basis natürlicher Sprachverarbeitung (NLP).",
           highlights: [
-            "Full-Stack-Entwicklung für 'SmartbotHub', eine NLP-gestützte KI-Chatbot-Plattform für Großkunden.",
+            "Full-Stack-Entwicklung gemeinsam mit dem SmarTek21-Team für 'IntelliTek.ai' (ehemals SmartBotHub), eine NLP-gestützte KI-Chatbot-Plattform für Großkunden.",
             "Auszeichnung mit dem 'Best Performer Award' für herausragende Lieferqualität mit Node.js und Angular.js."
           ],
-          tags: ["Enterprise KI", "NLP Chatbots", "SmartbotHub", "Node.js", "Angular.js"]
+          tags: ["Enterprise KI", "Conversational AI", "IntelliTek.ai", "SmarTek21", "Node.js"]
         },
         {
           period: "Juni 2015 – März 2017",
@@ -1281,7 +1281,7 @@ export const translations: Record<Language, Translations> = {
           company: "Next Service HSS Pvt. Ltd.",
           description: "Entwicklung interner Prozessautomatisierungen sowie technische Schulung und Mentoring von Entwicklerteams.",
           highlights: [
-            "Entwicklung von 'NextAuto', einer internen Prozessautomatisierungssuite in C#, .NET und Node.js zur Eliminierung manueller Schritte.",
+            "Entwicklung von 'NextAuto' gemeinsam mit dem NextServices-Team – eine HIPAA-konforme Automatisierungssuite für US-Krankenkassenabrechnungen und Versicherungsprüfungen in C# und .NET.",
             "Technischer Mentor und Schnittstelle zur Geschäftsführung für operative Prozessoptimierung.",
             "Ausgezeichnet mit dem 'Best Performer Award' für Automatisierungserfolge."
           ],

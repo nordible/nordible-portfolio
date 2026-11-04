@@ -62,7 +62,7 @@ export const knowledgeBase = {
       company: "SmarTek21",
       role: "Senior Full Stack Engineer",
       duration: "March 2017 – August 2018",
-      description: "Developed SmartbotHub conversational NLP chatbot platform for enterprise clients. Won Best Performer Award.",
+      description: "Co-developed IntelliTek.ai (formerly SmartBotHub) enterprise conversational AI and bot-creation platform. Won Best Performer Award.",
       technologies: ["Node.js", "AngularJS", "NLP / AI", "MySQL", "AWS"]
     },
     {
@@ -76,7 +76,7 @@ export const knowledgeBase = {
       company: "Next Service HSS Pvt. Ltd.",
       role: "Software Engineer",
       duration: "April 2012 – March 2016",
-      description: "Developed NextAuto internal automation suite (C#, .NET, Node.js) eliminating manual operational tasks.",
+      description: "Collaborated with the NextServices team to engineer NextAuto: a HIPAA-compliant U.S. healthcare claims and insurance eligibility automation suite (C#, .NET, SQL Server).",
       technologies: ["C#", ".NET", "Node.js", "Automation"]
     }
   ],
@@ -133,9 +133,9 @@ export const knowledgeBase = {
       technologies: ["Node.js", "PostgreSQL", "AWS IoT", "Jest", "TDD", "AWS"]
     },
     {
-      name: "SmartbotHub",
-      client: "Smartek21",
-      description: "Chatbot-building platform with Natural Language Processing for creating conversational AI chatbots.",
+      name: "IntelliTek.ai (formerly SmartBotHub)",
+      client: "SmarTek21",
+      description: "Enterprise bot-creation platform with Natural Language Processing enabling businesses to deploy conversational bots that slash support OpEx by 60%.",
       outcome: "Enabled 500+ businesses to deploy chatbots, reducing customer service costs by 60%",
       technologies: ["AngularJS", "Node.js", "MySQL", "AWS", "NLP"]
     },

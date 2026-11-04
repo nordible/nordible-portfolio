@@ -593,27 +593,28 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       share: 'Share Case Study',
       copied: 'Link copied to clipboard',
       badge: project.badge.en,
-      date: 'Enterprise Case Study',
+      date: 'Healthcare RPA Case Study',
       readTime: '4 min read',
       title: project.heroHeadline.en,
       topRibbon: {
-        boldText: 'Operations Leader:',
-        subtitle: 'Automate repetitive back-office workflows and eliminate manual data entry.',
-        buttonText: 'Request Automation Review →',
+        boldText: 'Healthcare COO & RCM Practice Director:',
+        subtitle: 'Eliminate insurance claim rejections and automate patient eligibility verification under strict HIPAA compliance.',
+        buttonText: 'Discuss Healthcare Claims Automation →',
         action: 'consultation',
       },
       client: {
-        name: project.client,
-        industry: project.clientRole || 'Enterprise Healthcare Services',
+        name: 'NextServices HSS Pvt. Ltd.',
+        industry: 'U.S. Healthcare Revenue Cycle & Medical Claims Processing',
         link: project.liveUrl,
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
-        project.executiveSummary.en,
-        'In high-volume enterprise operations, scaling headcounts to handle repetitive back-office data processing destroys operating margins and introduces costly human transcription errors. Nordible engineered NextAuto: an end-to-end Robotic Process Automation (RPA) suite that automates data extraction, reconciles ledgers, and dispatches audited statements autonomously.',
+        'In the United States healthcare system, patients visiting a hospital, clinic, or physician do not pay upfront—they simply present their health insurance card and receive care. For healthcare providers, this creates immense operational and financial risk: extracting reimbursements from insurance carriers (commercial payers, Medicare, Medicaid) is a notoriously labyrinthine, delayed, and bureaucratic battle. NextServices managed this mission-critical revenue cycle management (RCM) workflow for American medical providers.',
+        'Nordible founder Kabeer Shah, working collaboratively with the NextServices operations and engineering teams, created NextAuto—an automated, HIPAA-compliant workflow engine. By automating upfront patient insurance eligibility checks, treatment coverage verification, and carrier claim status inquiries, the platform eliminated 90% of manual data errors and saved 40+ hours per week—while maintaining strict regulatory guardrails and routing complex exceptions for human clinical review.',
       ],
       objective: {
         title: 'Operational Mission & Process Objectives',
-        text: 'Eliminate manual data entry between billing portals and spreadsheets while cutting reimbursement delays and administrative overhead.',
+        text: 'Automate upfront patient eligibility and claim submission workflows across U.S. insurance carriers while upholding strict HIPAA data privacy and regulatory compliance.',
         points: project.businessChallenge.en,
       },
       metrics: project.businessResults.map((m) => ({
@@ -623,106 +624,115 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       })),
       heroImage: {
         src: project.image,
-        alt: `${project.title} - Enterprise RPA & Workflow Automation`,
-        badge: 'Enterprise Automation',
-        caption: 'Automated 80% of routine workflows and saved 40+ billable hours every week.',
-        businessBenefit: '80% back-office automation with -90% error reduction',
+        alt: `${project.title} - U.S. Healthcare Claims Automation & Eligibility Verification`,
+        badge: 'HIPAA Compliant RPA',
+        caption: 'Automated U.S. healthcare claims and eligibility verification engineered by Kabeer Shah with the NextServices team.',
+        businessBenefit: '80% routine claims automation with -90% error reduction under strict HIPAA compliance',
       },
       sections: [
         {
           number: '01',
-          title: 'The Bottleneck: Manual Data Entry & Lost Billable Hours',
-          businessTakeaway: 'When operations teams spend 40+ hours weekly hand-copying figures across legacy portals, labor costs balloon and insurance reimbursements stall.',
+          title: 'The U.S. Healthcare Reimbursement Reality: The Zero-Upfront Burden',
+          businessTakeaway: 'Because American patients pay zero at the time of care, providers face severe cash flow delays if insurance eligibility is not verified prior to treatment.',
           paragraphs: [
-            'NextServices faced an operational dilemma common to fast-growing healthcare operations: surging transaction volumes required continually hiring administrative clerks to copy records between third-party insurance portals and internal billing ledgers.',
-            'Human transposition mistakes led to insurance claim rejections, delaying revenue collection by 30 to 60 days and burning expensive supervisory hours on tedious invoice audits.',
+            'In American healthcare, medical practices render expensive treatments on good faith when a patient presents an insurance card. However, if a patient’s policy has lapsed, if a copay deductible has changed, or if a specific procedure lacks prior authorization, insurance carriers reject the claim outright 30 to 90 days later.',
+            'NextServices’ team of billing specialists was overwhelmed by the manual grind: logging into dozens of fragmented payer web portals (UnitedHealthcare, Aetna, Cigna, Blue Cross Blue Shield, Medicare) to individually copy patient IDs, check active benefit coverage, and verify treatment codes. Manual data entry transposition errors triggered cascading claim denials and delayed millions in provider revenue.',
           ],
           cards: [
             {
-              title: 'Margin Erosion',
-              desc: 'Scaling headcount linearly with transaction volume squeezes profit margins and restricts business growth.',
-              badge: 'Operational Cost',
+              title: 'The Zero-Upfront Trap',
+              desc: 'Providers carry all financial risk when providing care before insurance coverage is conclusively verified.',
+              badge: 'Cash Flow Risk',
               icon: 'shield',
             },
             {
-              title: 'Revenue Delays',
-              desc: 'Data transposition errors triggered 30-to-60-day reimbursement lags from insurance carriers.',
-              badge: 'Cash Flow Risk',
+              title: 'Disparate Payer Portals',
+              desc: 'Manually logging into dozens of carrier sites daily created immense administrative fatigue and costly billing backlogs.',
+              badge: 'Operational Drain',
               icon: 'building',
             },
           ],
         },
         {
           number: '02',
-          title: 'The Solution: NextAuto Robotic Process Automation (RPA)',
-          businessTakeaway: 'Autonomous software robots executing high-volume data extraction, reconciliation, and delivery with zero human intervention.',
+          title: 'The Automation Engine: Real-Time Eligibility & Payer Inquiries',
+          businessTakeaway: 'Automating real-time insurance verification before appointments prevents claim rejections before care is even delivered.',
           paragraphs: [
-            'Nordible designed and engineered NextAuto, a resilient RPA platform built on C# and .NET Framework that directly interfaces with insurance portals, extracts payment vouchers, and cross-references them against internal accounts receivable ledgers.',
-            'Rather than burdening humans with repetitive data transfers, the automation engine processes batches in seconds and deposits verified audit logs directly into SQL Server.',
+            'Kabeer Shah worked with the NextServices engineering and operations team to design NextAuto, an enterprise robotic process automation suite built on C# and the .NET Framework.',
+            'The platform directly interfaces with insurance carrier clearinghouses and web portals to automate three high-friction workflows: real-time patient eligibility checking prior to clinic visits, automated treatment coverage validation, and automated claim status requests.',
+            'Instead of human staff spending 15 minutes per patient on phone queues or portal screens, the automation engine checks rosters overnight, extracts payment vouchers, and cross-references accounts receivable in seconds.',
           ],
           cards: [
             {
-              title: 'End-to-End Extraction',
-              desc: 'Automated scraping and API syncing across heterogeneous billing portals and spreadsheets.',
+              title: 'Automated Eligibility Checks',
+              desc: 'Batches of patient rosters verified overnight against carrier databases prior to scheduled clinic appointments.',
               badge: '80% Automated',
               icon: 'zap',
             },
             {
-              title: 'Intelligent Exception Alerts',
-              desc: 'Smart triage flags only the 5% of records requiring human review, letting staff ignore routine successes.',
-              badge: 'Exception Handling',
+              title: 'Payer Request Automation',
+              desc: 'Robotic bots dispatch claim inquiries and retrieve digital explanation of benefits (EOBs) without human intervention.',
+              badge: 'RCM Acceleration',
               icon: 'bot',
-            },
-            {
-              title: 'Executive Visibility',
-              desc: 'Real-time performance dashboards track daily transaction throughput, error rates, and labor savings.',
-              badge: 'Real-Time Insights',
-              icon: 'sparkles',
             },
           ],
         },
         {
           number: '03',
-          title: 'Direct Business Impact: 40+ Hours Saved Every Week',
-          businessTakeaway: 'Reclaiming high-cost staff hours and reducing billing errors by 90% delivered immediate operating leverage.',
+          title: 'HIPAA Compliance & The Regulatory Boundary: Guardrails Over 100% Automation',
+          businessTakeaway: 'In healthcare, blind 100% automation is dangerous; true enterprise engineering automates compliant paths while routing regulatory edge cases to human specialists.',
           paragraphs: [
-            'Following deployment of NextAuto, manual data entry was slashed by 80%. Operations teams reclaimed over 40 billable hours every single week, reallocating skilled personnel toward patient advocacy and client service.',
-            'With billing transposition errors plummeting by 90%, insurance claim rejections fell to historic lows, speeding up payment collection cycles and restoring predictable cash flow.',
-          ],
-          quote: 'Automation should liberate skilled employees from spreadsheet drudgery so they can focus on high-value client relationships.',
-        },
-        {
-          number: '04',
-          title: 'Audit-Proof Architecture & Enterprise Governance',
-          businessTakeaway: 'Mission-critical data pipelines built for enterprise resilience, zero data loss, and strict healthcare compliance.',
-          paragraphs: [
-            'Financial and healthcare data workflows demand flawless audit trails. NextAuto was engineered with transactional ACID guarantees, comprehensive exception telemetry, and encrypted SQL data storage.',
-            'Every automated transaction produces an immutable audit record, satisfying strict compliance mandates and ensuring full operational transparency.',
+            'In insurance claims processing, federal regulations and payer policies dictate that certain nuanced clinical determinations and prior authorizations cannot be fully delegated to unmonitored scripts.',
+            'Kabeer Shah and the team engineered NextAuto with strict HIPAA compliance: Protected Health Information (PHI) is encrypted at rest and in transit, with role-based access control and immutable transaction logs in Microsoft SQL Server.',
+            'Crucially, the system introduced intelligent exception triage: routine, clear-cut eligibility and status tasks run at 100% automated speed, while ambiguous payer denials or complex clinical exceptions are instantly flagged for human review, guaranteeing zero compliance violations.',
           ],
           cards: [
             {
-              title: 'Zero Data Loss',
-              desc: 'Transactional retry mechanisms and idempotent data pipelines guarantee that no claim or voucher is dropped.',
-              badge: 'ACID Reliability',
+              title: 'HIPAA Protected Health Information',
+              desc: 'End-to-end encryption, audit logs, and access controls meeting the highest U.S. federal healthcare privacy standards.',
+              badge: 'HIPAA Security',
               icon: 'shield',
             },
             {
-              title: 'Full Audit Trail',
-              desc: 'Cryptographically verified transaction logs ensure end-to-end regulatory compliance.',
-              badge: 'Enterprise Compliance',
-              icon: 'bot',
+              title: 'Smart Regulatory Triage',
+              desc: 'Automates compliant routine paths while routing non-standard payer queries to human billing experts.',
+              badge: 'Regulatory Safety',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Direct Commercial ROI: 90% Error Reduction & 40+ Hours Saved Weekly',
+          businessTakeaway: 'Eliminating manual data transfer drops insurance claim rejection rates to historic lows and shortens Days in Accounts Receivable (A/R).',
+          paragraphs: [
+            'Following the deployment of NextAuto, manual data entry across insurance portals was reduced by 80%. NextServices reclaimed over 40 billable employee hours every single week, allowing staff to focus on high-value patient advocacy and complex appeals.',
+            'Because automated data extraction eliminated human transposition typos, claim rejection rates dropped by 90%. Providers experienced faster reimbursement cycles, predictable cash flow, and zero compliance penalties.',
+          ],
+          cards: [
+            {
+              title: '-90% Claim Rejections',
+              desc: 'Eliminating manual data entry mistakes drastically reduces payer denials and accelerates revenue collection.',
+              badge: 'Reimbursement Speed',
+              icon: 'sparkles',
+            },
+            {
+              title: '40+ Hours Saved Weekly',
+              desc: 'Reclaimed administrative capacity redirected toward high-value provider support and patient advocacy.',
+              badge: 'Margin Expansion',
+              icon: 'building',
             },
           ],
         },
       ],
       cta: {
-        badge: 'RPA & Enterprise Workflow Automation',
-        title: 'Ready to Eliminate Repetitive Back-Office Work and Save 40+ Hours Every Week?',
-        desc: 'Let us analyze your team’s manual data entry, billing reconciliation, and reporting bottlenecks. We engineer custom RPA bots and automated pipelines that run with 99.9% accuracy.',
-        buttonText: 'Book Automation Discovery Call',
+        badge: 'Healthcare RPA & Claims Automation',
+        title: 'Ready to Eliminate Insurance Claim Rejections and Automate Eligibility Workflows?',
+        desc: 'Speak directly with Systems Architect Kabeer Shah about building HIPAA-compliant automation pipelines, claims processing engines, and secure healthcare data architectures.',
+        buttonText: 'Schedule Healthcare Automation Call',
         buttonAction: 'consultation',
         secondaryText: 'Explore More Case Studies',
-        mobileButtonText: 'Book Automation Call',
+        mobileButtonText: 'Healthcare RPA Call',
       },
     };
 
@@ -733,27 +743,28 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       share: 'Fallstudie teilen',
       copied: 'Link in die Zwischenablage kopiert',
       badge: project.badge.de,
-      date: 'Enterprise-Fallstudie',
+      date: 'Healthcare-RPA Fallstudie',
       readTime: '4 Min. Lesezeit',
       title: project.heroHeadline.de,
       topRibbon: {
-        boldText: 'Betriebsleiter & Geschäftsführer:',
-        subtitle: 'Automatisieren Sie fehleranfällige Routineprozesse und sparen Sie 40+ Std./Woche.',
-        buttonText: 'Potenzialanalyse anfragen →',
+        boldText: 'Klinik-Geschäftsführer & Abrechnungsleiter:',
+        subtitle: 'Beseitigen Sie Abrechnungsfehler und automatisieren Sie Patientenprüfungen unter strikter HIPAA-Compliance.',
+        buttonText: 'Abrechnungs-Automation besprechen →',
         action: 'consultation',
       },
       client: {
-        name: project.client,
-        industry: project.clientRole || 'Healthcare & Unternehmens-Services',
+        name: 'NextServices HSS Pvt. Ltd.',
+        industry: 'US-Healthcare Abrechnungsmanagement & Forderungsprozesse',
         link: project.liveUrl,
+        repoUrl: project.repoUrl,
       },
       introParagraphs: [
-        project.executiveSummary.de,
-        'In wachsenden Unternehmen führt die manuelle Bewältigung von Routineaufgaben zu explodierenden Personalkosten und kostspieligen Tippfehlern. Nordible entwickelte NextAuto: eine hochperformante Robotic Process Automation (RPA)-Suite, die Datenübertragungen, Abrechnungsabgleiche und Reporting vollständig autonom durchführt.',
+        'Im Gesundheitssystem der USA zahlen Patienten bei Behandlungen in Praxen und Kliniken nicht bar vor Ort – sie legen lediglich ihre Krankenversicherungskarte vor und werden versorgt. Für medizinische Einrichtungen bedeutet dies ein enormes wirtschaftliches Risiko: Die Abrechnung und Durchsetzung von Forderungen gegenüber unzähligen Versicherern (Privatkassen, Medicare, Medicaid) ist ein zäher, bürokratischer und hochkomplexer Prozess. NextServices übernahm dieses geschäftskritische Abrechnungsmanagement für US-Gesundheitsdienstleister.',
+        'Nordible-Gründer Kabeer Shah entwickelte gemeinsam mit dem operativen und technischen Team von NextServices die Plattform NextAuto: eine HIPAA-konforme Automatisierungs-Engine für medizinische Abrechnungen. Durch die automatisierte Vorabprüfung des Versicherungsschutzes, die Einreichung von Leistungsanfragen und die Statusabfrage bei Kostenträgern wurden 90 % der manuellen Abrechnungsfehler eliminiert und wöchentlich über 40 Arbeitsstunden freigesetzt – unter voller Wahrung aller gesetzlichen Vorgaben.',
       ],
       objective: {
         title: 'Operativer Auftrag & Automatisierungsziele',
-        text: 'Beseitigung manueller Dateneingaben zwischen Portalen und Tabellen bei gleichzeitiger Beschleunigung der Zahlungseingänge.',
+        text: 'Automatisierung von Patienten-Versicherungsprüfungen und Erstattungsanfragen bei US-Krankenkassen unter strikter Einhaltung aller HIPAA-Datenschutzstandards.',
         points: project.businessChallenge.de,
       },
       metrics: project.businessResults.map((m) => ({
@@ -763,106 +774,115 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       })),
       heroImage: {
         src: project.image,
-        alt: `${project.title} - Enterprise RPA & Workflow-Automatisierung`,
-        badge: 'Prozessautomatisierung',
-        caption: '80 % der Routine-Workflows automatisiert und 40+ Wochenarbeitsstunden eingespart.',
-        businessBenefit: '80 % Prozessautomatisierung mit -90 % Fehlerquote',
+        alt: `${project.title} - Automatisierung von US-Krankenkassenabrechnungen & HIPAA-Prüfungen`,
+        badge: 'HIPAA-konforme RPA',
+        caption: 'Automatisierte US-Krankenkassenabrechnungen und Vorabprüfungen, entwickelt von Kabeer Shah mit dem NextServices-Team.',
+        businessBenefit: '80 % Routine-Abrechnungsautomation mit 90 % weniger Fehlern unter strikter HIPAA-Compliance',
       },
       sections: [
         {
           number: '01',
-          title: 'Der operative Engpass: Manuelle Dateneingabe & verlorene Arbeitszeit',
-          businessTakeaway: 'Wenn Teams wöchentlich über 40 Stunden mit dem manuellen Abtippen von Daten verbringen, steigen die Betriebskosten und Zahlungen verzögern sich.',
+          title: 'Die Realität im US-Gesundheitswesen: Das Vorleistungsrisiko der Praxen',
+          businessTakeaway: 'Weil US-Patienten am Behandlungstag nichts bezahlen, drohen Praxen monatelange Liquiditätsengpässe, wenn der Versicherungsschutz nicht vorab verifiziert wird.',
           paragraphs: [
-            'NextServices stand vor einer klassischen Wachstumsbremse: Das steigende Abrechnungsvolumen erforderte kontinuierlich neue Sachbearbeiter, die Daten manuell zwischen Krankenkassenportalen und internen Tabellen übertrugen.',
-            'Menschliche Übertragungsfehler führten zu Abrechnungsreklamationen, verzögerten den Zahlungseingang um 30 bis 60 Tage und banden wertvolle Führungskräfte in zeitraubenden Fehlerkorrekturen.',
+            'Amerikanische Ärzte erbringen hochpreisige medizinische Leistungen im Vertrauen auf den Versicherungsschutz des Patienten. Ist jedoch die Police abgelaufen, der Selbstbehalt nicht gedeckt oder fehlt eine Vorabgenehmigung, verweigert die Versicherung die Erstattung Wochen oder Monate später vollständig.',
+            'Die Abrechnungsteams von NextServices standen vor einer immensen manuellen Belastung: Sie mussten sich täglich in dutzende verschiedene Krankenkassen-Portale (Aetna, Cigna, UnitedHealthcare, Blue Cross, Medicare) einloggen, Patientendaten abtippen und Leistungsansprüche mühsam prüfen. Manuelle Übertragungsfehler führten regelmäßig zu teuren Ablehnungen und banden Führungskräfte in endlosen Korrekturen.',
           ],
           cards: [
             {
-              title: 'Margendruck',
-              desc: 'Lineare Personalaufstockung bei wachsendem Auftragsvolumen drückt die Rendite des Unternehmens.',
-              badge: 'Personalkosten',
+              title: 'Das Vorleistungsrisiko',
+              desc: 'Medizinische Einrichtungen tragen das volle Honorarausfallrisiko, wenn der Versicherungsschutz nicht vorab lückenlos geprüft wird.',
+              badge: 'Liquiditätsrisiko',
               icon: 'shield',
             },
             {
-              title: 'Zahlungsverzögerungen',
-              desc: 'Tippfehler lösten Ablehnungen aus und blockierten den Cashflow über Monate hinweg.',
-              badge: 'Liquiditätsrisiko',
+              title: 'Fragmentierte Portale',
+              desc: 'Das tägliche manuelle Einloggen in unzählige Kassenportale kostete hunderte wertvolle Arbeitsstunden.',
+              badge: 'Operativer Engpass',
               icon: 'building',
             },
           ],
         },
         {
           number: '02',
-          title: 'Die Lösung: NextAuto Robotic Process Automation (RPA)',
-          businessTakeaway: 'Software-Roboter übernehmen die automatisierte Datenextraktion, Prüfung und Buchung vollständig ohne manuellen Eingriff.',
+          title: 'Die Automatisierung: Vorab-Versicherungsprüfung & Erstattungsanfragen',
+          businessTakeaway: 'Die automatisierte Prüfung des Versicherungsschutzes vor dem Arzttermin verhindert Abrechnungsablehnungen, bevor die Behandlung überhaupt stattfindet.',
           paragraphs: [
-            'Nordible entwickelte NextAuto auf Basis von C# und dem .NET Framework. Die RPA-Engine dockt direkt an externe Portale an, extrahiert Abrechnungsbelege und gleicht offene Posten im internen System vollautomatisch ab.',
-            'Statt mühsam Daten abzutippen, verarbeitet das System Tausende Transaktionen in Sekunden und speichert geprüfte Datensätze revisionssicher in Microsoft SQL Server ab.',
+            'Kabeer Shah entwickelte gemeinsam mit dem Entwickler- und Fachteam von NextServices die Plattform NextAuto auf Basis von C# und dem .NET Framework.',
+            'Die Lösung dockt automatisiert an Krankenkassen-Schnittstellen und Web-Portale an und übernimmt drei Kernprozesse: die automatisierte Überprüfung der Patienten-Versicherungsberechtigung über Nacht vor dem Praxistermin, die Verifikation der Behandlungsabdeckung und die Abfrage des Bearbeitungsstatus eingereichter Forderungen.',
+            'Statt 15 Minuten pro Patient mit Telefonwarteschleifen oder Kassenportalen zu verbringen, prüft das System Patientenlisten automatisch im Hintergrund und gleicht offene Posten in Sekundenschnelle ab.',
           ],
           cards: [
             {
-              title: 'Durchgängige Automation',
-              desc: 'Autonome Extraktion und Datenabgleich über heterogene Portal- und Tabellenformate hinweg.',
+              title: 'Automatisierte Vorabprüfung',
+              desc: 'Patientenlisten werden vor dem Sprechstundentermin über Nacht vollautomatisch gegen Kassendatenbanken geprüft.',
               badge: '80 % Automatisiert',
               icon: 'zap',
             },
             {
-              title: 'Intelligente Ausnahmebehandlung',
-              desc: 'Nur noch 5 % unklare Einzelfälle werden Mitarbeitern zur gezielten Prüfung vorgelegt.',
-              badge: 'Ausnahme-Management',
+              title: 'Erstattungs-Automation',
+              desc: 'Automatisierte Statusabfragen und Belegextraktion beschleunigen den gesamten Abrechnungszyklus spürbar.',
+              badge: 'Abrechnungstempo',
               icon: 'bot',
-            },
-            {
-              title: 'Cockpit für Entscheider',
-              desc: 'Echtzeit-Transparenz über Transaktionsvolumen, Fehlerraten und gewonnene Arbeitszeit.',
-              badge: 'Echtzeit-Reporting',
-              icon: 'sparkles',
             },
           ],
         },
         {
           number: '03',
-          title: 'Messbare Resultate: 40+ Stunden wöchentliche Zeitersparnis',
-          businessTakeaway: '80 % weniger manuelle Routinearbeit und 90 % weniger Fehler schufen sofortige operative Skalierbarkeit.',
+          title: 'Strikte HIPAA-Compliance: Sichere Automatisierung mit regulatorischen Leitplanken',
+          businessTakeaway: 'Im Gesundheitswesen ist unkontrollierte Vollautomatisierung gefährlich; nachhaltige Software automatisiert Routinepfade und legt Ausnahmefälle Experten vor.',
           paragraphs: [
-            'Mit dem Produktivstart von NextAuto sanken manuelle Eingabetätigkeiten um 80 %. Das Team gewann über 40 Stunden produktive Arbeitszeit pro Woche zurück, die nun für strategische Kundenbetreuung eingesetzt werden.',
-            'Da Übertragungsfehler um 90 % zurückgingen, sanken Reklamationen auf ein historisches Minimum – mit sofort spürbarer Beschleunigung des Cashflows.',
-          ],
-          quote: 'Automatisierung muss qualifizierte Mitarbeiter von Tabellen-Fronarbeit befreien, damit sie sich auf echte Wertschöpfung konzentrieren können.',
-        },
-        {
-          number: '04',
-          title: 'Revisionssichere Architektur & Unternehmens-Compliance',
-          businessTakeaway: 'Ausfallsichere Daten-Pipelines für maximale Verlässlichkeit und lückenlose Nachvollziehbarkeit.',
-          paragraphs: [
-            'Abrechnungs- und Healthcare-Daten verlangen absolute Zuverlässigkeit. NextAuto garantiert transaktionale ACID-Sicherheit, detailliertes Telemetrie-Logging und verschlüsselte SQL-Speicherung.',
-            'Jeder automatisierte Buchungsvorgang erzeugt ein unveränderliches Audit-Protokoll für Prüfer und Revision.',
+            'Bei der Abrechnung mit Krankenversicherungen verlangen gesetzliche Vorschriften und Verträge, dass komplexe medizinische Einzelfallentscheidungen nicht ungeprüft von Skripten abgewickelt werden dürfen.',
+            'Kabeer Shah und das Team gestalteten NextAuto nach strengsten HIPAA-Standards: Alle geschützten Gesundheitsdaten (PHI) werden im Ruhezustand und bei der Übertragung verschlüsselt und mit unveränderlichen Audit-Protokollen in Microsoft SQL Server gespeichert.',
+            'Zentral war die intelligente Ausnahmebehandlung: Eindeutige Standardprüfungen laufen mit maximaler Geschwindigkeit vollautomatisch durch, während unklare Ablehnungsgründe oder komplexe Diagnoseschlüssel sofort qualifizierten Abrechnungsexperten zur Prüfung vorgelegt werden.',
           ],
           cards: [
             {
-              title: 'Kein Datenverlust',
-              desc: 'Automatische Wiederholungsmechanismen sichern jede Transaktion lückenlos ab.',
-              badge: 'ACID-Sicherheit',
+              title: 'HIPAA-Datenschutz',
+              desc: 'End-to-End-Verschlüsselung, Zugriffskontrollen und Audit-Trails erfüllen höchste US-Gesundheitsstandards.',
+              badge: 'HIPAA-Sicherheit',
               icon: 'shield',
             },
             {
-              title: 'Lückenlose Prüfbarkeit',
-              desc: 'Revisionssichere Protokollierung für uneingeschränkte Compliance.',
-              badge: 'Audit-Proof',
-              icon: 'bot',
+              title: 'Regulatorische Leitplanken',
+              desc: 'Vollautomatisierung für Standardabläufe bei gezielter Einbindung von Fachexperten bei Ausnahmen.',
+              badge: 'Rechtssicherheit',
+              icon: 'sparkles',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Messbare Resultate: 90 % weniger Fehler & 40+ Stunden Zeitgewinn',
+          businessTakeaway: 'Die Beseitigung manueller Übertragungsfehler senkt Ablehnungsquoten auf ein Minimum und verkürzt Zahlungsziele erheblich.',
+          paragraphs: [
+            'Nach der Einführung von NextAuto sanken manuelle Eingabetätigkeiten über Kassenportale um 80 %. Das Team von NextServices gewann über 40 produktive Arbeitsstunden pro Woche zurück, die gezielt für anspruchsvolle Klientenbetreuung und Einsprüche genutzt werden.',
+            'Da Tippfehler vollständig eliminiert wurden, sanken Abrechnungsablehnungen um 90 %. Gesundheitsdienstleister profitierten von schnellen Erstattungen, verlässlicher Liquidität und absoluter Regeltreue.',
+          ],
+          cards: [
+            {
+              title: '-90 % Ablehnungen',
+              desc: 'Fehlerfreie Datenübertragung beschleunigt Honorarauszahlungen und sichert den Praxis-Cashflow.',
+              badge: 'Zahlungstempo',
+              icon: 'sparkles',
+            },
+            {
+              title: '40+ Std./Woche freigesetzt',
+              desc: 'Freigesetzte Mitarbeiterkapazitäten für wertschöpfende Klientenunterstützung und komplexe Abrechnungsfälle.',
+              badge: 'Produktivität',
+              icon: 'building',
             },
           ],
         },
       ],
       cta: {
-        badge: 'RPA & Prozessautomatisierung',
-        title: 'Möchten auch Sie fehleranfällige Routinearbeiten eliminieren und wöchentlich 40+ Stunden einsparen?',
-        desc: 'Wir analysieren Ihre manuellen Datenübertragungen, Abrechnungsabgleiche und Reporting-Engpässe und entwickeln maßgeschneiderte Automatisierungsroboter, die revisionssicher im Hintergrund arbeiten.',
-        buttonText: 'Automatisierungs-Potenzialanalyse buchen',
+        badge: 'Healthcare-RPA & Abrechnungsautomation',
+        title: 'Möchten auch Sie Abrechnungsfehler eliminieren und Routine-Workflows automatisieren?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über HIPAA-konforme Automatisierungspipelines, Abrechnungs-Engines und sichere Healthcare-Architekturen.',
+        buttonText: 'Healthcare-Automationsgespräch buchen',
         buttonAction: 'consultation',
         secondaryText: 'Weitere Fallstudien ansehen',
-        mobileButtonText: 'Potenzialanalyse anfragen',
+        mobileButtonText: 'Healthcare-Gespräch',
       },
     };
 
@@ -2473,6 +2493,888 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
     return { en: enParentsVipArticle, de: deParentsVipArticle };
   }
 
+  if (projectId === 'smartbothub') {
+    const enSmartbotHubArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Enterprise AI Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'Chief Operating Officer & VP of Customer Support:',
+        subtitle: 'Slash repetitive customer service costs and achieve 24/7 resolution without headcount growth.',
+        buttonText: 'Discuss Enterprise AI Architecture →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'SmarTek21 (IntelliTek.ai / formerly SmartBotHub)',
+        industry: 'Enterprise AI & Digital Business Automation',
+        location: 'Global Enterprise Deployments (500+ Organizations)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'For growing enterprises, customer service is one of the heaviest and least scalable operational expenditures: as transaction volumes grow, support payroll inflates linearly, contact center turnover surges, and customer wait times lead to immediate churn. Mid-to-large enterprises across healthcare, telecommunications, and retail needed a sustainable way to automate repetitive tier-1 inquiries without alienating customers through rigid, frustrating decision-tree chatbots.',
+        'Nordible founder Kabeer Shah worked with the product and engineering team at SmarTek21 to create the conversational bot engine powering IntelliTek.ai (formerly SmartBotHub). Engineered specifically for business operators rather than programmers, the platform enables enterprises to build, launch, and refine conversational AI bots that integrate directly into back-office CRMs and ERPs—cutting tier-1 customer service costs by 60% with a 90% first-contact resolution rate across more than 500 enterprise deployments.',
+      ],
+      objective: {
+        title: 'Commercial Mission & Operational Mandate',
+        text: 'Decouple customer support costs from transaction growth, eliminate wait times with 24/7 self-service automation, and empower non-technical teams to create conversational bots without engineering bottlenecks.',
+        points: project.businessChallenge.en,
+      },
+      metrics: [
+        { label: 'Support OpEx Saved', value: '-60%', icon: 'trending' },
+        { label: 'First-Contact Resolution', value: '90%', icon: 'trending' },
+        { label: 'Enterprise Deployments', value: '500+', icon: 'trending' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'IntelliTek.ai (formerly SmartBotHub) by SmarTek21 - Enterprise Conversational AI Platform',
+        badge: 'Enterprise AI Scale',
+        caption: 'Conversational bot creation platform engineered by Kabeer Shah with SmarTek21.',
+        businessBenefit: '60% reduction in customer support operational expenditure across 500+ enterprises.',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Labor Trap: Why Human-Only Customer Support Throttles Margins',
+          businessTakeaway: 'Linear support staffing models cannot survive modern consumer expectations of instant, 24/7 omnichannel responsiveness.',
+          paragraphs: [
+            'As businesses expand, contact center operating costs rapidly spiral out of control. Support representatives spend upwards of 70% of their workday answering identical, repetitive questions: checking order tracking, resetting credentials, confirming booking times, and routing tickets to departments.',
+            'During high-volume promotional events or peak business hours, queues back up, hold times escalate, and frustrated customers abandon transactions. Attempting to solve this problem by continuously hiring and training entry-level support staff leads to unsustainable payroll burn and high employee turnover.',
+            'For operational executives and COOs, the mandate was unequivocal: automate high-volume routine inquiries completely, reserving skilled human agents exclusively for complex, high-value customer interactions.',
+          ],
+          cards: [
+            {
+              title: 'Linear Labor Overhead',
+              desc: 'Scaling support capacity by constantly hiring human reps severely erodes operational gross margins.',
+              badge: 'Cost Escalation',
+              icon: 'shield',
+            },
+            {
+              title: 'Peak-Hour Churn',
+              desc: 'Customer hold times during volume surges trigger immediate satisfaction drops and customer churn.',
+              badge: 'Retention Risk',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Innovation: A Self-Service Bot Creation Engine for Business Teams',
+          businessTakeaway: 'True operational leverage happens when business leaders can build and refine conversational journeys without waiting for engineering sprints.',
+          paragraphs: [
+            'Traditional chatbot initiatives fail because they are hardcoded by engineering departments; every conversational tweak or policy update requires an engineering ticket and multi-week release cycles.',
+            'Collaborating closely with SmarTek21’s engineering and product groups, Kabeer Shah helped engineer the conversational bot creation engine powering IntelliTek.ai (formerly SmartBotHub). The architecture centered on an intuitive, no-code administrative interface that allows customer operations managers to build, test, and deploy customized conversation flows in hours.',
+            'Equipped with natural language processing and semantic intent classification, the platform understands unstructured customer language, phrasing variations, and typos—delivering natural, human-like resolution without brittle branching scripts.',
+          ],
+          cards: [
+            {
+              title: 'No-Code Bot Builder',
+              desc: 'Operations managers can deploy and refine conversational bots in hours without writing code or waiting on IT.',
+              badge: 'Operational Speed',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Semantic Intent Detection',
+              desc: 'Advanced NLP understands nuanced customer phrasing and slang, guaranteeing accurate resolution.',
+              badge: 'High Accuracy',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Enterprise Integration: Connecting Conversational AI to Real-Time Data',
+          businessTakeaway: 'A chatbot is only as valuable as the actions it can take; deep backend integration turns conversational AI into an automated execution engine.',
+          paragraphs: [
+            'Simple informational chatbots frustrate users by stating "please visit our website." To drive true cost savings, the platform had to execute actual business transactions: canceling an order, issuing a return label, updating a billing address, or verifying medical appointments.',
+            'Kabeer Shah and the SmarTek21 engineering team built modular API connectors that integrate seamlessly with enterprise systems including Salesforce, Zendesk, Microsoft Dynamics, and proprietary SQL data warehouses.',
+            'By securely accessing customer records in real time with enterprise-grade encryption and access controls, bots resolve transactions autonomously and sync status changes back to the core database instantly.',
+          ],
+          cards: [
+            {
+              title: 'Transactional Autonomy',
+              desc: 'Bots resolve full business actions—from order updates to appointment rescheduling—without human intervention.',
+              badge: 'Action-Oriented',
+              icon: 'bot',
+            },
+            {
+              title: 'Seamless CRM Sync',
+              desc: 'Direct, real-time bidirectional synchronization with Salesforce, Zendesk, and enterprise SQL databases.',
+              badge: 'Data Precision',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'The Commercial Impact: 60% OpEx Savings Across 500+ Organizations',
+          businessTakeaway: 'Automated conversational AI converts customer service from an expensive cost center into a scalable, high-retention competitive advantage.',
+          paragraphs: [
+            'Across more than 500 commercial enterprise deployments, the business outcomes have been transformational. Companies achieve a 90% first-contact resolution rate on tier-1 inquiries, completely eliminating hold times and providing 24/7 instant support across web, mobile, and messaging channels.',
+            'Overall customer service operating expenses dropped by an average of 60%, allowing enterprises to reallocate precious budget toward core product innovation and proactive account management.',
+            'By proving that intelligent automation can elevate customer satisfaction while slashing overhead, IntelliTek.ai (formerly SmartBotHub) by SmarTek21 remains a premier enterprise benchmark in conversational AI.',
+          ],
+          cards: [
+            {
+              title: '60% Support OpEx Saved',
+              desc: 'Massive reduction in repetitive call and ticket handling costs directly boosts enterprise profitability.',
+              badge: 'Measurable ROI',
+              icon: 'sparkles',
+            },
+            {
+              title: '24/7 Instant Resolution',
+              desc: 'Eliminating hold times and queue backlogs drives higher customer satisfaction and retention scores.',
+              badge: 'Customer Loyalty',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Conversational AI & Enterprise Automation',
+        title: 'Ready to Cut Customer Support OpEx by 60% with Intelligent AI Bots?',
+        desc: 'Speak directly with Systems Architect Kabeer Shah about enterprise conversational AI, CRM automation pipelines, and high-availability systems architecture.',
+        buttonText: 'Schedule Enterprise AI Strategy Call',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'AI Strategy Call',
+      },
+    };
+
+    const deSmartbotHubArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'Enterprise-KI Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'Chief Operating Officer & Kundenservice-Leiter:',
+        subtitle: 'Senken Sie Support-Betriebskosten und sichern Sie 24/7-Erreichbarkeit ohne zusätzliches Personal.',
+        buttonText: 'Enterprise-KI-Architektur besprechen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'SmarTek21 (IntelliTek.ai / ehemals SmartBotHub)',
+        industry: 'Enterprise-KI & Digitale Prozessautomation',
+        location: 'Weltweite Enterprise-Deployments (500+ Unternehmen)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Für wachsende Unternehmen gehört der Kundenservice zu den größten und am schwersten skalierbaren Kostenblöcken: Mit steigendem Transaktionsvolumen wachsen die Personalkosten linear, die Mitarbeiterfluktuation im Support steigt und lange Wartezeiten führen zu direkter Kundenabwanderung. Unternehmen aus Gesundheitswesen, Telekommunikation und Handel benötigten eine zukunftssichere Möglichkeit, Standardanfragen zu automatisieren, ohne Kunden mit starren, frustrierenden Regel-Chatbots zu verärgern.',
+        'Nordible-Gründer Kabeer Shah arbeitete eng mit dem Produkt- und Entwicklungsteam von SmarTek21 zusammen, um die Bot-Erstellungsplattform hinter IntelliTek.ai (ehemals SmartBotHub) zu realisieren. Entwickelt für operative Fachabteilungen statt für Programmierer, ermöglicht das System Unternehmen die schnelle Konfiguration und Bereitstellung intelligenter Dialog-Bots mit tiefer CRM- und ERP-Anbindung – für 60 % geringere Support-Betriebskosten und eine 90 % Erstlösungsquote bei über 500 Unternehmenskunden.',
+      ],
+      objective: {
+        title: 'Wirtschaftlicher Auftrag & operative Zielsetzung',
+        text: 'Entkopplung von Kundenservicekosten und Geschäftswachstum, Beseitigung von Wartezeiten durch 24/7-Automation und Befähigung von Fachabteilungen zur eigenständigen Bot-Erstellung ohne IT-Engpässe.',
+        points: project.businessChallenge.de,
+      },
+      metrics: [
+        { label: 'Kostensenkung Support', value: '-60 %', icon: 'trending' },
+        { label: 'Erstlösungsquote', value: '90 %', icon: 'trending' },
+        { label: 'Unternehmenskunden', value: '500+', icon: 'trending' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'IntelliTek.ai (ehemals SmartBotHub) von SmarTek21 - Enterprise Konversations-KI-Plattform',
+        badge: 'Enterprise-KI-Erfolg',
+        caption: 'Plattform zur Erstellung intelligenter Dialog-Bots, entwickelt von Kabeer Shah mit SmarTek21.',
+        businessBenefit: '60 % Senkung der Kundenservice-Betriebskosten bei über 500 Unternehmenskunden.',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die Personalfalle: Warum rein manueller Support die Margen auffrisst',
+          businessTakeaway: 'Lineare Personalmodelle können moderne Kundenerwartungen an sofortige, 24/7 verfügbare Antworten wirtschaftlich nicht mehr erfüllen.',
+          paragraphs: [
+            'Mit wachsender Kundenzahl geraten die Betriebskosten im Kundenservice schnell außer Kontrolle. Support-Mitarbeiter verbringen bis zu 70 % ihrer Arbeitszeit mit wiederkehrenden Standardfragen: Bestellstatus prüfen, Zugangsdaten zurücksetzen, Termine bestätigen und Tickets weiterleiten.',
+            'Bei Werbeaktionen oder Stoßzeiten bilden sich Warteschlangen, Antwortzeiten steigen an und ungeduldige Kunden springen ab. Der Versuch, dieses Problem durch ständige Neueinstellungen von Supportkräften zu lösen, führt zu enormen Fixkosten und hoher Mitarbeiterfluktuation.',
+            'Für COOs und Betriebsleiter war das Ziel klar: Wiederkehrende Routineanfragen müssen vollautomatisiert gelöst werden, damit sich qualifizierte Mitarbeiter auf komplexe und wertschöpfende Kundenanliegen konzentrieren können.',
+          ],
+          cards: [
+            {
+              title: 'Lineare Kostenfalle',
+              desc: 'Ständiger Personalaufbau zur Bewältigung von Supportspitzen belastet die operativen Margen massiv.',
+              badge: 'Kostenrisiko',
+              icon: 'shield',
+            },
+            {
+              title: 'Wartezeiten & Abwanderung',
+              desc: 'Lange Wartezeiten bei hohem Anfrageaufkommen führen zu direkter Kundenfrustration und Wechsel zur Konkurrenz.',
+              badge: 'Umsatzrisiko',
+              icon: 'zap',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Die Innovation: Eine No-Code Bot-Erstellungs-Engine für Fachabteilungen',
+          businessTakeaway: 'Echte operative Hebelwirkung entsteht, wenn Fachabteilungen Dialogpfade eigenständig anpassen können, ohne auf IT-Sprints zu warten.',
+          paragraphs: [
+            'Herkömmliche Chatbot-Projekte scheitern oft daran, dass sie starr von der IT programmiert werden; jede Textänderung oder Prozessanpassung erfordert Entwicklungszeit und lange Release-Zyklen.',
+            'In enger Zusammenarbeit mit den Produkt- und Entwicklungsteams von SmarTek21 konzipierte Kabeer Shah die Bot-Erstellungsplattform von IntelliTek.ai (ehemals SmartBotHub). Die Architektur basiert auf einem intuitiven No-Code-Dashboard, mit dem Kundenserviceteams individuelle Dialogpfade innerhalb von Stunden erstellen, testen und ausrollen können.',
+            'Dank natürlicher Sprachverarbeitung (NLP) und semantischer Absichtserkennung versteht das System unstrukturierte Kundensprache, Formulierungsvarianten und Tippfehler – für natürliche Konversationen ohne starre Entscheidungsbäume.',
+          ],
+          cards: [
+            {
+              title: 'No-Code Bot-Builder',
+              desc: 'Fachabteilungen können Dialog-Bots in Stunden eigenständig anpassen – ohne Programmieraufwand.',
+              badge: 'Geschwindigkeit',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Semantische NLP-Engine',
+              desc: 'Präzise Erkennung von Kundenabsichten auch bei ungenauen Formulierungen und Dialekten.',
+              badge: 'Hohe Präzision',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Unternehmensintegration: Direkte Anbindung an CRM- und ERP-Systeme',
+          businessTakeaway: 'Ein Bot ist nur so wertvoll wie die Aktionen, die er ausführen kann; tiefe Backend-Anbindung macht KI zum vollwertigen Service-Agenten.',
+          paragraphs: [
+            'Einfache Informations-Bots frustrieren Nutzer mit dem Hinweis „Bitte besuchen Sie unsere Website“. Für echte Kostensenkungen müssen Bots geschäftliche Transaktionen eigenständig durchführen können: Bestellungen stornieren, Retourenetiketten erstellen oder Adressänderungen vornehmen.',
+            'Kabeer Shah und das SmarTek21-Team entwickelten modulare API-Konnektoren mit nahtloser Anbindung an führende Unternehmenssysteme wie Salesforce, Zendesk, Microsoft Dynamics und interne SQL-Datenbanken.',
+            'Durch den sicheren Echtzeitzugriff auf Kundendaten mit Enterprise-Verschlüsselung lösen die Bots Anfragen vollautomatisch und synchronisieren Statusänderungen sofort zurück in die Kernsysteme.',
+          ],
+          cards: [
+            {
+              title: 'Transaktionale Automation',
+              desc: 'Bots führen vollständige Aktionen – von Bestelländerungen bis Terminbuchungen – eigenständig aus.',
+              badge: 'Aktionsorientiert',
+              icon: 'bot',
+            },
+            {
+              title: 'Echtzeit-CRM-Abgleich',
+              desc: 'Direkte Synchronisierung mit Salesforce, Zendesk und unternehmenseigenen SQL-Systemen.',
+              badge: 'Präzision',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Wirtschaftlicher Mehrwert: 60 % Kostensenkung bei 500+ Unternehmen',
+          businessTakeaway: 'Intelligente Konversations-KI verwandelt den Kundenservice vom Kostenfaktor in einen skalierbaren Wettbewerbsvorteil.',
+          paragraphs: [
+            'Bei über 500 Unternehmenskunden weltweit hat sich das System nachhaltig bewährt: Unternehmen erzielen eine Erstlösungsquote von 90 % bei Routineanfragen, beseitigen Wartezeiten vollständig und bieten verlässlichen 24/7-Support über Web, Apps und Messenger-Kanäle.',
+            'Die laufenden Kundenservice-Betriebskosten sanken im Schnitt um 60 %, wodurch Unternehmen freiwerdende Budgets gezielt in Produktentwicklung und strategische Kundenbetreuung reinvestieren konnten.',
+            'Durch den Nachweis, dass intelligente Automation Kundenzufriedenheit steigert und gleichzeitig Kosten drastisch senkt, bleibt IntelliTek.ai (ehemals SmartBotHub) von SmarTek21 ein Branchenmaßstab für Enterprise-KI.',
+          ],
+          cards: [
+            {
+              title: '60 % Betriebskostensenkung',
+              desc: 'Massive Reduzierung der Ticketbearbeitungskosten steigert die operative Unternehmensrendite nachhaltig.',
+              badge: 'Messbarer ROI',
+              icon: 'sparkles',
+            },
+            {
+              title: '24/7 Sofort-Lösung',
+              desc: 'Beseitigung von Wartezeiten führt zu messbar höherer Kundentreue und Weiterempfehlungsrate.',
+              badge: 'Kundenbindung',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Konversations-KI & Enterprise-Automation',
+        title: 'Möchten auch Sie Kundenservice-Kosten durch intelligente KI-Bots um 60 % senken?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über Enterprise-Konversations-KI, CRM-Automationspfade und ausfallsichere Software-Architekturen.',
+        buttonText: 'Enterprise-KI-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'KI-Strategiegespräch',
+      },
+    };
+
+    return { en: enSmartbotHubArticle, de: deSmartbotHubArticle };
+  }
+
+  if (projectId === 'bombay-studio') {
+    const enBombayStudioArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'High-Ticket Lead Generation Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'Architectural Studio Founder & Managing Partner:',
+        subtitle: 'Dominate AI search recommendations and pre-qualify high-ticket clients before initial consultations.',
+        buttonText: 'Request GEO Strategy Review →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Bombay Studio',
+        industry: 'Luxury Turnkey Architecture & Interior Design',
+        location: 'Mumbai, India (Luxury Residential Metro)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'For luxury architecture and high-end turnkey interior studios, the most insidious profit drain is the unqualified lead trap. Partners and senior creative directors spend dozens of unbillable hours each week personally touring sites, drafting bespoke design proposals, and answering endless questions for prospective homeowners who ultimately lack the capital to commission a multi-crore turnkey build. Traditional digital marketing agencies exacerbate this problem by chasing generic search traffic, flooding studios with price-sensitive inquiries expecting luxury craftsmanship at bargain rates.',
+        'Nordible founder Kabeer Shah collaborated closely with the leadership of Bombay Studio to engineer a high-precision Generative Engine Optimization (GEO) and digital entity authority architecture. By embedding the firm’s verified reputation and turnkey portfolio into AI model retrieval pipelines, Bombay Studio was recognized by ChatGPT, Perplexity, and Google AI as the undisputed #1 recommended studio for luxury 5 BHK residences in Mumbai—designated explicitly as the "First one to contact" and pre-qualifying only high-ticket inquiries with budgets exceeding ₹80L to ₹1.2Cr+ ($100K–$150K+).',
+      ],
+      objective: {
+        title: 'Commercial Mandate & High-Ticket Positioning',
+        text: 'Eliminate unbillable partner time spent on unqualified leads, establish undisputed #1 authority across generative AI search engines, and filter for high-margin turnkey residential contracts.',
+        points: project.businessChallenge.en,
+      },
+      metrics: [
+        { label: 'ChatGPT Status', value: '#1 Ranked', icon: 'trending' },
+        { label: 'Minimum Scope', value: '₹1.2Cr+', icon: 'trending' },
+        { label: 'Market Position', value: 'Authority', icon: 'trending' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Bombay Studio - ChatGPT #1 Ranking for Luxury 5 BHK Turnkey Architecture',
+        badge: 'AI Search Authority',
+        caption: 'Generative Engine Optimization (GEO) engineered by Kabeer Shah with Bombay Studio leadership.',
+        businessBenefit: 'Ranked #1 on ChatGPT, pre-filtering ₹1.2Cr+ turnkey project budgets',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Partner Dilution Trap: The Hidden Cost of Free Design Consultations',
+          businessTakeaway: 'When senior studio partners burn 20+ hours weekly pitching clients with unrealistic budgets, creative energy drains and firm profitability plummets.',
+          paragraphs: [
+            'Boutique architecture firms operate on reputation, craftsmanship, and senior partner attention. However, when an inbound inquiry arrives, studio heads often feel compelled to conduct site visits, review floor plans, and prepare mood boards before knowing whether the prospect can actually afford turnkey luxury execution.',
+            'In competitive real estate metros like Mumbai, dozens of inquiries turn out to have restrictive budgets (e.g., ₹10L–₹25L) while expecting high-end bespoke Italian marble, custom brass millwork, and full automation. These consultations waste irreplaceable leadership hours, distract from active client builds, and produce zero revenue.',
+            'Traditional SEO agencies made the problem worse: by optimizing for generic vanity keywords like "interior designers near me," they generated high click volumes from price-sensitive shoppers, worsening administrative fatigue without lifting contract size.',
+          ],
+          cards: [
+            {
+              title: 'Partner Hours Burned',
+              desc: 'Unbillable site visits and concept decks for unqualified leads severely dilute senior leadership focus.',
+              badge: 'Operational Drain',
+              icon: 'shield',
+            },
+            {
+              title: 'Vanity Traffic Trap',
+              desc: 'Standard Google SEO brings low-intent bargain hunters instead of affluent, high-net-worth clients.',
+              badge: 'Margin Risk',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Paradigm Shift: From Blue Links to Generative AI Search (GEO)',
+          businessTakeaway: 'Affluent homeowners no longer click through search ads; they ask ChatGPT and Perplexity for authoritative curated recommendations.',
+          paragraphs: [
+            'High-Net-Worth Individuals (HNWIs) and luxury penthouse owners value their time; they increasingly bypass crowded search engine result pages and consult conversational AI engines: "Who is the top luxury turnkey architect in Mumbai for an ultra-luxury 5 BHK residence?"',
+            'Kabeer Shah worked with Bombay Studio’s partners to architect a comprehensive Generative Engine Optimization (GEO) strategy. Rather than stuffing meta tags, Kabeer engineered an entity knowledge graph—publishing verified project case studies, structured architectural credentials, and citation networks that large language models ingest and treat as ground truth.',
+            'When users query leading AI models, ChatGPT explicitly recommends Bombay Studio as the premier practice, highlighting their turnkey execution rigor and naming them as the "First one to contact."',
+          ],
+          cards: [
+            {
+              title: 'Entity Authority Graph',
+              desc: 'Structured digital citations and credential schemas that LLMs verify and cite as authoritative ground truth.',
+              badge: 'AI Grounding',
+              icon: 'sparkles',
+            },
+            {
+              title: '#1 ChatGPT Endorsement',
+              desc: 'Positioned as the definitive first recommendation for luxury turnkey residential architecture.',
+              badge: 'Market Dominance',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Upfront Lead Filtering: Protecting Partner Time with ₹1.2Cr+ Scope Guardrails',
+          businessTakeaway: 'Transparent budget qualification filters out price-sensitive inquiries before a partner ever picks up the phone.',
+          paragraphs: [
+            'Winning on AI visibility is meaningless if it merely increases unqualified phone calls. To protect partner time, Kabeer Shah and Bombay Studio re-engineered the inbound discovery funnel.',
+            'The digital presentation showcases turnkey luxury penthouses with transparent narrative cues establishing the studio’s bespoke craft and minimum engagement threshold (₹80L to ₹1.2Cr+).',
+            'Prospective clients understand immediately that Bombay Studio delivers end-to-end turnkey architectural luxury—not piecemeal labor contractor services. Inbound inquiries now arrive pre-qualified, educated on pricing, and eager to secure partner time.',
+          ],
+          cards: [
+            {
+              title: 'Budget-Qualified Funnels',
+              desc: 'Transparent project minimums ensure only prospects with ₹1.2Cr+ budgets book discovery consultations.',
+              badge: 'Lead Quality',
+              icon: 'bot',
+            },
+            {
+              title: 'Executive WhatsApp Routing',
+              desc: 'Frictionless, high-touch mobile routing connects verified affluent prospects directly with the studio partner.',
+              badge: 'VIP Experience',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'The Commercial Return: High-Ticket Mandates Without Wasted Pitches',
+          businessTakeaway: 'GEO transforms digital discovery into a premium client acquisition asset delivering multi-crore signed mandates.',
+          paragraphs: [
+            'For Bombay Studio’s managing partners, the commercial transformation was immediate: low-budget noise evaporated, and 100% of incoming client discovery meetings involved pre-qualified luxury budgets.',
+            'By establishing authority directly inside the AI tools where affluent modern clients seek counsel, Bombay Studio secured multi-crore turnkey mandates while completely insulating senior partners from unbillable pitch fatigue.',
+            'The case proves that in the AI era, business leaders who command generative search capture the most lucrative contracts while competitors fight over low-margin scraps.',
+          ],
+          cards: [
+            {
+              title: 'Multi-Crore Mandates',
+              desc: 'High-ticket contract wins for luxury 5 BHK residences and penthouses without discounting fees.',
+              badge: 'High-Ticket ROI',
+              icon: 'sparkles',
+            },
+            {
+              title: '100% Partner Focus',
+              desc: 'Zero wasted hours on unqualified consultations, freeing leadership to deliver flawless design execution.',
+              badge: 'Executive Leverage',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Generative Engine Optimization (GEO)',
+        title: 'Ready to Position Your Studio as the #1 AI Recommendation and Pre-Filter High-Ticket Clients?',
+        desc: 'Speak directly with Systems Architect Kabeer Shah about Generative Engine Optimization (GEO), entity authority engineering, and high-ticket B2B client acquisition.',
+        buttonText: 'Schedule GEO Strategy Consultation',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'GEO Strategy Call',
+      },
+    };
+
+    const deBombayStudioArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'High-Ticket Kundengewinnung Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'Architekturbüro-Inhaber & geschäftsführender Partner:',
+        subtitle: 'Dominieren Sie KI-Empfehlungen und qualifizieren Sie Premium-Mandate vor dem Erstgespräch vor.',
+        buttonText: 'GEO-Strategiegespräch anfragen →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Bombay Studio',
+        industry: 'Schlüsselfertige Luxusarchitektur & Innenraumplanung',
+        location: 'Mumbai, Indien (Premium-Immobilienmarkt)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Für exklusive Architekturbüros und Premium-Innenarchitekten ist die größte wirtschaftliche Belastung die Betreuung unqualifizierter Anfragen. Geschäftsführende Partner verbringen wöchentlich etliche unbezahlte Arbeitsstunden mit Vor-Ort-Terminen und aufwendigen Entwurfspräsentationen für Interessenten, deren Budget für ein schlüsselfertiges Luxusprojekt schlicht nicht ausreicht. Herkömmliche Marketingagenturen verschärfen dieses Problem, indem sie auf reines Klickvolumen setzen und Büros mit preissensiblen Zufallskontakten überschwemmen.',
+        'Nordible-Gründer Kabeer Shah entwickelte gemeinsam mit der Geschäftsführung von Bombay Studio eine hochpräzise Generative Engine Optimization (GEO) und digitale Entitäts-Architektur. Durch die gezielte Verankerung des Portfolios in den Wissensgraphen moderner KI-Modelle wurde Bombay Studio von ChatGPT, Perplexity und Google AI als unangefochtene #1-Empfehlung für schlüsselfertige 5-BHK-Luxusimmobilien in Mumbai gelistet – mit dem Prädikat „First one to contact“ und einer automatisierten Vorfilterung von High-Ticket-Budgets ab 80 Lakh bis über 1,2 Crore INR.',
+      ],
+      objective: {
+        title: 'Strategischer Auftrag & High-Ticket-Positionierung',
+        text: 'Beseitigung unbezahlter Beratungszeiten für unpassende Anfragen, Etablierung als #1-Autorität in generativen KI-Suchmaschinen und gezielte Gewinnung margenstarker Turnkey-Mandate.',
+        points: project.businessChallenge.de,
+      },
+      metrics: [
+        { label: 'ChatGPT-Status', value: 'Platz 1', icon: 'trending' },
+        { label: 'Mindestvolumen', value: '1,2 Cr.+', icon: 'trending' },
+        { label: 'Marktposition', value: 'Marktführer', icon: 'trending' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Bombay Studio - ChatGPT Platz 1 Empfehlung für schlüsselfertige Luxusarchitektur',
+        badge: 'KI-Suchautorität',
+        caption: 'Generative Engine Optimization (GEO), entwickelt von Kabeer Shah mit der Leitung von Bombay Studio.',
+        businessBenefit: 'Platz 1 bei ChatGPT mit systematischer Vorqualifizierung von 1,2 Cr.+ Projektbudgets',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die Beratungsfalle: Die versteckten Kosten kostenloser Erstgespräche',
+          businessTakeaway: 'Wenn geschäftsführende Partner 20+ Wochenstunden mit Interessenten ohne passendes Budget verbringen, sinkt die operative Agenturrendite massiv.',
+          paragraphs: [
+            'Boutique-Architekturbüros leben von erstklassiger Ausführung, individuellem Design und der persönlichen Aufmerksamkeit erfahrener Partner. Geht jedoch eine Kundenanfrage ein, investieren Inhaber oft unüberlegt viel Zeit in Erstgespräche, Grundrissanalysen und Moodboards – ohne zu wissen, ob der Interessent die Premium-Honorare überhaupt tragen kann.',
+            'In umkämpften Metropolen wie Mumbai entpuppen sich etliche Anfragen als unpassend: Kunden mit kleinen Budgets (z. B. 10 bis 25 Lakh INR) erwarten italienischen Marmor, maßgefertigte Schreinerarbeiten und High-End-Smart-Home. Diese Gespräche kosten wertvolle Führungszeit und bringen null Deckungsbeitrag.',
+            'Klassische SEO-Agenturen verschlimmerten die Lage: Indem sie für Allerweltsbegriffe optimierten, spülten sie Schnäppchenjäger auf die Website, die das Team weiter überlasteten.',
+          ],
+          cards: [
+            {
+              title: 'Verlorene Partnerzeit',
+              desc: 'Unbezahlte Vor-Ort-Termine und Entwürfe für unqualifizierte Kontakte kosten tausende Euro an Opportunitätskosten.',
+              badge: 'Kostenfalle',
+              icon: 'shield',
+            },
+            {
+              title: 'Die Klickvolumen-Illusion',
+              desc: 'Klassisches Google-SEO liefert preissensible Gelegenheitskunden statt solventer Bauherren.',
+              badge: 'Streuverlust',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Der Paradigmenwechsel: Von Google-Listen zu generativen KI-Antworten (GEO)',
+          businessTakeaway: 'Vermögende Bauherren klicken nicht mehr auf Werbelinks; sie fragen ChatGPT und Perplexity nach maßgeschneiderten Empfehlungen.',
+          paragraphs: [
+            'Vermögende Immobilienbesitzer und Penthouse-Käufer schätzen ihre Zeit. Sie meiden unübersichtliche Suchergebnisseiten und stellen stattdessen präzise Fragen an KI-Systeme: „Wer ist das beste Büro für schlüsselfertige 5-BHK-Luxusarchitektur in Mumbai?“',
+            'Kabeer Shah entwickelte gemeinsam mit den Partnern von Bombay Studio eine durchdachte Generative Engine Optimization (GEO)-Architektur. Statt oberflächlicher Keyword-Optimierung baute Kabeer einen strukturierten Entitätsgraphen auf: Verifizierte Projektdokumentationen, architektonische Auszeichnungen und ein tragfähiges Zitiernetzwerk, das von Sprachmodellen als vertrauenswürdige Quelle eingestuft wird.',
+            'Wenn anspruchsvolle Kunden KI-Modelle befragen, empfiehlt ChatGPT Bombay Studio ausdrücklich als erste Wahl und hebt die schlüsselfertige Projektsicherheit hervor.',
+          ],
+          cards: [
+            {
+              title: 'Entitäts-Wissensgraph',
+              desc: 'Strukturierte digitale Zitationen und Schemas, die von KI-Systemen als verifizierte Fakten zitiert werden.',
+              badge: 'KI-Autorität',
+              icon: 'sparkles',
+            },
+            {
+              title: '#1 ChatGPT-Empfehlung',
+              desc: 'Als unangefochtene Erstempfehlung („First one to contact“) für schlüsselfertige Luxusarchitektur gelistet.',
+              badge: 'Marktführerschaft',
+              icon: 'compass',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Gezielte Vorqualifizierung: Schutz wertvoller Partnerzeit durch Mindestbudgets',
+          businessTakeaway: 'Klare Budgetfilter sortieren unpassende Interessenten aus, bevor ein Partner überhaupt zum Hörer greift.',
+          paragraphs: [
+            'Sichtbarkeit in KI-Suchmaschinen nützt nichts, wenn sie lediglich zu mehr unbezahlten Telefonaten führt. Um die Zeit der Inhaber zu schützen, strukturierten Kabeer Shah und Bombay Studio den digitalen Erstkontakt komplett neu.',
+            'Die digitale Präsentation führt schlüsselfertige Penthouse-Referenzen mit klaren Botschaften vor, die den exklusiven Standard und das Mindestauftragsvolumen (80 Lakh bis 1,2 Crore INR) unmissverständlich etablieren.',
+            'Interessenten erkennen sofort, dass Bombay Studio schlüsselfertige Gesamtarchitektur auf höchstem Niveau realisiert – und keine günstigen Einzelleistungen erbringt. Eingehende Anfragen sind heute vorqualifiziert, über das Preisniveau informiert und abschlussbereit.',
+          ],
+          cards: [
+            {
+              title: 'Qualifizierende Funnels',
+              desc: 'Transparente Mindestbudgets stellen sicher, dass nur qualifizierte Mandate ab 1,2 Cr. INR Termine anfragen.',
+              badge: 'Lead-Qualität',
+              icon: 'bot',
+            },
+            {
+              title: 'VIP-WhatsApp-Routing',
+              desc: 'Direkter, diskreter Kommunikationskanal für verifizierte Bauherren direkt zur Geschäftsführung.',
+              badge: 'Chef-Routing',
+              icon: 'building',
+            },
+          ],
+        },
+        {
+          number: '04',
+          title: 'Wirtschaftlicher ROI: Abschlussstarke Großmandate ohne zeitraubende Fehl-Pitches',
+          businessTakeaway: 'GEO verwandelt die digitale Präsenz in ein hocheffizientes Akquisitionswerkzeug für margenstarke Millionenverträge.',
+          paragraphs: [
+            'Für die geschäftsführenden Partner von Bombay Studio war das wirtschaftliche Ergebnis unmittelbar spürbar: Unpassende Anfragen versiegten, während alle Erstgespräche fundierte, finanzstarke Luxusprojekte betrafen.',
+            'Durch die Etablierung als führende Autorität direkt in den KI-Werkzeugen, die moderne Bauherren nutzen, sicherte sich Bombay Studio hochdotierte Turnkey-Aufträge – ganz ohne zeitraubende Kaltakquise oder endlose kostenlose Entwurfsphasen.',
+            'Diese Fallstudie beweist: Wer generative KI-Systeme gezielt für sich nutzt, gewinnt die profitabelsten Aufträge, während der Wettbewerb um unrentable Standardprojekte kämpft.',
+          ],
+          cards: [
+            {
+              title: 'Hochdotierte Mandate',
+              desc: 'Abschlussstarke Großaufträge für Luxuswohnungen und Penthouses ohne Preisdruck.',
+              badge: 'High-Ticket-ROI',
+              icon: 'sparkles',
+            },
+            {
+              title: 'Voller Partner-Fokus',
+              desc: 'Keine verlorenen Stunden mehr durch Fehlberatungen – maximale Konzentration auf exzellente Projektarbeit.',
+              badge: 'Operative Hebelwirkung',
+              icon: 'shield',
+            },
+          ],
+        },
+      ],
+      cta: {
+        badge: 'Generative Engine Optimization (GEO)',
+        title: 'Möchten auch Sie Ihr Büro als #1-KI-Empfehlung positionieren und High-Ticket-Mandate gewinnen?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah über Generative Engine Optimization (GEO), Entitäts-Architekturen und die Vorqualifizierung lukrativer B2B-Kunden.',
+        buttonText: 'GEO-Strategiegespräch buchen',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'GEO-Gespräch buchen',
+      },
+    };
+
+    return { en: enBombayStudioArticle, de: deBombayStudioArticle };
+  }
+
+  if (projectId === 'nordible-email') {
+    const enNordibleEmailArticle: ArticleContent = {
+      navHome: 'Home',
+      navBlog: 'Case Studies',
+      navCurrent: project.title,
+      share: 'Share Case Study',
+      copied: 'Link copied to clipboard',
+      badge: project.badge.en,
+      date: 'Enterprise Infrastructure & OpEx Case Study',
+      readTime: '4 min read',
+      title: project.heroHeadline.en,
+      topRibbon: {
+        boldText: 'Business Owner & CEO:',
+        subtitle: 'Stop paying $15–$25/user for bundled big-tech bloatware. Slash corporate email OpEx by 70% in 5 minutes.',
+        buttonText: 'Deploy Private Email →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Nordible Professional Email',
+        industry: 'Turnkey Enterprise Email & Data Sovereignty SaaS',
+        location: 'Frankfurt am Main, Germany (EU Infrastructure)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'For growing businesses and agile enterprises, corporate email is the ultimate operational lifeline—yet it has become one of the most bloated, compounding SaaS taxes on the balance sheet. Major tech conglomerates lock companies into rigid per-user tiers ($10 to $25+ per mailbox every single month) by bundling dozens of unused, unnecessary applications: complex office suites, intranet hubs, video calling tools, and whiteboards that teams rarely touch because they already utilize modern best-of-breed tools like Slack, Zoom, and Notion.',
+        'Nordible founder Kabeer Shah collaborated with the Nordible product engineering team to eliminate this bloatware tax and engineer Nordible Professional Email: a lean, hardened corporate email platform delivering 100% custom-domain credibility, automated inbox deliverability (SPF, DKIM, DMARC), complete GDPR-grade data sovereignty, and zero per-seat markup. By stripping away extraneous bloat, the platform allows business leaders to deploy professional corporate communications in under 5 minutes while slashing recurring software overhead by up to 70%.',
+      ],
+      objective: {
+        title: 'Commercial Mandate: Eliminating the Big-Tech Bloatware Tax',
+        text: 'Deliver enterprise-grade corporate email with flawless deliverability and bulletproof data privacy, while eliminating compounding per-seat SaaS subscription fees.',
+        points: project.businessChallenge.en,
+      },
+      metrics: [
+        { label: 'Cost Reduction', value: '-70%', icon: 'trending' },
+        { label: 'Setup Velocity', value: '5 Mins', icon: 'zap' },
+        { label: 'Data Sovereignty', value: '100%', icon: 'shield' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Nordible Professional Email - High-Deliverability Business Email Platform',
+        badge: 'Enterprise Infrastructure',
+        caption: 'Turnkey custom-domain business email platform engineered by Kabeer Shah with the Nordible product engineering team.',
+        businessBenefit: 'Cuts communications OpEx by 70% with 99.9% uptime and instant 5-minute setup',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'The Bloatware Subscription Tax: Why Expanding Teams Overpay for Email',
+          businessTakeaway: 'Companies pay thousands annually for complex office software bundles when all their employees actually need is secure, reliable email.',
+          paragraphs: [
+            'Every time a growing business brings on new staff, contractors, or support personnel, the enterprise software bill climbs steeply. Conglomerate cloud suites force founders to pay an escalating per-seat monthly subscription fee—charging premium rates for complex spreadsheets, word processors, slide builders, and project trackers that 80% of staff never open.',
+            'For a team of 25 to 100 professionals, this bloatware tax quietly bleeds $4,500 to $30,000+ each year from operating margins. CFOs and business owners find themselves trapped: either pay the compounding monthly penalty or deny team members a professional corporate email address.',
+            'Kabeer Shah worked with the Nordible engineering team to build a clean unbundled alternative: high-capacity, isolated corporate mailboxes on dedicated infrastructure without paying a single cent for redundant bundled applications.',
+          ],
+          cards: [
+            {
+              title: 'The Per-Seat Growth Penalty',
+              desc: 'Escalating monthly user fees penalize business expansion and inflate fixed IT overhead with zero productivity gain.',
+              badge: 'OpEx Drain',
+              icon: 'trending',
+            },
+            {
+              title: 'Unused Software Bloat',
+              desc: 'Paying $15-$25/seat for heavy office suites when staff already collaborate on specialized tools.',
+              badge: 'Wasted Capital',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'The Credibility & Deliverability Crisis: Your Email Address is Losing You Clients',
+          businessTakeaway: 'High-value proposals sent from generic @gmail addresses or misconfigured domains trigger spam filters and ruin first impressions.',
+          paragraphs: [
+            'First impressions dictate whether a six-figure contract moves forward or gets discarded. When prospective corporate clients or investors receive a commercial quotation from a free webmail handle or an unauthenticated domain, trust evaporates instantly.',
+            'Worse, major email providers (Google, Microsoft, Yahoo) have implemented strict domain authentication policies. If a business email server lacks rigorous SPF, DKIM, and DMARC alignment, crucial outbound proposals, invoices, and follow-ups land directly in client spam folders—silently killing sales cycles.',
+            'Nordible Professional Email was engineered to solve this out of the box: every domain is automatically provisioned with cryptographically signed DKIM keys, hardened SPF records, DMARC policies, and reverse DNS lookup, ensuring 99.9% inbox placement with pristine corporate credibility.',
+          ],
+          cards: [
+            {
+              title: 'Instant Brand Authority',
+              desc: 'Custom-domain @yourcompany.com handles look established, trustworthy, and institutional from the very first email.',
+              badge: 'Trust Elevation',
+              icon: 'building',
+            },
+            {
+              title: 'Zero-Spam Deliverability',
+              desc: 'Automated cryptographic DKIM, SPF, and DMARC alignment ensure critical sales proposals reach C-level inboxes.',
+              badge: 'Revenue Protection',
+              icon: 'check',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Total Data Sovereignty: Zero AI Scraping & Complete EU Privacy Compliance',
+          businessTakeaway: 'Public cloud platforms scan corporate correspondence to train commercial AI models; private infrastructure guarantees 100% intellectual property ownership.',
+          paragraphs: [
+            'Business leaders are increasingly wary of updated terms of service from big-tech cloud providers, which grant broad permissions to ingest corporate communications, customer attachments, and correspondence telemetry for commercial AI training and algorithmic indexing.',
+            'Kabeer Shah and the Nordible team engineered Nordible Professional Email on containerized, isolated infrastructure adhering to strict GDPR standards. No third-party data mining, no telemetry scraping, and zero advertising profiling ever touch client communications.',
+            'Combined with zero-friction 5-minute migration, native IMAP/SMTP/ActiveSync synchronization for iPhones, Android, Outlook, and modern webmail, business owners retain 100% data ownership alongside 99.9% guaranteed uptime.',
+          ],
+          cards: [
+            {
+              title: '100% Data Sovereignty',
+              desc: 'Private, containerized EU infrastructure ensures sensitive contracts and client data are never scanned by AI models.',
+              badge: 'Data Protection',
+              icon: 'shield',
+            },
+            {
+              title: 'Frictionless 5-Min Setup',
+              desc: 'Turnkey domain onboarding with zero downtime, instant DNS automation, and full mobile cross-device sync.',
+              badge: 'Instant ROI',
+              icon: 'zap',
+            },
+          ],
+        },
+      ],
+      finalCta: {
+        badge: 'Enterprise Infrastructure & OpEx Optimization',
+        title: 'Ready to Eliminate the Big-Tech Bloatware Tax on Corporate Email?',
+        desc: 'Speak directly with systems architect Kabeer Shah to evaluate your email infrastructure, calculate your 70% OpEx savings, and deploy turnkey business email in minutes.',
+        buttonText: 'Deploy Private Business Email',
+        buttonAction: 'consultation',
+        secondaryText: 'Explore More Case Studies',
+        mobileButtonText: 'Deploy Email',
+      },
+    };
+
+    const deNordibleEmailArticle: ArticleContent = {
+      navHome: 'Startseite',
+      navBlog: 'Fallstudien',
+      navCurrent: project.title,
+      share: 'Fallstudie teilen',
+      copied: 'Link in die Zwischenablage kopiert',
+      badge: project.badge.de,
+      date: 'Infrastruktur- & Kostenoptimierungs-Fallstudie',
+      readTime: '4 Min. Lesezeit',
+      title: project.heroHeadline.de,
+      topRibbon: {
+        boldText: 'Geschäftsinhaber & Geschäftsführer:',
+        subtitle: 'Befreien Sie sich von teuren Big-Tech-Abo-Gebühren und senken Sie Ihre E-Mail-Kosten um 70 % in 5 Minuten.',
+        buttonText: 'Private E-Mail einrichten →',
+        action: 'consultation',
+      },
+      client: {
+        name: 'Nordible Professional Email',
+        industry: 'Schlüsselfertige Unternehmens-E-Mail & Datensouveränitäts-SaaS',
+        location: 'Frankfurt am Main, Deutschland (EU-Infrastruktur)',
+        link: project.liveUrl,
+        repoUrl: project.repoUrl,
+      },
+      introParagraphs: [
+        'Für wachsende Unternehmen ist geschäftliche E-Mail-Kommunikation das zentrale operative Rückgrat – doch für viele Geschäftsführer hat sie sich zu einer der kostspieligsten SaaS-Gebührenfallen entwickelt. Internationale Technologie-Konzerne binden Unternehmen an starre Pro-Nutzer-Tarife (10 bis über 25 Euro monatlich pro Postfach), indem sie Dutzende ungenutzter Zusatz-Apps bündeln: überladene Office-Suiten, Intranet-Portale, Videokonferenz-Tools und Whiteboards, die Mitarbeiter kaum nutzen, weil bereits Speziallösungen wie Slack, Zoom oder Notion im Einsatz sind.',
+        'Nordible-Gründer Kabeer Shah entwickelte gemeinsam mit dem Nordible-Entwicklerteam eine schlanke Gegenlösung: Nordible Professional Email – eine hochzuverlässige Unternehmens-E-Mail-Plattform mit 100 % eigener Domain-Reputation, automatisierter Zustellbarkeit (SPF, DKIM, DMARC), vollständiger DSGVO-konformer Datenhoheit und ohne Pro-Kopf-Aufschläge. Durch die konsequente Beseitigung überflüssiger Software-Pakete können Entscheider professionelle Firmenadressen in unter 5 Minuten einrichten und laufende IT-Kommunikationskosten um bis zu 70 % dauerhaft senken.',
+      ],
+      objective: {
+        title: 'Strategischer Auftrag: Befreiung von der Bloatware-Steuer der Tech-Konzerne',
+        text: 'Bereitstellung einer hochperformanten, ausfallsicheren Unternehmens-E-Mail-Infrastruktur mit garantierter Zustellbarkeit und 100 % Datenschutz ohne eskalierende monatliche Lizenzgebühren.',
+        points: project.businessChallenge.de,
+      },
+      metrics: [
+        { label: 'Kostenersparnis', value: '-70%', icon: 'trending' },
+        { label: 'Einrichtungszeit', value: '5 Min.', icon: 'zap' },
+        { label: 'Datensouveränität', value: '100%', icon: 'shield' },
+      ],
+      heroImage: {
+        src: project.image,
+        alt: 'Nordible Professional Email - Plattform für professionelle Unternehmens-E-Mails',
+        badge: 'Unternehmens-Infrastruktur',
+        caption: 'Schlüsselfertige Unternehmens-E-Mail-Infrastruktur, entwickelt von Kabeer Shah gemeinsam mit dem Nordible-Entwicklerteam.',
+        businessBenefit: 'Senkt laufende E-Mail-Kosten um bis zu 70 % bei 99,9 % Verfügbarkeit und 5-Minuten-Setup',
+      },
+      sections: [
+        {
+          number: '01',
+          title: 'Die Bloatware-Gebühr der Tech-Riesen: Warum wachsende Teams zu viel bezahlen',
+          businessTakeaway: 'Unternehmen finanzieren mit teuren Software-Paketen riesige Office-Suiten mit, obwohl Mitarbeiter lediglich zuverlässige Firmen-E-Mails benötigen.',
+          paragraphs: [
+            'Mit jedem neuen Mitarbeiter oder externen Dienstleister steigen bei den etablierten Cloud-Monopolen die IT-Fixkosten sprunghaft an. Unternehmen zahlen saftige monatliche Lizenzgebühren pro Benutzer – und bezahlen damit Tabellenkalkulationen, Präsentationsprogramme und Projekttools mit, die ein Großteil der Belegschaft niemals öffnet.',
+            'Bei Teams von 20 bis 100 Mitarbeitern vernichtet dieser Mehraufwand unbemerkt 3.000 bis über 20.000 Euro pro Jahr an wertvoller Marge. Geschäftsführer stehen vor dem Dilemma: Entweder den teuren Pro-Kopf-Aufschlag schlucken oder Mitarbeitern keine seriöse Firmenadresse geben können.',
+            'Kabeer Shah und das Nordible-Team schufen die wirtschaftliche Alternative: isolierte, dedizierte Unternehmens-Postfächer auf modernster Server-Architektur – ohne einen Cent für ungenutzten Software-Ballast.',
+          ],
+          cards: [
+            {
+              title: 'Die Pro-Kopf-Kostenfalle',
+              desc: 'Steigende Lizenzkosten bestrafen Unternehmenswachstum und treiben die fixen IT-Betriebskosten ohne Mehrwert in die Höhe.',
+              badge: 'Margenfalle',
+              icon: 'trending',
+            },
+            {
+              title: 'Ungenutzter Software-Ballast',
+              desc: 'Zahlung von 15–25 € pro Postfach für riesige Suiten, obwohl Teams längst spezialisierte Tools nutzen.',
+              badge: 'Kapitalverschwendung',
+              icon: 'shield',
+            },
+          ],
+        },
+        {
+          number: '02',
+          title: 'Die Reputationskrise: Wie unprofessionelle E-Mails Neukunden kosten',
+          businessTakeaway: 'Angebote von kostenlosen Freemailern oder falsch konfigurierten Domains landen im Spam-Ordner und zerstören den professionellen ersten Eindruck.',
+          paragraphs: [
+            'Der erste Eindruck entscheidet darüber, ob lukrative Kundenaufträge zustande kommen. Erhält ein potenzieller Geschäftskunde oder Investor ein offizielles Angebot von einer privaten @gmail-Adresse oder einer nicht verifizierten Domain, leidet die geschäftliche Glaubwürdigkeit enorm.',
+            'Hinzu kommt das technische Risiko: Große Mail-Provider (Google, Microsoft, Yahoo) haben ihre Sicherheitsanforderungen massiv verschärft. Fehlen DKIM-, SPF- oder DMARC-Einträge, landen Angebote und Rechnungen unbemerkt im Spam-Ordner des Empfängers – und wertvolle Geschäftsabschlüsse platzen.',
+            'Nordible Professional Email löst dies standardmäßig: Jede Firmen-Domain wird vollautomatisch mit kryptografischen Signaturen (DKIM), strikten SPF-Regeln und DMARC-Richtlinien versehen. Das garantiert höchste Zustellraten und einen souveränen Auftritt vom ersten Tag an.',
+          ],
+          cards: [
+            {
+              title: 'Souveräne Markenwirkung',
+              desc: 'Eigene @firma.de-Adressen signalisieren Stabilität, Professionalität und Verlässlichkeit ab dem ersten Kontakt.',
+              badge: 'Vertrauensvorsprung',
+              icon: 'building',
+            },
+            {
+              title: 'Garantierte Zustellbarkeit',
+              desc: 'Automatisierte SPF-, DKIM- und DMARC-Konfiguration verhindert das gefürchtete Stranden wichtiger Angebote im Spam.',
+              badge: 'Umsatzsicherung',
+              icon: 'check',
+            },
+          ],
+        },
+        {
+          number: '03',
+          title: 'Echte Datensouveränität: 100 % DSGVO-Schutz ohne KI-Modell-Scraping',
+          businessTakeaway: 'Öffentliche Cloud-Konzerne nutzen Kundenkorrespondenz für eigene Algorithmen; private Container garantieren absolute Vertraulichkeit.',
+          paragraphs: [
+            'Immer mehr Geschäftsführer blicken besorgt auf die AGB großer internationaler Cloud-Anbieter, die sich weitreichende Rechte einräumen, um E-Mail-Inhalte, Anhänge und Metadaten für das Training eigener KI-Modelle und Werbesysteme auszuwerten.',
+            'Kabeer Shah und das Nordible-Team setzten auf isolierte, gehärtete Container-Architekturen nach strengen europäischen Datenschutzstandards (DSGVO). Keine fremden Crawler, kein KI-Training auf Ihren Geschäftsdaten und keine Werbeprofile.',
+            'Dank nahtloser 5-Minuten-Migration und vollständiger Unterstützung von IMAP, SMTP und ActiveSync synchronisieren sich Postfächer reibungslos mit iPhone, Android, Outlook und modernem Webmail – bei 99,9 % garantierter Verfügbarkeit.',
+          ],
+          cards: [
+            {
+              title: '100 % Datensouveränität',
+              desc: 'Dedizierte europäische Server-Infrastruktur stellt sicher, dass Verträge und Kundendaten niemals von KI gescannt werden.',
+              badge: 'Datenschutz',
+              icon: 'shield',
+            },
+            {
+              title: '5-Minuten-Einrichtung',
+              desc: 'Schlüsselfertiger Domain-Umzug ohne Ausfallzeit, automatische DNS-Einrichtung und intuitive Nutzung auf allen Geräten.',
+              badge: 'Sofortige Entlastung',
+              icon: 'zap',
+            },
+          ],
+        },
+      ],
+      finalCta: {
+        badge: 'Infrastruktur- & Kostenoptimierung',
+        title: 'Bereit, sich von der Bloatware-Steuer der Tech-Konzerne zu befreien?',
+        desc: 'Sprechen Sie direkt mit Systems Architect Kabeer Shah, um Ihre E-Mail-Infrastruktur zu analysieren, Ihr Sparpotenzial von 70 % zu berechnen und private Unternehmens-E-Mails in Minuten zu starten.',
+        buttonText: 'Private Unternehmens-E-Mail einrichten',
+        buttonAction: 'consultation',
+        secondaryText: 'Weitere Fallstudien ansehen',
+        mobileButtonText: 'E-Mail einrichten',
+      },
+    };
+
+    return { en: enNordibleEmailArticle, de: deNordibleEmailArticle };
+  }
+
 
   const isGeoSearch = ['bombay-studio', 'buns069', 'architektur'].includes(projectId);
   const isMedTech = ['oncocare', 'rst-baxter'].includes(projectId);
@@ -2510,9 +3412,9 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       }
     : isSecurity
     ? {
-        boldText: 'IT Security Leader:',
-        subtitle: 'Harden your email infrastructure and guarantee 99.9% inbox deliverability.',
-        buttonText: 'Request Security Review →',
+        boldText: 'Business Owner & CEO:',
+        subtitle: 'Stop paying $15–$25/user for bundled big-tech bloatware. Slash email OpEx by 70%.',
+        buttonText: 'Deploy Private Email →',
         action: 'consultation' as const,
       }
     : {
@@ -2552,9 +3454,9 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       }
     : isSecurity
     ? {
-        boldText: 'IT-Sicherheitsverantwortliche:',
-        subtitle: 'E-Mail-Infrastruktur abhärten und 99,9 % Zustellbarkeit garantieren.',
-        buttonText: 'Sicherheitsaudit anfragen →',
+        boldText: 'Geschäftsinhaber & Geschäftsführer:',
+        subtitle: 'Befreien Sie sich von teuren Big-Tech-Abo-Gebühren und senken Sie Ihre E-Mail-Kosten um 70 %.',
+        buttonText: 'Private E-Mail einrichten →',
         action: 'consultation' as const,
       }
     : {
@@ -2606,13 +3508,13 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       }
     : isSecurity
     ? {
-        badge: 'Enterprise IT & Cyber-Resilience',
-        title: 'Protect Your Brand Reputation with Hardened Email Security',
-        desc: 'Comprehensive DMARC, SPF, and DKIM security frameworks that eliminate domain spoofing and guarantee reliable B2B inbox delivery.',
-        buttonText: 'Schedule Infrastructure Review',
+        badge: 'Enterprise Infrastructure & OpEx Optimization',
+        title: 'Stop Paying the Big-Tech Bloatware Tax on Corporate Email',
+        desc: 'Switch to dedicated private business email with custom domain branding, 100% data sovereignty, and zero per-seat licensing penalties.',
+        buttonText: 'Deploy Private Business Email',
         buttonAction: 'consultation' as const,
         secondaryText: 'Explore More Case Studies',
-        mobileButtonText: 'Book Security Review',
+        mobileButtonText: 'Deploy Email',
       }
     : {
         badge: 'Scalable Platform Engineering',
@@ -2666,13 +3568,13 @@ function createCaseStudyArticle(projectId: string): Record<Lang, ArticleContent>
       }
     : isSecurity
     ? {
-        badge: 'Unternehmens-IT & Ausfallsicherheit',
-        title: 'Unternehmensreputation durch gehärtete E-Mail-Sicherheit schützen',
-        desc: 'Lückenlose DMARC-, SPF- und DKIM-Sicherheitsframeworks, die Domain-Spoofing verhindern und 99,9 % Zustellbarkeit sichern.',
-        buttonText: 'Infrastruktur-Audit buchen',
+        badge: 'Infrastruktur & Kostenoptimierung',
+        title: 'Schluss mit der teuren Bloatware-Steuer der Tech-Konzerne',
+        desc: 'Wechseln Sie zu einer dedizierten, DSGVO-konformen E-Mail-Infrastruktur mit eigener Domain, 100 % Datenhoheit und ohne Pro-Kopf-Gebühren.',
+        buttonText: 'Private E-Mail einrichten',
         buttonAction: 'consultation' as const,
         secondaryText: 'Weitere Fallstudien ansehen',
-        mobileButtonText: 'Sicherheitsaudit',
+        mobileButtonText: 'E-Mail einrichten',
       }
     : {
         badge: 'Skalierbare Plattform-Entwicklung',

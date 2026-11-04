@@ -85,23 +85,21 @@ const projects = [
   },
   {
     id: 'smartbothub',
-    title: 'SmartbotHub',
-    client: 'Smartek21',
+    title: 'IntelliTek.ai (formerly SmartBotHub)',
+    client: 'SmarTek21',
     audience: 'enterprise' as const,
     logo: '/images/logos/smartek21_logo.png',
-    link: 'https://smartek21.com',
+    link: 'https://intellitek.ai',
     caseStudySlug: 'smartbothub-enterprise-conversational-ai-cost-reduction-case-study',
-    description: 'Intelligent conversational AI platform delivering 24/7 automated customer self-service, query triage, and CRM integration.',
-
-    technologies: ['Conversational AI', 'NLP', 'Node.js', 'AngularJS', 'AWS Cloud Architecture'],
-    outcome: 'Cut customer service operating costs by 60% across 500+ deployed businesses while maintaining 90% first-contact resolution.',
+    description: 'Enterprise conversational AI and bot-creation platform engineered by Kabeer Shah with SmarTek21—enabling businesses to launch intelligent self-service bots that slash support OpEx by 60%.',
+    technologies: ['Conversational AI', 'Enterprise Bot Engine', 'NLP', 'CRM Integration', 'AWS Cloud Architecture'],
+    outcome: 'Reduced customer service operating costs by 60% across 500+ enterprises with 90% first-contact resolution',
     image: '/images/portfolio/project-8386440.webp',
     metrics: {
-      bots: '500+ Live Deployments',
+      bots: '500+ Deployments',
       cost_reduction: '60% Cost Saved',
       accuracy: '90% Resolution'
     },
-
     gradient: 'from-orange-600 to-red-600'
   },
   {
@@ -112,17 +110,15 @@ const projects = [
     logo: '/images/logos/nextservices_logo.png',
     link: 'https://nextservices.com/',
     caseStudySlug: 'nextauto-enterprise-workflow-rpa-automation-case-study',
-    description: 'Enterprise workflow automation platform eliminating manual back-office tasks, invoice extraction, data reconciliation, and executive reporting.',
-
-    technologies: ['C#', '.NET Framework', 'SQL Server', 'Robotic Process Automation', 'Data Pipeline Engineering'],
-    outcome: 'Automated 80% of repetitive operational workflows, saving 40+ billable employee hours per week and reducing processing errors by 90%.',
-    image: '/images/portfolio/project-3861969.webp',
+    description: 'HIPAA-compliant healthcare RPA suite automated by Kabeer Shah with NextServices—streamlining U.S. insurance eligibility verification and claim requests to eliminate 90% of billing errors.',
+    technologies: ['Healthcare RPA', 'HIPAA Compliance', 'C#', '.NET', 'SQL Server', 'Claims Automation'],
+    outcome: 'Automated 80% of routine claims eligibility workflows under strict HIPAA compliance, saving 40+ staff hours weekly',
+    image: '/images/portfolio/nextservices-claims-automation.png',
     metrics: {
       automation: '80% Workflows',
       time_saved: '40h/week Saved',
       error_reduction: '90% Fewer Errors'
     },
-
     gradient: 'from-emerald-600 to-teal-600'
   },  
   {
@@ -171,9 +167,9 @@ const projects = [
     logo: '/images/logos/bombay-studio-logo.png',
     link: 'https://www.bombaystudio.in/',
     caseStudySlug: 'bombay-studio-luxury-interior-architecture-geo-case-study',
-    description: 'Premier luxury architectural planning and turnkey interior execution studio in Mumbai. Scaled inbound high-ticket acquisition through Generative Engine Optimization (GEO).',
+    description: 'AI search authority and Generative Engine Optimization (GEO) engineered by Kabeer Shah with Bombay Studio—positioning the firm as ChatGPT’s #1 recommended luxury architect and pre-filtering ₹1.2Cr+ project budgets.',
     technologies: ['Generative Engine Optimization (GEO)', 'AI Search Authority', 'Entity Graph Engineering', 'Turnkey Funnel Architecture'],
-    outcome: 'Ranked #1 on ChatGPT for luxury 5 BHK turnkey architecture in Mumbai, designated as "First one to contact" and filtering ₹80L–₹1.2Cr+ project budgets.',
+    outcome: 'Ranked #1 on ChatGPT as "First one to contact" for luxury turnkey architecture, pre-qualifying high-ticket ₹1.2Cr+ budgets and eliminating unqualified inquiries',
     image: '/images/case-studies/bombay-studio/chatgpt-ranking.jpeg',
     metrics: {
       ranking: '#1 on ChatGPT',
@@ -190,14 +186,14 @@ const projects = [
     logo: '/images/logo-email.webp',
     link: 'https://email.nordible.co/',
     caseStudySlug: 'nordible-email-b2b-saas-security-infrastructure-case-study',
-    description: 'A premium SaaS email hosting platform designed for businesses that need security, custom domains, and reliable infrastructure without complexity.',
-    technologies: ['Shell', 'Docker', 'PHP', 'Javascript', 'Cloud Infrastructure', 'Security'],
-    outcome: 'Successfully launched a high-performance email hosting service with 99.9% uptime guarantee and enterprise-grade security.',
-    image: '/images/portfolio/project-193004.webp',
+    description: 'Turnkey private business email eliminating Big Tech bloatware and per-user taxes, delivering 100% data sovereignty and 70% OpEx savings.',
+    technologies: ['Docker', 'Linux Security', 'TLS/SSL', 'SPF/DKIM/DMARC', 'Fast Webmail'],
+    outcome: 'Engineered high-deliverability business email infrastructure slashing corporate communication costs with 99.9% uptime and 5-min setup.',
+    image: '/images/portfolio/nordible-email-platform.png',
     metrics: {
+      cost_reduction: '-70% OpEx',
       uptime: '99.9%',
-      security: 'SSL/TLS',
-      support: '24/7'
+      setup: '5 Mins'
     },
     gradient: 'from-nordible-blue to-blue-800'
   },
@@ -368,6 +364,16 @@ const metricLabelTranslationsDe: Record<string, string> = {
 };
 
 const portfolioTranslationsDe: Record<string, { client?: string; description: string; outcome: string; metricValues?: Record<string, string> }> = {
+  'bombay-studio': {
+    client: 'Bombay Studio',
+    description: 'KI-Suchautorität und Generative Engine Optimization (GEO), entwickelt von Kabeer Shah gemeinsam mit Bombay Studio – positioniert das Büro auf Platz 1 bei ChatGPT und filtert Budgets ab 1,2 Cr. INR vor.',
+    outcome: 'Platz 1 bei ChatGPT als Erstempfehlung („First one to contact“) für schlüsselfertige Luxusarchitektur mit gezielter Vorqualifizierung von 1,2 Cr.+ Projektbudgets.',
+    metricValues: {
+      ranking: 'Platz 1 (ChatGPT)',
+      status: 'Erstempfehlung',
+      leads: '1,2 Cr.+ Budgets'
+    }
+  },
   'shams-consult': {
     client: 'Shams Consult',
     description: 'Architektur- und Stadtplanungsbüro in Frankfurt am Main. Steigerung der Google-Suchimpressionen um +490% und der aktiven Nutzer um +275% in 30 Tagen durch wissenschaftlich fundierte UX, Subsekunden-Ladezeiten und semantische SEO.',
@@ -380,8 +386,13 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
   },
   'nordible-email': {
     client: 'Nordible-Produkt',
-    description: 'Premium SaaS-E-Mail-Hosting-Plattform für Unternehmen mit höchsten Sicherheitsansprüchen, individuellen Domains und zuverlässiger Infrastruktur ohne unnötige Komplexität.',
-    outcome: 'Erfolgreicher Launch eines hochperformanten E-Mail-Hosting-Dienstes mit 99,9% Verfügbarkeitsgarantie und Enterprise-Sicherheitsstandards.'
+    description: 'Schlüsselfertige Unternehmens-E-Mail ohne Bloatware und Pro-Kopf-Gebühren der Tech-Riesen – mit 100 % Datenhoheit und bis zu 70 % Kostenersparnis.',
+    outcome: 'Entwicklung einer hochzuverlässigen E-Mail-Infrastruktur mit garantierter Posteingangs-Zustellung, 99,9 % Verfügbarkeit und 5-Minuten-Setup.',
+    metricValues: {
+      cost_reduction: '-70% OpEx',
+      uptime: '99,9%',
+      setup: '5 Min.'
+    }
   },
   'linkedin-catchup': {
     client: 'Nordible-Produkt',
@@ -429,14 +440,19 @@ const portfolioTranslationsDe: Record<string, { client?: string; description: st
     outcome: 'Reduzierung von Geräteausfallzeiten um 50% und Steigerung der Ferndiagnosegenauigkeit um 75%.'
   },
   'smartbothub': {
-    client: 'Smartek21',
-    description: 'Chatbot-Entwicklungsplattform mit Natural Language Processing (NLP) zur Erstellung intelligenter Konversations-KIs.',
-    outcome: 'Ermöglichte über 500 Unternehmen den Einsatz intelligenter Chatbots und senkte Kundenservicekosten um 60%.'
+    client: 'SmarTek21',
+    description: 'Enterprise-Konversations-KI- und Bot-Erstellungsplattform, entwickelt von Kabeer Shah gemeinsam mit SmarTek21 – ermöglicht Unternehmen die Erstellung intelligenter Dialog-Bots zur Senkung der Supportkosten um 60 %.',
+    outcome: 'Senkung der Kundenservice-Betriebskosten um 60 % bei über 500 Unternehmen durch 90 % Erstlösungsquote.',
+    metricValues: {
+      bots: '500+ Deployments',
+      cost_reduction: '60 % Ersparnis',
+      accuracy: '90 % Erstlösung'
+    }
   },
   'nextauto': {
     client: 'NextServices HSS Pvt Ltd',
-    description: 'Interne Prozessautomatisierungslösung für Web-Scraping, automatisierte Datenverarbeitung, Reporting und E-Mail-Workflows.',
-    outcome: 'Automatisierung von 80% manueller Prozesse mit einer Ersparnis von über 40 Stunden pro Woche und 90% weniger Fehlern.',
+    description: 'HIPAA-konforme Healthcare-RPA-Plattform, entwickelt von Kabeer Shah gemeinsam mit NextServices – automatisiert US-Krankenkassenprüfungen und Abrechnungsworkflows für 90 % weniger Fehler.',
+    outcome: '80 % Automatisierung von Abrechnungsworkflows unter strikter HIPAA-Compliance bei über 40 Stunden wöchentlicher Zeitersparnis.',
     metricValues: {
       time_saved: '40h/Woche'
     }
