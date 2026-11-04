@@ -199,23 +199,23 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     setTimeout(() => setCopiedCode(false), 2000);
   };
 
+  const openAuditModal = (preferredGoal?: unknown) => {
+    setAuditError(null);
+    setFieldErrors({});
+    setTouchedFields({});
+    if (typeof preferredGoal === 'string') {
+      setAuditGoal(preferredGoal);
+    }
+    setAuditStep(1);
+    setIsAuditModalOpen(true);
+  };
+
   const handleConsultation = () => {
     if (onBookConsultation) {
       onBookConsultation();
     } else {
-      navigate(getPath('/'));
-      setTimeout(() => {
-        document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      openAuditModal(language === 'de' ? 'Architektur-Erstgespräch & Beratung' : 'Architecture Consultation');
     }
-  };
-
-  const openAuditModal = () => {
-    setAuditError(null);
-    setFieldErrors({});
-    setTouchedFields({});
-    setAuditStep(1);
-    setIsAuditModalOpen(true);
   };
 
   const renderCardIcon = (icon?: ArticleCard['icon']) => {
