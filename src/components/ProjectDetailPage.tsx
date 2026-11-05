@@ -24,8 +24,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProjectData } from '../data/portfolioProjects';
 import { contactConfig } from '../config/contact';
-import Header from './Header';
-import Footer from './Footer';
 
 interface ProjectDetailPageProps {
   project: ProjectData;
@@ -119,8 +117,6 @@ Website: ${contactConfig.websiteUrl}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
-      <Header />
 
       <main className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-slate-100 pb-28 md:pb-16 pt-24">
         {/* Navigation Breadcrumb */}
@@ -457,8 +453,6 @@ Website: ${contactConfig.websiteUrl}
           </a>
         </div>
       </aside>
-
-      <Footer />
     </>
   );
 }

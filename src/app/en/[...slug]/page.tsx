@@ -207,11 +207,7 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
     const sub = getSuburb(slug[0], slug[1]);
     const srv = getService(slug[2]);
     if (sub && srv) {
-      return (
-        <RouteClientWrapper>
-          <ServiceLocationLandingPage />
-        </RouteClientWrapper>
-      );
+      return <ServiceLocationLandingPage />;
     }
   }
 
