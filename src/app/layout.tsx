@@ -86,7 +86,7 @@ const jsonLd = {
     streetAddress: 'Breitlacherstraße 101',
     addressLocality: 'Frankfurt am Main',
     postalCode: '60489',
-    addressRegion: 'Hessen',
+    addressRegion: 'Rhein-Main, Hessen',
     addressCountry: 'DE',
   },
   geo: {
@@ -94,7 +94,7 @@ const jsonLd = {
     latitude: 50.125,
     longitude: 8.608,
   },
-  priceRange: '€€',
+  priceRange: '€€€',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '5.0',

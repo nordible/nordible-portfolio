@@ -11,11 +11,7 @@ import {
   Calendar,
   ChevronDown,
   Building2,
-  ShieldCheck,
-  FileText,
-  QrCode,
-  ExternalLink,
-  Sparkles
+  ShieldCheck
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -96,27 +92,6 @@ export default function Header() {
     },
   ];
 
-  const freeTools = [
-    {
-      title: t.nav.freeInvoiceGenerator,
-      href: 'https://free-invoice-generator.nordible.co/',
-      isExternal: true,
-      icon: FileText,
-    },
-    {
-      title: t.nav.freeBusinessDirectory,
-      href: 'http://business-directory.nordible.co/',
-      isExternal: true,
-      icon: Globe,
-    },
-    {
-      title: t.nav.freeQrCodeGenerator,
-      path: '/qr-code-generator',
-      isExternal: false,
-      icon: QrCode,
-    },
-  ];
-
   return (
     <header className="header-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -177,94 +152,33 @@ export default function Header() {
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isAboutOpen ? 'rotate-180 text-nordible-blue dark:text-blue-400' : ''}`} />
               </button>
 
-              {/* Sub-Navigation & Sub-Sub Navigation Panel */}
+              {/* About Sub-Navigation Panel */}
               {isAboutOpen && (
                 <div 
-                  className="absolute right-0 top-full pt-2 z-50 w-[480px] animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute right-0 top-full pt-2 z-50 w-56 animate-in fade-in slide-in-from-top-2 duration-200"
                   role="menu"
                 >
-                  <div className="bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-2xl shadow-2xl p-3.5 grid grid-cols-2 gap-2 divide-x divide-nordible-border/60 dark:divide-gray-800">
-                    {/* Left Column: About Nordible Pages */}
-                    <div className="space-y-1 pr-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 px-2 block mb-1">
-                        {isDe ? 'Über Nordible' : 'About Nordible'}
-                      </span>
-                      {aboutLinks.map((link) => {
-                        const Icon = link.icon;
-                        return (
-                          <button
-                            key={link.path}
-                            onClick={() => {
-                              setIsAboutOpen(false);
-                              handleNavClick('about', link.path);
-                            }}
-                            className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center gap-2.5 group cursor-pointer"
-                          >
-                            <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 group-hover:scale-105 transition-transform shrink-0">
-                              <Icon className="h-4 w-4" />
-                            </span>
-                            <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
-                              {link.title}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Right Column: Free Tools (Sub - Sub Navigation) */}
-                    <div className="pl-3 space-y-1">
-                      <div className="flex items-center justify-between px-2 mb-1">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 block">
-                          {t.nav.freeTools}
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
-                          <Sparkles className="h-2.5 w-2.5" />
-                          {isDe ? 'Kostenfrei' : 'Free'}
-                        </span>
-                      </div>
-                      {freeTools.map((tool) => {
-                        const Icon = tool.icon;
-                        if (tool.isExternal) {
-                          return (
-                            <a
-                              key={tool.href}
-                              href={tool.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsAboutOpen(false)}
-                              className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center justify-between gap-2 group cursor-pointer block"
-                            >
-                              <div className="flex items-center gap-2.5 min-w-0">
-                                <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0">
-                                  <Icon className="h-4 w-4" />
-                                </span>
-                                <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
-                                  {tool.title}
-                                </span>
-                              </div>
-                              <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-nordible-blue shrink-0 mr-1" />
-                            </a>
-                          );
-                        }
-                        return (
-                          <button
-                            key={tool.path}
-                            onClick={() => {
-                              setIsAboutOpen(false);
-                              handleNavClick('tool', tool.path);
-                            }}
-                            className="w-full text-left p-2 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center gap-2.5 group cursor-pointer"
-                          >
-                            <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform shrink-0">
-                              <Icon className="h-4 w-4" />
-                            </span>
-                            <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
-                              {tool.title}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
+                  <div className="bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-2xl shadow-xl p-2 space-y-1">
+                    {aboutLinks.map((link) => {
+                      const Icon = link.icon;
+                      return (
+                        <button
+                          key={link.path}
+                          onClick={() => {
+                            setIsAboutOpen(false);
+                            handleNavClick('about', link.path);
+                          }}
+                          className="w-full text-left p-2.5 rounded-xl hover:bg-nordible-bg dark:hover:bg-gray-800 transition-colors flex items-center gap-2.5 group cursor-pointer"
+                        >
+                          <span className="p-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-400 group-hover:scale-105 transition-transform shrink-0">
+                            <Icon className="h-4 w-4" />
+                          </span>
+                          <span className="text-xs font-bold text-nordible-dark dark:text-white group-hover:text-nordible-blue dark:group-hover:text-blue-400 block transition-colors truncate">
+                            {link.title}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -378,44 +292,6 @@ export default function Header() {
                           {link.title}
                         </button>
                       ))}
-                    </div>
-
-                    {/* Sub-Sub Navigation: Free Tools */}
-                    <div className="pt-2 border-t border-gray-200/60 dark:border-gray-700/60 space-y-1">
-                      <div className="flex items-center justify-between px-2 mb-1">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 block">
-                          {t.nav.freeTools}
-                        </span>
-                        <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400">
-                          {isDe ? 'Kostenfrei' : 'Free'}
-                        </span>
-                      </div>
-                      {freeTools.map((tool) => {
-                        if (tool.isExternal) {
-                          return (
-                            <a
-                              key={tool.href}
-                              href={tool.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsMenuOpen(false)}
-                              className="w-full text-left px-3 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue rounded-lg transition-colors flex items-center justify-between"
-                            >
-                              <span>{tool.title}</span>
-                              <ExternalLink className="h-3.5 w-3.5 text-gray-400" />
-                            </a>
-                          );
-                        }
-                        return (
-                          <button
-                            key={tool.path}
-                            onClick={() => handleNavClick('tool', tool.path)}
-                            className="w-full text-left px-3 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue rounded-lg transition-colors block cursor-pointer"
-                          >
-                            {tool.title}
-                          </button>
-                        );
-                      })}
                     </div>
                   </div>
                 )}
