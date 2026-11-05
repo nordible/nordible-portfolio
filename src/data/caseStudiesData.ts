@@ -4355,6 +4355,30 @@ const dynamicProjectIds = [
   'nordible-directory',
 ];
 
+function getCaseStudyCategory(projectId: string, lang: Lang): string {
+  const categories: Record<string, { en: string; de: string }> = {
+    oncocare: { en: 'Healthcare & MedTech', de: 'Gesundheit & MedTech' },
+    instarem: { en: 'Fintech & Payments', de: 'Fintech & Zahlungsverkehr' },
+    'rst-baxter': { en: 'Healthcare & MedTech', de: 'Gesundheit & MedTech' },
+    'parents-vip': { en: 'Consumer Tech & Mobile', de: 'Consumer-Tech & Plattformen' },
+    smartbothub: { en: 'Enterprise AI & Automation', de: 'Enterprise KI & Automatisierung' },
+    nextauto: { en: 'Healthcare & MedTech', de: 'Gesundheit & MedTech' },
+    'bombay-studio': { en: 'Architecture & Design', de: 'Architektur & Design' },
+    'nordible-email': { en: 'Enterprise SaaS & Cloud', de: 'Enterprise SaaS & Cloud' },
+    'linkedin-catchup': { en: 'B2B Sales Tech', de: 'B2B Vertriebs-Software' },
+    habitualist: { en: 'Consumer Tech & Mobile', de: 'Mobile Apps & Gamification' },
+    'zerodha-sandbox': { en: 'Fintech & Payments', de: 'Fintech & Trading-APIs' },
+    nerdspal: { en: 'Enterprise SaaS & Cloud', de: 'Venture & Cloud-Architektur' },
+    'invoice-generator': { en: 'Developer Tools & AI', de: 'Entwickler-Tools & KI' },
+    'nordible-directory': { en: 'Business Directory', de: 'Offenes Branchenverzeichnis' },
+  };
+
+  if (categories[projectId]) {
+    return categories[projectId][lang];
+  }
+  return lang === 'de' ? 'Fallstudie & Strategie' : 'Case Study & Strategy';
+}
+
 for (const id of dynamicProjectIds) {
   const project = portfolioProjects.find((p) => p.id === id);
   const article = createCaseStudyArticle(id);
@@ -4368,7 +4392,7 @@ for (const id of dynamicProjectIds) {
       clientName: project.client,
       projectTitle: project.title,
       excerpt: project.executiveSummary.en.slice(0, 180) + '...',
-      category: project.clientRole || 'Business Case Study',
+      category: getCaseStudyCategory(project.id, 'en'),
       categorySlug: project.audience === 'enterprise' ? 'engineering' : 'ai',
       readTime: '4 min read',
       date: 'October 2026',
@@ -4385,7 +4409,7 @@ for (const id of dynamicProjectIds) {
       clientName: project.client,
       projectTitle: project.title,
       excerpt: project.executiveSummary.de.slice(0, 180) + '...',
-      category: project.clientRole || 'Geschäftsfallstudie',
+      category: getCaseStudyCategory(project.id, 'de'),
       categorySlug: project.audience === 'enterprise' ? 'engineering' : 'ai',
       readTime: '4 Min. Lesezeit',
       date: 'Oktober 2026',

@@ -1,8 +1,7 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowLeft, 
-  ArrowRight,   
   Search
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,13 +15,29 @@ interface BlogPageProps {
 export default function BlogPage({ onBookConsultation }: BlogPageProps) {
   const { language, getPath } = useLanguage();
   const content = blogHubTranslations[language];
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'geo' | 'ai'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, []);
+
+  // Reset selected category if language switches
+  useEffect(() => {
+    setSelectedCategory('all');
+  }, [language]);
+
+  // Dynamically extract categories directly from the current blog posts
+  const dynamicCategories = useMemo(() => {
+    const categoriesSet = new Set<string>();
+    content.posts.forEach((post) => {
+      if (post.category && post.category.trim()) {
+        categoriesSet.add(post.category.trim());
+      }
+    });
+    return Array.from(categoriesSet);
+  }, [content.posts]);
 
   const handleConsultation = () => {
     if (onBookConsultation) {
@@ -36,12 +51,21 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
   };
 
   const filteredPosts = content.posts.filter((post) => {
-    const matchesCategory = selectedCategory === 'all' || post.categorySlug === selectedCategory;
-    const matchesSearch = 
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    // 1. Dynamic category filter
+    if (selectedCategory !== 'all' && post.category !== selectedCategory) {
+      return false;
+    }
+
+    // 2. Search query filter
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      post.title.toLowerCase().includes(q) ||
+      (post.clientName && post.clientName.toLowerCase().includes(q)) ||
+      (post.projectTitle && post.projectTitle.toLowerCase().includes(q)) ||
+      (post.category && post.category.toLowerCase().includes(q)) ||
+      (post.tags && post.tags.some((t) => t.toLowerCase().includes(q)))
+    );
   });
 
   const blogHubJsonLd = {
@@ -94,39 +118,52 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
             {content.heroSubtitle}
           </p>
 
-          {/* Search & Filter Bar */}
-          <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap gap-2">
-              {[
-                { id: 'all', label: content.categories.all },
-                { id: 'geo', label: content.categories.geo },
-                { id: 'ai', label: content.categories.ai },
-              ].map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id as 'all' | 'geo' | 'ai')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-                    selectedCategory === cat.id
-                      ? 'bg-nordible-blue text-white shadow-md shadow-blue-500/20'
-                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-nordible-border dark:border-gray-700 hover:border-nordible-blue dark:hover:border-blue-500'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Quick Search */}
-            <div className="relative min-w-[240px]">
+          {/* Clean Search Bar */}
+          <div className="pt-2 max-w-md">
+            <div className="relative">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
               <input
                 type="text"
                 placeholder={content.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 text-xs font-medium text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue transition-all"
+                className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 text-sm font-medium text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue transition-all shadow-sm"
               />
+            </div>
+          </div>
+
+          {/* Dynamic Category Filter Pills */}
+          <div className="pt-1">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory('all')}
+                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  selectedCategory === 'all'
+                    ? 'bg-nordible-blue text-white shadow-md shadow-blue-500/25'
+                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 border border-nordible-border dark:border-gray-700'
+                }`}
+              >
+                {content.categories?.all || (language === 'de' ? 'Alle Einblicke' : 'All Insights')} ({content.posts.length})
+              </button>
+              {dynamicCategories.map((cat) => {
+                const count = content.posts.filter((p) => p.category === cat).length;
+                const isSelected = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-nordible-blue text-white shadow-md shadow-blue-500/25'
+                        : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 border border-nordible-border dark:border-gray-700'
+                    }`}
+                  >
+                    {cat} ({count})
+                  </button>
+                );
+              })}
             </div>
           </div>
         </header>
@@ -142,32 +179,57 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <Link
-                key={post.id}
-                to={getPath(`/blog/${post.slug}`)}
-                className="group flex flex-col rounded-3xl overflow-hidden bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-md hover:border-nordible-blue/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+          {filteredPosts.length === 0 ? (
+            <div className="p-12 text-center rounded-3xl bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 space-y-3">
+              <p className="text-base font-bold text-gray-900 dark:text-gray-100 font-heading">
+                {language === 'de' ? 'Keine passenden Fallstudien gefunden' : 'No matching case studies found'}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('all');
+                  setSearchQuery('');
+                }}
+                className="text-xs font-bold text-nordible-blue dark:text-blue-400 hover:underline cursor-pointer"
               >
-                {/* Card Image */}
-                <div className="relative aspect-[16/9] bg-gray-950 overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.imageAlt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
+                {language === 'de' ? 'Filter & Suche zurücksetzen' : 'Reset filters & search'}
+              </button>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  to={getPath(`/blog/${post.slug}`)}
+                  className="group flex flex-col rounded-3xl overflow-hidden bg-white dark:bg-gray-800/80 border border-nordible-border dark:border-gray-700 shadow-md hover:border-nordible-blue/60 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+                >
+                  {/* Card Image */}
+                  <div className="relative aspect-[16/9] bg-gray-950 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
 
-                {/* Card Content - Title Only */}
-                <div className="p-6 flex-1 flex flex-col justify-center">
-                  <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading leading-snug group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
-                    {post.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
+                  {/* Card Content - Title & Dynamic Category */}
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+                    <div className="space-y-2">
+                      {post.category && (
+                        <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
+                          {post.category}
+                        </span>
+                      )}
+                      <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading leading-snug group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
+                        {post.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Science-Backed Conversion CTA Banner */}

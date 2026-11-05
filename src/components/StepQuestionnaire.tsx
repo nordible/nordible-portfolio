@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -55,6 +55,18 @@ export default function StepQuestionnaire({
     description?: boolean;
     email?: boolean;
   }>({});
+
+  // Close modal on Escape key press (Accessibility / UX)
+  useEffect(() => {
+    if (mode !== 'modal' || !isOpen || !onClose) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mode, isOpen, onClose]);
 
   // Quick intent chips
   const getChips = () => {
@@ -195,7 +207,7 @@ export default function StepQuestionnaire({
     <div className="space-y-6 text-left">
       {/* Modal Close & Header (Modal Only) */}
       {mode === 'modal' && (
-        <div className="flex items-center justify-between pb-3 border-b border-nordible-border dark:border-gray-800">
+        <div className="flex items-center justify-between pb-3.5 border-b border-nordible-border dark:border-gray-800">
           <div className="flex items-center gap-2">
             <span className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400">
               <Sparkles className="h-4 w-4" />
@@ -208,8 +220,8 @@ export default function StepQuestionnaire({
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
-              aria-label="Close"
+              className="p-2 -mr-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-95"
+              aria-label={isDe ? 'Fenster schließen' : 'Close modal'}
             >
               <X className="h-5 w-5" />
             </button>
@@ -219,7 +231,7 @@ export default function StepQuestionnaire({
 
       {isSubmitted ? (
         /* SUCCESS CONFIRMATION - ZERO PRESSURE */
-        <div className="p-8 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center space-y-4 animate-fade-in">
+        <div className="p-6 sm:p-8 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center space-y-5 animate-fade-in">
           <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30">
             <CheckCircle2 className="h-7 w-7" />
           </div>
@@ -235,7 +247,17 @@ export default function StepQuestionnaire({
             </p>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {mode === 'modal' && onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="btn-primary w-full sm:w-auto px-7 py-3 text-sm font-bold shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>{isDe ? 'Fenster schließen' : 'Close Window'}</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={() => {
@@ -244,7 +266,7 @@ export default function StepQuestionnaire({
                 setWorkEmail('');
                 setCompanyWebsite('');
               }}
-              className="text-xs font-bold text-emerald-700 dark:text-emerald-400 underline hover:opacity-80 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-3 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 rounded-xl transition-colors cursor-pointer"
             >
               {isDe ? 'Weiteres Projekt anfragen' : 'Submit another inquiry'}
             </button>
@@ -405,13 +427,13 @@ export default function StepQuestionnaire({
   if (mode === 'modal') {
     return (
       <div
-        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
       >
         <div
-          className={`w-full max-w-xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden ${className}`}
+          className={`w-full max-w-lg my-auto max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-3xl shadow-2xl p-5 sm:p-8 relative ${className}`}
           onClick={(e) => e.stopPropagation()}
         >
           {innerForm}
@@ -421,7 +443,7 @@ export default function StepQuestionnaire({
   }
 
   return (
-    <div className={`rounded-3xl border-2 border-nordible-blue/20 bg-white dark:bg-gray-900 p-6 sm:p-10 shadow-xl relative overflow-hidden text-left ${className}`}>
+    <div className={`rounded-3xl border-2 border-nordible-blue/20 bg-white dark:bg-gray-900 p-6 sm:p-10 shadow-xl relative text-left ${className}`}>
       {innerForm}
     </div>
   );
