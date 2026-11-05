@@ -1,7 +1,24 @@
 'use client';
-import { Mail, Phone, MessageCircle, ArrowRight, ShieldCheck, Clock, UserCheck, Sparkles, Languages, Calendar, CheckCircle, MapPin, Navigation, ExternalLink, QrCode, Download } from 'lucide-react';
+import React from 'react';
+import { 
+  Mail, 
+  Phone, 
+  MessageCircle, 
+  ArrowRight, 
+  ShieldCheck, 
+  Clock, 
+  UserCheck, 
+  Sparkles, 
+  Languages, 
+  MapPin, 
+  Navigation, 
+  ExternalLink, 
+  QrCode, 
+  Download
+} from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
+import StepQuestionnaire from './StepQuestionnaire';
 
 export default function Contact() {
   const { t, language } = useLanguage();
@@ -9,7 +26,6 @@ export default function Contact() {
   const isDe = language === 'de';
 
   const whatsappUrl = contactConfig.whatsapp.chatUrl;
-  const bookingUrl = contactConfig.bookingUrl;
 
   return (
     <section id="contact" className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
@@ -27,8 +43,8 @@ export default function Contact() {
           </h2>
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             {isDe 
-              ? 'Sprechen Sie direkt mit unserem Gründer Kabeer Shah über Scope, Machbarkeit und Zeitpläne. 100% vertraulich, ohne Verkaufsdruck.' 
-              : 'Direct 1-on-1 with founder Kabeer Shah on project scope, architecture, and timelines. 100% confidential, zero sales pressure.'}
+              ? 'Erhalten Sie eine kostenfreie technische Einschätzung und realistische Kostenschätzung direkt von Gründer Kabeer Shah. 100% vertraulich, ohne Verkaufsdruck.' 
+              : 'Get an actionable technical feasibility assessment and realistic cost estimate directly from founder Kabeer Shah. 100% confidential, zero sales pressure.'}
           </p>
         </div>
 
@@ -40,7 +56,7 @@ export default function Contact() {
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
             <Clock className="h-4 w-4 text-nordible-blue shrink-0" />
-            <span>{isDe ? 'Flexible Online-Termine' : 'Flexible Online Slots'}</span>
+            <span>{isDe ? 'Reaktionszeit unter 24h' : 'Under 24h Response SLA'}</span>
           </div>
           <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
             <UserCheck className="h-4 w-4 text-indigo-600 shrink-0" />
@@ -48,64 +64,13 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Primary Booking Hero Card */}
-        <div className="mb-10 rounded-2xl border-2 border-nordible-blue/30 bg-gradient-to-b from-blue-50/60 via-white to-white dark:from-blue-950/40 dark:via-gray-900 dark:to-gray-900 p-6 sm:p-10 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-nordible-blue/10 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="relative max-w-2xl mx-auto text-center space-y-6">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-md shadow-blue-600/20 mb-1">
-                <Calendar className="h-4 w-4" />
-                <span>{isDe ? 'Online-Terminbuchung' : 'Online Booking'}</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight text-center">
-                {isDe ? 'Wählen Sie Ihren Wunschtermin' : 'Choose Your Preferred Time Slot'}
-              </h3>
-            </div>
-
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto">
-              {isDe
-                ? 'Buchen Sie direkt ein 20-minütiges Video-Erstgespräch. Wir besprechen Ihre Ziele, prüfen die technische Machbarkeit und erstellen einen ersten Fahrplan.'
-                : 'Book a 20-minute video strategy call directly on our calendar. We will review your goals, verify technical feasibility, and map out next steps.'}
-            </p>
-
-            {/* Benefit Checkmarks */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-medium text-gray-600 dark:text-gray-300 pt-1">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>{isDe ? '20 Minuten Video-Gespräch' : '20 min Video Call'}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>{isDe ? 'Sofortige Terminbestätigung' : 'Instant Calendar Confirmation'}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>{isDe ? '100% unverbindlich' : 'Zero obligation'}</span>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-2">
-              <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-agent-action="book-consultation"
-                className="btn-primary inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold bg-nordible-blue hover:bg-blue-600 text-white shadow-xl shadow-blue-600/25 rounded-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer w-full sm:w-auto"
-              >
-                <Calendar className="h-5 w-5" />
-                <span>{isDe ? 'Kostenfreies Erstgespräch buchen' : 'Book Free Discovery Call'}</span>
-                <ArrowRight className="h-4 w-4 ml-0.5" />
-              </a>
-            </div>
-          </div>
-        </div>
+        {/* The 2-Field High-Value Free Breakdown Hero */}
+        <StepQuestionnaire mode="inline" sourceContext="contact" className="mb-14" />
 
         {/* Alternative Direct Channels: 3-column row */}
         <div className="space-y-4 mb-12">
           <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 font-mono">
               {isDe ? 'Oder direkt kontaktieren' : 'Or Reach Out Directly'}
             </span>
           </div>
@@ -197,7 +162,7 @@ export default function Contact() {
                   {isDe ? 'Digitale Visitenkarte & QR-Code' : 'Digital Business Card & QR Code'}
                 </div>
                 <div className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-300">
-                  {isDe
+                  {isDe 
                     ? 'Kontaktdaten inkl. aller Social-Media-Profile mit einem Klick auf dem Smartphone speichern.'
                     : 'Download full company & founder contact details including social profiles in 1 click.'}
                 </div>
@@ -296,7 +261,7 @@ export default function Contact() {
 
         {/* What Happens Next - 3-Step Mental Model Roadmap */}
         <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-6">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6 font-mono">
             {isDe ? 'Was passiert als Nächstes?' : 'What Happens Next'}
           </h3>
           <div className="grid md:grid-cols-3 gap-6 relative">
@@ -304,13 +269,13 @@ export default function Contact() {
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400 font-bold text-xs flex items-center justify-center font-mono">1</span>
                 <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? '20-Min. Erstgespräch' : '20-Min Scope Call'}
+                  {isDe ? 'Prüfung durch Gründer' : 'Founder Assessment'}
                 </h4>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                 {isDe 
-                  ? 'Wir analysieren gemeinsam Ihre Projektziele, technischen Rahmenbedingungen und Zeitpläne.'
-                  : 'We discuss your project goals, technical constraints, and desired launch dates.'}
+                  ? 'Kabeer Shah prüft Ihre Anforderungen, technische Machbarkeit und mögliche Risiken.'
+                  : 'Kabeer Shah personally evaluates your requirements, architecture, and potential pitfalls.'}
               </p>
             </div>
 
@@ -318,13 +283,13 @@ export default function Contact() {
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center font-mono">2</span>
                 <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? 'Machbarkeitsanalyse' : 'Feasibility Audit'}
+                  {isDe ? 'Kostenfreie Auswertung' : 'Actionable Review'}
                 </h4>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                 {isDe 
-                  ? 'Wir prüfen Architektur, Technologiewahl und potenzielle Risiken im Detail.'
-                  : 'We review architecture, technology stack trade-offs, and operational risks.'}
+                  ? 'Sie erhalten eine verständliche technische Einschätzung und Kostenschätzung per E-Mail.'
+                  : 'You receive an actionable technical architecture review and realistic cost estimate via email.'}
               </p>
             </div>
 
@@ -332,13 +297,13 @@ export default function Contact() {
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center font-mono">3</span>
                 <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? 'Konkreter Fahrplan' : 'Action Plan & Estimate'}
+                  {isDe ? 'Entscheidung ohne Druck' : 'Zero-Pressure Next Steps'}
                 </h4>
               </div>
               <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
                 {isDe 
-                  ? 'Sie erhalten ein transparentes, kalkuliertes Angebot und einen Sprint-Fahrplan. Völlig unverbindlich.'
-                  : 'You receive a transparent roadmap and fixed-scope estimate. Completely zero obligation.'}
+                  ? 'Sie entscheiden in Ruhe, ob Sie das Vorhaben mit uns umsetzen möchten. Völlig unverbindlich.'
+                  : 'You review the breakdown on your own terms. Zero sales calls, zero follow-up pressure.'}
               </p>
             </div>
           </div>
@@ -354,4 +319,3 @@ export default function Contact() {
     </section>
   );
 }
-

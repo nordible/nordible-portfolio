@@ -35,8 +35,6 @@ import {
   Wrench,
   Layers,
   Cpu,
-  FileText,
-  BookOpen
 } from 'lucide-react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -46,11 +44,8 @@ import {
   ArticleCard,
   ArticleImage,
   auditFunnelTranslations,
-  AuditFunnelIndustryOption,
-  AuditFunnelGoalOption
 } from '../data/blogContent';
-import { contactConfig } from '../config/contact';
-import { sendContactEmail } from '../services/emailService';
+import StepQuestionnaire from './StepQuestionnaire';
 
 interface BlogPostProps {
   onBookConsultation?: () => void;
@@ -71,63 +66,8 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
   // 3-Step Qualification & Ad Funnel Modal State
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
-  const [auditStep, setAuditStep] = useState<1 | 2 | 3 | 'success'>(1);
-  const [auditIndustry, setAuditIndustry] = useState('');
   const [auditGoal, setAuditGoal] = useState('');
-  const [auditWebsite, setAuditWebsite] = useState('');
-  const [auditEmail, setAuditEmail] = useState('');
-  const [auditPhone, setAuditPhone] = useState('');
-  const [isSubmittingAudit, setIsSubmittingAudit] = useState(false);
-  const [auditError, setAuditError] = useState<string | null>(null);
-  const [fieldErrors, setFieldErrors] = useState<{
-    website?: string;
-    email?: string;
-    phone?: string;
-  }>({});
-  const [touchedFields, setTouchedFields] = useState<{
-    website?: boolean;
-    email?: boolean;
-    phone?: boolean;
-  }>({});
 
-  const validateWebsite = (val: string): string | undefined => {
-    const trimmed = val.trim();
-    if (!trimmed) return funnel.modal.step3.validation.websiteRequired;
-    const clean = trimmed.replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
-    const domainRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
-    if (!domainRegex.test(clean)) {
-      return funnel.modal.step3.validation.websiteInvalid;
-    }
-    return undefined;
-  };
-
-  const validateEmail = (val: string): string | undefined => {
-    const trimmed = val.trim();
-    if (!trimmed) return funnel.modal.step3.validation.emailRequired;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    if (!emailRegex.test(trimmed)) {
-      return funnel.modal.step3.validation.emailInvalid;
-    }
-    return undefined;
-  };
-
-  const validatePhone = (val: string): string | undefined => {
-    const trimmed = val.trim();
-    if (!trimmed) return funnel.modal.step3.validation.phoneRequired;
-    const digitsOnly = trimmed.replace(/\D/g, '');
-    const validCharsRegex = /^[\d\s+\-()/.]{6,25}$/;
-    if (!validCharsRegex.test(trimmed) || digitsOnly.length < 6) {
-      return funnel.modal.step3.validation.phoneInvalid;
-    }
-    return undefined;
-  };
-
-  const normalizeWebsite = (val: string): string => {
-    const trimmed = val.trim();
-    if (!trimmed) return '';
-    if (/^https?:\/\//i.test(trimmed)) return trimmed;
-    return `https://${trimmed}`;
-  };
 
   const navigate = useNavigate();
 
@@ -200,13 +140,11 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   };
 
   const openAuditModal = (preferredGoal?: unknown) => {
-    setAuditError(null);
-    setFieldErrors({});
-    setTouchedFields({});
     if (typeof preferredGoal === 'string') {
       setAuditGoal(preferredGoal);
+    } else {
+      setAuditGoal('');
     }
-    setAuditStep(1);
     setIsAuditModalOpen(true);
   };
 
@@ -260,31 +198,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
     }
   };
 
-  const getIndustryIcon = (iconType: AuditFunnelIndustryOption['iconType']) => {
-    switch (iconType) {
-      case 'utensils': return Utensils;
-      case 'building': return Building2;
-      case 'briefcase': return Briefcase;
-      case 'shield': return ShieldCheck;
-      case 'code': return Code;
-      case 'wrench': return Wrench;
-      case 'target': return Target;
-      default: return Target;
-    }
-  };
-
-  const getGoalIcon = (iconType: AuditFunnelGoalOption['iconType']) => {
-    switch (iconType) {
-      case 'layers': return Layers;
-      case 'cpu': return Cpu;
-      case 'trophy': return Trophy;
-      case 'utensils': return Utensils;
-      case 'trending': return TrendingUp;
-      case 'info': return Info;
-      default: return TrendingUp;
-    }
-  };
-
+  
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -938,439 +852,14 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
       </div>
 
       {/* 3-Step Interactive Qualification Modal */}
-      {isAuditModalOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
-          onClick={() => setIsAuditModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="w-full max-w-lg bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-800 rounded-3xl shadow-2xl p-6 sm:p-8 space-y-6 text-left relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3 border-b border-nordible-border dark:border-gray-800">
-              <div className="flex items-center gap-2">
-                <span className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400">
-                  <Sparkles className="h-4 w-4" />
-                </span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
-                  {funnel.modal.badge}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsAuditModalOpen(false)}
-                className="p-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
-                aria-label={funnel.modal.closeAria}
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Progress Bar (Step 1-3) */}
-            {typeof auditStep === 'number' && (
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-[11px] font-mono text-gray-400">
-                  <span>{funnel.modal.stepOf(auditStep, 3)}</span>
-                  <span>{auditStep === 1 ? '33%' : auditStep === 2 ? '66%' : '100%'}</span>
-                </div>
-                <div className="w-full h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-nordible-blue transition-all duration-300"
-                    style={{ width: `${(auditStep / 3) * 100}%` }}
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Step 1: Industry Category */}
-            {auditStep === 1 && (
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
-                    {funnel.modal.step1.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    {funnel.modal.step1.subtitle}
-                  </p>
-                </div>
-
-                <div className="space-y-2 max-h-[52vh] overflow-y-auto pr-1">
-                  {funnel.modal.step1.industries.map((item) => {
-                    const ItemIcon = getIndustryIcon(item.iconType);
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => {
-                          setAuditIndustry(item.label);
-                          setAuditStep(2);
-                        }}
-                        className={`w-full p-3 rounded-2xl border text-left flex items-center justify-between gap-3 transition-all cursor-pointer ${
-                          auditIndustry === item.label
-                            ? 'border-nordible-blue bg-blue-50/50 dark:bg-blue-950/40 text-nordible-blue dark:text-blue-300 shadow-sm'
-                            : 'border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-gray-800 dark:text-gray-200'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="p-2 rounded-xl bg-gray-100 dark:bg-gray-700/60 text-nordible-blue dark:text-blue-400 shrink-0">
-                            <ItemIcon className="h-4 w-4" />
-                          </span>
-                          <span className="text-xs sm:text-sm font-bold">
-                            {item.label}
-                          </span>
-                        </div>
-                        <ArrowRight className="h-4 w-4 text-gray-400 shrink-0" />
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Goal & Readiness (Filter) */}
-            {auditStep === 2 && (
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
-                    {funnel.modal.step2.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    {funnel.modal.step2.subtitle}
-                  </p>
-                </div>
-
-                <div className="space-y-2.5 max-h-[52vh] overflow-y-auto pr-1">
-                  {funnel.modal.step2.goals.map((goal) => {
-                    const GoalIcon = getGoalIcon(goal.iconType);
-                    return (
-                      <button
-                        key={goal.id}
-                        type="button"
-                        onClick={() => {
-                          setAuditGoal(goal.title);
-                          setAuditStep(3);
-                        }}
-                        className={`w-full p-3.5 rounded-2xl border text-left flex items-start gap-3 transition-all cursor-pointer group ${
-                          auditGoal === goal.title
-                            ? 'border-nordible-blue bg-blue-50/50 dark:bg-blue-950/40 text-nordible-blue dark:text-blue-300 shadow-sm'
-                            : 'border-nordible-border dark:border-gray-800 bg-white dark:bg-gray-800/60 hover:border-nordible-blue/60 text-gray-800 dark:text-gray-200'
-                        }`}
-                      >
-                        <span className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-nordible-blue dark:text-blue-400 shrink-0 mt-0.5">
-                          <GoalIcon className="h-4 w-4" />
-                        </span>
-                        <div className="flex-1">
-                          <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white group-hover:text-nordible-blue transition-colors">
-                            {goal.title}
-                          </div>
-                          <div className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
-                            {goal.desc}
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="pt-2 flex items-center justify-between">
-                  <button
-                    type="button"
-                    onClick={() => setAuditStep(1)}
-                    className="text-xs font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
-                  >
-                    ← {funnel.modal.backBtn}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 3: Verified Contact Info */}
-            {auditStep === 3 && (
-              <form
-                noValidate
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  const webErr = validateWebsite(auditWebsite);
-                  const emailErr = validateEmail(auditEmail);
-                  const phoneErr = validatePhone(auditPhone);
-
-                  if (webErr || emailErr || phoneErr) {
-                    setFieldErrors({ website: webErr, email: emailErr, phone: phoneErr });
-                    setTouchedFields({ website: true, email: true, phone: true });
-                    return;
-                  }
-
-                  const normalizedWebsite = normalizeWebsite(auditWebsite);
-                  setIsSubmittingAudit(true);
-                  setAuditError(null);
-
-                  // 1. Immediately persist lead to localStorage so it is visible in /dashboard
-                  try {
-                    const stored = localStorage.getItem('nordible_leads');
-                    const existingLeads = stored ? JSON.parse(stored) : [];
-                    const newLead = {
-                      id: Date.now().toString(),
-                      fullName: normalizedWebsite,
-                      email: auditEmail.trim(),
-                      phone: auditPhone.trim(),
-                      projectType: `Audit: ${auditIndustry || 'B2B Case Study'}`,
-                      budget: '15-Min Free Audit',
-                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${normalizedWebsite}\nTelefon: ${auditPhone.trim()}`,
-                      status: 'new' as const,
-                      submittedAt: new Date().toISOString()
-                    };
-                    localStorage.setItem('nordible_leads', JSON.stringify([newLead, ...existingLeads]));
-                  } catch (err) {
-                    console.warn('Could not persist lead to localStorage:', err);
-                  }
-
-                  // 2. Dispatch email notification and handle errors explicitly
-                  try {
-                    const success = await sendContactEmail({
-                      fullName: normalizedWebsite,
-                      email: auditEmail.trim(),
-                      phone: auditPhone.trim(),
-                      projectType: `B2B Case Study Audit (${auditIndustry || 'Allgemein'})`,
-                      budget: '15-Min Audit',
-                      description: `Branche: ${auditIndustry}\nZiel: ${auditGoal}\nWebsite: ${normalizedWebsite}\nTelefon: ${auditPhone.trim()}`
-                    });
-
-                    if (success) {
-                      setAuditStep('success');
-                    } else {
-                      setAuditError(funnel.modal.step3.errorMessage);
-                    }
-                  } catch (err) {
-                    console.error('Audit submission failed:', err);
-                    setAuditError(funnel.modal.step3.errorMessage);
-                  } finally {
-                    setIsSubmittingAudit(false);
-                  }
-                }}
-                className="space-y-4"
-              >
-                <div>
-                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
-                    {funnel.modal.step3.title}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    {funnel.modal.step3.subtitle}
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
-                      {funnel.modal.step3.websiteLabel}
-                    </label>
-                    <input
-                      type="text"
-                      autoCapitalize="none"
-                      autoCorrect="off"
-                      placeholder={funnel.modal.step3.websitePlaceholder}
-                      value={auditWebsite}
-                      onBlur={() => {
-                        setTouchedFields((prev) => ({ ...prev, website: true }));
-                        setFieldErrors((prev) => ({ ...prev, website: validateWebsite(auditWebsite) }));
-                      }}
-                      onChange={(e) => {
-                        const val = e.target.value;
-                        setAuditWebsite(val);
-                        if (touchedFields.website) {
-                          setFieldErrors((prev) => ({ ...prev, website: validateWebsite(val) }));
-                        }
-                      }}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
-                        touchedFields.website && fieldErrors.website
-                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
-                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
-                      }`}
-                    />
-                    {touchedFields.website && fieldErrors.website && (
-                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
-                        <AlertCircle className="h-3 w-3 shrink-0" />
-                        <span>{fieldErrors.website}</span>
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
-                      {funnel.modal.step3.emailLabel}
-                    </label>
-                    <input
-                      type="email"
-                      autoCapitalize="none"
-                      autoCorrect="off"
-                      placeholder={funnel.modal.step3.emailPlaceholder}
-                      value={auditEmail}
-                      onBlur={() => {
-                        setTouchedFields((prev) => ({ ...prev, email: true }));
-                        setFieldErrors((prev) => ({ ...prev, email: validateEmail(auditEmail) }));
-                      }}
-                      onChange={(e) => {
-                        const val = e.target.value;
-                        setAuditEmail(val);
-                        if (touchedFields.email) {
-                          setFieldErrors((prev) => ({ ...prev, email: validateEmail(val) }));
-                        }
-                      }}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
-                        touchedFields.email && fieldErrors.email
-                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
-                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
-                      }`}
-                    />
-                    {touchedFields.email && fieldErrors.email && (
-                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
-                        <AlertCircle className="h-3 w-3 shrink-0" />
-                        <span>{fieldErrors.email}</span>
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
-                      {funnel.modal.step3.phoneLabel}
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder={funnel.modal.step3.phonePlaceholder}
-                      value={auditPhone}
-                      onBlur={() => {
-                        setTouchedFields((prev) => ({ ...prev, phone: true }));
-                        setFieldErrors((prev) => ({ ...prev, phone: validatePhone(auditPhone) }));
-                      }}
-                      onChange={(e) => {
-                        const val = e.target.value;
-                        setAuditPhone(val);
-                        if (touchedFields.phone) {
-                          setFieldErrors((prev) => ({ ...prev, phone: validatePhone(val) }));
-                        }
-                      }}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
-                        touchedFields.phone && fieldErrors.phone
-                          ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500 bg-red-50/20 dark:bg-red-950/20'
-                          : 'border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
-                      }`}
-                    />
-                    {touchedFields.phone && fieldErrors.phone && (
-                      <p className="mt-1 text-[11px] font-medium text-red-500 flex items-center gap-1 animate-in fade-in duration-150">
-                        <AlertCircle className="h-3 w-3 shrink-0" />
-                        <span>{fieldErrors.phone}</span>
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {auditError && (
-                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900/60 text-red-700 dark:text-red-300 text-xs flex items-start gap-2.5 animate-in fade-in duration-200">
-                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-red-500 dark:text-red-400" />
-                    <div className="flex-1 leading-relaxed">
-                      <span>{auditError}</span>
-                    </div>
-                  </div>
-                )}
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isSubmittingAudit}
-                    className="btn-primary w-full py-3.5 text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
-                  >
-                    <span>
-                      {isSubmittingAudit
-                        ? funnel.modal.step3.submittingBtn
-                        : funnel.modal.step3.submitBtn}
-                    </span>
-                  </button>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] text-gray-400 pt-1">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuditError(null);
-                      setAuditStep(2);
-                    }}
-                    className="font-semibold hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
-                  >
-                    ← {funnel.modal.backBtn}
-                  </button>
-                  <span className="flex items-center gap-1">
-                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
-                    {funnel.modal.step3.confidentialNote}
-                  </span>
-                </div>
-              </form>
-            )}
-
-            {/* Success Screen: Instant Blueprint Access + Consultation Option */}
-            {auditStep === 'success' && (
-              <div className="space-y-4 py-2 text-center animate-in fade-in zoom-in-95 duration-200">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
-                  <CheckCircle2 className="h-6 w-6" />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg sm:text-xl font-black font-heading text-gray-900 dark:text-white">
-                    {funnel.modal.successScreen.title}
-                  </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed max-w-md mx-auto">
-                    {funnel.modal.successScreen.desc}
-                  </p>
-                </div>
-
-                {/* Direct Instant Resource Access Card */}
-                <div className="p-4 rounded-2xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/70 dark:bg-blue-950/40 text-left space-y-2.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-nordible-blue dark:text-blue-300">
-                    <BookOpen className="h-4 w-4 shrink-0 text-nordible-blue dark:text-blue-400" />
-                    <span>{funnel.modal.successScreen.blueprintHeading}</span>
-                  </div>
-                  <p className="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {funnel.modal.successScreen.blueprintDesc}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-2 pt-1">
-                    <a
-                      href="/brochure.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary py-2.5 px-4 text-xs font-bold text-center inline-flex items-center justify-center gap-2 shadow-sm"
-                    >
-                      <FileText className="h-3.5 w-3.5" />
-                      <span>{funnel.modal.successScreen.downloadBlueprintBtn}</span>
-                      <ExternalLink className="h-3 w-3 opacity-80" />
-                    </a>
-                    <Link
-                      to={getPath('/blog')}
-                      onClick={() => setIsAuditModalOpen(false)}
-                      className="btn-secondary py-2.5 px-4 text-xs font-semibold text-center inline-flex items-center justify-center gap-1.5"
-                    >
-                      <span>{funnel.modal.successScreen.exploreHubBtn}</span>
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Calendar Review Call Option */}
-                <div className="pt-1">
-                  <a
-                    href={contactConfig.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 px-5 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-nordible-blue dark:hover:border-blue-400 bg-white dark:bg-gray-800 text-xs font-bold text-gray-800 dark:text-gray-200 hover:text-nordible-blue dark:hover:text-white transition-all inline-flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-                  >
-                    <Calendar className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
-                    <span>{funnel.modal.successScreen.reserveSlotBtn}</span>
-                    <ExternalLink className="h-3.5 w-3.5 text-gray-400" />
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      <StepQuestionnaire
+        mode="modal"
+        isOpen={isAuditModalOpen}
+        onClose={() => setIsAuditModalOpen(false)}
+        preferredGoal={auditGoal}
+        sourceContext="case-study"
+        slug={activeSlug}
+      />
 
       {/* Fullscreen Interactive Lightbox Modal */}
       {activeLightboxImage && (

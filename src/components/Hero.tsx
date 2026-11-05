@@ -7,7 +7,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 export default function Hero() {
   const { t, language, getPath } = useLanguage();
   const navigate = useNavigate();
-  const isDe = language === 'de';
 
   const mottos = t.hero.rotatingTitles || [
     'Solve Bigger Problems',

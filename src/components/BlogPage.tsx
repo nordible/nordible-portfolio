@@ -2,9 +2,7 @@
 import { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
-  ArrowRight, 
-  Calendar, 
-  Clock, 
+  ArrowRight,   
   Search
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -159,54 +157,13 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/90 dark:bg-gray-900/90 text-nordible-dark dark:text-white shadow">
-                      {post.category}
-                    </span>
-                  </div>
                 </div>
 
-                {/* Card Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-xs font-medium text-gray-500 dark:text-gray-400">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        {post.date}
-                      </span>
-                      <span>·</span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {post.readTime}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading leading-snug group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2 font-normal">
-                      {post.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-nordible-border dark:border-gray-700/60 flex items-center justify-between">
-                    <div className="flex flex-wrap gap-1">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 rounded text-[11px] font-medium bg-gray-100 dark:bg-gray-700/60 text-gray-600 dark:text-gray-300"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <span className="text-xs font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0">
-                      {content.readMore}
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
+                {/* Card Content - Title Only */}
+                <div className="p-6 flex-1 flex flex-col justify-center">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-nordible-dark dark:text-white font-heading leading-snug group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
+                    {post.title}
+                  </h3>
                 </div>
               </Link>
             ))}

@@ -236,6 +236,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaButton: 'Schedule AI & GEO Consultation',
     ctaSecondary: 'Explore All Services →',
     posts: [
+      ...generatedBlogPostItems.en.slice(0, 6),
       {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
@@ -300,7 +301,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'AI Retrieval'],
         published: true,
       },
-      ...generatedBlogPostItems.en,
+      ...generatedBlogPostItems.en.slice(6),
     ]
   },
   de: {
@@ -326,6 +327,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaButton: 'KI- & GEO-Beratung vereinbaren',
     ctaSecondary: 'Alle Leistungen ansehen →',
     posts: [
+      ...generatedBlogPostItems.de.slice(0, 6),
       {
         id: 'restaurant-delivery-growth-case-study',
         slug: 'restaurant-delivery-growth-case-study',
@@ -390,7 +392,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
         tags: ['GEO', 'Perplexity', 'ChatGPT', 'KI-Retrieval'],
         published: true,
       },
-      ...generatedBlogPostItems.de,
+      ...generatedBlogPostItems.de.slice(6),
     ]
   }
 };
