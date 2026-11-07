@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import RouteClientWrapper from '@/components/RouteClientWrapper';
 import AreasServedPage from '@/components/AreasServedPage';
 
 export const metadata: Metadata = {
@@ -37,9 +36,9 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(standorteBreadcrumbs) }}
       />
-      <Header />
-      <AreasServedPage />
-      <Footer />
+      <RouteClientWrapper>
+        <AreasServedPage />
+      </RouteClientWrapper>
     </>
   );
 }

@@ -37,8 +37,8 @@ export interface QuestionnaireSuccessConfig {
 export interface QuestionnaireSchema {
   context: QuestionnaireContext;
   modalBadge: string;
-  headerBadge: string;
-  headerBadgeIcon: 'sparkles' | 'file-text';
+  headerBadge?: string;
+  headerBadgeIcon?: 'sparkles' | 'file-text';
   title: string;
   subtitle: string;
   chipsTitle?: string;
@@ -107,9 +107,7 @@ export function getQuestionnaireConfig(
       return {
         context: 'brochure',
         modalBadge: isDe ? 'Unternehmensbroschüre (PDF)' : 'Corporate Brochure (PDF)',
-        headerBadge: isDe ? 'Offizielle B2B-Broschüre (6 Seiten DIN A4)' : 'Official B2B Brochure (6-Page DIN A4)',
-        headerBadgeIcon: 'file-text',
-        title: isDe ? 'Nordible Unternehmensbroschüre kostenlos erhalten' : 'Get the Free Nordible Corporate Brochure',
+        title: isDe ? 'Nordible Unternehmensbroschüre' : 'Nordible Corporate Brochure',
         subtitle: isDe
           ? 'Erhalten Sie unsere vollständige druckfertige Broschüre mit ROI-Benchmarks, Architektur-Frameworks und Referenz-Projekten. Der Download startet sofort nach Eingabe Ihrer E-Mail.'
           : 'Download our complete print-ready brochure featuring architecture blueprints, ROI benchmarks, and case studies. Download begins instantly after providing your email.',
@@ -129,7 +127,7 @@ export function getQuestionnaireConfig(
             required: false,
             label: isDe ? 'Telefon / WhatsApp (optional)' : 'Phone / WhatsApp (optional)',
             placeholder: '+49 ...',
-            helperText: isDe ? 'Freiwillig – keine Werbeanrufe' : 'Optional – zero sales calls',
+            helperText: '',
             colSpan: 'half',
           },
           {
@@ -143,24 +141,22 @@ export function getQuestionnaireConfig(
           },
         ],
         submitButton: {
-          label: isDe ? 'Kostenlose Broschüre herunterladen (PDF) ↗' : 'Download Free Brochure (PDF) ↗',
+          label: isDe ? 'Broschüre herunterladen (PDF) ↗' : 'Download Brochure (PDF) ↗',
           submittingLabel: isDe ? 'Broschüre wird vorbereitet...' : 'Preparing Download...',
           icon: 'download',
         },
-        trustSignals: [
-          { icon: 'shield', text: isDe ? '100% kostenfrei als PDF' : '100% Free PDF' },
-          { icon: 'lock', text: isDe ? 'Keine Werbeanrufe' : 'Zero sales calls' },
-          { icon: 'clock', text: isDe ? 'Sofortiger Download' : 'Instant Direct Download' },
-        ],
+        trustSignals: [],
         success: {
           title: isDe ? 'Download gestartet!' : 'Download Started!',
           subtitle: isDe
             ? 'Ihre 6-seitige Nordible B2B-Unternehmensbroschüre (PDF) wird heruntergeladen.'
             : 'Your official 6-page Nordible corporate brochure (PDF) is downloading.',
           isBrochureDownload: true,
-          downloadUrl: contactConfig.brochurePdfUrl || '/nordible-corporate-brochure.pdf',
+          downloadUrl: isDe
+            ? (contactConfig.brochurePdfUrl || '/nordible-corporate-brochure.pdf')
+            : '/nordible-corporate-brochure-en.pdf',
           fallbackDownloadText: isDe ? 'Klicken Sie hier, falls Download nicht automatisch startete' : 'Click here if download did not start',
-          webVersionUrl: '/brochure.html',
+          webVersionUrl: isDe ? '/brochure.html' : '/brochure-en.html',
           webVersionText: isDe ? 'Interaktive Web-Broschüre im Browser öffnen ↗' : 'View interactive web brochure in browser ↗',
           closeButtonText: isDe ? 'Fenster schließen' : 'Close window',
         },

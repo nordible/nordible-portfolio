@@ -36,6 +36,9 @@ export async function POST(req: Request) {
     brochureDownload: Boolean(body.brochureDownload),
   };
 
+  const isEn = body.language === 'en' || (typeof body.projectType === 'string' && body.projectType.includes('EN'));
+  const brochurePdfUrl = isEn ? '/nordible-corporate-brochure-en.pdf' : '/nordible-corporate-brochure.pdf';
+
   try {
     if (!mailApiSecret) {
       console.warn('[LEAD CAPTURE - FAILSAFE]: MAIL_API_SECRET missing. Preserving lead data in server log:', capturedLeadSummary);
@@ -43,7 +46,7 @@ export async function POST(req: Request) {
         {
           success: true,
           message: 'Lead erfasst (Lead recorded successfully)',
-          downloadUrl: body.brochureDownload ? '/nordible-corporate-brochure.pdf' : undefined,
+          downloadUrl: body.brochureDownload ? brochurePdfUrl : undefined,
         },
         { status: 200 }
       );
@@ -64,7 +67,7 @@ export async function POST(req: Request) {
         {
           success: true,
           ...data,
-          downloadUrl: body.brochureDownload ? '/nordible-corporate-brochure.pdf' : undefined,
+          downloadUrl: body.brochureDownload ? brochurePdfUrl : undefined,
         },
         { status: 200 }
       );
@@ -77,7 +80,7 @@ export async function POST(req: Request) {
       {
         success: true,
         message: 'Lead erfolgreich erfasst (Lead received successfully)',
-        downloadUrl: body.brochureDownload ? '/nordible-corporate-brochure.pdf' : undefined,
+        downloadUrl: body.brochureDownload ? brochurePdfUrl : undefined,
       },
       { status: 200 }
     );
@@ -90,7 +93,7 @@ export async function POST(req: Request) {
       {
         success: true,
         message: 'Lead erfolgreich übermittelt (Lead received successfully)',
-        downloadUrl: body.brochureDownload ? '/nordible-corporate-brochure.pdf' : undefined,
+        downloadUrl: body.brochureDownload ? brochurePdfUrl : undefined,
       },
       { status: 200 }
     );

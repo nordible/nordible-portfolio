@@ -589,7 +589,6 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest block drop-shadow-sm">{displayClient}</span>
-                    <span className="text-[11px] font-mono text-white/75">{currentIndex + 1} {t.portfolio.of || (isDe ? 'von' : 'of')} {projects.length}</span>
                   </div>
                 </div>
               </div>
@@ -714,10 +713,6 @@ export default function Portfolio() {
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
-
-            <span className="px-3 text-xs font-mono font-bold text-gray-600 dark:text-gray-300 select-none">
-              0{currentIndex + 1} / 0{projects.length}
-            </span>
 
             <button
               onClick={nextSlide}

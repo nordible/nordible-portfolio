@@ -313,10 +313,12 @@ export default function StepQuestionnaire({
         <form noValidate onSubmit={handleSubmit} className="space-y-4">
           {/* Header */}
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 text-xs font-bold font-heading">
-              {schema.headerBadgeIcon === 'file-text' ? <FileText className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
-              <span>{schema.headerBadge}</span>
-            </div>
+            {schema.headerBadge ? (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 text-xs font-bold font-heading">
+                {schema.headerBadgeIcon === 'file-text' ? <FileText className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
+                <span>{schema.headerBadge}</span>
+              </div>
+            ) : null}
             <h3 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
               {schema.title}
             </h3>
@@ -457,14 +459,16 @@ export default function StepQuestionnaire({
           </div>
 
           {/* TRUST REASSURANCES */}
-          <div className="pt-1 grid sm:grid-cols-3 gap-2 text-left text-[11px] text-gray-500 dark:text-gray-400">
-            {schema.trustSignals.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                {renderTrustIcon(item.icon)}
-                <span>{item.text}</span>
-              </div>
-            ))}
-          </div>
+          {schema.trustSignals && schema.trustSignals.length > 0 ? (
+            <div className="pt-1 grid sm:grid-cols-3 gap-2 text-left text-[11px] text-gray-500 dark:text-gray-400">
+              {schema.trustSignals.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  {renderTrustIcon(item.icon)}
+                  <span>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </form>
       )}
     </div>
