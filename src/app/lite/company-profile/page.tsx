@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
 
 export const metadata = {

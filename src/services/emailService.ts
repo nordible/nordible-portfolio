@@ -5,6 +5,8 @@ export interface ContactFormData {
   projectType: string;
   budget: string;
   description: string;
+  to?: string | string[];
+  brochureDownload?: boolean;
 }
 
 export const sendContactEmail = async (formData: ContactFormData): Promise<boolean> => {
@@ -21,6 +23,8 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<boole
         projectType: formData.projectType,
         budget: formData.budget,
         description: formData.description,
+        to: formData.to,
+        brochureDownload: formData.brochureDownload,
       }),
     });
 

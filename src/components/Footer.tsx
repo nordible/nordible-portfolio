@@ -241,6 +241,14 @@ export default function Footer() {
                   {language === 'de' ? 'Wie wir zusammenarbeiten' : 'How We Work Together'}
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to={getPath('/brochure')} 
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
+                >
+                  {language === 'de' ? 'Unternehmensbroschüre (PDF)' : 'Corporate Brochure (PDF)'}
+                </Link>
+              </li>
               <li><Link to={`${homePath}#contact`} className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</Link></li>
               <li>
                 <Link 
