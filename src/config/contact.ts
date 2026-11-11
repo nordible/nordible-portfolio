@@ -2,6 +2,8 @@ export const contactConfig = {
   websiteUrl: 'https://nordible.co',
   cardUrl: 'https://nordible.co/card',
   vcardDownloadUrl: '/api/vcard',
+  brochurePdfUrl: '/nordible-corporate-brochure.pdf',
+  leadTestRecipients: ['nordiblesolutions@gmail.com', 'mail@nordible.co'],
   company: {
     name: 'Nordible Technologies',
     legalName: 'Nordible Technologies',
@@ -23,6 +25,7 @@ export const contactConfig = {
   social: {
     linkedin: 'https://www.linkedin.com/company/nordible-co/',
     github: 'https://github.com/nordible',
+    facebook: 'https://www.facebook.com/nordible.co',
     instagram: 'https://www.instagram.com/nordible.co/',
     youtube: 'https://www.youtube.com/@nordible',
     tiktok: 'https://www.tiktok.com/@nordible',

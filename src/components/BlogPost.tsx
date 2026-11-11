@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   Share2, 
@@ -29,14 +29,10 @@ import {
   ZoomIn,
   Info,
   Briefcase,
-  Utensils,
   Code,
   Globe,
-  Wrench,
-  Layers,
-  Cpu,
 } from 'lucide-react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { 
   articlesBySlug, 
@@ -54,7 +50,6 @@ interface BlogPostProps {
 
 export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPostProps) {
   const { language, getPath, t } = useLanguage();
-  const isDe = language === 'de';
   const funnel = auditFunnelTranslations[language];
   const params = useParams<{ slug?: string }>();
   const activeSlug = propSlug || params.slug || defaultArticleSlug;
@@ -67,9 +62,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   // 3-Step Qualification & Ad Funnel Modal State
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const [auditGoal, setAuditGoal] = useState('');
-
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });

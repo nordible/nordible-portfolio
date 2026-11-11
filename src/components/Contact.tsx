@@ -5,10 +5,6 @@ import {
   Phone, 
   MessageCircle, 
   ArrowRight, 
-  ShieldCheck, 
-  Clock, 
-  UserCheck, 
-  Sparkles, 
   Languages, 
   MapPin, 
   Navigation, 
@@ -18,7 +14,6 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
-import StepQuestionnaire from './StepQuestionnaire';
 
 export default function Contact() {
   const { t, language } = useLanguage();
@@ -32,48 +27,22 @@ export default function Contact() {
       <div id="consultation" className="absolute top-0 pointer-events-none scroll-mt-20" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header & Value Proposition */}
+        {/* Clean, authentic Direct Contact Header */}
         <div className="text-center mb-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold font-heading mb-4">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>{isDe ? 'Unverbindliche Erstberatung' : 'Zero-Obligation Consultation'}</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 text-xs font-bold font-heading mb-4">
+            <Mail className="h-3.5 w-3.5" />
+            <span>{isDe ? 'Direktkontakt' : 'Direct Contact'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
             <span>{c.title} <span className="text-nordible-blue">{c.titleHighlight}</span></span>
           </h2>
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            {isDe 
-              ? 'Erhalten Sie eine kostenfreie technische Einschätzung und realistische Kostenschätzung direkt von Gründer Kabeer Shah. 100% vertraulich, ohne Verkaufsdruck.' 
-              : 'Get an actionable technical feasibility assessment and realistic cost estimate directly from founder Kabeer Shah. 100% confidential, zero sales pressure.'}
+            {c.subtitle}
           </p>
         </div>
 
-        {/* Psychological Risk-Reversal Guarantees */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-10">
-          <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
-            <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
-            <span>{isDe ? '100% Kostenfrei & Vertraulich' : '100% Free & Confidential'}</span>
-          </div>
-          <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
-            <Clock className="h-4 w-4 text-nordible-blue shrink-0" />
-            <span>{isDe ? 'Reaktionszeit unter 24h' : 'Under 24h Response SLA'}</span>
-          </div>
-          <div className="flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-gray-900/60 border border-nordible-border/60 dark:border-gray-700/60 text-xs font-semibold text-gray-700 dark:text-gray-200">
-            <UserCheck className="h-4 w-4 text-indigo-600 shrink-0" />
-            <span>{isDe ? 'Direkt mit dem Gründer' : 'Direct Founder Lead'}</span>
-          </div>
-        </div>
-
-        {/* The 2-Field High-Value Free Breakdown Hero */}
-        <StepQuestionnaire mode="inline" sourceContext="contact" className="mb-14" />
-
-        {/* Alternative Direct Channels: 3-column row */}
+        {/* Direct Channels: 3-column row */}
         <div className="space-y-4 mb-12">
-          <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 font-mono">
-              {isDe ? 'Oder direkt kontaktieren' : 'Or Reach Out Directly'}
-            </span>
-          </div>
 
           <div className="grid sm:grid-cols-3 gap-4 text-left">
             {/* WhatsApp Direct */}
@@ -255,56 +224,6 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
               />
-            </div>
-          </div>
-        </div>
-
-        {/* What Happens Next - 3-Step Mental Model Roadmap */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-8">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6 font-mono">
-            {isDe ? 'Was passiert als Nächstes?' : 'What Happens Next'}
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6 relative">
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400 font-bold text-xs flex items-center justify-center font-mono">1</span>
-                <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? 'Prüfung durch Gründer' : 'Founder Assessment'}
-                </h4>
-              </div>
-              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                {isDe 
-                  ? 'Kabeer Shah prüft Ihre Anforderungen, technische Machbarkeit und mögliche Risiken.'
-                  : 'Kabeer Shah personally evaluates your requirements, architecture, and potential pitfalls.'}
-              </p>
-            </div>
-
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center font-mono">2</span>
-                <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? 'Kostenfreie Auswertung' : 'Actionable Review'}
-                </h4>
-              </div>
-              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                {isDe 
-                  ? 'Sie erhalten eine verständliche technische Einschätzung und Kostenschätzung per E-Mail.'
-                  : 'You receive an actionable technical architecture review and realistic cost estimate via email.'}
-              </p>
-            </div>
-
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center justify-center font-mono">3</span>
-                <h4 className="font-bold text-sm text-nordible-dark dark:text-white font-heading">
-                  {isDe ? 'Entscheidung ohne Druck' : 'Zero-Pressure Next Steps'}
-                </h4>
-              </div>
-              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                {isDe 
-                  ? 'Sie entscheiden in Ruhe, ob Sie das Vorhaben mit uns umsetzen möchten. Völlig unverbindlich.'
-                  : 'You review the breakdown on your own terms. Zero sales calls, zero follow-up pressure.'}
-              </p>
             </div>
           </div>
         </div>

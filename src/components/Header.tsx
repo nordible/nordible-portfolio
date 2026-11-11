@@ -11,7 +11,8 @@ import {
   Calendar,
   ChevronDown,
   Building2,
-  ShieldCheck
+  ShieldCheck,
+  FileText
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -89,6 +90,11 @@ export default function Header() {
       title: t.nav.whyChooseUs,
       path: '/why-choose-us',
       icon: ShieldCheck,
+    },
+    {
+      title: isDe ? 'Unternehmensbroschüre (PDF)' : 'Corporate Brochure (PDF)',
+      path: '/brochure',
+      icon: FileText,
     },
   ];
 

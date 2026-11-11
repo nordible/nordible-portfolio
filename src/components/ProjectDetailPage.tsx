@@ -10,17 +10,15 @@ import {
   AlertCircle, 
   Calendar, 
   Share2, 
-  Copy, 
   Check, 
   Cpu, 
-  Layers, 
   ArrowRight,
   FileText,
   Sparkles,
   Bot,
   Code
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProjectData } from '../data/portfolioProjects';
 import { contactConfig } from '../config/contact';
@@ -31,7 +29,6 @@ interface ProjectDetailPageProps {
 
 export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   const { language, getPath } = useLanguage();
-  const navigate = useNavigate();
   const isDe = language === 'de';
 
   const [copiedUrl, setCopiedUrl] = useState(false);

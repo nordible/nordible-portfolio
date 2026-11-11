@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck, CreditCard } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
@@ -15,6 +15,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: Github, url: contactConfig.social.github, label: 'GitHub' },
     { icon: Linkedin, url: contactConfig.social.linkedin, label: 'LinkedIn' },
+    { icon: Facebook, url: contactConfig.social.facebook, label: 'Facebook' },
     { icon: XIcon, url: contactConfig.social.x, label: 'X (Twitter)' },
     { icon: Instagram, url: contactConfig.social.instagram, label: 'Instagram' },
     { icon: TikTokIcon, url: contactConfig.social.tiktok, label: 'TikTok' },
@@ -157,7 +158,7 @@ export default function Footer() {
             {/* Tools */}
             <div className="mt-6 pt-6 border-t border-white/10">
               <h3 className="text-[11px] font-bold text-blue-300 mb-3 uppercase tracking-widest">
-                {language === 'de' ? 'Kostenlose Tools' : 'Free Tools'}
+                {language === 'de' ? 'Tools' : 'Tools'}
               </h3>
               <ul className="space-y-2.5 text-xs font-medium">
                 <li>
@@ -202,6 +203,22 @@ export default function Footer() {
                     </span>
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="https://nfc-cards.nordible.co/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={language === 'de' ? 'Smarte Google-Bewertungskarten & NFC-Tischaufsteller' : 'Smart Google Review Cards & NFC Table Displays'}
+                    className="text-blue-100/90 hover:text-white transition-colors text-left inline-flex items-center gap-2 group"
+                  >
+                    <CreditCard className="h-3.5 w-3.5 text-blue-400 group-hover:text-white transition-colors shrink-0" />
+                    <span>
+                      {language === 'de' 
+                        ? 'NFC Google-Bewertungskarten & Aufsteller' 
+                        : 'NFC Google Review Cards & Displays'}
+                    </span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -239,6 +256,14 @@ export default function Footer() {
                   className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
                 >
                   {language === 'de' ? 'Wie wir zusammenarbeiten' : 'How We Work Together'}
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to={getPath('/brochure')} 
+                  className="text-blue-100/60 hover:text-white transition-colors text-left inline-block"
+                >
+                  {language === 'de' ? 'Unternehmensbroschüre (PDF)' : 'Corporate Brochure (PDF)'}
                 </Link>
               </li>
               <li><Link to={`${homePath}#contact`} className="text-blue-100/60 hover:text-white transition-colors">{f.contactUs}</Link></li>

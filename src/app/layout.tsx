@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Sora, Space_Mono } from 'next/font/google';
 import Script from 'next/script';
 import ClientProviders from '@/components/ClientProviders';
+import { contactConfig } from '@/config/contact';
 import '@/index.css';
 
 const inter = Inter({
@@ -157,12 +158,13 @@ const jsonLd = {
     { '@type': 'Country', name: 'Deutschland' },
   ],
   sameAs: [
-    'https://www.linkedin.com/company/nordible-co/',
-    'https://github.com/nordible',
-    'https://www.instagram.com/nordible.co/',
-    'https://www.youtube.com/@nordible',
-    'https://www.tiktok.com/@nordible',
-    'https://x.com/nordiblehq',
+    contactConfig.social.linkedin,
+    contactConfig.social.github,
+    contactConfig.social.facebook,
+    contactConfig.social.instagram,
+    contactConfig.social.youtube,
+    contactConfig.social.tiktok,
+    contactConfig.social.x,
   ],
   openingHoursSpecification: [
     {

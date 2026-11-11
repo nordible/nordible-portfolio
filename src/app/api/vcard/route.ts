@@ -18,6 +18,7 @@ export async function GET() {
     `URL;TYPE=CALENDAR:${contactConfig.bookingUrl}`,
     `X-SOCIALPROFILE;type=linkedin:${contactConfig.social.linkedin}`,
     `X-SOCIALPROFILE;type=github:${contactConfig.social.github}`,
+    `X-SOCIALPROFILE;type=facebook:${contactConfig.social.facebook}`,
     `X-SOCIALPROFILE;type=instagram:${contactConfig.social.instagram}`,
     `X-SOCIALPROFILE;type=youtube:${contactConfig.social.youtube}`,
     `X-SOCIALPROFILE;type=tiktok:${contactConfig.social.tiktok}`,

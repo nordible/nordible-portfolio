@@ -4,8 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Search, ArrowRight, Building2, Compass, Calendar } from 'lucide-react';
 import { getAllCities } from '../data/locations';
 import { useLanguage } from '../contexts/LanguageContext';
-import Header from './Header';
-import Footer from './Footer';
 
 export default function AreasServedPage() {
   const { language, getPath } = useLanguage();
@@ -46,9 +44,7 @@ export default function AreasServedPage() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-20 selection:bg-nordible-blue selection:text-white">
+    <main className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-20 selection:bg-nordible-blue selection:text-white">
         
         {/* Header Hero */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
@@ -241,7 +237,5 @@ export default function AreasServedPage() {
         </section>
 
       </main>
-      <Footer />
-    </>
   );
 }

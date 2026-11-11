@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import RouteClientWrapper from '@/components/RouteClientWrapper';
 import FounderPage from '@/components/FounderPage';
 import InvestmentModelsPage from '@/components/InvestmentModelsPage';
@@ -7,6 +7,7 @@ import CompanyProfilePage from '@/components/CompanyProfilePage';
 import WhyChooseUsPage from '@/components/WhyChooseUsPage';
 import BlogPage from '@/components/BlogPage';
 import BlogPost from '@/components/BlogPost';
+import BrochurePage from '@/components/BrochurePage';
 import AreasServedPage from '@/components/AreasServedPage';
 import LocationLandingPage from '@/components/LocationLandingPage';
 import QrCodeGeneratorPage from '@/components/QrCodeGeneratorPage';
@@ -15,8 +16,6 @@ import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
 import DocsReaderPage from '@/components/DocsReaderPage';
 import LeadDashboard from '@/components/LeadDashboard';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { getAllCities, getCity, getSuburb } from '@/data/locations';
 import { getAllServices, getService } from '@/data/services';
 import { articlesBySlug } from '@/data/blogContent';
@@ -77,6 +76,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   let title = 'Nordible Technologies | Technology & Marketing Partner';
   let description = 'AI-native technology and marketing partner in Frankfurt & Rhine-Main. Custom software, AI agents, and data-driven marketing.';
+
+  if (path === 'brochure') {
+    title = 'Nordible Corporate Monograph 2026 | Free B2B Download';
+    description = 'Download the official Nordible Technologies corporate monograph: Enterprise architectures, AI pipelines, case studies, and transparent engagement models.';
+  }
 
   if (slug.length === 2 && (slug[0] === 'projects' || slug[0] === 'projekte')) {
     const project = getProject(slug[1]);
@@ -149,14 +153,18 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
   if (path === 'why-choose-us') return <RouteClientWrapper><WhyChooseUsPage /></RouteClientWrapper>;
   if (path === 'blog') return <RouteClientWrapper><BlogPage /></RouteClientWrapper>;
   if (path === 'standorte') return (
-    <>
-      <Header />
+    <RouteClientWrapper>
       <AreasServedPage />
-      <Footer />
-    </>
+    </RouteClientWrapper>
   );
   if (path === 'qr-code-generator') return <QrCodeGeneratorPage />;
-  if (path === 'brochure') redirect('/brochure.html');
+  if (path === 'brochure') {
+    return (
+      <RouteClientWrapper>
+        <BrochurePage />
+      </RouteClientWrapper>
+    );
+  }
   if (path === 'card') return <DigitalCardPage />;
   if (path === 'privacy') return <PrivacyPolicy />;
   if (path === 'terms') return <TermsOfService />;

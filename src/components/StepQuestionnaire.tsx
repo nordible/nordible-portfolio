@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -10,17 +10,26 @@ import {
   X,
   Lock,
   Clock,
-  UserCheck
+  UserCheck,
+  Download,
+  FileText,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendContactEmail } from '../services/emailService';
+import { 
+  getQuestionnaireConfig, 
+  QuestionnaireContext, 
+  QuestionnaireFieldId, 
+  TrustSignalItem 
+} from '../config/questionnaireConfig';
 
 export interface StepQuestionnaireProps {
   mode?: 'inline' | 'modal';
   isOpen?: boolean;
   onClose?: () => void;
   className?: string;
-  sourceContext?: 'contact' | 'case-study';
+  sourceContext?: QuestionnaireContext;
   slug?: string;
   preferredGoal?: string;
   onSuccess?: () => void;
@@ -37,87 +46,57 @@ export default function StepQuestionnaire({
   onSuccess
 }: StepQuestionnaireProps) {
   const { language } = useLanguage();
-  const isDe = language === 'de';
 
-  const [projectDescription, setProjectDescription] = useState('');
-  const [workEmail, setWorkEmail] = useState('');
-  const [companyWebsite, setCompanyWebsite] = useState('');
+  const schema = useMemo(
+    () => getQuestionnaireConfig(sourceContext, language, slug),
+    [sourceContext, language, slug]
+  );
 
+  const [formData, setFormData] = useState<Record<QuestionnaireFieldId, string>>({
+    projectDescription: preferredGoal || '',
+    workEmail: '',
+    phone: '',
+    companyWebsite: '',
+  });
+
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<QuestionnaireFieldId, string>>>({});
+  const [touched, setTouched] = useState<Partial<Record<QuestionnaireFieldId, boolean>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const [fieldErrors, setFieldErrors] = useState<{
-    description?: string;
-    email?: string;
-  }>({});
-  const [touched, setTouched] = useState<{
-    description?: boolean;
-    email?: boolean;
-  }>({});
-
-  // Close modal on Escape key press (Accessibility / UX)
+  // Close modal on Escape key press (Accessibility / Ergonomics)
   useEffect(() => {
     if (mode !== 'modal' || !isOpen || !onClose) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mode, isOpen, onClose]);
 
-  // Quick intent chips
-  const getChips = () => {
-    const s = slug.toLowerCase();
-    if (s.includes('restaurant') || s.includes('delivery') || s.includes('buns')) {
-      return isDe 
-        ? ['0%-Provisions-Shop aufbauen', 'Bestellumsatz steigern', 'Küchen- & Fahrerlogistik']
-        : ['Launch 0% Commission Direct Ordering', 'Grow Online Basket Size', 'Driver & Kitchen Logistics'];
-    }
-    if (s.includes('architect') || s.includes('architektur') || s.includes('shams')) {
-      return isDe
-        ? ['Gewerbliche Bauherren gewinnen', 'Google Page 1 Sichtbarkeit', 'Architektur-Portfolio erneuern']
-        : ['Attract Commercial Developers', 'Google Page 1 Rankings', 'Digital Portfolio Relaunch'];
-    }
-    if (s.includes('seo') || s.includes('discoverability')) {
-      return isDe
-        ? ['Prüfen ob ChatGPT uns empfiehlt', 'Google Maps Top 3', 'Regionale B2B-Marktführerschaft']
-        : ['Check if ChatGPT recommends us', 'Google Maps Local 3-Pack', 'Regional B2B Lead Dominance'];
-    }
-    return isDe
-      ? ['Neue Web- oder Mobile-App', 'KI-Agenten & Automatisierung', 'Bestehende Software optimieren', 'Cloud-Architektur & Skalierung']
-      : ['New Web or Mobile App', 'AI Agents & Automation', 'Refactor Existing Software', 'Cloud Architecture & Scale'];
-  };
-
-  const chips = getChips();
-
   const handleChipClick = (chipText: string) => {
-    if (!projectDescription.trim()) {
-      setProjectDescription(chipText);
-    } else if (!projectDescription.includes(chipText)) {
-      setProjectDescription((prev) => `${prev.trim()}, ${chipText}`);
-    }
+    setFormData((prev) => {
+      const current = prev.projectDescription.trim();
+      if (!current) return { ...prev, projectDescription: chipText };
+      if (!current.includes(chipText)) {
+        return { ...prev, projectDescription: `${current}, ${chipText}` };
+      }
+      return prev;
+    });
   };
 
   const validate = () => {
-    const errors: { description?: string; email?: string } = {};
-    if (!projectDescription.trim()) {
-      errors.description = isDe 
-        ? 'Bitte beschreiben Sie kurz Ihr Vorhaben oder wählen Sie einen der Schwerpunkte oben.'
-        : 'Please briefly describe your project or select an option above.';
-    }
-    if (!workEmail.trim()) {
-      errors.email = isDe 
-        ? 'Bitte geben Sie Ihre geschäftliche E-Mail-Adresse an.'
-        : 'Please provide your work email address.';
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      if (!emailRegex.test(workEmail.trim())) {
-        errors.email = isDe 
-          ? 'Bitte prüfen Sie das E-Mail-Format.'
-          : 'Please enter a valid email address.';
+    const errors: Partial<Record<QuestionnaireFieldId, string>> = {};
+    for (const field of schema.fields) {
+      const val = (formData[field.id] || '').trim();
+      if (field.required && !val) {
+        errors[field.id] = field.validationError || (language === 'de' ? 'Dieses Feld ist erforderlich.' : 'This field is required.');
+      } else if (field.type === 'email' && val) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!emailRegex.test(val)) {
+          errors[field.id] = language === 'de' ? 'Bitte prüfen Sie das E-Mail-Format.' : 'Please enter a valid email address.';
+        }
       }
     }
     return errors;
@@ -125,83 +104,110 @@ export default function StepQuestionnaire({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTouched({ description: true, email: true });
+    const allTouched: Partial<Record<QuestionnaireFieldId, boolean>> = {};
+    for (const f of schema.fields) allTouched[f.id] = true;
+    setTouched(allTouched);
+
     const errors = validate();
     setFieldErrors(errors);
 
-    if (errors.description || errors.email) {
-      return;
-    }
+    if (Object.keys(errors).length > 0) return;
 
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const isCaseStudy = sourceContext === 'case-study';
-    const projectTypeTitle = isCaseStudy
-      ? `Case Study Review: ${slug || 'Specific Article'}`
-      : 'Kostenfreie Architektur- & Machbarkeitsprüfung';
-
-    const fullDescription = [
-      `Vorhaben / Anfrage: ${projectDescription.trim()}`,
-      companyWebsite.trim() ? `Website / Unternehmen: ${companyWebsite.trim()}` : null,
-      `Kontext: ${sourceContext} (${slug || 'Homepage'})`
-    ].filter(Boolean).join('\n');
-
-    // 1. Persist to localStorage for local dashboard
-    try {
-      const stored = localStorage.getItem('nordible_leads');
-      const existingLeads = stored ? JSON.parse(stored) : [];
-      const newLead = {
-        id: Date.now().toString(),
-        fullName: companyWebsite.trim() || workEmail.split('@')[0],
-        email: workEmail.trim(),
-        phone: '',
-        projectType: projectTypeTitle,
-        budget: 'Free Architecture Review',
-        description: fullDescription,
-        status: 'new' as const,
-        submittedAt: new Date().toISOString()
-      };
-      localStorage.setItem('nordible_leads', JSON.stringify([newLead, ...existingLeads]));
-    } catch (err) {
-      console.warn('Could not persist lead to localStorage:', err);
+    // 1. Instant File Download if configured (Lead Magnet pattern)
+    if (schema.success.isBrochureDownload && schema.success.downloadUrl) {
+      try {
+        const link = document.createElement('a');
+        link.href = schema.success.downloadUrl;
+        link.download = 'Nordible-Technologies-Corporate-Brochure.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (dlErr) {
+        console.warn('Direct file download trigger error:', dlErr);
+      }
     }
 
-    // 2. Dispatch email
+    const fullDescription = schema.dispatch.buildDescription(formData, { slug, mode });
+
+    // 2. Persist to localStorage only for standard consultations (non-lead-magnet)
+    if (!schema.dispatch.isLeadMagnet) {
+      try {
+        const stored = localStorage.getItem('nordible_leads');
+        const existingLeads = stored ? JSON.parse(stored) : [];
+        const newLead = {
+          id: Date.now().toString(),
+          fullName: formData.companyWebsite.trim() || formData.workEmail.split('@')[0],
+          email: formData.workEmail.trim(),
+          phone: formData.phone.trim(),
+          projectType: schema.dispatch.projectType(slug),
+          budget: schema.dispatch.budget,
+          description: fullDescription,
+          status: 'new' as const,
+          submittedAt: new Date().toISOString(),
+        };
+        localStorage.setItem('nordible_leads', JSON.stringify([newLead, ...existingLeads]));
+      } catch (err) {
+        console.warn('Could not persist lead to localStorage:', err);
+      }
+    }
+
+    // 3. Dispatch lead email
     try {
       const success = await sendContactEmail({
-        fullName: companyWebsite.trim() || workEmail.split('@')[0],
-        email: workEmail.trim(),
-        phone: '',
-        projectType: projectTypeTitle,
-        budget: 'Free Architecture Review',
-        description: fullDescription
+        fullName: formData.companyWebsite.trim() || formData.workEmail.split('@')[0],
+        email: formData.workEmail.trim(),
+        phone: formData.phone.trim() || 'Nicht angegeben',
+        projectType: schema.dispatch.projectType(slug),
+        budget: schema.dispatch.budget,
+        description: fullDescription,
+        to: schema.dispatch.recipients,
+        brochureDownload: schema.dispatch.isLeadMagnet,
       });
 
-      if (success) {
+      if (success || schema.dispatch.isLeadMagnet) {
         setIsSubmitted(true);
         if (onSuccess) onSuccess();
       } else {
         setSubmitError(
-          isDe
+          language === 'de'
             ? 'Beim Versenden ist ein Fehler aufgetreten. Bitte schreiben Sie uns direkt an mail@nordible.co.'
             : 'Could not send message. Please write directly to mail@nordible.co.'
         );
       }
     } catch {
-      setSubmitError(
-        isDe
-          ? 'Beim Versenden ist ein Fehler aufgetreten. Bitte schreiben Sie uns direkt an mail@nordible.co.'
-          : 'Could not send message. Please write directly to mail@nordible.co.'
-      );
+      if (schema.dispatch.isLeadMagnet) {
+        setIsSubmitted(true);
+        if (onSuccess) onSuccess();
+      } else {
+        setSubmitError(
+          language === 'de'
+            ? 'Beim Versenden ist ein Fehler aufgetreten. Bitte schreiben Sie uns direkt an mail@nordible.co.'
+            : 'Could not send message. Please write directly to mail@nordible.co.'
+        );
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  if (mode === 'modal' && !isOpen) {
-    return null;
-  }
+  const renderTrustIcon = (icon: TrustSignalItem['icon']) => {
+    switch (icon) {
+      case 'shield':
+        return <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />;
+      case 'lock':
+        return <Lock className="h-4 w-4 text-indigo-500 shrink-0" />;
+      case 'clock':
+        return <Clock className="h-4 w-4 text-nordible-blue shrink-0" />;
+      case 'user':
+        return <UserCheck className="h-4 w-4 text-nordible-blue shrink-0" />;
+    }
+  };
+
+  if (mode === 'modal' && !isOpen) return null;
 
   const innerForm = (
     <div className="space-y-6 text-left">
@@ -210,10 +216,10 @@ export default function StepQuestionnaire({
         <div className="flex items-center justify-between pb-3.5 border-b border-nordible-border dark:border-gray-800">
           <div className="flex items-center gap-2">
             <span className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/50 text-nordible-blue dark:text-blue-400">
-              <Sparkles className="h-4 w-4" />
+              {schema.headerBadgeIcon === 'file-text' ? <FileText className="h-4 w-4" /> : <Sparkles className="h-4 w-4" />}
             </span>
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-nordible-blue dark:text-blue-400">
-              {isDe ? 'Kostenfreie Machbarkeitsprüfung' : 'Free Architecture Review'}
+              {schema.modalBadge}
             </span>
           </div>
           {onClose && (
@@ -221,7 +227,7 @@ export default function StepQuestionnaire({
               type="button"
               onClick={onClose}
               className="p-2 -mr-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-95"
-              aria-label={isDe ? 'Fenster schließen' : 'Close modal'}
+              aria-label={language === 'de' ? 'Fenster schließen' : 'Close modal'}
             >
               <X className="h-5 w-5" />
             </button>
@@ -230,7 +236,7 @@ export default function StepQuestionnaire({
       )}
 
       {isSubmitted ? (
-        /* SUCCESS CONFIRMATION - ZERO PRESSURE */
+        /* DYNAMIC SUCCESS CONFIRMATION */
         <div className="p-6 sm:p-8 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center space-y-5 animate-fade-in">
           <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30">
             <CheckCircle2 className="h-7 w-7" />
@@ -238,147 +244,199 @@ export default function StepQuestionnaire({
 
           <div className="space-y-2 max-w-md mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-emerald-900 dark:text-emerald-200 font-heading">
-              {isDe ? 'Vielen Dank für Ihre Anfrage!' : 'Thank you for your request!'}
+              {schema.success.title}
             </h3>
             <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
-              {isDe 
-                ? 'Unser Gründer Kabeer Shah analysiert Ihr Vorhaben persönlich und sendet Ihnen die technische Machbarkeits- und Kosteneinschätzung innerhalb von 24 Stunden an Ihre E-Mail.'
-                : 'Founder Kabeer Shah will personally review your project scope and email you a technical feasibility & realistic cost estimate within 24 hours.'}
+              {schema.success.subtitle}
             </p>
           </div>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            {mode === 'modal' && onClose && (
+          <div className="pt-2 flex flex-col items-center justify-center gap-3">
+            {schema.success.isBrochureDownload && schema.success.downloadUrl && (
+              <a
+                href={schema.success.downloadUrl}
+                download="Nordible-Technologies-Corporate-Brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full sm:w-auto px-7 py-3 text-sm font-bold shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <Download className="h-4 w-4" />
+                <span>{schema.success.fallbackDownloadText}</span>
+              </a>
+            )}
+
+            {schema.success.webVersionUrl && (
+              <a
+                href={schema.success.webVersionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-nordible-blue dark:text-blue-400 hover:underline pt-1"
+              >
+                <span>{schema.success.webVersionText}</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+
+            {mode === 'modal' && onClose && schema.success.closeButtonText && (
               <button
                 type="button"
                 onClick={onClose}
-                className="btn-primary w-full sm:w-auto px-7 py-3 text-sm font-bold shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+                className={schema.success.isBrochureDownload 
+                  ? "mt-2 text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 underline cursor-pointer"
+                  : "btn-primary w-full sm:w-auto px-7 py-3 text-sm font-bold shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"}
               >
-                <span>{isDe ? 'Fenster schließen' : 'Close Window'}</span>
+                <span>{schema.success.closeButtonText}</span>
               </button>
             )}
 
-            <button
-              type="button"
-              onClick={() => {
-                setIsSubmitted(false);
-                setProjectDescription('');
-                setWorkEmail('');
-                setCompanyWebsite('');
-              }}
-              className="w-full sm:w-auto px-5 py-3 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 rounded-xl transition-colors cursor-pointer"
-            >
-              {isDe ? 'Weiteres Projekt anfragen' : 'Submit another inquiry'}
-            </button>
+            {!schema.success.isBrochureDownload && schema.success.anotherRequestText && (
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData({
+                    projectDescription: '',
+                    workEmail: '',
+                    phone: '',
+                    companyWebsite: '',
+                  });
+                }}
+                className="w-full sm:w-auto px-5 py-3 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-nordible-blue dark:hover:text-blue-400 bg-white dark:bg-gray-800 border border-nordible-border dark:border-gray-700 rounded-xl transition-colors cursor-pointer"
+              >
+                {schema.success.anotherRequestText}
+              </button>
+            )}
           </div>
         </div>
       ) : (
-        /* THE 2-FIELD HIGH-VALUE FORM */
-        <form noValidate onSubmit={handleSubmit} className="space-y-5">
+        /* DYNAMIC FORM DRIVEN BY SCHEMA */
+        <form noValidate onSubmit={handleSubmit} className="space-y-4">
           {/* Header */}
           <div className="space-y-1.5">
+            {schema.headerBadge ? (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 text-xs font-bold font-heading">
+                {schema.headerBadgeIcon === 'file-text' ? <FileText className="h-3.5 w-3.5" /> : <Sparkles className="h-3.5 w-3.5" />}
+                <span>{schema.headerBadge}</span>
+              </div>
+            ) : null}
             <h3 className="text-xl sm:text-2xl font-extrabold text-nordible-dark dark:text-white font-heading tracking-tight">
-              {isDe 
-                ? 'Kostenfreie Architektur- & Machbarkeitsprüfung' 
-                : 'Free Architecture & Feasibility Breakdown'}
+              {schema.title}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-              {isDe 
-                ? 'Kein Verkaufsgespräch. Gründer Kabeer Shah prüft Ihr Vorhaben persönlich und sendet Ihnen eine konkrete technische Einschätzung und Kostenschätzung innerhalb von 24h per E-Mail.'
-                : 'Zero sales pitch. Founder Kabeer Shah will personally analyze your project scope and email you an actionable architecture review & cost estimate within 24h.'}
+              {schema.subtitle}
             </p>
           </div>
 
-          {/* Quick Clickable Chips */}
-          <div className="space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 font-mono">
-              {isDe ? 'Schnellwahl (Klicken zum Übernehmen):' : 'Quick Select (Click to add):'}
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {chips.map((chip) => (
-                <button
-                  key={chip}
-                  type="button"
-                  onClick={() => handleChipClick(chip)}
-                  className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-nordible-border/80 dark:border-gray-700 hover:border-nordible-blue hover:text-nordible-blue dark:hover:text-blue-400 transition-all cursor-pointer active:scale-95"
-                >
-                  + {chip}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* FIELD 1: What are you planning to build or fix? */}
-          <div className="space-y-1.5">
-            <label htmlFor="projectDesc" className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-              {isDe ? '1. Was planen Sie zu bauen oder zu optimieren?' : '1. What are you planning to build or fix?'} <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="projectDesc"
-              rows={3}
-              value={projectDescription}
-              onBlur={() => setTouched((p) => ({ ...p, description: true }))}
-              onChange={(e) => setProjectDescription(e.target.value)}
-              placeholder={isDe 
-                ? 'z. B. Wir möchten eine maßgeschneiderte Web-Plattform für ... bauen / Unsere aktuelle Software ist langsam und muss refaktorisiert werden...'
-                : 'e.g. We want to build a custom web platform for ... / Our existing app is slow and needs architecture refactoring...'}
-              className={`w-full p-4 rounded-2xl border text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors resize-none ${
-                touched.description && fieldErrors.description
-                  ? 'border-red-500 bg-red-50/20 dark:bg-red-950/20'
-                  : 'border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
-              }`}
-            />
-            {touched.description && fieldErrors.description && (
-              <p className="text-[11px] font-medium text-red-500 flex items-center gap-1">
-                <AlertCircle className="h-3 w-3 shrink-0" />
-                <span>{fieldErrors.description}</span>
-              </p>
-            )}
-          </div>
-
-          {/* FIELD 2: Where should Kabeer send the breakdown? */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label htmlFor="workEmail" className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                {isDe ? '2. Wohin dürfen wir die Auswertung senden?' : '2. Where should Kabeer send the breakdown?'} <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="workEmail"
-                autoCapitalize="none"
-                autoCorrect="off"
-                value={workEmail}
-                onBlur={() => setTouched((p) => ({ ...p, email: true }))}
-                onChange={(e) => setWorkEmail(e.target.value)}
-                placeholder={isDe ? 'name@unternehmen.de' : 'name@company.com'}
-                className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
-                  touched.email && fieldErrors.email
-                    ? 'border-red-500 bg-red-50/20 dark:bg-red-950/20'
-                    : 'border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
-                }`}
-              />
-              {touched.email && fieldErrors.email && (
-                <p className="text-[11px] font-medium text-red-500 flex items-center gap-1">
-                  <AlertCircle className="h-3 w-3 shrink-0" />
-                  <span>{fieldErrors.email}</span>
-                </p>
+          {/* Quick Clickable Chips (if configured) */}
+          {schema.chips && schema.chips.length > 0 && (
+            <div className="space-y-2">
+              {schema.chipsTitle && (
+                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 font-mono">
+                  {schema.chipsTitle}
+                </span>
               )}
+              <div className="flex flex-wrap gap-2">
+                {schema.chips.map((chip) => (
+                  <button
+                    key={chip}
+                    type="button"
+                    onClick={() => handleChipClick(chip)}
+                    className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-nordible-border/80 dark:border-gray-700 hover:border-nordible-blue hover:text-nordible-blue dark:hover:text-blue-400 transition-all cursor-pointer active:scale-95"
+                  >
+                    + {chip}
+                  </button>
+                ))}
+              </div>
             </div>
+          )}
 
-            {/* Optional Website / Company URL */}
-            <div className="space-y-1.5">
-              <label htmlFor="companyWebsite" className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
-                {isDe ? 'Website oder Firmenname (optional)' : 'Website or Company Name (optional)'}
-              </label>
-              <input
-                type="text"
-                id="companyWebsite"
-                value={companyWebsite}
-                onChange={(e) => setCompanyWebsite(e.target.value)}
-                placeholder={isDe ? 'unternehmen.de' : 'company.com'}
-                className="w-full px-4 py-3 rounded-xl border border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue transition-colors"
-              />
-            </div>
+          {/* Dynamic Field Grid */}
+          <div className="space-y-3.5">
+            {/* Full-width fields */}
+            {schema.fields.filter(f => f.colSpan !== 'half').map((field) => (
+              <div key={field.id} className="space-y-1.5">
+                <label htmlFor={field.id} className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  {field.label}
+                </label>
+                {field.type === 'textarea' ? (
+                  <textarea
+                    id={field.id}
+                    rows={field.rows || 3}
+                    value={formData[field.id]}
+                    onBlur={() => setTouched((p) => ({ ...p, [field.id]: true }))}
+                    onChange={(e) => setFormData((p) => ({ ...p, [field.id]: e.target.value }))}
+                    placeholder={field.placeholder}
+                    className={`w-full p-4 rounded-2xl border text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors resize-none ${
+                      touched[field.id] && fieldErrors[field.id]
+                        ? 'border-red-500 bg-red-50/20 dark:bg-red-950/20'
+                        : 'border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                    }`}
+                  />
+                ) : (
+                  <input
+                    type={field.type}
+                    id={field.id}
+                    value={formData[field.id]}
+                    onBlur={() => setTouched((p) => ({ ...p, [field.id]: true }))}
+                    onChange={(e) => setFormData((p) => ({ ...p, [field.id]: e.target.value }))}
+                    placeholder={field.placeholder}
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                      touched[field.id] && fieldErrors[field.id]
+                        ? 'border-red-500 bg-red-50/20 dark:bg-red-950/20'
+                        : 'border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                    }`}
+                  />
+                )}
+                {touched[field.id] && fieldErrors[field.id] && (
+                  <p className="text-[11px] font-medium text-red-500 flex items-center gap-1">
+                    <AlertCircle className="h-3 w-3 shrink-0" />
+                    <span>{fieldErrors[field.id]}</span>
+                  </p>
+                )}
+                {field.helperText && (
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400 block">
+                    {field.helperText}
+                  </span>
+                )}
+              </div>
+            ))}
+
+            {/* Half-width fields (2-column row) */}
+            {schema.fields.filter(f => f.colSpan === 'half').length > 0 && (
+              <div className="grid sm:grid-cols-2 gap-3">
+                {schema.fields.filter(f => f.colSpan === 'half').map((field) => (
+                  <div key={field.id} className="space-y-1.5">
+                    <label htmlFor={field.id} className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      id={field.id}
+                      value={formData[field.id]}
+                      onBlur={() => setTouched((p) => ({ ...p, [field.id]: true }))}
+                      onChange={(e) => setFormData((p) => ({ ...p, [field.id]: e.target.value }))}
+                      placeholder={field.placeholder}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                        touched[field.id] && fieldErrors[field.id]
+                          ? 'border-red-500 bg-red-50/20 dark:bg-red-950/20'
+                          : 'border-nordible-border dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 focus:border-nordible-blue focus:ring-1 focus:ring-nordible-blue'
+                      }`}
+                    />
+                    {touched[field.id] && fieldErrors[field.id] && (
+                      <p className="text-[11px] font-medium text-red-500 flex items-center gap-1">
+                        <AlertCircle className="h-3 w-3 shrink-0" />
+                        <span>{fieldErrors[field.id]}</span>
+                      </p>
+                    )}
+                    {field.helperText && (
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400 block">
+                        {field.helperText}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {submitError && (
@@ -395,30 +453,22 @@ export default function StepQuestionnaire({
               disabled={isSubmitting}
               className="btn-primary w-full py-4 text-base font-bold bg-nordible-blue hover:bg-blue-600 text-white shadow-xl shadow-blue-600/25 rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2.5 active:scale-95 disabled:opacity-60"
             >
-              <span>
-                {isSubmitting
-                  ? (isDe ? 'Wird übermittelt...' : 'Sending Request...')
-                  : (isDe ? 'Kostenfreie Auswertung anfordern (In 24h per E-Mail)' : 'Send Me the Breakdown (Free, within 24h)')}
-              </span>
-              <ArrowRight className="h-4 w-4" />
+              {schema.submitButton.icon === 'download' ? <Download className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+              <span>{isSubmitting ? schema.submitButton.submittingLabel : schema.submitButton.label}</span>
             </button>
           </div>
 
           {/* TRUST REASSURANCES */}
-          <div className="pt-2 grid sm:grid-cols-3 gap-2.5 text-left text-[11px] text-gray-500 dark:text-gray-400">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
-              <span>{isDe ? '100% vertraulich & kostenfrei' : '100% Free & Confidential'}</span>
+          {schema.trustSignals && schema.trustSignals.length > 0 ? (
+            <div className="pt-1 grid sm:grid-cols-3 gap-2 text-left text-[11px] text-gray-500 dark:text-gray-400">
+              {schema.trustSignals.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  {renderTrustIcon(item.icon)}
+                  <span>{item.text}</span>
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-2">
-              <Lock className="h-4 w-4 text-indigo-500 shrink-0" />
-              <span>{isDe ? 'Keine Werbeanrufe oder Spam' : 'Zero phone calls or spam'}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <UserCheck className="h-4 w-4 text-nordible-blue shrink-0" />
-              <span>{isDe ? 'Direkt von Gründer Kabeer Shah' : 'Direct Founder Review'}</span>
-            </div>
-          </div>
+          ) : null}
         </form>
       )}
     </div>

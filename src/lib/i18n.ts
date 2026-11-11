@@ -312,7 +312,7 @@ export const translations: Record<Language, Translations> = {
       investmentModels: "Investment Models",
       companyProfile: "Company Profile",
       whyChooseUs: "Why Choose Us",
-      freeTools: "Free Tools",
+      freeTools: "Tools",
       freeInvoiceGenerator: "Free Invoice Generator",
       freeBusinessDirectory: "Free Business Directory",
       freeQrCodeGenerator: "Free QR Code Generator"
