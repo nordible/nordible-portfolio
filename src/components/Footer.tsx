@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
@@ -15,6 +15,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: Github, url: contactConfig.social.github, label: 'GitHub' },
     { icon: Linkedin, url: contactConfig.social.linkedin, label: 'LinkedIn' },
+    { icon: Facebook, url: contactConfig.social.facebook, label: 'Facebook' },
     { icon: XIcon, url: contactConfig.social.x, label: 'X (Twitter)' },
     { icon: Instagram, url: contactConfig.social.instagram, label: 'Instagram' },
     { icon: TikTokIcon, url: contactConfig.social.tiktok, label: 'TikTok' },

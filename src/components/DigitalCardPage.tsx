@@ -14,6 +14,7 @@ import {
   Globe,
   Linkedin,
   Github,
+  Facebook,
   Instagram,
   Youtube,
   MessageCircle,
@@ -104,6 +105,13 @@ export default function DigitalCardPage() {
       url: contactConfig.social.linkedin,
       icon: Linkedin,
       color: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40',
+    },
+    {
+      name: 'Facebook',
+      handle: 'nordible.co',
+      url: contactConfig.social.facebook,
+      icon: Facebook,
+      color: 'hover:text-[#1877F2] hover:border-[#1877F2]/40',
     },
     {
       name: 'GitHub',
