@@ -52,6 +52,7 @@ const projectIds = [
 
 // 3. Flagship case studies / blog articles (All 16 projects)
 const blogArticles = [
+  'real-seo-ai-search-growth-case-study',
   'restaurant-delivery-growth-case-study',
   'architecture-firm-seo-case-study',
   'frankfurt-local-seo-ai-discoverability',
