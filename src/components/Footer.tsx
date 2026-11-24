@@ -100,6 +100,22 @@ export default function Footer() {
                   {contactConfig.address.full}
                 </span>
               </a>
+              {contactConfig.locations[1] && (
+                <a
+                  href={contactConfig.locations[1].mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={language === 'de' ? 'Standort Indien in Google Maps öffnen' : 'Open India office in Google Maps'}
+                  className="flex items-center space-x-3 group cursor-pointer"
+                >
+                  <div className="p-1.5 bg-white/5 rounded-lg group-hover:bg-nordible-blue transition-colors">
+                    <MapPin className="h-4 w-4 text-blue-300 group-hover:text-white" />
+                  </div>
+                  <span className="text-blue-100/80 group-hover:text-white text-xs font-medium transition-colors">
+                    {contactConfig.locations[1].formatted}
+                  </span>
+                </a>
+              )}
               <p className="text-blue-100/50 text-[11px] pt-1">
                 {language === 'de' 
                   ? 'Persönliche Termine vor Ort in Frankfurt, Rhein-Main und deutschlandweit nach Vereinbarung.' 

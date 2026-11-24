@@ -9,6 +9,7 @@ export const knowledgeBase = {
       name: contactConfig.address.company,
       tagline: "The AI-Native Tech Solutions Partner",
       address: contactConfig.address.full,
+      locations: contactConfig.locations.map((loc) => loc.formatted),
       phone: contactConfig.phone.display,
       email: contactConfig.email.founder,
       generalEmail: contactConfig.email.general,

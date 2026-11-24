@@ -81,7 +81,13 @@ export default function TermsOfService() {
                       <div className="p-3 bg-white dark:bg-gray-700 rounded-xl shadow-sm mt-1">
                          <MapPin className="h-5 w-5 text-nordible-blue" />
                       </div>
-                      <span className="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">{contactConfig.address.full}</span>
+                      <div className="space-y-1.5 text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest leading-relaxed">
+                        {contactConfig.locations.map((loc) => (
+                          <div key={loc.label}>
+                            <span className="text-nordible-blue">{loc.label}:</span> {loc.formatted}
+                          </div>
+                        ))}
+                      </div>
                    </div>
                 </div>
               </section>

@@ -90,6 +90,17 @@ const jsonLd = {
     addressRegion: 'Rhein-Main, Hessen',
     addressCountry: 'DE',
   },
+  location: contactConfig.locations.map((loc) => ({
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: loc.street,
+      addressLocality: loc.city,
+      postalCode: loc.postalCode,
+      addressRegion: loc.region,
+      addressCountry: loc.countryCode,
+    },
+  })),
   geo: {
     '@type': 'GeoCoordinates',
     latitude: 50.125,

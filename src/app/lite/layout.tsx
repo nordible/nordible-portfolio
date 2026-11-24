@@ -176,7 +176,7 @@ export default function LiteLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="footer">
           <p><strong>Nordible Technologies</strong> · Gründer & Solutions Architect Kabeer Shah</p>
-          <p>Breitlacherstraße 101, 60489 Frankfurt am Main, Deutschland · Tel: {contactConfig.phone.display}</p>
+          <p>{contactConfig.address.street}, {contactConfig.address.postalCode} {contactConfig.address.city}, Deutschland · {contactConfig.locations[1]?.formatted} · Tel: {contactConfig.phone.display}</p>
           <p style={{ marginTop: '8px' }}>
             <Link href="/lite">Lite-Startseite</Link> · <Link href="/lite/projekte">Alle Projekte</Link> · <Link href="/lite/fallstudien">Alle Fallstudien</Link> · <a href="/">✨ Vollversion</a>
           </p>

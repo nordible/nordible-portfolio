@@ -303,16 +303,21 @@ export default function DigitalCardPage() {
                 <MapPin className="w-4 h-4" />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Standort & Büro</span>
-                <a
-                  href={contactConfig.address.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600"
-                >
-                  <span>{contactConfig.address.full}</span>
-                  <ArrowUpRight className="w-3 h-3 shrink-0 text-slate-400" />
-                </a>
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Standorte &amp; Büros</span>
+                <div className="space-y-1.5">
+                  {contactConfig.locations.map((loc) => (
+                    <a
+                      key={loc.label}
+                      href={loc.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-1 font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600"
+                    >
+                      <span>{loc.labelDe}: {loc.formatted}</span>
+                      <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-slate-400" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
