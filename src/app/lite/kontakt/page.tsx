@@ -52,14 +52,23 @@ export default function LiteContactPage() {
         </h2>
         <p style={{ fontSize: '13px', lineHeight: '1.7', color: 'var(--muted)' }}>
           <strong>Nordible Technologies</strong><br />
-          Breitlacherstraße 101<br />
-          60489 Frankfurt am Main<br />
+          {contactConfig.address.street}<br />
+          {contactConfig.address.postalCode} {contactConfig.address.city}<br />
           Deutschland<br />
           Inhaber: Kabeer Shah<br />
           <a href={contactConfig.address.mapsUrl} target="_blank" rel="noopener noreferrer">
-            Standort in Google Maps anzeigen ↗
+            Standort Frankfurt in Google Maps anzeigen ↗
           </a>
         </p>
+        {contactConfig.locations[1] && (
+          <p style={{ fontSize: '13px', lineHeight: '1.7', color: 'var(--muted)', marginTop: '12px' }}>
+            <strong>Standort Indien</strong><br />
+            {contactConfig.locations[1].formatted}<br />
+            <a href={contactConfig.locations[1].mapsUrl} target="_blank" rel="noopener noreferrer">
+              Standort Bengaluru in Google Maps anzeigen ↗
+            </a>
+          </p>
+        )}
       </div>
 
       <div className="card" style={{ textAlign: 'center', backgroundColor: 'var(--badge-bg)', border: '1px solid var(--primary)', padding: '24px' }}>

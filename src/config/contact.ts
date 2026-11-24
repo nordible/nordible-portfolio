@@ -58,5 +58,31 @@ export const contactConfig = {
     directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Nordible+Technologies%2C+Breitlacherstra%C3%9Fe+101%2C+60489+Frankfurt+am+Main',
     embedUrl: 'https://maps.google.com/maps?q=Breitlacherstra%C3%9Fe%20101,%2060489%20Frankfurt%20am%20Main&t=&z=15&ie=UTF8&iwloc=&output=embed',
   },
+  locations: [
+    {
+      label: 'Germany',
+      labelDe: 'Deutschland',
+      countryCode: 'DE',
+      street: 'Breitlacherstraße 101',
+      postalCode: '60489',
+      city: 'Frankfurt am Main',
+      region: 'Hesse',
+      country: 'Germany',
+      formatted: 'Breitlacherstraße 101, 60489 Frankfurt am Main, Germany',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Breitlacherstra%C3%9Fe+101%2C+60489+Frankfurt+am+Main',
+    },
+    {
+      label: 'India',
+      labelDe: 'Indien',
+      countryCode: 'IN',
+      street: '002, Floor 1, 17, Maruthi Layout, AECS Layout',
+      postalCode: '560037',
+      city: 'Bengaluru',
+      region: 'Karnataka',
+      country: 'India',
+      formatted: '002, Floor 1, 17, Maruthi Layout, AECS Layout, Bengaluru 560037, Karnataka, India',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=002%2C+Floor+1%2C+17%2C+Maruthi+Layout%2C+AECS+Layout%2C+Bengaluru+560037%2C+Karnataka%2C+India',
+    },
+  ],
 };
 

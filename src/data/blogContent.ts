@@ -1,4 +1,5 @@
 import { generatedCaseStudies, generatedBlogPostItems } from './caseStudiesData';
+import { seoGrowthBlogPostItems, seoGrowthPostTranslations, SEO_GROWTH_SLUG } from './seoGrowthCaseStudy';
 
 export interface BlogPostItem {
   id: string;
@@ -236,6 +237,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaButton: 'Schedule AI & GEO Consultation',
     ctaSecondary: 'Explore All Services →',
     posts: [
+      seoGrowthBlogPostItems.en,
       ...generatedBlogPostItems.en.slice(0, 6),
       {
         id: 'restaurant-delivery-growth-case-study',
@@ -327,6 +329,7 @@ export const blogHubTranslations: Record<'en' | 'de', BlogHubContent> = {
     ctaButton: 'KI- & GEO-Beratung vereinbaren',
     ctaSecondary: 'Alle Leistungen ansehen →',
     posts: [
+      seoGrowthBlogPostItems.de,
       ...generatedBlogPostItems.de.slice(0, 6),
       {
         id: 'restaurant-delivery-growth-case-study',
@@ -1738,6 +1741,8 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
 
 export const articlesBySlug: Record<string, Record<'en' | 'de', ArticleContent>> = {
   // Primary SEO slugs (targeted user searches)
+  [SEO_GROWTH_SLUG]: seoGrowthPostTranslations,
+  'anonymized-seo-ai-search-wins': seoGrowthPostTranslations,
   'restaurant-delivery-growth-case-study': bunsPostTranslations,
   'architecture-firm-seo-case-study': shamsPostTranslations,
   'frankfurt-local-seo-ai-discoverability': frankfurtPostTranslations,

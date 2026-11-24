@@ -190,6 +190,21 @@ export default function Contact() {
                 <div className="text-gray-600 dark:text-gray-300">
                   {contactConfig.address.postalCode} {contactConfig.address.city}, {contactConfig.address.country}
                 </div>
+                {contactConfig.locations[1] && (
+                  <div className="pt-2 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <div className="font-bold text-gray-900 dark:text-gray-100">
+                      {isDe ? 'Standort Indien' : 'India Presence'}
+                    </div>
+                    <a
+                      href={contactConfig.locations[1].mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 dark:text-gray-300 hover:text-nordible-blue transition-colors"
+                    >
+                      {contactConfig.locations[1].formatted}
+                    </a>
+                  </div>
+                )}
                 <div className="pt-2 text-[11px] text-gray-500 dark:text-gray-400 border-t border-gray-200/60 dark:border-gray-700/60">
                   {isDe 
                     ? 'Termine vor Ort flexibel nach Vereinbarung.' 
