@@ -8,7 +8,6 @@ import {
   MapPin, 
   Search, 
   Bot, 
-  Calendar, 
   Clock, 
   CheckCircle2, 
   ShieldCheck, 
@@ -216,17 +215,17 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
   };
 
   return (
-    <article className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-24 selection:bg-nordible-blue selection:text-white">
+    <article className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-10 sm:pt-14 pb-24 selection:bg-nordible-blue selection:text-white">
       {/* Dynamic Structured Data for Search & AI Engines */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Navigation Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="flex items-center justify-between border-b border-nordible-border dark:border-gray-800 pb-5">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+        {/* Spacious Top Breadcrumb & Share Action */}
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center justify-between gap-4 border-b border-nordible-border dark:border-gray-800 pb-5">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider">
             <Link
               to={getPath('/')}
               className="text-gray-500 dark:text-gray-400 hover:text-nordible-blue dark:hover:text-blue-400 transition-colors"
@@ -241,73 +240,31 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
               {content.navBlog}
             </Link>
             <span className="text-gray-400 dark:text-gray-600">/</span>
-            <span className="text-nordible-blue dark:text-blue-400 truncate max-w-[140px] sm:max-w-xs">
+            <span className="text-nordible-blue dark:text-blue-400">
               {content.navCurrent}
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all cursor-pointer"
-              title={content.share}
-            >
-              {copiedUrl ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Share2 className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />}
-              <span>{copiedUrl ? content.copied : content.share}</span>
-            </button>
-
-            <span className="hidden sm:inline-block text-xs font-mono text-gray-400 dark:text-gray-500">
-              Nordible · {content.navCurrent}
-            </span>
-          </div>
+          <button
+            type="button"
+            onClick={handleShare}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-nordible-border dark:border-gray-700 bg-white dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300 hover:border-nordible-blue transition-all cursor-pointer shrink-0"
+            title={content.share}
+          >
+            {copiedUrl ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Share2 className="h-3.5 w-3.5 text-nordible-blue dark:text-blue-400" />}
+            <span>{copiedUrl ? content.copied : content.share}</span>
+          </button>
         </nav>
 
-        {/* Context-Aware Header Ribbon */}
-        <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-3.5 sm:p-4 shadow-lg shadow-blue-500/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
-          <div className="flex items-center gap-2.5">
-            <span className="p-2 rounded-xl bg-white/20 text-white shrink-0">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <p className="text-xs sm:text-sm font-medium leading-snug">
-              <strong className="font-bold">
-                {content.topRibbon?.boldText || funnel.adRibbon.boldText}
-              </strong>{' '}
-              {content.topRibbon?.subtitle || funnel.adRibbon.subtitle}
-            </p>
-          </div>
-          {content.topRibbon?.action === 'link' && content.topRibbon.link ? (
-            <a
-              href={content.topRibbon.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0 inline-flex items-center gap-1.5"
-            >
-              <span>{content.topRibbon.buttonText}</span>
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
-          ) : (
-            <button
-              type="button"
-              onClick={content.topRibbon?.action === 'consultation' ? handleConsultation : openAuditModal}
-              className="px-4 py-2 rounded-xl bg-white text-nordible-blue hover:bg-blue-50 text-xs font-bold whitespace-nowrap shadow-md cursor-pointer transition-all active:scale-95 shrink-0"
-            >
-              {content.topRibbon?.buttonText || funnel.adRibbon.buttonText}
-            </button>
-          )}
-        </div>
-
         {/* Header Block */}
-        <header className="space-y-6 text-left">
+        <header className="space-y-8 text-left">
           {/* Metadata & Tag */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-900/30 text-nordible-blue dark:text-blue-300 border border-blue-200 dark:border-blue-800">
               <Trophy className="h-3.5 w-3.5 text-amber-500" />
               {content.badge}
             </span>
-            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1">
-              <Calendar className="h-3.5 w-3.5" /> {content.date}
-            </span>
-            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1">
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
               <Clock className="h-3.5 w-3.5" /> {content.readTime}
             </span>
           </div>
@@ -317,10 +274,8 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
             {content.title}
           </h1>
 
-          {/* Case Study Hero Visual */}
-          <div 
-            className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500 flex flex-col"
-          >
+          {/* Clean Case Study Hero Visual */}
+          <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-blue-500/10 border border-nordible-border dark:border-gray-800 bg-gray-950 group transition-all duration-300 hover:border-nordible-blue dark:hover:border-blue-500">
             {content.client?.link ? (
               <a
                 href={content.client.link}
@@ -355,50 +310,6 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
                   <ZoomIn className="h-3.5 w-3.5 text-blue-300" />
                   <span>{t.blogPost.fullscreen}</span>
                 </div>
-              </div>
-            )}
-            {(content.heroImage.caption || content.heroImage.badge || content.heroImage.explanation || content.heroImage.businessBenefit) && (
-              <div className="p-4 sm:p-5 bg-gray-900/95 border-t border-gray-800 text-white space-y-3.5 text-xs sm:text-sm">
-                {(content.heroImage.caption || content.heroImage.badge) && (
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    {content.heroImage.caption && (
-                      <span className="text-xs font-mono font-semibold text-blue-200">
-                        {content.heroImage.caption}
-                      </span>
-                    )}
-                    {content.heroImage.badge && (
-                      <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5 font-semibold">
-                        <CheckCircle2 className="h-4 w-4" /> {content.heroImage.badge}
-                      </span>
-                    )}
-                  </div>
-                )}
-                {(content.heroImage.explanation || content.heroImage.businessBenefit) && (
-                  <div className="pt-3 border-t border-gray-800/80 grid sm:grid-cols-2 gap-3 text-left">
-                    {content.heroImage.explanation && (
-                      <div className="space-y-1.5 bg-gray-800/50 rounded-xl p-3 border border-gray-700/50">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
-                          <Info className="h-3.5 w-3.5" />
-                          {t.blogPost.whatYouSee}
-                        </span>
-                        <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
-                          {content.heroImage.explanation}
-                        </p>
-                      </div>
-                    )}
-                    {content.heroImage.businessBenefit && (
-                      <div className="space-y-1.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-3">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                          <TrendingUp className="h-3.5 w-3.5" />
-                          {t.blogPost.businessBenefit}
-                        </span>
-                        <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-normal">
-                          {content.heroImage.businessBenefit}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
               </div>
             )}
           </div>
@@ -450,7 +361,7 @@ export default function BlogPost({ onBookConsultation, slug: propSlug }: BlogPos
 
         {/* Key Metrics Quick-Scan Bar (if defined) */}
         {content.metrics && content.metrics.length > 0 && (
-          <div className={`grid grid-cols-1 sm:grid-cols-${Math.min(content.metrics.length, 3)} gap-4`}>
+          <div className={`grid grid-cols-1 ${content.metrics.length === 1 ? 'sm:grid-cols-1' : content.metrics.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'} gap-4`}>
             {content.metrics.map((m, mIdx) => (
               <div key={mIdx} className="p-5 rounded-2xl bg-white dark:bg-gray-800/90 border border-nordible-border dark:border-gray-700 shadow-sm text-left relative overflow-hidden">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 block mb-1">
