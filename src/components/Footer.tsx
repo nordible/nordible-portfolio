@@ -373,10 +373,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Very Bottom: Big Company Ribbon */}
+        {/* Very Bottom: Big Brand Statement Ribbon */}
         <div className="mt-16 pt-12 border-t border-white/10 flex flex-col items-center justify-center text-center">
           <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 cursor-pointer select-none group pb-6"
+            className="flex flex-col items-center justify-center gap-5 cursor-pointer select-none group pb-6 max-w-5xl"
             onClick={() => {
               navigate(getPath('/'));
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -389,8 +389,9 @@ export default function Footer() {
                 className="w-full h-full object-contain" 
               />
             </div>
-            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight font-heading text-white group-hover:text-nordible-blue transition-colors duration-300">
-              Nordible Technologies
+            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] font-heading text-white group-hover:text-blue-200 transition-colors duration-300">
+              {t.hero.titlePart1}
+              <span className="text-blue-300">{t.hero.titleHighlight}</span>
             </span>
           </div>
 

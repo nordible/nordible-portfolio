@@ -21,8 +21,16 @@ export default function TrustSignals() {
   const marqueeCompanies = [...companies, ...companies];
 
   return (
-    <section className="relative py-12 sm:py-16 bg-white dark:bg-gray-900 overflow-hidden">
+    <section className="relative pt-10 pb-12 sm:pt-12 sm:pb-16 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {t.hero.capabilities && (
+          <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-12">
+            <p className="text-base sm:text-xl text-nordible-dark/85 dark:text-gray-200 font-semibold leading-relaxed">
+              {t.hero.capabilities}
+            </p>
+          </div>
+        )}
+
         {/* Dynamic Continuous Moving Logos */}
         <div className="relative px-6 py-8 sm:py-10 bg-nordible-section-bg dark:bg-gray-800 rounded-[36px] border border-nordible-border dark:border-gray-700 overflow-hidden">
           {ts.clientsHeading && (

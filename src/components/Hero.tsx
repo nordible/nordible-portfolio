@@ -1,8 +1,12 @@
 'use client';
-import { useEffect, useRef } from 'react';
-import { ArrowRight, MapPin } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, Calendar } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { contactConfig } from '../config/contact';
+
+const DISPLAY_DURATION_MS = 5200;
+const FADE_DURATION_MS = 1800;
 
 export default function Hero() {
   const { t, getPath } = useLanguage();
@@ -16,8 +20,33 @@ export default function Hero() {
     'Think 10 steps ahead'
   ];
 
+  const results = t.hero.resultLinks;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
   const clickCountRef = useRef(0);
   const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (isPaused || results.length <= 1) {
+      return;
+    }
+
+    if (!isFadingOut) {
+      const holdTimer = setTimeout(() => {
+        setIsFadingOut(true);
+      }, DISPLAY_DURATION_MS);
+      return () => clearTimeout(holdTimer);
+    }
+
+    const switchTimer = setTimeout(() => {
+      setActiveIndex((prev) => (prev + 1) % results.length);
+      setIsFadingOut(false);
+    }, FADE_DURATION_MS);
+
+    return () => clearTimeout(switchTimer);
+  }, [activeIndex, isFadingOut, isPaused, results.length]);
 
   const handleFounderClick = () => {
     clickCountRef.current += 1;
@@ -44,14 +73,6 @@ export default function Hero() {
     };
   }, []);
 
-  const scrollToConsultation = () => {
-    const element = document.getElementById('consultation');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
   return (
     <section className="relative pt-8 pb-12 lg:pt-12 lg:pb-16 overflow-hidden bg-nordible-bg dark:bg-gray-900">
       {/* Atmospheric subtle sky glow */}
@@ -60,29 +81,65 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* Left Column: Focused Value Proposition */}
+          {/* Left Column: Rotating External-Client Benefit Hero Statement */}
           <div className="lg:col-span-7 text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-nordible-dark dark:text-white leading-[1.2] tracking-tight mb-4 font-heading">
-              {t.hero.titlePart1}<span className="text-nordible-blue">{t.hero.titleHighlight}</span>
-            </h1>
+            <div
+              className="mb-8 max-w-2xl"
+              onMouseEnter={() => {
+                setIsPaused(true);
+                setIsFadingOut(false);
+              }}
+              onMouseLeave={() => setIsPaused(false)}
+              onFocus={() => {
+                setIsPaused(true);
+                setIsFadingOut(false);
+              }}
+              onBlur={() => setIsPaused(false)}
+            >
+              <h1 className="grid grid-cols-1 items-center text-2xl sm:text-3xl lg:text-4xl font-extrabold text-nordible-dark dark:text-white leading-[1.22] tracking-tight font-heading">
+                {results.map((item, index) => {
+                  const isActive = index === activeIndex;
+                  const showText = isActive && !isFadingOut;
 
-            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed mb-4 max-w-2xl">
-              {t.hero.capabilities}
-            </p>
-
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-950/40 border border-blue-200/70 dark:border-blue-900/60 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-6 sm:mb-8">
-              <MapPin className="h-4 w-4 text-nordible-blue shrink-0" />
-              <span>{t.hero.locationAnchor}</span>
+                  return (
+                    <Link
+                      key={item.slug}
+                      to={getPath(`/blog/${item.slug}`)}
+                      aria-hidden={!showText}
+                      aria-label={`${item.category}: ${item.label}`}
+                      title={item.blogTitle}
+                      tabIndex={showText ? 0 : -1}
+                      className={`group col-start-1 row-start-1 block transition-all duration-[1800ms] ease-in-out motion-reduce:transition-none ${
+                        showText
+                          ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto z-10'
+                          : isActive
+                            ? 'opacity-0 -translate-y-2 scale-[0.99] pointer-events-none z-0'
+                            : 'opacity-0 translate-y-2 scale-[0.99] pointer-events-none z-0'
+                      }`}
+                    >
+                      <span className="block text-xs sm:text-sm font-bold uppercase tracking-widest text-nordible-blue dark:text-blue-400 mb-2">
+                        {item.category}
+                      </span>
+                      <span className="block group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors duration-300">
+                        {item.label}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </h1>
             </div>
             
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-stretch sm:items-center">
-              <button
-                onClick={scrollToConsultation}
-                className="btn-primary text-sm px-8 py-4 text-center shadow-lg shadow-blue-500/20"
+              <a
+                href={contactConfig.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm px-8 py-4 text-center shadow-lg shadow-blue-500/20 inline-flex items-center justify-center gap-2"
               >
+                <Calendar className="h-4 w-4 shrink-0" />
                 <span>{t.hero.ctaButton}</span>
-                <ArrowRight className="ml-2 h-4 w-4 inline-block" />
-              </button>
+                <ArrowRight className="h-4 w-4 shrink-0" />
+              </a>
             </div>
           </div>
 
@@ -105,52 +162,52 @@ export default function Hero() {
                 aria-hidden="true"
               >
                 {/* Line 1: Motto 1 -> Leftward */}
-                <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35">
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-[9px] sm:text-[10px] font-bold font-heading tracking-[0.18em] uppercase text-nordible-blue/40 dark:text-blue-300/35">
                   {Array.from({ length: 8 }).map((_, idx) => (
-                    <span key={`m1-${idx}`} className="inline-flex items-center gap-6">
+                    <span key={`m1-${idx}`} className="inline-flex items-center gap-4">
                       <span>{mottos[0]}</span>
-                      <span className="text-nordible-orange text-xs select-none">✦</span>
+                      <span className="text-nordible-orange text-[8px] select-none">✦</span>
                     </span>
                   ))}
                 </div>
 
                 {/* Line 2: Motto 2 -> Rightward */}
-                <div className="animate-behind-right whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25">
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-4 text-[9px] sm:text-[10px] font-bold font-heading tracking-[0.18em] uppercase text-nordible-dark/30 dark:text-gray-300/25">
                   {Array.from({ length: 8 }).map((_, idx) => (
-                    <span key={`m2-${idx}`} className="inline-flex items-center gap-6">
+                    <span key={`m2-${idx}`} className="inline-flex items-center gap-4">
                       <span>{mottos[1]}</span>
-                      <span className="text-nordible-blue text-xs select-none">✦</span>
+                      <span className="text-nordible-blue text-[8px] select-none">✦</span>
                     </span>
                   ))}
                 </div>
 
                 {/* Line 3: Motto 3 -> Leftward */}
-                <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '30s' }}>
+                <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-[9px] sm:text-[10px] font-bold font-heading tracking-[0.18em] uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '30s' }}>
                   {Array.from({ length: 8 }).map((_, idx) => (
-                    <span key={`m3-${idx}`} className="inline-flex items-center gap-6">
+                    <span key={`m3-${idx}`} className="inline-flex items-center gap-4">
                       <span>{mottos[2]}</span>
-                      <span className="text-nordible-orange text-xs select-none">✦</span>
+                      <span className="text-nordible-orange text-[8px] select-none">✦</span>
                     </span>
                   ))}
                 </div>
 
                 {/* Line 4: Motto 4 -> Rightward */}
-                <div className="animate-behind-right whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-dark/30 dark:text-gray-300/25" style={{ animationDuration: '34s' }}>
+                <div className="animate-behind-right whitespace-nowrap flex items-center gap-4 text-[9px] sm:text-[10px] font-bold font-heading tracking-[0.18em] uppercase text-nordible-dark/30 dark:text-gray-300/25" style={{ animationDuration: '34s' }}>
                   {Array.from({ length: 8 }).map((_, idx) => (
-                    <span key={`m4-${idx}`} className="inline-flex items-center gap-6">
+                    <span key={`m4-${idx}`} className="inline-flex items-center gap-4">
                       <span>{mottos[3]}</span>
-                      <span className="text-nordible-blue text-xs select-none">✦</span>
+                      <span className="text-nordible-blue text-[8px] select-none">✦</span>
                     </span>
                   ))}
                 </div>
 
                 {/* Line 5: Motto 5 -> Leftward */}
                 {mottos[4] && (
-                  <div className="animate-behind-left whitespace-nowrap flex items-center gap-6 text-sm sm:text-base font-black font-heading tracking-widest uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '38s' }}>
+                  <div className="animate-behind-left whitespace-nowrap flex items-center gap-4 text-[9px] sm:text-[10px] font-bold font-heading tracking-[0.18em] uppercase text-nordible-blue/40 dark:text-blue-300/35" style={{ animationDuration: '38s' }}>
                     {Array.from({ length: 8 }).map((_, idx) => (
-                      <span key={`m5-${idx}`} className="inline-flex items-center gap-6">
+                      <span key={`m5-${idx}`} className="inline-flex items-center gap-4">
                         <span>{mottos[4]}</span>
-                        <span className="text-nordible-orange text-xs select-none">✦</span>
+                        <span className="text-nordible-orange text-[8px] select-none">✦</span>
                       </span>
                     ))}
                   </div>
@@ -170,8 +227,6 @@ export default function Hero() {
                   draggable={false}
                 />
               </div>
-
-              
             </div>
           </div>
 

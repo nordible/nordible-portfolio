@@ -32,7 +32,14 @@ export interface Translations {
     titlePart1: string;
     titleHighlight: string;
     capabilities: string;
-    locationAnchor: string;
+    resultLinks: Array<{
+      metric: string;
+      label: string;
+      category: string;
+      blogTitle: string;
+      slug: string;
+    }>;
+    readCaseStudy: string;
     subtitle: string;
     ctaButton: string;
     founderName: string;
@@ -325,10 +332,75 @@ export const translations: Record<Language, Translations> = {
         "Always Have Fun",
         "Think 10 steps ahead"
       ],
-      titlePart1: "Technology & Marketing Partner in ",
-      titleHighlight: "Frankfurt & Rhein-Main.",
-      capabilities: "Custom software & AI systems paired with data-driven marketing.",
-      locationAnchor: "Frankfurt am Main & Rhein-Main · Regional, Nationwide & Global",
+      titlePart1: "Win More Customers. ",
+      titleHighlight: "Cut Costs. Scale Faster.",
+      capabilities: "We combine custom web & app engineering, AI agents, business system automation, SEO & social marketing, video production, and secure business email infrastructure to drive predictable revenue and lower operating costs for your business.",
+      readCaseStudy: "See how it works",
+      resultLinks: [
+        {
+          metric: "-60% Bottlenecks",
+          category: "General Electric Healthcare",
+          label: "Slash manual data bottlenecks by 60% and accelerate workflows by 40% with custom software.",
+          blogTitle: "View GE Healthcare CareIntellect Case Study",
+          slug: "ge-healthcare-careintellect-oncology-case-study"
+        },
+        {
+          metric: "$6B+ Scale",
+          category: "NIUM Inc. · Instarem",
+          label: "Scale high-volume payment platforms and pass strict PCI-DSS & regulatory audits with zero downtime.",
+          blogTitle: "View NIUM / Instarem Fintech Case Study",
+          slug: "nium-instarem-fintech-remittance-scale-case-study"
+        },
+        {
+          metric: "-50% Downtime",
+          category: "Vantive (Baxter International)",
+          label: "Cut on-site field service costs and equipment downtime in half with secure IoT remote diagnostics.",
+          blogTitle: "View Vantive / Baxter Remote Service Tool Case Study",
+          slug: "vantive-baxter-healthcare-remote-diagnostics-case-study"
+        },
+        {
+          metric: "130K+ Creators",
+          category: "The Parent Inc. · TickleMedia",
+          label: "Scale automated partner and creator marketing campaigns to 130,000+ partners without extra headcount.",
+          blogTitle: "View The Parent Inc. Parents.VIP Case Study",
+          slug: "parents-vip-influencer-creator-marketing-platform-case-study"
+        },
+        {
+          metric: "-60% OpEx",
+          category: "SmarTek21 · IntelliTek.ai",
+          label: "Cut customer service costs by up to 60% with 24/7 AI agents that resolve 90% of inquiries instantly.",
+          blogTitle: "View SmarTek21 Conversational AI Case Study",
+          slug: "smartbothub-enterprise-conversational-ai-cost-reduction-case-study"
+        },
+        {
+          metric: "40h/wk Saved",
+          category: "NextServices · NextAuto",
+          label: "Give your team 40+ hours back every week by automating up to 80% of repetitive manual workflows.",
+          blogTitle: "View NextServices Workflow Automation Case Study",
+          slug: "nextauto-enterprise-workflow-rpa-automation-case-study"
+        },
+        {
+          metric: "+74% Revenue",
+          category: "BUNS 069",
+          label: "Turn online visitors into higher-value direct orders with 0% cancellations across digital channels.",
+          blogTitle: "View BUNS 069 Delivery Growth Case Study",
+          slug: "restaurant-delivery-growth-case-study"
+        },
+        {
+          metric: "Google Page 1",
+          category: "Shams Consult",
+          label: "Reach Google Page 1 fast so high-value clients reach out to you directly without cold outreach.",
+          blogTitle: "View Shams Consult B2B SEO Case Study",
+          slug: "architecture-firm-seo-case-study"
+        },
+        {
+          metric: "#1 ChatGPT",
+          category: "Bombay Studio",
+          label: "Get recommended #1 by ChatGPT and pre-qualify high-budget client inquiries automatically.",
+          blogTitle: "View Bombay Studio GEO & ChatGPT Case Study",
+          slug: "bombay-studio-luxury-interior-architecture-geo-case-study"
+        }
+      ],
       subtitle: "Your complete technology partner for every stage of business growth—whether you need to launch a new product, modernize legacy systems, or optimize operations.",
       ctaButton: "Schedule Free Consultation",
       founderName: "Kabeer Shah",
@@ -879,10 +951,75 @@ export const translations: Record<Language, Translations> = {
         "Immer Spaß an der Arbeit haben",
         "10 Schritte vorausdenken"
       ],
-      titlePart1: "Technologie- & Marketingpartner in ",
-      titleHighlight: "Frankfurt & Rhein-Main.",
-      capabilities: "Maßgeschneiderte Software & KI-Systeme gepaart mit datengetriebenem Marketing.",
-      locationAnchor: "Frankfurt am Main & Rhein-Main · Hessen, Bundesweit & Weltweit",
+      titlePart1: "Mehr Kunden gewinnen. ",
+      titleHighlight: "Kosten senken. Schneller wachsen.",
+      capabilities: "Wir verbinden individuelle Web- & App-Entwicklung, KI-Agenten, Geschäftsprozess- & Systemautomatisierung, SEO & Performance-Marketing, Videoproduktion und sichere Business-E-Mail-Infrastruktur – für planbaren Umsatz und geringere Betriebskosten in Ihrem Unternehmen.",
+      readCaseStudy: "So funktioniert es",
+      resultLinks: [
+        {
+          metric: "-60 % Engpässe",
+          category: "General Electric Healthcare",
+          label: "Reduzieren Sie manuelle Datenengpässe um 60 % und beschleunigen Sie komplexe Abläufe um 40 % mit individueller Software.",
+          blogTitle: "GE Healthcare CareIntellect Fallstudie öffnen",
+          slug: "ge-healthcare-careintellect-oncology-case-study"
+        },
+        {
+          metric: "$6 Mrd.+ Volumen",
+          category: "NIUM Inc. · Instarem",
+          label: "Skalieren Sie Zahlungsplattformen auf Milliarden-Volumen und bestehen Sie strenge PCI-DSS- und Compliance-Audits ausfallsicher.",
+          blogTitle: "NIUM / Instarem Fintech Fallstudie öffnen",
+          slug: "nium-instarem-fintech-remittance-scale-case-study"
+        },
+        {
+          metric: "-50 % Ausfälle",
+          category: "Vantive (Baxter International)",
+          label: "Halbieren Sie teure Vor-Ort-Einsätze und Geräteausfälle durch sichere IoT-Ferndiagnose aus der Cloud.",
+          blogTitle: "Vantive / Baxter Remote Service Fallstudie öffnen",
+          slug: "vantive-baxter-healthcare-remote-diagnostics-case-study"
+        },
+        {
+          metric: "130.000+ Partner",
+          category: "The Parent Inc. · TickleMedia",
+          label: "Skalieren Sie automatisierte Partner- und Creator-Kampagnen auf 130.000+ Kontakte – ganz ohne zusätzliches Team.",
+          blogTitle: "The Parent Inc. Parents.VIP Fallstudie öffnen",
+          slug: "parents-vip-influencer-creator-marketing-platform-case-study"
+        },
+        {
+          metric: "-60 % OpEx",
+          category: "SmarTek21 · IntelliTek.ai",
+          label: "Senken Sie Supportkosten um bis zu 60 % mit 24/7-KI-Agenten, die 90 % aller Standardanfragen sofort lösen.",
+          blogTitle: "SmarTek21 Konversations-KI Fallstudie öffnen",
+          slug: "smartbothub-enterprise-conversational-ai-cost-reduction-case-study"
+        },
+        {
+          metric: "40 Std./Woc.",
+          category: "NextServices · NextAuto",
+          label: "Gewinnen Sie wöchentlich über 40 Teamstunden zurück, indem Sie bis zu 80 % manueller Routinearbeit automatisieren.",
+          blogTitle: "NextServices Workflow-Automation Fallstudie öffnen",
+          slug: "nextauto-enterprise-workflow-rpa-automation-case-study"
+        },
+        {
+          metric: "+74 % Umsatz",
+          category: "BUNS 069",
+          label: "Verwandeln Sie Online-Besucher in margenstarke Direktbestellungen bei 0 % Stornorate über digitale Kanäle.",
+          blogTitle: "BUNS 069 Lieferumsatz Fallstudie öffnen",
+          slug: "restaurant-delivery-growth-case-study"
+        },
+        {
+          metric: "Google Seite 1",
+          category: "Shams Consult",
+          label: "Erreichen Sie schnell Google Seite 1, damit lukrative Geschäftskunden ohne Kaltakquise direkt bei Ihnen anfragen.",
+          blogTitle: "Shams Consult B2B-SEO Fallstudie öffnen",
+          slug: "architecture-firm-seo-case-study"
+        },
+        {
+          metric: "#1 ChatGPT",
+          category: "Bombay Studio",
+          label: "Werden Sie von ChatGPT als #1 empfohlen und qualifizieren Sie kaufkräftige Projektanfragen automatisch vor.",
+          blogTitle: "Bombay Studio GEO & ChatGPT Fallstudie öffnen",
+          slug: "bombay-studio-luxury-interior-architecture-geo-case-study"
+        }
+      ],
       subtitle: "Ihr verlässlicher Technologiepartner für jede Phase Ihres Unternehmenswachstums – von der Neuproduktentwicklung bis zur Modernisierung von Altsystemen und Skalierung von Betriebsabläufen.",
       ctaButton: "Kostenfreies Erstgespräch anfragen",
       founderName: "Kabeer Shah",
