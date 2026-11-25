@@ -51,6 +51,12 @@ export const contactConfig = {
   whatsapp: {
     number: '4915211065739',
     chatUrl: "https://wa.me/4915211065739?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.",
+    aiTitleDe: 'WhatsApp · 24/7 KI-Agent',
+    aiTitleEn: 'WhatsApp · 24/7 AI Agent',
+    aiDescDe: 'Sprechen Sie sofort mit unserem KI-Agenten auf WhatsApp.',
+    aiDescEn: 'Talk directly to our AI agent on WhatsApp.',
+    aiCtaDe: 'Mit KI-Agenten chatten',
+    aiCtaEn: 'Talk to AI Agent',
   },
   email: {
     general: 'mail@nordible.co',

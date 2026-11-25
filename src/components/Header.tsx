@@ -323,11 +323,11 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center justify-center py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/70 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 active:scale-95 transition-transform"
-                    aria-label="WhatsApp"
-                    title="WhatsApp"
+                    aria-label={isDe ? contactConfig.whatsapp.aiCtaDe : contactConfig.whatsapp.aiCtaEn}
+                    title={isDe ? contactConfig.whatsapp.aiDescDe : contactConfig.whatsapp.aiDescEn}
                   >
                     <MessageCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400 mb-1" />
-                    <span className="text-[10px] font-bold uppercase">Chat</span>
+                    <span className="text-[10px] font-bold uppercase">{isDe ? 'KI-Chat' : 'AI Chat'}</span>
                   </a>
                   <a
                     href={contactConfig.email.mailToGeneral}

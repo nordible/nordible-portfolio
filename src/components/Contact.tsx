@@ -57,15 +57,18 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-nordible-dark dark:text-white font-heading">
-                    WhatsApp
+                    {isDe ? contactConfig.whatsapp.aiTitleDe : contactConfig.whatsapp.aiTitleEn}
                   </h4>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
                     {contactConfig.phone.display}
                   </div>
                 </div>
               </div>
+              <p className="text-xs text-gray-600 dark:text-gray-300 mb-2 leading-snug">
+                {isDe ? contactConfig.whatsapp.aiDescDe : contactConfig.whatsapp.aiDescEn}
+              </p>
               <div className="flex items-center text-xs font-bold text-emerald-700 dark:text-emerald-400 pt-1">
-                <span>{isDe ? 'Chat starten' : 'Start chat'}</span>
+                <span>{isDe ? contactConfig.whatsapp.aiCtaDe : contactConfig.whatsapp.aiCtaEn}</span>
                 <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>

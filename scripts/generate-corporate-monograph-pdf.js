@@ -1028,7 +1028,7 @@ function buildBrochureHtml(lang, vcardQrDataUrl) {
             </div>
             <div style="font-size: 7.6pt; color: #E2E8F0; line-height: 1.6;">
               <strong>${isDe ? 'Standort:' : 'Headquarters:'}</strong> ${BROCHURE_CONFIG.address.street}, ${BROCHURE_CONFIG.address.postalCode} ${BROCHURE_CONFIG.address.city}<br>
-              <strong>${isDe ? 'Telefon / WhatsApp:' : 'Phone / WhatsApp:'}</strong> ${BROCHURE_CONFIG.phoneDisplay}<br>
+              <strong>${isDe ? 'Telefon / WhatsApp (24/7 KI-Agent):' : 'Phone / WhatsApp (24/7 AI Agent):'}</strong> ${BROCHURE_CONFIG.phoneDisplay}<br>
               <strong>E-Mail:</strong> ${BROCHURE_CONFIG.email} · <strong>Web:</strong> https://nordible.co<br>
               <strong>${isDe ? 'Kalender:' : 'Booking:'}</strong> <span style="color: #93C5FD;">${BROCHURE_CONFIG.bookingShortUrl}</span>
             </div>
