@@ -7,6 +7,7 @@ export interface ContactFormData {
   description: string;
   to?: string | string[];
   brochureDownload?: boolean;
+  language?: 'de' | 'en';
 }
 
 export const sendContactEmail = async (formData: ContactFormData): Promise<boolean> => {
@@ -25,6 +26,7 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<boole
         description: formData.description,
         to: formData.to,
         brochureDownload: formData.brochureDownload,
+        language: formData.language,
       }),
     });
 

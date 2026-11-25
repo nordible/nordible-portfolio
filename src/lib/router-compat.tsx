@@ -1,12 +1,11 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
-import { 
-  useRouter as useNextRouter, 
-  usePathname, 
-  useParams as useNextParams, 
-  useSearchParams 
+import {
+  useRouter as useNextRouter,
+  usePathname,
+  useParams as useNextParams,
 } from 'next/navigation';
 
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -44,15 +43,36 @@ export function useNavigate() {
   };
 }
 
+/**
+ * Static-prerender-safe location hook.
+ * Uses `usePathname()` directly without calling `useSearchParams()` so Next.js
+ * can prerender full HTML shells instead of bailing out to CSR.
+ */
 export function useLocation() {
   const pathname = usePathname() || '/';
-  const searchParams = useSearchParams();
-  const search = searchParams ? `?${searchParams.toString()}` : '';
+  const [clientMeta, setClientMeta] = useState({ search: '', hash: '' });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const sync = () => {
+      setClientMeta({
+        search: window.location.search || '',
+        hash: window.location.hash || '',
+      });
+    };
+    sync();
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    return () => {
+      window.removeEventListener('popstate', sync);
+      window.removeEventListener('hashchange', sync);
+    };
+  }, [pathname]);
 
   return {
     pathname,
-    search: search === '?' ? '' : search,
-    hash: typeof window !== 'undefined' ? window.location.hash : '',
+    search: clientMeta.search,
+    hash: clientMeta.hash,
   };
 }
 

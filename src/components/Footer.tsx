@@ -1,5 +1,5 @@
 'use client';
-import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck, CreditCard } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram, Youtube, Heart, Lock, QrCode, FileText, Building2, Sparkles, ArrowRight, UserCheck, CreditCard, Languages } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { contactConfig } from '../config/contact';
@@ -23,7 +23,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-nordible-dark text-white overflow-hidden text-left">
+    <footer className="relative bg-nordible-dark text-white overflow-hidden text-left pb-20 sm:pb-0">
       {/* High-Converting Agency Promo Banner */}
       <div className="border-b border-white/10 bg-gradient-to-r from-[#0D2B75] via-[#145BFF]/30 to-[#0D2B75] py-10 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
@@ -154,12 +154,12 @@ export default function Footer() {
           <div>
             <h3 className="text-[11px] font-bold text-blue-300 mb-4 uppercase tracking-widest">{f.expertiseTitle}</h3>
             <ul className="space-y-2.5 text-xs font-medium">
-              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Technologielösungen & Apps' : 'Technology Solutions & Apps'}</Link></li>
-              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Videobearbeitung & Produktion' : 'Video Editing & Production'}</Link></li>
-              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'KI-Agenten-Implementierung' : 'AI Agent Implementation'}</Link></li>
-              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</Link></li>
-              <li><Link to={`${homePath}#services`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Geschäftsprozess-Automatisierung' : 'Business Systems & Automation'}</Link></li>
-              <li><a href="https://email.nordible.co/" className="text-blue-100/60 hover:text-white transition-colors">Business Email & Setup</a></li>
+              <li><Link to={getPath('/services/web-app-entwicklung')} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Technologielösungen & Apps' : 'Technology Solutions & Apps'}</Link></li>
+              <li><Link to={getPath('/services/videobearbeitung-content')} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Videobearbeitung & Produktion' : 'Video Editing & Production'}</Link></li>
+              <li><Link to={getPath('/services/ki-agenten-automation')} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'KI-Agenten-Implementierung' : 'AI Agent Implementation'}</Link></li>
+              <li><Link to={getPath('/services/digital-marketing-seo')} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Digitales Marketing & Social Media' : 'Digital Marketing & Social Media'}</Link></li>
+              <li><Link to={getPath('/services/business-systems-automation')} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Geschäftsprozess-Automatisierung' : 'Business Systems & Automation'}</Link></li>
+              <li><Link to={getPath('/services/business-it-email')} className="text-blue-100/60 hover:text-white transition-colors">Business Email & Setup</Link></li>
               <li><Link to={`${homePath}#portfolio`} className="text-blue-100/60 hover:text-white transition-colors">{language === 'de' ? 'Projekt-Portfolio' : 'Product Portfolio'}</Link></li>
               <li>
                 <Link 
@@ -326,7 +326,7 @@ export default function Footer() {
             </div>
             <Link
               to={getPath('/standorte')}
-              className="text-xs font-semibold text-nordible-blue hover:text-blue-300 inline-flex items-center gap-1 transition-colors group shrink-0"
+              className="text-xs font-semibold text-blue-300 hover:text-white inline-flex items-center gap-1 transition-colors group shrink-0"
             >
               <span>{f.regionalHub.viewAll}</span>
               <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
@@ -404,14 +404,15 @@ export default function Footer() {
               <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500 animate-pulse" />
               <span>{language === 'de' ? 'in Deutschland gemacht' : 'in Germany'}</span>
             </div>
-            <span className="text-white/20 hidden sm:inline">·</span>
-            <a href="/lite" className="text-amber-300 hover:text-amber-200 transition-colors font-bold inline-flex items-center gap-1">
-              <span>⚡ {language === 'de' ? 'Lite-Version (Sparmodus)' : 'Lite Version (2G/3G)'}</span>
-            </a>
-            <span className="text-white/20 hidden sm:inline">·</span>
             <span className="font-mono text-[11px] sm:text-xs text-blue-100/40 tracking-wider">
               v{process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0'}
             </span>
+          </div>
+
+          {/* Language Notice at the Very Bottom of the Page */}
+          <div className="mt-5 w-full max-w-3xl mx-auto px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center gap-2.5 text-center text-xs text-blue-100/80 font-medium">
+            <Languages className="h-4 w-4 text-blue-300 shrink-0" />
+            <span>{t.contact.languageNotice}</span>
           </div>
         </div>
       </div>

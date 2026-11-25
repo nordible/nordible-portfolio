@@ -103,14 +103,15 @@ export function getQuestionnaireConfig(
   const isDe = language === 'de';
 
   switch (context) {
-    case 'brochure':
+    case 'brochure': {
+      const brochureAsset = isDe ? contactConfig.brochureAssets.de : contactConfig.brochureAssets.en;
       return {
         context: 'brochure',
         modalBadge: isDe ? 'Unternehmensbroschüre (PDF)' : 'Corporate Brochure (PDF)',
-        title: isDe ? 'Nordible Unternehmensbroschüre' : 'Nordible Corporate Brochure',
+        title: isDe ? 'Nordible Unternehmensbroschüre' : 'Nordible Business Brochure',
         subtitle: isDe
-          ? 'Erhalten Sie unsere vollständige druckfertige Broschüre mit ROI-Benchmarks, Architektur-Frameworks und Referenz-Projekten. Der Download startet sofort nach Eingabe Ihrer E-Mail.'
-          : 'Download our complete print-ready brochure featuring architecture blueprints, ROI benchmarks, and case studies. Download begins instantly after providing your email.',
+          ? 'Erfahren Sie, wie Sie mit KI-Workflows, Google- & ChatGPT-Sichtbarkeit sowie schneller Softwareentwicklung planbar mehr Kunden gewinnen und Kosten senken. Der PDF-Download startet sofort.'
+          : 'Discover how to win more customers, automate manual workflows with AI, and launch platforms in 2–4 weeks. Instant 6-page PDF download.',
         fields: [
           {
             id: 'workEmail',
@@ -150,13 +151,11 @@ export function getQuestionnaireConfig(
           title: isDe ? 'Download gestartet!' : 'Download Started!',
           subtitle: isDe
             ? 'Ihre 6-seitige Nordible B2B-Unternehmensbroschüre (PDF) wird heruntergeladen.'
-            : 'Your official 6-page Nordible corporate brochure (PDF) is downloading.',
+            : 'Your official 6-page Nordible business brochure (PDF) is downloading.',
           isBrochureDownload: true,
-          downloadUrl: isDe
-            ? (contactConfig.brochurePdfUrl || '/nordible-corporate-brochure.pdf')
-            : '/nordible-corporate-brochure-en.pdf',
+          downloadUrl: brochureAsset.pdfUrl,
           fallbackDownloadText: isDe ? 'Klicken Sie hier, falls Download nicht automatisch startete' : 'Click here if download did not start',
-          webVersionUrl: isDe ? '/brochure.html' : '/brochure-en.html',
+          webVersionUrl: brochureAsset.webUrl,
           webVersionText: isDe ? 'Interaktive Web-Broschüre im Browser öffnen ↗' : 'View interactive web brochure in browser ↗',
           closeButtonText: isDe ? 'Fenster schließen' : 'Close window',
         },
@@ -175,6 +174,7 @@ export function getQuestionnaireConfig(
             ].join('\n'),
         },
       };
+    }
 
     case 'case-study':
       return {

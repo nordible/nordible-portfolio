@@ -20,6 +20,7 @@ import { getAllCities, getCity, getSuburb } from '@/data/locations';
 import { getAllServices, getService } from '@/data/services';
 import { articlesBySlug } from '@/data/blogContent';
 import ServiceLocationLandingPage from '@/components/ServiceLocationLandingPage';
+import ServiceDetailPage from '@/components/ServiceDetailPage';
 import ProjectDetailPage from '@/components/ProjectDetailPage';
 import { getAllProjects, getProject } from '@/data/portfolioProjects';
 
@@ -52,6 +53,9 @@ export function generateStaticParams() {
   }
 
   const services = getAllServices();
+  for (const service of services) {
+    slugs.push({ slug: ['services', service.slug] });
+  }
   for (const city of getAllCities()) {
     slugs.push({ slug: [city.slug] });
     for (const suburb of city.suburbs) {
@@ -80,6 +84,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (path === 'brochure') {
     title = 'Nordible Corporate Monograph 2026 | Free B2B Download';
     description = 'Download the official Nordible Technologies corporate monograph: Enterprise architectures, AI pipelines, case studies, and transparent engagement models.';
+  }
+
+  if (slug.length === 2 && slug[0] === 'services') {
+    const srv = getService(slug[1]);
+    if (srv) {
+      return {
+        title: `${srv.nameEn} | Nordible Technologies`,
+        description: srv.heroTaglineEn,
+        alternates: {
+          canonical: `/en/services/${srv.slug}`,
+        },
+      };
+    }
   }
 
   if (slug.length === 2 && (slug[0] === 'projects' || slug[0] === 'projekte')) {
@@ -170,6 +187,18 @@ export default async function EnPage({ params }: { params: Promise<{ slug: strin
   if (path === 'terms') return <TermsOfService />;
   if (path === 'portal') return <DocsReaderPage />;
   if (path === 'dashboard') return <LeadDashboard />;
+
+  if (slug.length === 2 && slug[0] === 'services') {
+    const srv = getService(slug[1]);
+    if (srv) {
+      return (
+        <RouteClientWrapper>
+          <ServiceDetailPage slug={srv.slug} />
+        </RouteClientWrapper>
+      );
+    }
+    notFound();
+  }
 
   if (slug.length === 2 && slug[0] === 'blog') {
     const articleSlug = slug[1];

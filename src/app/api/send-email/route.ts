@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { contactConfig } from '@/config/contact';
 
 export async function POST(req: Request) {
   let body: Record<string, unknown> = {};
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
   };
 
   const isEn = body.language === 'en' || (typeof body.projectType === 'string' && body.projectType.includes('EN'));
-  const brochurePdfUrl = isEn ? '/nordible-corporate-brochure-en.pdf' : '/nordible-corporate-brochure.pdf';
+  const brochurePdfUrl = isEn ? contactConfig.brochureAssets.en.pdfUrl : contactConfig.brochureAssets.de.pdfUrl;
 
   try {
     if (!mailApiSecret) {

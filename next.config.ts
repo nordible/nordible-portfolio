@@ -47,6 +47,16 @@ const nextConfig: NextConfig = {
       { source: '/qr-generator', destination: '/qr-code-generator', permanent: true },
       { source: '/de', destination: '/', permanent: true },
       { source: '/de/:path*', destination: '/:path*', permanent: true },
+      { source: '/lite', destination: '/', permanent: true },
+      { source: '/lite/projekte', destination: '/#portfolio', permanent: true },
+      { source: '/lite/projekte/:id', destination: '/projekte/:id', permanent: true },
+      { source: '/lite/fallstudien', destination: '/blog', permanent: true },
+      { source: '/lite/fallstudien/:slug', destination: '/blog/:slug', permanent: true },
+      { source: '/lite/services', destination: '/#services', permanent: true },
+      { source: '/lite/company-profile', destination: '/company-profile', permanent: true },
+      { source: '/lite/kontakt', destination: '/#contact', permanent: true },
+      { source: '/brochure-de.html', destination: '/brochure.html', permanent: true },
+      { source: '/nordible-corporate-brochure-de.pdf', destination: '/nordible-corporate-brochure.pdf', permanent: true },
     ];
   },
 };

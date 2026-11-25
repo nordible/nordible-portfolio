@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { sendContactEmail } from '../services/emailService';
+import { contactConfig } from '../config/contact';
+import { downloadBrochurePdf } from '../lib/downloadBrochure';
 import { 
   getQuestionnaireConfig, 
   QuestionnaireContext, 
@@ -116,18 +118,22 @@ export default function StepQuestionnaire({
     setIsSubmitting(true);
     setSubmitError(null);
 
+    const brochureAsset = language === 'de' ? contactConfig.brochureAssets.de : contactConfig.brochureAssets.en;
+
     // 1. Instant File Download if configured (Lead Magnet pattern)
     if (schema.success.isBrochureDownload && schema.success.downloadUrl) {
-      try {
-        const link = document.createElement('a');
-        link.href = schema.success.downloadUrl;
-        link.download = 'Nordible-Technologies-Corporate-Brochure.pdf';
-        link.target = '_blank';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      } catch (dlErr) {
-        console.warn('Direct file download trigger error:', dlErr);
+      const downloaded = await downloadBrochurePdf(
+        schema.success.downloadUrl,
+        brochureAsset.fileName
+      );
+      if (!downloaded) {
+        setIsSubmitting(false);
+        setSubmitError(
+          language === 'de'
+            ? 'Die PDF-Datei konnte gerade nicht heruntergeladen werden. Bitte öffnen Sie alternativ die Web-Version.'
+            : 'Could not download the PDF right now. Please try the interactive web version below.'
+        );
+        return;
       }
     }
 
@@ -166,6 +172,7 @@ export default function StepQuestionnaire({
         description: fullDescription,
         to: schema.dispatch.recipients,
         brochureDownload: schema.dispatch.isLeadMagnet,
+        language,
       });
 
       if (success || schema.dispatch.isLeadMagnet) {
@@ -253,16 +260,21 @@ export default function StepQuestionnaire({
 
           <div className="pt-2 flex flex-col items-center justify-center gap-3">
             {schema.success.isBrochureDownload && schema.success.downloadUrl && (
-              <a
-                href={schema.success.downloadUrl}
-                download="Nordible-Technologies-Corporate-Brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() =>
+                  downloadBrochurePdf(
+                    schema.success.downloadUrl!,
+                    language === 'de'
+                      ? contactConfig.brochureAssets.de.fileName
+                      : contactConfig.brochureAssets.en.fileName
+                  )
+                }
                 className="btn-primary w-full sm:w-auto px-7 py-3 text-sm font-bold shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Download className="h-4 w-4" />
                 <span>{schema.success.fallbackDownloadText}</span>
-              </a>
+              </button>
             )}
 
             {schema.success.webVersionUrl && (

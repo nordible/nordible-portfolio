@@ -5,7 +5,6 @@ import {
   Phone, 
   MessageCircle, 
   ArrowRight, 
-  Languages, 
   MapPin, 
   Navigation, 
   ExternalLink, 
@@ -160,7 +159,7 @@ export default function Contact() {
         </div>
 
         {/* Office Location & Interactive Google Map */}
-        <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-12">
+        <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Office Info & CTA */}
             <div className="lg:col-span-5 space-y-4">
@@ -241,12 +240,6 @@ export default function Contact() {
               />
             </div>
           </div>
-        </div>
-
-        {/* Language Transparency Trust Note */}
-        <div className="max-w-3xl mx-auto px-4 py-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-800/40 flex items-center justify-center gap-2.5 text-center text-xs text-blue-900 dark:text-blue-200 font-medium shadow-sm">
-          <Languages className="h-4 w-4 text-nordible-blue dark:text-blue-400 shrink-0" />
-          <span>{c.languageNotice}</span>
         </div>
 
       </div>

@@ -1,109 +1,87 @@
 'use client';
+
 import { Link } from 'react-router-dom';
-import { Terminal, Mail, ArrowRight, TrendingUp, Video, Bot, Cpu } from 'lucide-react';
+import {
+  TrendingUp,
+  Video,
+  Cpu,
+  Layers,
+  Workflow,
+  MailCheck,
+  ArrowRight,
+} from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { getAllServices, ServiceItem } from '../data/services';
+
+const ICON_MAP: Record<ServiceItem['iconName'], React.ComponentType<{ className?: string }>> = {
+  TrendingUp,
+  Video,
+  Cpu,
+  Layers,
+  Workflow,
+  MailCheck,
+};
+
+const COLOR_MAP: Record<ServiceItem['iconName'], string> = {
+  TrendingUp: 'bg-blue-600',
+  Video: 'bg-purple-600',
+  Cpu: 'bg-indigo-600',
+  Layers: 'bg-emerald-600',
+  Workflow: 'bg-nordible-dark',
+  MailCheck: 'bg-nordible-blue',
+};
 
 export default function Services() {
-  const { t } = useLanguage();
-  const s = t.services;
-
-  const serviceIcons = [TrendingUp, Video, Bot, Terminal, Cpu, Mail];
-  const serviceColors = ['bg-blue-600', 'bg-purple-600', 'bg-indigo-600', 'bg-emerald-600', 'bg-nordible-dark', 'bg-nordible-blue'];
-
-  const marqueeServices = [...s.items, ...s.items];
+  const { t, language, getPath } = useLanguage();
+  const isDe = language === 'de';
+  const services = getAllServices();
+  const marqueeServices = [...services, ...services];
 
   return (
-    <section id="services" className="relative py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20">
+    <section
+      id="services"
+      className="relative py-16 sm:py-20 bg-nordible-section-bg dark:bg-gray-800 overflow-hidden scroll-mt-20"
+    >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-nordible-dark dark:text-white tracking-tight font-heading">
-            {s.title}
+            {t.services.title}
           </h2>
         </div>
 
-        {/* Dynamic Moving Cards Track */}
-        <div className="relative overflow-hidden w-full py-4">
-          {/* Subtle Fade Edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none"></div>
+        {/* Moving Service Titles Marquee — Full Details Live on Each Dedicated Service Page */}
+        <div className="relative overflow-hidden w-full py-3">
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-nordible-section-bg dark:from-gray-800 to-transparent z-20 pointer-events-none" />
 
           <div
-            className="animate-marquee flex items-stretch space-x-6 py-2 hover:[animation-play-state:paused]"
-            style={{ animationDuration: '40s' }}
+            className="animate-marquee flex items-center space-x-4 sm:space-x-6 py-2 hover:[animation-play-state:paused]"
+            style={{ animationDuration: '34s' }}
           >
             {marqueeServices.map((service, index) => {
-              const originalIndex = index % s.items.length;
-              const Icon = serviceIcons[originalIndex % serviceIcons.length];
-              const color = serviceColors[originalIndex % serviceColors.length];
+              const isDuplicate = index >= services.length;
+              const Icon = ICON_MAP[service.iconName] || Layers;
+              const color = COLOR_MAP[service.iconName] || 'bg-nordible-blue';
+              const title = isDe ? service.nameDe : service.nameEn;
 
               return (
-                <div
-                  key={index}
-                  className="card-premium group relative flex flex-col w-[320px] sm:w-[360px] md:w-[380px] shrink-0 hover:border-nordible-blue/30 transition-all duration-500 !p-6 text-left"
+                <Link
+                  key={`${service.slug}-${index}`}
+                  to={getPath(`/services/${service.slug}`)}
+                  aria-hidden={isDuplicate ? true : undefined}
+                  tabIndex={isDuplicate ? -1 : undefined}
+                  className="group shrink-0 inline-flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm hover:border-nordible-blue/50 hover:shadow-lg transition-all duration-300"
                 >
-                  <div aria-hidden="true" className="absolute top-0 right-0 p-4 font-heading text-3xl font-extrabold opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-                    0{originalIndex + 1}
-                  </div>
-
-                  <div className={`${color} w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-extrabold text-nordible-dark dark:text-white mb-3 font-heading">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed font-medium flex-grow">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-2 mb-6 pt-4 border-t border-nordible-border dark:border-gray-700/50">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
-                        <div className="w-1.5 h-1.5 rounded-full bg-nordible-blue dark:bg-blue-400 mr-2 shrink-0"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="pt-2">
-                    {service.link ? (
-                      service.link.startsWith('http') ? (
-                        <a
-                          href={service.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 hover:text-nordible-blue/80 dark:hover:text-blue-300 transition-colors uppercase tracking-wider group/link"
-                        >
-                          <span>{s.visitProduct || 'Visit Product'}</span>
-                          <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform" />
-                        </a>
-                      ) : (
-                        <Link
-                          to={service.link}
-                          className="inline-flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 hover:text-nordible-blue/80 dark:hover:text-blue-300 transition-colors uppercase tracking-wider group/link"
-                        >
-                          <span>{s.visitProduct || 'Visit Product'}</span>
-                          <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform" />
-                        </Link>
-                      )
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const element = document.getElementById('consultation');
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
-                        className="inline-flex items-center text-xs font-bold text-nordible-blue dark:text-blue-400 hover:text-nordible-blue/80 dark:hover:text-blue-300 transition-colors uppercase tracking-wider group/link cursor-pointer"
-                      >
-                        <span>{s.inquireService || 'Discuss Solution'}</span>
-                        <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover/link:translate-x-1 transition-transform" />
-                      </button>
-                    )}
-                  </div>
-                </div>
+                  <span
+                    className={`${color} w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform`}
+                  >
+                    <Icon className="h-5 w-5 text-white" />
+                  </span>
+                  <span className="text-base sm:text-lg font-extrabold text-nordible-dark dark:text-white font-heading whitespace-nowrap group-hover:text-nordible-blue dark:group-hover:text-blue-400 transition-colors">
+                    {title}
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-gray-400 group-hover:text-nordible-blue dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all shrink-0" />
+                </Link>
               );
             })}
           </div>

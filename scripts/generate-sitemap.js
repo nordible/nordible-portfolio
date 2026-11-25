@@ -22,12 +22,12 @@ const corePages = [
   { path: 'card', priority: '0.6', changefreq: 'monthly' },
   { path: 'privacy', priority: '0.5', changefreq: 'monthly' },
   { path: 'terms', priority: '0.5', changefreq: 'monthly' },
-  { path: 'lite', priority: '0.9', changefreq: 'weekly' },
-  { path: 'lite/projekte', priority: '0.8', changefreq: 'weekly' },
-  { path: 'lite/fallstudien', priority: '0.8', changefreq: 'weekly' },
-  { path: 'lite/services', priority: '0.7', changefreq: 'monthly' },
-  { path: 'lite/company-profile', priority: '0.7', changefreq: 'monthly' },
-  { path: 'lite/kontakt', priority: '0.7', changefreq: 'monthly' },
+  { path: 'services/digital-marketing-seo', priority: '0.8', changefreq: 'monthly' },
+  { path: 'services/videobearbeitung-content', priority: '0.8', changefreq: 'monthly' },
+  { path: 'services/ki-agenten-automation', priority: '0.8', changefreq: 'monthly' },
+  { path: 'services/web-app-entwicklung', priority: '0.8', changefreq: 'monthly' },
+  { path: 'services/business-systems-automation', priority: '0.8', changefreq: 'monthly' },
+  { path: 'services/business-it-email', priority: '0.8', changefreq: 'monthly' },
 ];
 
 // 2. All 16 Dedicated Projects
@@ -121,12 +121,10 @@ for (const p of corePages) {
 
 for (const id of projectIds) {
   addEntry(`projekte/${id}`, '0.8', 'weekly');
-  addEntry(`lite/projekte/${id}`, '0.7', 'weekly');
 }
 
 for (const slug of blogArticles) {
   addEntry(`blog/${slug}`, '0.8', 'weekly');
-  addEntry(`lite/fallstudien/${slug}`, '0.7', 'weekly');
 }
 
 for (const loc of locationPaths) {

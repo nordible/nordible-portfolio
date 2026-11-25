@@ -28,3 +28,4 @@ out/
 .env
 .vercel
 *.pdf
+!public/nordible-corporate-brochure*.pdf

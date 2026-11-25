@@ -3,6 +3,18 @@ export const contactConfig = {
   cardUrl: 'https://nordible.co/card',
   vcardDownloadUrl: '/api/vcard',
   brochurePdfUrl: '/nordible-corporate-brochure.pdf',
+  brochureAssets: {
+    de: {
+      pdfUrl: '/nordible-corporate-brochure.pdf',
+      fileName: 'Nordible-Technologies-Unternehmensbroschuere.pdf',
+      webUrl: '/brochure.html',
+    },
+    en: {
+      pdfUrl: '/nordible-corporate-brochure-en.pdf',
+      fileName: 'Nordible-Technologies-Corporate-Brochure.pdf',
+      webUrl: '/brochure-en.html',
+    },
+  },
   leadTestRecipients: ['nordiblesolutions@gmail.com', 'mail@nordible.co'],
   company: {
     name: 'Nordible Technologies',
@@ -46,7 +58,7 @@ export const contactConfig = {
     mailToGeneral: 'mailto:mail@nordible.co',
     mailToFounder: 'mailto:mail@nordible.co',
   },
-  bookingUrl: 'https://calendar.app.google/N4XakE4t9zZVmHqYA',
+  bookingUrl: 'https://cal.com/nordible/30min',
   address: {
     company: 'Nordible Technologies',
     street: 'Breitlacherstraße 101',
