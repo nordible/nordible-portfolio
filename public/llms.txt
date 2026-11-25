@@ -8,11 +8,8 @@
 
 - [Full Knowledge Base (EN & DE)](https://nordible.co/llms-full.txt): Complete reference containing founder background, technical capabilities, engagement models, and verified client case studies.
 - [Agent Manifest](https://nordible.co/.well-known/agent.json): Machine-readable action manifest and API specification for autonomous agent integration.
-- [Homepage (EN)](https://nordible.co/): Official website and capabilities overview.
+- [Homepage (EN)](https://nordible.co/en): Official website and capabilities overview.
 - [Startseite (DE)](https://nordible.co/): Deutsche Webpräsenz und Leistungsübersicht.
-- [Lite Version / Sparmodus](https://nordible.co/lite): Ultra-lightweight version (<15KB) for slow 2G/3G connections and LLM scraping.
-- [Lite Projects Index](https://nordible.co/lite/projekte): Low-bandwidth catalog of all 16 portfolio projects.
-- [Lite Case Studies Index](https://nordible.co/lite/fallstudien): Low-bandwidth business case studies for decision-makers.
 - [Company Profile](https://nordible.co/company-profile): Full company overview, core values, architectural rigor, and corporate credentials.
 - [Founder Journey - Kabeer Shah](https://nordible.co/founder): Technical leadership history (former Tech Lead for GE Healthcare OncoCare and Baxter Healthcare AWS IoT RST, Interim Head of Engineering at Nium Instarem).
 - [How We Work Together](https://nordible.co/investment-models): Structured engagement models with transparent fixed estimates.
@@ -72,8 +69,8 @@
 
 ## Direct Contact Information
 
-- **Direct Calendar Booking**: https://calendar.app.google/N4XakE4t9zZVmHqYA
+- **Direct Calendar Booking**: https://cal.com/nordible/30min
 - **Direct Founder Email**: `mail@nordible.co`
-- **Phone & WhatsApp**: `+49 1521 1065739`
+- **Phone & WhatsApp (24/7 AI Agent)**: `+49 1521 1065739`
 - **Headquarters**: Nordible Technologies, Breitlacherstraße 101, 60489 Frankfurt am Main, Germany
 - **Website**: https://nordible.co/

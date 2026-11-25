@@ -85,7 +85,7 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-28 pb-24 selection:bg-nordible-blue selection:text-white">
+    <div className="min-h-screen bg-nordible-bg dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-10 sm:pt-14 pb-24 selection:bg-nordible-blue selection:text-white">
       {/* Dynamic Structured Data */}
       <script
         type="application/ld+json"
@@ -102,10 +102,6 @@ export default function BlogPage({ onBookConsultation }: BlogPageProps) {
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             <span>{content.navBack}</span>
           </Link>
-
-          <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
-            {content.hubBadge}
-          </span>
         </nav>
 
         {/* Hero Section */}

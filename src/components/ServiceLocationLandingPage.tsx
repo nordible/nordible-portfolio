@@ -18,7 +18,8 @@ import {
   MailCheck,
   HelpCircle,
   Building2,
-  Sparkles
+  Sparkles,
+  Workflow
 } from 'lucide-react';
 import { getCity, getSuburb, getAdjacentSuburbs, City, Suburb, localProofCardTranslations } from '../data/locations';
 import { getService, getAllServices, ServiceItem } from '../data/services';
@@ -33,6 +34,7 @@ const ICON_MAP = {
   TrendingUp,
   Video,
   MailCheck,
+  Workflow,
 };
 
 export default function ServiceLocationLandingPage() {

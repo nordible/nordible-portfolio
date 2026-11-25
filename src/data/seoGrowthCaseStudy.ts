@@ -15,8 +15,8 @@ export const seoGrowthBlogPostItems: Record<'en' | 'de', BlogPostItem> = {
     categorySlug: 'geo',
     readTime: '4 min read',
     date: 'November 2026',
-    image: '/images/blog/client-arch-performance.png',
-    imageAlt: 'Anonymized Google Search Console Performance showing 292 clicks, 9.19k impressions, and 9.4 average position',
+    image: '/images/blog/seo-ai-growth-summary-en.png',
+    imageAlt: '90-day SEO & AI search growth summary across 3 anonymized client accounts: +1,045% and +1,244% clicks, 9.4 average position, and 1,110+ Generative AI impressions',
     tags: ['SEO', 'GEO', 'Google Search Console', 'AI Search', 'Schema.org', 'Case Study'],
     published: true,
   },
@@ -32,8 +32,8 @@ export const seoGrowthBlogPostItems: Record<'en' | 'de', BlogPostItem> = {
     categorySlug: 'geo',
     readTime: '4 Min. Lesezeit',
     date: 'November 2026',
-    image: '/images/blog/client-arch-performance.png',
-    imageAlt: 'Anonymisierte Google Search Console Leistung mit 292 Klicks, 9,19 Tsd. Impressionen und Ø Position 9,4',
+    image: '/images/blog/seo-ai-growth-summary-de.png',
+    imageAlt: '90-Tage-Zusammenfassung für SEO- & KI-Suchwachstum über 3 anonymisierte Kundenprojekte: +1.045 % und +1.244 % Klicks, Ø Position 9,4 und 1.110+ Generative-KI-Impressionen',
     tags: ['SEO', 'GEO', 'Google Search Console', 'KI-Suche', 'Schema.org', 'Fallstudie'],
     published: true,
   },
@@ -87,14 +87,14 @@ export const seoGrowthPostTranslations: Record<'en' | 'de', ArticleContent> = {
       ],
     },
     heroImage: {
-      src: '/images/blog/client-arch-performance.png',
-      alt: 'Anonymized Google Search Console Performance report showing 292 clicks, 9.19k impressions, 3.2% CTR, and 9.4 average position',
-      caption: 'Anonymized Client #2 · 3-Month Google Search Console Performance',
-      badge: 'Page-1 Average Position (9.4)',
+      src: '/images/blog/seo-ai-growth-summary-en.png',
+      alt: 'Executive summary of verified 90-day Google Search Console & AI search growth across 3 anonymized clients: B2B IT (+1,045% clicks), Architecture (9.4 avg. position, 792 AI impressions), and Luxury Design (+1,244% clicks)',
+      caption: '90-Day Verified GSC & AI Search Summary · 3 Anonymized Client Accounts',
+      badge: '1,110+ AI Impressions · $0 Ad Spend',
       explanation:
-        'Three-month Google Search Console performance showing 292 organic clicks, 9.19k impressions, 3.2% average CTR, and an overall average ranking position of 9.4.',
+        'Combined 90-day performance snapshot across three anonymized client accounts: B2B IT (+1,045% clicks, 182 valid review snippets), Architecture (9.4 Page-1 average position, 792 Generative AI impressions), and Luxury Interior Design (+1,244% clicks, +3,769% impressions).',
       businessBenefit:
-        'Sustained Page-1 visibility captures high-intent commercial buyers without paying per click on Google Ads.',
+        'Proves that technical SEO, valid Schema.org graphs, and GEO engineering compound across both classic Google Search and Generative AI answers with zero paid ad spend.',
     },
     sections: [
       {
@@ -139,6 +139,16 @@ export const seoGrowthPostTranslations: Record<'en' | 'de', ArticleContent> = {
           'Even more importantly for 2026+ buyer behavior, Google Search Console’s Generative AI features report tracked 792 total impressions — proving that well-structured service pages get picked up by AI answer layers as well as classic search.',
         ],
         images: [
+          {
+            src: '/images/blog/client-arch-performance.png',
+            alt: 'Anonymized Google Search Console Performance report showing 292 clicks, 9.19k impressions, 3.2% CTR, and 9.4 average position',
+            caption: 'Client #2 (Architecture) · 3-Month Google Search Console Performance',
+            badge: 'Page-1 Average Position (9.4)',
+            explanation:
+              'Three-month Google Search Console performance showing 292 organic clicks, 9.19k impressions, 3.2% average CTR, and an overall average ranking position of 9.4.',
+            businessBenefit:
+              'Sustained Page-1 visibility captures high-intent commercial buyers without paying per click on Google Ads.',
+          },
           {
             src: '/images/blog/client-arch-ai-search.png',
             alt: 'Anonymized Google Search Console Generative AI features report showing 792 total impressions',
@@ -276,14 +286,14 @@ export const seoGrowthPostTranslations: Record<'en' | 'de', ArticleContent> = {
       ],
     },
     heroImage: {
-      src: '/images/blog/client-arch-performance.png',
-      alt: 'Anonymisierter Google-Search-Console-Leistungsbericht mit 292 Klicks, 9,19 Tsd. Impressionen, 3,2 % CTR und Ø Position 9,4',
-      caption: 'Anonymisierter Kunde #2 · 3-Monats-Leistung in der Google Search Console',
-      badge: 'Seite-1-Durchschnitt (Pos. 9,4)',
+      src: '/images/blog/seo-ai-growth-summary-de.png',
+      alt: 'Zusammenfassung der verifizierten 90-Tage-Search-Console- & KI-Ergebnisse über 3 anonymisierte Kunden: B2B-IT (+1.045 % Klicks), Architektur (Ø Pos. 9,4, 792 KI-Impressionen) und Luxus-Design (+1.244 % Klicks)',
+      caption: 'Verifizierte 90-Tage-GSC- & KI-Zusammenfassung · 3 Anonymisierte Kunden',
+      badge: '1.110+ KI-Impressionen · 0 € Ads',
       explanation:
-        'Dreimonatiger Leistungsbericht mit 292 organischen Klicks, 9,19 Tsd. Impressionen, 3,2 % durchschnittlicher CTR und einer Gesamtposition von 9,4.',
+        'Kombinierte 90-Tage-Übersicht aus drei anonymisierten Kundenprojekten: B2B-IT (+1.045 % Klicks, 182 valide Review-Snippets), Architektur (Seite-1-Position 9,4, 792 Generative-KI-Impressionen) und Luxus-Interior-Design (+1.244 % Klicks, +3.769 % Impressionen).',
       businessBenefit:
-        'Dauerhafte Sichtbarkeit auf Google Seite 1 bringt kaufbereite B2B-Anfragen ohne laufende Klickkosten bei Google Ads.',
+        'Belegt, dass technisches SEO, fehlerfreie Schema.org-Graphen und GEO-Engineering sowohl in der klassischen Google-Suche als auch in KI-Antworten ohne Werbebudget wirken.',
     },
     sections: [
       {
@@ -328,6 +338,16 @@ export const seoGrowthPostTranslations: Record<'en' | 'de', ArticleContent> = {
           'Noch wichtiger für das Suchverhalten ab 2026: Der Bericht zu Generative-KI-Funktionen erfasste bereits 792 Impressionen — ein klarer Beleg, dass sauber strukturierte Leistungsseiten auch von KI-Antwortsystemen aufgegriffen werden.',
         ],
         images: [
+          {
+            src: '/images/blog/client-arch-performance.png',
+            alt: 'Anonymisierter Google-Search-Console-Leistungsbericht mit 292 Klicks, 9,19 Tsd. Impressionen, 3,2 % CTR und Ø Position 9,4',
+            caption: 'Kunde #2 (Architektur) · 3-Monats-Leistung in der Google Search Console',
+            badge: 'Seite-1-Durchschnitt (Pos. 9,4)',
+            explanation:
+              'Dreimonatiger Leistungsbericht mit 292 organischen Klicks, 9,19 Tsd. Impressionen, 3,2 % durchschnittlicher CTR und einer Gesamtposition von 9,4.',
+            businessBenefit:
+              'Dauerhafte Sichtbarkeit auf Google Seite 1 bringt kaufbereite B2B-Anfragen ohne laufende Klickkosten bei Google Ads.',
+          },
           {
             src: '/images/blog/client-arch-ai-search.png',
             alt: 'Anonymisierter Bericht zu Generative-KI-Funktionen mit 792 Impressionen',

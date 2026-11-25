@@ -239,10 +239,11 @@ export default function DigitalCardPage() {
                 href={contactConfig.whatsapp.chatUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                title={contactConfig.whatsapp.aiDescDe}
                 className="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all active:scale-95 border border-slate-200/60 dark:border-slate-800"
               >
                 <MessageCircle className="w-5 h-5 text-emerald-500" />
-                <span className="text-[11px] font-semibold mt-1.5">WhatsApp</span>
+                <span className="text-[11px] font-semibold mt-1.5">WhatsApp KI</span>
               </a>
 
               <a

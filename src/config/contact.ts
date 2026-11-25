@@ -3,6 +3,18 @@ export const contactConfig = {
   cardUrl: 'https://nordible.co/card',
   vcardDownloadUrl: '/api/vcard',
   brochurePdfUrl: '/nordible-corporate-brochure.pdf',
+  brochureAssets: {
+    de: {
+      pdfUrl: '/nordible-corporate-brochure.pdf',
+      fileName: 'Nordible-Technologies-Unternehmensbroschuere.pdf',
+      webUrl: '/brochure.html',
+    },
+    en: {
+      pdfUrl: '/nordible-corporate-brochure-en.pdf',
+      fileName: 'Nordible-Technologies-Corporate-Brochure.pdf',
+      webUrl: '/brochure-en.html',
+    },
+  },
   leadTestRecipients: ['nordiblesolutions@gmail.com', 'mail@nordible.co'],
   company: {
     name: 'Nordible Technologies',
@@ -39,6 +51,12 @@ export const contactConfig = {
   whatsapp: {
     number: '4915211065739',
     chatUrl: "https://wa.me/4915211065739?text=Hello%20Nordible,%20I'd%20like%20to%20discuss%20a%20technology%20project.",
+    aiTitleDe: 'WhatsApp · 24/7 KI-Agent',
+    aiTitleEn: 'WhatsApp · 24/7 AI Agent',
+    aiDescDe: 'Sprechen Sie sofort mit unserem KI-Agenten auf WhatsApp.',
+    aiDescEn: 'Talk directly to our AI agent on WhatsApp.',
+    aiCtaDe: 'Mit KI-Agenten chatten',
+    aiCtaEn: 'Talk to AI Agent',
   },
   email: {
     general: 'mail@nordible.co',
@@ -46,7 +64,7 @@ export const contactConfig = {
     mailToGeneral: 'mailto:mail@nordible.co',
     mailToFounder: 'mailto:mail@nordible.co',
   },
-  bookingUrl: 'https://calendar.app.google/N4XakE4t9zZVmHqYA',
+  bookingUrl: 'https://cal.com/nordible/30min',
   address: {
     company: 'Nordible Technologies',
     street: 'Breitlacherstraße 101',

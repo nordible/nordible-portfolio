@@ -16,7 +16,6 @@ export default function BrochureLeadModal() {
     // 2. Timed auto-popup (Bombay Studio pattern: 12-second delay on first visit)
     const isExcludedRoute = 
       location.pathname.startsWith('/portal') ||
-      location.pathname.startsWith('/lite') ||
       location.pathname.includes('brochure') ||
       location.pathname.includes('card');
 

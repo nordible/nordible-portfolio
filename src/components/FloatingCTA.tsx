@@ -27,7 +27,6 @@ export default function FloatingCTA() {
 
   if (
     location.pathname.startsWith('/portal') ||
-    location.pathname.startsWith('/lite') ||
     location.pathname.includes('flyer') ||
     location.pathname.includes('brochure') ||
     location.pathname.includes('card')
@@ -61,17 +60,19 @@ export default function FloatingCTA() {
             </span>
           </a>
 
-          {/* WhatsApp Direct Link */}
+          {/* WhatsApp AI Agent Direct Link */}
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex flex-col items-center justify-center h-11 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50 transition-colors active:scale-95"
-            aria-label="WhatsApp"
-            title="WhatsApp"
+            aria-label={isDe ? contactConfig.whatsapp.aiCtaDe : contactConfig.whatsapp.aiCtaEn}
+            title={isDe ? contactConfig.whatsapp.aiDescDe : contactConfig.whatsapp.aiDescEn}
           >
             <MessageCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-            <span className="text-[9px] font-bold mt-0.5 uppercase tracking-wide">Chat</span>
+            <span className="text-[9px] font-bold mt-0.5 uppercase tracking-wide">
+              {isDe ? 'KI-Chat' : 'AI Chat'}
+            </span>
           </a>
 
           {/* Quick Email Link */}
@@ -118,14 +119,14 @@ export default function FloatingCTA() {
             <Phone className="h-4 w-4 text-nordible-blue dark:text-blue-400" />
           </a>
 
-          {/* WhatsApp */}
+          {/* WhatsApp AI Agent */}
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 rounded-full text-gray-700 dark:text-gray-200 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-all hover:scale-105 active:scale-95"
-            title="WhatsApp Chat"
-            aria-label="WhatsApp"
+            title={isDe ? contactConfig.whatsapp.aiDescDe : contactConfig.whatsapp.aiDescEn}
+            aria-label={isDe ? contactConfig.whatsapp.aiCtaDe : contactConfig.whatsapp.aiCtaEn}
           >
             <MessageCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
           </a>

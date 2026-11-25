@@ -5,7 +5,6 @@ import {
   Phone, 
   MessageCircle, 
   ArrowRight, 
-  Languages, 
   MapPin, 
   Navigation, 
   ExternalLink, 
@@ -58,15 +57,18 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-nordible-dark dark:text-white font-heading">
-                    WhatsApp
+                    {isDe ? contactConfig.whatsapp.aiTitleDe : contactConfig.whatsapp.aiTitleEn}
                   </h4>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 font-mono">
                     {contactConfig.phone.display}
                   </div>
                 </div>
               </div>
+              <p className="text-xs text-gray-600 dark:text-gray-300 mb-2 leading-snug">
+                {isDe ? contactConfig.whatsapp.aiDescDe : contactConfig.whatsapp.aiDescEn}
+              </p>
               <div className="flex items-center text-xs font-bold text-emerald-700 dark:text-emerald-400 pt-1">
-                <span>{isDe ? 'Chat starten' : 'Start chat'}</span>
+                <span>{isDe ? contactConfig.whatsapp.aiCtaDe : contactConfig.whatsapp.aiCtaEn}</span>
                 <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
               </div>
             </a>
@@ -160,7 +162,7 @@ export default function Contact() {
         </div>
 
         {/* Office Location & Interactive Google Map */}
-        <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left mb-12">
+        <div className="card-premium p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border border-nordible-border dark:border-gray-700 shadow-sm text-left">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Office Info & CTA */}
             <div className="lg:col-span-5 space-y-4">
@@ -241,12 +243,6 @@ export default function Contact() {
               />
             </div>
           </div>
-        </div>
-
-        {/* Language Transparency Trust Note */}
-        <div className="max-w-3xl mx-auto px-4 py-3 rounded-2xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-800/40 flex items-center justify-center gap-2.5 text-center text-xs text-blue-900 dark:text-blue-200 font-medium shadow-sm">
-          <Languages className="h-4 w-4 text-nordible-blue dark:text-blue-400 shrink-0" />
-          <span>{c.languageNotice}</span>
         </div>
 
       </div>
