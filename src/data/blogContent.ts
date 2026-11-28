@@ -1451,12 +1451,12 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     },
     introParagraphs: [
       'In digital food commerce, visual presentation and storefront friction dictate purchase decisions: customers do not buy what they cannot clearly evaluate. Prior to partnering with Nordible, Buns 069 operated on online ordering platforms with bare, text-only listings. Decision friction was high, average basket sizes remained constrained, and the store lacked algorithmic reach.',
-      'Nordible engineered a high-converting digital storefront architecture, visual asset systems, and conversion funnel optimization. Immediately following this rollout, customer demand surged across major digital channels—scaling monthly online sales past €17,250+, sustaining an exceptional 0% cancellation rate on Lieferando (333 successful orders), and driving a +74% October revenue surge on Uber Eats with a 21% store conversion rate.'
+      'Nordible engineered a high-converting digital storefront architecture, visual asset systems, and conversion funnel optimization. Immediately following this rollout, customer demand surged across major digital channels—driving +32% Lieferando revenue growth with an unbroken 0% cancellation rate (333 successful orders), +48% 30-day sales growth on Uber Eats, and a +74% October revenue sprint with a 21% store conversion rate. To respect platform confidentiality, actual Euro figures and store identifiers inside the merchant portal screenshots are blurred.'
     ],
     metrics: [
       {
-        label: 'Monthly Digital Sales Volume',
-        value: '€17,250+',
+        label: 'Lieferando Revenue Growth',
+        value: '+32% Growth',
         icon: 'trending'
       },
       {
@@ -1477,7 +1477,7 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     heroImage: {
       src: '/images/buns-069/buns-069-homepage-hero.png',
       alt: 'Buns 069 Online Ordering Website and Homemade Burger Experience',
-      caption: 'Buns 069 Official Website & Digital Storefront · Frankfurt am Main / Offenbach',
+      caption: 'Buns 069 Digital Storefront Experience · Brand Identifiers Blurred in Preview',
       badge: 'Digital Commerce & Online Ordering',
       explanation: 'High-converting digital storefront architecture and ordering funnel engineering driving direct customer acquisition and online sales.',
       businessBenefit: 'Conversion-engineered digital storefronts and professional asset architecture elevated brand authority and sparked immediate sales surges across all digital channels.'
@@ -1500,7 +1500,7 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
           },
           {
             title: 'Cognitive Combo Bundling',
-            desc: 'Restructured visual order flows and combo pairings (Burger + Artisanal Fries + Drink), prompting higher basket values (€30.88 on Lieferando, €35.74 on Uber Eats).',
+            desc: 'Restructured visual order flows and combo pairings (Burger + Artisanal Fries + Drink), lifting average ticket size by +8% on Uber Eats.',
             badge: 'Basket Architecture',
             icon: 'zap'
           },
@@ -1520,19 +1520,19 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       },
       {
         number: '02',
-        title: 'Lieferando Impact: €10,282 Revenue & Flawless 0% Cancellation Rate',
-        businessTakeaway: 'Following the visual redesign, Lieferando monthly turnover expanded by +32% to €10,282 across 333 orders with zero kitchen errors or cancelled tickets.',
+        title: 'Lieferando Impact: +32% Revenue Growth & Flawless 0% Cancellation Rate',
+        businessTakeaway: 'Following the visual redesign, Lieferando monthly turnover expanded by +32% across 333 orders with zero kitchen errors or cancelled tickets.',
         paragraphs: [
-          'In September 2026, the Lieferando Partner Hub recorded €10,282.00 in total revenue for Buns 069—representing a +32% increase compared to the previous four-week period.',
+          'In September 2026, the Lieferando Partner Hub recorded a +32% revenue increase for Buns 069 compared to the previous four-week period.',
           'Most impressively, across all 333 incoming orders, the store achieved a 0% cancellation rate (a 100% improvement over previous periods). In delivery operations, every cancelled order costs the kitchen wasted ingredients and damages marketplace algorithm standing. Achieving 0% cancellations signals optimal kitchen readiness and guarantees maximum profitability.'
         ],
         images: [
           {
             src: '/images/buns-069/lieferando-orders-revenue.png',
-            alt: 'Lieferando Partner Hub Analytics Buns 069 September 2026',
-            caption: 'Lieferando Partner Hub: €10,282.00 Total Revenue (↑ 32%), 333 Orders, 0% Cancellation Rate',
+            alt: 'Lieferando Partner Hub Analytics Buns 069 September 2026 (Revenue Figures Blurred)',
+            caption: 'Lieferando Partner Hub: +32% Revenue Growth, 333 Orders, 0% Cancellation Rate (Euro amounts & store badge blurred)',
             badge: '100% Delivery Reliability',
-            explanation: 'Official merchant portal metrics confirming €10,282 in gross delivery revenue and €30.88 average order value across 333 fulfilled tickets.',
+            explanation: 'Official merchant portal metrics confirming +32% gross delivery revenue growth and 333 fulfilled tickets with absolute Euro figures redacted for confidentiality.',
             businessBenefit: 'Reliable high-volume delivery cash flow with zero wasted inventory.'
           }
         ]
@@ -1540,26 +1540,26 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       {
         number: '03',
         title: 'Uber Eats Acceleration: +48% Monthly Baseline & +74% October Surge',
-        businessTakeaway: 'On Uber Eats, the visual update drove €6,976 in 30 days (+48% sales), followed by an accelerated October sprint generating €4,432 in just 16 days (+74% growth).',
+        businessTakeaway: 'On Uber Eats, the visual update drove +48% sales growth in 30 days, followed by an accelerated October sprint delivering +74% growth in just 16 days.',
         paragraphs: [
-          'On Uber Eats, the impact of professional dish photography was immediately visible: the store generated €6,976 in sales over 30 days (Sep 14 – Oct 13, 2026), marking a +48% surge in sales and a +33% increase in booked orders (200 total orders).',
-          'Entering October 2026, growth accelerated further as platform algorithms rewarded the higher engagement: the first 16 days produced €4,432 in sales (a +74% leap over the preceding cycle) across 124 booked orders (+61%). Average ticket size expanded to €35.74 (+8%), with 21% of all menu visitors completing a purchase.'
+          'On Uber Eats, the impact of professional dish photography was immediately visible: the store achieved a +48% surge in sales over 30 days (Sep 14 – Oct 13, 2026) alongside a +33% increase in booked orders (200 total orders).',
+          'Entering October 2026, growth accelerated further as platform algorithms rewarded the higher engagement: the first 16 days delivered a +74% leap in sales over the preceding cycle across 124 booked orders (+61%). Average ticket size expanded by +8%, with 21% of all menu visitors completing a purchase.'
         ],
         images: [
           {
             src: '/images/buns-069/uber-eats-30-days-growth.png',
-            alt: 'Uber Eats Manager 30 Days Performance Buns 069',
-            caption: 'Uber Eats Manager: €6,976 Sales (↑ 48%) and 200 Booked Orders (↑ 33%)',
+            alt: 'Uber Eats Manager 30 Days Performance Buns 069 (Revenue Figures Blurred)',
+            caption: 'Uber Eats Manager: +48% Sales Growth and 200 Booked Orders (↑ 33%) · Revenue amounts blurred',
             badge: '+48% 30-Day Growth',
-            explanation: 'Verified 30-day dashboard verifying 200 booked orders and €6,976 in revenue.',
+            explanation: 'Verified 30-day dashboard confirming +48% revenue growth and 200 booked orders (+33%), with Euro figures blurred for confidentiality.',
             businessBenefit: 'Consistent order volume expansion across non-peak delivery windows.'
           },
           {
             src: '/images/buns-069/uber-eats-october-surge.png',
-            alt: 'Uber Eats Manager October Sprint €4,432 Sales',
-            caption: 'Uber Eats Sprint (Oct 1–16): €4,432 Sales (↑ 74%), 124 Orders (↑ 61%), €35.74 Ticket Size',
+            alt: 'Uber Eats Manager October Sprint +74% Growth (Revenue Figures Blurred)',
+            caption: 'Uber Eats Sprint (Oct 1–16): +74% Sales Growth, 124 Orders (↑ 61%), +8% Ticket Size · Revenue amounts blurred',
             badge: '+74% Sprint Surge',
-            explanation: '16-day acceleration metric showing €4,432 in gross sales, 21% menu conversion rate, and €35.74 average basket size.',
+            explanation: '16-day acceleration metric showing +74% sales growth, 21% menu conversion rate, and +8% average basket lift with Euro values redacted.',
             businessBenefit: 'Higher revenue per ticket maximizes delivery courier efficiency and net margin.'
           }
         ]
@@ -1569,10 +1569,10 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
         title: 'Key Takeaways for Food & Retail Operators',
         businessTakeaway: 'Predictable digital delivery requires active menu engineering, cross-platform presence, and operational precision rather than passive listing.',
         paragraphs: [
-          'The combined digital delivery volume for Buns 069 across Lieferando and Uber Eats now exceeds €17,250 per month, supported by over 533 orders and an average ticket value above €32.50.',
+          'Across Lieferando and Uber Eats, Buns 069 scaled to 533+ combined orders with sustained +32% to +74% revenue growth momentum and higher average basket sizes.',
           'By treating delivery marketplaces as active digital storefronts—optimizing photography, bundle logic, and kitchen fulfillment—hospitality brands can build robust, crisis-resilient revenue streams that complement in-store dining.'
         ],
-        quote: 'Buns 069 demonstrates that digital delivery channels are not just a side activity. When transformed from image-less listings into high-converting visual storefronts with operational rigor, they generate over €17,250 in predictable monthly revenue with 0% wasted orders.'
+        quote: 'Buns 069 demonstrates that digital delivery channels are not just a side activity. When transformed from image-less listings into high-converting visual storefronts with operational rigor, they drive +32% to +74% revenue growth with 0% wasted orders.'
       }
     ],
     cta: {
@@ -1604,12 +1604,12 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     },
     introParagraphs: [
       'Im digitalen Commerce entscheiden visuelle Führung und reibungslose Nutzerführung über den Kaufabschluss: Kunden kaufen nicht, was sie nicht überzeugend wahrnehmen können. Vor der Zusammenarbeit mit Nordible war Buns 069 auf den großen Plattformen mit rein textbasierten Einträgen ohne visuelle Führung vertreten. Die Folge: Hohe Kaufzurückhaltung, ungenutzte Warenkorbpotenziale und algorithmische Benachteiligung im Plattform-Ranking.',
-      'Nordible implementierte eine konversionsstarke Storefront-Architektur und optimierte die digitalen Bestelltrichter. Unmittelbar nach Einführung dieser Aufwertung explodierte die Bestellnachfrage über alle digitalen Kanäle: Der monatliche Gesamtumsatz kletterte auf über 17.250 €, Lieferando erzielte 10.282 € bei einer makellosen Stornoquote von 0 % (333 erfolgreiche Bestellungen) und Uber Eats beschleunigte im Oktober um +74 % bei einer Store-Konversion von 21 %.'
+      'Nordible implementierte eine konversionsstarke Storefront-Architektur und optimierte die digitalen Bestelltrichter. Unmittelbar nach Einführung dieser Aufwertung stieg die Bestellnachfrage über alle digitalen Kanäle stark an: Lieferando verzeichnete +32 % Umsatzwachstum bei einer makellosen Stornoquote von 0 % (333 erfolgreiche Bestellungen), Uber Eats wuchs in 30 Tagen um +48 % und beschleunigte im Oktober um +74 % bei einer Store-Konversion von 21 %. Zum Schutz vertraulicher Händlerdaten sind absolute Euro-Beträge und Store-Kennungen in den Screenshots unkenntlich gemacht.'
     ],
     metrics: [
       {
-        label: 'Monatlicher digitaler Bestellumsatz',
-        value: '17.250 €+',
+        label: 'Lieferando-Umsatzplus',
+        value: '+32 % Wachstum',
         icon: 'trending'
       },
       {
@@ -1630,7 +1630,7 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
     heroImage: {
       src: '/images/buns-069/buns-069-homepage-hero.png',
       alt: 'Buns 069 Online-Bestellplattform und Homemade Burger Experience',
-      caption: 'Buns 069 Offizielle Website & Digitaler Storefront · Frankfurt am Main / Offenbach',
+      caption: 'Buns 069 Digitaler Storefront · Marken- und Kontaktdaten in der Vorschau weichgezeichnet',
       badge: 'Digital Commerce & Online-Bestellsystem',
       explanation: 'Hochkonvertierende digitale Storefront-Architektur und optimierte Bestelltrichter zur direkten Kundengewinnung und Erlössteigerung.',
       businessBenefit: 'Conversion-optimierte Storefronts und professionelle Asset-Architektur steigern die Markenwahrnehmung und lösten eine sofortige Nachfragewelle über alle digitalen Kanäle aus.'
@@ -1653,7 +1653,7 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
           },
           {
             title: 'Kognitive Menü-Bundles',
-            desc: 'Strukturierte visuelle Kombinationen (Burger + Signature-Pommes + Dip) steigerten den Durchschnittswarenkorb auf 30,88 € (Lieferando) und 35,74 € (Uber Eats).',
+            desc: 'Strukturierte visuelle Kombinationen (Burger + Signature-Pommes + Dip) steigerten den Durchschnittswarenkorb auf Uber Eats um +8 %.',
             badge: 'Höherer Bestellwert',
             icon: 'zap'
           },
@@ -1673,19 +1673,19 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       },
       {
         number: '02',
-        title: 'Lieferando-Performance: 10.282 € Umsatz & perfekte 0 % Stornorate',
-        businessTakeaway: 'Der Lieferando-Umsatz stieg im Monatsvergleich um +32 % auf 10.282 € bei 333 Bestellungen – ohne eine einzige stornierte Order.',
+        title: 'Lieferando-Performance: +32 % Umsatzwachstum & perfekte 0 % Stornorate',
+        businessTakeaway: 'Der Lieferando-Umsatz stieg im Monatsvergleich um +32 % bei 333 Bestellungen – ohne eine einzige stornierte Order.',
         paragraphs: [
-          'Im September 2026 verzeichnete der Lieferando Partner Hub für Buns 069 einen Gesamtumsatz von 10.282,00 € – ein Zuwachs von +32 % gegenüber dem vorangegangenen 4-Wochen-Zeitraum.',
+          'Im September 2026 verzeichnete der Lieferando Partner Hub für Buns 069 ein Umsatzplus von +32 % gegenüber dem vorangegangenen 4-Wochen-Zeitraum.',
           'Besonders hervorzuheben: Bei allen 333 Bestellungen lag die Stornoquote bei exakt 0 % (eine Verbesserung um 100 %). Jede stornierte Bestellung bedeutet in der Gastronomie weggeworfene Lebensmittel und algorithmische Abstrafung. Eine Quote von 0 % beweist perfekte operative Vorbereitung und sichert vollen Gewinn.'
         ],
         images: [
           {
             src: '/images/buns-069/lieferando-orders-revenue.png',
-            alt: 'Lieferando Partner Hub Daten Buns 069 September 2026',
-            caption: 'Lieferando Partner Hub: 10.282,00 € Gesamtumsatz (↑ 32 %), 333 Bestellungen, 0 % Stornorate',
+            alt: 'Lieferando Partner Hub Daten Buns 069 September 2026 (Umsatzbeträge unkenntlich gemacht)',
+            caption: 'Lieferando Partner Hub: +32 % Umsatzwachstum, 333 Bestellungen, 0 % Stornorate (Euro-Beträge & Store-Kennung unkenntlich)',
             badge: '100 % Lieferzuverlässigkeit',
-            explanation: 'Offizielle Händlerdaten über 10.282 € Bruttolieferumsatz und 30,88 € Durchschnittswarenkorb bei 333 Bestellungen.',
+            explanation: 'Offizielle Händlerdaten über +32 % Bruttolieferumsatz-Wachstum bei 333 Bestellungen – absolute Euro-Beträge aus Vertraulichkeitsgründen unkenntlich gemacht.',
             businessBenefit: 'Zuverlässiger Cashflow aus dem Liefergeschäft ohne Warenverlust.'
           }
         ]
@@ -1693,26 +1693,26 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
       {
         number: '03',
         title: 'Uber Eats Dynamik: +48 % Monatsplus und +74 % Oktober-Sprint',
-        businessTakeaway: 'Auf Uber Eats erzielte die visuelle Überarbeitung 6.976 € in 30 Tagen (+48 %), gefolgt von einem rasanten Oktobersprint mit 4.432 € in nur 16 Tagen (+74 %).',
+        businessTakeaway: 'Auf Uber Eats erzielte die visuelle Überarbeitung +48 % Umsatzwachstum in 30 Tagen, gefolgt von einem rasanten Oktobersprint mit +74 % Wachstum in nur 16 Tagen.',
         paragraphs: [
-          'Auf Uber Eats zeigte sich die Kraft professioneller Food-Designs sofort: In den 30 Tagen vom 14. Sep bis 13. Okt 2026 stieg der Umsatz auf 6.976 € – ein Plus von +48 % bei 200 Bestellungen (+33 %).',
-          'Im Oktober beschleunigte sich dieser Trend massiv, da der Algorithmus die hohen Interaktionsraten honorierte: In den ersten 16 Tagen wurden bereits 4.432 € umgesetzt (+74 % Zuwachs) bei 124 Bestellungen (+61 %). Der durchschnittliche Warenkorbwert kletterte auf 35,74 € (+8 %), während 21 % aller Menü-Besucher direkt bestellten.'
+          'Auf Uber Eats zeigte sich die Kraft professioneller Food-Designs sofort: In den 30 Tagen vom 14. Sep bis 13. Okt 2026 stieg der Umsatz um +48 % bei 200 Bestellungen (+33 %).',
+          'Im Oktober beschleunigte sich dieser Trend massiv, da der Algorithmus die hohen Interaktionsraten honorierte: In den ersten 16 Tagen wurde ein Umsatzplus von +74 % gegenüber dem Vorzeitraum erzielt, bei 124 Bestellungen (+61 %). Der durchschnittliche Warenkorbwert stieg um +8 %, während 21 % aller Menü-Besucher direkt bestellten.'
         ],
         images: [
           {
             src: '/images/buns-069/uber-eats-30-days-growth.png',
-            alt: 'Uber Eats Manager 30-Tage-Performance Buns 069',
-            caption: 'Uber Eats Manager: 6.976 € Umsatz (↑ 48 %) und 200 Bestellungen (↑ 33 %)',
+            alt: 'Uber Eats Manager 30-Tage-Performance Buns 069 (Umsatzbeträge unkenntlich)',
+            caption: 'Uber Eats Manager: +48 % Umsatzplus und 200 Bestellungen (↑ 33 %) · Euro-Beträge unkenntlich',
             badge: '+48 % 30-Tage-Wachstum',
-            explanation: 'Offizielles Uber-Eats-Dashboard mit 200 verbuchten Bestellungen und 6.976 € Monatsumsatz.',
+            explanation: 'Offizielles Uber-Eats-Dashboard mit +48 % Umsatzwachstum und 200 verbuchten Bestellungen (+33 %), Euro-Beträge aus Vertraulichkeitsgründen unkenntlich.',
             businessBenefit: 'Skalierbares Umsatzwachstum auch außerhalb traditioneller Stoßzeiten.'
           },
           {
             src: '/images/buns-069/uber-eats-october-surge.png',
-            alt: 'Uber Eats Manager Oktober Sprint 4.432 € Umsatz',
-            caption: 'Uber Eats Sprint (1.–16. Okt): 4.432 € Umsatz (↑ 74 %), 124 Bestellungen (↑ 61 %), 35,74 € Warenkorb',
+            alt: 'Uber Eats Manager Oktober Sprint +74 % Wachstum (Umsatzbeträge unkenntlich)',
+            caption: 'Uber Eats Sprint (1.–16. Okt): +74 % Umsatzplus, 124 Bestellungen (↑ 61 %), +8 % Warenkorb · Euro-Beträge unkenntlich',
             badge: '+74 % Sprint-Wachstum',
-            explanation: '16-Tage-Sprintdaten mit 4.432 € Umsatz, 21 % Menü-Konversion und 35,74 € Warenkorbwert.',
+            explanation: '16-Tage-Sprintdaten mit +74 % Umsatzwachstum, 21 % Menü-Konversion und +8 % Warenkorbwert bei geschwärzten/weichgezeichneten Euro-Werten.',
             businessBenefit: 'Höherer Deckungsbeitrag pro Kurierfahrt maximiert den Nettogewinn der Küche.'
           }
         ]
@@ -1722,10 +1722,10 @@ export const bunsPostTranslations: Record<'en' | 'de', ArticleContent> = {
         title: 'Erkenntnisse für Gastronomie & Einzelhandel',
         businessTakeaway: 'Planbarer Liefererfolg verlangt aktive Speisekarten-Architektur, Multi-Plattform-Präsenz und operative Disziplin statt passiver Händlereinträge.',
         paragraphs: [
-          'Das gesamte digitale Liefervolumen von Buns 069 über Lieferando und Uber Eats übersteigt mittlerweile 17.250 € pro Monat, getragen von über 533 Bestellungen und einem durchschnittlichen Warenkorb von über 32,50 €.',
+          'Über Lieferando und Uber Eats hinweg erreichte Buns 069 über 533 kombinierte Bestellungen mit anhaltendem Umsatzwachstum von +32 % bis +74 % und spürbar höheren Warenkorbwerten.',
           'Wer Lieferplattformen als vollwertige digitale Vertriebskanäle versteht – mit optimierten Fotos, smarten Bundles und verlässlicher Küchenabwicklung –, baut sich ein krisensicheres zweites Standbein zum Gastraum auf.'
         ],
-        quote: 'Buns 069 beweist: Lieferservices sind kein notwendiges Übel, sondern ein profitabler Wachstumsmotor. Durch die Verwandlung bildloser Textkarten in ein hochkonvertierendes visuelles Schaufenster generiert das Lokal planbar über 17.250 € Monatsumsatz bei 0 % Stornos.'
+        quote: 'Buns 069 beweist: Lieferservices sind kein notwendiges Übel, sondern ein profitabler Wachstumsmotor. Durch die Verwandlung bildloser Textkarten in ein hochkonvertierendes visuelles Schaufenster erzielt das Lokal +32 % bis +74 % Umsatzwachstum bei 0 % Stornos.'
       }
     ],
     cta: {
